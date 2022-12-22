@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Basic Page Info -->
+		<meta charset="utf-8" />
+		<title>SHOEKREAM Admin</title>
+
+		<!-- Site favicon -->
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="vendors/images/adminlogo.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="vendors/images/adminlogo.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="vendors/images/adminlogo.png"
+		/>
+
+		<!-- Mobile Specific Metas -->
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, maximum-scale=1"
+		/>
+
+		<!-- Google Font -->
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+			rel="stylesheet"
+		/>
+		<!-- CSS -->
+		<link rel="stylesheet" type="text/css" href="vendors/styles/core.css" />
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="vendors/styles/icon-font.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="src/plugins/datatables/css/dataTables.bootstrap4.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="src/plugins/datatables/css/responsive.bootstrap4.min.css"
+		/>
+		<link rel="stylesheet" type="text/css" href="vendors/styles/style.css" />
+
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script
+			async
+			src="https://www.googletagmanager.com/gtag/js?id=G-GBZ3SGGX85"
+		></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag("js", new Date());
+
+			gtag("config", "G-GBZ3SGGX85");
+		</script>
+		<!-- Google Tag Manager -->
+		<script>
+			(function (w, d, s, l, i) {
+				w[l] = w[l] || [];
+				w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+				var f = d.getElementsByTagName(s)[0],
+					j = d.createElement(s),
+					dl = l != "dataLayer" ? "&l=" + l : "";
+				j.async = true;
+				j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+				f.parentNode.insertBefore(j, f);
+			})(window, document, "script", "dataLayer", "GTM-NXZMQSS");
+		</script>
+		<!-- End Google Tag Manager -->
+	</head>
+	<body>
+		<div class="pre-loader">
+			<div class="pre-loader-box">
+				<div class="loader-logo">
+					<img src="vendors/images/adminlogo.png" alt="" />
+				</div>
+				<div class="loader-progress" id="progress_div">
+					<div class="bar" id="bar1"></div>
+				</div>
+				<div class="percent" id="percent1">0%</div>
+				<div class="loading-text">Loading...</div>
+			</div>
+		</div>
+		<div class="main-container">
+			<div class="pd-ltr-20 xs-pd-20-10">
+				<div class="min-height-200px">
+					
+					<!-- Simple Datatable start -->
+					<div class="card-box mb-30" overflow-x:auto>
+						<div class="pd-20" overflow-x:auto>
+							<h4 class="text-blue h4">판매 내역</h4>
+						</div>
+						<div class="pb-20">
+							<table class="data-table table stripe hover nowrap">
+								<thead>
+									<tr>
+										<th class="table-plus datatable-nosort">상품코드</th>
+										<th>주문번호</th>
+										<th>판매자</th>
+										<th>사이즈</th>
+										<th>판매유형</th>
+										<th>가격</th>
+										<th>입찰기간</th>
+										<th>보증금환불</th>
+										<th>판매상태</th>
+										<th>등록날짜</th>
+										<th class="datatable-nosort">Action</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="table-plus">B10548</td>
+										<td>56876-56454</td>
+										<td>김사과</td>
+										<td>270</td>
+										<td>즉시구매</td>
+										<td>300000</td>
+										<td>30일</td>
+										<td>N</td>
+										<td>입고완료</td>
+										<td>2022-12-14</td>
+										<td>
+											<div class="dropdown">
+												<a
+													class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
+													href="#"
+													role="button"
+													data-toggle="dropdown"
+												>
+													<i class="dw dw-more"></i>
+												</a>
+												<div
+													class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
+												>
+													<a class="dropdown-item" href="#"
+														><i class="dw dw-eye"></i> View</a
+													>
+													<a class="dropdown-item" href="#"
+														><i class="dw dw-edit2"></i> Edit</a
+													>
+													<a class="dropdown-item" href="#"
+														><i class="dw dw-delete-3"></i> Delete</a
+													>
+												</div>
+											</div>
+										</td>
+									</tr>
+									
+									<tr>
+										<td class="table-plus">B10548</td>
+										<td>56876-56454</td>
+										<td>김사과</td>
+										<td>270</td>
+										<td>즉시구매</td>
+										<td>300000</td>
+										<td>30일</td>
+										<td>N</td>
+										<td>입고완료</td>
+										<td>2022-12-14</td>
+										<td>
+											<div class="dropdown">
+												<a
+													class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
+													href="#"
+													role="button"
+													data-toggle="dropdown"
+												>
+													<i class="dw dw-more"></i>
+												</a>
+												<div
+													class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
+												>
+													<a class="dropdown-item" href="#"
+														><i class="dw dw-eye"></i> View</a
+													>
+													<a class="dropdown-item" href="#"
+														><i class="dw dw-edit2"></i> Edit</a
+													>
+													<a class="dropdown-item" href="#"
+														><i class="dw dw-delete-3"></i> Delete</a
+													>
+												</div>
+											</div>
+										</td>
+									</tr>
+									
+
+									
+
+									
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<!-- Simple Datatable End -->
+				</div>
+				
+			</div>
+		</div>
+		
+		<!-- js -->
+		<script src="vendors/scripts/core.js"></script>
+		<script src="vendors/scripts/script.min.js"></script>
+		<script src="vendors/scripts/process.js"></script>
+		<script src="vendors/scripts/layout-settings.js"></script>
+		<script src="src/plugins/datatables/js/jquery.dataTables.min.js"></script>
+		<script src="src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
+		<script src="src/plugins/datatables/js/dataTables.responsive.min.js"></script>
+		<script src="src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
+		<!-- buttons for Export datatable -->
+		<script src="src/plugins/datatables/js/dataTables.buttons.min.js"></script>
+		<script src="src/plugins/datatables/js/buttons.bootstrap4.min.js"></script>
+		<script src="src/plugins/datatables/js/buttons.print.min.js"></script>
+		<script src="src/plugins/datatables/js/buttons.html5.min.js"></script>
+		<script src="src/plugins/datatables/js/buttons.flash.min.js"></script>
+		<script src="src/plugins/datatables/js/pdfmake.min.js"></script>
+		<script src="src/plugins/datatables/js/vfs_fonts.js"></script>
+		<!-- Datatable Setting js -->
+		<script src="vendors/scripts/datatable-setting.js"></script>
+		<!-- Google Tag Manager (noscript) -->
+		<noscript
+			><iframe
+				src="https://www.googletagmanager.com/ns.html?id=GTM-NXZMQSS"
+				height="0"
+				width="0"
+				style="display: none; visibility: hidden"
+			></iframe
+		></noscript>
+		<!-- End Google Tag Manager (noscript) -->
+	</body>
+</html>
