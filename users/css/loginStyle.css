@@ -1,0 +1,240 @@
+/* Base Styles */
+body, button, input {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #222;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 62.5%
+}
+
+ul, ol, li {
+    list-style: none;
+}
+
+a, a:link, a:visited, a:hover, a:focus {
+    text-decoration: none;
+    color: inherit;
+}
+
+input, button, form, img {
+    vertical-align: middle;
+}
+
+input {
+    padding: 0;
+    outline: 0;
+    border: 0;
+    resize: none;
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.full {
+    width: 100%;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 50px;
+    border-radius: 1.2rem;
+}
+
+.btn {
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: middle;
+    text-align: center;
+    background-color: #fff;
+    margin-top: 1.2rem;
+    align-self: flex-start;
+}
+
+/* 로그인 */
+.login_container {
+    margin: 0 auto;
+    padding: 6rem 0 16rem;
+    width: 40rem;
+}
+
+.login_title {
+    padding-bottom: 2rem;
+    text-align: center;
+    font-size: 0;
+}
+
+.login_title:before {
+    content: "";
+    display: inline-block;
+    width: 250px;
+    height: 56px;
+    background: url(https://kream.co.kr/_nuxt/img/login_title.9f9ccc8.png) no-repeat;
+    background-size: 250px 56px;
+}
+
+.input_box {
+    position: relative;
+    padding: 1rem 0 1.4rem;
+}
+
+.login_info .input_content {
+    padding-right: 3rem;
+    height: 3.8rem;
+}
+
+.input_content {
+    width: 100%;
+    font-size: 1.5rem;
+    line-height: 2.2rem;
+    border-bottom: .1rem solid #ebebeb;
+}
+
+.input_content::placeholder {
+    color: #c0bfbf;
+    font-weight: 100;
+}
+
+.input_title {
+    font-size: 1.3rem;
+    line-height: 1.8rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.input_item {
+    position: relative;
+}
+
+.solid {
+    background-color: #222;
+    color: #fff;
+}
+
+.solid.disabled,
+.solid:disabled {
+    background-color: #ebebeb;
+    color: #fff;
+    cursor: default;
+}
+
+.btn.btn_login_naver {
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #ebebeb;
+    color: #222;
+}
+
+.logo_naver {
+    position: absolute;
+    margin-top: -0.4rem;
+    left: 1.8rem;
+}
+
+.account_container {
+    margin-top: 1.8rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.account_link {
+    margin: auto;
+    padding: 0 1rem;
+    display: inline-flex;
+    font-size: 1.3rem;
+    font-weight: 300;
+}
+
+.account_list {
+    display: inline-flex;
+    align-items: flex-start;
+    flex: 1;
+}
+
+.account_list+.account_list:before {
+    content: "";
+    margin-top: .3rem;
+    display: inline-block;
+    width: .1rem;
+    height: 1.3rem;
+    background-color: #d3d3d3;
+}
+
+/* 이메일아이디 & 비밀번호 찾기 */
+.help_area { 
+    margin: 0 auto; 
+    padding: 60px 0 160px; 
+    width: 400px; 
+}
+
+.help_title {
+    padding-bottom: 4rem;
+    text-align: center;
+    font-size: 3.2rem;
+    color: #000;
+    border-bottom: 2px solid #000;
+}
+
+.help_notice { 
+    padding: 4px 0 30px; 
+}
+
+.help_notice .notice_txt { 
+    font-size: 1.4rem; 
+}
+
+.help_btn_box { 
+    padding-top: 44px; 
+}
+
+.input_txt:focus { 
+    border-bottom: 2px #000 solid;
+}
+
+.input_txt {
+    width: 100%;
+    font-size: 1.5rem;
+    line-height: 2.2rem;
+    border-bottom: .1rem solid #ebebeb;
+    padding-right: 3rem;
+    height: 3.8rem;
+}
+
+.input_txt::placeholder {
+    color: #c0bfbf;
+    font-weight: 100;
+}
+
+/* 회원가입 */
+.join_area { 
+    margin: 0 auto; 
+    padding: 5.8rem 0 16rem; 
+    width: 40rem; 
+}
+
+.join_title {
+    padding-bottom: 4.2rem; 
+    text-align: center; 
+    font-size: 3.2rem; 
+    color: #000;
+}
+
+.btn_size_select { 
+    position: absolute; 
+    right: 1rem; 
+    top: -.7rem;
+}
+
+.input_item .input_txt.hover { 
+    cursor: pointer; 
+}
+
+.btn_size_select {
+    border: none;
+}
+
+.btn_join {
+    border: none;
+    
+}
+
