@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHOEKREAM | 한정판 거래의 FLEX</title>
+    <link rel="stylesheet" href="./css/loginStyle.css">
+    <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://kream.co.kr/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css"/>
+    <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+</head>
+<body>
+    <div class="login_container">
+        <h2 class="login_title"><span>KREAM</span></h2>
+
+        <form>
+            <div class="login_info input_box">
+                <h3 class="input_title">이메일 주소</h3>
+                <div class="input_item">
+                    <input type="text" class="input_content" name="email" placeholder="예) kream@kream.co.kr" >
+                </div><!--.inputItem END-->
+            </div><!--.login_info input_box END-->
+
+            <div class="login_info input_box">
+                <h3 class="input_title">비밀번호</h3>
+                <div class="input_item">
+                    <input type="password" class="input_content" name="userpw">
+                </div><!--.inputItem END-->
+            </div><!--.login_info input_box END-->
+
+            <div class="login_btn_container">
+                <input type="submit" disabled="disabled" class="btn full solid disabled" id="loginBtn" value="로그인">
+                </input>
+                <a type="button" class="btn btn_login_naver full solid">
+                    <div class="logo_naver icon sprite-icons" id="naver_id_login"></div> 네이버로 로그인
+                </a>
+            </div><!--.login_btn_container END-->
+        </form>
+    
+        <ul class="account_container">
+            <li class="account_list"><a href="/join" class="account_link"> 이메일 가입 </a></li>
+            <li class="account_list"><a href="/login/find_email" class="account_link"> 이메일 찾기 </a></li>
+            <li class="account_list"><a href="/login/find_password" class="account_link"> 비밀번호 찾기 </a></li>
+        </ul>
+    </div> <!--.login_container END-->
+
+<script type="text/javascript" th:src="@{/lib/js/pjs_header_nav.js}"></script>
+<script th:src="@{/lib/js/loginpage_mypage_all.js}" type="text/javascript"></script>
+<script th:src="@{/lib/js/login.js}" type="text/javascript"></script>
+<script type="text/javascript">
+    var myDomain = window.location.href;
+    var naver_id_login = new naver_id_login("yAmQcLqQ5vooPyHA5Qm7", "http://www.naver.com");
+    var state = naver_id_login.getUniqState();
+    naver_id_login.setButton("green", 1,40);
+    naver_id_login.setDomain("http://127.0.0.1:9090/naverLogin");
+    naver_id_login.setState(state);
+    naver_id_login.setPopup();
+    naver_id_login.init_naver_id_login();
+</script>
+</body>
+</html>
