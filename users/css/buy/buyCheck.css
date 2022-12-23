@@ -1,0 +1,285 @@
+*{
+    margin:0; 
+    padding: 0; 
+    list-style: none;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    color: rgb(55, 125, 255);
+    font-size: 1.2rem;
+}
+
+.container_buy{
+    border:1px solid rgb(238, 238, 238);
+    background-color: rgb(240, 240, 240);
+    width: 100%;
+    height: 94rem;
+}
+
+.container_buy .content{
+    width: 70rem;
+    height: 73.8rem;
+    box-sizing:border-box;
+    margin:4rem auto 20rem auto;
+}
+
+.container_buy .content .buy_before .buy_before_check{
+    position: relative;
+    top: 8rem;
+    background-color: white;
+    box-sizing:border-box;
+}
+
+.container_buy .content .buy_before .buy_before_check .title_area{
+    display: flex;
+    justify-content: space-between;
+    width: 70rem;
+    height: 12.26rem;
+    box-sizing: border-box;
+    padding: 4rem;
+    padding-left: 1rem;
+}
+
+.buy_before_check {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.container_buy .content .buy_before .buy_before_check .title_area .check_title{
+    width: 44rem;
+    height: 4.26rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    padding: 0;
+}
+
+.container_buy .content .buy_before .buy_before_check .title_area >button{
+    width: 7.8rem;
+    height: 3.4rem;
+    font-size: 0.5rem;
+    background-color: rgb(255, 255, 255);
+    border:rgb(209, 209, 209) solid 0.1rem;
+    border-radius: 1rem;
+}
+
+.container_buy .content .buy_before .buy_info{
+    height: 9.4rem;
+    margin-left: 1.5rem;
+}
+
+.container_buy .content .buy_before .buy_product{
+    display: flex;
+    width: 70rem;
+    height: 12.4rem;
+    font-size: 1.5rem;
+    box-sizing: border-box;
+    padding:0 4rem;
+}
+
+.container_buy .content .buy_before .buy_product .product{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container_buy .content .buy_before .model_info .size_select_wrap{
+    margin-top: 1.3rem;
+}
+
+.container_buy .content .buy_before .buy_product .btn_size{
+    width: 12rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 1rem;
+    font-size:1.5rem;
+    border:rgb(209, 209, 209) solid 0.1rem;
+    justify-content: space-between;
+    padding: 0 1rem;
+}
+
+.container_buy .content .check_list{
+    width: 62rem;
+    height: 38.6rem;
+    box-sizing: border-box;
+    margin: 0 4rem 1.2rem 4rem;
+    border-top: 0.2rem solid black;
+}
+
+.container_buy .content .check_list .check_item{
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    justify-content: space-between;
+    border-bottom: 0.1rem solid rgb(207, 207, 207);
+    padding: 1.6rem 0;
+}
+
+.container_buy .content .check_list .check_item .notice_group{
+    margin-right: 2rem;
+}
+
+.container_buy .content .check_list .check_item .notice_group .notice_maintext{
+    font-size:1.5rem;
+}
+
+.container_buy .content .check_list .check_item .notice_group .notice_subtext{
+    color:rgb(177, 177, 177);
+    font-size:1.35rem;
+}
+
+.container_buy .content .check_list .check_item .notice_group .view_data{
+    margin-top: 1rem;
+}
+
+.container_buy .content .buy_before_check .btn_confirm{
+    width: 70rem;
+    height: 17.2rem;
+    box-sizing: border-box;
+    padding: 10rem 4rem 4rem 4rem;
+}
+
+.container_buy .content .buy_before_check .btn_confirm >a{
+    display: inline-flex;
+    width: 62rem;
+    height: 5.2rem;
+    color:white;
+    font-size:2rem;
+    text-decoration:none;
+    border-radius: 1rem;
+    background-color: rgb(241, 241, 241);
+    align-items: center;
+    justify-content: center;
+}
+/*********제품 이미지*********/
+#productImg{
+    width: 100%;
+}
+
+/* 모바일 버전 */
+@media all and (max-width:767px) {
+    html{
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 50%;
+    }
+
+    body{
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    body #fixed {
+        width: 100%;
+        height: 5rem;
+    }
+
+    body .container_buy {
+        width: 60rem;
+        height: 70rem;
+        border:none;
+        margin: 0 auto;
+    }
+
+    body .container_buy .content {
+        width: 60rem;
+        box-sizing: border-box;
+        margin: 0 auto 20rem auto;
+    }
+    
+    body .buy_before{
+        width: 60rem;
+        border:none;
+    }
+
+    body .container_buy .content .buy_before{
+        border:none;
+    }
+
+    body .container_buy .content .buy_before .buy_before_check .title_area {
+        display: flex;
+        justify-content: space-between;
+        width: 60rem;
+        height: 12.26rem;
+        box-sizing: border-box;
+        padding: 4rem;
+        margin-top: 4rem;
+    }
+
+    body .container_buy .content .buy_before_check .btn_confirm {
+        width: 60rem;
+        height: 9.2rem;
+        box-sizing: border-box;
+        padding-top: 10rem;
+    }
+
+    body .container_buy .content .buy_before_check .btn_confirm >a{
+        width: 52rem;
+    }
+
+    body .container_buy .content .buy_before .buy_before_check {
+        top: unset;
+        border:none;
+    }
+
+    body .container_buy .content .buy_before .buy_product {
+        display: flex;
+        width: 100%;
+        height: 12.4rem;
+        font-size: 1.5rem;
+        box-sizing: border-box;
+        padding: 0 4rem;
+    }
+
+    body .container_buy .content .buy_before .buy_product .product {
+        width: 11rem;
+        height: 11rem;
+    }
+
+    body .container_buy .content .list_box{
+        margin: 2rem auto;
+    }
+
+    body .container_buy .content .check_list .check_item {
+        width: 50rem;
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+        justify-content: space-between;
+        border-bottom: 0.1rem solid rgb(207, 207, 207);
+        margin: 0 auto;
+    }
+
+    .btn_confirm{
+        margin-top: 5rem;
+    }
+
+    body .container_buy .content .check_list{
+        width: 60rem;
+        height: 38.6rem;
+        box-sizing: border-box;
+        margin: 0 0 1.2rem 0;
+        border-top: 8px solid rgb(235, 235, 235);
+    }
+
+    body .container_buy .content .list_box{
+        width: 60rem;
+        margin-top: 2rem;
+    }
+
+    .view_data a{
+        text-decoration: underline;
+    }
+}

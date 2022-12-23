@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHOEKREAM | 한정판 거래의 FLEX</title>
+    <link rel="stylesheet" href="../../css/buy/buyCheck.css">
+    <link rel="stylesheet" href="../../css/pop.css">
+    <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://kream.co.kr/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css"/>
+    <link rel="stylesheet" href="../../css/buy/header.css">
+    <!-- <script>
+        // ㅊㅔ크 개수 따라 구매계속 버튼 색 바뀌기
+        function getCheck(){
+            const query = 'input[name=check]:checked';
+            const selectedElements = document.querySelectorAll(query);
+            const cnt = selectedElements.length;
+    
+            if(cnt == 4){
+                $(".btn").css("background-color", "black");
+                document.querySelector('.btn').disabled=false;
+    
+            }else{
+                $(".btn").css("background-color", "rgb(214,214,214)");
+                document.querySelector('.btn').disabled=true;
+            }
+        }
+    </script> -->
+</head>
+<body>
+    <!-- Header 시작 -->
+    <header class="header">
+        <div id="header_top">
+            <div class="top_inner">
+                <ul  class="top_list">
+                    <li  class="top_item">
+                        <a  href="/notice" class="top_link"> 고객센터 </a>
+                    </li>
+                    <li class="top_item">
+                        <a href="/my/wish" class="top_link"> 관심상품 </a>
+                    </li>
+                    <li class="top_item">
+                        <a  href="/my" class="top_link"> 마이페이지 </a>
+                    </li><!----><li class="top_item">
+                        <a href="/" class="top_link"> 로그아웃 </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="header_main">
+            <div class="main_inner">
+                <h1><a href="#" aria-label="홈" class="logo">
+                    <img src="../../img/logo.png">
+                </a>
+            </h1>
+            <div class="center">
+                <h2 class="title"><span class="title_txt">구매 동의</span></h2>
+            </div>
+            <div class="right">
+                <button type="button" class="btn btn_standard outlinegrey small" > 검수기준 </button>
+            </div>
+        </div>
+    </div>
+        
+    </header>
+    <!-- Header 끝 -->
+    <div class="container_buy">
+        <div class="content">
+            <div class="buy_before">
+                <div class="buy_before_check">
+                    <div>
+                        <div class="title_area">
+                            <h2 class="check_title">
+                                <span class="accent_text" style="color:red;">구매</span>하시기 전에 꼭 확인하세요.
+                            </h2>
+                        </div><!--.title_area END-->
+                        <div class="buy_product">
+                            <div class="product" style="background-color: rgb(220, 231, 243);">
+                            <img id="productImg" src="https://kream-phinf.pstatic.net/MjAyMjEyMTVfNSAg/MDAxNjcxMDgxNTM2MDU4.6q3lUyTmyZ2AD5mrB6dzBu3Z2FPEErk67wwysg5jVpIg.-xaByqLKI5dUAGY2_PVOsRx56YS6AvWTNimgc8afvugg.PNG/a_846cb71b9b094564b6d79161dbe4797a.png?type=l_webp">
+                            </div>
+                            <div class="buy_info">
+                                <div class="model_info">
+                                    <strong class="model_number" id="modelNumber">DZ2523-001</strong>
+                                    <p class="model_title" id="name">(W) Jordan 1 Retro High OG Medium Grey</p>
+                                    <p class="model_ko">(W) 조던 1 레트로 하이 OG 미디움 그레이</p>
+                                    <strong class="model_desc">225</strong>
+                                </div><!--.model_info END-->
+                            </div><!--.buy_info END-->
+                        </div><!--.buy_product END-->
+                    </div>
+
+                    <div class="list_box">
+                        <ul class="check_list">
+                            <li class="check_item">
+                                <div class="notice_group">
+                                    <p class="notice_maintext">구매하려는 상품이 맞습니다.</p>
+                                    <p class="notice_subtext">상품 이미지,모델번호, 출시일, 상품명, 사이즈를 한 번 더 확인했습니다.</p>
+                                </div><!--.notice_group END-->
+                                <div class="checkbox_item">
+                                    <!-- check box 체크하는 곳-->
+                                    <input type="checkbox" name="check" id="input0" class="check" style="display: none;"
+                                            onclick="getCheck()">
+                                    <label for="input0" class="check_label"></label>
+                                </div>
+                            </li>
+                            <li class="check_item">
+                                <div class="notice_group">
+                                    <p class="notice_maintext">국내/해외에서 발매한 정품·새상품입니다.</p>
+                                    <p class="notice_subtext">모든 구성품이 그대로이며, 한 번도 착용하지 않은 정품 · 새상품입니다. 국내 발매 상품 여부는
+                                        확인드리지 않습니다.</p>
+                                </div><!--.notice_group END-->
+                                <div class="checkbox_item">
+                                    <!-- check box 체크하는 곳-->
+                                    <input type="checkbox" name="check" id="input1" class="check" style="display: none;"
+                                            onclick="getCheck()">
+                                    <label for="input1" class="check_label"></label>
+                                </div><!--.checkbox_item END-->
+                            </li>
+                            <li class="check_item">
+                                <div class="notice_group">
+                                    <p class="notice_maintext">제조사에서 불량으로 인정하지 않는 기준은 하자로 판단하지 않습니다.</p>
+                                    <p class="notice_subtext">박스/패키지와 상품 컨디션에 민감하시다면 검수 기준을 반드시 확인하시기 바랍니다.</p>
+                                    <div class="view_data">
+                                        <a onclick="pop_inspection()"> 검수기준 보기 </a>
+                                    </div><!--.view_data END-->
+                                </div><!--.notice_group END-->
+                                <div class="checkbox_item">
+                                    <!-- check box 체크하는 곳-->
+                                    <input type="checkbox" name="check" id="input2" class="check" style="display: none;"
+                                            onclick="getCheck()">
+                                    <label for="input2" class="check_label"></label>
+                                </div><!--.checkbox_item END-->
+                            </li>
+                            <li class="check_item">
+                                <div class="notice_group">
+                                    <p class="notice_maintext">패키지(포장) 개봉 검수에 대한 주의사항을 확인합니다.</p>
+                                    <p class="notice_subtext">검수 과정 중 밀봉 및 살림이 모두 개봉되어 KREAM 패키지로 포장되어 발송됩니다. 오리지널 폴리백이 포함되지 않을 수 있습니다.</p>
+                                    <div class="view_data">
+                                        <a onclick="pop_inspection()"> 검수기준 보기 </a>
+                                    </div><!--.view_data END-->
+                                </div><!--.notice_group END-->
+                                <div class="checkbox_item">
+                                    <!-- check box 체크하는 곳-->
+                                    <input type="checkbox" name="check" id="input2" class="check" style="display: none;"
+                                            onclick="getCheck()">
+                                    <label for="input2" class="check_label"></label>
+                                </div><!--.checkbox_item END-->
+                            </li>
+                            <li class="check_item">
+                                <div class="notice_group">
+                                    <p class="notice_maintext">KREAM의 최신 이용정책을 모두 확인하였으며, 구매를 계속합니다.</p>
+                                    <p class="notice_subtext">건전하고 안전한 거래를 위해 반드시 숙지해야할 미입고, 패널티, 부정거래 등의 이용정책을 확인했습니다.
+                                    </p>
+                                    <div>
+                                        <a href="#" onclick="pop_policy()"> 이용정책 보기 </a>
+                                    </div>
+                                </div><!--.notice_group END-->
+                                <div class="checkbox_item">
+                                    <!-- check box 체크하는 곳-->
+                                    <input type="checkbox" name="check" id="input3" class="check" style="display: none;"
+                                            onclick="getCheck()">
+                                    <label for="input3" class="check_label"></label>
+                                </div><!--.checkbox_item END-->
+                            </li>
+                        </ul>
+                        <div class="btn_confirm">
+                            <a type="button" class="btn full solid disabled" disabled> 구매 계속 </a>
+                        </div><!--.btn_confirm END-->
+                    </div><!--.list_box END-->
+                </div><!--.buy_before_check END-->
+            </div><!--.buy_before END-->
+        </div><!--.content END-->
+    </div><!--.container_buy END-->
+
+    <!-- footer 시작 -->
+
+    <!-- footer 끝 -->
+
+<!-- <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="/lib/js/pop.js"></script>
+<script>
+    const id = $('#id').val();
+    const size = $('#size').val();
+    let val;
+
+    // 구매계속 버튼 href 설정
+    $(".btn").attr("href", '/kream/buying/'+id+'/'+ size);
+
+    axios.get('/api/pro_buy_check/'+id + '/' + size)
+        .then(function (response) {
+            let name = response.data.data.name;
+            let modelNumber = response.data.data.modelNumber;
+            let origFileName = response.data.data.origFileName;
+
+            // DOM에 입력
+            $('#name').text(name);
+            $('#modelNumber').text(modelNumber);
+            $('#productImg').append("<img src='/lib/product/"+origFileName+"' alt='buy_check 이미지' class='product_img' style='width: 100px; height: 100px;'>");
+            let int_list = $('<div class="interest_list">');
+
+            // 사이즈 리스트 출력
+            for(let i in response.data.data.productBuySizeApiResponseList){
+                let $pro_price = "정보없음";
+                let $size = response.data.data.productBuySizeApiResponseList[i].size;
+                if (response.data.data.productBuySizeApiResponseList[i].cnt!=null) {//사이즈의 프로덕트 아이디가 같으면
+                    $pro_price = response.data.data.productBuySizeApiResponseList[i].cnt;
+                }
+                let sg_info = $('<div class="sg_info">').append(
+                    '<p class="pro_size">' + $size + '</p>' +
+                    '<p class="pro_price">'+ $pro_price+'</p>'
+                );
+                $(int_list).append('</div>');
+                $(int_list).append(sg_info);
+            }
+            $(int_list).append('</div>');
+            $('.size_list_box').append(int_list);
+
+            // 사이즈 체크 버튼 클릭
+            $(".sg_info").click(function size() {
+                // border
+                $(this).css('border','1px solid black');
+                $(this).siblings().css('border','1px solid rgb(201, 201, 201)');
+                // 사이즈 선택값 반환
+                val = $(this).find('.pro_size').text();
+
+                // 팝업닫기
+                const pop_down = document.getElementsByClassName('p_size')[0];
+                pop_down.style.display = "none";
+                const body = document.querySelector('body');
+                body.style.overflow = 'unset';
+                console.log('이건되나?');
+                $('.size').text(val);
+
+                // 구매계속 버튼 href 설정
+                $(".btn").attr("href", '/kream/buying/'+id+'/'+ val);
+            });
+
+        }).catch(function (err) {
+        console.log(err);
+    });
+
+</script> -->
+</body>
+</html>
