@@ -10,23 +10,27 @@
     <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://kream.co.kr/favicon.ico">
     <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css"/>
     <link rel="stylesheet" href="../../css/buy/header.css">
-    <!-- <script>
-        // ㅊㅔ크 개수 따라 구매계속 버튼 색 바뀌기
+    <script
+  src="https://code.jquery.com/jquery-3.6.3.min.js"
+  integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+  crossorigin="anonymous"></script>
+    <script>
+        // 체크 개수 따라 구매계속 버튼 색 바뀌기
         function getCheck(){
-            const query = 'input[name=check]:checked';
+            const query = 'input[class=check]:checked';
             const selectedElements = document.querySelectorAll(query);
             const cnt = selectedElements.length;
     
-            if(cnt == 4){
-                $(".btn").css("background-color", "black");
+            if(cnt == 5){
+                $("#next").css("background-color", "black");
                 document.querySelector('.btn').disabled=false;
     
             }else{
-                $(".btn").css("background-color", "rgb(214,214,214)");
+                $("#next").css("background-color", "rgb(214,214,214)");
                 document.querySelector('.btn').disabled=true;
             }
         }
-    </script> -->
+    </script>
 </head>
 <body>
     <!-- Header 시작 -->
@@ -99,9 +103,9 @@
                                 </div><!--.notice_group END-->
                                 <div class="checkbox_item">
                                     <!-- check box 체크하는 곳-->
-                                    <input type="checkbox" name="check" id="input0" class="check" style="display: none;"
+                                    <input type="checkbox" name="check" id="input0" class="check"
                                             onclick="getCheck()">
-                                    <label for="input0" class="check_label"></label>
+                                    <label for="input0" class="check_label" for="input0"></label>
                                 </div>
                             </li>
                             <li class="check_item">
@@ -112,7 +116,7 @@
                                 </div><!--.notice_group END-->
                                 <div class="checkbox_item">
                                     <!-- check box 체크하는 곳-->
-                                    <input type="checkbox" name="check" id="input1" class="check" style="display: none;"
+                                    <input type="checkbox" name="check" id="input1" class="check"
                                             onclick="getCheck()">
                                     <label for="input1" class="check_label"></label>
                                 </div><!--.checkbox_item END-->
@@ -127,7 +131,7 @@
                                 </div><!--.notice_group END-->
                                 <div class="checkbox_item">
                                     <!-- check box 체크하는 곳-->
-                                    <input type="checkbox" name="check" id="input2" class="check" style="display: none;"
+                                    <input type="checkbox" name="check" id="input2" class="check"
                                             onclick="getCheck()">
                                     <label for="input2" class="check_label"></label>
                                 </div><!--.checkbox_item END-->
@@ -142,9 +146,9 @@
                                 </div><!--.notice_group END-->
                                 <div class="checkbox_item">
                                     <!-- check box 체크하는 곳-->
-                                    <input type="checkbox" name="check" id="input2" class="check" style="display: none;"
+                                    <input type="checkbox" name="check" id="input3" class="check"
                                             onclick="getCheck()">
-                                    <label for="input2" class="check_label"></label>
+                                    <label for="input3" class="check_label"></label>
                                 </div><!--.checkbox_item END-->
                             </li>
                             <li class="check_item">
@@ -158,14 +162,14 @@
                                 </div><!--.notice_group END-->
                                 <div class="checkbox_item">
                                     <!-- check box 체크하는 곳-->
-                                    <input type="checkbox" name="check" id="input3" class="check" style="display: none;"
+                                    <input type="checkbox" name="check" id="input4" class="check"
                                             onclick="getCheck()">
-                                    <label for="input3" class="check_label"></label>
+                                    <label for="input4" class="check_label"></label>
                                 </div><!--.checkbox_item END-->
                             </li>
                         </ul>
                         <div class="btn_confirm">
-                            <a type="button" class="btn full solid disabled" disabled> 구매 계속 </a>
+                            <a type="button" class="btn full solid disabled" id="next" disabled> 구매 계속 </a>
                         </div><!--.btn_confirm END-->
                     </div><!--.list_box END-->
                 </div><!--.buy_before_check END-->

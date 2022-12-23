@@ -163,11 +163,37 @@ a{
     align-items: center;
     justify-content: center;
 }
-/*********제품 이미지*********/
+
 #productImg{
     width: 100%;
 }
 
+.checkbox_item{
+    margin-left: auto;
+    position: relative;
+    font-size: 0;
+}
+
+/* 체크박스 꾸미기 */
+input[class="check"] + label {
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	border: 1px solid #bcbcbc;
+	cursor: pointer;
+}
+input[class="check"]:checked + label {
+    background-image:url("../../img/check.png");
+    background-size: 100%;
+    border: 1px solid #fff;
+}
+.check{
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
 /* 모바일 버전 */
 @media all and (max-width:767px) {
     html{
