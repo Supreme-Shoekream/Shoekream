@@ -8,7 +8,7 @@
 }
 
 .header_top {
-    box-shadow: 0 1px 0 0 rgb(0 0 0 / 10%);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
 .top_inner, .top_list{
@@ -80,7 +80,7 @@ h1 {
 
 h2 {
     display: block;
-    font-size: 30px;
+    font-size: 1.5em;
     font-weight: bold;
 }
 

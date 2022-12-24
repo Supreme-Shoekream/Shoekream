@@ -1,48 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHOEKREAM | 한정판 거래의 FLEX</title>
-    <link rel="stylesheet" href="../../css/buy/buyCheck.css">
-    <link rel="stylesheet" href="../../css/pop.css">
-    <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://kream.co.kr/favicon.ico">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css"/>
-    <link rel="stylesheet" href="../../css/buy/header.css">
-    <!-- <script>
-        // ㅊㅔ크 개수 따라 구매계속 버튼 색 바뀌기
-        function getCheck(){
-            const query = 'input[name=check]:checked';
-            const selectedElements = document.querySelectorAll(query);
-            const cnt = selectedElements.length;
-    
-            if(cnt == 4){
-                $(".btn").css("background-color", "black");
-                document.querySelector('.btn').disabled=false;
-    
-            }else{
-                $(".btn").css("background-color", "rgb(214,214,214)");
-                document.querySelector('.btn').disabled=true;
-            }
-        }
-    </script> -->
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHOEKREAM | 한정판 거래의 FLEX</title>
+<link rel="stylesheet" href="../../css/buy/buyCheck.css">
+<link rel="stylesheet" href="../../css/pop.css">
+<link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://kream.co.kr/favicon.ico">
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" />
+<link rel="stylesheet" href="../../css/buy/header.css">
+<link rel="stylesheet" href="../../css/buy/popup.css">
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"
+    integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 </head>
+
 <body>
     <!-- Header 시작 -->
     <header class="header">
-        <div id="header_top">
+        <div class="header_top">
             <div class="top_inner">
-                <ul  class="top_list">
-                    <li  class="top_item">
-                        <a  href="/notice" class="top_link"> 고객센터 </a>
+                <ul class="top_list">
+                    <li class="top_item">
+                        <a href="/notice" class="top_link"> 고객센터 </a>
                     </li>
                     <li class="top_item">
                         <a href="/my/wish" class="top_link"> 관심상품 </a>
                     </li>
                     <li class="top_item">
-                        <a  href="/my" class="top_link"> 마이페이지 </a>
-                    </li><!----><li class="top_item">
+                        <a href="/my" class="top_link"> 마이페이지 </a>
+                    </li><!---->
+                    <li class="top_item">
                         <a href="/" class="top_link"> 로그아웃 </a>
                     </li>
                 </ul>
@@ -51,18 +38,17 @@
         <div class="header_main">
             <div class="main_inner">
                 <h1><a href="#" aria-label="홈" class="logo">
-                    <img src="../../img/logo.png">
-                </a>
-            </h1>
-            <div class="center">
-                <h2 class="title"><span class="title_txt">구매 동의</span></h2>
-            </div>
-            <div class="right">
-                <button type="button" class="btn btn_standard outlinegrey small" > 검수기준 </button>
+                        <img src="../../img/logo.png">
+                    </a>
+                </h1>
+                <div class="center">
+                    <h2 class="title" style="font-size: 3em;"><span class="title_txt">구매 동의</span></h2>
+                </div>
+                <div class="right">
+                    <button type="button" class="btn btn_standard outlinegrey small" onclick="pop_auth_policy()"> 검수기준 </button>
+                </div>
             </div>
         </div>
-    </div>
-        
     </header>
     <!-- Header 끝 -->
     <div class="container_buy">
@@ -77,7 +63,8 @@
                         </div><!--.title_area END-->
                         <div class="buy_product">
                             <div class="product" style="background-color: rgb(220, 231, 243);">
-                            <img id="productImg" src="https://kream-phinf.pstatic.net/MjAyMjEyMTVfNSAg/MDAxNjcxMDgxNTM2MDU4.6q3lUyTmyZ2AD5mrB6dzBu3Z2FPEErk67wwysg5jVpIg.-xaByqLKI5dUAGY2_PVOsRx56YS6AvWTNimgc8afvugg.PNG/a_846cb71b9b094564b6d79161dbe4797a.png?type=l_webp">
+                                <img id="productImg"
+                                    src="https://kream-phinf.pstatic.net/MjAyMjEyMTVfNSAg/MDAxNjcxMDgxNTM2MDU4.6q3lUyTmyZ2AD5mrB6dzBu3Z2FPEErk67wwysg5jVpIg.-xaByqLKI5dUAGY2_PVOsRx56YS6AvWTNimgc8afvugg.PNG/a_846cb71b9b094564b6d79161dbe4797a.png?type=l_webp">
                             </div>
                             <div class="buy_info">
                                 <div class="model_info">
@@ -99,9 +86,9 @@
                                 </div><!--.notice_group END-->
                                 <div class="checkbox_item">
                                     <!-- check box 체크하는 곳-->
-                                    <input type="checkbox" name="check" id="input0" class="check" style="display: none;"
-                                            onclick="getCheck()">
-                                    <label for="input0" class="check_label"></label>
+                                    <input type="checkbox" name="check" id="input0" class="check"
+                                        onclick="pop_notice()">
+                                    <label for="input0" class="check_label" for="input0"></label>
                                 </div>
                             </li>
                             <li class="check_item">
@@ -112,8 +99,7 @@
                                 </div><!--.notice_group END-->
                                 <div class="checkbox_item">
                                     <!-- check box 체크하는 곳-->
-                                    <input type="checkbox" name="check" id="input1" class="check" style="display: none;"
-                                            onclick="getCheck()">
+                                    <input type="checkbox" name="check" id="input1" class="check" onclick="getCheck()">
                                     <label for="input1" class="check_label"></label>
                                 </div><!--.checkbox_item END-->
                             </li>
@@ -122,29 +108,28 @@
                                     <p class="notice_maintext">제조사에서 불량으로 인정하지 않는 기준은 하자로 판단하지 않습니다.</p>
                                     <p class="notice_subtext">박스/패키지와 상품 컨디션에 민감하시다면 검수 기준을 반드시 확인하시기 바랍니다.</p>
                                     <div class="view_data">
-                                        <a onclick="pop_inspection()"> 검수기준 보기 </a>
+                                        <a onclick="pop_auth_policy()"> 검수기준 보기 </a>
                                     </div><!--.view_data END-->
                                 </div><!--.notice_group END-->
                                 <div class="checkbox_item">
                                     <!-- check box 체크하는 곳-->
-                                    <input type="checkbox" name="check" id="input2" class="check" style="display: none;"
-                                            onclick="getCheck()">
+                                    <input type="checkbox" name="check" id="input2" class="check" onclick="getCheck()">
                                     <label for="input2" class="check_label"></label>
                                 </div><!--.checkbox_item END-->
                             </li>
                             <li class="check_item">
                                 <div class="notice_group">
                                     <p class="notice_maintext">패키지(포장) 개봉 검수에 대한 주의사항을 확인합니다.</p>
-                                    <p class="notice_subtext">검수 과정 중 밀봉 및 살림이 모두 개봉되어 KREAM 패키지로 포장되어 발송됩니다. 오리지널 폴리백이 포함되지 않을 수 있습니다.</p>
+                                    <p class="notice_subtext">검수 과정 중 밀봉 및 살림이 모두 개봉되어 KREAM 패키지로 포장되어 발송됩니다. 오리지널 폴리백이
+                                        포함되지 않을 수 있습니다.</p>
                                     <div class="view_data">
-                                        <a onclick="pop_inspection()"> 검수기준 보기 </a>
+                                        <a onclick="pop_auth_policy()"> 검수기준 보기 </a>
                                     </div><!--.view_data END-->
                                 </div><!--.notice_group END-->
                                 <div class="checkbox_item">
                                     <!-- check box 체크하는 곳-->
-                                    <input type="checkbox" name="check" id="input2" class="check" style="display: none;"
-                                            onclick="getCheck()">
-                                    <label for="input2" class="check_label"></label>
+                                    <input type="checkbox" name="check" id="input3" class="check" onclick="getCheck()">
+                                    <label for="input3" class="check_label"></label>
                                 </div><!--.checkbox_item END-->
                             </li>
                             <li class="check_item">
@@ -152,21 +137,42 @@
                                     <p class="notice_maintext">KREAM의 최신 이용정책을 모두 확인하였으며, 구매를 계속합니다.</p>
                                     <p class="notice_subtext">건전하고 안전한 거래를 위해 반드시 숙지해야할 미입고, 패널티, 부정거래 등의 이용정책을 확인했습니다.
                                     </p>
-                                    <div>
+                                    <div class="view_data">
                                         <a href="#" onclick="pop_policy()"> 이용정책 보기 </a>
                                     </div>
                                 </div><!--.notice_group END-->
                                 <div class="checkbox_item">
                                     <!-- check box 체크하는 곳-->
-                                    <input type="checkbox" name="check" id="input3" class="check" style="display: none;"
-                                            onclick="getCheck()">
-                                    <label for="input3" class="check_label"></label>
+                                    <input type="checkbox" name="check" id="input4" class="check" onclick="getCheck()">
+                                    <label for="input4" class="check_label"></label>
                                 </div><!--.checkbox_item END-->
                             </li>
                         </ul>
                         <div class="btn_confirm">
-                            <a type="button" class="btn full solid disabled" disabled> 구매 계속 </a>
+                            <a type="button" class="btn full solid disabled" id="next" disabled> 구매 계속 </a>
                         </div><!--.btn_confirm END-->
+                        <!--notice-popup 시작-->
+                        <div class="layer lg layer_order_notice" style="display: none;">
+                            <div class="layer_container">
+                                <a href="javascript:void(0);" onclick="closeLayer()" class="btn_layer_close">
+                                    <img src="../../img/close.png" class="icon" style="width: 24px;">
+                                </a>
+                                <div class="layer_header">
+                                    <h2 class="title">상품 특이사항 안내</h2>
+                                </div>
+                                <div class="layer_content"><iframe width="100%" height="100%"
+                                        src="https://kream.co.kr/api/app/pages/0401_notice.html"
+                                        frameborder="0"></iframe>
+                                    <div class="wrap_btn">
+                                        <button type="button" class="btn solid full large" onclick="closeLayer()"> 동의 후
+                                            계속 </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--notice-popup 끝-->
+                        
+
                     </div><!--.list_box END-->
                 </div><!--.buy_before_check END-->
             </div><!--.buy_before END-->
@@ -177,69 +183,543 @@
 
     <!-- footer 끝 -->
 
-<!-- <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-<script src="/lib/js/pop.js"></script>
-<script>
-    const id = $('#id').val();
-    const size = $('#size').val();
-    let val;
-
-    // 구매계속 버튼 href 설정
-    $(".btn").attr("href", '/kream/buying/'+id+'/'+ size);
-
-    axios.get('/api/pro_buy_check/'+id + '/' + size)
-        .then(function (response) {
-            let name = response.data.data.name;
-            let modelNumber = response.data.data.modelNumber;
-            let origFileName = response.data.data.origFileName;
-
-            // DOM에 입력
-            $('#name').text(name);
-            $('#modelNumber').text(modelNumber);
-            $('#productImg').append("<img src='/lib/product/"+origFileName+"' alt='buy_check 이미지' class='product_img' style='width: 100px; height: 100px;'>");
-            let int_list = $('<div class="interest_list">');
-
-            // 사이즈 리스트 출력
-            for(let i in response.data.data.productBuySizeApiResponseList){
-                let $pro_price = "정보없음";
-                let $size = response.data.data.productBuySizeApiResponseList[i].size;
-                if (response.data.data.productBuySizeApiResponseList[i].cnt!=null) {//사이즈의 프로덕트 아이디가 같으면
-                    $pro_price = response.data.data.productBuySizeApiResponseList[i].cnt;
-                }
-                let sg_info = $('<div class="sg_info">').append(
-                    '<p class="pro_size">' + $size + '</p>' +
-                    '<p class="pro_price">'+ $pro_price+'</p>'
-                );
-                $(int_list).append('</div>');
-                $(int_list).append(sg_info);
-            }
-            $(int_list).append('</div>');
-            $('.size_list_box').append(int_list);
-
-            // 사이즈 체크 버튼 클릭
-            $(".sg_info").click(function size() {
-                // border
-                $(this).css('border','1px solid black');
-                $(this).siblings().css('border','1px solid rgb(201, 201, 201)');
-                // 사이즈 선택값 반환
-                val = $(this).find('.pro_size').text();
-
-                // 팝업닫기
-                const pop_down = document.getElementsByClassName('p_size')[0];
-                pop_down.style.display = "none";
-                const body = document.querySelector('body');
-                body.style.overflow = 'unset';
-                console.log('이건되나?');
-                $('.size').text(val);
-
-                // 구매계속 버튼 href 설정
-                $(".btn").attr("href", '/kream/buying/'+id+'/'+ val);
-            });
-
-        }).catch(function (err) {
-        console.log(err);
-    });
-
-</script> -->
+    <script src="../../js/buy/buyCheck.js"></script>
+    <script src="../../js/buy/popup.js"></script>
 </body>
+<!--policy-popup 시작-->
+<div class="layer lg layer_auth_policy" style="display: none">
+    <div class="layer_container">
+        <a href="javascript:void(0);" onclick="closeLayer()" class="btn_layer_close"><img src="../../img/close.png"></a>
+        <div  class="layer_header">
+            <h2  class="title">검수기준</h2>
+        </div>
+        <div  class="layer_content">
+            <div class="category_list" >
+                <table class="category_list_items">
+                    <tbody>
+                        <tr>
+                            <td class="category category_on"><a
+                                    href="#"><span 
+                                        class="category_text">신발</span></a></td>
+                            <td class="category"><a 
+                                    href="#"><span 
+                                        class="category_text">의류</span></a></td>
+                            <td class="category"><a 
+                                    href="#"><span class="category_text">패션
+                                        잡화</span></a></td>
+                        </tr>
+                        <tr >
+                            <td class="category"><a 
+                                    href="#"><span 
+                                        class="category_text">테크</span></a></td>
+                            <td class="category"><a 
+                                    href="#"><span 
+                                        class="category_text">라이프</span></a></td>
+                            <td class="category"><a 
+                                    href="#"><span class="category_text">프리미엄
+                                        시계</span></a></td>
+                        </tr>
+                        <tr >
+                            <td class="category"><a 
+                                    href="#"><span class="category_text">프리미엄
+                                        가방</span></a></td>
+                            <td class="category"><!----></td>
+                            <td class="category"><!----></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div data-v-454fa0b2="" class="wrap" >
+                <h2 data-v-454fa0b2="" class="blind">검수 기준내용</h2>
+                <div data-v-454fa0b2="" class="content">
+
+
+                    <meta charset="UTF-8">
+                    <meta name="viewport"
+                        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+                    <style></style>
+                    <title>검수기준</title>
+                    <div class="wrap_auth">
+                        <h2 class="blind">검수 기준내용</h2>
+                        <div class="content">
+                            <div class="description_wrap">
+                                <p><b>[업데이트] 2021/11/29 월</b></p>
+                                <p class="description"><b>[적용일시] 2021/12/03 금 00:00 체결 건 부터</b>
+                                </p>
+
+                                <p class="description">
+                                    <span>KREAM</span>의 검수기준은 거래 당사자간 원활한 거래와 보다 균형있는 검수기준
+                                    확립을 위해 지속적으로 업데이트 되고 있습니다. 거래에 앞서 최신 검수기준을 참고하시기
+                                    바랍니다.
+                                </p>
+                                <p class="description">
+                                    회원님께서 판매 또는 구매하신 모든 상품은 <span>KREAM</span>의 전문 검수팀이 제품의
+                                    컨디션을 꼼꼼하게 확인한 후, 검수 합격 시에만 출고하고 있습니다.
+                                </p>
+                                <br>
+                                <p class="description" style="color: #f15746">
+                                    ※ 신발 거래 관련 주의사항<br>
+                                    KREAM은 정가품 판정 및 검수기준에 의한 기본 품질 확인을 수행하고 있으나, 통신판매
+                                    중개자로서 제조업체의 제품별 보증에 대해서는 책임을 지지 않습니다.<br><br>
+                                    제품 기능에 관한 사항이나 기타 제품 관련 질문은 제조업체에 문의하시기 바랍니다.<br>
+                                    단, 제조업체의 A/S 여부는 보장하지 않습니다. (이용약관 제22조 3항 참고)
+                                </p>
+                                <br>
+                                <p class="description">
+                                    KREAM의 검수기준으로 고지된 사항 이외 아래와 같이 제조사에서 불량으로 인정하지 않는
+                                    기준, 또는 당사 검수기준에 따라 그 여부를 명확히 분별할 수 없는 상품의 경우 하자로
+                                    판단하지 않으며,이로 인한 구매 취소는 불가하므로 신중한 거래 부탁드립니다.
+                                </p>
+                                <ul class="description_list">
+                                    <li class="list_item">제조공정, 유통과정 또는 소재 특성 상 발생할 수 있는 사항</li>
+                                    <li class="list_item">도장, 마킹 등의 제조사 또는 판매처에서 진행되는 사항</li>
+                                    <li class="list_item">검수 중 발생할 수 있는 사항 (속지, 슈트리 손상 등)</li>
+                                    <li class="list_item">
+                                        택배 개봉 또는 적재 및 상품 이동 중 발생할 수 있는 사항 (칼자국, 박스 눌림, 이염 등)
+                                    </li>
+                                    <li class="list_item">상품택, 구성품 등의 고리 누락/이탈</li>
+                                </ul>
+
+                                <p class="description">
+                                    고지드린 검수 기준으로 판정하기 모호한 상품 상태, 비특정적 상품 상태, 특정 모델의
+                                    제조공정에 따른 개체차이와 관련하여서는
+                                    <b>검수센터 책임자의 최종 판단 하에 결정하게 됩니다.</b>
+                                </p>
+                                <p class="description">
+                                    KREAM의 검수기준에 동의하지 않으실 경우 거래가 불가하오니 거래 당사자는 거래에 앞서
+                                    KREAM의 검수기준을 반드시 검토하시기 바랍니다.
+                                </p>
+                            </div>
+
+                            <div class="check_wrap">
+                                <h3 class="title_check">불합격/페널티 부과 사항</h3>
+                                <ul class="check_list">
+                                    <li class="list_item">
+
+                                        <br>
+                                        <div class="table_wrap">
+                                            <table>
+                                                <caption>
+                                                    <span class="blind">불합격/페널티 부과사항 구분/불합격/구매자
+                                                        의사 확인/합격 표
+                                                    </span>
+                                                </caption>
+                                                <colgroup>
+                                                    <col style="width: 40%">
+                                                    <col style="width: 20%">
+                                                    <col style="width: 20%">
+                                                    <col style="width: 20%">
+                                                </colgroup>
+
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">구분</th>
+                                                        <th scope="col">불합격</th>
+                                                        <th scope="col">
+                                                            구매자<br>
+                                                            의사 확인
+                                                        </th>
+                                                        <th scope="col">합격</th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">
+                                                            모조품/가품
+                                                            <p class="etc">상품, 박스, 구성품 등</p>
+                                                        </th>
+                                                        <td>
+                                                            ○
+                                                            <em class="text_info_warning">페널티
+                                                                15%</em>
+                                                            <em
+                                                                class="text_info_warning">이용정지</em>
+                                                        </td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">손상/오염/사용감</th>
+                                                        <td>
+                                                            ○
+                                                            <em class="text_info_warning">페널티
+                                                                15%</em>
+                                                            <em
+                                                                class="text_info_warning">이용정지</em>
+                                                        </td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">상품 불일치</th>
+                                                        <td>
+                                                            ○
+                                                            <em class="text_info_warning">페널티
+                                                                10%</em>
+                                                        </td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">사이즈 불일치</th>
+                                                        <td>
+                                                            ○
+                                                            <em class="text_info_warning">페널티
+                                                                10%</em>
+                                                        </td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">
+                                                            기본 구성품 누락
+                                                            <p class="etc">인솔, 기본끈, 박스, 덮개 등</p>
+                                                        </th>
+                                                        <td>
+                                                            ○
+                                                            <em class="text_info_warning">페널티
+                                                                10%</em>
+                                                        </td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <ul class="more_info_list">
+                                                <li class="more_list_item">
+                                                    ※ 손상/오염/사용감 판정의 경우 사용으로 인한 아웃솔 마모, 오염,
+                                                    수선/보강,
+                                                    페인팅 등의 기준을 종합하여 검수원과 검수센터 책임자의 최종 판단하에 결정하게
+                                                    됩니다.
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <h3 class="title_check">패키지 및 구성품</h3>
+                                <ul class="check_list">
+                                    <li class="list_item">
+                                        <div class="btn_check"><b>패키지</b></div>
+                                        <div class="table_wrap">
+                                            <table>
+                                                <caption>
+                                                    <span class="blind">패키지 구분/불합격/구매자 의사 확인/합격
+                                                        표</span>
+                                                </caption>
+                                                <colgroup>
+                                                    <col style="width: 40%">
+                                                    <col style="width: 20%">
+                                                    <col style="width: 20%">
+                                                    <col style="width: 20%">
+                                                </colgroup>
+
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">구분</th>
+                                                        <th scope="col">불합격</th>
+                                                        <th scope="col">
+                                                            구매자<br>
+                                                            의사 확인
+                                                        </th>
+                                                        <th scope="col">합격</th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">박스(BOX) 손상-길이 총합</th>
+                                                        <td>-</td>
+                                                        <td>≥12.0cm</td>
+                                                        <td>&lt;12.0cm</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">박스(BOX) 부분 변색</th>
+                                                        <td>-</td>
+                                                        <td>○</td>
+                                                        <td>-</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">
+                                                            라벨지 손상/상이
+                                                            <p class="etc">UPC, 품번, 제품명, 사이즈(US,
+                                                                CM) 등</p>
+                                                        </th>
+                                                        <td>-</td>
+                                                        <td>정보 확인 불가 또는 라벨지 상이</td>
+                                                        <td>정보 확인 가능 및 라벨지 일치</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">그래픽 속지 상이/누락</th>
+                                                        <td>-</td>
+                                                        <td>○</td>
+                                                        <td>-</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">그래픽 속지 유실</th>
+                                                        <td>-</td>
+                                                        <td>≥40%</td>
+                                                        <td>&lt;40%</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <ul class="more_info_list">
+                                                <li class="more_list_item">
+                                                    ※ 마킹, 펜자국, 본드 등 기타 오염의 경우 검수 책임자의 최종 판단에 따라
+                                                    합격
+                                                    처리됩니다.
+                                                </li>
+                                                <li class="more_list_item">※ 무지 속지의 경우 누락되어도 합격
+                                                    처리됩니다.</li>
+                                                <li class="more_list_item">※ 생산 시기별 상이한 속지의 경우
+                                                    합격 처리됩니다.</li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="btn_check"><b>구성품</b></div>
+                                        <div class="table_wrap">
+                                            <table>
+                                                <caption>
+                                                    <span class="blind">구성품 구분/불합격/구매자 의사 확인/합격
+                                                        표</span>
+                                                </caption>
+                                                <colgroup>
+                                                    <col style="width: 40%">
+                                                    <col style="width: 20%">
+                                                    <col style="width: 20%">
+                                                    <col style="width: 20%">
+                                                </colgroup>
+
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">구분</th>
+                                                        <th scope="col">불합격</th>
+                                                        <th scope="col">
+                                                            구매자<br>
+                                                            의사 확인
+                                                        </th>
+                                                        <th scope="col">합격</th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">상품 정보택 손상/유실</th>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>○</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">끈 기능 상실</th>
+                                                        <td>-</td>
+                                                        <td>○</td>
+                                                        <td>-</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">
+                                                            추가 구성품 누락
+                                                            <p class="etc">스티커, 슈트리, 여분끈 등</p>
+                                                        </th>
+                                                        <td>-</td>
+                                                        <td>○</td>
+                                                        <td>-</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">
+                                                            발매 최초의 구성과 상이함
+                                                            <p class="etc">여분끈 교체, 체결 방식 상이함,
+                                                                벨크로, 뱃지 교체 등</p>
+                                                        </th>
+                                                        <td>-</td>
+                                                        <td>○</td>
+                                                        <td>-</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">
+                                                            오염
+                                                            <p class="etc">스티커, 슈트리, 끈 등</p>
+                                                        </th>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>○</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <ul class="more_info_list">
+                                                <li class="more_list_item">
+                                                    ※ 국내/해외 발매 제품 간의 정보택의 구성은 다를 수 있습니다.
+                                                </li>
+                                                <li class="more_list_item">
+                                                    ※ 상품 정보택의 경우 정보의 일부가 상이할 수 있습니다.
+                                                </li>
+                                                <li class="more_list_item">
+                                                    ※ 신발끈 팁 파손의 경우 기능상 교차 및 매듭에 문제가 없을 경우 합격
+                                                    처리됩니다.
+                                                </li>
+                                                <li class="more_list_item">
+                                                    ※ 박스 재질 및 종이 뭉치 형태 슈트리의 경우 누락되어도 합격 처리됩니다.
+                                                </li>
+                                                <li class="more_list_item">
+                                                    ※ 점프맨 스티커, 설명서, 슬라이드 제품걸이 등 판매처에 따라 구성품이 다른
+                                                    경우
+                                                    누락되어도 합격 처리됩니다.
+                                                </li>
+                                                <li class="more_list_item">
+                                                    ※ 추가 구성품의 상태(나염유실, 변색, 스크래치, 오염 등)는 검수 기준에
+                                                    포함되지
+                                                    않습니다.
+                                                </li>
+                                                <li class="more_list_item">
+                                                    ※ 랩핑, 타 업체 검수택 및 최초 구매 영수증의 경우 포함되는 것을 보장하지
+                                                    않으며,
+                                                    검수 과정 중 제거될 수 있습니다.
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <h3 class="title_check">제품 상태</h3>
+                                <ul class="check_list">
+                                    <li class="list_item">
+
+                                        <br>
+                                        <div class="table_wrap">
+                                            <table>
+                                                <caption>
+                                                    <span class="blind">상태 기준 구분/불합격/구매자 의사
+                                                        확인/합격 표</span>
+                                                </caption>
+                                                <colgroup>
+                                                    <col style="width: 40%">
+                                                    <col style="width: 20%">
+                                                    <col style="width: 20%">
+                                                    <col style="width: 20%">
+                                                </colgroup>
+
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">구분</th>
+                                                        <th scope="col">불합격</th>
+                                                        <th scope="col">
+                                                            구매자<br>
+                                                            의사 확인
+                                                        </th>
+                                                        <th scope="col">합격</th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">
+                                                            어퍼 재봉 불량-부위별
+                                                            <p class="etc">건너뜀, 올풀림 등</p>
+                                                        </th>
+                                                        <td>-</td>
+                                                        <td>≥5땀</td>
+                                                        <td>&lt;5땀</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">재단면 유실</th>
+                                                        <td>-</td>
+                                                        <td>≥5mm</td>
+                                                        <td>&lt;5mm</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">찢어짐/찍힘/까짐-2차 손상</th>
+                                                        <td>-</td>
+                                                        <td>≥8mm</td>
+                                                        <td>&lt;8mm</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">
+                                                            나염
+                                                            <p class="etc">윙로고, 브랜드명, 인솔 등 각 프린트
+                                                                개체당 적용</p>
+                                                        </th>
+                                                        <td>-</td>
+                                                        <td>≥50% 유실</td>
+                                                        <td>&lt;50% 유실</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">내부 라벨 정보 상이</th>
+                                                        <td>-</td>
+                                                        <td>○</td>
+                                                        <td>-</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">
+                                                            오염-반경
+                                                            <p class="etc">본드 자국 등</p>
+                                                        </th>
+                                                        <td>-</td>
+                                                        <td>≥12mm</td>
+                                                        <td>&lt;12mm</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">
+                                                            부자재 기능 상실
+                                                            <p class="etc">지퍼, 스토퍼, 벨크로, 밴드 등
+                                                            </p>
+                                                        </th>
+                                                        <td>-</td>
+                                                        <td>○</td>
+                                                        <td>-</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <ul class="more_info_list">
+                                                <li class="more_list_item">
+                                                    ※ 소재 특성상 클리어 솔, 스펀지, 사출소재 등의 변색 진행의 경우 합격
+                                                    처리됩니다.
+                                                </li>
+                                                <li class="more_list_item">
+                                                    ※ 오프화이트 신발끈("), 윙로고™, 인솔Ⓡ 등 일부 소재 및 공정 특성상
+                                                    발생 가능한
+                                                    나염 유실의 경우 합격 처리됩니다.
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <h3 class="title_check">유의사항</h3>
+                                <p class="description">
+                                    ※ '구매자 의사 확인'의 상품은 최초 보류 알림 기준 <span>24</span>시간 이내
+                                    회신이 없을 경우에 자동 검수 합격 처리되며 이와 관련한 취소는 불가능합니다.
+                                </p>
+                                <p class="description">
+                                    ※ 모조품/가품 판매 및 페널티 회피 시 해당 계정은 회원 자격이 정지되며, 새로운 아이디로
+                                    가입을 하여도 이전 거래 기록을 근거로 서비스 이용을 제재할 수 있습니다.
+                                </p>
+                                <p class="description">
+                                    ※ 국내 발매 제품/해외 발매 제품의 여부는 검수 불합격 사항이 아니며, 이로 인한 구매 취소
+                                    또한 불가합니다.
+                                </p>
+                                <p class="description">
+                                    ※ KREAM을 통해 거래된 모든 상품은 입고 시 자동화 처리를 위해 고유의 정보를 포함한
+                                    스티커가 부착됩니다. 부착 위치는 제품에 따라 차이가 있으며 이는 발송(반송) 시에도
+                                    제거되지 않습니다.
+                                </p>
+                                <p class="add_check"><b>검수 불합격 시 반송 택배 운임</b></p>
+                                <p class="description">[착불]</p>
+                                <p class="etc_desc">검수 기준상 '불합격' 에 해당하는 반송건</p>
+                                <p class="description"></p>
+                                <p class="description">[선불]</p>
+                                <p class="etc_desc">'구매의사 확인' 이후 발생하는 반송건</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--policy-popup 끝-->
+
 </html>
