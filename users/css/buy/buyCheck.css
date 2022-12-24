@@ -194,6 +194,10 @@ input[class="check"]:checked + label {
     height: 1px;
     overflow: hidden;
 }
+
+/*order_notice pop up*/
+
+
 /* 모바일 버전 */
 @media all and (max-width:767px) {
     html{
