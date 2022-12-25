@@ -1,0 +1,53 @@
+.line_alert[data-v-f224a926] {
+    background-color: #f15746;
+    text-align: center;
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0
+}
+
+.line_alert .inner[data-v-f224a926] {
+    margin: 0 auto;
+    padding: 0 40px;
+    max-width: 1280px
+}
+
+.line_alert_title[data-v-f224a926] {
+    display: inline-block;
+    padding: 8px 5px;
+    color: #fff;
+    font-size: 12px;
+    letter-spacing: -.06px;
+    line-height: 20px
+}
+
+.line_alert a[data-v-f224a926] {
+    cursor: pointer;
+    text-decoration: underline
+}
+
+.wrap[data-v-3007c576] {
+    position: relative;
+    padding-top: 100px;
+    overflow-anchor: none
+}
+
+.wrap.in_app[data-v-3007c576] {
+    padding-top: 0
+}
+
+.wrap.disable[data-v-3007c576] {
+    padding-top: 136px
+}
+
+@media(max-width:768px) {
+    .wrap[data-v-3007c576] {
+        padding-top: 60px
+    }
+
+    .show_banner .wrap[data-v-3007c576] {
+        padding-top: 70px
+    }
+}
