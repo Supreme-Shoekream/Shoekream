@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>STYLE | ShoeKream</title>
+    <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://kream.co.kr/favicon.ico">
+
+    <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!--axios cdn -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <link rel="stylesheet" href="../../static/lib/css/profile.css">
+    <link rel="stylesheet" href="../../static/lib/css/pop.css">
+
+    <script type="text/javascript">
+        $(document).ready( function() {
+            $("#header").load("../include/st_header.html");
+            $("#footer").load("../include/checkFooter.html");
+            $("#pop").load("../include/pop.html");
+        });
+    </script>
+
+</head>
+
+
+<body>
+    <div id="__nuxt">
+        <div id="__layout">
+<!--            <div id="header"></div>-->
+            <div tabindex="0" class="wrap win_os lg">
+                <div>
+                    <div id="header"></div>
+<!--                    스크롤 내리면 헤더 밑에 나오는 사용자 프로필 -->
+                    <div class="social_header">
+                        <div class="title_user" style="display: none;">
+                            <div class="profile_img_box">
+                                <img src="../../static/lib/styleImg/styleimg1.jpg" alt="userid"
+                                     class="profile_img">
+                            </div>
+                            <p class="user_name">userid</p>
+                        </div>
+                    </div>
+<!--                    스크롤 내리면 헤더 밑에 나오는 사용자 프로필 끝 -->
+                </div>
+
+                <div class="container_social lg">
+                    <div class="content">
+                        <div class="social_user_area">
+                            <div class="user_top">
+                                <div class="profile_img_box">
+                                    <img src="../../static/lib/styleImg/styleimg1.jpg"
+                                    class="profile_img">
+                                    ::after
+                                </div>
+                                <div class="profile_info_box">
+                                    <p data-v-4e96b3b6="" href="#" class="user_name"> jooyjin_ </p>
+                                </div>
+                            </div>
+                            <div class="user_explain">
+                                <p class="main_txt">jooyjin_</p>
+                                <p class="sub_txt">인스타••jooyjin_</p>
+                            </div>
+                            <div>
+                                <!---->
+                                <button type="button" class="btn solid medium btn_follow medium"> 팔로우 </button>
+                                <span>
+                                    <button type="button" class="btn btn_social_more outline medium">
+                                        <img src="../../static/lib/styleImg/more_icon.png" class="social-more icon sprite-icons">
+                                    </button>
+<!--                                    js 적용해야함 (팝업)-->
+                                    <div lass="layer lg layer_alert" style="display: none;">
+                                        <div class="layer_container">
+                                            <div class="layer_header">
+
+                                            </div>
+                                            <div class="layer_content">
+                                                <ul class="action_list">
+                                                    <li class="action_item">프로필 차단</li>
+                                                    <li class="action_item">프로필 신고</li>
+                                                    <li data-v-1a009402="">취소</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+<!--                                    js 적용범위 끝-->
+                                </span>
+                            </div>
+                        </div>
+<!--                        게시물, 팔로워, 팔로잉-->
+                        <div class="social_tab">
+                            <ul class="tab_list" >
+                                <li class="tab_item">
+                                    <a href="#" class="tab_link">
+                                        <span class="tab_menu">게시물</span>
+                                        <span class="menu_count">11</span>
+                                    </a>
+                                </li>
+                                <li class="tab_item" style="margin-left: 35px;">
+                                    <a href="#" class="tab_link">
+                                        <span class="tab_menu">팔로워</span>
+                                        <span class="menu_count" >228</span>
+                                    </a>
+                                </li>
+                                <li class="tab_item" style="margin-left: 35px;">
+                                    <a href="#" class="tab_link">
+                                        <span class="tab_menu">팔로잉</span>
+                                        <span class="menu_count">1</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+<!--                        게시물, 팔로워, 팔로잉-->
+<!--                        피드-->
+                        <div class="social_feeds">
+                            <div transition-duration="0" item-selector=".item" gutter=".gutter_item" horizontal-order="true"
+                                 class="masonry_posts" style="position: relative; height: 1607.15px">
+                                <div class="gutter_item"></div>
+<!--                                게시글 시작-->
+                                <div class="feed_card item" style="position: absolute; left: 0px; top: 0px;">
+                                    <a href="#">
+                                        <div class="card_box">
+                                        <div class="social_img_box vertical">
+                                            <img alt="소셜이미지" oncontextmenu="return false" ondragstart="return false" onselectstart="return false" src="https://kream-phinf.pstatic.net/MjAyMjEyMjNfMTUw/MDAxNjcxNzc0NTA2NTk3.Ez3P7vMc1zH_3oJQ-I4593Exzm43WxaZ1Ehba6beXSog.WWXOjYvAwads9D57J84VNgqKaIkoUrfES53Bi4MYp7Eg.JPEG/p_0dd3fa20b1074a108a4c20cc332e2083.jpeg?type=m"
+                                                 loading="lazy" class="social_img">
+                                        </div>
+                                        <div class="card_detail">
+                                            <div class="user_box">
+                                                <img alt="사용자 프로필 이미지" src="https://kream-phinf.pstatic.net/MjAyMjA1MDVfMTg2/MDAxNjUxNzU2OTI2Mzk3.81EnEzktl5aWSHgGMiBK5zvtXHtN7KOSEL9SHREL9sog.RwBJPNvjFsyQgrRWdVCVHvWc3FqyPQquYZT3WJQBY9cg.JPEG/p_1262c8a2c6b541bcade95b62610fae20.jpeg?type=sl"
+                                                     class="img_profile">
+                                                <p class="user_name">jooyjin_</p>
+                                            </div>
+                                            <p class="text_box">삼바 굿..🫶🏻
+
+
+                                    #크림스타일
+                                    #아디다스삼바
+                                    #아디다스
+                                    #미리메리챌린지</p>
+                                            <div class="btn_box">
+                                                <a href="#" aria-label="좋아요" class="btn like">
+                                                    <img src="../../static/lib/styleImg/like_icon.png" class="icon sprite-icons social-like-gray-sm">
+                                                    <span class="like_count">115</span>
+                                                </a>
+                                                <a href="#" aria-label="댓글" class="btn comment">
+                                                    <img src="../../static/lib/styleImg/comment_icon.png" class="social-comment-gray-sm icon sprite-icons">
+                                                    <span class="comment_count">4</span>
+                                                </a>
+                                            </div>
+                                            <div >
+                                                <ul class="product_list">
+                                                    <li class="product_item">
+                                                        <a href="/products/55955" class="product_link">
+                                                            <div data-v-96369684="" class="product" style="background-color: rgb(241, 241, 234);"><picture data-v-321fc3b6="" data-v-09fbcf09="" class="picture product_img">
+                                                                <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMjAzMjlfMjg5/MDAxNjQ4NTQ1MjgwMzUz.zeAuThIpfE7dJgvVGTTr8QoTlssmeC5sSivgSV9YkcQg.gaOAfvVwwa5IcExoPuj2ESC3b5a8OHMKGmsAeiaQ_Z4g.PNG/a_a6739132db034ef4855fdffcda109526.png?type=m_webp">
+                                                                <source srcset="https://kream-phinf.pstatic.net/MjAyMjAzMjlfMjg5/MDAxNjQ4NTQ1MjgwMzUz.zeAuThIpfE7dJgvVGTTr8QoTlssmeC5sSivgSV9YkcQg.gaOAfvVwwa5IcExoPuj2ESC3b5a8OHMKGmsAeiaQ_Z4g.PNG/a_a6739132db034ef4855fdffcda109526.png?type=m">
+                                                                <img alt="Adidas Samba ADV Black" src="https://kream-phinf.pstatic.net/MjAyMjAzMjlfMjg5/MDAxNjQ4NTQ1MjgwMzUz.zeAuThIpfE7dJgvVGTTr8QoTlssmeC5sSivgSV9YkcQg.gaOAfvVwwa5IcExoPuj2ESC3b5a8OHMKGmsAeiaQ_Z4g.PNG/a_a6739132db034ef4855fdffcda109526.png?type=m" loading="lazy" class="image">
+                                                            </picture>
+                                                                <!---->
+                                                                <!---->
+                                                                <!---->
+                                                                <!---->
+                                                            </div>
+                                                            <div class="product_desc">
+                                                                <p class="product_name">Adidas Samba ADV Black</p>
+                                                                <div class="price_box">
+                                                                    <span class="amount">138,000</span>
+                                                                    <span class="unit">원</span>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                                <!---->
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <!--                        게시글 끝-->
+                                <!--                                게시글 시작-->
+                                <div style="position: absolute;left: 300px;top: 0px;" class="feed_card item" style="position: absolute; left: 264.778px; top: 0px;"><a href="#"><div data-v-96369684="" class="card_box"><div data-v-96369684="" class="social_img_box vertical"><img data-v-96369684="" alt="소셜이미지" oncontextmenu="return false" ondragstart="return false" onselectstart="return false" src="https://kream-phinf.pstatic.net/MjAyMjEyMTNfMTQ1/MDAxNjcwOTM4MTY2NTU0.4CTHE4SKfswgtYOC585H6Gj0t7r6d6gXvjnzroNut-cg.HJEPgzcuSHrjeBSIev9VXJjQuCrpUSRP-896JJevVfMg.JPEG/p_46506b1204394e67b246abe8f3e37354.jpeg?type=m" loading="lazy" class="social_img"></div><div data-v-96369684="" class="card_detail"><div data-v-96369684="" class="user_box"><img data-v-96369684="" alt="사용자 프로필 이미지" src="https://kream-phinf.pstatic.net/MjAyMjA1MDVfMTg2/MDAxNjUxNzU2OTI2Mzk3.81EnEzktl5aWSHgGMiBK5zvtXHtN7KOSEL9SHREL9sog.RwBJPNvjFsyQgrRWdVCVHvWc3FqyPQquYZT3WJQBY9cg.JPEG/p_1262c8a2c6b541bcade95b62610fae20.jpeg?type=sl" class="img_profile"><p data-v-96369684="" class="user_name">jooyjin_</p></div><p data-v-96369684="" class="text_box">고프코어로~⛰
+
+
+
+                                    #아크테릭스 #아크테릭스제타SL #아크테릭스자켓
+                                    #크림스타일</p><div data-v-96369684="" class="btn_box"><a data-v-96369684="" href="#" aria-label="좋아요" class="btn like"><svg data-v-96369684="" xmlns="http://www.w3.org/2000/svg" class="icon sprite-icons social-like-gray-sm"><use data-v-96369684="" href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-social-like-gray-sm" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-social-like-gray-sm"></use></svg><span data-v-96369684="" class="like_count">44</span></a><a data-v-96369684="" href="#" aria-label="댓글" class="btn comment"><svg data-v-96369684="" xmlns="http://www.w3.org/2000/svg" class="social-comment-gray-sm icon sprite-icons"><use data-v-96369684="" href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-social-comment-gray-sm" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-social-comment-gray-sm"></use></svg><span data-v-96369684="" class="comment_count">2</span></a></div><div data-v-96369684=""><ul data-v-96369684="" class="product_list"><li data-v-96369684="" class="product_item"><a data-v-96369684="" href="/products/42703" class="product_link"><div data-v-09fbcf09="" data-v-96369684="" class="product" style="background-color: rgb(244, 244, 244);"><picture data-v-321fc3b6="" data-v-09fbcf09="" class="picture product_img"><source data-v-321fc3b6="" type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMTEwMDZfMTQ4/MDAxNjMzNTIyMDM5NzU5.eUn6XN8tURKKvgXvI4rctyH0A_zEw20vnbLKSNWVq50g.-UFhiggBfGucxWg9epEsFzH3Ib3_iX1Crk4wu1BXzOcg.JPEG/a_cf38ac4233bf4dc39d0bce472218b77f.jpg?type=m_webp"><source data-v-321fc3b6="" srcset="https://kream-phinf.pstatic.net/MjAyMTEwMDZfMTQ4/MDAxNjMzNTIyMDM5NzU5.eUn6XN8tURKKvgXvI4rctyH0A_zEw20vnbLKSNWVq50g.-UFhiggBfGucxWg9epEsFzH3Ib3_iX1Crk4wu1BXzOcg.JPEG/a_cf38ac4233bf4dc39d0bce472218b77f.jpg?type=m"><img data-v-321fc3b6="" alt="Arc'teryx Zeta SL Jacket Black" src="https://kream-phinf.pstatic.net/MjAyMTEwMDZfMTQ4/MDAxNjMzNTIyMDM5NzU5.eUn6XN8tURKKvgXvI4rctyH0A_zEw20vnbLKSNWVq50g.-UFhiggBfGucxWg9epEsFzH3Ib3_iX1Crk4wu1BXzOcg.JPEG/a_cf38ac4233bf4dc39d0bce472218b77f.jpg?type=m" loading="lazy" class="image"></picture><!----><!----><!----><!----></div><div data-v-96369684="" class="product_desc"><p data-v-96369684="" class="product_name">Arc'teryx Zeta SL Jacket Black</p><div data-v-96369684="" class="price_box"><span data-v-96369684="" class="amount">700,000</span><span data-v-96369684="" class="unit">원</span></div></div></a></li><li data-v-96369684="" class="product_item"><a data-v-96369684="" href="/products/25672" class="product_link"><div data-v-09fbcf09="" data-v-96369684="" class="product" style="background-color: rgb(244, 244, 244);"><picture data-v-321fc3b6="" data-v-09fbcf09="" class="picture product_img"><source data-v-321fc3b6="" type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMDEwMjJfMjY0/MDAxNjAzMzM0MDAyMjkz.wFUvINtdW_HtWw_dT93iON6PHbdGH6z_2MwUIyl3Uhog.h2DQIPhdatdIih9yvHtenOjPoS825NR_w0Fbx8ZoVZQg.PNG/p_25672_0_001365ad1ca1402ea03e6b9e0f6ae500.png?type=m_webp"><source data-v-321fc3b6="" srcset="https://kream-phinf.pstatic.net/MjAyMDEwMjJfMjY0/MDAxNjAzMzM0MDAyMjkz.wFUvINtdW_HtWw_dT93iON6PHbdGH6z_2MwUIyl3Uhog.h2DQIPhdatdIih9yvHtenOjPoS825NR_w0Fbx8ZoVZQg.PNG/p_25672_0_001365ad1ca1402ea03e6b9e0f6ae500.png?type=m"><img data-v-321fc3b6="" alt="Salomon XT-6 ADV White" src="https://kream-phinf.pstatic.net/MjAyMDEwMjJfMjY0/MDAxNjAzMzM0MDAyMjkz.wFUvINtdW_HtWw_dT93iON6PHbdGH6z_2MwUIyl3Uhog.h2DQIPhdatdIih9yvHtenOjPoS825NR_w0Fbx8ZoVZQg.PNG/p_25672_0_001365ad1ca1402ea03e6b9e0f6ae500.png?type=m" loading="lazy" class="image"></picture><!----><!----><!----><!----></div><div data-v-96369684="" class="product_desc"><p data-v-96369684="" class="product_name">Salomon XT-6 ADV White</p><div data-v-96369684="" class="price_box"><span data-v-96369684="" class="amount">204,000</span><span data-v-96369684="" class="unit">원</span></div></div></a></li><li data-v-96369684="" class="product_item"><a data-v-96369684="" href="/products/74267" class="product_link"><div data-v-09fbcf09="" data-v-96369684="" class="product" style="background-color: rgb(241, 241, 234);"><picture data-v-321fc3b6="" data-v-09fbcf09="" class="picture product_img"><source data-v-321fc3b6="" type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMjA4MThfMjI5/MDAxNjYwNzk3NTE1OTgx.PIl1nZ-_EhAoytfkTem0L7vuNWvDise9DI1cPUSrK7Ag.xtPv15NnoMHGmygFr_n-5I_dt4UhWhK4IlPcmPHPaoYg.PNG/a_33ff4989dff04f66b485b0933136bb4e.png?type=m_webp"><source data-v-321fc3b6="" srcset="https://kream-phinf.pstatic.net/MjAyMjA4MThfMjI5/MDAxNjYwNzk3NTE1OTgx.PIl1nZ-_EhAoytfkTem0L7vuNWvDise9DI1cPUSrK7Ag.xtPv15NnoMHGmygFr_n-5I_dt4UhWhK4IlPcmPHPaoYg.PNG/a_33ff4989dff04f66b485b0933136bb4e.png?type=m"><img data-v-321fc3b6="" alt="Adidas Superstar Golden Beige" src="https://kream-phinf.pstatic.net/MjAyMjA4MThfMjI5/MDAxNjYwNzk3NTE1OTgx.PIl1nZ-_EhAoytfkTem0L7vuNWvDise9DI1cPUSrK7Ag.xtPv15NnoMHGmygFr_n-5I_dt4UhWhK4IlPcmPHPaoYg.PNG/a_33ff4989dff04f66b485b0933136bb4e.png?type=m" loading="lazy" class="image"></picture><!----><!----><!----><!----></div><div data-v-96369684="" class="product_desc"><p data-v-96369684="" class="product_name">Adidas Superstar Golden Beige</p><div data-v-96369684="" class="price_box"><span data-v-96369684="" class="amount">112,000</span><span data-v-96369684="" class="unit">원</span></div></div></a></li></ul><!----></div></div></div></a></div>
+                                <!--                        게시글 끝-->
+                            </div>
+                        </div>
+<!--                        피드-->
+                    </div>
+                    <div id="footer"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+<script>
+    $(function () {
+
+        const sessionId = sessionStorage.getItem('userid'); // 세션 가져오기
+        const customerId = $('#idx').val();
+        let sessionUrl = '';
+        if(sessionId != null){
+            console.log('세션아이디 있음')
+            sessionUrl = '/api/style_user_list/'+ customerId + '/' + sessionId;
+        }else {
+            console.log('세션아이디 없음')
+            sessionUrl = '/api/style_user_list/'+ customerId;
+        }
+
+        axios.get(sessionUrl, {
+        }).then(function (response) {
+            console.log(response);
+            // 게시글
+            let userid = response.data.data.userid;
+            let userImg = response.data.data.userImg; /// ㅅㅏ용자 이미지
+            let name = response.data.data.name;
+            let intro = response.data.data.intro;
+            let boardCnt = response.data.data.boardCnt; // 게시물수
+            let followerCnt = response.data.data.followerCnt; // 팔로워수
+            let followingCnt = response.data.data.followingCnt; // 팔로잉수
+            let followBoolean = response.data.data.followBoolean;
+
+            // 유저 프로필 사진이 없을 경우 기본설정
+            if(userImg == null){
+                userImg = '/lib/img/blank_profile.4347742.png';
+            }
+
+            if(customerId!=sessionId){
+                $('#profile_text').after('<button id="profile_button" onclick="followbtn()">팔로우</button>');
+                // 팔로우가 true이면 기본설정
+                if(followBoolean == true){
+                    let btn = document.getElementById('profile_button')
+                    console.log('aaa');
+                    btn.innerText = "팔로잉";
+                    btn.style.backgroundColor = "white";
+                    btn.style.color = "black";
+                }
+            }else if(customerId==sessionId){
+                $('#profile_text').after(
+                    '<div id="user_button">' +
+                    '   <button><a href="/social/myprofile/edit">프로필 수정</a></button>' +
+                    '   <button><a href="/social/upload">새글 올리기</a></button>' +
+                    '</div>')
+
+            }
+            $('#profile_img_box').append('<img src="' + userImg + '" alt="" id="profile">' + '<p class="userid">' + userid + '</p>');
+            $('#profile_text').append('<p class="name">' + name + '</p>' + '<p class="intro">' + intro + '</p>');
+            $('#liCount').append('<span>게시물</span> <span class="count">' + boardCnt + '</span>');
+            $('.follower').append(followerCnt);
+            $('.following').append(followingCnt);
+            // 팔로우
+            for(let j in response.data.data.followerListApiResponseList){
+                let follower_id = response.data.data.followerListApiResponseList[j].id;
+                let follower_img = response.data.data.followerListApiResponseList[j].originFileName;
+                let follower_name = response.data.data.followerListApiResponseList[j].name;
+                let follower_profileName = response.data.data.followerListApiResponseList[j].profileName;
+                let followerBoolean = response.data.data.followerListApiResponseList[j].followerBoolean;
+
+                // 유저 프로필 사진이 없을 경우 기본설정
+                if(follower_img == null){
+                    follower_img = '/lib/img/blank_profile.4347742.png';
+                }
+                let cam = '<div class="p_body"><div class="p_user"><div class="p_imgbox">'+
+                    '<img src="'+follower_img+'" alt="" id="p_img"></div>'+
+                    '<div class="p_textbox"><p class="p_text1">'+follower_name+'</p><p class="p_text2">'+follower_profileName+'</p></div></div>'+
+                    '<div class="p_btnbox"><button class="p_btn subFollowBtn" id="'+follower_id+'" onclick="subFollow('+follower_id+')" style="background-color: black; color: white;">팔로우</button></div></div>';
+                if(follower_id==sessionId){
+                    cam = '<div class="p_body"><div class="p_user"><div class="p_imgbox">'+
+                        '<img src="'+follower_img+'" alt="" id="p_img"></div>'+
+                        '<div class="p_textbox"><p class="p_text1">'+follower_name+'</p><p class="p_text2">'+follower_profileName+'</p></div></div>'+
+                        '<div class="p_btnbox"></div></div>'
+                }else{
+                    if(followerBoolean==true){
+                        cam = '<div class="p_body"><div class="p_user"><div class="p_imgbox">'+
+                            '<a href="/social/profile/'+follower_id+'"><img src="'+follower_img+'" alt="" id="p_img"></a></div>'+
+                            '<div class="p_textbox"><p class="p_text1">'+follower_name+'</p><p class="p_text2">'+follower_profileName+'</p></div></div>'+
+                            '<div class="p_btnbox"><button class="p_btn subFollowBtn" id="'+follower_id+'" onclick="subFollow('+follower_id+')" style="background-color: white; color: black;">팔로잉</button></div></div>'
+                    }
+                }
+                $('.title_back1').append(cam);
+            }
+
+            //팔로잉
+            for(let k in response.data.data.followingListApiResponseList){
+                let following_id = response.data.data.followingListApiResponseList[k].id;
+                let following_img = response.data.data.followingListApiResponseList[k].originFileName;
+                let following_name = response.data.data.followingListApiResponseList[k].name;
+                let following_profileName = response.data.data.followingListApiResponseList[k].profileName;
+                let followingBoolean = response.data.data.followingListApiResponseList[k].followingBoolean;
+                // 유저 프로필 사진이 없을 경우 기본설정
+                if(following_img == null){
+                    following_img = '/lib/img/blank_profile.4347742.png';
+                }
+
+
+                let doit = '<div class="p_body">'+
+                    '<div class="p_user"><div class="p_imgbox">'+
+                    '<img src="'+following_img+'" alt="" id="p_img"></div>' +
+                    '<div class="p_textbox"><p class="p_text1">'+following_name +'</p><p class="p_text2">'+following_profileName+'</p></div></div>' +
+                    '<div class="p_btnbox"><button class="p_btn subFollowBtn" id="'+following_id+'" onclick="subFollow('+following_id+')" style="background-color: black; color: white;">팔로우</button></div></div></div>'
+                if(following_id==sessionId){
+                    doit = '<div class="p_body">'+
+                        '<div class="p_user"><div class="p_imgbox">'+
+                        '<img src="'+following_img+'" alt="" id="p_img"></div>' +
+                        '<div class="p_textbox"><p class="p_text1">'+following_name +'</p><p class="p_text2">'+following_profileName+'</p></div></div>' +
+                        '<div class="p_btnbox"></div></div></div>'
+                }else{
+                    if(followingBoolean==true){
+                        doit = '<div class="p_body">'+
+                            '<div class="p_user"><div class="p_imgbox">'+
+                            '<a href="/social/profile/'+following_id+'"><img src="'+following_img+'" alt="" id="p_img"></a></div>' +
+                            '<div class="p_textbox"><p class="p_text1">'+following_name +'</p><p class="p_text2">'+following_profileName+'</p></div></div>' +
+                            '<div class="p_btnbox"><button class="p_btn subFollowBtn" id="'+following_id+'" onclick="subFollow('+following_id+')" style="background-color: white; color: black;">팔로잉</button></div></div></div>'
+                    }
+                }
+                $('.title_back2').append(doit);
+            }
+            if(response.data.data.styleUserListApiResponseList.length==0){
+
+            }else{
+                for(let j in response.data.data.styleUserListApiResponseList){
+                    let content = response.data.data.styleUserListApiResponseList[j].content;
+                    let replyCnt = response.data.data.styleUserListApiResponseList[j].replyCnt;
+                    let product = response.data.data.styleUserListApiResponseList[j].styleProductTagApiResponseList;
+                    let styleId = response.data.data.styleUserListApiResponseList[j].styleId;
+                    let styleImg = response.data.data.styleUserListApiResponseList[j].styleImg; // 스타일 이미지
+                    let hit = response.data.data.styleUserListApiResponseList[j].hit; // 좋아요
+                    let hitBoolean = response.data.data.styleUserListApiResponseList[j].hitBoolean;
+                    let likeImg = '/lib/img/smile.png';
+                    //좋아요 기록이 true일 경우 이미지 변경
+                    if(hitBoolean == true){
+                        likeImg = '/lib/img/heart.png';
+                    }
+
+                    let hashTag = '';
+                    for(let z in response.data.data.styleUserListApiResponseList[j].styleHashTagNameApiResponseList){
+                        let hashtag = response.data.data.styleUserListApiResponseList[j].styleHashTagNameApiResponseList[z].tagName;
+                        hashTag = '#'+hashtag;
+                    }
+
+                    let conHash = '';
+                    if(content==null){
+                        conHash = hashTag;
+                    }else{
+                        conHash = content+hashTag;
+                    }
+
+                    let box = $('<div>');
+                    box.append(
+                        '<div class="card_box"><a href="/social/popular?styleId='+styleId+'"><div class="imgbox"><img src="/lib/styleImg/' + styleImg + '" alt="" class="img"></div>' +
+                        '<div class="userbox"><img src="' + userImg + '" alt="" class="userimg"><p class="userid" id="userid_after">' + userid + '</p></div>' +
+                        '<p class="text" style="text-align: initial">'+conHash+'</p></a><div class="likebox"><div class="likelink"><img src="'+likeImg+'" alt="" class="like_img" onclick="sendit('+styleId+')"><p class="like" id="'+styleId+'">' + hit + '</p></div>' +
+                        '<a href="#" class="likelink"><img src="/lib/img/7148750_chat_message_bubble_talk_conversation_icon.png" alt="" class="comment"><p class="re_count">' + replyCnt + '</p></a></div>'
+                    )
+
+                    for(let j in product){
+                        let pro_id = product[j].productId;// 상품 아이디
+                        let pro_img = product[j].originFileName; // 상품 이미지
+                        let pro_name = product[j].name; // 상품 이름
+                        let p_price = product[j].price;
+                        let price = p_price;
+                        //즉시구매가가 없는 경우
+                        if(p_price == null){
+                            price = '-';
+                        }else{
+                            price = priceToString(p_price);
+                        }
+                        box.append(
+                            '<a href="/product/'+pro_id+'" class="product_box"><div><img src="/lib/product/' + pro_img + '" alt="" class="product_img"></div>' +
+                            '<div class="product_text" style="margin-left: 1rem;"><p class="product_name">' + pro_name + '</p>' +
+                            '<div style="text-align: initial"><span class="product_price">' + price + '</span><span>원</span></div></div></a>'
+                        )
+                    }
+                    box.append('</div></div>');
+                    $('#Box').append(box);
+                }
+            }
+
+        }).catch((error) => {
+            console.log(error);
+        });
+    });
+    // 가격 ,(콤마) 생성
+    function priceToString(p_price) {
+        return p_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    }
+
+    // 좋아요 버튼
+    function sendit(styleId){
+        let likeNum = document.getElementById(styleId);
+        const sesessionId = sessionStorage.getItem('userid');
+        if(sesessionId==null){
+            location.href='/login';
+        }else{
+            axios.get('/api/styleLike_like/'+sesessionId+"/"+styleId,{
+            }).then(function (response) {
+                console.log(response)
+                let like = response.data;
+                likeNum.innerText = '';
+                likeNum.append(like);
+            });
+        }
+    }
+    $(document).on('click', '.like_img', function () {
+        /*$(".check_box").index(this); 몇번쨰 클래스인지 가져옴 // .index는 함수이름*/
+        let index = $(".like_img").index(this);
+        const sesessionId2 = sessionStorage.getItem('userid');
+        let like = document.getElementsByClassName('like_img');
+        let likeCheck = like.item(index).getAttribute('src');
+        if(sesessionId2!=null){    // 로그인 되어있을 경우에만 바꿔줌
+            if(likeCheck=='/lib/img/smile.png'){
+                like.item(index).setAttribute('src', '/lib/img/heart.png');
+            }else if(likeCheck=='/lib/img/heart.png'){
+                like.item(index).setAttribute('src', '/lib/img/smile.png');
+            }
+        }else{
+            location.href='/login';
+        }
+    });
+
+
+    // 프로필 팔로우
+    status = 0;
+    function followbtn(){
+        const sesessionId3 = sessionStorage.getItem('userid');
+        let followerId = sesessionId3; // 본인
+        let followingId = $('#idx').val();
+        axios.get('/api/follow_link/'+ followingId +'/' + followerId).then(function (response){
+            console.log(response);
+            if(response.data == true){
+                const followbtn = document.getElementById("profile_button");
+                followbtn.innerText = "팔로잉";
+                followbtn.style.backgroundColor = "white";
+                followbtn.style.color = "black";
+
+            }else if(response.data == false){
+                const followbtn = document.getElementById("profile_button");
+                followbtn.innerText = "팔로우";
+                followbtn.style.backgroundColor = "black";
+                followbtn.style.color = "white";
+            }
+        })
+    }
+
+    /* 팔로잉 버튼 */
+    function subFollow(id){
+        const sesessionId4 = sessionStorage.getItem('userid');
+        let followerId = sesessionId4;
+        let followingId = id;
+        let subBtn = document.getElementById(followingId);
+        axios.get('/api/follow_link/' + followingId+ '/' + followerId).then(function (response) {
+            if (response.data==true) {
+                subBtn.innerText = "팔로잉";
+                subBtn.style.backgroundColor = "white";
+                subBtn.style.color = "black";
+            } else if (response.data==false) {
+                subBtn.innerText = "팔로우";
+                subBtn.style.backgroundColor = "black";
+                subBtn.style.color = "white";
+            }
+        });
+    };
+</script>
+
+</html>
+
+
