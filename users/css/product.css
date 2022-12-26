@@ -1830,11 +1830,9 @@ svg:not(:root) {
 
 /* 스타일 */
 .feed_area {
-    top: 2000px;
     margin: 0 80px;
     padding-bottom: 60px;
     max-width: 1280px;
-    position: relative;
 }
 
 .feed_title {
