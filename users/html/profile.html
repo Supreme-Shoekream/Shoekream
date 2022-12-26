@@ -19,13 +19,15 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <link rel="stylesheet" href="../css/profile.css">
-    <link rel="stylesheet" href="../css/pop.css">
+
+    <link rel="stylesheet" href="../css//pop.css">
+
 
     <script type="text/javascript">
         $(document).ready( function() {
-            $("#header").load("../include/st_header.html");
-            $("#footer").load("../include/checkFooter.html");
-            $("#pop").load("../include/pop.html");
+            $("#header").load("./fragment/st_header.html");
+            $("#footer").load("./fragment/checkFooter.html");
+            $("#pop").load("./fragment/pop.html");
         });
     </script>
 
@@ -57,7 +59,7 @@
                         <div class="social_user_area">
                             <div class="user_top">
                                 <div class="profile_img_box">
-                                    <img src="../../static/lib/styleImg/styleimg1.jpg"
+                                    <img src="../styleImg/styleimg1.jpg"
                                     class="profile_img">
                                     ::after
                                 </div>
@@ -74,10 +76,10 @@
                                 <button type="button" class="btn solid medium btn_follow medium"> 팔로우 </button>
                                 <span>
                                     <button type="button" class="btn btn_social_more outline medium">
-                                        <img src="../../static/lib/styleImg/more_icon.png" class="social-more icon sprite-icons">
+                                        <img src="../styleImg/more_icon.png" class="social-more icon sprite-icons" onclick="more_up()">
                                     </button>
 <!--                                    js 적용해야함 (팝업)-->
-                                    <div lass="layer lg layer_alert" style="display: none;">
+                                    <div id="more_pop" class="layer lg layer_alert" style="display: none;" onclick="more_down()">
                                         <div class="layer_container">
                                             <div class="layer_header">
 
@@ -105,13 +107,13 @@
                                     </a>
                                 </li>
                                 <li class="tab_item" style="margin-left: 35px;">
-                                    <a href="#" class="tab_link">
+                                    <a href="#" class="tab_link" onclick="follower_up()">
                                         <span class="tab_menu">팔로워</span>
                                         <span class="menu_count" >228</span>
                                     </a>
                                 </li>
                                 <li class="tab_item" style="margin-left: 35px;">
-                                    <a href="#" class="tab_link">
+                                    <a href="#" class="tab_link" onclick="following_up()">
                                         <span class="tab_menu">팔로잉</span>
                                         <span class="menu_count">1</span>
                                     </a>
@@ -147,11 +149,11 @@
                                     #미리메리챌린지</p>
                                             <div class="btn_box">
                                                 <a href="#" aria-label="좋아요" class="btn like">
-                                                    <img src="../../static/lib/styleImg/like_icon.png" class="icon sprite-icons social-like-gray-sm">
+                                                    <img src="../styleImg/like_icon.png" class="icon sprite-icons social-like-gray-sm">
                                                     <span class="like_count">115</span>
                                                 </a>
                                                 <a href="#" aria-label="댓글" class="btn comment">
-                                                    <img src="../../static/lib/styleImg/comment_icon.png" class="social-comment-gray-sm icon sprite-icons">
+                                                    <img src="..//styleImg/comment_icon.png" class="social-comment-gray-sm icon sprite-icons">
                                                     <span class="comment_count">4</span>
                                                 </a>
                                             </div>
@@ -198,6 +200,99 @@
                             </div>
                         </div>
 <!--                        피드-->
+
+<!--                        팝업 (팔로워) 시작-->
+                        <div id="follower_pop" class="layer_social_user_list layer lg">
+                            <div class="layer_container">
+                            <a class="btn_layer_close" onclick="follower_down()">
+                                <img src="../img/x.png" class="ico-close icon sprite-icons">
+                            </a>
+                            <div class="layer_header">
+                                <h2 class="title">
+                                    팔로워
+                                    <span class="cnt">237</span>
+                                </h2>
+                            </div>
+                            <div class="layer_content">
+                                <!---->
+                                <div class="user_list_content" >
+                                    <ul class="user_list">
+                                        <li class="user_item">
+                                            <div class="user_box">
+                                                <a href="#" class="user_link">
+                                                    <div class="img_box">
+<!--                                                        <img src="/images/account_img_default.png" alt="KREAM 프로필 이미지" class="profile_img">-->
+                                                        <img src="../styleImg/empty_profile_img.png" alt="KREAM 프로필 이미지" class="profile_img">
+                                                    </div>
+                                                    <div class="info_box">
+                                                        <span class="user_name">
+                                                            <span class="user_name_text">cdmlwe</span>
+                                                        </span>
+                                                        <span class="user_subname">yangrara</span>
+                                                    </div>
+                                                </a>
+                                                <div class="user_box_follow">
+                                                    <button type="button" class="btn solid small btn_follow small"> 팔로우 </button>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <div class="list_loading" style="display: none;">
+                                            <img src="/_nuxt/img/loading.410eb77.gif" alt="리스트 로딩중입니다." class="loading_img">
+                                        </div>
+                                    </ul>
+                                    <!---->
+                                </div>
+                            </div>
+                        </div>
+                        </div  >
+<!--                        팝업 (팔로워) 끝-->
+
+<!--                        팝업 (팔로잉) 시작-->
+                        <div id="following_pop" class="layer_social_user_list layer lg">
+                            <div class="layer_container">
+                                <a class="btn_layer_close" onclick="following_down()">
+                                    <img src="../img/x.png" class="ico-close icon sprite-icons">
+                                </a>
+                                <div class="layer_header">
+                                    <h2 class="title">
+                                        팔로잉
+                                        <span class="cnt">237</span>
+                                    </h2>
+                                </div>
+                                <div class="layer_content">
+                                    <!---->
+                                    <div class="user_list_content" >
+                                        <ul class="user_list">
+                                            <li class="user_item">
+                                                <div class="user_box">
+                                                    <a href="#" class="user_link">
+                                                        <div class="img_box">
+                                                            <!--                                                        <img src="/images/account_img_default.png" alt="KREAM 프로필 이미지" class="profile_img">-->
+                                                            <img src="../styleImg/empty_profile_img.png" alt="KREAM 프로필 이미지" class="profile_img">
+                                                        </div>
+                                                        <div class="info_box">
+                                                        <span class="user_name">
+                                                            <span class="user_name_text">cdmlwe</span>
+                                                        </span>
+                                                            <span class="user_subname">yangrara</span>
+                                                        </div>
+                                                    </a>
+                                                    <div class="user_box_follow">
+                                                        <button type="button" class="btn solid small btn_follow small"> 팔로우 </button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <div class="list_loading" style="display: none;">
+                                                <img src="/_nuxt/img/loading.410eb77.gif" alt="리스트 로딩중입니다." class="loading_img">
+                                            </div>
+                                        </ul>
+                                        <!---->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+<!--                        팝업 (팔로잉) 끝-->
+
                     </div>
                     <div id="footer"></div>
                 </div>
@@ -205,6 +300,8 @@
         </div>
 
     </div>
+
+    <script src="../js/style/profile.js"></script>
 </body>
 
 <script>
