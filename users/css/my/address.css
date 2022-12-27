@@ -1,6 +1,7 @@
 
 /* 주소록 */
 /* #input_button_check{ -webkit-appearance: auto; } */
+
 /* 공통 부분 */
 body, button, input, select, table, textarea {
     font-family: 'Noto Sans KR', sans-serif;
@@ -165,9 +166,9 @@ button {
     height: 18px;
     line-height: 18px;
     font-size: 1.1rem;
-    color: #fff;
+    color: #222222;
     border-radius: 10px;
-    background-color: #bbb;
+    background-color: #f4f4f4;
 }
 .address_info .address_box {
     padding-top: 4px;
@@ -228,6 +229,40 @@ button {
     top: -10px;
 }
 
+.content_title
+{
+    display: flex;
+    padding: 5px 0 6px;
+}
+
+.btn_bind {
+    margin-left: auto;
+    flex-shrink: 0;
+    font-size: 0;
+}
+
+.my_item {
+    position: relative;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+
+.my_item .info_bind
+{
+    margin-right: 24px;
+}
+
+.basic .btn_bind
+{
+    margin-top: 12px;
+}
+
+.btn_bind
+{
+    margin-left: auto;
+}
 
 /**************************************** js ***************************/
 /* input error 경우 */
@@ -340,15 +375,18 @@ button {
 
     .default_mark.mark { display: none; }
 
-    .address_info .mark {
+    .address_info .mark{
+        display: inline-block;
+        vertical-align: top;
+        line-height: 14px;
+        margin-top: 0;
         margin-left: 4px;
-        padding: 0 6px;
-        height: 18px;
-        line-height: 18px;
-        font-size: 11px;
-        color: #fff;
+        padding: 3px 6px;
+        font-size: 12px;
+        letter-spacing: -.06px;
         border-radius: 10px;
-        background-color: #bbb;
+        background-color: #f4f4f4;
+        box-sizing: border-box;
     }
     
     .address_info .mark, .address_info .name { display: inline-block; font-weight: 700; vertical-align: top; }

@@ -4,62 +4,79 @@
 <div th:replace="include/pjs_head :: head"></div>
 <!-- head.html 끝-->
 <!-- <link rel="stylesheet" th:href="@{/lib/css/mypage_address.css}">-->
-<link rel="stylesheet" href="../../css/my/address.css">
-<body>
-<div class="wrap">
 
-    <div class="container my">
-        <div>
-            <!--snb_area start-->
-            <div th:replace="include/pjs_mypage_snb_mo :: mypage_snb_mo"></div>
-            <!--snb_area end-->
-        </div>
-        <div class="content_area">
-            <div class="my_addressbook">
-                <div class="content_title">
-                    <div class="title">
-                        <h3>주소록</h3>
-                        <!---->
-                    </div>
-                    <div class="btn_box">
-                        <a href="#" type="button" class="btn btn_add">
+<link rel="stylesheet" href="../../css/my/address.css">
+
+<body>
+    <div class="wrap">
+
+        <div class="container my">
+            <div>
+                <!--snb_area start-->
+                <div th:replace="include/pjs_mypage_snb_mo :: mypage_snb_mo"></div>
+                <!--snb_area end-->
+            </div>
+            <div class="content_area">
+                <div class="my_addressbook">
+                    <div class="content_title">
+                        <div class="title">
+                            <h3>주소록</h3>
                             <!---->
-                            <span class="btn_txt">+ 새 배송지 추가</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="my_list">
-                    <div class="basic">
-                        <div class="my_item">
-                            <div class="info_bind">
+                        </div>
+
+                        <div class="btn_box">
+                            <a href="#" class="btn btn_add">
                                 <!---->
-                                <div class="address_info">
-                                    <div class="name_box">
-                                        <span class="name" id="defaltName">김사과</span>
-                                        <span class="mark">기본 배송지</span>
-                                    </div>
-                                    <p class="phone" id="defaltHp">010-1234-5678</p>
-                                    <div class="address_box">
-                                        <span class="zipcode" id="defaltZipcode">(12345)</span>
-                                        <span class="address" id="defaltAddress">서울시 서울구 서울동 서울</span>
+                                <span class="btn_txt"> + 새 배송지추가 </span>
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <div class="my_list">
+                        <div class="basic">
+                            <div class="my_item is_active" default-mark="기본 배송지" >
+                                <div class="info_bind"><!---->
+                                    <div class="address_info">
+                                        <div class="name_box">
+                                            <span class="name">김**</span>
+                                            <span class="mark">기본 배송지</span>
+                                        </div>
+
+                                        <p class="phone">010<span class="hyphen"></span>6
+                                            <span class="dot"></span>
+                                            <span class="dot"></span>
+                                            <span class="dot"></span>
+                                            <span class="hyphen"></span>
+                                            <span class="dot"></span>822
+                                        </p>
+
+                                        <div class="address_box">
+                                            <span class="zipcode">(12345)</span>
+                                            <span class="address">서울 서울구 서울동 서울집<span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="btn_bind">
-                                <span type="button" class="btn outlinegrey small"> 수정 </span>
-                                <span type="button" class="btn outlinegrey small"> 삭제 </span>
+
+                                <div class="btn_bind">
+                                    <!---->
+                                    <a href="#" class="btn outlinegrey small"> 수정 </a>
+                                    <a href="#" class="btn outlinegrey small"> 삭제 </a>
+                                </div>
                             </div>
                         </div>
+                        <div class="other">
+                            <div class="other_list"></div>
+                        </div>
                     </div>
+                    <div></div><!---->
                 </div>
-                <!---->
             </div>
         </div>
-    </div>
-    <!---->
-    <!--footer-->
-    <div class="underline"></div>
-    <!--footer end-->
+        <!---->
+        <!--footer-->
+        <div class="underline"></div>
+        <!--footer end-->
 
 </body>
 <script>
@@ -67,13 +84,15 @@
     // 모바일 헤더 title 변경
     const contentTitle = document.querySelector('.content_title').querySelector('h3');
     const headerTitle = document.querySelector('.main_inner').querySelector('h4');
-    headerTitle.innerHTML=contentTitle.innerText;
+    headerTitle.innerHTML = contentTitle.innerText;
 
     // nav 태그에 on 클래스 추가
     document.querySelector("#address").className += ' menu_on';
 
 
-</script><script type="text/javascript" th:src="@{/lib/js/pjs_header_nav.js}"></script>
+</script>
+<script type="text/javascript" th:src="@{/lib/js/pjs_header_nav.js}"></script>
 <script type="text/javascript" th:src="@{/lib/js/loginpage_mypage_all.js}"></script>
 <script type="text/javascript" th:src="@{/lib/js/mypage_address.js}"></script>
+
 </html>

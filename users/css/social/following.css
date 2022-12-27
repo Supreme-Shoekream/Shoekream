@@ -8,6 +8,10 @@
     padding-top: 100px;
 }
 
+a:-webkit-any-link{
+    text-decoration: none;
+}
+
 .container.social {
     margin-top: 0!important;
 }
