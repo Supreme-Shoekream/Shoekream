@@ -225,8 +225,8 @@ svg:not(:root) {
 }
 p {
     display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
+    /* margin-block-start: 1em;
+    margin-block-end: 1em; */
     margin-inline-start: 0px;
     margin-inline-end: 0px;
 }
@@ -585,9 +585,9 @@ button {
     grid-template-columns: repeat(4,minmax(0,1fr));
 }
 
-.lg .brand_products, .md .brand_products {
+/* .lg .brand_products, .md .brand_products {
     grid-template-columns: repeat(3,minmax(0,1fr));
-}
+} */
 
 .brand_products {
     padding-left: 10px;
