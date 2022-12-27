@@ -108,8 +108,8 @@ a:link, a:active, a:focus, a:visited{color: black; text-decoration: none;}
 #header_upload {
     display: flex;
     justify-content: space-between;
-    margin-left: 18%;
-    margin-right: 18%;
+    margin-left: 8rem;
+    margin-right: 8rem;
     /* align-items: center; */
     /* text-align: center; */
     margin-top: 55px;
