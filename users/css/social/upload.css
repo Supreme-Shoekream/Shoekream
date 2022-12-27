@@ -108,30 +108,15 @@ a:link, a:active, a:focus, a:visited{color: black; text-decoration: none;}
 #header_upload {
     display: flex;
     justify-content: space-between;
-    margin-left: 8rem;
-    margin-right: 8rem;
-    /* align-items: center; */
-    /* text-align: center; */
+
+
     margin-top: 55px;
 }
 #header_upload h3 {font-size: 2.5rem;}
 #back_img {margin: 2.5rem 0 0 2rem; height: 4rem;}
-.img_del{
-    margin: 0 2rem 0 0; 
-    padding: 0.6rem 3rem;
-    font-size: 1.1rem; 
-    border-radius: 1rem; 
-    background-color: black; 
-    color: white;
-}
 
-textarea, #upload_hashtag, #upload_product, #upload_imgbox{
-    border-radius: 1rem;
-}
-#upload_imgbox{
-    border: black 2px solid;
-}
-#header_upload div label{margin: 0 2rem 0 0; padding: 0.6rem 3rem;font-size: 1.1rem; border-radius: 1rem; background-color: black; color: white;}
+#header_upload div label {margin: 0 2rem 0 0; padding: 0.6rem 3rem;font-size: 1.1rem; border-radius: 1rem; background-color: black; color: white;}
+
 #upload_box {display: flex; width: 100%; margin: auto; justify-content: center;}
 #upload_imgbox {width: 40rem; padding: 2rem 0; text-align: center;}
 #upload_textbox {width: 71rem; height: 15rem; border: black 2px solid; margin-left: 3rem; display: flex; padding: 2rem;}
@@ -889,7 +874,9 @@ li{list-style: none;}
 }
 /*======================================*/
 
-.muti_img_class, .append_img_class{height: 200px; border: 1px solid #000; margin: 5px; border-radius: 5%;}
+
+.muti_img_class, .append_img_class{height: 121px; border: 1px solid #000; margin: 5px;}
+
 .in_search:focus{outline: none;}
 input::-ms-clear {display:none;}
 .search_delet{font-size: 1.4rem; line-height: 4.4rem;}
