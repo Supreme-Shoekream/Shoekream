@@ -104,6 +104,7 @@ input {
 
 .input_item {
     position: relative;
+    
 }
 
 .solid {
@@ -231,6 +232,49 @@ input {
     right: 0;
 }
 
+.input_birth {
+    border: 1px solid #ebebeb;
+    width: 100px;
+    padding: 12px 5px;
+    margin: 0 auto;
+}
+
+.ssn1 {
+    margin-right: 12px;
+}
+
+.ssn2 {
+    width: 16px;
+    margin-left: 22px;
+    margin-right: 10px;
+}
+
+.dash {
+    font-size: 3rem;
+    font-weight: lighter;
+    display: inline-block;
+    position: absolute;
+    margin-top: -5px;
+}
+
+.bullelements {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    display: inline-block;
+    position: absolute;
+}
+
+.input_item.birth {
+    margin-top: 12px;
+}
+
+.input_birth::placeholder {
+    font-weight: bold;
+    font-size: 2.5rem;
+    padding: 5px;
+    color: #ebebeb;
+}
+
 .btn_size_select {
     position: absolute;
     right: 1rem;
@@ -247,7 +291,6 @@ input {
 
 .btn_join {
     border: none;
-
 }
 
 .join_terms {
