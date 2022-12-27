@@ -1,15 +1,14 @@
-<html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/"></html>
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHOEKREAM | 한정판 거래의 FLEX</title> -->
+    <title>SHOEKREAM | 한정판 거래의 FLEX</title>
     <link rel="stylesheet" href="../css/loginStyle.css">
-    <!-- <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://kream.co.kr/favicon.ico">
+    <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://kream.co.kr/favicon.ico">
     <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css"/>
-</head> -->
+</head>
 <body>
     <div class="join_area">
         <h2 class="join_title">회원가입</h2>
@@ -40,14 +39,33 @@
             </div><!--.input_item END-->
         </div><!--.input_box END-->
 
+        <div class="input_box">
+            <h3 class="input_title">이름</h3>
+            <div class="input_item">
+                <input type="text" class="input_txt in_essValue" name="name" placeholder="이름 입력">
+            </div><!--.input_item END-->
+        </div><!--.input_box END-->
+
+        <div class="input_box">
+            <h3 class="input_title">생년월일/성별</h3>
+            <div class="input_item birth">
+                <input type="text" class="input_birth ssn1" name="ssn1" placeholder="&bull; &bull; &bull; &bull; &bull; &bull;"> <span class="dash">-</span>
+                <input type="text" class="input_birth ssn2" name="ssn2" placeholder="&bull;"><span class="bullelements">&bull;&bull;&bull;&bull;&bull;&bull;</span>
+            </div><!--.input_item END-->
+        </div><!--.input_box END-->
+
+        <div class="input_box">
+            <h3 class="input_title">휴대폰 번호</h3>
+            <div class="input_item">
+                <input type="text" class="input_txt in_essValue" name="hp" placeholder="숫자만 입력">
+            </div><!--.input_item END-->
+        </div><!--.input_box END-->
+
         <button type="submit" disabled="disabled" class="btn btn_join full solid disabled" onclick="sendit()"> 가입하기 </button>
     </div><!--.join_area END-->
 
     <div th:replace="../layer/size_layer::size_layer"></div>
 
     <!-- <script src="../js/login/join.js"></script> -->
-
-    <script type="text/javascript" th:src="@{/js/login/join.js}"></script>
-    <!-- <link rel="stylesheet" href="../js/login/join.js" type="text/javascript" th:href="@{/join.js}"> -->
 </body>
 </html>
