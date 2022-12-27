@@ -238,11 +238,136 @@
 <!--                                                        </a>-->
                                                     </div>
                                                 </div>
-                                                <a href="#" class="btn_more" >댓글 더 보기...</a>
+                                                <a href="#" class="btn_more"  onclick="comment_more()">댓글 더 보기...</a>
                                             </div>
                                         </div>
                                     </div>
                                     <!---->
+<!--                                    댓글 더보기 시작-->
+                                    <div style="display: none;" id="comment_more" class="layer_social_comment layer lg" onclick="comment_close()">
+                                        <div class="layer_container">
+                                            <a class="btn_layer_close">
+                                                <img id="comment_close" src="../img/x.png" class="ico-close icon sprite-icons" onclick="comment_close()">
+                                            </a>
+                                            <div  class="layer_header">
+                                                <h2 class="title">댓글</h2>
+                                            </div>
+                                            <div class="layer_content">
+                                                <div class="comment_top">
+                                                    <div class="comment_top_scroll">
+                                                        <div class="comment_unit" >
+                                                            <div class="comment_box">
+                                                                <a href="#" class="profile_link">
+                                                                    <img  src="https://kream-phinf.pstatic.net/MjAyMTEwMTdfMTcy/MDAxNjM0NDQyNjE2OTAw.zcttZMktG1r7UzTGLx1O0xNa3NpIpY5sv1OT3TsISeUg.htPxm_M5js-UOSoE-EmPj1xBbPMtUAue7vsuDkjkzXcg.JPEG/p_fa4534f074834c7283a6f0284d188e93.jpeg?type=sl" alt="KREAM 프로필 이미지" class="profile_img">
+                                                                </a>
+                                                                <div  class="comment_detail">
+                                                                    <div class="main">
+                                                                        <span class="user_name">mangocheezz</span>
+                                                                        <span class="comment_txt">북금곰<br>
+                                                                            <a class="hashtag" href="https://kream.co.kr/social/tags/미리메리챌린지">#미리메리챌린지</a>
+                                                                            <a class="hashtag" href="https://kream.co.kr/social/tags/크림챌린지">#크림챌린지</a>
+                                                                            <a class="hashtag" href="https://kream.co.kr/social/tags/KREAM챌린지">#KREAM챌린지</a>
+                                                                            <a class="hashtag" href="https://kream.co.kr/social/tags/스트릿">#스트릿</a>
+                                                                        </span>
+                                                                    </div>
+                                                                    <div  class="sub">
+                                                                        <span  class="upload_time">2022년 12월 17일</span>
+                                                                        <!---->
+                                                                        <!---->
+                                                                    </div>
+                                                                </div>
+<!--                                                                <a  href="#" class="btn_like">-->
+<!--                                                                    <svg  xmlns="http://www.w3.org/2000/svg" class="icon sprite-icons social-like-gray-sm">-->
+<!--                                                                        <use  href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-social-like-gray-sm" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-social-like-gray-sm"></use>-->
+<!--                                                                    </svg>-->
+<!--                                                                </a>-->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="social_comment_input_box">
+                                                        <!---->
+                                                        <div class="social_comment_input">
+                                                            <div  class="comment_input">
+                                                                <a  href="#" class="profile_link">
+                                                                    <img  src="../img/kream_empty_img.png" alt="KREAM 프로필 이미지" class="profile_img">
+                                                                </a>
+                                                                <div class="wrap_input" style="height: 41px;">
+                                                                    <div contenteditable="true" class="input_txt origin"></div>
+                                                                    <div  placeholder="댓글을 남기세요…" class="input_txt dummy"></div>
+                                                                    <a  href="#" class="btn_regist" style="display: none;"> 등록 </a>
+                                                                </div>
+                                                            </div>
+                                                            <ul class="social_suggests" style="display: none;">
+
+                                                            </ul>
+                                                        </div>
+                                                    </div></div><div class="comment_content">
+                                                <div class="comment_group">
+                                                    <div class="comment_unit" >
+                                                        <div class="comment_box">
+                                                            <a  href="#" class="profile_link">
+                                                                <img  src="https://kream-phinf.pstatic.net/MjAyMTA2MDVfMjIx/MDAxNjIyODk4MDg5Mzc3.AswlLgdsszwjhvsfkO7UZ4AQuAsClgJE_vAY7W6pvcsg.NnMrpGmDhYGyHkw1dKqcOvOh7a_qj9uEK0SLacZmMzgg.JPEG/p_be0e84a1ed5842019ca7e23fedaaf5be.jpeg?type=sl" alt="KREAM 프로필 이미지" class="profile_img">
+                                                            </a>
+                                                            <div class="comment_detail">
+                                                                <div  class="main">
+                                                                    <span  class="user_name">1week7outfits</span>
+                                                                    <span  class="comment_txt">너무 멋져요 💘</span>
+                                                                </div>
+                                                                <div class="sub">
+                                                                    <span class="upload_time">2022년 12월 19일</span>
+                                                                    <!---->
+                                                                    <!---->
+                                                                    <a  href="#" class="writing_reply"> 답글쓰기 </a>
+                                                                    <a href="#" class="delete">삭제</a>
+                                                                </div>
+                                                            </div>
+<!--                                                            <a href="#" class="btn_like">-->
+<!--                                                                <svg  xmlns="http://www.w3.org/2000/svg" class="icon sprite-icons social-like-gray-sm">-->
+<!--                                                                    <use  href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-social-like-gray-sm" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-social-like-gray-sm"></use>-->
+<!--                                                                </svg>-->
+<!--                                                            </a>-->
+                                                        </div>
+                                                        <div   class="reply_bind"></div>
+                                                    </div>
+                                                    <div class="comment_unit" >
+                                                        <div  class="comment_box">
+                                                            <a  href="#" class="profile_link">
+                                                                <img  src="../img/kream_empty_img.png" alt="KREAM 프로필 이미지" class="profile_img">
+                                                            </a>
+                                                            <div  class="comment_detail">
+                                                                <div  class="main">
+                                                                    <span  class="user_name">ddemfv</span>
+                                                                    <span  class="comment_txt">땅딸보</span>
+                                                                </div>
+                                                                <div class="sub">
+                                                                    <span class="upload_time">2022년 12월 18일</span>
+                                                                    <!---->
+                                                                    <!---->
+                                                                    <a  href="#" class="writing_reply"> 답글쓰기 </a>
+                                                                    <a href="#" class="delete">삭제</a>
+
+                                                                </div>
+                                                            </div>
+<!--                                                            <a  href="#" class="btn_like">-->
+<!--                                                                <svg  xmlns="http://www.w3.org/2000/svg" class="icon sprite-icons social-like-gray-sm">-->
+<!--                                                                    <use  href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-social-like-gray-sm" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-social-like-gray-sm"></use>-->
+<!--                                                                </svg>-->
+<!--                                                            </a>-->
+                                                        </div>
+                                                        <div class="reply_bind">
+
+                                                        </div>
+                                                    </div>
+                                                    <!---->
+                                                </div>
+                                            </div>
+                                                <!---->
+                                            </div>
+                                        </div>
+                                    </div>
+<!--                                    댓글 더보기 끝-->
                                     <!---->
                                     <!---->
                                 </div>
@@ -259,7 +384,22 @@
 
 <script src="../js/following.js"></script>
 </body>
+<script>
+    function comment_more(){
+        const popup = document.getElementById('comment_more');
+        popup.style.display = "block";
+        const body = document.querySelector('body');
+        body.style.overflow = 'hidden'
+    }
 
+    function comment_close(){
+        const popdown = document.getElementById('comment_more');
+        popdown.style.display = "none"
+        const body = document.querySelector('body');
+        body.style.overflow = 'unset'
+    }
+
+</script>
 
 
 </html>
