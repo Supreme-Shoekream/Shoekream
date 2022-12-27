@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>KRAEM | 한정판 거래의 FLEX</title>
+    <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://kream.co.kr/favicon.ico">
+    <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!--axios cdn -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="../css/upload.css">
+    <link rel="stylesheet" href="../css/pop.css">
+<!--    <link rel="stylesheet" href="../../static/lib/css/hashtag.css">-->
+
+    <script type="text/javascript">
+        $(document).ready( function() {
+            $("#header").load("../fragment/st_header.html");
+            $("#footer").load("../fragment/checkFooter.html");
+            $("#pop").load("../fragment/pop.html");
+        });
+    </script>
+</head>
+<body>
+
+<!-- head.html -->
+<!--<div th:replace="include/header :: head"></div>-->
+<div id="header"></div>
+<!-- head.html 끝-->
+<div id="fixed"></div>
+<!--<div th:replace="include/pop :: pop"></div>-->
+<div id="pop"></div>
+<!-- 모바일 오른쪽 -->
+
+<!--검색창-->
+
+
+
+
+<!--  -->
+<div  id="header_upload" >
+    <a onclick="location.href='/social/profile/'+sessionId" style="cursor: pointer">
+        <img src="../img/4781857_arrow_arrows_back_direction_left_icon.png" alt="" id="back_img">
+    </a>
+    <h3>STYLE UPLOAD</h3>
+    <div class="label_box">
+        <label for="formSub">공유</label>
+    </div>
+</div>
+
+<div>
+    <div id="upload_box">
+        <div>
+            <div id="upload_imgbox">
+                <p class="board_text1">사진 추가하기</p>
+                <form class="container" onsubmit="return sendit()"  enctype="multipart/form-data" id="form">
+                    <div class="filebox" >
+                        <input class="upload-name" style="display:none;" disabled="disabled" multiple>
+                        <label class="board_text2" id="ww" for="files">여기를 누르면 사진이 추가됩니다</label>
+                        <input type="file" id="files" style="display:none;" name="files" class="upload-hidden" multiple>
+                    </div>
+                    <input type="submit" id="formSub" style="display: none">
+                    <div id="muti_list" style="display:flex;flex-wrap:wrap;"></div>
+                </form>
+            </div>
+        </div>
+
+        <div>
+            <textarea type="text" placeholder="공유하고 싶은 글을 입력하세요." id="upload_textbox" maxlength="5000" style="resize:none;"></textarea>
+            <div id="upload_hashtag">
+                <p id="upload_hash">해시태그 <span style="color:red; font-size: 1.1rem">*태그는 10개까지만 가능합니다. </span></p>
+                <input type="text" placeholder="해시태그를 입력해주세요" id="hashtag_input" maxlength="10"><span class="hashtag_input_submit">등록</span>
+                <div id="hashtag_list"></div>
+            </div>
+            <div id="upload_product">
+                <div>
+                    <p id="upload_product_tag">상품태그 <span style="color:red; font-size: 1.1rem">*태그는 4개까지만 가능합니다.</span></p>
+                </div>
+                <div id="upload_img_box">
+                    <div class="upload_plus_box" id="search_product">
+                        <img src="../img/2561435_plus_file_icon.png" alt="" class="upload_plus_img">
+                        <p>상품 추가하기</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr/>
+<!-- footer -->
+<!--<div th:replace="include/checkFooter :: footer"></div>-->
+<div id="footer"></div>
+<!-- footer 끝 -->
+<!--===========================================================================================================================================-->
+<!-- 팝업창 -->
+<div id="popupDiv" style="display: none">
+    <div class="layer_container">
+        <!-- 상품 추가하기 -->
+        <div class="layer_header">
+            <h2 class="title" id="add_title">상품 추가하기</h2>
+            <img src="../img/nav_close_icon.png" alt="닫기" class="btn_layer_close" id="popCloseBtn">
+        </div>
+        <!-- 검색창 버튼  -->
+        <div class="popup_search">
+            <input type="text" placeholder="브랜드명,모델명, 모델번호 등" class="in_search">
+            <div class="search_delet">삭제</div>
+        </div>
+        <div class="product_plus" style="display: none;">
+            <div class="plus_search"></div>
+        </div>
+        <!-- 하단 취소하기 / 저장하기 버튼 -->
+        <div class="bottom_button">
+            <button class="btn solid outlinegrey btn_delete">취소</button>
+        </div>
+    </div>
+</div>
+<!-- js 마지막 -->
+<!--===========================================================================================================================================-->
+
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="../js/upload.js"></script>
+<script src="../js/pop.js"></script>
+</body>
+<script>
+    const sessionId = sessionStorage.getItem('userid'); // 세션 가져오기
+
+    function handleFileSelect(evt) {
+        let fileSize = document.getElementsByClassName("muti_div");
+        var files = evt.target.files;
+        if(fileSize.length + files.length < 6){
+            for (var i = 0, f; f = files[i]; i++) {
+                if (!f.type.match('image.*')) { continue; }
+
+                var reader = new FileReader();
+
+                reader.onload = (function (theFile) {
+                    return function (e) {
+                        var span = document.createElement('span');
+                        span.innerHTML =
+                            [
+                                '<div class="muti_div" style="display: block;"><img class="muti_img_class" src="',
+                                e.target.result,
+                                '" title="', escape(theFile.name),
+                                '"/><br><button class="img_del" style="border: none; background: none;">삭제</button></div>'
+                            ].join('');
+
+                        document.getElementById('muti_list').insertBefore(span, null);
+                        const muti_img_list = document.querySelectorAll(".img_del");
+                        for (let i = 0; i < muti_img_list.length; i++) {
+                            muti_img_list[i].addEventListener('click', function () {
+                                this.parentNode.remove();
+                            });
+                        }
+                    };
+                })(f);
+                reader.readAsDataURL(f);
+            }
+        }else{ alert("사진은 5개까지 첨부 가능합니다"); }
+    }
+    document.getElementById('files').addEventListener('change', handleFileSelect, false);
+
+    function sendit(){
+        const customer_id = sessionStorage.getItem( "userid");
+        let muti_div = document.querySelectorAll('.muti_div');
+        let hashtag_replace = document.querySelectorAll('.hashtag_replace');
+        let product_id = document.querySelectorAll(".product_id");
+        let arrHash = [];
+        let arrId = [];
+        if(muti_div.length==0){
+            alert("사진을 추가해주세요");
+            return false;
+        }
+        for(let i=0; i<hashtag_replace.length; i++){
+            let hash = hashtag_replace.item(i).innerHTML;
+            arrHash.push(hash);
+        }
+        for(let i=0; i<product_id.length; i++){
+            let proTagId = product_id.item(i).value;
+            console.log(parseInt(proTagId));
+            arrId.push(parseInt(proTagId));
+        }
+        let formData = new FormData($("form")[0]);
+        const img = document.getElementsByClassName('muti_img_class')
+        for(let i = 0; i < img.length; i++){
+            let file = img[i];
+            formData.append('files', file[i]);
+        }
+        const data = {
+            productId: arrId,
+            tagName: arrHash,
+            customerId: customer_id,
+            content: $('#upload_textbox').val(),
+        }
+        formData.append("data", new Blob([JSON.stringify(data)], {type: "application/json"}));
+        axios.request({
+            method: 'POST',
+            url: '/api/style_register',
+            headers:{'Content-type':'multipart/form-data'},
+            data: formData
+        }).then(  )
+        alert('게시물이 등록되었습니다.');
+        location.href='/social/profile/'+customer_id;
+        return false;
+    }
+</script>
+</html>
