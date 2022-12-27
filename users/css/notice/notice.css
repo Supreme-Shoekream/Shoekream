@@ -200,6 +200,7 @@ h3 {
     border-bottom: 1px solid #ebebeb;
     cursor: pointer;
 }
+/* page 처리 */
 .pagination {
     padding: 28px 0;
 }
