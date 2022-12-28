@@ -583,6 +583,11 @@ svg:not(:root) {
     top: 130px;
 }
 
+.is_absolute .column_box {
+    position: absolute;
+    top: 1200px;
+}
+
 .banner_slide {
     overflow: hidden;
     position: relative;
