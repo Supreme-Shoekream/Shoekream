@@ -47,7 +47,7 @@ a{
     position: relative;
     padding-top: 100px;
 }
-.container.buy {
+.container.sell {
     background-color: #fafafa;
 }
 .content{
@@ -55,11 +55,11 @@ a{
     padding: 20px 40px 160px;
     max-width: 780px;
 }
-.buy_before{
+.sell_before{
     -webkit-box-shadow: 0 4px 10px 0 rgba(0,0,0,.1);
     box-shadow: 0 4px 10px 0 rgba(0,0,0,.1);
 }
-.buy_before_check {
+.sell_before_check {
     background-color: #fff;
 }
 .title_area {
@@ -76,20 +76,20 @@ a{
     font-weight: 700;
 }
 .check_title .accent_text {
-    color: #f15746;
+    color: #31b46e;
 }
 .br_mo {
     display: none;
 }
-.buy_product_area{
+.sell_product_area{
     padding: 0 32px 18px;
 }
-.buy_product_area .buy_product{
+.sell_product_area .sell_product{
     -webkit-box-align: start;
     align-items: flex-start;
     padding: 0;
 }
-.buy_product{
+.sell_product{
     display: -webkit-box;
     display: flex;
     -webkit-box-align: center;
@@ -97,7 +97,7 @@ a{
     padding: 0 32px 22px;
     background-color: #fff;
 }
-.buy_before .buy_product .product, .inventory_item_product .product, .layer_market_price .buy_product .product, .sell_before .buy_product .product {
+.sell_before .sell_product .product, .inventory_item_product .product, .layer_market_price .sell_product .product, .sell_before .sell_product .product {
     padding-top: 0;
     width: 80px;
     height: 80px;
@@ -110,7 +110,7 @@ a{
     padding-top: 100%;
     border-radius: 8px;
 }
-.buy_before .buy_product .product_img, .inventory_item_product .product_img, .layer_market_price .buy_product .product_img, .sell_before .buy_product .product_img {
+.sell_before .sell_product .product_img, .inventory_item_product .product_img, .layer_market_price .sell_product .product_img, .sell_before .sell_product .product_img {
     width: 100%;
 }
 .image{
@@ -120,13 +120,13 @@ a{
     height: 100%;
     image-rendering: auto;
 }
-.buy_info{
+.sell_info{
     overflow: hidden;
     -webkit-box-flex: 1;
     flex: 1;
     padding-left: 16px;
 }
-.buy_before .model_info, 
+.sell_before .model_info, 
 .layer_market_price .model_info{
     padding-top: 0;
 }
@@ -182,7 +182,7 @@ a{
     font-weight: 700;
     letter-spacing: 0;
 }
-.buy_before_check .check_list, 
+.sell_before_check .check_list, 
 .sell_before_check .check_list{
     margin: 0 32px 8px;
     padding: 0;
