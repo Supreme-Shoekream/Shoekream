@@ -17,7 +17,6 @@ ul, ol, li {
 
 a, a:link, a:visited, a:hover, a:focus {
     text-decoration: none;
-    color: inherit;
 }
 
 input, button, form, img {
@@ -104,7 +103,6 @@ input {
 
 .input_item {
     position: relative;
-    
 }
 
 .solid {
@@ -424,9 +422,14 @@ input {
     background-color: #fff;
 }
 
-.size_item .btn.on {
-    border-color: #333;
+.size_item.active .btn {
+    border: 1px solid #222;
+    border-radius: 12px;
     font-weight: 700;
+}
+
+.size_item:not(.active) .btn{
+    border-color: #ebebeb;
 }
 
 .size_item .info_txt {
@@ -445,6 +448,10 @@ input {
     width: 120px;
 }
 
+a:active, a:focus {
+    background-color: rgba(0,0,0,.1);
+}
+
 .btn_layer_close {
     position: absolute;
     top: 2rem;
@@ -459,4 +466,35 @@ input {
     border-radius: 12px;
     font-size: 14px;
     letter-spacing: -.14px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0
+}
+
+.has_button .input_txt { padding-right: 3rem; height: 3.8rem; }
+
+.input_txt {
+    padding: .8rem 0;
+    width: 100%;
+    font-size: 1.5rem;
+    letter-spacing: -.015rem;
+    line-height: 2.2rem;
+    border-bottom: .1rem solid #ebebeb;
+}
+
+.has_error .input_title { color: #f15746; }
+
+.has_error .input_txt { border-bottom-color: #ef6253; }
+
+.has_error .input_txt:focus { border-bottom-color: #ef6253;}
+
+.has_error .input_error {
+    display: block;
+    position: absolute;
+    line-height: 1.6rem;
+    font-size: 1.1rem;
+    color: #f15746;
 }
