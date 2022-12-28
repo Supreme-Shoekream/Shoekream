@@ -7,10 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SHOEKREAM | 한정판 거래의 FLEX</title>
     <link rel="stylesheet" href="../../css/buy/header.css">
-    <link rel="stylesheet" href="../../css/buy/buy.css">
+    <link rel="stylesheet" href="../../css/sell/sell.css">
     <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://kream.co.kr/favicon.ico">
     <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" />
-    <link rel="stylesheet" href="../../css/buy/popup.css">
+    <link rel="stylesheet" href="../../css/layer/layer.css">
+    <link rel="stylesheet" href="../../css/layer/layer_faq.css">
 </head>
 <body>
 <!--header시작-->
@@ -40,7 +41,7 @@
                     <img src="../../img/logo.png"></a>
             </h1>
             <div class="center">
-                <h2 class="title"><span class="title_txt">즉시 구매하기</span></h2>
+                <h2 class="title"><span class="title_txt">판매 입찰하기</span></h2>
             </div>
             <div class="right">
                 <button type="button" class="btn btn_standard outlinegrey small"> 검수기준 </button>
@@ -50,10 +51,10 @@
 </header>
 </div>
 <!--header끝-->
-<div class="container buy md step-1">
+<div class="container sell md step-1">
     <!---->
     <div class="content">
-        <div class="buy_immediate">
+        <div class="sell_immediate">
             <div class="product_info_area">
                 <div class="product_info">
                     <div class="product" style="background-color: rgb(235, 240, 245);">
@@ -79,18 +80,18 @@
                     </li>
                 </ul>
                 <div class="instant_group">
-                    <div class="tab_area buy_tab">
+                    <div class="tab_area sell_tab">
                         <ul role="tablist" class="tab_list">
                             <li role="tab" aria-selected="false" aria-controls="panel1" class="item on">
-                                <a href="#" class="item_link">구매 입찰</a>
+                                <a href="#" class="item_link">판매 입찰</a>
                             </li>
                             <li role="tab" aria-selected="true" aria-controls="panel2" class="item"><a href="#"
-                                    class="item_link">즉시 구매</a></li>
+                                    class="item_link">즉시 판매</a></li>
                         </ul><!----><!---->
                     </div>
                     <div class="price_now active_input has_danger has_warning">
                         <dl class="price_now_box">
-                            <dt class="price_now_title"> 즉시 구매가 </dt>
+                            <dt class="price_now_title"> 판매 희망가 </dt>
                             <dd class="price">
                                 <span class="amount" style="display:none;">540,000</span>
                                 <input type="number" pattern="([0-9]+.{0,1}[0-9]*,{0,1})*[0-9]" required="required"
@@ -104,12 +105,10 @@
                             </div><!---->
                         </div>
                     </div>
-                    <div class="price_bind">
-                        <p class="price_bind_empty">총 결제금액은 다음 화면에서 계산됩니다.</p>
-                    </div>
+                    <div class="price_bind"><dl class="price_addition"><dt class="price_title"><span >검수비</span><!----></dt><dd class="price_text">무료</dd></dl><dl class="price_addition"><dt class="price_title"><span >수수료</span><button class="btn_title"><img src="../../img/qmark.png"></button></dt><dd class="price_text">-6,600원</dd></dl><dl class="price_addition"><dt class="price_title"><span >배송비</span><!----></dt><dd class="price_text">선불 ・ 판매자 부담</dd></dl></div>
                 </div>
             </div>
-            <!--구매입찰시 입찰 마감기한-->
+            <!--판매입찰시 입찰 마감기한-->
             <div data-v-e0394b7a="" class="deadline_info_area">
                 <div class="section_title">
                     <h3 class="title_txt">입찰 마감기한</h3>
@@ -126,14 +125,14 @@
             </div>
 
 
-            <div class="buy_total_confirm" is-instant="true" style="display:block">
+            <div class="sell_total_confirm" is-instant="true" style="display:block">
                 <div class="price_total">
                     <dl class="price_box price_empty">
                         <dt class="price_title">총 결제금액</dt>
                         <dd class="price_empty_desc">다음 화면에서 확인</dd>
                     </dl><span class="price_warning" style="display: none;"><em>주의! </em></span>
                 </div>
-                <div class="btn_confirm"><a href="#" class="btn full solid false disabled"> 즉시 구매 계속 </a></div>
+                <div class="btn_confirm"><a href="#" class="btn full solid false disabled"> 즉시 판매 계속 </a></div>
             </div>
         </div><!----><!---->
     </div><!----><!---->
@@ -142,9 +141,9 @@
 
 
 <!--step2!!-->
-<div class="container buy md step-2"><!---->
+<div class="container sell md step-2"><!---->
     <div class="content"><!---->
-        <div class="buy_immediate">
+        <div class="sell_immediate">
             <div class="product_info_area">
                 <div class="product_info">
                     <div class="product" style="background-color: rgb(244, 244, 244);">
@@ -160,10 +159,11 @@
                     </div>
                 </div>
             </div>
+            <section ><div class="section_unit"><div class="section_title"><h3 class="title_txt">판매 정산 계좌</h3></div><div class="section_content"><div class="account_info"><dl class="info_list"><div class="info_box"><dt class="title">계좌</dt><dd class="desc">우리은행 1002652376687</dd></div><div class="info_box"><dt class="title">예금주</dt><dd class="desc">전주은</dd></div><!----></dl></div><ahref="#" class="btn btn_edit outlinegrey small"> 변경 </ahref=></div></div><!----></section>
             <section>
                 <div class="section_unit">
                     <div class="section_title">
-                        <h3 class="title_txt">배송 주소</h3><a href="#" class="add_more_btn">+ 새 주소 추가</a>
+                        <h3 class="title_txt">반송 주소</h3><a href="#" class="add_more_btn">+ 새 주소 추가</a>
                     </div>
                     <div class="section_content">
                         <div class="delivery_info">
@@ -333,66 +333,7 @@
                     </div>
                 </div>
             </section>
-            <section>
-                <div class="section_title">
-                    <h3 class="title_txt">포인트</h3>
-                </div>
-                <div class="section_content">
-                    <div class="section_input"><input placeholder="0" class="input_credit"><button
-                            class="btn_use_credit"> 모두 사용 </button>
-                    </div>
-                    <div class="info_point">
-                        <div><span class="text_current">보유 포인트</span><button class="btn_question">
-                                <img src="../../img/qmark.png">
-                            </button>
-                            <div class="value_current"><span class="point">3,000</span><span class="unit">P</span></div>
-                        </div><!---->
-                    </div>
-                    <!--포인트부분에 ? 눌렀을 때 모달 창-->
-                    <div class="layer_point layer md" style="display: none;">
-                        <div class="layer_container"><a 
-                                href="#" class="btn_layer_close"><svg 
-                                    xmlns="http://www.w3.org/2000/svg" class="ico-close icon sprite-icons">
-                                    <use 
-                                        href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-close"
-                                        xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-close"></use>
-                                </svg></a>
-                            <div class="layer_header">
-                                <h2 class="title">이용안내</h2>
-                            </div>
-                            <div class="layer_content">
-                                <div class="usable_wrap">
-                                    <div class="usable_point">
-                                        <h3 class="title">사용 가능한 포인트</h3>
-                                        <p class="point_box"><span
-                                                class="point">3,000</span><span
-                                                class="unit">P</span></p>
-                                        <div class="point_info">
-                                            <p class="info_item">이번달 소멸 예정 포인트 0P</p>
-                                            <p class="info_item"> 포인트 유효기간은 적립일로부터
-                                                최대 1년까지이며, 유형에 따라 달라질 수 있습니다. </p>
-                                        </div>
-                                    </div>
-                                    <ul class="usable_list">
-                                        <li class="usable_item"> 1,000P 이상부터 구매금액
-                                            제한 없이 사용하실 수 있습니다. </li>
-                                        <li class="usable_item"> 입찰 삭제, 거래 취소 시
-                                            사용한 포인트는 환불됩니다. </li>
-                                        <li class="usable_item"> 먼저 적립된 포인트부터 순서대로
-                                            사용되며, 사용하지 않으실 경우 유효기간이 지나면 자동 소멸됩니다. </li>
-                                        <li class="usable_item"> 유효기간이 지난 후 환불받은
-                                            포인트는 다시 사용하실 수 없습니다. </li>
-                                    </ul>
-                                </div>
-                                <div class="layer_btn"><a data-v-6e799857=""
-                                        href="#" class="btn outline medium" > 확인
-                                    </a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!---->
-                </div>
-            </section>
+            
             <section>
                 <div class="section_title">
                     <h3 class="title_txt">최종 주문 정보</h3>
@@ -401,19 +342,16 @@
                     <div class="instant_group">
                         <div class="price_total order_info">
                             <dl class="price_box">
-                                <dt class="price_title"> 총 결제금액 </dt>
+                                <dt class="price_title"> 정산금액 </dt>
                                 <dd class="price"><span class="amount">274,000</span><span class="unit">원</span></dd>
                             </dl><span class="price_warning" style="display: none;"><em>주의! </em></span>
                         </div>
                         <div class="price_bind">
                             <dl class="price_addition is_dark">
-                                <dt class="price_title"><span >즉시 구매가</span><!----></dt>
+                                <dt class="price_title"><span >판매 희망가</span><!----></dt>
                                 <dd class="price_text">267,000원</dd>
                             </dl>
-                            <dl class="price_addition">
-                                <dt class="price_title"><span >포인트</span><!----></dt>
-                                <dd class="price_text">-</dd>
-                            </dl>
+                            
                             <dl class="price_addition">
                                 <dt class="price_title"><span >검수비</span><!----></dt>
                                 <dd class="price_text">무료</dd>
@@ -421,49 +359,24 @@
                             <dl class="price_addition">
                                 <dt class="price_title"><span >수수료</span><button
                                         class="btn_title"><img src="../../img/qmark.png"></button></dt>
-                                <dd class="price_text">4,000원</dd>
+                                <dd class="price_text">-4,000원</dd>
                             </dl>
                             <dl class="price_addition">
                                 <dt class="price_title"><span >배송비</span><!---->
                                 </dt>
-                                <dd class="price_text">3,000원</dd>
+                                <dd class="price_text">선불 ・ 판매자 부담 </dd>
                             </dl>
-                        </div><!---->
+                        </div>
+                        <div class="price_bind"><dl class="price_addition"><dt class="price_title dark"><span >입찰 마감 기한</span><!----></dt><dd class="price_text">30일 - 2023/01/28까지</dd></dl></div><!---->
                     </div>
                 </div>
             </section>
+            <section ><div class="section_unit"><div class="section_title"><h3 class="title_txt">현금영수증 정보</h3></div><div class="section_content"><div class="account_info"><dl class="info_list"><div class="info_box"><dt class="title">형태</dt><dd class="desc"> 미신청 </dd></div><!----></dl></div><p class="fee_description md"> 판매 거래 시 수수료에 대해 건별로 현금영수증을 발급합니다. </p><ahref="#" class="btn btn_edit outlinegrey small"> 변경 </ahref=></div></div><!----></section>
             <section >
                 <div  class="section_title">
-                    <h3  class="title_txt">결제 방법</h3>
+                    <h3  class="title_txt">패널티 결제 방법</h3>
                 </div>
                 <div class="section_content">
-                    <div class="simple_payment">
-                        <h4 class="method_title">
-                            <div class="main_title"> 계좌 간편결제 <span 
-                                    class="section_tag"
-                                    style="color: rgb(124, 114, 238); background: rgb(241, 240, 255);"> 결제 시 포인트 적립
-                                </span></div><a  href="#none" class="btn_card_add">+ 새 계좌 추가</a>
-                        </h4>
-                        <div class="quick_pay_info">
-                            <div class="payment_detail">
-                                <div class="payment_item selected">
-                                    <div class="info_wrap">
-                                        <div class="bank_info"><span>카카오뱅크</span>
-                                            <div class="card_number">333<span
-                                                    class="dot single"></span><span class="dot single"></span><span
-                                                    class="dot single"></span><span class="dot single"></span><span
-                                                    class="dot single"></span><span class="dot single"></span><span
-                                                    class="dot single"></span>907</div>
-                                        </div>
-                                    </div>
-                                    <div class="description">
-                                        <span><span lass="bold" style="color: #7C72EE;">2,740P</span> 적립</span>
-                                        <img src="../../img/down.png">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <div  class="simple_payment">
                         <h4  class="method_title">
                             <div  class="main_title"> 카드 간편결제 <span 
@@ -491,64 +404,18 @@
                             </div>
                         </div>
                     </div>
-                    <div  class="general_payment">
-                        <h4  class="method_title">
-                            <div  class="main_title"><strong >일반 결제</strong><span
-                                     class="sub_title">일시불・할부</span></div>
-                        </h4>
-                        <div class="pay_method md">
-                            <div class="pay_item normal">
-                                <div class="pay_box">
-                                    <div class="pay_title">
-                                        <p class="main_title">신용카드</p><!---->
-                                    </div><!---->
-                                </div>
-                            </div>
-                            <div class="pay_item naverpay">
-                                <div class="pay_box">
-                                    <div class="pay_title">
-                                        <p class="main_title">네이버페이</p><!---->
-                                    </div><img src="https://kream.co.kr/_nuxt/img/buy_pay_npay.fabd18a.png" alt="네이버페이"
-                                        class="pay_img">
-                                </div>
-                            </div>
-                            <div class="pay_item kakaopay">
-                                <div class="pay_box">
-                                    <div class="pay_title">
-                                        <p class="main_title">카카오페이</p><!---->
-                                    </div><img src="https://kream.co.kr/_nuxt/img/buy_pay_kakaopay.7cd2486.png"
-                                        alt="카카오페이" class="pay_img">
-                                </div>
-                            </div>
-                            <div class="pay_item tosspay">
-                                <div class="pay_box">
-                                    <div class="pay_title">
-                                        <p class="main_title">토스페이</p><!---->
-                                    </div><img src="https://kream.co.kr/_nuxt/img/buy_pay_tosspay.c48e1e2.png"
-                                        alt="토스페이" class="pay_img">
-                                </div>
-                            </div>
-                            <div class="pay_item payco">
-                                <div class="pay_box">
-                                    <div class="pay_title">
-                                        <p class="main_title">페이코</p><!---->
-                                    </div><img src="https://kream.co.kr/_nuxt/img/buy_pay_payco.f9fb4de.png" alt="페이코"
-                                        class="pay_img">
-                                </div>
-                            </div>
-                        </div>
-                    </div><!---->
-                </div><!----><!---->
+                    <div class="method_desc"><p class="desc_txt"> - 페널티는 일시불만 지원하며, 카드사 홈페이지나 앱에서 분할납부로 변경 가능합니다. 단, 카드사별 정책에 따라 분할 납부 변경 시 수수료가 발생할 수 있습니다. </p><p class="desc_txt"> - 수수료(페널티, 착불배송비 등)가 정산되지 않을 경우, 별도 고시 없이 해당 금액을 결제 시도 할 수 있습니다. </p><a href="/faq/penalty" class="desc_link">페널티 정책</a></div>
+                    <!---->
+                </div>
+                <!--패널티 정책 팝업창 있는곳--><!---->
             </section>
-            <section class="buy_check">
+            <section class="sell_check">
                 <div>
                     <ul class="check_list md last_bold">
                         <li class="check_item"><a href="#" class="check_area">
                                 <div class="notice_group">
-                                    <p class="notice_maintext">판매자의 판매거부, 배송지연, 미입고 등의 사유가 발생할 경우,
-                                        거래가 취소될 수 있습니다.</p>
-                                    <p class="notice_subtext">앱 알림 해제, 알림톡 차단, 전화번호 변경 후 미등록 시에는 거래
-                                        진행 상태 알림을 받을 수 없습니다.</p><!---->
+                                    <p class="notice_maintext">거래가 체결되면 일요일 · 공휴일을 제외하고 48시간 내에 KREAM으로 발송을 완료한 후, 발송 정보를 정확히 입력해야 합니다.</p>
+                                    <p class="notice_subtext">착불 배송 시 판매 금액에서 차감 정산하며, 미정산 시 별도 고지없이 해당 금액을 결제 시도할 수 있습니다.</p><!---->
                                 </div>
                                 <div class="checkbox_item"><input id="undefined" type="checkbox"
                                         name="checklist" class="check"><label for="undefined" class="check_label">
@@ -556,10 +423,8 @@
                             </a></li>
                         <li class="check_item"><a href="#" class="check_area">
                                 <div class="notice_group">
-                                    <p class="notice_maintext">창고 보관을 선택한 경우, 구매자에게 배송되지 않고 KREAM 창고에
-                                        보관됩니다.</p>
-                                    <p class="notice_subtext">검수 합격 후 보관이 완료되면 창고 이용료(현재 첫 30일 무료)가
-                                        결제됩니다.</p><!---->
+                                    <p class="notice_maintext">송장 번호 미기재·오입력 시 입고가 진행되지 않으며, 발송 후 5일(일요일·공휴일 제외) 내 미도착은 허위 정보 입력으로 간주하여 미입고 페널티를 부과합니다.</p>
+                                    <p class="notice_subtext">앱 알림 해제, 알림톡 차단, 전화번호 변경 후 미등록 시에는 거래 진행 상태 알림을 받을 수 없으며 이로 인한 거래 실패는 판매자의 책임입니다.</p><!---->
                                 </div>
                                 <div class="checkbox_item"><input id="undefined" type="checkbox"
                                         name="checklist" class="check"><label for="undefined" class="check_label">
@@ -567,18 +432,18 @@
                             </a></li>
                         <li class="check_item"><a href="#" class="check_area">
                                 <div class="notice_group">
-                                    <p class="notice_maintext">‘바로 결제하기’ 를 선택하시면 즉시 결제가 진행되며, 단순 변심이나
-                                        실수에 의한 취소가 불가능합니다.</p>
-                                    <p class="notice_subtext">본 거래는 개인간 거래로 전자상거래법(제17조)에 따른 청약철회(환불,
-                                        교환) 규정이 적용되지 않습니다.</p><!---->
+                                    <p class="notice_maintext">검수 기준과 페널티 및 이용 정책을 다시 한번 확인하였습니다.</p>
+                                    <p class="notice_subtext">이용정책 위반 시, 판매 금액의 최대 15.0%의 페널티가 부과됩니다. 페널티 회피 시 이후 거래가 제한되며 별도 고지없이 해당 금액을 결제 시도할 수 있습니다.</p>
+                                    <!---->
                                 </div>
+                                
                                 <div class="checkbox_item"><input id="undefined" type="checkbox"
                                         name="checklist" class="check"><label for="undefined" class="check_label">
                                             <!----><!----></label></div>
                             </a></li>
                         <li class="check_item"><a href="#" class="check_area">
                                 <div class="notice_group">
-                                    <p class="notice_maintext">구매 조건을 모두 확인하였으며, 거래 진행에 동의합니다.</p>
+                                    <p class="notice_maintext">판매 조건을 모두 확인하였으며, 거래 진행에 동의합니다.</p>
                                     <!----><!---->
                                 </div>
                                 <div class="checkbox_item"><input id="undefined" type="checkbox"
@@ -588,15 +453,15 @@
                     </ul>
                     <!--검수기준 있던곳🌈🌈🌈🌈-->
                 </div>
-                <div class="buy_total_confirm" is-instant="true">
+                <div class="sell_total_confirm" is-instant="true">
                     <div class="price_total">
                         <dl class="price_box">
-                            <dt class="price_title"> 총 결제금액 </dt>
+                            <dt class="price_title"> 정산 금액 </dt>
                             <dd class="price"><span class="amount">274,000</span><span class="unit">원</span></dd>
                         </dl><span class="price_warning" style="display: none;"><em>주의! </em></span>
                     </div>
                     <div class="btn_confirm"><a disabled="disabled" href="#"
-                            class="btn full solid false disabled"> 결제하기 </a></div>
+                            class="btn full solid false disabled"> 판매 입찰하기 </a></div>
                 </div>
             </section>
             <!--결제하기 클릭시 나오는 팝업-->
@@ -622,7 +487,7 @@
                             </p>
                         </div>
                         <div class="layer_btn"><button type="button"
-                                class="btn solid buy full large"> 바로
+                                class="btn solid sell full large"> 바로
                                 결제하기 </button></div>
                     </div>
                 </div>

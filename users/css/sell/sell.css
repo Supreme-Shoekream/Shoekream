@@ -17,7 +17,7 @@ body, button, dd, div, dl, dt, fieldset, figcaption, figure, form, h1, h2, h3, h
     padding: 0;
 }
 
-.container.buy{
+.container.sell{
     background-color: #fafafa;
     position: relative;
     padding-top: 100px;
@@ -29,7 +29,7 @@ body, button, dd, div, dl, dt, fieldset, figcaption, figure, form, h1, h2, h3, h
     max-width: 780px;
 }
 
-.buy_immediate, .price_descision_box{
+.sell_immediate, .price_descision_box{
     background-color: #fff;
 }
 
@@ -153,7 +153,7 @@ body, button, dd, div, dl, dt, fieldset, figcaption, figure, form, h1, h2, h3, h
     position: relative;
 }
 
-.tab_area.buy_tab .tab_list{
+.tab_area.sell_tab .tab_list{
     border-radius: 80px;
     border: 1px solid #ebebeb;
     margin-bottom: 27px;
@@ -164,7 +164,7 @@ body, button, dd, div, dl, dt, fieldset, figcaption, figure, form, h1, h2, h3, h
     background-color: #f4f4f4;
 }
 
-.tab_area.buy_tab .item:first-child {
+.tab_area.sell_tab .item:first-child {
     margin-left: 3px;
 }
 
@@ -178,10 +178,10 @@ body, button, dd, div, dl, dt, fieldset, figcaption, figure, form, h1, h2, h3, h
     flex: 1;
     margin: 2px;
 }
-.tab_area.buy_tab .item{
+.tab_area.sell_tab .item{
     margin: 3px 0;
 }
-.tab_area.buy_tab .item .item_link {
+.tab_area.sell_tab .item .item_link {
     border-radius: 80px;
     padding: 14px 0;
     font-size: 14px;
@@ -203,10 +203,10 @@ body, button, dd, div, dl, dt, fieldset, figcaption, figure, form, h1, h2, h3, h
     color: rgba(34,34,34,.8);
 }
 
-.tab_area.buy_tab .item.on .item_link {
+.tab_area.sell_tab .item.on .item_link {
     color: #fff;
     font-weight: 700;
-    background-color: #ef6253;
+    background-color: #41b979
 }
 
 .price_now_box {
@@ -254,13 +254,27 @@ dd.price{
 .instant_group .price_bind {
     padding-top: 10px;
 }
+.instant_group .price_bind>dl{
+    margin-top: 0;
+}
 .instant_group .price_bind .price_bind_empty {
     color: rgba(34,34,34,.5);
     padding-top: 10px;
     font-size: 14px;
 }
+.price_addition{
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    min-height: 26px;
+    font-size: 13px;
+    letter-spacing: -.07px;
+}
 
-.buy_total_confirm{
+.sell_total_confirm{
     padding: 0 32px 32px;
     border-top: 1px solid #ebebeb;
     background-color: #fff;
@@ -272,7 +286,6 @@ dd.price{
 }
 
 .price_box {
-    display: -webkit-box;
     display: flex;
     -webkit-box-pack: justify;
     justify-content: space-between;
@@ -344,6 +357,7 @@ input.input_amount:placeholder-shown {
     font-size: 20px;
     font-style: normal;
 }
+/* 숫자만들어가게 number로 설정하면 화살표가 생김 - 없애주기 */
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -556,64 +570,7 @@ section .section_title .title_txt, section .section_title .title_txt {
     width: 22px;
 }
 
-/*********포인트 사용 부분**********/
-.section_input {
-    margin-top: 12px;
-}
-.section_input .input_credit {
-    font-size: 14px;
-    line-height: 100%;
-    padding: 17px 12px;
-    border: 1px solid #ebebeb;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    border-radius: 10px;
-    margin-right: 8px;
-    width: calc(100% - 86px);
-}
-.section_input .btn_use_credit{
-    cursor: pointer;
-    border-radius: 12px;
-    font-size: 12px;
-    letter-spacing: -.06px;
-    line-height: 14px;
-    padding: 5px 10px;
-    background: #333;
-    color: #fff;
-}
-.info_point{
-    position: relative;
-    margin-top: 11px;
-    font-size: 14px;
-}
-.info_point .text_current{
-    line-height: 17px;
-    color: rgba(34,34,34,.5);
-}
-.info_point .btn_question {
-    margin-left: 2px;
-    cursor: pointer;
-    padding: 0;
-    border: 0;
-    outline: none;
-    background: none;
-    background-color: transparent;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    border-radius: 0;
-}
-.info_point .btn_question img{
-    width: 15px;
-    height: 15px;
-    position: absolute;
-    top: 2px;
-}
-.info_point .value_current {
-    display: inline-block;
-    color: rgba(34,34,34,.8);
-    margin-left: 25px;
-}
+
 /****************최종 주문 정보*****************/
 .instant_group{
     padding-top: 22px;
@@ -633,6 +590,7 @@ section .section_title .title_txt, section .section_title .title_txt {
     letter-spacing: -.15px;
     font-weight: 700;
     letter-spacing: -.01px;
+    color: #222;
 }
 .price_box .price{
     display: flex;
@@ -696,7 +654,37 @@ section .section_title .title_txt, section .section_title .title_txt {
     width: 15px;
     height: 15px;
 }
-
+.price_bind+.price_bind{
+    padding-top: 10px;
+    border-top: 1px solid #ebebeb;
+}
+.price_title.dark{
+    color: #222;
+}
+/**************현금영수증 정보*****************/
+.fee_description {
+    line-height: 17px;
+    color: rgba(34,34,34,.5);
+    font-weight: 400;
+    margin-top: 6px;
+}
+.fee_description, .info_box .desc {
+    font-size: 14px;
+    letter-spacing: -.21px;
+}
+.section_content{
+    position: relative;
+}
+.btn.btn_edit {
+    position: absolute;
+    top: 50%;
+    margin-top: -17px;
+    right: 0%;
+}
+/* 선택시 효과 */
+.selected .clickable_card {
+    border: 1px solid #222;
+}
 /**************결재 방법*****************/
 .method_title{
     display: -webkit-box;
@@ -878,57 +866,40 @@ section .section_title .title_txt, section .section_title .title_txt {
     width: 24px;
     height: 24px;
 }
-/*일반결재*/
-.general_payment {
-    padding-top: 7px;
+.container.sell .method_desc{
+    padding-top: 8px;
 }
-.pay_item, .pay_method{
-    display: flex;
-    -webkit-box-direction: normal;
+.container.sell .method_desc .desc_txt{
+    color: rgba(34,34,34,.5);
 }
-.pay_method {
-    -webkit-box-orient: horizontal;
-    flex-flow: row wrap;
-    grid-gap: 6px;
-    gap: 6px;
+.method_desc .desc_txt {
+    line-height: 16px;
+    font-size: 13px;
+    letter-spacing: -.07px;
+    color: rgba(34,34,34,.8);
 }
-.pay_item {
-    flex-basis: calc(33.3333% - 4px);
-    -webkit-box-orient: vertical;
-    flex-direction: column;
-    cursor: pointer;
-}
-.pay_item:first-child, .pay_item:nth-child(2) {
-    padding-top: 0;
-}
-.pay_box {
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-    height: 60px;
-    padding: 7px 7px 8px 11px;
-    background-color: #fff;
-    border: 1px solid #ebebeb;
-    border-radius: 10px;
-}
-
-.pay_title{
-    padding-right: 8px;
-}
-.main_title{
+.method_desc .desc_link {
+    margin-top: 4px;
+    display: inline-block;
+    vertical-align: top;
+    line-height: 17px;
     font-size: 14px;
     letter-spacing: -.21px;
+    color: #1d85e6;
+    letter-spacing: -.15px;
 }
-.pay_box img{
-    margin-left: auto;
-    width: 40px;
-    height: 40px;
+.container.sell .method_desc .desc_link {
+    margin-top: 8px;
+    color: #297dcb;
+}
+.method_desc .desc_link, .method_desc .desc_link:hover {
+    text-decoration: underline;
 }
 
-.buy_check, .sm .deadline_info_area .deadline_tab .btn {
+.sell_check, .sm .deadline_info_area .deadline_tab .btn {
     padding: 0;
 }
-.buy_check .check_list {
+.sell_check .check_list {
     padding-top: 32px;
     padding-left: 32px;
     padding-right: 32px;
@@ -1004,13 +975,13 @@ input[class="check"]:checked + label {
     background-size: 100%;
     border: 1px solid #fff;
 }
-.buy_check .buy_total_confirm .price_total .price_title {
+.sell_check .sell_total_confirm .price_total .price_title {
     line-height: 18px;
     font-size: 15px;
     letter-spacing: -.15px;
     letter-spacing: -.01px;
 }
 /*결제하기 버튼 활성화*/
-.solid.buy {
-    background-color: #ef6253;
+.solid.sell {
+    color: #31b46e;
 }

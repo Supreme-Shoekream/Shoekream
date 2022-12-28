@@ -12,6 +12,6 @@ function pop_auth_policy(){
     document.querySelector('.layer_auth_policy').style.display="block"
 }
 
-function pop_policy(){
+function pop_faq(){
 
 }
