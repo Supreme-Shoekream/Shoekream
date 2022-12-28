@@ -6,15 +6,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>KRAEM | 한정판 거래의 FLEX</title>
         <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://kream.co.kr/favicon.ico">
+        <!-- jquery cdn -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
-        <!-- <link rel="stylesheet" href="../html/fragment/header.html"> -->
         <link rel="stylesheet" href="../css/product.css">
         
     </head>
-<body>
+    <body>
         <div id="__nuxt">
+            <!---->
             <div class="__layout">
-                <div tabindex="0" class="wrap  etc lg">
+                <div tabindex="0" class="wrap etc lg">
+                    <!---->
                     <!-- 헤더 시작 -->
                     <div class="header lg no_line" style="height:100px;">
                         <div class="header_top">
@@ -134,7 +137,7 @@
                         </div>
                     </div>
                     <!-- 모바일버전 끝 -->
-    
+                    <!---->
                     <!-- 컨텐츠 시작 -->
                     <div class="container detail lg">
                         <div class="content">
@@ -260,7 +263,7 @@
                                                         <span class="title_txt">사이즈</span>
                                                     </div>
                                                     <div class="size">
-                                                    <a href="#" class="btn_size" >
+                                                        <a href="#" class="btn_size" onclick="everysizePopup()">
                                                             <span class="btn_text">모든 사이즈</span>
                                                             <img src="../img/select_icon.png" class="ico-arr-dir-down-circle icon sprite-icons">
                                                         </a>
@@ -304,7 +307,7 @@
                                                         </div>
                                                     </a>
                                                 </div>
-                                                <a href="#" class="btn full outlinegrey large btn_wish" aria-label="관심상품">
+                                                <a href="#" class="btn full outlinegrey large btn_wish" onclick="wishPopup()" aria-label="관심상품">
                                                     <img src="../img/select_mark.jpg" class="icon sprite-icons ico-wish-off">
                                                     <span class="btn_text">관심상품</span>
                                                     <span class="wish_count_num">1.7만</span>
@@ -850,8 +853,10 @@
                             <!--  -->
                             
                             <!--  -->
-                    </div>
-                    <div class="feed_area">
+                        </div>
+                        <div>
+                            <!---->
+                                <div class="feed_area">
                                     <h2 class="feed_title">
                                         <span class="title">스타일</span>
                                         <span class="num">1146</span>
@@ -1073,266 +1078,600 @@
                                             <img src="/_nuxt/img/loading.410eb77.gif" alt="리스트 로딩중입니다." class="loading_img">
                                         </div>
                                     </div>
-
                                 </div>
-                                <!-- 브랜드 다른 상품 시작 -->
-                                <div>
-                                    <div class="other_product_area">
-                                        <h3 class="more_title">
-                                            <span class="owner">Nike</span>
-                                            <span class="title_txt">의 다른 상품</span>
-                                            <a href="/brands/nike" class="btn_more">
-                                                <span class="btn_txt">더보기</span>
-                                                <img src="../img/right_arrow.png" class="icon sprite-icons arr-right-gray"></img>
+                            <!-- 브랜드 다른 상품 시작 -->
+                            <div class="other_product_area">
+                                <h3 class="more_title">
+                                    <span class="owner">Nike</span>
+                                    <span class="title_txt">의 다른 상품</span>
+                                    <a href="/brands/nike" class="btn_more">
+                                        <span class="btn_txt">더보기</span>
+                                        <img src="../img/right_arrow.png" class="icon sprite-icons arr-right-gray"></img>
+                                    </a>
+                                </h3>
+                                <div class="other_products">
+                                    <div class="product_list">
+                                        <div class="product_item">
+                                            <a href="/products/38818" class="item_inner">
+                                                <div class="thumb_box">
+                                                    <div class="product" style="background-color:#ebf0f5;">
+                                                        <picture class="picture product_img">
+                                                            <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMTA4MTJfMjg0/MDAxNjI4Njk3NTY5MDM5.XiS_mZT40dF3VtWjbL4-Jld1gh0DhIHh5t7fJN7BSbgg.oO21T0PYLF-Gi20BItv1aOMRX3IYAbKIiXGTpjPf8ZUg.PNG/a_7581fe9df78d4fd488547a854e9dba3f.png?type=m_webp">
+                                                            <source srcset="https://kream-phinf.pstatic.net/MjAyMTA4MTJfMjg0/MDAxNjI4Njk3NTY5MDM5.XiS_mZT40dF3VtWjbL4-Jld1gh0DhIHh5t7fJN7BSbgg.oO21T0PYLF-Gi20BItv1aOMRX3IYAbKIiXGTpjPf8ZUg.PNG/a_7581fe9df78d4fd488547a854e9dba3f.png?type=m">
+                                                            <img alt="나이키 덩크 로우 SE 서울 (스페셜 기프트)" src="https://kream-phinf.pstatic.net/MjAyMTA4MTJfMjg0/MDAxNjI4Njk3NTY5MDM5.XiS_mZT40dF3VtWjbL4-Jld1gh0DhIHh5t7fJN7BSbgg.oO21T0PYLF-Gi20BItv1aOMRX3IYAbKIiXGTpjPf8ZUg.PNG/a_7581fe9df78d4fd488547a854e9dba3f.png?type=m" loading="lazy" class="image">
+                                                        </picture>
+                                                    </div>
+                                                </div>
+                                                <div class="info_box">
+                                                    <div class="brand">
+                                                        <p class="brand-text without-wish">Nike</p>
+                                                    </div>
+                                                    <p class="name">Nike Dunk Low SE Seoul (with Special Gift)</p>
+                                                    <div class="price">
+                                                        <div class="amount lg">
+                                                            <em class="num">265,000원</em>
+                                                        </div>
+                                                        <div class="desc">
+                                                            <p>즉시 구매가</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </a>
-                                        </h3>
-                                        <div class="other_products">
-                                            <div class="product_list">
-                                                <div class="product_item">
-                                                    <a href="/products/38818" class="item_inner">
-                                                        <div class="thumb_box">
-                                                            <div class="product" style="background-color:#ebf0f5;">
-                                                                <picture class="picture product_img">
-                                                                    <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMTA4MTJfMjg0/MDAxNjI4Njk3NTY5MDM5.XiS_mZT40dF3VtWjbL4-Jld1gh0DhIHh5t7fJN7BSbgg.oO21T0PYLF-Gi20BItv1aOMRX3IYAbKIiXGTpjPf8ZUg.PNG/a_7581fe9df78d4fd488547a854e9dba3f.png?type=m_webp">
-                                                                    <source srcset="https://kream-phinf.pstatic.net/MjAyMTA4MTJfMjg0/MDAxNjI4Njk3NTY5MDM5.XiS_mZT40dF3VtWjbL4-Jld1gh0DhIHh5t7fJN7BSbgg.oO21T0PYLF-Gi20BItv1aOMRX3IYAbKIiXGTpjPf8ZUg.PNG/a_7581fe9df78d4fd488547a854e9dba3f.png?type=m">
-                                                                    <img alt="나이키 덩크 로우 SE 서울 (스페셜 기프트)" src="https://kream-phinf.pstatic.net/MjAyMTA4MTJfMjg0/MDAxNjI4Njk3NTY5MDM5.XiS_mZT40dF3VtWjbL4-Jld1gh0DhIHh5t7fJN7BSbgg.oO21T0PYLF-Gi20BItv1aOMRX3IYAbKIiXGTpjPf8ZUg.PNG/a_7581fe9df78d4fd488547a854e9dba3f.png?type=m" loading="lazy" class="image">
-                                                                </picture>
-                                                            </div>
-                                                        </div>
-                                                        <div class="info_box">
-                                                            <div class="brand">
-                                                                <p class="brand-text without-wish">Nike</p>
-                                                            </div>
-                                                            <p class="name">Nike Dunk Low SE Seoul (with Special Gift)</p>
-                                                            <div class="price">
-                                                                <div class="amount lg">
-                                                                    <em class="num">265,000원</em>
-                                                                </div>
-                                                                <div class="desc">
-                                                                    <p>즉시 구매가</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </a>
+                                        </div>
+                                        <div class="product_item">
+                                            <a href="/products/37182" class="item_inner">
+                                                <div class="thumb_box">
+                                                    <div class="product" style="background-color:#ebf0f5;">
+                                                        <picture class="picture product_img">
+                                                            <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMTA2MjlfMjQw/MDAxNjI0OTMxODU1NDQ2.tL0PGdV5LLEZSyBVVAkos9u5ZvcKoC_ElVC04DF9Uy8g.tDYEcKxnrrFD9U_is5nHFCswAi3Wjz1ClAaPR5l8JOwg.PNG/p_bc83b9c0af7148e08fcb72b09d70f36b.png?type=m_webp">
+                                                            <source srcset="https://kream-phinf.pstatic.net/MjAyMTA2MjlfMjQw/MDAxNjI0OTMxODU1NDQ2.tL0PGdV5LLEZSyBVVAkos9u5ZvcKoC_ElVC04DF9Uy8g.tDYEcKxnrrFD9U_is5nHFCswAi3Wjz1ClAaPR5l8JOwg.PNG/p_bc83b9c0af7148e08fcb72b09d70f36b.png?type=m">
+                                                            <img alt="(W) 나이키 덩크 로우 디스럽트 멀티컬러" src="https://kream-phinf.pstatic.net/MjAyMTA2MjlfMjQw/MDAxNjI0OTMxODU1NDQ2.tL0PGdV5LLEZSyBVVAkos9u5ZvcKoC_ElVC04DF9Uy8g.tDYEcKxnrrFD9U_is5nHFCswAi3Wjz1ClAaPR5l8JOwg.PNG/p_bc83b9c0af7148e08fcb72b09d70f36b.png?type=m" loading="lazy" class="image">
+                                                        </picture>
+                                                    </div>
                                                 </div>
-                                                <div class="product_item">
-                                                    <a href="/products/37182" class="item_inner">
-                                                        <div class="thumb_box">
-                                                            <div class="product" style="background-color:#ebf0f5;">
-                                                                <picture class="picture product_img">
-                                                                    <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMTA2MjlfMjQw/MDAxNjI0OTMxODU1NDQ2.tL0PGdV5LLEZSyBVVAkos9u5ZvcKoC_ElVC04DF9Uy8g.tDYEcKxnrrFD9U_is5nHFCswAi3Wjz1ClAaPR5l8JOwg.PNG/p_bc83b9c0af7148e08fcb72b09d70f36b.png?type=m_webp">
-                                                                    <source srcset="https://kream-phinf.pstatic.net/MjAyMTA2MjlfMjQw/MDAxNjI0OTMxODU1NDQ2.tL0PGdV5LLEZSyBVVAkos9u5ZvcKoC_ElVC04DF9Uy8g.tDYEcKxnrrFD9U_is5nHFCswAi3Wjz1ClAaPR5l8JOwg.PNG/p_bc83b9c0af7148e08fcb72b09d70f36b.png?type=m">
-                                                                    <img alt="(W) 나이키 덩크 로우 디스럽트 멀티컬러" src="https://kream-phinf.pstatic.net/MjAyMTA2MjlfMjQw/MDAxNjI0OTMxODU1NDQ2.tL0PGdV5LLEZSyBVVAkos9u5ZvcKoC_ElVC04DF9Uy8g.tDYEcKxnrrFD9U_is5nHFCswAi3Wjz1ClAaPR5l8JOwg.PNG/p_bc83b9c0af7148e08fcb72b09d70f36b.png?type=m" loading="lazy" class="image">
-                                                                </picture>
-                                                            </div>
+                                                <div class="info_box">
+                                                    <div class="brand">
+                                                        <p class="brand-text without-wish">Nike</p>
+                                                    </div>
+                                                    <p class="name">(W) Nike Dunk Low Disrupt Multi-Color</p>
+                                                    <div class="price">
+                                                        <div class="amount lg">
+                                                            <em class="num">199,000원</em>
                                                         </div>
-                                                        <div class="info_box">
-                                                            <div class="brand">
-                                                                <p class="brand-text without-wish">Nike</p>
-                                                            </div>
-                                                            <p class="name">(W) Nike Dunk Low Disrupt Multi-Color</p>
-                                                            <div class="price">
-                                                                <div class="amount lg">
-                                                                    <em class="num">199,000원</em>
-                                                                </div>
-                                                                <div class="desc">
-                                                                    <p>즉시 구매가</p>
-                                                                </div>
-                                                            </div>
+                                                        <div class="desc">
+                                                            <p>즉시 구매가</p>
                                                         </div>
-                                                    </a>
+                                                    </div>
                                                 </div>
-                                                <div class="product_item">
-                                                    <a href="/products/87356" class="item_inner">
-                                                        <div class="thumb_box">
-                                                            <div class="product" style="background-color:#ebf0f5;">
-                                                                <picture class="picture product_img">
-                                                                    <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMjExMjhfMjQy/MDAxNjY5NjE5MTMxODUw.MJ89C8cWUdbpnAeEhVNv92CBicu0WHeXFEy8H3RaKRAg.AeXiG-sHfaYL5jcrlLw8oD6OuqQJZgBify6_XYOE_MMg.PNG/a_c518461fac2340a788f02ab486f6a8d3.png?type=m_webp">
-                                                                    <source srcset="https://kream-phinf.pstatic.net/MjAyMjExMjhfMjQy/MDAxNjY5NjE5MTMxODUw.MJ89C8cWUdbpnAeEhVNv92CBicu0WHeXFEy8H3RaKRAg.AeXiG-sHfaYL5jcrlLw8oD6OuqQJZgBify6_XYOE_MMg.PNG/a_c518461fac2340a788f02ab486f6a8d3.png?type=m">
-                                                                    <img alt="(W) 나이키 덩크 로우 SE 라이트 소프트 핑크" src="https://kream-phinf.pstatic.net/MjAyMjExMjhfMjQy/MDAxNjY5NjE5MTMxODUw.MJ89C8cWUdbpnAeEhVNv92CBicu0WHeXFEy8H3RaKRAg.AeXiG-sHfaYL5jcrlLw8oD6OuqQJZgBify6_XYOE_MMg.PNG/a_c518461fac2340a788f02ab486f6a8d3.png?type=m" loading="lazy" class="image">
-                                                                </picture>
-                                                            </div>
-                                                        </div>
-                                                        <div class="info_box">
-                                                            <div class="brand">
-                                                                <p class="brand-text without-wish">Nike</p>
-                                                            </div>
-                                                            <p class="name">(W) Nike Dunk Low SE Light Soft Pink</p>
-                                                            <div class="price">
-                                                                <div class="amount lg">
-                                                                    <em class="num">151,000원</em>
-                                                                </div>
-                                                                <div class="desc">
-                                                                    <p>즉시 구매가</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </a>
+                                            </a>
+                                        </div>
+                                        <div class="product_item">
+                                            <a href="/products/87356" class="item_inner">
+                                                <div class="thumb_box">
+                                                    <div class="product" style="background-color:#ebf0f5;">
+                                                        <picture class="picture product_img">
+                                                            <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMjExMjhfMjQy/MDAxNjY5NjE5MTMxODUw.MJ89C8cWUdbpnAeEhVNv92CBicu0WHeXFEy8H3RaKRAg.AeXiG-sHfaYL5jcrlLw8oD6OuqQJZgBify6_XYOE_MMg.PNG/a_c518461fac2340a788f02ab486f6a8d3.png?type=m_webp">
+                                                            <source srcset="https://kream-phinf.pstatic.net/MjAyMjExMjhfMjQy/MDAxNjY5NjE5MTMxODUw.MJ89C8cWUdbpnAeEhVNv92CBicu0WHeXFEy8H3RaKRAg.AeXiG-sHfaYL5jcrlLw8oD6OuqQJZgBify6_XYOE_MMg.PNG/a_c518461fac2340a788f02ab486f6a8d3.png?type=m">
+                                                            <img alt="(W) 나이키 덩크 로우 SE 라이트 소프트 핑크" src="https://kream-phinf.pstatic.net/MjAyMjExMjhfMjQy/MDAxNjY5NjE5MTMxODUw.MJ89C8cWUdbpnAeEhVNv92CBicu0WHeXFEy8H3RaKRAg.AeXiG-sHfaYL5jcrlLw8oD6OuqQJZgBify6_XYOE_MMg.PNG/a_c518461fac2340a788f02ab486f6a8d3.png?type=m" loading="lazy" class="image">
+                                                        </picture>
+                                                    </div>
                                                 </div>
-                                                <div class="product_item">
-                                                    <a href="/products/85125" class="item_inner">
-                                                        <div class="thumb_box">
-                                                            <div class="product" style="background-color:#ebf0f5;">
-                                                                <picture class="picture product_img">
-                                                                    <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMjExMTRfMjkw/MDAxNjY4Mzg5Mjg1MzQz.Oz3i4qr5WNM52pbBPmc2Yji9GbkMzpNlcQaM7pPf_HYg.B7dJ83f_PgAL-qAhgymCTK0YQyPORB2RU1QSWm-kl00g.PNG/a_476a7652024b49a4abafbbd383d19962.png?type=m_webp">
-                                                                    <source srcset="https://kream-phinf.pstatic.net/MjAyMjExMTRfMjkw/MDAxNjY4Mzg5Mjg1MzQz.Oz3i4qr5WNM52pbBPmc2Yji9GbkMzpNlcQaM7pPf_HYg.B7dJ83f_PgAL-qAhgymCTK0YQyPORB2RU1QSWm-kl00g.PNG/a_476a7652024b49a4abafbbd383d19962.png?type=m">
-                                                                    <img alt="나이키 덩크 로우 SE 프랄린 데저트 오커" src="https://kream-phinf.pstatic.net/MjAyMjExMTRfMjkw/MDAxNjY4Mzg5Mjg1MzQz.Oz3i4qr5WNM52pbBPmc2Yji9GbkMzpNlcQaM7pPf_HYg.B7dJ83f_PgAL-qAhgymCTK0YQyPORB2RU1QSWm-kl00g.PNG/a_476a7652024b49a4abafbbd383d19962.png?type=m" loading="lazy" class="image">
-                                                                </picture>
-                                                            </div>
+                                                <div class="info_box">
+                                                    <div class="brand">
+                                                        <p class="brand-text without-wish">Nike</p>
+                                                    </div>
+                                                    <p class="name">(W) Nike Dunk Low SE Light Soft Pink</p>
+                                                    <div class="price">
+                                                        <div class="amount lg">
+                                                            <em class="num">151,000원</em>
                                                         </div>
-                                                        <div class="info_box">
-                                                            <div class="brand">
-                                                                <p class="brand-text without-wish">Nike</p>
-                                                            </div>
-                                                            <p class="name">Nike Dunk Low SE Praline Desert Ochre</p>
-                                                            <div class="price">
-                                                                <div class="amount lg">
-                                                                    <em class="num">130,000원</em>
-                                                                </div>
-                                                                <div class="desc">
-                                                                    <p>즉시 구매가</p>
-                                                                </div>
-                                                            </div>
+                                                        <div class="desc">
+                                                            <p>즉시 구매가</p>
                                                         </div>
-                                                    </a>
+                                                    </div>
                                                 </div>
-                                                <div class="product_item">
-                                                    <a href="/products/83384" class="item_inner">
-                                                        <div class="thumb_box">
-                                                            <div class="product" style="background-color:#ebf0f5;">
-                                                                <picture class="picture product_img">
-                                                                    <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMjExMDFfOTcg/MDAxNjY3MjgxMzYwNDM3.HVg-mHb3qyVtniobSQ7pU8EaQbdzsrolqVwL-_Vm1Cog.uo4dQvbTeTKwQymJdi3EXeK3W6_Lz31RjtcuuVUip9gg.PNG/a_1925ee6152924a29a7cf94a4005cc356.png?type=m_webp">
-                                                                    <source srcset="https://kream-phinf.pstatic.net/MjAyMjExMDFfOTcg/MDAxNjY3MjgxMzYwNDM3.HVg-mHb3qyVtniobSQ7pU8EaQbdzsrolqVwL-_Vm1Cog.uo4dQvbTeTKwQymJdi3EXeK3W6_Lz31RjtcuuVUip9gg.PNG/a_1925ee6152924a29a7cf94a4005cc356.png?type=m">
-                                                                    <img alt="(W) 나이키 덩크 로우 SE 버건디 크러쉬" src="https://kream-phinf.pstatic.net/MjAyMjExMDFfOTcg/MDAxNjY3MjgxMzYwNDM3.HVg-mHb3qyVtniobSQ7pU8EaQbdzsrolqVwL-_Vm1Cog.uo4dQvbTeTKwQymJdi3EXeK3W6_Lz31RjtcuuVUip9gg.PNG/a_1925ee6152924a29a7cf94a4005cc356.png?type=m" loading="lazy" class="image">
-                                                                </picture>
-                                                            </div>
-                                                        </div>
-                                                        <div class="info_box">
-                                                            <div class="brand">
-                                                                <p class="brand-text without-wish">Nike</p>
-                                                            </div>
-                                                            <p class="name">(W) Nike Dunk Low SE Burgundy Crush</p>
-                                                            <div class="price">
-                                                                <div class="amount lg">
-                                                                    <em class="num">109,000원</em>
-                                                                </div>
-                                                                <div class="desc">
-                                                                    <p>즉시 구매가</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </a>
+                                            </a>
+                                        </div>
+                                        <div class="product_item">
+                                            <a href="/products/85125" class="item_inner">
+                                                <div class="thumb_box">
+                                                    <div class="product" style="background-color:#ebf0f5;">
+                                                        <picture class="picture product_img">
+                                                            <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMjExMTRfMjkw/MDAxNjY4Mzg5Mjg1MzQz.Oz3i4qr5WNM52pbBPmc2Yji9GbkMzpNlcQaM7pPf_HYg.B7dJ83f_PgAL-qAhgymCTK0YQyPORB2RU1QSWm-kl00g.PNG/a_476a7652024b49a4abafbbd383d19962.png?type=m_webp">
+                                                            <source srcset="https://kream-phinf.pstatic.net/MjAyMjExMTRfMjkw/MDAxNjY4Mzg5Mjg1MzQz.Oz3i4qr5WNM52pbBPmc2Yji9GbkMzpNlcQaM7pPf_HYg.B7dJ83f_PgAL-qAhgymCTK0YQyPORB2RU1QSWm-kl00g.PNG/a_476a7652024b49a4abafbbd383d19962.png?type=m">
+                                                            <img alt="나이키 덩크 로우 SE 프랄린 데저트 오커" src="https://kream-phinf.pstatic.net/MjAyMjExMTRfMjkw/MDAxNjY4Mzg5Mjg1MzQz.Oz3i4qr5WNM52pbBPmc2Yji9GbkMzpNlcQaM7pPf_HYg.B7dJ83f_PgAL-qAhgymCTK0YQyPORB2RU1QSWm-kl00g.PNG/a_476a7652024b49a4abafbbd383d19962.png?type=m" loading="lazy" class="image">
+                                                        </picture>
+                                                    </div>
                                                 </div>
-                                                <div class="product_item">
-                                                    <a href="/products/83386" class="item_inner">
-                                                        <div class="thumb_box">
-                                                            <div class="product" style="background-color:#ebf0f5;">
-                                                                <picture class="picture product_img">
-                                                                    <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMjExMDFfMjI3/MDAxNjY3MjgxMzc4NDQx.4ucgcMsztUSBzgx8dSrUN1oZoE9p7O4fc_LlvLrAl2sg.HYvnluN-a8MgrracMVWwB6rTQp7EGLsUnzCBafTEmfAg.PNG/a_1cdf33359f85443d8cb13997c964f7da.png?type=m_webp">
-                                                                    <source srcset="https://kream-phinf.pstatic.net/MjAyMjExMDFfMjI3/MDAxNjY3MjgxMzc4NDQx.4ucgcMsztUSBzgx8dSrUN1oZoE9p7O4fc_LlvLrAl2sg.HYvnluN-a8MgrracMVWwB6rTQp7EGLsUnzCBafTEmfAg.PNG/a_1cdf33359f85443d8cb13997c964f7da.png?type=m">
-                                                                    <img alt="(W) 나이키 덩크 로우 SE 허니듀 팬텀" src="https://kream-phinf.pstatic.net/MjAyMjExMDFfMjI3/MDAxNjY3MjgxMzc4NDQx.4ucgcMsztUSBzgx8dSrUN1oZoE9p7O4fc_LlvLrAl2sg.HYvnluN-a8MgrracMVWwB6rTQp7EGLsUnzCBafTEmfAg.PNG/a_1cdf33359f85443d8cb13997c964f7da.png?type=m" loading="lazy" class="image">
-                                                                </picture>
-                                                            </div>
+                                                <div class="info_box">
+                                                    <div class="brand">
+                                                        <p class="brand-text without-wish">Nike</p>
+                                                    </div>
+                                                    <p class="name">Nike Dunk Low SE Praline Desert Ochre</p>
+                                                    <div class="price">
+                                                        <div class="amount lg">
+                                                            <em class="num">130,000원</em>
                                                         </div>
-                                                        <div class="info_box">
-                                                            <div class="brand">
-                                                                <p class="brand-text without-wish">Nike</p>
-                                                            </div>
-                                                            <p class="name">(W) Nike Dunk Low SE Honeydew Phantom</p>
-                                                            <div class="price">
-                                                                <div class="amount lg">
-                                                                    <em class="num">139,000원</em>
-                                                                </div>
-                                                                <div class="desc">
-                                                                    <p>즉시 구매가</p>
-                                                                </div>
-                                                            </div>
+                                                        <div class="desc">
+                                                            <p>즉시 구매가</p>
                                                         </div>
-                                                    </a>
+                                                    </div>
                                                 </div>
-                                                <div class="product_item">
-                                                    <a href="/products/80589" class="item_inner">
-                                                        <div class="thumb_box">
-                                                            <div class="product" style="background-color:#ebf0f5;">
-                                                                <picture class="picture product_img">
-                                                                    <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMjEwMTJfMjQ3/MDAxNjY1NTY4Mjk2NzQ2.MnC7IN6xaUhmgelESxjYtgLq7CI7xKAWbp0PCPJeM7Mg.mLjetEwQvewJyMcUxQG3TC1YY08HHDf4gJjWS2VxBmMg.PNG/a_9197dd68c2ff486eb283275c7a117180.png?type=m_webp">
-                                                                    <source srcset="https://kream-phinf.pstatic.net/MjAyMjEwMTJfMjQ3/MDAxNjY1NTY4Mjk2NzQ2.MnC7IN6xaUhmgelESxjYtgLq7CI7xKAWbp0PCPJeM7Mg.mLjetEwQvewJyMcUxQG3TC1YY08HHDf4gJjWS2VxBmMg.PNG/a_9197dd68c2ff486eb283275c7a117180.png?type=m">
-                                                                    <img alt="(GS) 나이키 덩크 로우 SE 할로윈" src="https://kream-phinf.pstatic.net/MjAyMjEwMTJfMjQ3/MDAxNjY1NTY4Mjk2NzQ2.MnC7IN6xaUhmgelESxjYtgLq7CI7xKAWbp0PCPJeM7Mg.mLjetEwQvewJyMcUxQG3TC1YY08HHDf4gJjWS2VxBmMg.PNG/a_9197dd68c2ff486eb283275c7a117180.png?type=m" loading="lazy" class="image">
-                                                                </picture>
-                                                            </div>
-                                                        </div>
-                                                        <div class="info_box">
-                                                            <div class="brand">
-                                                                <p class="brand-text without-wish">Nike</p>
-                                                            </div>
-                                                            <p class="name">(GS) Nike Dunk Low SE Halloween</p>
-                                                            <div class="price">
-                                                                <div class="amount lg">
-                                                                    <em class="num">84,000원</em>
-                                                                </div>
-                                                                <div class="desc">
-                                                                    <p>즉시 구매가</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </a>
+                                            </a>
+                                        </div>
+                                        <div class="product_item">
+                                            <a href="/products/83384" class="item_inner">
+                                                <div class="thumb_box">
+                                                    <div class="product" style="background-color:#ebf0f5;">
+                                                        <picture class="picture product_img">
+                                                            <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMjExMDFfOTcg/MDAxNjY3MjgxMzYwNDM3.HVg-mHb3qyVtniobSQ7pU8EaQbdzsrolqVwL-_Vm1Cog.uo4dQvbTeTKwQymJdi3EXeK3W6_Lz31RjtcuuVUip9gg.PNG/a_1925ee6152924a29a7cf94a4005cc356.png?type=m_webp">
+                                                            <source srcset="https://kream-phinf.pstatic.net/MjAyMjExMDFfOTcg/MDAxNjY3MjgxMzYwNDM3.HVg-mHb3qyVtniobSQ7pU8EaQbdzsrolqVwL-_Vm1Cog.uo4dQvbTeTKwQymJdi3EXeK3W6_Lz31RjtcuuVUip9gg.PNG/a_1925ee6152924a29a7cf94a4005cc356.png?type=m">
+                                                            <img alt="(W) 나이키 덩크 로우 SE 버건디 크러쉬" src="https://kream-phinf.pstatic.net/MjAyMjExMDFfOTcg/MDAxNjY3MjgxMzYwNDM3.HVg-mHb3qyVtniobSQ7pU8EaQbdzsrolqVwL-_Vm1Cog.uo4dQvbTeTKwQymJdi3EXeK3W6_Lz31RjtcuuVUip9gg.PNG/a_1925ee6152924a29a7cf94a4005cc356.png?type=m" loading="lazy" class="image">
+                                                        </picture>
+                                                    </div>
                                                 </div>
-                                                <div class="product_item">
-                                                    <a href="/products/81173" class="item_inner">
-                                                        <div class="thumb_box">
-                                                            <div class="product" style="background-color:#ebf0f5;">
-                                                                <picture class="picture product_img">
-                                                                    <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMjEwMTRfMjY0/MDAxNjY1NzQ1MTkzOTgy.X_ft3QkExZUvxXV8YKcxQ3AJmE77953zPkmiQ9AnoKYg.9NJvpyoxfKhBjzTqC3bQWe0739qtCqqlRNMbIc7Lnfkg.PNG/a_caa7b7abc66545558d634fb80ddf2f5e.png?type=m_webp">
-                                                                    <source srcset="https://kream-phinf.pstatic.net/MjAyMjEwMTRfMjY0/MDAxNjY1NzQ1MTkzOTgy.X_ft3QkExZUvxXV8YKcxQ3AJmE77953zPkmiQ9AnoKYg.9NJvpyoxfKhBjzTqC3bQWe0739qtCqqlRNMbIc7Lnfkg.PNG/a_caa7b7abc66545558d634fb80ddf2f5e.png?type=m">
-                                                                    <img alt="(PS) 나이키 덩크 로우 SE 할로윈" src="https://kream-phinf.pstatic.net/MjAyMjEwMTRfMjY0/MDAxNjY1NzQ1MTkzOTgy.X_ft3QkExZUvxXV8YKcxQ3AJmE77953zPkmiQ9AnoKYg.9NJvpyoxfKhBjzTqC3bQWe0739qtCqqlRNMbIc7Lnfkg.PNG/a_caa7b7abc66545558d634fb80ddf2f5e.png?type=m" loading="lazy" class="image">
-                                                                </picture>
-                                                            </div>
+                                                <div class="info_box">
+                                                    <div class="brand">
+                                                        <p class="brand-text without-wish">Nike</p>
+                                                    </div>
+                                                    <p class="name">(W) Nike Dunk Low SE Burgundy Crush</p>
+                                                    <div class="price">
+                                                        <div class="amount lg">
+                                                            <em class="num">109,000원</em>
                                                         </div>
-                                                        <div class="info_box">
-                                                            <div class="brand">
-                                                                <p class="brand-text without-wish">Nike</p>
-                                                            </div>
-                                                            <p class="name">(PS) Nike Dunk Low SE Halloween</p>
-                                                            <div class="price">
-                                                                <div class="amount lg">
-                                                                    <em class="num">88,000원</em>
-                                                                </div>
-                                                                <div class="desc">
-                                                                    <p>즉시 구매가</p>
-                                                                </div>
-                                                            </div>
+                                                        <div class="desc">
+                                                            <p>즉시 구매가</p>
                                                         </div>
-                                                    </a>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            </a>
+                                        </div>
+                                        <div class="product_item">
+                                            <a href="/products/83386" class="item_inner">
+                                                <div class="thumb_box">
+                                                    <div class="product" style="background-color:#ebf0f5;">
+                                                        <picture class="picture product_img">
+                                                            <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMjExMDFfMjI3/MDAxNjY3MjgxMzc4NDQx.4ucgcMsztUSBzgx8dSrUN1oZoE9p7O4fc_LlvLrAl2sg.HYvnluN-a8MgrracMVWwB6rTQp7EGLsUnzCBafTEmfAg.PNG/a_1cdf33359f85443d8cb13997c964f7da.png?type=m_webp">
+                                                            <source srcset="https://kream-phinf.pstatic.net/MjAyMjExMDFfMjI3/MDAxNjY3MjgxMzc4NDQx.4ucgcMsztUSBzgx8dSrUN1oZoE9p7O4fc_LlvLrAl2sg.HYvnluN-a8MgrracMVWwB6rTQp7EGLsUnzCBafTEmfAg.PNG/a_1cdf33359f85443d8cb13997c964f7da.png?type=m">
+                                                            <img alt="(W) 나이키 덩크 로우 SE 허니듀 팬텀" src="https://kream-phinf.pstatic.net/MjAyMjExMDFfMjI3/MDAxNjY3MjgxMzc4NDQx.4ucgcMsztUSBzgx8dSrUN1oZoE9p7O4fc_LlvLrAl2sg.HYvnluN-a8MgrracMVWwB6rTQp7EGLsUnzCBafTEmfAg.PNG/a_1cdf33359f85443d8cb13997c964f7da.png?type=m" loading="lazy" class="image">
+                                                        </picture>
+                                                    </div>
+                                                </div>
+                                                <div class="info_box">
+                                                    <div class="brand">
+                                                        <p class="brand-text without-wish">Nike</p>
+                                                    </div>
+                                                    <p class="name">(W) Nike Dunk Low SE Honeydew Phantom</p>
+                                                    <div class="price">
+                                                        <div class="amount lg">
+                                                            <em class="num">139,000원</em>
+                                                        </div>
+                                                        <div class="desc">
+                                                            <p>즉시 구매가</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="product_item">
+                                            <a href="/products/80589" class="item_inner">
+                                                <div class="thumb_box">
+                                                    <div class="product" style="background-color:#ebf0f5;">
+                                                        <picture class="picture product_img">
+                                                            <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMjEwMTJfMjQ3/MDAxNjY1NTY4Mjk2NzQ2.MnC7IN6xaUhmgelESxjYtgLq7CI7xKAWbp0PCPJeM7Mg.mLjetEwQvewJyMcUxQG3TC1YY08HHDf4gJjWS2VxBmMg.PNG/a_9197dd68c2ff486eb283275c7a117180.png?type=m_webp">
+                                                            <source srcset="https://kream-phinf.pstatic.net/MjAyMjEwMTJfMjQ3/MDAxNjY1NTY4Mjk2NzQ2.MnC7IN6xaUhmgelESxjYtgLq7CI7xKAWbp0PCPJeM7Mg.mLjetEwQvewJyMcUxQG3TC1YY08HHDf4gJjWS2VxBmMg.PNG/a_9197dd68c2ff486eb283275c7a117180.png?type=m">
+                                                            <img alt="(GS) 나이키 덩크 로우 SE 할로윈" src="https://kream-phinf.pstatic.net/MjAyMjEwMTJfMjQ3/MDAxNjY1NTY4Mjk2NzQ2.MnC7IN6xaUhmgelESxjYtgLq7CI7xKAWbp0PCPJeM7Mg.mLjetEwQvewJyMcUxQG3TC1YY08HHDf4gJjWS2VxBmMg.PNG/a_9197dd68c2ff486eb283275c7a117180.png?type=m" loading="lazy" class="image">
+                                                        </picture>
+                                                    </div>
+                                                </div>
+                                                <div class="info_box">
+                                                    <div class="brand">
+                                                        <p class="brand-text without-wish">Nike</p>
+                                                    </div>
+                                                    <p class="name">(GS) Nike Dunk Low SE Halloween</p>
+                                                    <div class="price">
+                                                        <div class="amount lg">
+                                                            <em class="num">84,000원</em>
+                                                        </div>
+                                                        <div class="desc">
+                                                            <p>즉시 구매가</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="product_item">
+                                            <a href="/products/81173" class="item_inner">
+                                                <div class="thumb_box">
+                                                    <div class="product" style="background-color:#ebf0f5;">
+                                                        <picture class="picture product_img">
+                                                            <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMjEwMTRfMjY0/MDAxNjY1NzQ1MTkzOTgy.X_ft3QkExZUvxXV8YKcxQ3AJmE77953zPkmiQ9AnoKYg.9NJvpyoxfKhBjzTqC3bQWe0739qtCqqlRNMbIc7Lnfkg.PNG/a_caa7b7abc66545558d634fb80ddf2f5e.png?type=m_webp">
+                                                            <source srcset="https://kream-phinf.pstatic.net/MjAyMjEwMTRfMjY0/MDAxNjY1NzQ1MTkzOTgy.X_ft3QkExZUvxXV8YKcxQ3AJmE77953zPkmiQ9AnoKYg.9NJvpyoxfKhBjzTqC3bQWe0739qtCqqlRNMbIc7Lnfkg.PNG/a_caa7b7abc66545558d634fb80ddf2f5e.png?type=m">
+                                                            <img alt="(PS) 나이키 덩크 로우 SE 할로윈" src="https://kream-phinf.pstatic.net/MjAyMjEwMTRfMjY0/MDAxNjY1NzQ1MTkzOTgy.X_ft3QkExZUvxXV8YKcxQ3AJmE77953zPkmiQ9AnoKYg.9NJvpyoxfKhBjzTqC3bQWe0739qtCqqlRNMbIc7Lnfkg.PNG/a_caa7b7abc66545558d634fb80ddf2f5e.png?type=m" loading="lazy" class="image">
+                                                        </picture>
+                                                    </div>
+                                                </div>
+                                                <div class="info_box">
+                                                    <div class="brand">
+                                                        <p class="brand-text without-wish">Nike</p>
+                                                    </div>
+                                                    <p class="name">(PS) Nike Dunk Low SE Halloween</p>
+                                                    <div class="price">
+                                                        <div class="amount lg">
+                                                            <em class="num">88,000원</em>
+                                                        </div>
+                                                        <div class="desc">
+                                                            <p>즉시 구매가</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
                     <!-- 브랜드 다른 상품 끝 -->
 
                     <!-- 푸터 상단 배너 시작 -->
                     <!-- <div>
-                                    <div class="banner_bottom lg">
-                                        <a href="#" class="banner_box">
-                                            <div class="banner_info">
-                                                <strong class="info_subtitle">service guide</strong>
-                                                <p class="info_title">KREAM은 처음이지? <br>서비스 소개를 확인해보세요.</p>
-                                                <span class="info_txt">서비스 안내</span>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="banner_box">
-                                            <div class="banner_info">
-                                                <strong class="info_subtitle">download the app</strong>
-                                                <p class="info_title">KREAM 앱을 설치하여 <br>한정판 스니커즈를 FLEX 하세요!</p>
-                                                <span class="info_txt">앱 설치하기</span>
-                                            </div>
-                                        </a>
+                            <div class="banner_bottom lg">
+                                <a href="#" class="banner_box">
+                                    <div class="banner_info">
+                                        <strong class="info_subtitle">service guide</strong>
+                                        <p class="info_title">KREAM은 처음이지? <br>서비스 소개를 확인해보세요.</p>
+                                        <span class="info_txt">서비스 안내</span>
                                     </div>
-                                </div> -->
-                                <!-- 푸터 상단 배너 끝 -->
+                                </a>
+                                <a href="#" class="banner_box">
+                                    <div class="banner_info">
+                                        <strong class="info_subtitle">download the app</strong>
+                                        <p class="info_title">KREAM 앱을 설치하여 <br>한정판 스니커즈를 FLEX 하세요!</p>
+                                        <span class="info_txt">앱 설치하기</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div> -->
+                        <!-- 푸터 상단 배너 끝 -->
 
+                        <!-- 모든 사이즈 버튼 클릭시 팝업 레이어창 시작 -->
+                        <div size-select="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]" all-size-option="[object Object]" show-all-size-option="true">
+                            <div class="lg layer_detail_size_select select_only_size">
+                                <div class="layer_container">
+                                    <a href="#" class="btn_layer_close" onclick="everysizePopdown()">
+                                        <img src="../img/close.png" class="ico-close icon sprite-icons"></img>
+                                    </a>
+                                    <div class="layer_header">
+                                        <h2 class="title">
+                                            <span>사이즈</span>
+                                        </h2>
+                                    </div>
+                                    <div class="layer_content">
+                                        <div class="select_area lg" showlayer="true" optiontitle="사이즈" >
+                                            <!---->
+                                            <ul class="select_list">
+                                                <li class="select_item active">
+                                                    <button role="button" aria-selected="true" class="select_link buy">
+                                                        <div class="link_inner">
+                                                            <span class="size">
+                                                                <!----> 
+                                                                모든 사이즈 
+                                                            </span>
+                                                            <span class="price">210,000</span>
+                                                        </div>
+                                                    </button>
+                                                </li>
+                                                <li class="select_item">
+                                                    <button role="button" aria-selected="false" class="select_link buy">
+                                                        <div class="link_inner">
+                                                            <span class="size">
+                                                                <!----> 240 
+                                                            </span>
+                                                            <span class="price">689,000</span>
+                                                        </div>
+                                                    </button>
+                                                </li>
+                                                <li class="select_item">
+                                                    <button role="button" aria-selected="false" class="select_link buy">
+                                                        <div class="link_inner">
+                                                            <span class="size">
+                                                                <!----> 245 
+                                                            </span>
+                                                            <span class="price">400,000</span>
+                                                        </div>
+                                                    </button>
+                                                </li>
+                                                <li class="select_item">
+                                                    <button role="button" aria-selected="false" class="select_link buy">
+                                                        <div class="link_inner">
+                                                            <span class="size">
+                                                                <!----> 250 
+                                                            </span>
+                                                            <span class="price">304,000</span>
+                                                        </div>
+                                                    </button>
+                                                </li>
+                                                <li class="select_item">
+                                                    <button role="button" aria-selected="false" class="select_link buy">
+                                                        <div class="link_inner">
+                                                            <span class="size">
+                                                                <!----> 255 
+                                                            </span>
+                                                            <span class="price">258,000</span>
+                                                        </div>
+                                                    </button>
+                                                </li>
+                                                <li class="select_item">
+                                                    <button role="button" aria-selected="false" class="select_link buy">
+                                                        <div class="link_inner">
+                                                            <span class="size">
+                                                                <!----> 260 
+                                                            </span>
+                                                            <span class="price">230,000</span>
+                                                        </div>
+                                                    </button>
+                                                </li>
+                                                <li class="select_item">
+                                                    <button role="button" aria-selected="false" class="select_link buy">
+                                                        <div class="link_inner">
+                                                            <span class="size">
+                                                                <!----> 265 
+                                                            </span>
+                                                            <span class="price">210,000</span>
+                                                        </div>
+                                                    </button>
+                                                </li>
+                                                <li class="select_item">
+                                                    <button role="button" aria-selected="false" class="select_link buy">
+                                                        <div class="link_inner">
+                                                            <span class="size">
+                                                                <!----> 270 
+                                                            </span>
+                                                            <span class="price">220,000</span>
+                                                        </div>
+                                                    </button>
+                                                </li>
+                                                <li class="select_item">
+                                                    <button role="button" aria-selected="false" class="select_link buy">
+                                                        <div class="link_inner">
+                                                            <span class="size">
+                                                                <!----> 275 
+                                                            </span>
+                                                            <span class="price">238,000</span>
+                                                        </div>
+                                                    </button>
+                                                </li>
+                                                <li class="select_item">
+                                                    <button role="button" aria-selected="false" class="select_link buy">
+                                                        <div class="link_inner">
+                                                            <span class="size">
+                                                                <!----> 280 
+                                                            </span>
+                                                            <span class="price">280,000</span>
+                                                        </div>
+                                                    </button>
+                                                </li>
+                                                <li class="select_item">
+                                                    <button role="button" aria-selected="false" class="select_link buy">
+                                                        <div class="link_inner">
+                                                            <span class="size">
+                                                                <!----> 285 
+                                                            </span>
+                                                            <span class="price">325,000</span>
+                                                        </div>
+                                                    </button>
+                                                </li>
+                                                <li class="select_item">
+                                                    <button role="button" aria-selected="false" class="select_link buy">
+                                                        <div class="link_inner">
+                                                            <span class="size">
+                                                                <!----> 290 
+                                                            </span>
+                                                            <span class="price">335,000</span>
+                                                        </div>
+                                                    </button>
+                                                </li>
+                                                <li class="select_item">
+                                                    <button role="button" aria-selected="false" class="select_link buy">
+                                                        <div class="link_inner">
+                                                            <span class="size">
+                                                                <!----> 295 
+                                                            </span>
+                                                            <span class="price">350,000</span>
+                                                        </div>
+                                                    </button>
+                                                </li>
+                                                <li class="select_item">
+                                                    <button role="button" aria-selected="false" class="select_link buy">
+                                                        <div class="link_inner">
+                                                            <span class="size">
+                                                                <!----> 300 
+                                                            </span>
+                                                            <span class="price">400,000</span>
+                                                        </div>
+                                                    </button>
+                                                </li>
+                                                <li class="select_item">
+                                                    <button role="button" aria-selected="false" class="select_link buy bid">
+                                                        <div class="link_inner">
+                                                            <span class="size">
+                                                                <!----> 305 
+                                                            </span>
+                                                            <span class="price">구매입찰</span>
+                                                        </div>
+                                                    </button>
+                                                </li>
+                                                <li class="select_item">
+                                                    <button role="button" aria-selected="false" class="select_link buy bid">
+                                                        <div class="link_inner">
+                                                            <span class="size">
+                                                                <!----> 310 
+                                                            </span>
+                                                            <span class="price">구매입찰</span>
+                                                        </div>
+                                                    </button>
+                                                </li>
+                                                <li class="select_item">
+                                                    <button role="button" aria-selected="false" class="select_link buy bid">
+                                                        <div class="link_inner">
+                                                            <span class="size">
+                                                                <!----> 320 
+                                                            </span>
+                                                            <span class="price">구매입찰</span>
+                                                        </div>
+                                                    </button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!---->
+                        </div>
+                        <!-- 모든 사이즈 버튼 클릭시 팝업 레이어창 끝 -->
+
+                        <!---->
+                        <!---->
+                        <!-- 관심 상품 클릭시 팝업 레이어창 시작 -->
+                        <div class="layer_interest mo">
+                            <div class="layer_container">
+                                <a href="#" class="btn_layer_close">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="ico-close icon sprite-icons">
+                                        <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-close" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-close"></use>
+                                    </svg>
+                                </a>
+                                <div class="layer_header">
+                                    <h2 class="title">관심 상품 추가</h2>
+                                </div>
+                                <div class="layer_content">
+                                    <div class="suggest_list mo">
+                                        <div class="suggest_item">
+                                            <div class="suggest_link">
+                                                <div class="suggest_thumb">
+                                                    <picture class="picture thumb_img">
+                                                        <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMTA4MDZfMjY0/MDAxNjI4MjM5NTA1MjU1.9FfkTXbxZFWKxDMdPayVFlD0GIyNT-mFVIQ7zZW3SPcg.c03UoCFjKXtP4XtNMgBdrmTOIQlqxrePk4JScV4GUHEg.PNG/p_8001cbaf0db042bda09fea320ee328b4.png?type=m_webp">
+                                                        <source srcset="https://kream-phinf.pstatic.net/MjAyMTA4MDZfMjY0/MDAxNjI4MjM5NTA1MjU1.9FfkTXbxZFWKxDMdPayVFlD0GIyNT-mFVIQ7zZW3SPcg.c03UoCFjKXtP4XtNMgBdrmTOIQlqxrePk4JScV4GUHEg.PNG/p_8001cbaf0db042bda09fea320ee328b4.png?type=m">
+                                                        <img alt="상품 이미지" src="https://kream-phinf.pstatic.net/MjAyMTA4MDZfMjY0/MDAxNjI4MjM5NTA1MjU1.9FfkTXbxZFWKxDMdPayVFlD0GIyNT-mFVIQ7zZW3SPcg.c03UoCFjKXtP4XtNMgBdrmTOIQlqxrePk4JScV4GUHEg.PNG/p_8001cbaf0db042bda09fea320ee328b4.png?type=m" loading="lazy" class="image">
+                                                    </picture>
+                                                </div>
+                                                <div class="suggest_info">
+                                                    <p class="model_title">Nike Dunk Low SE Seoul</p>
+                                                    <p class="model_sub_info">나이키 덩크 로우 SE 서울</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mo interest_list">
+                                        <div class="interest_btn_box">
+                                            <a href="#" class="btn outlinegrey medium btn_interest">
+                                                <p class="info_txt">240</p>
+                                                <img src="../img/select_mark.jpg" class="icon sprite-icons wish-s-off"></img>
+                                            </a>
+                                        </div>
+                                        <div class="interest_btn_box">
+                                            <a href="#" class="btn outlinegrey medium btn_interest">
+                                                <p class="info_txt">245</p>
+                                                <img src="../img/select_mark.jpg" class="icon sprite-icons wish-s-off"></img>
+                                            </a>
+                                        </div>
+                                        <div class="interest_btn_box">
+                                            <a href="#" class="btn outlinegrey medium btn_interest">
+                                                <p class="info_txt">250</p>
+                                                <img src="../img/select_mark.jpg" class="icon sprite-icons wish-s-off"></img>
+                                            </a>
+                                        </div>
+                                        <div class="interest_btn_box">
+                                            <a href="#" class="btn outlinegrey medium btn_interest">
+                                                <p class="info_txt">255</p>
+                                                <img src="../img/select_mark.jpg" class="icon sprite-icons wish-s-off"></img>
+                                            </a>
+                                        </div>
+                                        <div class="interest_btn_box">
+                                            <a href="#" class="btn outlinegrey medium btn_interest">
+                                                <p class="info_txt">260</p>
+                                                <img src="../img/select_mark.jpg" class="icon sprite-icons wish-s-off"></img>
+                                            </a>
+                                        </div>
+                                        <div class="interest_btn_box">
+                                            <a href="#" class="btn outlinegrey medium btn_interest">
+                                                <p class="info_txt">265</p>
+                                                <img src="../img/select_mark.jpg" class="icon sprite-icons wish-s-off"></img>
+                                            </a>
+                                        </div>
+                                        <div class="interest_btn_box">
+                                            <a href="#" class="btn outlinegrey medium btn_interest">
+                                                <p class="info_txt">270</p>
+                                                <img src="../img/select_mark.jpg" class="icon sprite-icons wish-s-off"></img>
+                                            </a>
+                                        </div>
+                                        <div class="interest_btn_box">
+                                            <a href="#" class="btn outlinegrey medium btn_interest">
+                                                <p class="info_txt">275</p>
+                                                <img src="../img/select_mark.jpg" class="icon sprite-icons wish-s-off"></img>
+                                            </a>
+                                        </div>
+                                        <div class="interest_btn_box">
+                                            <a href="#" class="btn outlinegrey medium btn_interest">
+                                                <p class="info_txt">280</p>
+                                                <img src="../img/select_mark.jpg" class="icon sprite-icons wish-s-off"></img>
+                                            </a>
+                                        </div>
+                                        <div class="interest_btn_box">
+                                            <a href="#" class="btn outlinegrey medium btn_interest">
+                                                <p class="info_txt">285</p>
+                                                <img src="../img/select_mark.jpg" class="icon sprite-icons wish-s-off"></img>
+                                            </a>
+                                        </div>
+                                        <div class="interest_btn_box">
+                                            <a href="#" class="btn outlinegrey medium btn_interest">
+                                                <p class="info_txt">290</p>
+                                                <img src="../img/select_mark.jpg" class="icon sprite-icons wish-s-off"></img>
+                                            </a>
+                                        </div>
+                                        <div class="interest_btn_box">
+                                            <a href="#" class="btn outlinegrey medium btn_interest">
+                                                <p class="info_txt">295</p>
+                                                <img src="../img/select_mark.jpg" class="icon sprite-icons wish-s-off"></img>
+                                            </a>
+                                        </div>
+                                        <div class="interest_btn_box">
+                                            <a href="#" class="btn outlinegrey medium btn_interest">
+                                                <p class="info_txt">300</p>
+                                                <img src="../img/select_mark.jpg" class="icon sprite-icons wish-s-off"></img>
+                                            </a>
+                                        </div>
+                                        <div class="interest_btn_box">
+                                            <a href="#" class="btn outlinegrey medium btn_interest">
+                                                <p class="info_txt">305</p>
+                                                <img src="../img/select_mark.jpg" class="icon sprite-icons wish-s-off"></img>
+                                            </a>
+                                        </div>
+                                        <div class="interest_btn_box">
+                                            <a href="#" class="btn outlinegrey medium btn_interest">
+                                                <p class="info_txt">310</p>
+                                                <img src="../img/select_mark.jpg" class="icon sprite-icons wish-s-off"></img>
+                                            </a>
+                                        </div>
+                                        <div class="interest_btn_box">
+                                            <a href="#" class="btn outlinegrey medium btn_interest">
+                                                <p class="info_txt">320</p>
+                                                <img src="../img/select_mark.jpg" class="icon sprite-icons wish-s-off"></img>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="layer_btn">
+                                        <a href="#" class="btn outline medium" onclick="wishPopdown()">확인</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 관심 상품 클릭시 팝업 레이어창 끝 -->
+                        <!---->
+                        <!---->
+                        <!---->
                 </div>
-
+                
                 <!-- 푸터 시작 -->
                 <!-- <div class="footer lg floating_price">
                                 <div class="inner">
