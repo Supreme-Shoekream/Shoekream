@@ -38,6 +38,15 @@ table {
     text-align: center;
     border: 0;
 }
+input, textarea {
+    padding: 0;
+    outline: 0;
+    border: 0;
+    resize: none;
+    border-radius: 0;
+    -webkit-appearance: none;
+    background-color: transparent;
+}
 
 .view_data {
     margin-top: 8px;
