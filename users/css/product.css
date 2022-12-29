@@ -2216,6 +2216,10 @@ svg:not(:root) {
     height: 514px;
 }
 
+.layer_detail_size_select.select_only_size {
+    visibility: hidden;
+}
+
 .layer_container {
     overflow: hidden;
     position: absolute;
@@ -2346,6 +2350,10 @@ svg:not(:root) {
 }
 
 /* 관심 상품 클릭시 팝업 레이어창 */
+.layer_interest {
+    visibility: hidden;
+}
+
 .layer_interest .layer_container {
     width: 440px;
 }
