@@ -8,7 +8,7 @@
         <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://kream.co.kr/favicon.ico">
         <!-- jquery cdn -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
         <link rel="stylesheet" href="../css/product.css">
         
     </head>
@@ -375,46 +375,26 @@
                                                 <div class="wrap_sales">
                                                     <div class="tab_area">
                                                         <ul role="tablist" class="tab_list">
-                                                            <li role="tab" aria-selected="false" aria-controls="sales_panel1" class="item">
-                                                                <a href="#" class="item_link">1개월</a>
-                                                            </li>
-                                                            <li role="tab" aria-selected="false" aria-controls="sales_panel2" class="item">
-                                                                <a href="#" class="item_link">3개월</a>
-                                                            </li>
-                                                            <li role="tab" aria-selected="false" aria-controls="sales_panel3" class="item">
-                                                                <a href="#" class="item_link">6개월</a>
-                                                            </li>
-                                                            <li role="tab" aria-selected="false" aria-controls="sales_panel4" class="item">
-                                                                <a href="#" class="item_link">1년</a>
-                                                            </li>
-                                                            <li role="tab" aria-selected="true" aria-controls="sales_panel5" class="item on">
-                                                                <a href="#" class="item_link">전체</a>
-                                                            </li>
+                                                            <li  role="tab" aria-selected="true" aria-controls="sales_panel1" class="item on"><a class="item_link">1개월</a></li>
+                                                            <li  role="tab" aria-selected="false" aria-controls="sales_panel2" class="item"><a class="item_link">3개월</a></li>
+                                                            <li  role="tab" aria-selected="false" aria-controls="sales_panel3" class="item"><a class="item_link">6개월</a></li>
+                                                            <li  role="tab" aria-selected="false" aria-controls="sales_panel4" class="item"><a class="item_link">1년</a></li>
+                                                            <li  role="tab" aria-selected="false" aria-controls="sales_panel5" class="item"><a class="item_link">전체</a></li>
                                                         </ul>
-                                                        <div id="sales_panel1" role="tabpanel" span="1m" class="tab_content">
-                                                            <div class="graph">
-                                                                <canvas id="e1d39fb2-e5a9-4d22-88d3-b472525611a2" height="0" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0"></canvas>
-                                                            </div>
+                                                        <div id="sales_panel1" role="tabpanel" span="1m" class="tab_content show">
+                                                            <div class="graph"><canvas id="graph1m" height="200" style="display: block; box-sizing: border-box; height: 200px; width: 560px;" width="560"></canvas></div>
                                                         </div>
                                                         <div id="sales_panel2" role="tabpanel" span="3m" class="tab_content">
-                                                            <div class="graph">
-                                                                <canvas id="f6ff9e50-b90a-43f3-ab08-dec6313b7ad0" height="0" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0"></canvas>
-                                                            </div>
+                                                            <div class="graph"><canvas id="graph3m" height="0" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0"></canvas></div>
                                                         </div>
                                                         <div id="sales_panel3" role="tabpanel" span="6m" class="tab_content">
-                                                            <div class="graph">
-                                                                <canvas id="b85cd0c9-d489-4369-82c7-bfdfe8c28091" height="0" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0"></canvas>
-                                                            </div>
+                                                            <div class="graph"><canvas id="graph6m" height="0" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0"></canvas></div>
                                                         </div>
                                                         <div id="sales_panel4" role="tabpanel" span="1y" class="tab_content">
-                                                            <div class="graph">
-                                                                <canvas id="95bfb198-fe39-4c5c-8038-d88780ed516e" height="0" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0"></canvas>
-                                                            </div>
+                                                            <div class="graph"><canvas id="graph1y" height="0" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0"></canvas></div>
                                                         </div>
-                                                        <div id="sales_panel5" role="tabpanel" span="all" class="tab_content show">
-                                                            <div class="graph">
-                                                                <canvas id="dbe07073-fd17-4827-a64c-8c30bc593643" width="1120" height="400" style="display: block; box-sizing: border-box; height: 200px; width: 560px;"></canvas>
-                                                            </div>
+                                                        <div id="sales_panel5" role="tabpanel" span="all" class="tab_content">
+                                                            <div class="graph"><canvas id="graphall" width="1120" height="400" style="display: block; box-sizing: border-box; height: 200px; width: 560px;"></canvas></div>
                                                         </div>
                                                     </div>
                                                 </div>
