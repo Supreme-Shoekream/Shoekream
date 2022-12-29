@@ -19,18 +19,19 @@
                 </p>
             </div><!--.help_notice END-->
             
-            <div class="input_box">
+            <div class="input_box"  id="hp_input_box">
                 <h3 class="input_title">휴대폰 번호</h3>
                 <div class="input_item">
-                    <input type="text" class="input_txt" name="tell" placeholder="가입하신 휴대폰 번호">
+                    <input type="number" maxlength="11" oninput="maxLengthCheck(this)" class="input_txt" name="hp" id="hp_input" placeholder="가입하신 휴대폰 번호">
                 </div><!--.input_item END-->
-                <p class="input_error" id="tell_input_error"></p>
+                <p class="input_error" id="hp_input_error"></p>
             </div><!--.input_box END-->
 
             <div class="help_btn_box">
-                <a disabled="disabled" href="#" type="button" class="btn full solid disabled"> 이메일 아이디 찾기 </a>
+                <a disabled="disabled" href="#" type="button" class="btn full solid disabled" id="find_btn"> 이메일 아이디 찾기 </a>
             </div><!--.help_btn_box END-->
         </div>
     </div><!--.help_area END-->
 </body>
 </html>
+<script src="../../js/login/find_email.js"></script>

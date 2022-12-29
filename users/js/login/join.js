@@ -16,12 +16,10 @@ $(".size_item").click(function(){
 
 // input_area에 사이즈 value 값으로 전달
 $(document).on('click', '#size_submit_btn', function(){
-    $(".size_layer").css('display', 'none'); //팝업닫고
+    $(".size_layer").css('display', 'none'); // 팝업 닫고
     $("#input_shoesize").val(document.querySelector('.size_item.active .btn').text.trim());
 });
 
-
-// 정규식 조건
 
 // input 타입 넘버에 maxlength 설정
 function maxLengthCheck(object){
@@ -30,27 +28,18 @@ function maxLengthCheck(object){
     }    
 }
 
-
-
-
-
-
-
-
-
-
-//디바운스
+// 디바운스
 let timer=false;//최초 false
-const filterByDebounce=(e, callback)=> {
+const debounce=(e, callback)=> {
     if (timer) {
         clearTimeout(timer);
     }
     timer = setTimeout(function () {
         callback('' + e.target.value);
-    }, 200); //200ms 이후 반응(디바운스)
+    }, 100); //200ms 이후 반응(디바운스)
 }
 
-//이메일 유효성검사
+// 이메일 정규 표현식
 function validateEmail(strEmail){
     const reg_email =/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
     if(!reg_email.test(''+strEmail)){
@@ -59,23 +48,63 @@ function validateEmail(strEmail){
     return true;
 }
 
+//비밀번호 정규 표현식
+function validatePassword(strPassword){
+    const reg_password = /^.*(?=^.{8,16}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
+    if(!reg_password.test(''+strPassword)){
+        return false;
+    }
+    return true;
+}
 
-//oninput -> 함수(유효성) -> 아니면! #error추가!
-on off 기능
- 
+// 이름 정규 표현식
+function validateName(strName){
+    // const reg_name =  /^[가-힣a-zA-Z]+$/;
+    const reg_name = /^[가-힣]{2,6}$/;
+    if(!reg_name.test(''+strName)){
+        return false;
+    }
+    return true;
+}
 
+// ssn1 정규 표현식
+function validateBirthday1(strBirthday1){
+    const reg_birthday1 =  /^(?:[0-9]{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[1,2][0-9]|3[0,1]))$/;
+    if(!reg_birthday1.test(''+strBirthday1)){
+        return false;
+    }
+    return true;
+}
+
+// ssn2 정규 표현식
+function validateBirthday(strBirthday){
+    const reg_birthday =  /^[1-4]{1}$/;
+    if(!reg_birthday.test(''+strBirthday)){
+        return false;
+    }
+    return true;
+}
+
+// 휴대폰 번호 정규 표현식
+function validateHp(strHp){
+    const reg_hp = /^01(?:0|1|6|7|8|9)(?:\d{3}|\d{4})\d{4}$/;
+    if(!reg_hp.test(''+strHp)){
+        return false;
+    }
+    return true;
+}
 
 // 이메일 유효성 검사
 document.querySelector('#email_input').addEventListener('input', e=>{
-    filterByDebounce(e, strEmail=>{
+    debounce(e, strEmail=>{
         let errorMsg='';
         if(!validateEmail(strEmail)){
             errorMsg='이메일 주소를 정확히 입력해주세요.';
             document.querySelector('#email_input_box').className='input_box has_error';
-            document.querySelector('#email_input').setAttribute('validateresult',false);
+            document.querySelector('#email_input').setAttribute('validateresult', false);
         } else {
             document.querySelector('#email_input_box').className='input_box fill';
-            document.querySelector('#email_input').setAttribute('validateresult',true);
+            document.querySelector('#email_input').setAttribute('validateresult', true);
         }
         document.querySelector('#email_input_error').innerHTML=errorMsg;
     })
@@ -96,9 +125,24 @@ document.querySelector('#password_input').addEventListener('input', e=>{
     document.querySelector('#password_input_error').innerHTML=errorMsg;
 });
 
-// 전화번호 유효성 검사
+// 이름 유효성 검사
+document.querySelector('#name_input').addEventListener('input', e=>{
+    let strName=e.target.value;
+    let errorMsg='';
+    if(!validateName(strName)){
+        errorMsg='이름을 정확히 입력해주세요.';
+        document.querySelector('#name_input_box').className='has_button input_box has_error';
+        document.querySelector('#name_input').setAttribute('validateresult',false);
+    } else {
+        document.querySelector('#name_input_box').className='has_button input_box fill';
+        document.querySelector('#name_input').setAttribute('validateresult',true);
+    }
+    document.querySelector('#name_input_error').innerHTML=errorMsg;
+});
+
+// 휴대폰 번호 유효성 검사
 document.querySelector('#hp_input').addEventListener('input', e=>{
-    filterByDebounce(e, strHp=>{
+    debounce(e, strHp=>{
         let errorMsg='';
         if(!validateHp(strHp)){
             errorMsg='휴대폰 번호를 정확히 입력해주세요.';
