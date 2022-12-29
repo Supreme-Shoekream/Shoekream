@@ -164,10 +164,10 @@
                           </div>
                           <div class="social_header">
                             <div class="style_tab_list">
-                              <a href="#" class="tab_item"> 인기 </a>
-                              <a href="#" class="tab_item"> 최신 </a>
+                              <a href="../../html/social/style_popular.html" class="tab_item"> 인기 </a>
+                              <a href="../../html/social/style_recent.html" class="tab_item"> 최신 </a>
                               <a href="#" class="tab_item tab_on"> 팔로잉 </a>
-                              <a href="#" class="tab_item"> 내스타일 </a>
+                              <a href="../../html/social/myprofile.html" class="tab_item"> 내스타일 </a>
                             </div>
                           </div>
                         </div>
@@ -297,10 +297,10 @@
                                 <div class="social_contents">
                                     <div class="social_btn">
                                         <div class="btn_bind">
-                                            <a href="#" aria-label="좋아요" class="btn like" >
-                                                <img src="../../img/styleImg/like_icon.png" class="icon sprite-icons social-like">
+                                            <a aria-label="좋아요" class="btn like" onclick="like_clicked()">
+                                                <img  id="like_icon" src="../../img/styleImg/like_icon.png" class="icon sprite-icons social-like">
                                             </a>
-                                            <a href="#" aria-label="댓글" class="btn comment" >
+                                            <a style="cursor: pointer;" aria-label="댓글" class="btn comment" onclick="comment_more()">
                                                 <img src="../../img/styleImg/comment_icon.png" class="social-comment icon sprite-icons">
                                             </a>
                                         </div>
@@ -310,7 +310,7 @@
                                     </div>
                                     <div class="social_count">
                                         <!---->
-                                        <a href="#" class="like_count" > 공감 <strong >72</strong>개 </a>
+                                        <a href="#" class="like_count"> 공감 <strong id="like_cnt">72</strong>개 </a>
                                         <!---->
                                         <!---->
                                     </div>
@@ -373,7 +373,7 @@
 <!--                                                        </a>-->
                                                     </div>
                                                 </div>
-                                                <a href="#" class="btn_more"  onclick="comment_more()">댓글 더 보기...</a>
+                                                <a style="cursor: pointer;" class="btn_more"  onclick="comment_more()">댓글 더 보기...</a>
                                             </div>
                                         </div>
                                     </div>
@@ -614,24 +614,9 @@
 </footer>
     <!-- 푸터 끝 -->
 
-<script src="../js/following.js"></script>
+<script src="../../js/style/comment_layer.js"></script>
+<script src="../../js/style/like.js"></script>
 </body>
-<script>
-    function comment_more(){
-        const popup = document.getElementById('comment_more');
-        popup.style.display = "block";
-        const body = document.querySelector('body');
-        body.style.overflow = 'hidden'
-    }
-
-    function comment_close(){
-        const popdown = document.getElementById('comment_more');
-        popdown.style.display = "none"
-        const body = document.querySelector('body');
-        body.style.overflow = 'unset'
-    }
-
-</script>
 
 
 </html>

@@ -302,9 +302,9 @@ a:-webkit-any-link{
     height: 30px;
 }
 
-.social-like{
+/* .social-like{
     filter: opacity(0.5) drop-shadow(0 0 0 gray);
-}
+} */
 .social_count{
     padding-top: 12px;
     /*display: -webkit-box;*/
