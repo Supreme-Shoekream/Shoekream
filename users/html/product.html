@@ -375,26 +375,46 @@
                                                 <div class="wrap_sales">
                                                     <div class="tab_area">
                                                         <ul role="tablist" class="tab_list">
-                                                            <li  role="tab" aria-selected="true" aria-controls="sales_panel1" class="item on"><a class="item_link">1개월</a></li>
-                                                            <li  role="tab" aria-selected="false" aria-controls="sales_panel2" class="item"><a class="item_link">3개월</a></li>
-                                                            <li  role="tab" aria-selected="false" aria-controls="sales_panel3" class="item"><a class="item_link">6개월</a></li>
-                                                            <li  role="tab" aria-selected="false" aria-controls="sales_panel4" class="item"><a class="item_link">1년</a></li>
-                                                            <li  role="tab" aria-selected="false" aria-controls="sales_panel5" class="item"><a class="item_link">전체</a></li>
+                                                            <li  role="tab" aria-selected="true" aria-controls="sales_panel1" class="graph_month item on">
+                                                                <a class="item_link">1개월</a>
+                                                            </li>
+                                                            <li  role="tab" aria-selected="false" aria-controls="sales_panel2" class="graph_month item">
+                                                                <a class="item_link">3개월</a>
+                                                            </li>
+                                                            <li  role="tab" aria-selected="false" aria-controls="sales_panel3" class="graph_month item">
+                                                                <a class="item_link">6개월</a>
+                                                            </li>
+                                                            <li  role="tab" aria-selected="false" aria-controls="sales_panel4" class="graph_month item">
+                                                                <a class="item_link">1년</a>
+                                                            </li>
+                                                            <li  role="tab" aria-selected="false" aria-controls="sales_panel5" class="graph_month item">
+                                                                <a class="item_link">전체</a>
+                                                            </li>
                                                         </ul>
                                                         <div id="sales_panel1" role="tabpanel" span="1m" class="tab_content show">
-                                                            <div class="graph"><canvas id="graph1m" height="200" style="display: block; box-sizing: border-box; height: 200px; width: 560px;" width="560"></canvas></div>
+                                                            <div class="graph">
+                                                                <canvas id="graph1m" height="200" style="display: block; box-sizing: border-box; height: 200px; width: 560px;" width="560"></canvas>
+                                                            </div>
                                                         </div>
                                                         <div id="sales_panel2" role="tabpanel" span="3m" class="tab_content">
-                                                            <div class="graph"><canvas id="graph3m" height="0" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0"></canvas></div>
+                                                            <div class="graph">
+                                                                <canvas id="graph3m" height="0" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0"></canvas>
+                                                            </div>
                                                         </div>
                                                         <div id="sales_panel3" role="tabpanel" span="6m" class="tab_content">
-                                                            <div class="graph"><canvas id="graph6m" height="0" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0"></canvas></div>
+                                                            <div class="graph">
+                                                                <canvas id="graph6m" height="0" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0"></canvas>
+                                                            </div>
                                                         </div>
                                                         <div id="sales_panel4" role="tabpanel" span="1y" class="tab_content">
-                                                            <div class="graph"><canvas id="graph1y" height="0" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0"></canvas></div>
+                                                            <div class="graph">
+                                                                <canvas id="graph1y" height="0" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0"></canvas>
+                                                            </div>
                                                         </div>
                                                         <div id="sales_panel5" role="tabpanel" span="all" class="tab_content">
-                                                            <div class="graph"><canvas id="graphall" width="1120" height="400" style="display: block; box-sizing: border-box; height: 200px; width: 560px;"></canvas></div>
+                                                            <div class="graph">
+                                                                <canvas id="graphall" width="1120" height="400" style="display: block; box-sizing: border-box; height: 200px; width: 560px;"></canvas>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -402,13 +422,13 @@
                                                     <div class="tab_area">
                                                         <ul role="tablist" class="tab_list">
                                                             <li role="tab" aria-selected="true" aria-controls="panel1" class="item on">
-                                                                <a href="#" class="item_link">체결 거래</a>
+                                                                <a class="item_link">체결 거래</a>
                                                             </li>
                                                             <li role="tab" aria-selected="false" aria-controls="panel2" class="item">
-                                                                <a href="#" class="item_link">판매 입찰</a>
+                                                                <a class="item_link">판매 입찰</a>
                                                             </li>
                                                             <li role="tab" aria-selected="false" aria-controls="panel3" class="item">
-                                                                <a href="#" class="item_link">구매 입찰</a>
+                                                                <a class="item_link">구매 입찰</a>
                                                             </li>
                                                         </ul>
                                                         <div id="panel1" role="tabpanel" span="sales" class="tab_content show">
