@@ -294,6 +294,42 @@ input[class="check"]:checked + label {
     font-size: 14px;
 }
 
+.layer_order_notice .layer_content{
+    padding: 0 16px;
+}
+
+
+.layer .layer_container iframe {
+    height: 398px;
+}
+.wrap_btn {
+    margin: 20px 16px 0;
+}
+
+.solid {
+    font-weight: 700;
+    color: #fff;
+    background-color: #222;
+}
+
+.large {
+    padding: 0 25px;
+    height: 52px;
+    border-radius: 14px;
+    font-size: 16px;
+    letter-spacing: -.16px;
+    width: 100%;
+}
+h2 {
+    display: block;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.icon{
+    width: 24px;
+    height: 24px;
+}
+
 
 
 
