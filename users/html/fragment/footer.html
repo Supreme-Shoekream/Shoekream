@@ -9,7 +9,7 @@
     <link rel="stylesheet" th:href="@{/lib/css/mypage_withdrawal.css}">
     <link rel="stylesheet" th:href="@{/lib/css/pjs_header.css}">
     <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
     <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://kream.co.kr/favicon.ico">
     <link rel="stylesheet" href="../../css/fragment/footer.css">
 </head>
@@ -114,27 +114,4 @@
     </div>
 </div>
 </body>
-<script src="/lib/js/loginpage_mypage_all.js"></script>
-<script src="/lib/js/pjs_header_nav.js"></script>
-
-<script>
-    const sessionId = parseInt(sessionStorage.getItem('userid')); // 세션 가져오기
-
-    // 모바일 헤더 title 변경
-    const contentTitle = document.querySelector('.content_title').querySelector('h3');
-    const headerTitle = document.querySelector('.main_inner').querySelector('h4');
-    headerTitle.innerHTML=contentTitle.innerText;
-
-    // axios 탈퇴
-    function withdreawal(){
-        axios.delete('/api/customer_delete/'+sessionId, {
-
-        }).then(alert('탈퇴되었습니다. 안녕히 가십시오.'),
-            sessionStorage.clear(),
-            window.location.href='/logout'
-        )
-    }
-</script>
-<script type="text/javascript" th:src="@{/lib/js/pjs_header_nav.js}"></script>
-<script type="text/javascript" th:src="@{/lib/js/mypage_withdrawal.js}"></script>
 </html>
