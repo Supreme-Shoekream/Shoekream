@@ -54,8 +54,9 @@ input {
 /* 로그인 */
 .login_container {
     margin: 0 auto;
-    padding: 6rem 0 16rem;
-    width: 40rem;
+    margin-top: 150px; /*fragment*/
+    /* padding: 6rem 0 16rem; */
+    width: 400px;
 }
 
 .login_title {
@@ -109,6 +110,7 @@ input {
 .solid {
     background-color: #222;
     color: #fff;
+    height: 50px;
 }
 
 .solid.disabled,
@@ -123,12 +125,6 @@ input {
     background-color: #fff;
     border: 1px solid #ebebeb;
     color: #222;
-}
-
-.logo_naver {
-    position: absolute;
-    margin-top: -0.4rem;
-    left: 1.8rem;
 }
 
 .account_container {
@@ -156,7 +152,7 @@ input {
     content: "";
     margin-top: .3rem;
     display: inline-block;
-    width: .1rem;
+    width: 0.1rem;
     height: 1.3rem;
     background-color: #d3d3d3;
 }
@@ -164,7 +160,8 @@ input {
 /* 이메일아이디 & 비밀번호 찾기 */
 .help_area { 
     margin: 0 auto; 
-    padding: 60px 0 160px; 
+    margin-top: 150px; /*fragment*/
+    /* padding: 60px 0 160px;  */
     width: 400px; 
 }
 
@@ -177,7 +174,7 @@ input {
 }
 
 .help_notice { 
-    padding: 4px 0 30px; 
+    padding: 40px 0 30px; 
 }
 
 .help_notice .notice_txt { 
@@ -206,10 +203,15 @@ input {
     font-weight: 100;
 }
 
+#find_btn {
+    color: #fff;
+}
+
 /* 회원가입 */
 .join_area {
     margin: 0 auto;
-    padding: 5.8rem 0 16rem;
+    margin-top: 150px; /*fragment*/
+    /* padding: 5.8rem 0 16rem; */
     width: 40rem;
 }
 
@@ -234,9 +236,10 @@ input {
 
 .input_birth {
     border: 1px solid #ebebeb;
-    width: 100px;
+    width: 120px;
     padding: 12px 5px;
     margin: 0 auto;
+    letter-spacing: 4px;
 }
 
 .ssn1 {
@@ -244,9 +247,10 @@ input {
 }
 
 .ssn2 {
-    width: 16px;
+    width: 30px;
     margin-left: 22px;
     margin-right: 10px;
+    padding-left: 10px;
 }
 
 .dash {
@@ -254,7 +258,7 @@ input {
     font-weight: lighter;
     display: inline-block;
     position: absolute;
-    margin-top: -5px;
+    margin-top: -10px;
 }
 
 .bullelements {
@@ -262,6 +266,7 @@ input {
     letter-spacing: 2px;
     display: inline-block;
     position: absolute;
+    margin-top: -10px;
 }
 
 .input_item.birth {
@@ -273,32 +278,6 @@ input {
     font-size: 2.5rem;
     padding: 5px;
     color: #ebebeb;
-}
-
-.btn_size_select {
-    position: absolute;
-    right: 1rem;
-    top: -.7rem;
-}
-
-.input_item .input_txt.hover {
-    cursor: pointer;
-}
-
-.btn_size_select {
-    border: none;
-}
-
-.btn_join {
-    border: none;
-}
-
-.label_txt {
-    padding-left: .8rem;
-    display: inline-block;
-    line-height: 2.4rem;
-    font-size: 1.3rem;
-    vertical-align: top;
 }
 
 .layer {
@@ -397,6 +376,40 @@ a:active, a:focus {
     top: 2rem;
     right: 2rem;
     cursor: pointer;
+}
+
+.btn_size_select {
+    position: absolute;
+    right: 1rem;
+    top: -.7rem;
+}
+
+.input_item .input_txt.hover {
+    cursor: pointer;
+}
+
+.btn_size_select {
+    border: none;
+}
+
+#size_submit_btn:hover {
+    color: #fff;
+}
+
+#find_button:focus {
+    color: #fff;
+}
+
+.btn_join {
+    border: none;
+}
+
+.label_txt {
+    padding-left: .8rem;
+    display: inline-block;
+    line-height: 2.4rem;
+    font-size: 1.3rem;
+    vertical-align: top;
 }
 
 .medium {
