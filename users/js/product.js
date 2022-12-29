@@ -65,162 +65,81 @@ function wishPopdown() {
 
 
 // 기능4. 시세 그래프
-function mm1Click() {
-    const item = document.getElementsByClassName('item');
-    // const selected = document.getAttribute('aria-selected');
-    if(item.getAttribute('aria-selected')=='false'){
-        item.setAttribute('aria-selected','true');
+// 개월 버튼 클릭하기
+const items = document.querySelectorAll(".tab_list .graph_month");
+    console.log(items);
+    //배열로 저장되기 때문에 forEach로 하나씩 이벤트를 등록해준다.
+    items.forEach((item)=>{
 
-        const tabContent = document.getElementsByClassName('tab_content');
-        tabContent.classList.add('show');
-    }
+        item.addEventListener('click',()=>{
+            items.forEach((e)=>{
+            //하나만 선택되도록 기존의 효과를 지워준다.
+                e.classList.remove('on');
+                e.setAttribute('aria-selected','false');
+            })
+            
+        // 선택한 그 아이만 효과를 추가해준다.
+            item.classList.add('on');
+            item.setAttribute('aria-selected','true');
+            
+            // const a = document.querySelector('.tab_list .graph_month');
+            // const b = document.getElementById(a.getAttribute('aria-controls'));
+            // console.log(b);
 
-}
+            // const ch = b.childNodes;
 
-const sales_panel1 = document.getElementById("graph1m").getContext("2d");
-const graph1m = new Chart(sales_panel1, {
-    type: "line",
-    data: {
-        labels: [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
-        datasets: [{
-            label: "시세",
-            data: [784000, 784000, 789000, 858000, 792000, 790000, 100000, 200000, 320000, 9000],
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-            borderColor: 'rgba(255, 99, 132, 1)',
-            borderWidth: 1
-        }]
-    },
-    options: {
-        responsive: false,
-        scales: {
-            y: {
-                beginAtZero: false
+            // const canvas = ch[0].childNodes;
+
+            // const k = canvas[0];
+            // console.log(k.getAttribute('id'));
+        })
+    })
+
+// 개월 버튼 클릭시 그래프 띄우기
+    // const a = document.querySelector('.tab_list .graph_month');
+    // const b = document.getElementById(a.getAttribute('aria-controls'));
+
+    const sales_panel1 = document.getElementById("graph1m").getContext("2d");
+    const graph1m = new Chart(sales_panel1, {
+        type: "line",
+        data: {
+            labels: [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+            datasets: [{
+                label: "시세",
+                data: [784000, 784000, 789000, 858000, 792000, 790000, 100000, 200000, 320000, 9000],
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: false,
+            scales: {
+                y: {
+                    beginAtZero: false,
+                    position: 'right' // 축이 왼쪽에 표시될지, 오른쪽에 표시될지 정할 수 있습니다.
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false // 라벨 없애기(그래프제목)
+                }
             }
-        }
-    },
-    scales: {
-        y: {
-            position: 'right' // 축이 왼쪽에 표시될지, 오른쪽에 표시될지 정할 수 있습니다.
-        }
-    }
-    
-});
+        },
+        
+    });
 
-const sales_panel2 = document.getElementById("graph3m").getContext("2d");
-const graph3m = new Chart(sales_panel2, {
-    type: "line",
-    data: {
-        labels: [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
-        datasets: [{
-            label: "시세",
-            data: [784000, 784000, 789000, 858000, 792000, 790000, 100000, 200000, 320000, 9000],
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-            borderColor: 'rgba(255, 99, 132, 1)',
-            borderWidth: 1
-        }]
-    },
-    options: {
-        responsive: false,
-        scales: {
-            y: {
-                beginAtZero: false
-            }
-        }
-    },
-    scales: {
-        y: {
-            position: 'right' // 축이 왼쪽에 표시될지, 오른쪽에 표시될지 정할 수 있습니다.
-        }
-    }
+    // const monthOn = document.querySelector('#sales_panel1');
+    // monthOn.classList.add('layer');
     
-});
+    // const body = document.querySelector('body');
+    // body.style.overflow = 'hidden';
 
-const sales_panel3 = document.getElementById("graph6m").getContext("2d");
-const graph6m = new Chart(sales_panel3, {
-    type: "line",
-    data: {
-        labels: [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
-        datasets: [{
-            label: "시세",
-            data: [784000, 784000, 789000, 858000, 792000, 790000, 100000, 200000, 320000, 9000],
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-            borderColor: 'rgba(255, 99, 132, 1)',
-            borderWidth: 1
-        }]
-    },
-    options: {
-        responsive: false,
-        scales: {
-            y: {
-                beginAtZero: false
-            }
-        }
-    },
-    scales: {
-        y: {
-            position: 'right' // 축이 왼쪽에 표시될지, 오른쪽에 표시될지 정할 수 있습니다.
-        }
-    }
-    
-});
+    // layer.style.visibility ='visible';
 
-const sales_panel4 = document.getElementById("graph1y").getContext("2d");
-const graph1y = new Chart(sales_panel4, {
-    type: "line",
-    data: {
-        labels: [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
-        datasets: [{
-            label: "시세",
-            data: [784000, 784000, 789000, 858000, 792000, 790000, 100000, 200000, 320000, 9000],
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-            borderColor: 'rgba(255, 99, 132, 1)',
-            borderWidth: 1
-        }]
-    },
-    options: {
-        responsive: false,
-        scales: {
-            y: {
-                beginAtZero: false
-            }
-        }
-    },
-    scales: {
-        y: {
-            position: 'right' // 축이 왼쪽에 표시될지, 오른쪽에 표시될지 정할 수 있습니다.
-        }
-    }
-    
-});
 
-const sales_panel5 = document.getElementById("graphall").getContext("2d");
-const graphall = new Chart(sales_panel5, {
-    type: "line",
-    data: {
-        labels: [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
-        datasets: [{
-            label: "시세",
-            data: [784000, 784000, 789000, 858000, 792000, 790000, 100000, 200000, 320000, 9000],
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-            borderColor: 'rgba(255, 99, 132, 1)',
-            borderWidth: 1
-        }]
-    },
-    options: {
-        responsive: false,
-        scales: {
-            y: {
-                beginAtZero: false
-            }
-        }
-    },
-    scales: {
-        y: {
-            position: 'right' // 축이 왼쪽에 표시될지, 오른쪽에 표시될지 정할 수 있습니다.
-        }
-    }
-    
-});
+
+
 
 
 
