@@ -169,12 +169,43 @@
     letter-spacing: -.15px;
 }
 
+.social_header{
+    position: fixed;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    padding-bottom: 16px;
+    background-color: #fff;
+}
 
 
+#mini {
+    /* display: -webkit-box; */
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    height: 100%;
+}
 
+#mini>.profile_img_box {
+    overflow: hidden;
+    position: relative;
+    margin-right: 8px;
+    margin-left: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+    justify-content: center;
+}
 
-
-
+#mini>.user_name_mini{
+    font-size: 18px;
+    letter-spacing: -.27px;
+    font-weight: 600;
+}
 
 
 
@@ -303,6 +334,8 @@ footer{
 
 .btn_container{
     margin: 0 auto;
+    display: flex;
+    justify-content: center;
 }
 
 
