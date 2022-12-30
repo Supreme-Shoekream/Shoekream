@@ -1,0 +1,252 @@
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/"
+    xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>STYLE | 내 프로필 수정</title>
+    <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://kream.co.kr/favicon.ico">
+
+    <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!--axios cdn -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- session -->
+    <link rel="stylesheet" href="../../css/social/style_profile_edit.css">
+
+
+</head>
+
+<body>
+    <input type="hidden" id="idx" th:value="${id}">
+    <!-- head.html -->
+
+
+
+    <div id="pop"></div>
+    <!-- head.html 끝-->
+    <div id="fixed"></div>
+
+    <!-- 본문 -->
+    <div id="__nuxt">
+        <div id="__layout">
+            <div tabindex="0" class="wrap win_os">
+                <div class="wrap_inner">
+                    <!-- 헤더 시작 -->
+                    <div>
+                        <header th:fragment="head">
+                            <meta charset="UTF-8">
+                            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                            <link rel="stylesheet" href="../../css/social/style_header.css">
+                            <div>
+                                <div class="social header lg no_line">
+                                    <div class="header_top">
+                                        <div class="top_inner">
+                                            <ul class="top_list">
+                                                <li class="top_item">
+                                                    <a href="/notice" class="top_link"> 고객센터 </a>
+                                                </li>
+                                                <li class="top_item">
+                                                    <a href="/my/wish" class="top_link"> 관심상품 </a>
+                                                </li>
+                                                <li class="top_item">
+                                                    <a href="/my" class="top_link"> 마이페이지 </a>
+                                                </li>
+                                                <li class="top_item" style="display: none;">
+                                                    <a href="/login" class="top_link"> 로그인 </a>
+                                                </li>
+                                                <li class="top_item">
+                                                    <a href="/" class="top_link"> 로그아웃 </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="header_main">
+                                        <div class="main_inner">
+                                            <h1>
+                                                <a href="/" aria-label="홈" class="logo">
+                                                    <img src="../../img/shoekream_logo.png"
+                                                        class="logo-kream icon sprite-icons">
+                                                </a>
+                                            </h1>
+                                            <div class="gnb_area">
+                                                <nav class="gnb">
+                                                    <ul class="gnb_list">
+                                                        <li class="gnb_item gnb_on">
+                                                            <a href="/social/trending" class="gnb_link"> STYLE </a>
+                                                        </li>
+                                                        <li class="gnb_item">
+                                                            <a href="#" class="gnb_link"> SHOP </a>
+                                                        </li>
+                                                        <li class="gnb_item">
+                                                            <a href="/about" target="_blank" class="gnb_link"> ABOUT </a>
+                                                        </li>
+                                                    </ul>
+                                                </nav>
+                                                <div class="search_btn_box">
+                                                    <a aria-label="검색" href="#" class="btn_search">
+                                                        <img src="../../img/search.png"
+                                                            class="nav-search icon sprite-icons">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div style="display: none;">
+                                                <div class="search_area" value="">
+                                                    <div class="search">
+                                                        <img src="../../img/search.png">
+                                                        <input type="text" placeholder="" title="검색창"
+                                                            class="input_search show_placeholder_on_focus">
+                                                        <button class="btn_search_delete" style="display: none;">
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="nav_btn_box">
+                                                <button type="button" aria-label="검색" class="btn_search">
+                                                </button>
+                                                <button type="button" aria-label="메뉴" class="btn_menu">
+                                                </button>
+                                            </div>
+                                            <div style="display: none;">
+                                                <div class="navigation_wrap">
+                                                    <div class="navigation">
+                                                        <div class="navigation_inner">
+                                                            <ul class="nav_list">
+                                                                <li class="nav_item">
+                                                                    <a href="#" class="nav_link"> STYLE </a>
+                                                                </li>
+                                                                <li class="nav_item">
+                                                                    <a href="#" class="nav_link"> SHOP </a>
+                                                                </li>
+                                                                <li class="nav_item">
+                                                                    <a href="#" class="nav_link"> 자주 묻는 질문 </a>
+                                                                </li>
+                                                                <li class="nav_item">
+                                                                    <a href="#" class="nav_link"> 공지사항 </a>
+                                                                </li>
+                                                                <li class="nav_item" style="display: none;">
+                                                                    <a href="#" class="nav_link"> 로그인 </a>
+                                                                </li>
+                                                                <li class="nav_item">
+                                                                    <a href="#" class="nav_link"> 마이 페이지 </a>
+                                                                </li>
+                                                            </ul>
+                                                            <div class="nav_logout">
+                                                                <button class="btn_logout">로그아웃</button>
+                                                                <p class="text_mail"></p>
+                                                            </div>
+                                                            <div class="nav_download">
+                                                                <p class="download_txt">KREAM 앱 설치 후 사용해 보세요!</p>
+                                                                <div class="btn_appdown">
+                                                                    <a href="#" class="btn outline medium"> 앱 다운로드 </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <button type="button" aria-label="닫기" class="btn_nav_close">
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!---->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </header>
+                    </div>
+                    <!-- 헤더 끝 -->
+                    <div class="container my lg">
+                        <div   class="content_area">
+                            <div  class="my_profile">
+                                <div   class="content_title border">
+                                    <div  class="title">
+                                        <h3 >프로필 정보</h3><!---->
+                                    </div><!---->
+                                </div>
+                                <div   class="user_profile">
+                                    <div  class="profile_thumb"><img 
+                                            src="../../img/kream_empty_img.png" alt="사용자 이미지" class="thumb_img">
+                                    </div>
+                                    <div  class="profile_detail"><strong 
+                                            class="name">8izhs1</strong>
+                                        <div  class="profile_btn_box"><a 
+                                                 href="#" class="btn outlinegrey small"> 이미지 변경 </a><a
+                                                  href="#"
+                                                class="btn outlinegrey small"> 삭제 </a></div>
+                                    </div>
+                                </div><input  type="file" accept="image/jpeg,image/png"
+                                    hidden="hidden"><canvas  width="1000" height="1000"
+                                    style="display: none;"></canvas>
+                                <div  class="profile_info">
+                                    
+                                    <div  class="profile_group">
+                                        <h4  class="group_title">개인 정보</h4>
+                                        <div  class="unit">
+                                            <h5  class="title">프로필 이름</h5>
+                                            <p  class="desc">8izhs1</p><button 
+                                                 type="button"
+                                                class="btn btn_modify outlinegrey small"> 변경 </button>
+                                        </div>
+                                        <div  class="modify name" style="display: none;">
+                                            <h5  class="title">이름</h5>
+                                            <div   class="input_box">
+                                                <h6   class="input_title">새로운 이름
+                                                </h6>
+                                                <div  class="input_item"><input 
+                                                        type="text" placeholder="고객님의 이름" autocomplete="off"
+                                                        class="input_txt"></div>
+                                                <p   class="input_error">올바른 이름을
+                                                    입력해주세요. (2-50자)</p>
+                                            </div>
+                                            <div  class="modify_btn_box"><button 
+                                                     type="button" class="btn outlinegrey medium"
+                                                    slot="button"> 취소 </button><button 
+                                                     disabled="disabled" type="button"
+                                                    class="btn solid medium disabled" slot="button"> 저장 </button></div>
+                                        </div>
+                                        <div  class="unit">
+                                            <h5  class="title">이름</h5>
+                                            <p  class="desc">jjjjj</p>
+                                            <button
+                                                  type="button"
+                                                class="btn btn_modify outlinegrey small"> 변경 
+                                            </button>
+                                        </div>
+                                        <div  class="unit">
+                                            <h5  class="title">소개</h5>
+                                            <p  class="desc"><input class="desc" type="text" placeholder="나를 소개하세요"></p>
+                                            <button 
+                                                 type="button"
+                                                class="btn btn_modify outlinegrey small"> 변경 
+                                            </button>
+                                        </div>
+                                        
+                                    </div>
+                                    <a  href="/my/withdrawal" class="btn_withdrawal">회원 탈퇴</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- 본문 끝 -->
+
+
+    <!-- footer -->
+    <!--<div th:replace="include/checkFooter :: footer"></div>-->
+    <div id="footer"></div>
+    <!-- Layer content-->
+
+</body>
+
+</html>

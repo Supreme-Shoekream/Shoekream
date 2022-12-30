@@ -1,5 +1,5 @@
 <html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/"
-      xmlns:sec="http://www.w3.org/1999/xhtml">
+    xmlns:sec="http://www.w3.org/1999/xhtml">
 
 <head>
 
@@ -7,590 +7,665 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>KRAEM | 한정판 거래의 FLEX</title>
+    <title>STYLE | 내 프로필 관리</title>
     <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://kream.co.kr/favicon.ico">
 
-    <!-- jquery cdn -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <!--axios cdn -->
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <!-- session -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="../../static/lib/css/myprofile.css">
-    <link rel="stylesheet" href="../../static/lib/css/pop.css">
 
-    <script type="text/javascript">
-        $(document).ready( function() {
-            $("#header").load("../include/hash_header.html");
-            $("#footer").load("../include/checkFooter.html");
-            $("#pop").load("../include/pop.html");
-        });
-    </script>
+    <link rel="stylesheet" href="../../css/social/myprofile.css">
+    <link rel="stylesheet" href="../../css/social/profile.css">
 </head>
 
 <body>
-<input type="hidden" id="idx" th:value="${id}">
-<!-- head.html -->
-<!--<div th:replace="include/header :: head"></div>-->
-<div id="header"></div>
-<!--<div th:replace="include/pop :: pop"></div>-->
-<div id="pop"></div>
-<!-- head.html 끝-->
-<div id="fixed"></div>
-
-<!-- 모바일 오른쪽 -->
-<div class="navigation_wrap close">
-    <div class="navigation">
-        <div class="navigation_inner">
-            <ul class="nav_list">
-                <li class="nav_item">
-                    <a href="/social/trending" class="nav_link">STYLE</a>
-                </li>
-                <li class="nav_item">
-                    <a href="/search" class="nav_link">SHOP</a>
-                </li>
-                <li class="nav_item">
-                    <a href="/faq" class="nav_link">자주 묻는 질문</a>
-                </li>
-                <li class="nav_item">
-                    <a href="/notice" class="nav_link">공지사항</a>
-                </li>
-                <li class="nav_item">
-                    <a href="/my" class="nav_link">마이페이지</a>
-                </li>
-                <li class="nav_item" sec:authorize="hasRole('ADMIN')">
-                    <a href="/pages" class="nav_link">관리자</a>
-                </li>
-                <li class="nav_item" sec:authorize="!isAuthenticated()">
-                    <a href="/login" class="nav_link">로그인</a>
-                </li>
-                <li class="nav_item" sec:authorize="isAuthenticated()">
-                    <a href="/logout" class="nav_link" onclick="sessionStorage.clear()">로그아웃</a>
-                </li>
-                <!---->
-            </ul>
-            <!---->
-            <div class="nav_download">
-                <p class="download_txt">KREAM 앱 설치 후 사용해 보세요!</p>
-                <div class="btn_appdown">
-                    <a href="#" type="button" class="btn outline medium">
-                        앱 다운로드
-                    </a>
-                </div>
-            </div>
-        </div>
-        <button type="button" class="btn_nav_close">
-            <img src="/lib/img/pop_close.png" class="ico-close icon sprite-icons">
-        </button>
-    </div>
-</div>
-<!--검색창-->
-<div class="layer_search lg" style="display: none;">
-    <div class="search_container">
-        <div class="search_wrap">
-            <div class="search_area" value="">
-                <div class="search">
-                    <img src="/lib/img/search_gray_icon.png" class="ico-search-gray icon sprite-icons">
-                    <input type="text" placeholder="브랜드명, 모델명, 모델번호 등" title="검색창" class="input_search show_placeholder_on_focus">
-                    <button class="btn_search_delete" style="display: none;">
-                        <img src="/lib/img/text_area_delete_icon.png" class="ico-delete-circle icon sprite-icons">
-                    </button>
-                </div>
-            </div>
-            <button class="btn_close">취소</button>
-        </div>
-    </div>
-    <div class="recent_wrap">
-        <div class="recent_area">
-            <div class="recent_box">
-                <strong class="recent_title">최근 검색어</strong>
-                <button class="btn_delete">
-                    <img src="/lib/img/delete_circle_icon.png" class="ico-delete-circle icon sprite-icons">
-                </button>
-                <ul class="search_list">
-                    <li><a href="/search/" class="search_item">  DJ0950-112 </a></li>
-                    <li><a href="/search/" class="search_item"> 사카 </a></li>
-                    <li><a href="/search/" class="search_item"> 사카이 </a></li>
-                    <li><a href="/search/" class="search_item"> 덩크 </a></li>
-                    <li><a href="/search/" class="search_item"> 조던 </a></li>
-                </ul>
-            </div>
-            <ul class="brand_list lg">
-                <li class="brand_item" style="background-color: rgb(246, 238, 237);">
-                    <a class="brand_box" href="/search/">
-                        <img src="/lib/img/p_1c64737691684299b32884e7d890983c.png" alt="Jordan 1" class="brand_img">
-                        <p class="brand_name">Jordan 1</p>
-                    </a>
-                </li>
-                <li class="brand_item" style="background-color: rgb(235, 240, 245);">
-                    <a class="brand_box" href="/search/">
-                        <img src="/lib/img/a_462abc0cfd92429eae5f1e7677742261.png" alt="Dunk" class="brand_img">
-                        <p class="brand_name">Dunk</p>
-                    </a>
-                </li>
-                <li class="brand_item" style="background-color: rgb(235, 240, 245);">
-                    <a class="brand_box" href="/search/">
-                        <img src="/lib/img/p_1077af921fe1436ab78ec3f07b7dae79.png" alt="스캇" class="brand_img">
-                        <p class="brand_name">스캇</p>
-                    </a>
-                </li>
-                <li class="brand_item" style="background-color: rgb(244, 244, 244);">
-                    <a class="brand_box" href="/search/">
-                        <img src="/lib/img/a_5e37181489d44d1a80650eef3edb9296.png" alt="톰브라운" class="brand_img">
-                        <p class="brand_name">톰브라운</p>
-                    </a>
-                </li>
-                <li class="brand_item" style="background-color: rgb(244, 244, 244);">
-                    <a class="brand_box" href="/search/">
-                        <img src="/lib/img/p_4f213a0866354fa39e72f459f3374589.png" alt="지갑" class="brand_img">
-                        <p class="brand_name">지갑</p>
-                    </a>
-                </li>
-                <li class="brand_item" style="background-color: rgb(244, 244, 244);">
-                    <a class="brand_box" href="/search/">
-                        <img src="/lib/img/a_5fb25d6231d3414d9c8b5261d7d87897.png" alt="레고" class="brand_img">
-                        <p class="brand_name">레고</p>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="suggest_wrap" style="display: none;">
-        <div class="suggest_area">
-            <div class="suggest_title_area">
-                <p class="suggest_title">나이키</p>
-            </div>
-            <div class="suggest_list lg">
-                <div class="suggest_item">
-                    <a href="/product/39449" class="suggest_link">
-                        <div class="suggest_thumb">
-                            <img src="https://kream-phinf.pstatic.net/MjAyMTA4MTNfMTc4/MDAxNjI4ODE2OTU1NTEy.-ssaZSoxOvq9N6D9dNAstXpjp170UsMhxJA5syAkGC0g.JdDM7mkjhdXXkRpsTtCq7tZyA2u3r5Pm8zWFE8Oe75Mg.PNG/a_5d5dab542fae4ea9bfd2078c2d07a9f2.png" alt="나이키 x 사카이 x 프라그먼트 LD와플 라이트 스모크 그레이" class="thumb_img">
-                        </div>
-                        <div class="suggest_info">
-                            <p class="model_title">Nike x Sacai x Fragment LDWaffle Light Smoke Grey</p>
-                            <p class="model_sub_info">나이키 x 사카이 x 프라그먼트 LD와플 라이트 스모크 그레이</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="suggest_item">
-                    <a href="/product/39448" class="suggest_link">
-                        <div class="suggest_thumb"><img src="https://kream-phinf.pstatic.net/MjAyMTA4MTNfMjI5/MDAxNjI4ODE2OTQyMjg4.Pr5xVktBScvuEXRctGLADuB8TJZk_ExyPagNS0Fp1i4g.Y-zakijeWyh8d9hgiIZD29bc9fWfQs_axWQ2Xj_t638g.PNG/a_8a2b9c780c234fcdbce3a2bac42f9cf4.png" alt="나이키 x 사카이 x 프라그먼트 LD와플 블랙큰드 블루" class="thumb_img">
-                        </div>
-                        <div class="suggest_info">
-                            <p class="model_title">Nike x Sacai x Fragment LDWaffle Blackened Blue</p>
-                            <p class="model_sub_info">나이키 x 사카이 x 프라그먼트 LD와플 블랙큰드 블루</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="suggest_item">
-                    <a href="/product/28029" class="suggest_link">
-                        <div class="suggest_thumb">
-                            <img src="https://kream-phinf.pstatic.net/MjAyMTA3MjhfMjIg/MDAxNjI3NDQxMDA1NjE5.HOgIYywGZaaBJDqUzx2OnX9HAxoOWPvuWHqUn_LZGcgg.VYIuOfA5_GgjBGRowv6dmQuAOPtUvmAxbGpOyUCOCtYg.PNG/p_9d8ed1a74d2540ab9842e63363607bf4.png" alt="나이키 덩크 로우 레트로 블랙" class="thumb_img"></div>
-                        <div class="suggest_info">
-                            <p class="model_title">Nike Dunk Low Retro Black</p>
-                            <p class="model_sub_info">나이키 덩크 로우 레트로 블랙</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="suggest_item">
-                    <a href="/product/38844" class="suggest_link">
-                        <div class="suggest_thumb">
-                            <img src="https://kream-phinf.pstatic.net/MjAyMTA4MDZfMjY0/MDAxNjI4MjM5NTA1MjU1.9FfkTXbxZFWKxDMdPayVFlD0GIyNT-mFVIQ7zZW3SPcg.c03UoCFjKXtP4XtNMgBdrmTOIQlqxrePk4JScV4GUHEg.PNG/p_8001cbaf0db042bda09fea320ee328b4.png" alt="나이키 덩크 로우 SE 서울" class="thumb_img">
-                        </div>
-                        <div class="suggest_info">
-                            <p class="model_title">Nike Dunk Low SE Seoul</p>
-                            <p class="model_sub_info">나이키 덩크 로우 SE 서울</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="suggest_item">
-                    <a href="/products/28030" class="suggest_link">
-                        <div class="suggest_thumb">
-                            <img src="https://kream-phinf.pstatic.net/MjAyMTA3MjhfMjcz/MDAxNjI3NDQxMDI4OTQz.FUajQFp09YVc_uLkwLnhQslwbgiRxTm-LTxQgi5IJNcg.erY1xk-3dvoOCW8r65BCusQYco2d6ln7BSBpD2Yld9Ug.PNG/p_0ec4e132925345f48fa832f2283cf454.png" alt="(W) 나이키 덩크 로우 블랙" class="thumb_img">
-                        </div>
-                        <div class="suggest_info">
-                            <p class="model_title">(W) Nike Dunk Low Black</p>
-                            <p class="model_sub_info">(W) 나이키 덩크 로우 블랙</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="suggest_item">
-                    <a href="/product/39121" class="suggest_link">
-                        <div class="suggest_thumb">
-                            <img src="https://kream-phinf.pstatic.net/MjAyMTA4MDlfMTQg/MDAxNjI4NDg5NTIwNDY2.Mn68jNQyl_usVByHwgVtvG3PP3QWZUrzx1Pl3hTGpvUg.i-iyK8TlNzo_c7wF-OKDjXPvDzRd4yqtjk6V1n96tSAg.PNG/a_afc5d9ecafec4e8c8d89d50a3236d2a5.png" alt="나이키 x 언디핏 에어포스 1 로우 SP 5 온 잇" class="thumb_img">
-                        </div>
-                        <div class="suggest_info">
-                            <p class="model_title">Nike x Undefeated Air Force 1 Low SP 5 On It</p>
-                            <p class="model_sub_info">나이키 x 언디핏 에어포스 1 로우 SP 5 온 잇</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="suggest_item">
-                    <a href="/product/39142" class="suggest_link">
-                        <div class="suggest_thumb">
-                            <img src="https://kream-phinf.pstatic.net/MjAyMTA4MTBfODIg/MDAxNjI4NTc3NzY4NjQ1.iuyr8BiuWbO-DBet19oNev2VNF_OkstoNOznd1TmdlIg.mtu9Iw_SlAoUiGE-rLb1xBTYQP3T255z15tsVBYwlIIg.PNG/a_cb40b0132d8343c0894a2b8999a35e85.png" alt="나이키 x 오프화이트 덩크 로우 더 50 - 로트 18" class="thumb_img">
-                        </div>
-                        <div class="suggest_info">
-                            <p class="model_title">Nike x Off-White Dunk Low The 50 - Lot 18</p>
-                            <p class="model_sub_info">나이키 x 오프화이트 덩크 로우 더 50 - 로트 18</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="suggest_item">
-                    <a href="/product/39170" class="suggest_link">
-                        <div class="suggest_thumb">
-                            <img src="https://kream-phinf.pstatic.net/MjAyMTA4MThfMTQy/MDAxNjI5MjY4NzY2ODk5.kjFtjtEy6TZ8FoPHj7P45V2Z-dw8OPgIs44mXjkU2v8g.S33cKzKXskwi8cZZChvtQrdGWVxRVvLAouyP6gZl324g.PNG/a_b79da82e8bb44d5bad1f51bc77862c06.png" alt="나이키 x 오프화이트 덩크 로우 더 50 - 로트 46" class="thumb_img">
-                        </div>
-                        <div class="suggest_info">
-                            <p class="model_title">Nike x Off-White Dunk Low The 50 - Lot 46</p>
-                            <p class="model_sub_info">나이키 x 오프화이트 덩크 로우 더 50 - 로트 46</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="suggest_item">
-                    <a href="/product/25620" class="suggest_link">
-                        <div class="suggest_thumb">
-                            <img src="https://kream-phinf.pstatic.net/MjAyMDExMThfMjU2/MDAxNjA1NjkxMzExMTYz.leAiiIeRzdnBC6STAjmeqVlM0lokrpyt7EbsaWUtnnIg.hPz7sqovLq6tPmB6zs8PnR1q8UYkTl8YJiWGKm79cj0g.PNG/p_477d8861bbbd43e8aad3ee5d76c3df76.png" alt="나이키 x 피스마이너스원 에어포스 1 로우 파라노이즈 2.0" class="thumb_img">
-                        </div>
-                        <div class="suggest_info">
-                            <p class="model_title">Nike x Peaceminusone Air Force 1 Low Para-Noise 2.0</p>
-                            <p class="model_sub_info">나이키 x 피스마이너스원 에어포스 1 로우 파라노이즈 2.0</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="suggest_item">
-                    <a href="/product/33799" class="suggest_link">
-                        <div class="suggest_thumb">
-                            <img src="https://kream-phinf.pstatic.net/MjAyMTA0MjNfMTM3/MDAxNjE5MTY4MjI4OTM4.sAToRDxrfFw9deS1_iWzKI7brDmtN1R9WqkimU81XSsg.Th25GokaQPcn0EdT5AvGYrafEbVkRr5P4BWCqXpImIQg.PNG/p_e6013157f46b40fbbbd81efa0cb3bc89.png" alt="나이키 덩크 로우 레트로 유니버시티 블루" class="thumb_img">
-                        </div>
-                        <div class="suggest_info">
-                            <p class="model_title">Nike Dunk Low Retro University Blue</p>
-                            <p class="model_sub_info">나이키 덩크 로우 레트로 유니버시티 블루</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <a href="/search/" class="more_link">
-                <span class="more_text">7155</span>
-                <img src="/lib/img/size_select_arrow_icon.png" class="ico-arr-right icon sprite-icons">
-            </a>
-            <div class="result_nodata" style="display: none;">
-                <p class="nodata_main">검색하신 결과가 없습니다.</p>
-                <p class="nodata_sub">상품 등록 요청은 앱 <span class="emphasis">1:1 문의하기</span> 로 요청해주세요.</p>
-            </div>
-        </div>
-    </div>
-</div>
+    <input type="hidden" id="idx" th:value="${id}">
+    <!-- head.html -->
 
 
+    <!--<div th:replace="include/pop :: pop"></div>-->
+    <div id="pop"></div>
+    <!-- head.html 끝-->
+    <div id="fixed"></div>
 
-
-
-
-
-<div id="container">
-    <div id="profile_box">
-        <div>
-            <img src="../../static/lib/styleImg/styleimg1.jpg" alt="" id="profile">
-            <p class="userid"></p>
-        </div>
-        <div id="profile_text">
-            <p class="username">userid</p>
-            <p class="intro">intro</p>
-        </div>
-        <div id="user_button">
-            <button><a href="/social/myprofile/edit" style="color:white;font-weight: bold">프로필 수정</a></button>
-            <button><a href="/social/upload" style="color:white;font-weight: bold">새글 올리기</a></button>
-        </div>
-    </div>
-    <div id="count_box">
-        <ul>
-            <li><a href="#"><span>게시물</span> 1<span class="count"></span></a></li>
-            <li onclick="follower_up()"><span>팔로워</span>0 <span class="count"></span></li>
-            <li onclick="following_up()"><span>팔로잉</span> 0<span class="count"></span></li>
-        </ul>
-    </div>
-    <div id="Box">
-        <div class="card_box">
-            <a href="/social/popular">
-                <div class="imgbox">
-                    <img src="../../static/lib/styleImg/lego02.jpg" alt="" class="img">
-                </div>
-                <div class="userbox">
-                    <img src="../../static/lib/styleImg/profile_img.jpg" alt="" class="userimg">
-                    <p class="userid"></p>
-                </div>
-                <p class="text"></p>
-            </a>
-            <div class="likebox">
-                <div class="likelink">
-                    <img src="../../static/lib/styleImg/like_icon.png" alt="" id="like_img" onclick="ataToggle()">
-                    <p>10</p>
-                </div>
-                <a href="#" class="likelink">
-                    <img src="../../static/lib/styleImg/comment_icon.png" alt="" class="comment" >
-                    <p>10</p>
-                </a>
-            </div>
-
-            <!--                            제품 태그 리스트-->
-            <div style="clear: both">
-                <ul class="product_list">
-                    <li class="product_item">
-                        <!--                                        상품 사진-->
-                        <a href="./shop_product.html" class="product_link">
-                            <div class="product" style="background-color: rgb(235,240,245);">
-                                <picture class="picture product_img">
-                                    <source type="image/webp"
-                                            srcset="https://kream-phinf.pstatic.net/MjAyMjA2MTVfMjYw/MDAxNjU1MjgzNjk2Mzk3.gh8n5rs7p-pWVqzIhNh7yj_KdyjLFBeJr9QbsDumoFEg.KdvPfvgBYmjm7MKKhcbIEQIP6FGeuof_GnmcDUgrvyAg.PNG/a_baa1ccea3726495badba419dfede63f9.png?type=m_webp">
-                                    <source  srcset="https://kream-phinf.pstatic.net/MjAyMjA2MTVfMjYw/MDAxNjU1MjgzNjk2Mzk3.gh8n5rs7p-pWVqzIhNh7yj_KdyjLFBeJr9QbsDumoFEg.KdvPfvgBYmjm7MKKhcbIEQIP6FGeuof_GnmcDUgrvyAg.PNG/a_baa1ccea3726495badba419dfede63f9.png?type=m">
-                                    <img alt="Nike Air Force 1 '07 Low White"
-                                         src="https://kream-phinf.pstatic.net/MjAyMjA2MTVfMjYw/MDAxNjU1MjgzNjk2Mzk3.gh8n5rs7p-pWVqzIhNh7yj_KdyjLFBeJr9QbsDumoFEg.KdvPfvgBYmjm7MKKhcbIEQIP6FGeuof_GnmcDUgrvyAg.PNG/a_baa1ccea3726495badba419dfede63f9.png?type=m"
-                                         loading="lazy" class="image">
-                                </picture>
-                                <!--                                                ::after-->
-                                <!--                                                상품 정보 시작-->
-
-                                <!--                                                상품 정보 끝-->
-                            </div>
-                            <div class="product_desc">
-                                <p class="product_name">Nike Air Force 1 '07 Low White</p>
-                                <!--                                                    가격-->
-                                <div class="price_box">
-                                    <span class="amount">124,000</span>
-                                    <span class="unit">원</span>
+    <!-- 본문 -->
+    <div id="__nuxt"><!---->
+        <div id="__layout">
+            <div tabindex="0" class="wrap win_os lg"><!---->
+                <div>
+                    <header th:fragment="head">
+                        <meta charset="UTF-8">
+                        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <link rel="stylesheet" href="../../css/social/style_header.css">
+                        <div>
+                            <div class="social header lg no_line">
+                                <div class="header_top">
+                                    <div class="top_inner">
+                                        <ul class="top_list">
+                                            <li class="top_item">
+                                                <a href="/notice" class="top_link"> 고객센터 </a>
+                                            </li>
+                                            <li class="top_item">
+                                                <a href="/my/wish" class="top_link"> 관심상품 </a>
+                                            </li>
+                                            <li class="top_item">
+                                                <a href="/my" class="top_link"> 마이페이지 </a>
+                                            </li>
+                                            <li class="top_item" style="display: none;">
+                                                <a href="/login" class="top_link"> 로그인 </a>
+                                            </li>
+                                            <li class="top_item">
+                                                <a href="/" class="top_link"> 로그아웃 </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="header_main">
+                                    <div class="main_inner">
+                                        <h1>
+                                            <a href="/" aria-label="홈" class="logo">
+                                                <img src="../../img/shoekream_logo.png"
+                                                    class="logo-kream icon sprite-icons">
+                                            </a>
+                                        </h1>
+                                        <div class="gnb_area">
+                                            <nav class="gnb">
+                                                <ul class="gnb_list">
+                                                    <li class="gnb_item gnb_on">
+                                                        <a href="/social/trending" class="gnb_link"> STYLE </a>
+                                                    </li>
+                                                    <li class="gnb_item">
+                                                        <a href="#" class="gnb_link"> SHOP </a>
+                                                    </li>
+                                                    <li class="gnb_item">
+                                                        <a href="/about" target="_blank" class="gnb_link"> ABOUT </a>
+                                                    </li>
+                                                </ul>
+                                            </nav>
+                                            <div class="search_btn_box">
+                                                <a aria-label="검색" href="#" class="btn_search">
+                                                    <img src="../../img/search.png"
+                                                        class="nav-search icon sprite-icons">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div style="display: none;">
+                                            <div class="search_area" value="">
+                                                <div class="search">
+                                                    <img src="../../img/search.png">
+                                                    <input type="text" placeholder="" title="검색창"
+                                                        class="input_search show_placeholder_on_focus">
+                                                    <button class="btn_search_delete" style="display: none;">
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="nav_btn_box">
+                                            <button type="button" aria-label="검색" class="btn_search">
+                                            </button>
+                                            <button type="button" aria-label="메뉴" class="btn_menu">
+                                            </button>
+                                        </div>
+                                        <div style="display: none;">
+                                            <div class="navigation_wrap">
+                                                <div class="navigation">
+                                                    <div class="navigation_inner">
+                                                        <ul class="nav_list">
+                                                            <li class="nav_item">
+                                                                <a href="#" class="nav_link"> STYLE </a>
+                                                            </li>
+                                                            <li class="nav_item">
+                                                                <a href="#" class="nav_link"> SHOP </a>
+                                                            </li>
+                                                            <li class="nav_item">
+                                                                <a href="#" class="nav_link"> 자주 묻는 질문 </a>
+                                                            </li>
+                                                            <li class="nav_item">
+                                                                <a href="#" class="nav_link"> 공지사항 </a>
+                                                            </li>
+                                                            <li class="nav_item" style="display: none;">
+                                                                <a href="#" class="nav_link"> 로그인 </a>
+                                                            </li>
+                                                            <li class="nav_item">
+                                                                <a href="#" class="nav_link"> 마이 페이지 </a>
+                                                            </li>
+                                                        </ul>
+                                                        <div class="nav_logout">
+                                                            <button class="btn_logout">로그아웃</button>
+                                                            <p class="text_mail"></p>
+                                                        </div>
+                                                        <div class="nav_download">
+                                                            <p class="download_txt">KREAM 앱 설치 후 사용해 보세요!</p>
+                                                            <div class="btn_appdown">
+                                                                <a href="#" class="btn outline medium"> 앱 다운로드 </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <button type="button" aria-label="닫기" class="btn_nav_close">
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!---->
+                                    </div>
                                 </div>
                             </div>
-                        </a>
-                    </li>
-                </ul>
+                        </div>
+                </div>
+                </header>
+                <div class="social_header">
+                    <div class="title_user" style="display: none;">
+                        <div class="profile_img_box"><img src="../../img/kream_empty_img.png" alt="8izhs1"
+                                class="profile_img"></div>
+                        <p class="user_name">8izhs1</p>
+                    </div>
+                </div>
+            </div><!---->
+            <div social="" class="container social lg">
+                <div class="content">
+                    <div class="social_user_area">
+                        <div class="user_top">
+                            <div class="profile_img_box"><img src="../../img/kream_empty_img.png" alt="KREAM 프로필 이미지"
+                                    class="profile_img"></div>
+                            <div class="profile_info_box">
+                                <p class="user_name"> 8izhs1<!----></p><!---->
+                            </div>
+                        </div>
+                        <div class="user_explain">
+                            <p class="main_txt">m15701313</p><!---->
+                        </div>
+                        <!-- 버튼  -->
+                        <div class="btn_container">
+                            <a href="../../html/social/style_profile_edit.html" class="btn btn outlinegrey small" type="button"> 프로필 수정 </a>
+                            <a href="../../html/social/upload.html" class="btn btn btn_my_style outlinegrey small"
+                                type="button"> 글쓰기 </a>
+                        </div>
+                        <!-- 버튼 끝 -->
+                    </div>
+
+                    <div class="social_tab">
+                        <ul class="tab_list">
+                            <li class="tab_item"><a href="#" class="tab_link"><span class="tab_menu">게시물</span><span
+                                        class="menu_count">0</span></a></li>
+                            <li class="tab_item"><a href="#" class="tab_link"><span class="tab_menu">팔로워</span><span
+                                        class="menu_count">0</span></a></li>
+                            <li class="tab_item"><a href="#" class="tab_link"><span class="tab_menu">팔로잉</span><span
+                                        class="menu_count">3</span></a></li>
+                        </ul>
+                    </div>
+                    <!-- 빈 화면 -->
+                    <div class="social_feeds_empty top_line">
+                        <div class="empty_box">
+                            <img src="../../img/camera_icon.png" alt="게시물 없음">
+                            <strong class="empty_title">게시물 없음</strong>
+                            <p class="empty_txt">앱에서 사진을 공유하면 내 프로필에 표시됩니다.</p><!---->
+                        </div>
+                    </div>
+                    <!-- 빈 화면 끝 -->
+
+                    <!-- 피드 시작 -->
+                    <div class="social_feeds">
+                        <div transition-duration="0" item-selector=".item" gutter=".gutter_item"
+                            horizontal-order="true" class="masonry_posts"
+                            style="position: relative; height: 4956px;">
+                            <div class="gutter_item"></div>
+
+
+                            <!-- 한 줄 시작 -->
+
+                            <!-- 게시물 시작 -->
+                            <div class="feed_card item vertical" style="position: absolute; left: 0px; top: 0px;">
+                                <a href="#">
+                                    <div class="card_box">
+                                        <div class="social_img_box vertical">
+                                            <picture class="picture social_img">
+                                                <source type="image/webp"
+                                                    srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjhfMTc4/MDAxNjcyMTk0MjY2Njk3.ID4oXLjphKCSG17vPHX7Ku_DC93mQrR7M2-c9TgWXvwg.75cNsQCfe4XQZ9LwxxrRRQce7sJbNxiiYTGdKSesTxIg.JPEG/p_bee3aabc37b04e80875a1a1f558b8421.jpeg?type=m_webp">
+                                                <source
+                                                    srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjhfMTc4/MDAxNjcyMTk0MjY2Njk3.ID4oXLjphKCSG17vPHX7Ku_DC93mQrR7M2-c9TgWXvwg.75cNsQCfe4XQZ9LwxxrRRQce7sJbNxiiYTGdKSesTxIg.JPEG/p_bee3aabc37b04e80875a1a1f558b8421.jpeg?type=m">
+                                                <img alt="소셜이미지"
+                                                    src="https://kream-phinf.pstatic.net/MjAyMjEyMjhfMTc4/MDAxNjcyMTk0MjY2Njk3.ID4oXLjphKCSG17vPHX7Ku_DC93mQrR7M2-c9TgWXvwg.75cNsQCfe4XQZ9LwxxrRRQce7sJbNxiiYTGdKSesTxIg.JPEG/p_bee3aabc37b04e80875a1a1f558b8421.jpeg?type=m"
+                                                    loading="auto" class="image">
+                                            </picture>
+                                        </div>
+                                        <div class="card_detail">
+                                            <div class="user_box">
+                                                <picture class="picture img_profile">
+                                                    <source type="image/webp"
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjExMTJfNSAg/MDAxNjY4MTc4OTg2ODMz.BNaaOXTTh0anVngGqQBR3e2i0O-PklBR9zSXOTGuuzYg.DT3Btnyhy3npuiZd3GnFfFE9_XMyXUAEi4g6MUuuPSIg.JPEG/p_36e41b8f822542428ec96e83ac46c44d.jpeg?type=s_webp">
+                                                    <source
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjExMTJfNSAg/MDAxNjY4MTc4OTg2ODMz.BNaaOXTTh0anVngGqQBR3e2i0O-PklBR9zSXOTGuuzYg.DT3Btnyhy3npuiZd3GnFfFE9_XMyXUAEi4g6MUuuPSIg.JPEG/p_36e41b8f822542428ec96e83ac46c44d.jpeg?type=s">
+                                                    <img alt="사용자 프로필 이미지"
+                                                        src="https://kream-phinf.pstatic.net/MjAyMjExMTJfNSAg/MDAxNjY4MTc4OTg2ODMz.BNaaOXTTh0anVngGqQBR3e2i0O-PklBR9zSXOTGuuzYg.DT3Btnyhy3npuiZd3GnFfFE9_XMyXUAEi4g6MUuuPSIg.JPEG/p_36e41b8f822542428ec96e83ac46c44d.jpeg?type=s"
+                                                        loading="auto" class="image">
+                                                </picture>
+                                                <p class="feed_user_name">yeni_day</p>
+                                                <span role="button" aria-label="좋아요"  class="btn like" type="button" >
+                                                    <img src="../../img/styleImg/like_icon.png" alt="좋아요 이미지" id="like_icon"
+                                                        class="icon sprite-icons social-like-gray-sm">
+                                                    <span class="like_count">128</span>
+                                                </span>
+                                            </div>
+                                            <p class="text_box">읏추읏추 다들 연말 마무리 잘하세요🫶🏻🤍 #휴먼메이드
+                                                #아디매틱</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <!-- 게시물 끝 -->
+
+                            <!-- 게시물 시작 -->
+                            <div class="feed_card item square" style="position: absolute; left: 307px; top: 0px;">
+                                <a href="#">
+                                    <div class="card_box">
+                                        <div class="social_img_box square">
+                                            <picture class="picture social_img">
+                                                <source type="image/webp"
+                                                    srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjdfMTg3/MDAxNjcyMTI1MTAzNDM3.k4-GuKPlN7yPFbDhezSPkCyPGUkqeyWOKNUACRAvXksg.aX5bxgr33o2Rxb3pPeFzkU681m7YCdHqKQE4FPYscrwg.JPEG/p_3f888b1afc044690beb8b746402bf037.jpeg?type=m_webp">
+                                                <source
+                                                    srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjdfMTg3/MDAxNjcyMTI1MTAzNDM3.k4-GuKPlN7yPFbDhezSPkCyPGUkqeyWOKNUACRAvXksg.aX5bxgr33o2Rxb3pPeFzkU681m7YCdHqKQE4FPYscrwg.JPEG/p_3f888b1afc044690beb8b746402bf037.jpeg?type=m">
+                                                <img alt="소셜이미지"
+                                                    src="https://kream-phinf.pstatic.net/MjAyMjEyMjdfMTg3/MDAxNjcyMTI1MTAzNDM3.k4-GuKPlN7yPFbDhezSPkCyPGUkqeyWOKNUACRAvXksg.aX5bxgr33o2Rxb3pPeFzkU681m7YCdHqKQE4FPYscrwg.JPEG/p_3f888b1afc044690beb8b746402bf037.jpeg?type=m"
+                                                    loading="auto" class="image">
+                                            </picture>
+                                        </div>
+                                        <div class="card_detail">
+                                            <div class="user_box">
+                                                <picture class="picture img_profile">
+                                                    <source type="image/webp"
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMDEyMjZfMjgg/MDAxNjA4OTkxNjM5Mzky.FjHvHgSPG1zzCMtJGGzCjGTVS3ADJ8NR5vSEqTEZatog.4H9rmr3DfGPbwAALCCHZtwUtirQffLQQjFqSX9_dfIYg.JPEG/p_0f7418b98d9842159f23073ab3263993.jpg?type=s_webp">
+                                                    <source
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMDEyMjZfMjgg/MDAxNjA4OTkxNjM5Mzky.FjHvHgSPG1zzCMtJGGzCjGTVS3ADJ8NR5vSEqTEZatog.4H9rmr3DfGPbwAALCCHZtwUtirQffLQQjFqSX9_dfIYg.JPEG/p_0f7418b98d9842159f23073ab3263993.jpg?type=s">
+                                                    <img alt="사용자 프로필 이미지"
+                                                        src="https://kream-phinf.pstatic.net/MjAyMDEyMjZfMjgg/MDAxNjA4OTkxNjM5Mzky.FjHvHgSPG1zzCMtJGGzCjGTVS3ADJ8NR5vSEqTEZatog.4H9rmr3DfGPbwAALCCHZtwUtirQffLQQjFqSX9_dfIYg.JPEG/p_0f7418b98d9842159f23073ab3263993.jpg?type=s"
+                                                        loading="auto" class="image">
+                                                </picture>
+                                                <p class="feed_user_name">93.e.su</p>
+                                                <span aria-label="좋아요" role="button"  class="btn like" type="button">
+                                                    <img src="../../img/styleImg/like_icon.png" alt="좋아요 이미지" id="like_icon"
+                                                        class="icon sprite-icons social-like-gray-sm">
+                                                    <span class="like_count">43</span>
+                                                </span>
+                                            </div>
+                                            <p class="text_box">#데일리룩 #미리메리챌린지 #KREAM스타일</p>
+                                            <!---->
+                                        </div>
+                                    </div><!---->
+                                </a></div>
+                            <!-- 게시물 끝 -->
+                            
+                            <!-- 게시물 시작 -->
+                            <div class="feed_card item vertical" style="position: absolute; left: 614px; top: 0px;">
+                                <a href="#">
+                                    <div class="card_box">
+                                        <div class="social_img_box vertical">
+                                            <picture class="picture social_img">
+                                                <source type="image/webp"
+                                                    srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjhfMTc4/MDAxNjcyMTk0MjY2Njk3.ID4oXLjphKCSG17vPHX7Ku_DC93mQrR7M2-c9TgWXvwg.75cNsQCfe4XQZ9LwxxrRRQce7sJbNxiiYTGdKSesTxIg.JPEG/p_bee3aabc37b04e80875a1a1f558b8421.jpeg?type=m_webp">
+                                                <source
+                                                    srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjhfMTc4/MDAxNjcyMTk0MjY2Njk3.ID4oXLjphKCSG17vPHX7Ku_DC93mQrR7M2-c9TgWXvwg.75cNsQCfe4XQZ9LwxxrRRQce7sJbNxiiYTGdKSesTxIg.JPEG/p_bee3aabc37b04e80875a1a1f558b8421.jpeg?type=m">
+                                                <img alt="소셜이미지"
+                                                    src="https://kream-phinf.pstatic.net/MjAyMjEyMjhfMTc4/MDAxNjcyMTk0MjY2Njk3.ID4oXLjphKCSG17vPHX7Ku_DC93mQrR7M2-c9TgWXvwg.75cNsQCfe4XQZ9LwxxrRRQce7sJbNxiiYTGdKSesTxIg.JPEG/p_bee3aabc37b04e80875a1a1f558b8421.jpeg?type=m"
+                                                    loading="auto" class="image">
+                                            </picture>
+                                        </div>
+                                        <div class="card_detail">
+                                            <div class="user_box">
+                                                <picture class="picture img_profile">
+                                                    <source type="image/webp"
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjExMTJfNSAg/MDAxNjY4MTc4OTg2ODMz.BNaaOXTTh0anVngGqQBR3e2i0O-PklBR9zSXOTGuuzYg.DT3Btnyhy3npuiZd3GnFfFE9_XMyXUAEi4g6MUuuPSIg.JPEG/p_36e41b8f822542428ec96e83ac46c44d.jpeg?type=s_webp">
+                                                    <source
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjExMTJfNSAg/MDAxNjY4MTc4OTg2ODMz.BNaaOXTTh0anVngGqQBR3e2i0O-PklBR9zSXOTGuuzYg.DT3Btnyhy3npuiZd3GnFfFE9_XMyXUAEi4g6MUuuPSIg.JPEG/p_36e41b8f822542428ec96e83ac46c44d.jpeg?type=s">
+                                                    <img alt="사용자 프로필 이미지"
+                                                        src="https://kream-phinf.pstatic.net/MjAyMjExMTJfNSAg/MDAxNjY4MTc4OTg2ODMz.BNaaOXTTh0anVngGqQBR3e2i0O-PklBR9zSXOTGuuzYg.DT3Btnyhy3npuiZd3GnFfFE9_XMyXUAEi4g6MUuuPSIg.JPEG/p_36e41b8f822542428ec96e83ac46c44d.jpeg?type=s"
+                                                        loading="auto" class="image">
+                                                </picture>
+                                                <p class="feed_user_name">yeni_day</p><span aria-label="좋아요"
+                                                    role="button"  class="btn like" type="button">
+                                                    <img src="../../img/styleImg/like_icon.png" alt="좋아요 이미지" id="like_icon"
+                                                        class="icon sprite-icons social-like-gray-sm">
+                                                    <span class="like_count">128</span></span>
+                                            </div>
+                                            <p class="text_box">읏추읏추 다들 연말 마무리 잘하세요🫶🏻🤍 #휴먼메이드
+                                                #아디매틱</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <!-- 게시물 끝 -->
+
+                            <!-- 게시물 시작 -->
+                            <div class="feed_card item square" style="position: absolute; left: 921px; top: 0px;">
+                                <a href="#">
+                                    <div class="card_box">
+                                        <div class="social_img_box square">
+                                            <picture class="picture social_img">
+                                                <source type="image/webp"
+                                                    srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjdfMTg3/MDAxNjcyMTI1MTAzNDM3.k4-GuKPlN7yPFbDhezSPkCyPGUkqeyWOKNUACRAvXksg.aX5bxgr33o2Rxb3pPeFzkU681m7YCdHqKQE4FPYscrwg.JPEG/p_3f888b1afc044690beb8b746402bf037.jpeg?type=m_webp">
+                                                <source
+                                                    srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjdfMTg3/MDAxNjcyMTI1MTAzNDM3.k4-GuKPlN7yPFbDhezSPkCyPGUkqeyWOKNUACRAvXksg.aX5bxgr33o2Rxb3pPeFzkU681m7YCdHqKQE4FPYscrwg.JPEG/p_3f888b1afc044690beb8b746402bf037.jpeg?type=m">
+                                                <img alt="소셜이미지"
+                                                    src="https://kream-phinf.pstatic.net/MjAyMjEyMjdfMTg3/MDAxNjcyMTI1MTAzNDM3.k4-GuKPlN7yPFbDhezSPkCyPGUkqeyWOKNUACRAvXksg.aX5bxgr33o2Rxb3pPeFzkU681m7YCdHqKQE4FPYscrwg.JPEG/p_3f888b1afc044690beb8b746402bf037.jpeg?type=m"
+                                                    loading="auto" class="image">
+                                            </picture>
+                                        </div>
+                                        <div class="card_detail">
+                                            <div class="user_box">
+                                                <picture class="picture img_profile">
+                                                    <source type="image/webp"
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMDEyMjZfMjgg/MDAxNjA4OTkxNjM5Mzky.FjHvHgSPG1zzCMtJGGzCjGTVS3ADJ8NR5vSEqTEZatog.4H9rmr3DfGPbwAALCCHZtwUtirQffLQQjFqSX9_dfIYg.JPEG/p_0f7418b98d9842159f23073ab3263993.jpg?type=s_webp">
+                                                    <source
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMDEyMjZfMjgg/MDAxNjA4OTkxNjM5Mzky.FjHvHgSPG1zzCMtJGGzCjGTVS3ADJ8NR5vSEqTEZatog.4H9rmr3DfGPbwAALCCHZtwUtirQffLQQjFqSX9_dfIYg.JPEG/p_0f7418b98d9842159f23073ab3263993.jpg?type=s">
+                                                    <img alt="사용자 프로필 이미지"
+                                                        src="https://kream-phinf.pstatic.net/MjAyMDEyMjZfMjgg/MDAxNjA4OTkxNjM5Mzky.FjHvHgSPG1zzCMtJGGzCjGTVS3ADJ8NR5vSEqTEZatog.4H9rmr3DfGPbwAALCCHZtwUtirQffLQQjFqSX9_dfIYg.JPEG/p_0f7418b98d9842159f23073ab3263993.jpg?type=s"
+                                                        loading="auto" class="image">
+                                                </picture>
+                                                <p class="feed_user_name">93.e.su</p>
+                                                <span aria-label="좋아요" role="button"  class="btn like" type="button">
+                                                    <img src="../../img/styleImg/like_icon.png" alt="좋아요 이미지" id="like_icon"
+                                                        class="icon sprite-icons social-like-gray-sm">
+                                                    <span class="like_count">43</span>
+                                                </span>
+                                            </div>
+                                            <p class="text_box">#데일리룩 #미리메리챌린지 #KREAM스타일</p>
+                                            <!---->
+                                        </div>
+                                    </div><!---->
+                                </a></div>
+                            <!-- 게시물 끝 -->
+
+                            <!-- 한 줄 끝 -->
+
+                            <!-- 한 줄 시작 -->
+
+                             <!-- 게시물 시작 -->
+                             <div class="feed_card item square" style="position: absolute; left: 0px; top: 500px;">
+                                <a href="#">
+                                    <div class="card_box">
+                                        <div class="social_img_box square">
+                                            <picture class="picture social_img">
+                                                <source type="image/webp"
+                                                    srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjdfMTg3/MDAxNjcyMTI1MTAzNDM3.k4-GuKPlN7yPFbDhezSPkCyPGUkqeyWOKNUACRAvXksg.aX5bxgr33o2Rxb3pPeFzkU681m7YCdHqKQE4FPYscrwg.JPEG/p_3f888b1afc044690beb8b746402bf037.jpeg?type=m_webp">
+                                                <source
+                                                    srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjdfMTg3/MDAxNjcyMTI1MTAzNDM3.k4-GuKPlN7yPFbDhezSPkCyPGUkqeyWOKNUACRAvXksg.aX5bxgr33o2Rxb3pPeFzkU681m7YCdHqKQE4FPYscrwg.JPEG/p_3f888b1afc044690beb8b746402bf037.jpeg?type=m">
+                                                <img alt="소셜이미지"
+                                                    src="https://kream-phinf.pstatic.net/MjAyMjEyMjdfMTg3/MDAxNjcyMTI1MTAzNDM3.k4-GuKPlN7yPFbDhezSPkCyPGUkqeyWOKNUACRAvXksg.aX5bxgr33o2Rxb3pPeFzkU681m7YCdHqKQE4FPYscrwg.JPEG/p_3f888b1afc044690beb8b746402bf037.jpeg?type=m"
+                                                    loading="auto" class="image">
+                                            </picture>
+                                        </div>
+                                        <div class="card_detail">
+                                            <div class="user_box">
+                                                <picture class="picture img_profile">
+                                                    <source type="image/webp"
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMDEyMjZfMjgg/MDAxNjA4OTkxNjM5Mzky.FjHvHgSPG1zzCMtJGGzCjGTVS3ADJ8NR5vSEqTEZatog.4H9rmr3DfGPbwAALCCHZtwUtirQffLQQjFqSX9_dfIYg.JPEG/p_0f7418b98d9842159f23073ab3263993.jpg?type=s_webp">
+                                                    <source
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMDEyMjZfMjgg/MDAxNjA4OTkxNjM5Mzky.FjHvHgSPG1zzCMtJGGzCjGTVS3ADJ8NR5vSEqTEZatog.4H9rmr3DfGPbwAALCCHZtwUtirQffLQQjFqSX9_dfIYg.JPEG/p_0f7418b98d9842159f23073ab3263993.jpg?type=s">
+                                                    <img alt="사용자 프로필 이미지"
+                                                        src="https://kream-phinf.pstatic.net/MjAyMDEyMjZfMjgg/MDAxNjA4OTkxNjM5Mzky.FjHvHgSPG1zzCMtJGGzCjGTVS3ADJ8NR5vSEqTEZatog.4H9rmr3DfGPbwAALCCHZtwUtirQffLQQjFqSX9_dfIYg.JPEG/p_0f7418b98d9842159f23073ab3263993.jpg?type=s"
+                                                        loading="auto" class="image">
+                                                </picture>
+                                                <p class="feed_user_name">93.e.su</p>
+                                                <span aria-label="좋아요" role="button"  class="btn like" type="button">
+                                                    <img src="../../img/styleImg/like_icon.png" alt="좋아요 이미지" id="like_icon"
+                                                        class="icon sprite-icons social-like-gray-sm">
+                                                    <span class="like_count">43</span>
+                                                </span>
+                                            </div>
+                                            <p class="text_box">#데일리룩 #미리메리챌린지 #KREAM스타일</p>
+                                            <!---->
+                                        </div>
+                                    </div><!---->
+                                </a></div>
+                            <!-- 게시물 끝 -->
+
+                            <!-- 게시물 시작 -->
+                            <div class="feed_card item vertical" style="position: absolute; left: 307px; top: 385px;">
+                                <a href="#">
+                                    <div class="card_box">
+                                        <div class="social_img_box vertical">
+                                            <picture class="picture social_img">
+                                                <source type="image/webp"
+                                                    srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjhfMTc4/MDAxNjcyMTk0MjY2Njk3.ID4oXLjphKCSG17vPHX7Ku_DC93mQrR7M2-c9TgWXvwg.75cNsQCfe4XQZ9LwxxrRRQce7sJbNxiiYTGdKSesTxIg.JPEG/p_bee3aabc37b04e80875a1a1f558b8421.jpeg?type=m_webp">
+                                                <source
+                                                    srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjhfMTc4/MDAxNjcyMTk0MjY2Njk3.ID4oXLjphKCSG17vPHX7Ku_DC93mQrR7M2-c9TgWXvwg.75cNsQCfe4XQZ9LwxxrRRQce7sJbNxiiYTGdKSesTxIg.JPEG/p_bee3aabc37b04e80875a1a1f558b8421.jpeg?type=m">
+                                                <img alt="소셜이미지"
+                                                    src="https://kream-phinf.pstatic.net/MjAyMjEyMjhfMTc4/MDAxNjcyMTk0MjY2Njk3.ID4oXLjphKCSG17vPHX7Ku_DC93mQrR7M2-c9TgWXvwg.75cNsQCfe4XQZ9LwxxrRRQce7sJbNxiiYTGdKSesTxIg.JPEG/p_bee3aabc37b04e80875a1a1f558b8421.jpeg?type=m"
+                                                    loading="auto" class="image">
+                                            </picture>
+                                        </div>
+                                        <div class="card_detail">
+                                            <div class="user_box">
+                                                <picture class="picture img_profile">
+                                                    <source type="image/webp"
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjExMTJfNSAg/MDAxNjY4MTc4OTg2ODMz.BNaaOXTTh0anVngGqQBR3e2i0O-PklBR9zSXOTGuuzYg.DT3Btnyhy3npuiZd3GnFfFE9_XMyXUAEi4g6MUuuPSIg.JPEG/p_36e41b8f822542428ec96e83ac46c44d.jpeg?type=s_webp">
+                                                    <source
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjExMTJfNSAg/MDAxNjY4MTc4OTg2ODMz.BNaaOXTTh0anVngGqQBR3e2i0O-PklBR9zSXOTGuuzYg.DT3Btnyhy3npuiZd3GnFfFE9_XMyXUAEi4g6MUuuPSIg.JPEG/p_36e41b8f822542428ec96e83ac46c44d.jpeg?type=s">
+                                                    <img alt="사용자 프로필 이미지"
+                                                        src="https://kream-phinf.pstatic.net/MjAyMjExMTJfNSAg/MDAxNjY4MTc4OTg2ODMz.BNaaOXTTh0anVngGqQBR3e2i0O-PklBR9zSXOTGuuzYg.DT3Btnyhy3npuiZd3GnFfFE9_XMyXUAEi4g6MUuuPSIg.JPEG/p_36e41b8f822542428ec96e83ac46c44d.jpeg?type=s"
+                                                        loading="auto" class="image">
+                                                </picture>
+                                                <p class="feed_user_name">yeni_day</p><span aria-label="좋아요"
+                                                    role="button"  class="btn like" type="button">
+                                                    <img src="../../img/styleImg/like_icon.png" alt="좋아요 이미지" id="like_icon"
+                                                        class="icon sprite-icons social-like-gray-sm">
+                                                    <span class="like_count">128</span></span>
+                                            </div>
+                                            <p class="text_box">읏추읏추 다들 연말 마무리 잘하세요🫶🏻🤍 #휴먼메이드
+                                                #아디매틱</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <!-- 게시물 끝 -->
+
+                            <!-- 게시물 시작 -->
+                            <div class="feed_card item vertical" style="position: absolute; left: 614px; top: 500px;">
+                                <a href="#">
+                                    <div class="card_box">
+                                        <div class="social_img_box vertical">
+                                            <picture class="picture social_img">
+                                                <source type="image/webp"
+                                                    srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjhfMTc4/MDAxNjcyMTk0MjY2Njk3.ID4oXLjphKCSG17vPHX7Ku_DC93mQrR7M2-c9TgWXvwg.75cNsQCfe4XQZ9LwxxrRRQce7sJbNxiiYTGdKSesTxIg.JPEG/p_bee3aabc37b04e80875a1a1f558b8421.jpeg?type=m_webp">
+                                                <source
+                                                    srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjhfMTc4/MDAxNjcyMTk0MjY2Njk3.ID4oXLjphKCSG17vPHX7Ku_DC93mQrR7M2-c9TgWXvwg.75cNsQCfe4XQZ9LwxxrRRQce7sJbNxiiYTGdKSesTxIg.JPEG/p_bee3aabc37b04e80875a1a1f558b8421.jpeg?type=m">
+                                                <img alt="소셜이미지"
+                                                    src="https://kream-phinf.pstatic.net/MjAyMjEyMjhfMTc4/MDAxNjcyMTk0MjY2Njk3.ID4oXLjphKCSG17vPHX7Ku_DC93mQrR7M2-c9TgWXvwg.75cNsQCfe4XQZ9LwxxrRRQce7sJbNxiiYTGdKSesTxIg.JPEG/p_bee3aabc37b04e80875a1a1f558b8421.jpeg?type=m"
+                                                    loading="auto" class="image">
+                                            </picture>
+                                        </div>
+                                        <div class="card_detail">
+                                            <div class="user_box">
+                                                <picture class="picture img_profile">
+                                                    <source type="image/webp"
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjExMTJfNSAg/MDAxNjY4MTc4OTg2ODMz.BNaaOXTTh0anVngGqQBR3e2i0O-PklBR9zSXOTGuuzYg.DT3Btnyhy3npuiZd3GnFfFE9_XMyXUAEi4g6MUuuPSIg.JPEG/p_36e41b8f822542428ec96e83ac46c44d.jpeg?type=s_webp">
+                                                    <source
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjExMTJfNSAg/MDAxNjY4MTc4OTg2ODMz.BNaaOXTTh0anVngGqQBR3e2i0O-PklBR9zSXOTGuuzYg.DT3Btnyhy3npuiZd3GnFfFE9_XMyXUAEi4g6MUuuPSIg.JPEG/p_36e41b8f822542428ec96e83ac46c44d.jpeg?type=s">
+                                                    <img alt="사용자 프로필 이미지"
+                                                        src="https://kream-phinf.pstatic.net/MjAyMjExMTJfNSAg/MDAxNjY4MTc4OTg2ODMz.BNaaOXTTh0anVngGqQBR3e2i0O-PklBR9zSXOTGuuzYg.DT3Btnyhy3npuiZd3GnFfFE9_XMyXUAEi4g6MUuuPSIg.JPEG/p_36e41b8f822542428ec96e83ac46c44d.jpeg?type=s"
+                                                        loading="auto" class="image">
+                                                </picture>
+                                                <p class="feed_user_name">yeni_day</p><span aria-label="좋아요"
+                                                    role="button"  class="btn like" type="button">
+                                                    <img src="../../img/styleImg/like_icon.png" alt="좋아요 이미지" id="like_icon"
+                                                        class="icon sprite-icons social-like-gray-sm">
+                                                    <span class="like_count">128</span></span>
+                                            </div>
+                                            <p class="text_box">읏추읏추 다들 연말 마무리 잘하세요🫶🏻🤍 #휴먼메이드
+                                                #아디매틱</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <!-- 게시물 끝 -->
+
+                            <!-- 게시물 시작 -->
+                            <div class="feed_card item square" style="position: absolute; left: 921px; top: 385px;">
+                                <a href="#">
+                                    <div class="card_box">
+                                        <div class="social_img_box square">
+                                            <picture class="picture social_img">
+                                                <source type="image/webp"
+                                                    srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjdfMTg3/MDAxNjcyMTI1MTAzNDM3.k4-GuKPlN7yPFbDhezSPkCyPGUkqeyWOKNUACRAvXksg.aX5bxgr33o2Rxb3pPeFzkU681m7YCdHqKQE4FPYscrwg.JPEG/p_3f888b1afc044690beb8b746402bf037.jpeg?type=m_webp">
+                                                <source
+                                                    srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjdfMTg3/MDAxNjcyMTI1MTAzNDM3.k4-GuKPlN7yPFbDhezSPkCyPGUkqeyWOKNUACRAvXksg.aX5bxgr33o2Rxb3pPeFzkU681m7YCdHqKQE4FPYscrwg.JPEG/p_3f888b1afc044690beb8b746402bf037.jpeg?type=m">
+                                                <img alt="소셜이미지"
+                                                    src="https://kream-phinf.pstatic.net/MjAyMjEyMjdfMTg3/MDAxNjcyMTI1MTAzNDM3.k4-GuKPlN7yPFbDhezSPkCyPGUkqeyWOKNUACRAvXksg.aX5bxgr33o2Rxb3pPeFzkU681m7YCdHqKQE4FPYscrwg.JPEG/p_3f888b1afc044690beb8b746402bf037.jpeg?type=m"
+                                                    loading="auto" class="image">
+                                            </picture>
+                                        </div>
+                                        <div class="card_detail">
+                                            <div class="user_box">
+                                                <picture class="picture img_profile">
+                                                    <source type="image/webp"
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMDEyMjZfMjgg/MDAxNjA4OTkxNjM5Mzky.FjHvHgSPG1zzCMtJGGzCjGTVS3ADJ8NR5vSEqTEZatog.4H9rmr3DfGPbwAALCCHZtwUtirQffLQQjFqSX9_dfIYg.JPEG/p_0f7418b98d9842159f23073ab3263993.jpg?type=s_webp">
+                                                    <source
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMDEyMjZfMjgg/MDAxNjA4OTkxNjM5Mzky.FjHvHgSPG1zzCMtJGGzCjGTVS3ADJ8NR5vSEqTEZatog.4H9rmr3DfGPbwAALCCHZtwUtirQffLQQjFqSX9_dfIYg.JPEG/p_0f7418b98d9842159f23073ab3263993.jpg?type=s">
+                                                    <img alt="사용자 프로필 이미지"
+                                                        src="https://kream-phinf.pstatic.net/MjAyMDEyMjZfMjgg/MDAxNjA4OTkxNjM5Mzky.FjHvHgSPG1zzCMtJGGzCjGTVS3ADJ8NR5vSEqTEZatog.4H9rmr3DfGPbwAALCCHZtwUtirQffLQQjFqSX9_dfIYg.JPEG/p_0f7418b98d9842159f23073ab3263993.jpg?type=s"
+                                                        loading="auto" class="image">
+                                                </picture>
+                                                <p class="feed_user_name">93.e.su</p>
+                                                <span aria-label="좋아요" role="button"  class="btn like" type="button">
+                                                    <img src="../../img/styleImg/like_icon.png" alt="좋아요 이미지" id="like_icon"
+                                                        class="icon sprite-icons social-like-gray-sm">
+                                                    <span class="like_count">43</span>
+                                                </span>
+                                            </div>
+                                            <p class="text_box">#데일리룩 #미리메리챌린지 #KREAM스타일</p>
+                                            <!---->
+                                        </div>
+                                    </div><!---->
+                                </a></div>
+                            <!-- 게시물 끝 -->
+
+                            <!-- 한 줄 끝 -->
+
+                        </div>
+                        
+                    </div>
+
+                    <!-- 피드 끝 -->
+                </div>
             </div>
-            <!--                            제품 태그 리스트 끝-->
+            <!-- 푸터 -->
+            <footer th:fragment="checkFooter">
+
+                <div class="footer_flex_box2">
+                    <div id="footer_left_box2">
+                        <div class="footer_box_text2" id="fbtext2_left">
+                            <div class="fbb2_Btext">이용안내</div>
+                            <ul>
+                                <li><a onclick="pop_inspecion()">검수기준</a></li>
+                                <li><a onclick="pop_policy()">이용정책</a></li>
+                                <li><a onclick="pop_penalty()">패널티 정책</a></li>
+                                <li><a onclick="pop_commu()">커뮤니티 가이드라인</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer_box_text2">
+                            <div class="fbb2_Btext">고객지원</div>
+                            <ul>
+                                <li><a href="/notice">공지사항</a></li>
+                                <li><a href="/about">서비스 소개</a></li>
+                                <li><a href="https://www.kream.co.kr/showroom">쇼룸 안내</a></li>
+                                <li><a href="https://www.kream.co.kr/about/seller_reception">판매자 방문접수</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="footer_right_box2">
+                        <div class="fbb2_Btext">고객센터 1588-7813</div>
+                        <ul>
+                            <li>운영시간평일 11:00 - 18:00 (토 ∙ 일, 공휴일 휴무)</li>
+                            <li>점심시간평일 13:00 - 14:00</li>
+                        </ul>
+                        <div id="footer_ask_text">1:1 문의하기는 앱에서만 가능합니다.</div>
+                        <div id="footer_ask_box"><a href="/faq">자주 묻는 질문</a></div>
+                    </div>
+                </div>
+                <div class="footer_flex_box3">
+                    <div id="footer_box3">
+                        <div id="footer_box3_1">
+                            <ul id="footer_box3_1_text">
+                                <li><a href="https://www.kreamcorp.com/">회사소개</a></li>
+                                <li><a href="https://recruit.kreamcorp.com/kream/recruitMain">인재채용</a></li>
+                                <li class="no_moblie"><a href="https://www.kreamcorp.com/view/contact.html">제휴제안</a>
+                                </li>
+                                <li><a href="https://www.kream.co.kr/agreement">이용약관</a></li>
+                                <li id="policy"><a href="https://www.kream.co.kr/privacy">개인정보처리방침</a></li>
+                            </ul>
+                            <ul id="sns_and_button">
+                                <ul id="sns_img">
+                                    <li id="insta_img"><a href="https://www.instagram.com/kream.co.kr/"></a></li>
+                                    <li id="facebook_img"><a href="https://www.facebook.com/kreamcokr"></a></li>
+                                    <li id="chat_img"><a href="https://pf.kakao.com/_adpxlxb"></a></li>
+                                </ul>
+                                <li id="footer_button" onclick="business_info()">사업자정보 <div class="up_down_img"></div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="footer_box3_2" class="business_info">
+                            <ul>
+                                <li>크림 주식회사 · 대표 김창욱</li>
+                                <li>사업자등록번호: 570-88-01618 <a href="#">사업자정보확인</a></li>
+                                <li>통신판매업: 제 2021-성남분당C-0093호</li>
+                            </ul>
+                            <ul>
+                                <li>사업장소재지: 경기도 성남시 분당구 분당내곡로 117, 8층</li>
+                                <li>개인정보관리책임자: 김미진</li>
+                                <li>호스팅 서비스: 네이버 클라우드 (주)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer_flex_box4">
+                    <p id="footer_left_box4">크림(주)는 통신판매 중개자로서 통신판매의 당사자가 아니므로 개별 판매자가 등록한 상품정보에 대해서 책임을 지지 않습니다. 단,
+                        거래과정에서 검수하고 보증하는 내용에 대한 책임은 당사에 있습니다.</p>
+                    <p id="footer_right_box4">© 2021 KREAM.Corp.</p>
+                </div>
+            </footer>
+            <!-- 푸터 끝 -->
+            <div>
+
+            </div>
         </div>
-
     </div>
-</div>
+    </div>
 
-<div id="background1">
-    <div class="p_container">
-        <div class="p_title">팔로워<span></span>
-            <button onclick="follower_down()">
-                <img src="/lib/img/x.png" alt="">
-            </button>
+
+    <!-- 본문 끝 -->
+
+    <!-- 팝업 -->
+    <div id="background1" style="display: none;">
+        <div class="p_container">
+            <div class="p_title">팔로워<span></span>
+                <button onclick="follower_down()">
+                    <img src="/lib/img/x.png" alt="">
+                </button>
+            </div>
         </div>
     </div>
-</div>
 
-<div id="background2">
-    <div class="p_container">
-        <div class="p_title">팔로잉<span></span>
-            <button onclick="following_down()">
-                <img src="/lib/img/x.png" alt="">
-            </button>
+    <div id="background2" style="display: none;">
+        <div class="p_container">
+            <div class="p_title">팔로잉<span></span>
+                <button onclick="following_down()">
+                    <img src="/lib/img/x.png" alt="">
+                </button>
+            </div>
         </div>
     </div>
-</div>
-<hr />
+    <hr />
 
 
-<!-- footer -->
-<!--<div th:replace="include/checkFooter :: footer"></div>-->
-<div id="footer"></div>
-<!-- Layer content-->
+    <!-- footer -->
+    <!--<div th:replace="include/checkFooter :: footer"></div>-->
+    <div id="footer"></div>
+    <!-- Layer content-->
+    <script src="../../js/style/like.js"></script>
+    <script src="../../js/style/profile.js"></script>
 
-<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-<script src="../../static/lib/js/myprofile.js"></script>
-<script src="../../static/lib/js/pop.js"></script>
 </body>
 
-<script>
-    const sessionId = sessionStorage.getItem('userid'); // 세션 가져오기
 
-    $(function() {
-        axios.get('/api/style_user_list/' + sessionId,{
-        }).then(function (response){
-            console.log(response);
-
-            let main = $('<div id="container">');
-            let hash = $('<p class="text" style="text-align: initial">');
-            let background1 = $('<div class="p_title">');
-            let background2 = $('<div class="p_title">');
-
-            for(let i in response.data.data){
-                let userid = response.data.data[i].userid;
-                let name = response.data.data[i].name;
-                let intro = response.data.data[i].intro;
-                let userImg = response.data.data[i].userImg;
-                let boardCnt = response.data.data[i].boardCnt;
-                let followerCnt= response.data.data[i].followerCnt;
-                let followingCnt = response.data.data[i].followingCnt;
-                let styleImg = response.data.data[i].styleImg;
-                let content = response.data.data[i].content;
-                let hit = response.data.data[i].hit;
-                let replyCnt = response.data.data[i].replyCnt;
-                let p_img = response.data.data[i].styleProductTagApiResponseList[i].originFileName;
-                let p_name = response.data.data[i].styleProductTagApiResponseList[i].name;
-                let p_price = response.data.data[i].styleProductTagApiResponseList[i].price;
-                let styleId = response.data.data[i].styleId;
-                let hitBoolean = response.data.data[i].hitBoolean;
-
-                let likeImg = '/lib/img/smile.png';
-                //좋아요 기록이 true일 경우 이미지 변경
-                if(hitBoolean == true){
-                    likeImg = '/lib/img/heart.png';
-                }
-                let price = p_price;
-                //즉시구매가가 없는 경우
-                if(p_price == null){
-                    price = '-';
-                }
-                for(let z in response.data.data[i].styleHashTagNameApiResponseList){
-                    hashtag = response.data.data[i].styleHashTagNameApiResponseList[z].tagName;
-                    if(hashtag >response.data.data[i].styleHashTagNameApiResponseList[0].tagName ){
-                        hash.append('#'+hashtag);
-
-                    }else{
-                        hash.append(content + '#'+hashtag);
-                    }
-                }
-
-                let con = $('<div id="profile_box">').append(
-                    '<div><img src="/lib/product/'+userImg+'" alt="" id="profile">' + '<p class="userid">'+ userid+'</p></div>' +
-                    '<div id="profile_text"><p class="username">' + name + '</p><p class="intro">'+ intro+'</p></div>'+ '<div id="user_button"><button><a href="/social/myprofile/edit">프로필 수정</a></button>'+
-                    '<button><a href="/social/upload">새글 올리기</a></button></div></div>' + '<div id="count_box"><ul><li><a href="#"><span>게시물</span><span class="count">'+ boardCnt + '</span></a></li>'+
-                    '<li onclick="follower_up()"><span>팔로워</span> <span class="count">'+ followerCnt +'</span></li><li onclick="following_up()"><span>팔로잉</span> <span class="count">' + followingCnt +'</span></li></ul></div>'+
-                    '<div id="Box"><div class="card_box"><a href="/social/popular"><div class="imgbox">'+'<img src="/lib/product/'+styleImg+'" alt="" class="img"></div>'+'<div class="userbox"><img src="/lib/product/'+userImg+'" alt="" class="userimg">'+
-                    '<p class="userid">'+ userid +'</p></div>'+'</a><div class="likebox"><div class="likelink"><img src="'+likeImg+'" alt="" class="like_img" onclick="sendit('+styleId+')">'+'<p>'+hit+'</p></div>'+
-                    '<a href="#" class="likelink"><img src="/lib/img/7148750_chat_message_bubble_talk_conversation_icon.png" alt="" class="comment"><p>'+ replyCnt+'</p></a></div>'+
-                    '<a href="/product/121" class="product_box"><div>'+'<img src="/lib/product/'+p_img+'" alt="" class="product_img"></div>'+'<div class="product_text"><p>'+p_name+'</p><div>'+
-                    '<span class="product_price">'+priceToString(p_price)+'</span><span>원</span></div></div></a></div></div></div>'
-                )
-                main.append(con);
-
-                // 팔로우
-                for(let j in response.data.data[i].followerListApiResponseList){
-                    follower_id = response.data.data[i].followerListApiResponseList[j].id;
-                    let follower_img = response.data.data[i].followerListApiResponseList[j].originFileName;
-                    let follower_name = response.data.data[i].followerListApiResponseList[j].name;
-                    let follower_profileName = response.data.data[i].followerListApiResponseList[j].profileName;
-
-                    let cam = $('<div class="p_body">').append(
-                        '<div class="p_user"><div class="p_imgbox">' + '<img src="/lib/product/'+follower_img+'" alt="" id="p_img"></div>'+
-                        '<div class="p_textbox"><p class="p_text1">'+follower_name+'</p><p class="p_text2">'+follower_profileName+'</p></div></div>'+
-                        '<div class="p_btnbox"><button class="p_btn">팔로우</button></div></div>'
-                    )
-                    cam.append('</div>');
-                    background1.append(cam);
-                }
-
-
-                // 팔로잉
-                for(let k in response.data.data[i].followingListApiResponseList){
-                    following_id = response.data.data[i].followingListApiResponseList[k].id;
-                    let following_img = response.data.data[i].followingListApiResponseList[k].originFileName;
-                    let following_name = response.data.data[i].followingListApiResponseList[k].name;
-                    let following_profileName = response.data.data[i].followingListApiResponseList[k].profileName;
-
-                    let doit = $('<div class="p_body">').append(
-                        '<div class="p_user"><div class="p_imgbox">' + '<img src="/lib/product/'+following_img+'" alt="" id="p_img"></div>' +
-                        '<div class="p_textbox"><p class="p_text1">'+following_name +'</p><p class="p_text2">'+following_profileName+'</p></div></div>' +
-                        '<div class="p_btnbox"><button class="p_btn">팔로우</button></div></div></div>'
-                    )
-                    doit.append('</div>');
-                    background2.append(doit);
-                }
-            }
-            $('#container').html(main);
-            $('#background1 > .p_container > .p_title').after(background1);
-            $('#background2 > .p_container > .p_title').after(background2);
-            $('.userbox').after(hash);
-
-
-        }).catch(function (error){
-            console.log(error);
-        })
-    });
-    // 가격 ,(콤마) 생성
-    function priceToString(p_price) {
-        return p_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    }
-    // 좋아요 버튼
-    function sendit(styleId){
-        let likeNum = document.getElementById(styleId);
-        if(customerId==null){
-            location.href='/login';
-        }else{
-            axios.get('/api/styleLike_like/'+customerId+"/"+styleId,{
-            }).then(function (response) {
-                console.log(response)
-                let like = response.data;
-                likeNum.innerText = '';
-                likeNum.append(like);
-            });
-        }
-    }
-    $(document).on('click', '.like_img', function () {
-        /*$(".check_box").index(this); 몇번쨰 클래스인지 가져옴 // .index는 함수이름*/
-        let index = $(".like_img").index(this);
-        let like = document.getElementsByClassName('like_img');
-        let likeCheck = like.item(index).getAttribute('src');
-        if(customerId!=null){    // 로그인 되어있을 경우에만 바꿔줌
-            if(likeCheck=='/lib/img/smile.png'){
-                like.item(index).setAttribute('src', '/lib/img/heart.png');
-            }else if(likeCheck=='/lib/img/heart.png'){
-                like.item(index).setAttribute('src', '/lib/img/smile.png');
-            }
-        }else{
-            location.href='/login';
-        }
-    });
-
-    /* 팔로잉 버튼 */
-    follow = [];
-    $(document).on('click', '.p_btnbox', function () {
-        let followerId = sessionId; // 본인
-        let followingId =  $('#idx').val();
-        let index = $(".p_btnbox").index(this);
-
-        axios.get('/api/follow_link/' + followingId+ '/' + followerId).then(function () {
-
-            if (follow[index] != 1) {
-                followBoolean = false;
-                follow[index] = 1;
-                const button = document.getElementsByClassName("p_btn")[index];
-                console.log(button);
-                button.innerText = "팔로잉";
-                button.style.backgroundColor = "white";
-                button.style.color = "black";
-            } else if (follow[index] == 1) {
-                followBoolean = true;
-                follow[index] = 0;
-                const button = document.getElementsByClassName("p_btn")[index];
-                button.innerText = "팔로우";
-                button.style.backgroundColor = "black";
-                button.style.color = "white";
-            }
-        })
-    });
-
-
-
-    $(document).on('click', '#like_img', function () {
-        /*$(".check_box").index(this); 몇번쨰 클래스인지 가져옴 // .index는 함수이름*/
-        let index = $("#like_icon").index(this);
-        let like = document.getElementById('like_img');
-        let likeCheck = like.getAttribute('src');
-        // if(customerId!=null){    // 로그인 되어있을 경우에만 바꿔줌
-        if(likeCheck=='../../static/lib/styleImg/like_icon.png'){
-            like.setAttribute('src', '../../static/lib/styleImg/like_after_icon.png');
-            // .like_count++;
-        }else if(likeCheck=='../../static/lib/styleImg/like_after_icon.png'){
-            like.setAttribute('src', '../../static/lib/styleImg/like_icon.png');
-        }
-        // }else{
-        //     location.href='../login.html';
-        // }
-    });
-</script>
 
 </html>

@@ -54,8 +54,9 @@ input {
 /* 로그인 */
 .login_container {
     margin: 0 auto;
-    padding: 6rem 0 16rem;
-    width: 40rem;
+    margin-top: 150px; /*fragment*/
+    /* padding: 6rem 0 16rem; */
+    width: 400px;
 }
 
 .login_title {
@@ -78,7 +79,7 @@ input {
     padding: 1rem 0 1.4rem;
 }
 
-.login_info .input_content {
+.input_box .input_content {
     padding-right: 3rem;
     height: 3.8rem;
 }
@@ -104,12 +105,12 @@ input {
 
 .input_item {
     position: relative;
-    
 }
 
 .solid {
     background-color: #222;
     color: #fff;
+    height: 50px;
 }
 
 .solid.disabled,
@@ -126,13 +127,8 @@ input {
     color: #222;
 }
 
-.logo_naver {
-    position: absolute;
-    margin-top: -0.4rem;
-    left: 1.8rem;
-}
-
 .account_container {
+    padding: 0;
     margin-top: 1.8rem;
     display: flex;
     justify-content: space-evenly;
@@ -156,7 +152,7 @@ input {
     content: "";
     margin-top: .3rem;
     display: inline-block;
-    width: .1rem;
+    width: 0.1rem;
     height: 1.3rem;
     background-color: #d3d3d3;
 }
@@ -164,7 +160,8 @@ input {
 /* 이메일아이디 & 비밀번호 찾기 */
 .help_area { 
     margin: 0 auto; 
-    padding: 60px 0 160px; 
+    margin-top: 150px; /*fragment*/
+    /* padding: 60px 0 160px;  */
     width: 400px; 
 }
 
@@ -177,7 +174,7 @@ input {
 }
 
 .help_notice { 
-    padding: 4px 0 30px; 
+    padding: 40px 0 30px; 
 }
 
 .help_notice .notice_txt { 
@@ -206,10 +203,15 @@ input {
     font-weight: 100;
 }
 
+#find_btn {
+    color: #fff;
+}
+
 /* 회원가입 */
 .join_area {
     margin: 0 auto;
-    padding: 5.8rem 0 16rem;
+    margin-top: 150px; /*fragment*/
+    /* padding: 5.8rem 0 16rem; */
     width: 40rem;
 }
 
@@ -234,9 +236,10 @@ input {
 
 .input_birth {
     border: 1px solid #ebebeb;
-    width: 100px;
+    width: 120px;
     padding: 12px 5px;
     margin: 0 auto;
+    letter-spacing: 4px;
 }
 
 .ssn1 {
@@ -244,9 +247,10 @@ input {
 }
 
 .ssn2 {
-    width: 16px;
+    width: 30px;
     margin-left: 22px;
     margin-right: 10px;
+    padding-left: 10px;
 }
 
 .dash {
@@ -254,7 +258,7 @@ input {
     font-weight: lighter;
     display: inline-block;
     position: absolute;
-    margin-top: -5px;
+    margin-top: -10px;
 }
 
 .bullelements {
@@ -262,6 +266,7 @@ input {
     letter-spacing: 2px;
     display: inline-block;
     position: absolute;
+    margin-top: -10px;
 }
 
 .input_item.birth {
@@ -273,90 +278,6 @@ input {
     font-size: 2.5rem;
     padding: 5px;
     color: #ebebeb;
-}
-
-.btn_size_select {
-    position: absolute;
-    right: 1rem;
-    top: -.7rem;
-}
-
-.input_item .input_txt.hover {
-    cursor: pointer;
-}
-
-.btn_size_select {
-    border: none;
-}
-
-.btn_join {
-    border: none;
-}
-
-.join_terms {
-    padding: 2.4rem 0 4rem;
-}
-
-.check_main {
-    display: flex;
-    height: 2.4rem;
-}
-
-.checkbox_item {
-    position: relative;
-}
-
-.checkbox_item .check_label {
-    position: relative;
-    cursor: pointer;
-    display: inline-block;
-}
-
-.join_terms .check_label {
-    display: inline-flex;
-    max-width: 100%;
-}
-
-.checkbox_item .label_txt {
-    padding-left: .8rem;
-    display: inline-block;
-    line-height: 2.4rem;
-    font-size: 1.3rem;
-    vertical-align: top;
-}
-
-.join_terms .label_txt {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    font-size: 1.4rem;
-    line-height: 2.4rem;
-}
-
-.check_sub {
-    padding: 16px 0 0 3.6rem;
-}
-
-.terms_box+.terms_box {
-    margin-top: 2rem;
-}
-
-.check_sub .checkbox_item+.checkbox_item {
-    margin-top: 12px;
-}
-
-.join_terms .btn_view {
-    position: absolute;
-    top: 2px;
-    right: 0;
-    font-size: 1.2rem;
-    line-height: 2rem;
-    color: rgba(34, 34, 34, .5);
-}
-
-.join_terms .btn_view,
-.join_terms .btn_view:hover {
-    text-decoration: underline;
 }
 
 .layer {
@@ -387,10 +308,6 @@ input {
     font-weight: 700;
     color: #000;
     text-align: center;
-}
-
-.delivery_bind {
-    padding: 0 3.2rem;
 }
 
 .size_list_area {
@@ -424,9 +341,14 @@ input {
     background-color: #fff;
 }
 
-.size_item .btn.on {
-    border-color: #333;
+.size_item.active .btn {
+    border: 1px solid #222;
+    border-radius: 12px;
     font-weight: 700;
+}
+
+.size_item:not(.active) .btn{
+    border-color: #ebebeb;
 }
 
 .size_item .info_txt {
@@ -445,11 +367,49 @@ input {
     width: 120px;
 }
 
+a:active, a:focus {
+    background-color: rgba(0,0,0,.1);
+}
+
 .btn_layer_close {
     position: absolute;
     top: 2rem;
     right: 2rem;
     cursor: pointer;
+}
+
+.btn_size_select {
+    position: absolute;
+    right: 1rem;
+    top: -.7rem;
+}
+
+.input_item .input_txt.hover {
+    cursor: pointer;
+}
+
+.btn_size_select {
+    border: none;
+}
+
+#size_submit_btn:hover {
+    color: #fff;
+}
+
+#find_button:focus {
+    color: #fff;
+}
+
+.btn_join {
+    border: none;
+}
+
+.label_txt {
+    padding-left: .8rem;
+    display: inline-block;
+    line-height: 2.4rem;
+    font-size: 1.3rem;
+    vertical-align: top;
 }
 
 .medium {
@@ -459,4 +419,44 @@ input {
     border-radius: 12px;
     font-size: 14px;
     letter-spacing: -.14px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0
+}
+
+.has_button .input_txt {
+    padding-right: 3rem; height: 3.8rem; 
+}
+
+.input_txt {
+    padding: .8rem 0;
+    width: 100%;
+    font-size: 1.5rem;
+    letter-spacing: -.015rem;
+    line-height: 2.2rem;
+    border-bottom: .1rem solid #ebebeb;
+}
+
+.has_error .input_title { 
+    color: #f15746; 
+}
+
+.has_error .input_txt { 
+    border-bottom-color: #ef6253; 
+}
+
+.has_error .input_txt:focus { 
+    border-bottom-color: #ef6253;
+}
+
+.has_error .input_error {
+    display: block;
+    position: absolute;
+    line-height: 1.6rem;
+    font-size: 1.1rem;
+    color: #f15746;
+    margin-top: 0;
 }
