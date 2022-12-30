@@ -47,7 +47,8 @@
     border-bottom: 1px solid #ebebeb;
 }
 .has_button .input_txt {
-    padding-right: 3rem; height: 3.8rem; 
+    padding-right: 3rem; 
+    /* height: 3.8rem;  */
 }
 .input_txt {
     padding: .8rem 0;
@@ -129,7 +130,12 @@
     font-size: 14px;
     letter-spacing: -.14px;
 }
-.solid.disabled, .solid:disabled {
+.solid {
+    background-color: #222;
+    color: #fff;
+}
+.solid.disabled,
+.solid:disabled {
     background-color: #ebebeb;
     color: #fff;
     cursor: default;
@@ -182,5 +188,4 @@ input[class="check"]:checked + label {
 .layer_btn .btn+.btn{
     margin-left: 8px;
 }
-
 /****************새 주소 추가 끝****************/

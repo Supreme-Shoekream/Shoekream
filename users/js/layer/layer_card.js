@@ -100,17 +100,14 @@ document.querySelector('#pin_input').addEventListener('input', e=>{
 
 // 버튼 활성화
 document.querySelectorAll('#cc-1').forEach((item) =>{
-    console.log(item)
     item.addEventListener('input', e=>{
     let strCc1=e.target.value;
     if(validateCc1(strCc1)){
         document.querySelectorAll('#birthday_input').forEach((item) =>{
-            console.log(item)
             item.addEventListener('input', e=>{
             let strBirthday=e.target.value;
         if(validateBirthday(strBirthday) ){
             document.querySelectorAll('#pin_input').forEach((item) =>{
-                console.log(item)
                 item.addEventListener('input', e=>{
                 let strPin=e.target.value;
             if(validatePin(strPin) ){
