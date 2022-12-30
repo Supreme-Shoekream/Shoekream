@@ -13,7 +13,7 @@
     <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://kream.co.kr/favicon.ico">
 
 
-    <link rel="stylesheet" href="../../css/social/profile.css">
+    <link rel="stylesheet" href="../../css/social/users.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
@@ -153,11 +153,12 @@
                 </header>
                 <!--                    스크롤 내리면 헤더 밑에 나오는 사용자 프로필 -->
                 <div class="social_header">
-                    <div class="title_user" style="display: none;">
+                    <div id="mini" style="display: none;">
                         <div class="profile_img_box">
-                            <img src="../styleImg/styleimg1.jpg" alt="userid" class="profile_img">
+                            <img src="https://kream-phinf.pstatic.net/MjAyMjEyMjhfMTc4/MDAxNjcyMTk0MjY2Njk3.ID4oXLjphKCSG17vPHX7Ku_DC93mQrR7M2-c9TgWXvwg.75cNsQCfe4XQZ9LwxxrRRQce7sJbNxiiYTGdKSesTxIg.JPEG/p_bee3aabc37b04e80875a1a1f558b8421.jpeg?type=m"
+                             alt="userid" class="profile_img">
                         </div>
-                        <p class="user_name">userid</p>
+                        <p class="user_name_mini">userid</p>
                     </div>
                 </div>
                 <!--                    스크롤 내리면 헤더 밑에 나오는 사용자 프로필 끝 -->
@@ -168,7 +169,8 @@
                     <div class="social_user_area">
                         <div class="user_top">
                             <div class="profile_img_box">
-                                <img src="../../img/styleImg/styleimg1.jpg" class="profile_img">
+                                <img src="https://kream-phinf.pstatic.net/MjAyMjEyMjhfMTc4/MDAxNjcyMTk0MjY2Njk3.ID4oXLjphKCSG17vPHX7Ku_DC93mQrR7M2-c9TgWXvwg.75cNsQCfe4XQZ9LwxxrRRQce7sJbNxiiYTGdKSesTxIg.JPEG/p_bee3aabc37b04e80875a1a1f558b8421.jpeg?type=m"
+                                 class="profile_img_box">
                                 ::after
                             </div>
                             <div class="profile_info_box">
@@ -684,6 +686,19 @@
 
     <script src="../../js/style/like.js"></script>
     <script src="../../js/style/profile.js"></script>
+    <script>
+        console.log(scrollY);
+    
+        addEventListener("scroll", e => {
+            console.log(window.scrollY);
+            const mini = document.getElementById('mini');
+            if(window.scrollY>0){
+                mini.setAttribute('style', 'display: flex;');
+            }else{
+                mini.setAttribute('style', 'display: none;');
+            }
+        })
+    </script>
 </body>
 
 

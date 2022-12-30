@@ -155,10 +155,11 @@
                 </div>
                 </header>
                 <div class="social_header">
-                    <div class="title_user" style="display: none;">
+                    <!-- <div id="mini" class="title_user" style="display: none;"> -->
+                    <div id="mini" style="display: none;">
                         <div class="profile_img_box"><img src="../../img/kream_empty_img.png" alt="8izhs1"
                                 class="profile_img"></div>
-                        <p class="user_name">8izhs1</p>
+                        <p class="user_name_mini">8izhs1</p>
                     </div>
                 </div>
             </div><!---->
@@ -177,8 +178,8 @@
                         </div>
                         <!-- 버튼  -->
                         <div class="btn_container">
-                            <a href="../../html/social/style_profile_edit.html" class="btn btn outlinegrey small" type="button"> 프로필 수정 </a>
-                            <a href="../../html/social/upload.html" class="btn btn btn_my_style outlinegrey small"
+                            <a style="width: 120px; margin-right: 10px;" href="../../html/social/style_profile_edit.html" class="btn btn outlinegrey small" type="button"> 프로필 수정 </a>
+                            <a style="width: 100px;" href="../../html/social/upload.html" class="btn btn btn_my_style outlinegrey small"
                                 type="button"> 글쓰기 </a>
                         </div>
                         <!-- 버튼 끝 -->
@@ -639,7 +640,7 @@
         <div class="p_container">
             <div class="p_title">팔로워<span></span>
                 <button onclick="follower_down()">
-                    <img src="/lib/img/x.png" alt="">
+                    <img src="../../img/x.png" alt="">
                 </button>
             </div>
         </div>
@@ -665,7 +666,19 @@
     <script src="../../js/style/profile.js"></script>
 
 </body>
+<script>
+    console.log(scrollY);
 
+    addEventListener("scroll", e => {
+        console.log(window.scrollY);
+        const mini = document.getElementById('mini');
+        if(window.scrollY>0){
+            mini.setAttribute('style', 'display: flex;');
+        }else{
+            mini.setAttribute('style', 'display: none;');
+        }
+    })
+</script>
 
 
 </html>
