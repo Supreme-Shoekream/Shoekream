@@ -117,3 +117,7 @@ body, button, dd, div, dl, dt, fieldset, figcaption, figure, form, h1, h2, h3, h
 .container{
     margin: 40px 40px 160px 40px;
 }
+.menu_select{
+    font-weight: 800;
+    color:black;
+}
