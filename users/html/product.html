@@ -10,6 +10,11 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
         <link rel="stylesheet" href="../css/product.css">
+
+        <!-- 슬릭 -->
+        <link rel="stylesheet" href="../css/main/slick-theme.css">
+        <link rel="stylesheet" href="../css/main/slick.css">
+        <script src="../js/main/slick.min.js"></script>
         
     </head>
     <body>
@@ -32,10 +37,10 @@
                                     <li class="top_item">
                                         <a href="/my" class="top_link">마이페이지</a>
                                     </li>
-                                    <li class="top_item" style="display:;">
+                                    <li class="top_item" style="display:none;">
                                         <a href="/login" class="top_link">로그인</a>
                                     </li>
-                                    <li class="top_item" style="display:none;">
+                                    <li class="top_item" style="display:;">
                                         <a href="/" class="top_link">로그아웃</a>
                                     </li>
                                 </ul>
@@ -145,12 +150,11 @@
                             <div class="column_bind">
                                 <!-- 상품 사진 시작 -->
                                 <div class="column is_fixed">
-                                    
                                     <div class="spread"></div><div class="column_box" style="width: 560px;">
                                         <div class="detail_banner_area lg">
                                             <div dir="ltr" class="banner_slide detail_slide slick-slider slick-initialized">
                                                 <button type="button" data-role="none" class="slick-arrow slick-prev slick-disabled" style="display: block;">Previous</button>
-                                                <div class="slick-list">
+                                                <!-- <div class="slick-list">
                                                     <div class="slick-track" style="width: 2240px; opacity: 1;">
                                                         <div tabindex="-1" data-index="0" aria-hidden="false" class="slick-slide slick-active slick-current" style="outline: none; width: 560px; position: relative; left: 0px; opacity: 1; transition: opacity 500ms ease 0s, visibility 500ms ease 0s;">
                                                             <div>
@@ -222,9 +226,14 @@
                                                             </div>
                                                         </div>
                                                     </div>
+                                                </div> -->
+                                                <div id="slider-div">
+                                                    <div class = "main_banner" style="width: 100%;"><img class = "bannerImg" src="https://kream-phinf.pstatic.net/MjAyMTA4MDZfMjY0/MDAxNjI4MjM5NTA1MjU1.9FfkTXbxZFWKxDMdPayVFlD0GIyNT-mFVIQ7zZW3SPcg.c03UoCFjKXtP4XtNMgBdrmTOIQlqxrePk4JScV4GUHEg.PNG/p_8001cbaf0db042bda09fea320ee328b4.png?type=l"></div>
+                                                    <div class = "main_banner" style="width: 100%;"><img class = "bannerImg" src="https://kream-phinf.pstatic.net/MjAyMTA4MDZfNDEg/MDAxNjI4MjM5NTA1MzAx.AferhzIi3eSei272TsoXwGto7buSps5uMQ0GxgwPwI0g.RRQcZGZ5R35-Tp2fXP2SrElD9cFg-l4qGPXsH6e-V6Ig.PNG/p_008c53c9c2c9416ba2375897fe4f8359.png?type=l"></div>
+                                                    <div class = "main_banner" style="width: 100%;"><img class = "bannerImg" src="https://kream-phinf.pstatic.net/MjAyMTA4MDZfMjIw/MDAxNjI4MjM5NTA1Mjk3.3a0Km5mhmJWc-bZE5Q5RMFFg66b6CfSl5HPIIG26nUkg.xcwMKQnTETcSY1PdFkPtJZ_aLhfdW5p5h-26WwHc5N4g.PNG/p_5936ba4779c84b1e90da4a4502d93e0b.png?type=l"></div>
+                                                    <div class = "main_banner" style="width: 100%;"><img class = "bannerImg" src="https://kream-phinf.pstatic.net/MjAyMTA4MTJfMzIg/MDAxNjI4NzQyMTMyNjk1.m9pp08Gu-pCfZ2YiguvnhoGelxRqLs7CCz4w6YwwL6Eg.PoLFxuEV5YKJacy5n8cA-CqKtXphyLFiavZoJrnggIQg.PNG/a_c86308e9cc2d43c08ebdef8733b88719.png?type=l"></div>
                                                 </div>
-
-                                                <button type="button" data-role="none" class="slick-arrow slick-next" style="display: block;">Next</button>
+                                                <!-- <button type="button" data-role="none" class="slick-arrow slick-next" style="display: block;">Next</button>
                                                 <ul class="slick-dots" style="display: block;">
                                                     <li class="slick-active">
                                                         <button>1</button>
@@ -238,13 +247,14 @@
                                                     <li class="">
                                                         <button>4</button>
                                                     </li>
-                                                </ul>
+                                                </ul> -->
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- 상품 사진 끝 -->
-                                <div class="column">
+
+                                <div class="column rect">
                                     <div class="column_box">
                                         <!-- 상품 정보 시작 -->
                                         <div class="column_top">
@@ -366,11 +376,11 @@
                                                     <h3 class="detail_title lg">시세</h3>
                                                     <div class="sales_filter lg">
                                                         <div class="filter_unit">
-                                                            <button type="button" slot="button" class="btn btn_select">
-                                                                <span class="select_text layer_open">모든 사이즈</span>
+                                                            <button type="button" slot="button" class="btn btn_select on">
+                                                                <span class="select_text layer_open ">모든 사이즈</span>
                                                             </button>
                                                             <!-- 모든 사이즈 드롭박스 시작 -->
-                                                            <div class="layer_size_list layer lg">
+                                                            <div class="layer_size_list layer lg" style="display: block; ">
                                                                 <div class="layer_container">
                                                                     <a href="#" class="btn_layer_close">
                                                                         <svg xmlns="http://www.w3.org/2000/svg" class="ico-close icon sprite-icons">
