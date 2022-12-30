@@ -34,8 +34,8 @@
 .input_item{
     position: relative;
 }
-.has_error .input_txt{
-    border-bottom-color: #ef6253;
+.input_txt:focus { 
+    border-bottom: 2px #000 solid;
 }
 .input_item .input_txt{
     padding: 8px 0;
@@ -45,17 +45,34 @@
     line-height: 22px;
     border: 0;
     border-bottom: 1px solid #ebebeb;
-    
 }
-.has_error .input_error{
+.has_button .input_txt {
+    padding-right: 3rem; height: 3.8rem; 
+}
+.input_txt {
+    padding: .8rem 0;
+    width: 100%;
+    font-size: 1.5rem;
+    letter-spacing: -.015rem;
+    line-height: 2.2rem;
+    border-bottom: .1rem solid #ebebeb;
+}
+.has_error .input_title { 
+    color: #f15746; 
+}
+.has_error .input_txt { 
+    border-bottom-color: #ef6253; 
+}
+.has_error .input_txt:focus { 
+    border-bottom-color: #ef6253;
+}
+.has_error .input_error {
     display: block;
     position: absolute;
     line-height: 16px;
     font-size: 11px;
     color: #f15746;
-}
-.input_error{
-    display: none;
+    margin-top: 0;
 }
 .btn.btn_zipcode {
     position: absolute;
@@ -117,6 +134,11 @@
     color: #fff;
     cursor: default;
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0
+}
 
 /* 체크박스 꾸미기 - 활성화 x */
 input[class="check"] + label {
@@ -160,4 +182,5 @@ input[class="check"]:checked + label {
 .layer_btn .btn+.btn{
     margin-left: 8px;
 }
+
 /****************새 주소 추가 끝****************/
