@@ -121,8 +121,20 @@ input, textarea {
 }
 
 
-
-/* 
+.btn {
+    display: -webkit-inline-box;
+    display: inline-flex;
+    cursor: pointer;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    vertical-align: middle;
+    text-align: center;
+    color: rgba(34,34,34,.8);
+    background-color: #fff;
+}
+/*
 이거 아마 다른거!!있었던것같은데 ㅠㅠ
 .layer .layer_container {
     width: 440px;

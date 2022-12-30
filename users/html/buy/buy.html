@@ -8,465 +8,553 @@
     <title>SHOEKREAM | 한정판 거래의 FLEX</title>
     <link rel="stylesheet" href="../../css/buy/header.css">
     <link rel="stylesheet" href="../../css/buy/buy.css">
-    <link rel ="stylesheet" href="../../css/layer/layer.css">
-    <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://kream.co.kr/favicon.ico">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" />
-    <link rel="stylesheet" href="../../css/buy/popup.css">
+    <link rel="stylesheet" href="../../css/layer/layer.css">
+    <link rel="stylesheet" href="../../css/layer/layer_delivery.css">
+    <link rel="stylesheet" href="../../css/layer/layer_address.css">
+    <link rel="stylesheet" href="../../css/layer/layer_shipping_memo.css">
+    <link rel="stylesheet" href="../../css/layer/layer_point.css">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 </head>
+
 <body>
-<!--header시작-->
-<header class="header">
-    <div class="header_top">
-        <div class="top_inner">
-            <ul class="top_list">
-                <li class="top_item">
-                    <a href="/notice" class="top_link"> 고객센터 </a>
-                </li>
-                <li class="top_item">
-                    <a href="/my/wish" class="top_link"> 관심상품 </a>
-                </li>
-                <li class="top_item">
-                    <a href="/my" class="top_link"> 마이페이지 </a>
-                </li>
-                <li class="top_item">
-                    <a href="/" class="top_link"> 로그아웃 </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="header_main">
-        <div class="main_inner">
-            <h1>
-                <a href="#" aria-label="홈" class="logo">
-                    <img src="../../img/logo.png"></a>
-            </h1>
-            <div class="center">
-                <h2 class="title"><span class="title_txt">즉시 구매하기</span></h2>
-            </div>
-            <div class="right">
-                <button type="button" class="btn btn_standard outlinegrey small"> 검수기준 </button>
-            </div>
-        </div>
-    </div>
-</header>
-</div>
-<!--header끝-->
-<div class="container buy md step-1">
-    <!---->
-    <div class="content">
-        <div class="buy_immediate">
-            <div class="product_info_area">
-                <div class="product_info">
-                    <div class="product" style="background-color: rgb(235, 240, 245);">
-                        <img class="product_img"
-                            src="https://kream-phinf.pstatic.net/MjAyMjExMDNfNDkg/MDAxNjY3NDQyOTg3Nzgz.AvVXZUTxfsUxU_LRcKTfFDh82OOcajr5aip30AtoVCEg.HQa_q9G1grgcHNthQzFDSoLEf5J56ppC87pzob2VHxQg.JPEG/a_60233a3586974852b69ab4cfef79a543.jpg?type=l_webp">
-                    </div>
-                    <div class="product_detail"><strong class="model_number"><!---->NJ1DM63A/NJ1DN58A </strong>
-                        <p class="model_title">The North Face 1992 Nuptse Jacket Black</p>
-                        <p class="model_ko">노스페이스 1992 눕시 다운 자켓 블랙</p>
-                        <div class="model_desc">
-                            <p class="size_txt">M</p><!---->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="price_descision_box">
-                <ul class="price_list">
-                    <li class="list_item">
-                        <p class="title">즉시 구매가</p><span class="price">540,000</span><span class="unit">원</span>
+    <!--header시작-->
+    <header class="header">
+        <div class="header_top">
+            <div class="top_inner">
+                <ul class="top_list">
+                    <li class="top_item">
+                        <a href="/notice" class="top_link"> 고객센터 </a>
                     </li>
-                    <li class="list_item">
-                        <p class="title">즉시 판매가</p><span class="price">479,000</span><span class="unit">원</span>
+                    <li class="top_item">
+                        <a href="/my/wish" class="top_link"> 관심상품 </a>
+                    </li>
+                    <li class="top_item">
+                        <a href="/my" class="top_link"> 마이페이지 </a>
+                    </li>
+                    <li class="top_item">
+                        <a href="/" class="top_link"> 로그아웃 </a>
                     </li>
                 </ul>
-                <div class="instant_group">
-                    <div class="tab_area buy_tab">
-                        <ul role="tablist" class="tab_list">
-                            <li role="tab" aria-selected="false" aria-controls="panel1" class="item on">
-                                <a href="#" class="item_link">구매 입찰</a>
-                            </li>
-                            <li role="tab" aria-selected="true" aria-controls="panel2" class="item"><a href="#"
-                                    class="item_link">즉시 구매</a></li>
-                        </ul><!----><!---->
+            </div>
+        </div>
+        <div class="header_main">
+            <div class="main_inner">
+                <h1>
+                    <a href="#" aria-label="홈" class="logo">
+                        <img src="../../img/logo.png"></a>
+                </h1>
+                <div class="center">
+                    <h2 class="title"><span class="title_txt">즉시 구매하기</span></h2>
+                </div>
+                <div class="right">
+                    <button type="button" class="btn btn_standard outlinegrey small"> 검수기준 </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    </div>
+    <!--header끝-->
+    <div class="container buy md step-1">
+        <!---->
+        <div class="content">
+            <div class="buy_immediate">
+                <div class="product_info_area">
+                    <div class="product_info">
+                        <div class="product" style="background-color: rgb(235, 240, 245);">
+                            <img class="product_img"
+                                src="https://kream-phinf.pstatic.net/MjAyMjExMDNfNDkg/MDAxNjY3NDQyOTg3Nzgz.AvVXZUTxfsUxU_LRcKTfFDh82OOcajr5aip30AtoVCEg.HQa_q9G1grgcHNthQzFDSoLEf5J56ppC87pzob2VHxQg.JPEG/a_60233a3586974852b69ab4cfef79a543.jpg?type=l_webp">
+                        </div>
+                        <div class="product_detail"><strong class="model_number"><!---->NJ1DM63A/NJ1DN58A </strong>
+                            <p class="model_title">The North Face 1992 Nuptse Jacket Black</p>
+                            <p class="model_ko">노스페이스 1992 눕시 다운 자켓 블랙</p>
+                            <div class="model_desc">
+                                <p class="size_txt">M</p><!---->
+                            </div>
+                        </div>
                     </div>
-                    <div class="price_now active_input has_danger has_warning">
-                        <dl class="price_now_box">
-                            <dt class="price_now_title"> 즉시 구매가 </dt>
-                            <dd class="price">
-                                <span class="amount" style="display:none;">540,000</span>
-                                <input type="number" pattern="([0-9]+.{0,1}[0-9]*,{0,1})*[0-9]" required="required"
-                                    placeholder="희망가 입력" autocomplete="off" class="input_amount">
-                                <span class="unit">원</span>
-                            </dd>
-                        </dl>
-                        <div class="price_warning" style="display: block;">
-                            <div class="price_warning" style="display:block">
+                </div>
+                <div class="price_descision_box">
+                    <ul class="price_list">
+                        <li class="list_item">
+                            <p class="title">즉시 구매가</p><span class="price">540,000</span><span class="unit">원</span>
+                        </li>
+                        <li class="list_item">
+                            <p class="title">즉시 판매가</p><span class="price">479,000</span><span class="unit">원</span>
+                        </li>
+                    </ul>
+                    <div class="instant_group">
+                        <div class="tab_area buy_tab">
+                            <ul role="tablist" class="tab_list">
+                                <li role="tab" aria-selected="false" aria-controls="panel1" class="item" id="bid">
+                                    <a href="#" class="item_link" onclick="buy_bid()">구매 입찰</a>
+                                </li>
+                                <li role="tab" aria-selected="true" aria-controls="panel2" class="item on" id="now"><a
+                                        href="#" onclick="buy_now()" class="item_link">즉시 구매</a></li>
+                            </ul><!----><!---->
+                        </div>
+                        <div class="price_now active_input">
+                            <dl class="price_now_box">
+                                <dt class="price_now_title"> 즉시 구매가 </dt>
+                                <dd class="price">
+                                    <span class="amount" style="display:block;" id="now_price">540,000</span>
+                                    <input type="number" pattern="([0-9]+.{0,1}[0-9]*,{0,1})*[0-9]" required="required"
+                                        maxlength="10" placeholder="희망가 입력" autocomplete="off" class="input_amount"
+                                        id="bid_input" style="display:none">
+                                    <span class="unit">원</span>
+                                </dd>
+                            </dl>
+                            <div class="price_warning" style="display: none;">
+
                                 <p> 3만원 부터 천원단위로 입력하세요. </p>
-                            </div><!---->
+                                <!---->
+                            </div>
                         </div>
-                    </div>
-                    <div class="price_bind">
-                        <p class="price_bind_empty">총 결제금액은 다음 화면에서 계산됩니다.</p>
-                    </div>
-                </div>
-            </div>
-            <!--구매입찰시 입찰 마감기한-->
-            <div data-v-e0394b7a="" class="deadline_info_area">
-                <div class="section_title">
-                    <h3 class="title_txt">입찰 마감기한</h3>
-                </div>
-                <div class="section_content">
-                    <div class="bid_deadline">
-                        <p class="deadline_txt"> 30일 (2023/01/24 마감) </p>
-                        <div class="deadline_tab"><a href="#" class="btn outlinegrey medium"> 1일 </a><a href="#"
-                                class="btn outlinegrey medium"> 3일 </a><a href="#" class="btn outlinegrey medium"> 7일
-                            </a><a href="#" class="btn outlinegrey medium is_active"> 30일 </a><a href="#"
-                                class="btn outlinegrey medium"> 60일 </a></div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="buy_total_confirm" is-instant="true" style="display:block">
-                <div class="price_total">
-                    <dl class="price_box price_empty">
-                        <dt class="price_title">총 결제금액</dt>
-                        <dd class="price_empty_desc">다음 화면에서 확인</dd>
-                    </dl><span class="price_warning" style="display: none;"><em>주의! </em></span>
-                </div>
-                <div class="btn_confirm"><a href="#" class="btn full solid false disabled"> 즉시 구매 계속 </a></div>
-            </div>
-        </div><!----><!---->
-    </div><!----><!---->
-</div>
-
-
-
-<!--step2!!-->
-<div class="container buy md step-2"><!---->
-    <div class="content"><!---->
-        <div class="buy_immediate">
-            <div class="product_info_area">
-                <div class="product_info">
-                    <div class="product" style="background-color: rgb(244, 244, 244);">
-                        <img class="product_img"
-                            src="https://kream-phinf.pstatic.net/MjAyMjExMDNfNDkg/MDAxNjY3NDQyOTg3Nzgz.AvVXZUTxfsUxU_LRcKTfFDh82OOcajr5aip30AtoVCEg.HQa_q9G1grgcHNthQzFDSoLEf5J56ppC87pzob2VHxQg.JPEG/a_60233a3586974852b69ab4cfef79a543.jpg?type=l_webp">
-                    </div>
-                    <div class="product_detail"><strong class="model_number"><!---->NJ1DM63A/NJ1DN58A </strong>
-                        <p class="model_title">The North Face 1992 Nuptse Jacket Black</p>
-                        <p class="model_ko">노스페이스 1992 눕시 다운 자켓 블랙</p>
-                        <div class="model_desc">
-                            <p class="size_txt">M</p><!---->
+                        <div class="price_bind">
+                            <p class="price_bind_empty">총 결제금액은 다음 화면에서 계산됩니다.</p>
                         </div>
                     </div>
                 </div>
-            </div>
-            <section>
-                <div class="section_unit">
+                <!--구매입찰시 입찰 마감기한-->
+                <div style="display: none;" class="deadline_info_area">
                     <div class="section_title">
-                        <h3 class="title_txt">배송 주소</h3><a href="#" class="add_more_btn">+ 새 주소 추가</a>
+                        <h3 class="title_txt">입찰 마감기한</h3>
                     </div>
                     <div class="section_content">
-                        <div class="delivery_info">
-                            <div class="address_info">
-                                <dl class="info_list">
-                                    <div class="info_box">
-                                        <dt class="title">받는 분</dt>
-                                        <dd class="desc">김**</dd>
-                                    </div>
-                                    <div class="info_box">
-                                        <dt class="title">연락처</dt>
-                                        <dd class="desc">010-1***-*111</dd>
-                                    </div>
-                                    <div class="info_box">
-                                        <dt class="title">배송 주소</dt>
-                                        <dd class="desc">경기 성남시 분당구 판교역로 235 (삼평동, 에이치스퀘어 엔동) 사과나무
-                                        </dd>
-                                    </div>
-                                </dl>
-                            </div><a href="#" class="btn btn_edit outlinegrey small"> 변경 </a>
+                        <div class="bid_deadline">
+                            <p class="deadline_txt"> 30일 (2023/01/24 마감) </p>
+                            <div class="deadline_tab"><a class="btn outlinegrey medium"> 1일 </a><a
+                                    class="btn outlinegrey medium"> 3일 </a><a class="btn outlinegrey medium"> 7일
+                                </a><a class="btn outlinegrey medium is_active"> 30일 </a>
+                                <a class="btn outlinegrey medium"> 60일 </a>
+                            </div>
                         </div>
-                        <div>
-                            <div class="button_shipping_memo_wrap">
-                                <button class="button_shipping_memo">
-                                    <span class="placeholder">배송 시 요청사항을 선택하세요.</span>
-                                    <img src="../../img/right.png">
+                    </div>
+                </div>
+                <div class="buy_total_confirm" is-instant="true">
+                    <div class="price_total">
+                        <dl class="price_box price_empty">
+                            <dt class="price_title">총 결제금액</dt>
+                            <dd class="price_empty_desc">다음 화면에서 확인</dd>
+                        </dl><span class="price_warning" style="display: none;"><em>주의! </em></span>
+                    </div>
+                    <div class="btn_confirm"><a onclick="step2()" id="next" class="btn full solid false "> 즉시 구매 계속 </a>
+                    </div>
+                </div>
+            </div><!----><!---->
+        </div><!----><!---->
+    </div>
+
+
+
+    <!--step2!!-->
+    <div class="container buy md step-2" style="display: block;"><!---->
+        <div class="content"><!---->
+            <div class="buy_immediate">
+                <div class="product_info_area">
+                    <div class="product_info">
+                        <div class="product" style="background-color: rgb(244, 244, 244);">
+                            <img class="product_img"
+                                src="https://kream-phinf.pstatic.net/MjAyMjExMDNfNDkg/MDAxNjY3NDQyOTg3Nzgz.AvVXZUTxfsUxU_LRcKTfFDh82OOcajr5aip30AtoVCEg.HQa_q9G1grgcHNthQzFDSoLEf5J56ppC87pzob2VHxQg.JPEG/a_60233a3586974852b69ab4cfef79a543.jpg?type=l_webp">
+                        </div>
+                        <div class="product_detail"><strong class="model_number"><!---->NJ1DM63A/NJ1DN58A </strong>
+                            <p class="model_title">The North Face 1992 Nuptse Jacket Black</p>
+                            <p class="model_ko">노스페이스 1992 눕시 다운 자켓 블랙</p>
+                            <div class="model_desc">
+                                <p class="size_txt">M</p><!---->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <section>
+                    <div class="section_unit">
+                        <div class="section_title">
+                            <h3 class="title_txt">배송 주소</h3><a href="#" class="add_more_btn">+ 새 주소 추가</a>
+                        </div>
+                        <div class="section_content">
+                            <div class="delivery_info">
+                                <div class="address_info">
+                                    <dl class="info_list">
+                                        <div class="info_box">
+                                            <dt class="title">받는 분</dt>
+                                            <dd class="desc">김**</dd>
+                                        </div>
+                                        <div class="info_box">
+                                            <dt class="title">연락처</dt>
+                                            <dd class="desc">010-1***-*111</dd>
+                                        </div>
+                                        <div class="info_box">
+                                            <dt class="title">배송 주소</dt>
+                                            <dd class="desc">경기 성남시 분당구 판교역로 235 (삼평동, 에이치스퀘어 엔동) 사과나무
+                                            </dd>
+                                        </div>
+                                    </dl>
+                                </div><a class="btn btn_edit outlinegrey small"> 변경 </a>
+                            </div>
+                            <div>
+                                <div class="button_shipping_memo_wrap">
+                                    <button class="button_shipping_memo" onclick="pop_layer_shipping_memo()">
+                                        <span class="placeholder">배송 시 요청사항을 선택하세요.</span>
+                                        <img src="../../img/right.png">
+                                    </button>
+                                </div>
+                                <!--배송 요청사항 클릭시 레이어창 시작-->
+                                <div class="layer_shipping_memo layer lg" style="display: none;">
+                                    <div class="layer_container"><a  class="btn_layer_close" onclick="close_layer_shipping_memo()">
+                                            <img src="../../img/close.png"></a>
+                                        <div class="layer_header">
+                                            <p class="title">배송 요청사항</p>
+                                        </div>
+                                        <div class="layer_content">
+                                            <div class="button_shipping_memo_wrap selectable"
+                                                updated-memo="[object Object]">
+                                                <p><!---->요청사항 없음</p><!---->
+                                            </div>
+                                            <div class="button_shipping_memo_wrap selectable checked"
+                                                updated-memo="[object Object]">
+                                                <p><!---->문 앞에 놓아주세요</p>
+                                                <img src="../../img/wcheck.png">
+                                            </div>
+                                            <div class="button_shipping_memo_wrap selectable"
+                                                updated-memo="[object Object]">
+                                                <p><!---->경비실에 맡겨 주세요</p><!---->
+                                            </div>
+                                            <div class="button_shipping_memo_wrap selectable"
+                                                updated-memo="[object Object]">
+                                                <p><!---->파손 위험 상품입니다. 배송 시 주의해주세요</p><!---->
+                                            </div>
+                                            <div  class="shipping_memo">
+                                                <div  class="button_shipping_memo_wrap direct_input"
+                                                    updatedmemo="[object Object]">
+                                                    <p><!---->직접 입력</p><!---->
+                                                </div>
+                                                <!--직접 입력하는 드롭다운-->
+                                                <div ><textarea
+                                                        placeholder="내용을 입력해주세요.(최대 40자)" maxlength="40"
+                                                        class="textarea_shipping_memo"></textarea>
+                                                </div>
+                                                <!--직접 입력하는 드롭다운-->
+                                            </div>
+                                            <div class="shipping_memo_buttons">
+                                                <button data-v-575aff82="" type="button"
+                                                    class="btn btn_cancel outlinegrey medium"> 취소
+                                                </button><a data-v-575aff82="" href="#"
+                                                    class="btn btn_apply solid medium"> 적용하기 </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--배송 요청사항 클릭시 레이어창 끝-->
+                            </div>
+                        </div>
+                    </div>
+                    <!--주소 변경 클릭시 나오는 모달창 시작-->
+
+                    <!--주소 변경 클릭시 나오는 모달창 끝-->
+                    <!--새 주소 추가 버튼 클릭시 나오는 모달창 시작-->
+
+                    <!--새 주소 추가 버튼 클릭시 나오는 모달창 끝-->
+                </section>
+                <section>
+                    <div class="section_title">
+                        <h3 class="title_txt">포인트</h3>
+                    </div>
+                    <div class="section_content">
+                        <div class="section_input"><input placeholder="0" class="input_credit"><button
+                                class="btn_use_credit"> 모두 사용 </button>
+                        </div>
+                        <div class="info_point">
+                            <div><span class="text_current">보유 포인트</span><button class="btn_question"
+                                onclick="pop_point()">
+                                    <img src="../../img/qmark.png">
                                 </button>
+                                <div class="value_current"><span class="point">3,000</span><span class="unit">P</span>
+                                </div>
+                            </div><!---->
+                        </div>
+                        <!--포인트부분에 ? 눌렀을 때 모달 시작-->
+                        <div class="layer_point layer lg" style="display: none;">
+                            <div class="layer_container"><a  class="btn_layer_close" onclick="close_point()">
+                                <img src="../../img/close.png">
+                            </a>
+                                <div class="layer_header">
+                                    <h2 class="title">이용안내</h2>
+                                </div>
+                                <div class="layer_content">
+                                    <div class="usable_wrap">
+                                        <div class="usable_point">
+                                            <h3 class="title">사용 가능한 포인트</h3>
+                                            <p class="point_box"><span class="point">3,000</span><span class="unit">P</span></p>
+                                            <div class="point_info">
+                                                <p class="info_item">이번달 소멸 예정 포인트 0P</p>
+                                                <p class="info_item"> 포인트 유효기간은 적립일로부터 최대 1년까지이며, 유형에 따라 달라질 수 있습니다. </p>
+                                            </div>
+                                        </div>
+                                        <ul class="usable_list">
+                                            <li class="usable_item"> 1,000P 이상부터 구매금액 제한 없이 사용하실 수 있습니다. </li>
+                                            <li class="usable_item"> 입찰 삭제, 거래 취소 시 사용한 포인트는 환불됩니다. </li>
+                                            <li class="usable_item"> 먼저 적립된 포인트부터 순서대로 사용되며, 사용하지 않으실 경우 유효기간이 지나면 자동 소멸됩니다. </li>
+                                            <li class="usable_item"> 유효기간이 지난 후 환불받은 포인트는 다시 사용하실 수 없습니다. </li>
+                                        </ul>
+                                    </div>
+                                    <div class="layer_btn"><a class="btn outline medium" onclick="close_point()"> 확인 </a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--포인트부분에 ? 눌렀을 때 모달 끝-->
+                        <!--포인트부분에 최대 사용 눌렀을 때 모달 시작-->
+                        <div class="layer lg layer_alert" style="display: none;">
+                            <div class="layer_container"><a href="#" class="btn_layer_close">
+                                    <img src="../../img/close.png">
+                                </a>
+                                <div class="layer_header">
+                                    <h2 class="title">포인트 자동 사용</h2>
+                                </div>
+                                <div class="layer_content">
+                                    <div class="alert_box">
+                                        <p class="alert_desc">포인트는 거래 체결 시점에 최대 포인트로<br>자동 사용 됩니다.</p>
+                                    </div>
+                                    <div class="layer_btn"><button type="button" class="btn outlinegrey medium"> 취소
+                                        </button><button type="button" class="btn solid medium"> 계속 진행 </button></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--포인트부분에 최대 사용 눌렀을 때 모달 끝-->
+
+                        <!---->
+                    </div>
+                </section>
+                <section>
+                    <div class="section_title">
+                        <h3 class="title_txt">최종 주문 정보</h3>
+                    </div>
+                    <div class="section_content">
+                        <div class="instant_group">
+                            <div class="price_total order_info">
+                                <dl class="price_box">
+                                    <dt class="price_title"> 총 결제금액 </dt>
+                                    <dd class="price"><span class="amount">274,000</span><span class="unit">원</span>
+                                    </dd>
+                                </dl><span class="price_warning" style="display: none;"><em>주의! </em></span>
+                            </div>
+                            <div class="price_bind">
+                                <dl class="price_addition is_dark">
+                                    <dt class="price_title"><span>즉시 구매가</span><!----></dt>
+                                    <dd class="price_text">267,000원</dd>
+                                </dl>
+                                <dl class="price_addition">
+                                    <dt class="price_title"><span>포인트</span><!----></dt>
+                                    <dd class="price_text">-</dd>
+                                </dl>
+                                <dl class="price_addition">
+                                    <dt class="price_title"><span>검수비</span><!----></dt>
+                                    <dd class="price_text">무료</dd>
+                                </dl>
+                                <dl class="price_addition">
+                                    <dt class="price_title"><span>수수료</span><button class="btn_title"><img
+                                                src="../../img/qmark.png"></button></dt>
+                                    <dd class="price_text">4,000원</dd>
+                                </dl>
+                                <dl class="price_addition">
+                                    <dt class="price_title"><span>배송비</span><!---->
+                                    </dt>
+                                    <dd class="price_text">3,000원</dd>
+                                </dl>
                             </div><!---->
                         </div>
                     </div>
-                </div>
-                <!--주소 변경 클릭시 나오는 모달창 시작-->
-                <!--주소 변경 클릭시 나오는 모달창 끝-->
-                <!--새 주소 추가 버튼 클릭시 나오는 모달창 시작-->
-                <!--새 주소 추가 버튼 클릭시 나오는 모달창 끝-->
-            </section>
-            <section>
-                <div class="section_title">
-                    <h3 class="title_txt">포인트</h3>
-                </div>
-                <div class="section_content">
-                    <div class="section_input"><input placeholder="0" class="input_credit"><button
-                            class="btn_use_credit"> 모두 사용 </button>
+                </section>
+                <section>
+                    <div class="section_title">
+                        <h3 class="title_txt">결제 방법</h3>
                     </div>
-                    <div class="info_point">
-                        <div><span class="text_current">보유 포인트</span><button class="btn_question">
-                                <img src="../../img/qmark.png">
-                            </button>
-                            <div class="value_current"><span class="point">3,000</span><span class="unit">P</span></div>
+                    <div class="section_content">
+                        <div class="simple_payment">
+                            <h4 class="method_title">
+                                <div class="main_title"> 계좌 간편결제 <span class="section_tag"
+                                        style="color: rgb(124, 114, 238); background: rgb(241, 240, 255);"> 결제 시 포인트 적립
+                                    </span></div><a href="#none" class="btn_card_add">+ 새 계좌 추가</a>
+                            </h4>
+                            <div class="quick_pay_info">
+                                <div class="payment_detail">
+                                    <div class="payment_item selected">
+                                        <div class="info_wrap">
+                                            <div class="bank_info"><span>카카오뱅크</span>
+                                                <div class="card_number">333<span class="dot single"></span><span
+                                                        class="dot single"></span><span class="dot single"></span><span
+                                                        class="dot single"></span><span class="dot single"></span><span
+                                                        class="dot single"></span><span class="dot single"></span>907
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="description">
+                                            <span><span lass="bold" style="color: #7C72EE;">2,740P</span> 적립</span>
+                                            <img src="../../img/down.png">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="simple_payment">
+                            <h4 class="method_title">
+                                <div class="main_title"> 카드 간편결제 <span class="sub_title">일시불</span></div><a href="#none"
+                                    class="btn_card_add">+ 새 카드 추가</a>
+                            </h4>
+                            <div class="card_list">
+                                <div class="main_card">
+                                    <div class="clickable_card">
+                                        <div class="card_info"><span class="card_name"> BC</span>
+                                            <div class="card_num"><span class="num_bind"><span class="dot"><span
+                                                            class="dot"></span></span><span class="hyphen"></span><span
+                                                        class="dot"><span class="dot"></span></span><span
+                                                        class="hyphen"></span><span class="dot"><span
+                                                            class="dot"></span></span><span class="hyphen"></span>
+                                                    <div class="last_num_box"><span class="last_num">6795</span></div>
+                                                </span><!----></div>
+                                        </div><img src="../../img/down.png">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="general_payment">
+                            <h4 class="method_title">
+                                <div class="main_title"><strong>일반 결제</strong><span class="sub_title">일시불・할부</span>
+                                </div>
+                            </h4>
+                            <div class="pay_method md">
+                                <div class="pay_item normal">
+                                    <div class="pay_box">
+                                        <div class="pay_title">
+                                            <p class="main_title">신용카드</p><!---->
+                                        </div><!---->
+                                    </div>
+                                </div>
+                                <div class="pay_item naverpay">
+                                    <div class="pay_box">
+                                        <div class="pay_title">
+                                            <p class="main_title">네이버페이</p><!---->
+                                        </div><img src="https://kream.co.kr/_nuxt/img/buy_pay_npay.fabd18a.png"
+                                            alt="네이버페이" class="pay_img">
+                                    </div>
+                                </div>
+                                <div class="pay_item kakaopay">
+                                    <div class="pay_box">
+                                        <div class="pay_title">
+                                            <p class="main_title">카카오페이</p><!---->
+                                        </div><img src="https://kream.co.kr/_nuxt/img/buy_pay_kakaopay.7cd2486.png"
+                                            alt="카카오페이" class="pay_img">
+                                    </div>
+                                </div>
+                                <div class="pay_item tosspay">
+                                    <div class="pay_box">
+                                        <div class="pay_title">
+                                            <p class="main_title">토스페이</p><!---->
+                                        </div><img src="https://kream.co.kr/_nuxt/img/buy_pay_tosspay.c48e1e2.png"
+                                            alt="토스페이" class="pay_img">
+                                    </div>
+                                </div>
+                                <div class="pay_item payco">
+                                    <div class="pay_box">
+                                        <div class="pay_title">
+                                            <p class="main_title">페이코</p><!---->
+                                        </div><img src="https://kream.co.kr/_nuxt/img/buy_pay_payco.f9fb4de.png"
+                                            alt="페이코" class="pay_img">
+                                    </div>
+                                </div>
+                            </div>
                         </div><!---->
+                    </div><!----><!---->
+                </section>
+                <section class="buy_check">
+                    <div>
+                        <ul class="check_list md last_bold">
+                            <li class="check_item"><a href="#" class="check_area">
+                                    <div class="notice_group">
+                                        <p class="notice_maintext">판매자의 판매거부, 배송지연, 미입고 등의 사유가 발생할 경우,
+                                            거래가 취소될 수 있습니다.</p>
+                                        <p class="notice_subtext">앱 알림 해제, 알림톡 차단, 전화번호 변경 후 미등록 시에는 거래
+                                            진행 상태 알림을 받을 수 없습니다.</p><!---->
+                                    </div>
+                                    <div class="checkbox_item"><input id="undefined" type="checkbox" name="checklist"
+                                            class="check"><label for="undefined" class="check_label">
+                                            <!----><!----></label></div>
+                                </a></li>
+                            <li class="check_item"><a href="#" class="check_area">
+                                    <div class="notice_group">
+                                        <p class="notice_maintext">창고 보관을 선택한 경우, 구매자에게 배송되지 않고 KREAM 창고에
+                                            보관됩니다.</p>
+                                        <p class="notice_subtext">검수 합격 후 보관이 완료되면 창고 이용료(현재 첫 30일 무료)가
+                                            결제됩니다.</p><!---->
+                                    </div>
+                                    <div class="checkbox_item"><input id="undefined" type="checkbox" name="checklist"
+                                            class="check"><label for="undefined" class="check_label">
+                                            <!----><!----></label></div>
+                                </a></li>
+                            <li class="check_item"><a href="#" class="check_area">
+                                    <div class="notice_group">
+                                        <p class="notice_maintext">‘바로 결제하기’ 를 선택하시면 즉시 결제가 진행되며, 단순 변심이나
+                                            실수에 의한 취소가 불가능합니다.</p>
+                                        <p class="notice_subtext">본 거래는 개인간 거래로 전자상거래법(제17조)에 따른 청약철회(환불,
+                                            교환) 규정이 적용되지 않습니다.</p><!---->
+                                    </div>
+                                    <div class="checkbox_item"><input id="undefined" type="checkbox" name="checklist"
+                                            class="check"><label for="undefined" class="check_label">
+                                            <!----><!----></label></div>
+                                </a></li>
+                            <li class="check_item"><a href="#" class="check_area">
+                                    <div class="notice_group">
+                                        <p class="notice_maintext">구매 조건을 모두 확인하였으며, 거래 진행에 동의합니다.</p>
+                                        <!----><!---->
+                                    </div>
+                                    <div class="checkbox_item"><input id="undefined" type="checkbox" name="checklist"
+                                            class="check"><label for="undefined" class="check_label">
+                                            <!----><!----></label></div>
+                                </a></li>
+                        </ul>
+                        <!--검수기준 있던곳🌈🌈🌈🌈-->
                     </div>
-                    <!--포인트부분에 ? 눌렀을 때 모달 시작-->
-                    <!--포인트부분에 ? 눌렀을 때 모달 끝-->
-                    <!--포인트부분에 최대 사용 눌렀을 때 모달 시작-->
-                    <div class="layer lg layer_alert" style="display: none;"><div class="layer_container"><a href="#" class="btn_layer_close">
-                        <img src="../../img/close.png">
-                    </a><div class="layer_header"><h2 class="title">포인트 자동 사용</h2></div><div class="layer_content"><div class="alert_box"><p class="alert_desc">포인트는 거래 체결 시점에 최대 포인트로<br>자동 사용 됩니다.</p></div><div class="layer_btn"><button type="button" class="btn outlinegrey medium" > 취소 </button><button type="button" class="btn solid medium" > 계속 진행 </button></div></div></div></div>
-                    <!--포인트부분에 최대 사용 눌렀을 때 모달 끝-->
-                    
-                    <!---->
-                </div>
-            </section>
-            <section>
-                <div class="section_title">
-                    <h3 class="title_txt">최종 주문 정보</h3>
-                </div>
-                <div class="section_content">
-                    <div class="instant_group">
-                        <div class="price_total order_info">
+                    <div class="buy_total_confirm" is-instant="true">
+                        <div class="price_total">
                             <dl class="price_box">
                                 <dt class="price_title"> 총 결제금액 </dt>
                                 <dd class="price"><span class="amount">274,000</span><span class="unit">원</span></dd>
                             </dl><span class="price_warning" style="display: none;"><em>주의! </em></span>
                         </div>
-                        <div class="price_bind">
-                            <dl class="price_addition is_dark">
-                                <dt class="price_title"><span >즉시 구매가</span><!----></dt>
-                                <dd class="price_text">267,000원</dd>
-                            </dl>
-                            <dl class="price_addition">
-                                <dt class="price_title"><span >포인트</span><!----></dt>
-                                <dd class="price_text">-</dd>
-                            </dl>
-                            <dl class="price_addition">
-                                <dt class="price_title"><span >검수비</span><!----></dt>
-                                <dd class="price_text">무료</dd>
-                            </dl>
-                            <dl class="price_addition">
-                                <dt class="price_title"><span >수수료</span><button
-                                        class="btn_title"><img src="../../img/qmark.png"></button></dt>
-                                <dd class="price_text">4,000원</dd>
-                            </dl>
-                            <dl class="price_addition">
-                                <dt class="price_title"><span >배송비</span><!---->
-                                </dt>
-                                <dd class="price_text">3,000원</dd>
-                            </dl>
-                        </div><!---->
+                        <div class="btn_confirm"><a disabled="disabled" href="#" class="btn full solid false disabled">
+                                결제하기 </a></div>
                     </div>
-                </div>
-            </section>
-            <section >
-                <div  class="section_title">
-                    <h3  class="title_txt">결제 방법</h3>
-                </div>
-                <div class="section_content">
-                    <div class="simple_payment">
-                        <h4 class="method_title">
-                            <div class="main_title"> 계좌 간편결제 <span 
-                                    class="section_tag"
-                                    style="color: rgb(124, 114, 238); background: rgb(241, 240, 255);"> 결제 시 포인트 적립
-                                </span></div><a  href="#none" class="btn_card_add">+ 새 계좌 추가</a>
-                        </h4>
-                        <div class="quick_pay_info">
-                            <div class="payment_detail">
-                                <div class="payment_item selected">
-                                    <div class="info_wrap">
-                                        <div class="bank_info"><span>카카오뱅크</span>
-                                            <div class="card_number">333<span
-                                                    class="dot single"></span><span class="dot single"></span><span
-                                                    class="dot single"></span><span class="dot single"></span><span
-                                                    class="dot single"></span><span class="dot single"></span><span
-                                                    class="dot single"></span>907</div>
-                                        </div>
-                                    </div>
-                                    <div class="description">
-                                        <span><span lass="bold" style="color: #7C72EE;">2,740P</span> 적립</span>
-                                        <img src="../../img/down.png">
-                                    </div>
+                </section>
+                <!--결제하기 클릭시 나오는 팝업-->
+                <div class="layer_order_price_confirm layer md" style="display: none;">
+                    <div class="layer_container"><a href="#" class="btn_layer_close">
+                        <img src="../../img/close.png">
+                    </a>
+                        <div class="layer_header"></div>
+                        <div class="layer_content">
+                            <div class="alert_title">
+                                <div class="alert_notice">
+                                    <p class="notice">한번 더 확인하세요</p><span data-v-4ae17423="" class="rectangle"></span>
                                 </div>
+                                <p class="title"> 총 결제금액 </p>
+                                <p class="price">274,000원</p>
                             </div>
+                            <div class="alert_box">
+                                <p class="alert_desc">해당 거래는 개인간 거래로 단순변심 또는 실수에 따른
+                                    <em>취소는 불가능합니다.</em>
+                                </p>
+                            </div>
+                            <div class="layer_btn"><button type="button" class="btn solid buy full large"> 바로
+                                    결제하기 </button></div>
                         </div>
                     </div>
-                    <div  class="simple_payment">
-                        <h4  class="method_title">
-                            <div  class="main_title"> 카드 간편결제 <span 
-                                    class="sub_title">일시불</span></div><a  href="#none"
-                                class="btn_card_add">+ 새 카드 추가</a>
-                        </h4>
-                        <div class="card_list">
-                            <div class="main_card">
-                                <div class="clickable_card">
-                                    <div class="card_info"><span
-                                            class="card_name"> BC</span>
-                                        <div class="card_num"><span 
-                                                class="num_bind"><span class="dot"><span
-                                                        class="dot"></span></span><span
-                                                    class="hyphen"></span><span 
-                                                    class="dot"><span class="dot"></span></span><span
-                                                    class="hyphen"></span><span 
-                                                    class="dot"><span class="dot"></span></span><span
-                                                    class="hyphen"></span>
-                                                <div class="last_num_box"><span
-                                                        class="last_num">6795</span></div>
-                                            </span><!----></div>
-                                    </div><img src="../../img/down.png">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div  class="general_payment">
-                        <h4  class="method_title">
-                            <div  class="main_title"><strong >일반 결제</strong><span
-                                     class="sub_title">일시불・할부</span></div>
-                        </h4>
-                        <div class="pay_method md">
-                            <div class="pay_item normal">
-                                <div class="pay_box">
-                                    <div class="pay_title">
-                                        <p class="main_title">신용카드</p><!---->
-                                    </div><!---->
-                                </div>
-                            </div>
-                            <div class="pay_item naverpay">
-                                <div class="pay_box">
-                                    <div class="pay_title">
-                                        <p class="main_title">네이버페이</p><!---->
-                                    </div><img src="https://kream.co.kr/_nuxt/img/buy_pay_npay.fabd18a.png" alt="네이버페이"
-                                        class="pay_img">
-                                </div>
-                            </div>
-                            <div class="pay_item kakaopay">
-                                <div class="pay_box">
-                                    <div class="pay_title">
-                                        <p class="main_title">카카오페이</p><!---->
-                                    </div><img src="https://kream.co.kr/_nuxt/img/buy_pay_kakaopay.7cd2486.png"
-                                        alt="카카오페이" class="pay_img">
-                                </div>
-                            </div>
-                            <div class="pay_item tosspay">
-                                <div class="pay_box">
-                                    <div class="pay_title">
-                                        <p class="main_title">토스페이</p><!---->
-                                    </div><img src="https://kream.co.kr/_nuxt/img/buy_pay_tosspay.c48e1e2.png"
-                                        alt="토스페이" class="pay_img">
-                                </div>
-                            </div>
-                            <div class="pay_item payco">
-                                <div class="pay_box">
-                                    <div class="pay_title">
-                                        <p class="main_title">페이코</p><!---->
-                                    </div><img src="https://kream.co.kr/_nuxt/img/buy_pay_payco.f9fb4de.png" alt="페이코"
-                                        class="pay_img">
-                                </div>
-                            </div>
-                        </div>
-                    </div><!---->
-                </div><!----><!---->
-            </section>
-            <section class="buy_check">
-                <div>
-                    <ul class="check_list md last_bold">
-                        <li class="check_item"><a href="#" class="check_area">
-                                <div class="notice_group">
-                                    <p class="notice_maintext">판매자의 판매거부, 배송지연, 미입고 등의 사유가 발생할 경우,
-                                        거래가 취소될 수 있습니다.</p>
-                                    <p class="notice_subtext">앱 알림 해제, 알림톡 차단, 전화번호 변경 후 미등록 시에는 거래
-                                        진행 상태 알림을 받을 수 없습니다.</p><!---->
-                                </div>
-                                <div class="checkbox_item"><input id="undefined" type="checkbox"
-                                        name="checklist" class="check"><label for="undefined" class="check_label">
-                                            <!----><!----></label></div>
-                            </a></li>
-                        <li class="check_item"><a href="#" class="check_area">
-                                <div class="notice_group">
-                                    <p class="notice_maintext">창고 보관을 선택한 경우, 구매자에게 배송되지 않고 KREAM 창고에
-                                        보관됩니다.</p>
-                                    <p class="notice_subtext">검수 합격 후 보관이 완료되면 창고 이용료(현재 첫 30일 무료)가
-                                        결제됩니다.</p><!---->
-                                </div>
-                                <div class="checkbox_item"><input id="undefined" type="checkbox"
-                                        name="checklist" class="check"><label for="undefined" class="check_label">
-                                            <!----><!----></label></div>
-                            </a></li>
-                        <li class="check_item"><a href="#" class="check_area">
-                                <div class="notice_group">
-                                    <p class="notice_maintext">‘바로 결제하기’ 를 선택하시면 즉시 결제가 진행되며, 단순 변심이나
-                                        실수에 의한 취소가 불가능합니다.</p>
-                                    <p class="notice_subtext">본 거래는 개인간 거래로 전자상거래법(제17조)에 따른 청약철회(환불,
-                                        교환) 규정이 적용되지 않습니다.</p><!---->
-                                </div>
-                                <div class="checkbox_item"><input id="undefined" type="checkbox"
-                                        name="checklist" class="check"><label for="undefined" class="check_label">
-                                            <!----><!----></label></div>
-                            </a></li>
-                        <li class="check_item"><a href="#" class="check_area">
-                                <div class="notice_group">
-                                    <p class="notice_maintext">구매 조건을 모두 확인하였으며, 거래 진행에 동의합니다.</p>
-                                    <!----><!---->
-                                </div>
-                                <div class="checkbox_item"><input id="undefined" type="checkbox"
-                                        name="checklist" class="check"><label for="undefined" class="check_label">
-                                            <!----><!----></label></div>
-                            </a></li>
-                    </ul>
-                    <!--검수기준 있던곳🌈🌈🌈🌈-->
-                </div>
-                <div class="buy_total_confirm" is-instant="true">
-                    <div class="price_total">
-                        <dl class="price_box">
-                            <dt class="price_title"> 총 결제금액 </dt>
-                            <dd class="price"><span class="amount">274,000</span><span class="unit">원</span></dd>
-                        </dl><span class="price_warning" style="display: none;"><em>주의! </em></span>
-                    </div>
-                    <div class="btn_confirm"><a disabled="disabled" href="#"
-                            class="btn full solid false disabled"> 결제하기 </a></div>
-                </div>
-            </section>
-            <!--결제하기 클릭시 나오는 팝업-->
-            <div class="layer_order_price_confirm layer md" style="display: none;">
-                <div class="layer_container"><a href="#" class="btn_layer_close"><svg
-                            xmlns="http://www.w3.org/2000/svg" class="ico-close icon sprite-icons">
-                            <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-close"
-                                xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-close"></use>
-                        </svg></a>
-                    <div class="layer_header"></div>
-                    <div class="layer_content">
-                        <div class="alert_title">
-                            <div class="alert_notice">
-                                <p class="notice">한번 더 확인하세요</p><span data-v-4ae17423=""
-                                    class="rectangle"></span>
-                            </div>
-                            <p class="title"> 총 결제금액 </p>
-                            <p class="price">274,000원</p>
-                        </div>
-                        <div class="alert_box">
-                            <p class="alert_desc">해당 거래는 개인간 거래로 단순변심 또는 실수에 따른
-                                <em>취소는 불가능합니다.</em>
-                            </p>
-                        </div>
-                        <div class="layer_btn"><button type="button"
-                                class="btn solid buy full large"> 바로
-                                결제하기 </button></div>
-                    </div>
-                </div>
-            </div><!----><!----><!---->
-        </div><!---->
-    </div><!----><!---->
-</div>
+                </div><!----><!----><!---->
+            </div><!---->
+        </div><!----><!---->
+    </div>
 
 
 
 </body>
+<script src="../../js/buy/buy.js"></script>
 
 </html>
