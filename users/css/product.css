@@ -286,14 +286,24 @@ strong {
     padding: 8px 40px;
 }
 
-.header .top_list {
+/* .header .top_list {
     display: -webkit-box;
-    /* display: flex; */
+    display: flex;
     -webkit-box-align: center;
     align-items: center;
     margin-left: auto;
     width: 250px;
     height: 15px;
+} */
+
+.header .top_list {
+    /* display: -webkit-box; */
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-left: auto;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .header .top_link {
@@ -327,9 +337,9 @@ strong {
     height: 24px;
 }
 
-.header .logo>.logo-kream {
+/* .header .logo>.logo-kream {
     width: 100%;
-}
+} */
 
 svg:not(:root) {
     overflow-clip-margin: content-box;
@@ -1276,9 +1286,9 @@ svg:not(:root) {
     vertical-align: top;
 }
 
-.layer_size_list {
+/* .layer_size_list {
     visibility: hidden;
-}
+} */
 
 .sales_filter .layer_sales_types.lg, .sales_filter .layer_sales_types.md, .sales_filter .layer_size_list.lg, .sales_filter .layer_size_list.md {
     top: 30px;
@@ -1392,10 +1402,10 @@ svg:not(:root) {
     background-size: 24px 24px;
 }
 
-.layer_size_list {
+/* .layer_size_list {
     visibility: hidden;
     opacity: 0;
-}
+} */
 
 .product_sales_graph .title .btn_select.on .select_text:after {
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggc3Ryb2tlPSIjMjIyIiBzdHJva2Utd2lkdGg9IjEuNSIgZD0iTTYgMTVsNi02IDYgNiIvPjwvc3ZnPg==);
@@ -2672,7 +2682,10 @@ svg:not(:root) {
     color: rgba(34,34,34,.5);
 }
 
-
+.main_banner .bannerImg {
+    max-width: 100%;
+    max-height: 100%;
+}
 
 
 
