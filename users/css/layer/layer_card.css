@@ -1,3 +1,6 @@
+.layer_container {
+    width: 300px;
+}
 .btn {
     display: inline-flex;
     cursor: pointer;
@@ -33,58 +36,68 @@
 .input_item{
     position: relative;
 }
-.has_error .input_txt{
-    border-bottom-color: #ef6253;
-}
 .input_item .input_card{
     padding: 8px 0;
-    width: 21%;
-    font-size: 15px;
+    width: 6ch;
+    text-align: center;
+    /* font-size: 15px; */
     letter-spacing: -.15px;
     line-height: 22px;
     border: 0;
     border-bottom: 1px solid #ebebeb;
-    
 }
-.input_item .input_expirydate{
+.input_item .input_expiration_month,
+.input_item .input_expiration_year {
     padding: 8px 0;
     width: 45%;
-    font-size: 15px;
+    /* font-size: 15px; */
     letter-spacing: -.15px;
     line-height: 22px;
     border: 0;
     border-bottom: 1px solid #ebebeb;
-    
 }
-.input_item .input_birthdate{
+.input_item .input_birthday{
     padding: 8px 0;
     width: 45%;
-    font-size: 15px;
+    /* font-size: 15px; */
     letter-spacing: -.15px;
     line-height: 22px;
     border: 0;
     border-bottom: 1px solid #ebebeb;
-    
 }
 .input_item .input_cardpw{
     padding: 8px 0;
     width: 21%;
-    font-size: 15px;
+    /* font-size: 15px; */
     letter-spacing: -.15px;
     line-height: 22px;
     border: 0;
     border-bottom: 1px solid #ebebeb;
-    
 }
-.has_error .input_error{
+.input_txt {
+    padding: .8rem 0;
+    width: 100%;
+    font-size: 1.5rem;
+    letter-spacing: -.015rem;
+    line-height: 2.2rem;
+    border-bottom: .1rem solid #ebebeb;
+}
+.has_error .input_title { 
+    color: #f15746; 
+}
+.has_error .input_txt { 
+    border-bottom-color: #ef6253; 
+}
+.has_error .input_txt:focus { 
+    border-bottom-color: #ef6253;
+}
+.has_error .input_error {
     display: block;
     position: absolute;
     line-height: 16px;
     font-size: 11px;
     color: #f15746;
-}
-.input_error{
-    display: none;
+    margin-top: 0;
 }
 .btn.btn_zipcode {
     position: absolute;
@@ -141,10 +154,20 @@
     font-size: 14px;
     letter-spacing: -.14px;
 }
-.solid.disabled, .solid:disabled {
+.solid {
+    background-color: #222;
+    color: #fff;
+}
+.solid.disabled,
+.solid:disabled {
     background-color: #ebebeb;
     color: #fff;
     cursor: default;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0
 }
 
 /* 체크박스 꾸미기 - 활성화 x */
