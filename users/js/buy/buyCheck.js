@@ -13,3 +13,22 @@ function getCheck() {
         document.querySelector('.btn').disabled = true;
     }
 }
+
+function pop_auth_policy(){
+    document.querySelector('.layer_auth_policy').style.display="block"
+}
+function close_auth_policy(){
+    document.querySelector('.layer_auth_policy').style.display="none"
+}
+function pop_notice(){
+    document.querySelector('.layer_order_notice').style.display="block"
+}
+function close_notice(){
+    document.querySelector('.layer_order_notice').style.display="none"
+}
+function pop_faq(){
+    document.querySelector('.layer_faq').style.display="block"
+}
+function close_faq(){
+    document.querySelector('.layer_faq').style.display="none"
+}
