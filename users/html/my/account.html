@@ -67,15 +67,47 @@
                     <div class="account_registration">
                         <div class="input_logistics_companies input_box">
                             <h4 class="input_title">은행명</h4>
-                            <div class="input_item"><input type="text"
+                            <div onclick="dropdown()" class="input_item"><input type="text"
                                     placeholder="선택하세요" readonly="readonly" autocomplete="off" inputmode="numeric"
-                                    class="input_txt"><button type="button" class="btn btn_dropdown"
-                                   ><svg xmlns="http://www.w3.org/2000/svg"
-                                        class="ico-arr-dir-down-circle icon sprite-icons">
-                                        <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-arr-dir-down-circle"
-                                            xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-arr-dir-down-circle">
-                                        </use>
-                                    </svg></button></div>
+                                    class="input_txt"><button  type="button" class="btn btn_dropdown"
+                                   ><img src="/users/img/down.png" alt="img"></button>
+                                </div>
+                            <div class="bank_dropdown_menu" style="display: none;">
+                            <ul class="bank_list">
+                                <li class="bank_list_li">국민은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">신한은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">우리은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">하나은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">기업은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">농협은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">SC은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">우체국<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">한국씨티은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">산업은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">카카오뱅크<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">부산은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">대구은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">광주은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">케이뱅크<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">수협중앙회<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">제주은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">전북은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">지역농축협<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">경남은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">새마을금고연합회<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">신협<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">저축은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">HSBC은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">도이치은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">제이피모간체이스은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">BOA은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">비엔피파리바은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">중국공상은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">산림조합<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">중국건설은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">토스뱅크<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
+                            </ul>
+                            </div>
                         </div>
                         <div class="input_box">
                             <h4 class="input_title">계좌번호</h4>
@@ -96,7 +128,58 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> 
+    <script>
+        
+        function dropdown(){
+            // 클릭했을때 style.display==="none" => block 아니면 none
+            const bankId = document.querySelector(".bank_dropdown_menu")
+            if(bankId.style.display == "none"){
+                bankId.style.display = "block"
+            }else{
+                bankId.style.display = "none"
+            }           
+        }
+        /*
+        const selectable = document.querySelectorAll(".button_shipping_memo_wrap.selectable");
+        selectable.forEach((item)=>{
+            item.addEventListener('click',()=>{
+                selectable.forEach((e)=>{
+                    e.classList.remove('checked');
+                    e.childNodes[2].style.display="none";
+                })
+                //직접입력부분도 효과 없애준다.
+                direct_input.classList.remove('checked')
+                document.querySelector(".direct_input img").style.display="none"
+                document.querySelector(".textarea_shipping_memo").style.display="none"
+                //클릭한 애만 효과준다.
+                item.classList.add('checked');
+                console.log(item.childNodes)
+                item.childNodes[2].style.display="block";
+                //직접입력 갔다가 돌아왔을때 방지용
+                memo_apply_btn.classList.remove('disabled')
+                
+            })
+        })
+        */
+        const bankId = document.querySelector(".bank_dropdown_menu")
+        const bankList = document.querySelectorAll('.bank_list_li')
+        const bankName = document.querySelector(".input_txt")
+        const checkImage = document.querySelector(".check_image")
+        bankList.forEach((target) => {
+            target.addEventListener("click", function(){
+                bankName.placeholder = event.target.textContent
+                bankList.forEach((e) => {
+                    e.classList.remove("select_bank")
+                    e.childNodes[1].style.display="none"
+                })
+                
+                bankName.classList.add("input_txt_color")
+                target.classList.add("select_bank")
+                target.childNodes[1].style.display = "block"
+                bankId.style.display = "none"
+        })})
+    </script>
 </body>
 
 </html>
