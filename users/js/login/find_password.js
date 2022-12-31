@@ -76,3 +76,19 @@ document.querySelector('#email_input').addEventListener('input', e=>{
     })
 });
 
+// 버튼 활성화
+document.querySelectorAll('#hp_input').forEach((item) =>{
+    item.addEventListener('input', e=>{
+    let strHp=e.target.value;
+    if(validateHp(strHp)){
+        document.querySelectorAll('#email_input').forEach((item) =>{
+            item.addEventListener('input', e=>{
+            let strEmail=e.target.value;
+        if(validateEmail(strEmail)){
+                $("#submit_btn").removeClass("active");
+                $(this).addClass("active");
+                $("#submit_btn").removeClass("disabled")
+            }
+                })
+            })
+}})});
