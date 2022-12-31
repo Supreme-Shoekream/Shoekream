@@ -173,8 +173,6 @@ const filter_unit = document.querySelector(".filter_unit");
                 document.querySelector(".filter_unit .btn.btn_select").classList.remove("on");
                 layer.style.display = "none";
             }
-
-        
     });
 
 
@@ -192,7 +190,7 @@ window.addEventListener("scroll", function(){
 
 // 기능9. 구매전확인사항 드롭다운(3개 다 열수있음)
 const dropdowns = document.querySelectorAll(".dropdown");
-dropdowns.forEach((dropdown)=>{
+dropdowns.forEach((dropdown) => {
 
     dropdown.addEventListener("click",() => {
 
@@ -216,11 +214,11 @@ $('span.like').click(function(e){
 
 const items = document.querySelectorAll(".like");
     //배열로 저장되기 때문에 forEach로 하나씩 이벤트를 등록해준다.
-    items.forEach((item)=>{
+    items.forEach((item) => {
 
         item.addEventListener('click',()=>{
 
-            const ch=item.childNodes;
+            const ch = item.childNodes;
 
             if(ch[1].getAttribute('src')=='../img/smile.png'){
                 ch[1].setAttribute('src','../img/heart.png');
@@ -258,11 +256,50 @@ $(function(){
     });
 })
 
+// 기능12. 체결 내역 더보기 - 열고닫기
+function conPopup() {
+    const layer = document.querySelector(".layer_market_price");
+    layer.style.display = "block";
+    
+    const body = document.querySelector("body");
+    body.style.overflow = "hidden";
+}
+
+function conPopdown() {
+    const layer = document.querySelector(".layer_market_price");
+    layer.style.display = "none";
+    
+    const body = document.querySelector("body");
+    body.style.overflow = "";
+}
 
 
+// 기능13. 체결 내역 더보기 - 모든 사이즈
+const size_select_wrap = document.querySelector(".size_select_wrap .btn");
+    
+size_select_wrap.addEventListener("click", () => {
+    const layer = document.querySelector(".size_select_wrap .layer_size_list")
 
+    if(layer.style.display == "none"){
+        layer.style.display = "block";
+    }else{
+        layer.style.display = "none";
+    }
+});
 
+// const dropdowns = document.querySelectorAll(".dropdown");
+// dropdowns.forEach((dropdown) => {
 
+//     dropdown.addEventListener("click",() => {
 
+//         const ch = dropdown.childNodes;
+//         console.log(ch);
 
+//         if(ch[3].getAttribute("class", "dc")){
+//             ch[3].removeAttribute("class", "dc");
+//         }else{
+//             ch[3].setAttribute("class", "dc");
+//         }
 
+//     })
+// });
