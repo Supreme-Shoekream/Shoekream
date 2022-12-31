@@ -8,9 +8,16 @@
 const is_fixed= document.querySelector(".is_fixed");
     // 왼쪽 상품 사진 
 
+// const y = document.querySelector(".feed_area");
+
+// const y2 = window.pageYOffset + y.getBoundingClientRect().top;
+
+
 window.addEventListener('scroll', function(){
-    console.log(window.scrollY);
+    // console.log(y2);
+    // console.log(window.scrollY);
     if(window.scrollY >= 1240){ 
+
         // window.scrollY: 브라우저 최상단에서 현재까지 스크롤 된 좌표값 구함
         // 좌표값이 1240인 곳에서 멈춰야함
         is_fixed.classList.add('is_absolute');
@@ -19,6 +26,7 @@ window.addEventListener('scroll', function(){
         is_fixed.classList.remove('is_absolute');
     }
 });
+
 
 
 // 기능2. 모든 사이즈 클릭시 팝업 레이어창 
@@ -69,7 +77,7 @@ function wishPopdown() {
 }
 
 
-// 기능4. 시세 그래프 - 개월 버튼
+// 기능4. 시세 - 개월 버튼
 const dates = document.querySelectorAll(".tab_list .date");
 // console.log(items);
 //배열로 저장되기 때문에 forEach로 하나씩 이벤트를 등록해준다.
@@ -98,7 +106,7 @@ dates.forEach((date)=>{
     })
 });
 
-// 그래프 띄우기
+// 기능5. 시세 - 그래프 띄우기
     // const a = document.querySelector('.tab_list .graph_month');
     // const b = document.getElementById(a.getAttribute('aria-controls'));
 const sales_panel1 = document.getElementById("graph1m").getContext("2d");
@@ -131,16 +139,8 @@ const graph1m = new Chart(sales_panel1, {
     
 });
 
-    // const monthOn = document.querySelector('#sales_panel1');
-    // monthOn.classList.add('layer');
-    
-    // const body = document.querySelector('body');
-    // body.style.overflow = 'hidden';
 
-    // layer.style.visibility ='visible';
-
-
-// 기능5. 시세 - 체결내역
+// 기능6. 시세 - 체결내역
 const conclusiones = document.querySelectorAll(".tab_list .conclusion");
 conclusiones.forEach((conclusion)=>{
     conclusion.addEventListener("click",() => {
@@ -153,81 +153,102 @@ conclusiones.forEach((conclusion)=>{
     })
 });
 
-// 기능6. 시세 - 모든 사이즈
-// function graphEverysizePopup() {
-//     // 열기
-//     // const select1 = document.querySelector(".btn.btn_select");
-//     // select1.classList.add("on");
+// 기능7. 시세 - 모든 사이즈
+const filter_unit = document.querySelector(".filter_unit");
     
-//     // const layer = document.querySelector(".layer_size_list.layer.lg");
-//     // layer.style.visibility = "visible";
+        filter_unit.addEventListener("click", () => {
+            const layer =document.querySelector(".filter_unit .layer_size_list")
+            // const ch = filter_unit.childNodes;
+            // const ch5 = ch[5];
+            if(layer.style.display==='none'){
+                document.querySelector(".filter_unit .btn.btn_select").classList.add("on");
+                layer.style.display = "block";
+            }else{
+                document.querySelector(".filter_unit .btn.btn_select").classList.remove("on");
+                layer.style.display = "none";
+            }
 
-//     // // 닫기
-//     // const select2 = document.querySelector(".btn.btn_select.on");
-//     // select2.classList.remove("on");
-
-//     // const layer2 = document.querySelector(".layer_size_list.layer.lg");
-//     // layer2.style.visibility ="hidden";
-
-
-
-//     const select = document.querySelector(".filter_unit");
-//     console.log(select);
-
-//     select.addEventListener("click", () => {
-//         const layer = document.querySelector(".layer_size_list.layer.lg");
-//         if(layer.classList.add("on")){
-//             layer.style.visibility = "visible";
-//         }else{
-//             layer.classList.remove("on");
-//             layer.style.visibility = "hidden";
-//         }
-//     });
-// }
-
-const select = document.querySelector(".filter_unit .btn.btn_select");
-console.log(select);
-
-select.addEventListener("click", () => {
-    const layer = document.querySelector(".layer_size_list.layer.lg");
-    console.log(layer);
-
-    select((e) => {
-        e.classList.remove("on");
-        layer.style.visibility = "hidden";
-    })
-    select.classList.add("on");
-    layer.style.visibility = "visible";
-
-    // if(layer.getAttribute("class","on")){
-    //     // layer.classList.remove("on");
-    //     // layer.classList.add("on")
-    //     layer.removeAttribute("class","layer_size_list lg");
-    //     // layer.style.visibility = "visible";
-    // }else{
-    //     layer.setAttribute("class","layer_size_list lg");
-    //     // layer.classList.remove("on");
-    //     // layer.style.visibility = "hidden";
-    // }
-});
+        
+    });
 
 
-
-// 기능7. 스크롤시 상단 고정 배너
-// 360
-
+// 기능8. 스크롤시 상단 고정 배너
 const floating = document.querySelector(".floating_price.lg");
-
 window.addEventListener("scroll", function(){
     
     if(window.scrollY >= 350){ 
-        // window.scrollY: 브라우저 최상단에서 현재까지 스크롤 된 좌표값 구함
-        // 좌표값이 1250인 곳에서 멈춰야함
         floating.classList.add("is_open");
-            // css에서 position:absolute , top:1250px으로 지정해줬음
     }else{
         floating.classList.remove("is_open");
     }
 });
+
+
+// 기능9. 구매전확인사항 드롭다운(3개 다 열수있음)
+const dropdowns = document.querySelectorAll(".dropdown");
+dropdowns.forEach((dropdown)=>{
+
+    dropdown.addEventListener("click",() => {
+
+        const ch = dropdown.childNodes;
+        console.log(ch);
+
+        if(ch[3].getAttribute("class", "dc")){
+            ch[3].removeAttribute("class", "dc");
+        }else{
+            ch[3].setAttribute("class", "dc");
+        }
+
+    })
+});
+
+
+// 기능10. 스타일 - 좋아요 버튼
+$('span.like').click(function(e){
+    e.preventDefault();
+});
+
+const items = document.querySelectorAll(".like");
+    //배열로 저장되기 때문에 forEach로 하나씩 이벤트를 등록해준다.
+    items.forEach((item)=>{
+
+        item.addEventListener('click',()=>{
+
+            const ch=item.childNodes;
+
+            if(ch[1].getAttribute('src')=='../img/smile.png'){
+                ch[1].setAttribute('src','../img/heart.png');
+                // 숫자 ++1
+            }else{
+                ch[1].setAttribute('src','../img/smile.png');
+            }
+            
+        })
+    });
+
+
+// 기능11. 슬릭슬라이더
+// $(function(){
+//     $('#slider-div').slick({
+//       slide: 'div',        //슬라이드 되어야 할 태그 ex) div, li 
+//       infinite : true,     //무한 반복 옵션     
+//       slidesToShow : 1,        // 한 화면에 보여질 컨텐츠 개수
+//       slidesToScroll : 1,        //스크롤 한번에 움직일 컨텐츠 개수
+//       speed : 100,     // 다음 버튼 누르고 다음 화면 뜨는데까지 걸리는 시간(ms)
+//       arrows : true,         // 옆으로 이동하는 화살표 표시 여부
+//       dots : true,         // 스크롤바 아래 점으로 페이지네이션 여부
+//       autoplay : false,            // 자동 스크롤 사용 여부
+//     //   autoplaySpeed : 3000,         // 자동 스크롤시 다음으로 넘어가는데 걸리는 시간 (ms)
+//       pauseOnHover : false,        // 슬라이드 이동시 마우스 호버하면 슬라이더 멈추게 설정
+//       vertical : false,        // 세로 방향 슬라이드 옵션
+//     //   prevArrow : "<button type='button' class='slick-prev'>Previous</button>",        // 이전 화살표 모양 설정
+//     //   nextArrow : "<button type='button' class='slick-next'>Next</button>",        // 다음 화살표 모양 설정
+//       dotsClass : "slick-dots",     //아래 나오는 페이지네이션(점) css class 지정
+//       draggable : true    //드래그 가능 여부 
+
+//     });
+// })
+
+
 
 

@@ -10,6 +10,11 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
         <link rel="stylesheet" href="../css/product.css">
+
+        <!-- 슬릭 -->
+        <link rel="stylesheet" href="../css/main/slick-theme.css">
+        <link rel="stylesheet" href="../css/main/slick.css">
+        <script src="../js/main/slick.min.js"></script>
         
     </head>
     <body>
@@ -32,10 +37,10 @@
                                     <li class="top_item">
                                         <a href="/my" class="top_link">마이페이지</a>
                                     </li>
-                                    <li class="top_item" style="display:;">
+                                    <li class="top_item" style="display:none;">
                                         <a href="/login" class="top_link">로그인</a>
                                     </li>
-                                    <li class="top_item" style="display:none;">
+                                    <li class="top_item" style="display:;">
                                         <a href="/" class="top_link">로그아웃</a>
                                     </li>
                                 </ul>
@@ -145,12 +150,11 @@
                             <div class="column_bind">
                                 <!-- 상품 사진 시작 -->
                                 <div class="column is_fixed">
-                                    
                                     <div class="spread"></div><div class="column_box" style="width: 560px;">
                                         <div class="detail_banner_area lg">
                                             <div dir="ltr" class="banner_slide detail_slide slick-slider slick-initialized">
                                                 <button type="button" data-role="none" class="slick-arrow slick-prev slick-disabled" style="display: block;">Previous</button>
-                                                <div class="slick-list">
+                                                <!-- <div class="slick-list">
                                                     <div class="slick-track" style="width: 2240px; opacity: 1;">
                                                         <div tabindex="-1" data-index="0" aria-hidden="false" class="slick-slide slick-active slick-current" style="outline: none; width: 560px; position: relative; left: 0px; opacity: 1; transition: opacity 500ms ease 0s, visibility 500ms ease 0s;">
                                                             <div>
@@ -222,9 +226,14 @@
                                                             </div>
                                                         </div>
                                                     </div>
+                                                </div> -->
+                                                <div id="slider-div">
+                                                    <div class = "main_banner" style="width: 100%;"><img class = "bannerImg" src="https://kream-phinf.pstatic.net/MjAyMTA4MDZfMjY0/MDAxNjI4MjM5NTA1MjU1.9FfkTXbxZFWKxDMdPayVFlD0GIyNT-mFVIQ7zZW3SPcg.c03UoCFjKXtP4XtNMgBdrmTOIQlqxrePk4JScV4GUHEg.PNG/p_8001cbaf0db042bda09fea320ee328b4.png?type=l"></div>
+                                                    <div class = "main_banner" style="width: 100%;"><img class = "bannerImg" src="https://kream-phinf.pstatic.net/MjAyMTA4MDZfNDEg/MDAxNjI4MjM5NTA1MzAx.AferhzIi3eSei272TsoXwGto7buSps5uMQ0GxgwPwI0g.RRQcZGZ5R35-Tp2fXP2SrElD9cFg-l4qGPXsH6e-V6Ig.PNG/p_008c53c9c2c9416ba2375897fe4f8359.png?type=l"></div>
+                                                    <div class = "main_banner" style="width: 100%;"><img class = "bannerImg" src="https://kream-phinf.pstatic.net/MjAyMTA4MDZfMjIw/MDAxNjI4MjM5NTA1Mjk3.3a0Km5mhmJWc-bZE5Q5RMFFg66b6CfSl5HPIIG26nUkg.xcwMKQnTETcSY1PdFkPtJZ_aLhfdW5p5h-26WwHc5N4g.PNG/p_5936ba4779c84b1e90da4a4502d93e0b.png?type=l"></div>
+                                                    <div class = "main_banner" style="width: 100%;"><img class = "bannerImg" src="https://kream-phinf.pstatic.net/MjAyMTA4MTJfMzIg/MDAxNjI4NzQyMTMyNjk1.m9pp08Gu-pCfZ2YiguvnhoGelxRqLs7CCz4w6YwwL6Eg.PoLFxuEV5YKJacy5n8cA-CqKtXphyLFiavZoJrnggIQg.PNG/a_c86308e9cc2d43c08ebdef8733b88719.png?type=l"></div>
                                                 </div>
-
-                                                <button type="button" data-role="none" class="slick-arrow slick-next" style="display: block;">Next</button>
+                                                <!-- <button type="button" data-role="none" class="slick-arrow slick-next" style="display: block;">Next</button>
                                                 <ul class="slick-dots" style="display: block;">
                                                     <li class="slick-active">
                                                         <button>1</button>
@@ -238,13 +247,14 @@
                                                     <li class="">
                                                         <button>4</button>
                                                     </li>
-                                                </ul>
+                                                </ul> -->
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- 상품 사진 끝 -->
-                                <div class="column">
+
+                                <div class="column rect">
                                     <div class="column_box">
                                         <!-- 상품 정보 시작 -->
                                         <div class="column_top">
@@ -366,11 +376,11 @@
                                                     <h3 class="detail_title lg">시세</h3>
                                                     <div class="sales_filter lg">
                                                         <div class="filter_unit">
-                                                            <button type="button" slot="button" class="btn btn_select">
-                                                                <span class="select_text layer_open">모든 사이즈</span>
+                                                            <button type="button" slot="button" class="btn btn_select on">
+                                                                <span class="select_text layer_open ">모든 사이즈</span>
                                                             </button>
                                                             <!-- 모든 사이즈 드롭박스 시작 -->
-                                                            <div class="layer_size_list layer lg">
+                                                            <div class="layer_size_list layer lg" style="display: block; ">
                                                                 <div class="layer_container">
                                                                     <a href="#" class="btn_layer_close">
                                                                         <svg xmlns="http://www.w3.org/2000/svg" class="ico-close icon sprite-icons">
@@ -669,27 +679,15 @@
                                                                 <div class="dropdown">
                                                                     <div class="dropdown_head">
                                                                         <p class="title">배송 기간 안내</p>
-                                                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon sprite-icons ico-arr-down-gray">
-                                                                            <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-arr-down-gray" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-arr-down-gray"></use>
-                                                                        </svg>
+                                                                        <img src="../img/down.png" class="icon sprite-icons ico-arr-down-gray"></img>
                                                                     </div>
-                                                                    <div class="dropdown_content">
+                                                                    <div class="dropdown_content dc">
                                                                         <div class="content">
                                                                             <div class="content_box">
                                                                                 <div class="emphasis_box">
                                                                                     <strong class="emphasis">KREAM은 최대한 빠르게 모든 상품을 배송하기 위해 노력하고 있습니다. 배송 시간은 판매자가 검수를 위하여 상품을 검수센터로 보내는 속도에 따라 차이가 있습니다.</strong>
                                                                                 </div>
                                                                                 <ul class="content_list">
-                                                                                    <!-- <li class="content_item">
-                                                                                        <p class="title_txt"> [빠른배송 구매]</p>
-                                                                                    </li>
-                                                                                    <li class="content_item">
-                                                                                        <p class="main_txt"> - 판매자가 보관 신청한 상품 중 검수에 합격한 상품을 KREAM의 전용 창고에 보관합니다. 보관 상품에 한하여 바로 구매와 95점 구매가 가능합니다.</p>
-                                                                                    </li>
-                                                                                    <li class="content_item">
-                                                                                        <p class="main_txt"> - 오늘(오후 11:59까지) 결제하면 내일 바로 출고되어 빠른 배송이 가능합니다. (연휴 및 공휴일, 천재지변, 택배사 사유 등 예외적으로 출고일이 변경될 수 있습니다. <a target="_blank" href="/about/inventory?type=stocked" class="txt_link"> 빠른배송 안내 </a>
-                                                                                        </p>
-                                                                                    </li> -->
                                                                                     <li class="content_item">
                                                                                         <p class="title_txt"> [일반 구매] </p>
                                                                                     </li>
@@ -713,11 +711,9 @@
                                                                 <div class="dropdown">
                                                                     <div class="dropdown_head">
                                                                         <p class="title">검수 안내</p>
-                                                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon sprite-icons ico-arr-down-gray">
-                                                                            <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-arr-down-gray" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-arr-down-gray"></use>
-                                                                        </svg>
+                                                                        <img src="../img/down.png" class="icon sprite-icons ico-arr-down-gray"></img>
                                                                     </div>
-                                                                    <div class="dropdown_content">
+                                                                    <div class="dropdown_content dc">
                                                                         <div class="content">
                                                                             <div class="content_box">
                                                                                 <div class="emphasis_box">
@@ -734,25 +730,24 @@
                                                                                     </li>
                                                                                 </ul>
                                                                             </div>
-                                                                            <div class="content_box"><div class="emphasis_box">
-                                                                                <strong class="emphasis">검수 결과는 불합격•검수 보류•합격의 세가지 상태로 결과가 변경됩니다.</strong>
-                                                                                <a href="#" class="txt_link">검수기준 보기</a>
+                                                                            <div class="content_box ">
+                                                                                <div class="emphasis_box">
+                                                                                    <strong class="emphasis">검수 결과는 불합격•검수 보류•합격의 세가지 상태로 결과가 변경됩니다.</strong>
+                                                                                    <a href="#" class="txt_link">검수기준 보기</a>
+                                                                                </div>
+                                                                                <ul class="content_list">
+                                                                                    <li class="content_item">
+                                                                                        <p class="sub_txt">* 검수 합격: KREAM 검수택(Tag)이 부착되어 배송을 준비함</p>
+                                                                                    </li>
+                                                                                    <li class="content_item">
+                                                                                        <p class="sub_txt">* 검수 보류: 앱에서 사진으로 상품의 상태 확인 및 구매 여부를 선택. (24시간 이후 자동 검수 합격)</p>
+                                                                                    </li>
+                                                                                    <li class="content_item">
+                                                                                        <p class="sub_txt">* 검수 불합격: 즉시 거래가 취소되고 구매하신 금액을 환불 처리함.(환불 수단은 결제 수단과 동일)</p>
+                                                                                    </li>
+                                                                                </ul>
                                                                             </div>
-                                                                            <ul class="content_list">
-                                                                                <li class="content_item">
-                                                                                    <p class="sub_txt">* 검수 합격: KREAM 검수택(Tag)이 부착되어 배송을 준비함</p>
-                                                                                </li>
-                                                                                <li class="content_item">
-                                                                                    <p class="sub_txt">* 검수 보류: 앱에서 사진으로 상품의 상태 확인 및 구매 여부를 선택. (24시간 이후 자동 검수 합격)</p>
-                                                                                </li>
-                                                                                <li class="content_item">
-
-                                                                                    <p class="sub_txt">* 검수 불합격: 즉시 거래가 취소되고 구매하신 금액을 환불 처리함.(환불 수단은 결제 수단과 동일)</p>
-                                                                                </li>
-                                                                            </ul>
                                                                         </div>
-                                                                    </div>
-
                                                                     </div>
                                                                 </div>
                                                             </li>
@@ -760,11 +755,9 @@
                                                                 <div class="dropdown">
                                                                     <div class="dropdown_head">
                                                                         <p class="title">구매 환불/취소/교환 안내</p>
-                                                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon sprite-icons ico-arr-down-gray">
-                                                                            <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-arr-down-gray" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-arr-down-gray"></use>
-                                                                        </svg>
+                                                                        <img src="../img/down.png" class="icon sprite-icons ico-arr-down-gray"></img>
                                                                     </div>
-                                                                    <div class="dropdown_content">
+                                                                    <div class="dropdown_content dc">
                                                                         <div class="content">
                                                                             <div class="content_box">
                                                                                 <div class="emphasis_box">
@@ -797,7 +790,6 @@
                                                                 <p class="desc">KREAM에서 검수한 상품이 정품이 아닐 경우, 구매가의 3배를 보상합니다.</p>
                                                             </div>
                                                         </li>
-
                                                         <li class="guide_item">
                                                             <div class="thumb_area">
                                                                 <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMzYiIHZpZXdCb3g9IjAgMCA0MCAzNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE3LjUgMjYuM0MxMS41MzUzIDI2LjMgNi43IDIxLjQ2NDcgNi43IDE1LjVDNi43IDkuNTM1MzMgMTEuNTM1MyA0LjcgMTcuNSA0LjdDMjMuNDY0NyA0LjcgMjguMyA5LjUzNTMzIDI4LjMgMTUuNUMyOC4zIDIxLjQ2NDcgMjMuNDY0NyAyNi4zIDE3LjUgMjYuM1oiIGZpbGw9IndoaXRlIiBzdHJva2U9IiMyMjIyMjIiIHN0cm9rZS13aWR0aD0iMS40IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxwYXRoIGQ9Ik0yNSAyM0wzMSAyOSIgc3Ryb2tlPSIjMjIyMjIyIiBzdHJva2Utd2lkdGg9IjEuNSIvPgo8cGF0aCBkPSJNMTYgMTMuMzMzM0wyMC43NzI3IDE4TDMxIDgiIHN0cm9rZT0iIzIyMjIyMiIgc3Ryb2tlLXdpZHRoPSIyLjIiLz4KPC9zdmc+Cg==" alt="" class="img">
@@ -818,7 +810,6 @@
                                                         </li>
                                                     </ul>
                                                 </div>
-
                                                 <p class="meditaion_notice_product"> 크림(주)는 통신판매 중개자로서 통신판매의 당사자가 아닙니다. 본 상품은 개별판매자가 등록한 상품으로 상품, 상품정보, 거래에 관한 의무와 책임은 각 판매자에게 있습니다. 단, 거래과정에서 검수하고 보증하는 내용에 대한 책임은 크림(주)에 있습니다.</p>
                                             </div>
                                         </div>
@@ -903,7 +894,7 @@
                                                             <picture class="picture img_profile">
                                                                 <source type="image/webp" srcset="/images/account_img_default.png?type=s_webp">
                                                                 <source srcset="/images/account_img_default.png?type=s">
-                                                                <img alt="사용자 프로필 이미지" src="https://kream.co.kr/images/account_img_default.png?type=s_webp" loading="lazy" class="image">
+                                                                <img alt="사용자 프로필 이미지" src="../img/kream_empty_img.png" loading="lazy" class="image">
                                                             </picture>
                                                             <p class="user_name">17_07.06</p>
                                                             <span aria-label="좋아요" role="button" class="btn like">

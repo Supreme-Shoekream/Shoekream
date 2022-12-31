@@ -101,6 +101,7 @@ header #header_bottom #hb_box{
     align-items: center;
     justify-content: space-between;
 }
+
 header #header_bottom #hb_box .hb_text{
     font-size: 1.46rem;
     margin-top: -0.26rem;
@@ -190,6 +191,7 @@ header #header_bottom #hb_box #hb_no_text .hb_button_img{
 a { text-decoration:none }
 
 /*최상단 div 가운데 정렬*/
+
 .container_search_md{
     width: 118rem;
     height: auto;
@@ -378,38 +380,7 @@ a:visited{
     font-weight: unset;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* 상품 정렬 select_desc */
-
-
-
-
 
 #desc_pop{
 
@@ -1274,7 +1245,7 @@ input:focus{
 
 .brand_img { width: 8rem; height: 8rem; }
 
-.brand_name { max-width: 8rem; margin: -.8rem auto 0; font-size: 1.2rem; }
+.brand_name { max-width: 8rem; margin: -.8rem auto 0; font-size: 13px; }
 
 .brand_item+.brand_item { margin-left: 2rem; }
 
@@ -1908,6 +1879,23 @@ input:focus{
         font-weight: 300;
     }
 
+    .btn_quick_filter {
+        
+        display: inline-block;
+        padding: 10px 12px;
+        height: 38px;
+        background-color: #f4f4f4;
+        border-radius: 12px;
+        font-size: 15px;
+        letter-spacing: -.15px;
+        vertical-align: top;
+        margin-left: 8px;
+
+    }
+    a:visited {
+        color: black;
+    }
+
 
     .search_top .top_box .brand_list {
         position: relative;
@@ -2040,6 +2028,7 @@ input:focus{
         width: 42vw;
         margin-bottom: 3vw;
     }
+
     .sec_flex_box .sec_img_box .sec_img_a{
         text-decoration: none;
 
