@@ -225,3 +225,39 @@ button {
 .input_txt::placeholder{
     color: rgb(187, 185, 185);
 }
+.input_item img{
+    width: 12px;
+    height: 12px;
+    margin: 5px;
+}
+.bank_dropdown_menu{
+    background-color: white;
+    position: absolute;
+    z-index: 1010;
+    width: 100%;
+}
+.bank_list{
+    border: 1px solid rgb(230, 228, 228);
+    overflow-y: auto;
+    max-height: 240px;
+}
+.bank_list li{
+    padding: 11px 20px 10px 16px;
+    color: gray;
+    font-size: 13px;
+}
+.bank_list:hover{
+    cursor: pointer;
+}
+.input_txt_color::placeholder{
+    color:black;
+}
+.select_bank{
+    font-weight: bolder;
+    color: black !important;
+}
+.bank_list_li img{
+    width: 18x;
+    height: 18px;
+    float: right;
+}
