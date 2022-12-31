@@ -77,18 +77,30 @@ document.querySelector('#email_input').addEventListener('input', e=>{
 });
 
 // 버튼 활성화
+let strHp
+let strEmail
 document.querySelectorAll('#hp_input').forEach((item) =>{
-    item.addEventListener('input', e=>{
-    let strHp=e.target.value;
-    if(validateHp(strHp)){
-        document.querySelectorAll('#email_input').forEach((item) =>{
-            item.addEventListener('input', e=>{
-            let strEmail=e.target.value;
-        if(validateEmail(strEmail)){
-                $("#submit_btn").removeClass("active");
-                $(this).addClass("active");
-                $("#submit_btn").removeClass("disabled")
-            }
-                })
-            })
-}})});
+    item.addEventListener('blur', e=>{
+        strHp=e.target.value;
+        if((validateHp(strHp))&&(validateHp(strHp))){
+            $("#submit_btn").removeClass("active");
+            $("#submit_btn").removeClass("disabled")
+        }else{
+            $("#submit_btn").addClass("active");
+            $("#submit_btn").addClass("disabled")
+        }
+    })
+})
+
+document.querySelectorAll('#email_input').forEach((item) =>{
+    item.addEventListener('blur', e=>{
+        strHp=e.target.value;
+        if((validateEmail(strEmail))&&(validateHp(strHp))){
+            $("#submit_btn").removeClass("active");
+            $("#submit_btn").removeClass("disabled")
+        }else{
+            $("#submit_btn").addClass("active");
+            $("#submit_btn").addClass("disabled")
+        }
+    })
+});
