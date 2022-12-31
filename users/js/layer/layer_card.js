@@ -99,22 +99,44 @@ document.querySelector('#pin_input').addEventListener('input', e=>{
 });
 
 // 버튼 활성화
-document.querySelectorAll('#cc-1').forEach((item) =>{
-    item.addEventListener('input', e=>{
-    let strCc1=e.target.value;
-    if(validateCc1(strCc1)){
-        document.querySelectorAll('#birthday_input').forEach((item) =>{
-            item.addEventListener('input', e=>{
-            let strBirthday=e.target.value;
-        if(validateBirthday(strBirthday) ){
-            document.querySelectorAll('#pin_input').forEach((item) =>{
-                item.addEventListener('input', e=>{
-                let strPin=e.target.value;
-            if(validatePin(strPin) ){
-                $("#submit_btn").removeClass("active");
-                $(this).addClass("active");
-                $("#submit_btn").removeClass("disabled")
-            }
-                })
-            })
-}})})}})});
+let strCc1
+let strBirthday
+let strPin
+document.querySelectorAll('.input_card').forEach((item) =>{
+    item.addEventListener('blur', e=>{
+        strCc1=e.target.value;
+        if((validateCc1(strCc1))&&(validateBirthday(strBirthday))&&(validatePin(strPin))){
+            $("#submit_btn").removeClass("active");
+            $("#submit_btn").removeClass("disabled")
+        }else{
+            $("#submit_btn").addClass("active");
+            $("#submit_btn").addClass("disabled")
+        }
+    })
+})
+
+document.querySelectorAll('#birthday_input').forEach((item) =>{
+    item.addEventListener('blur', e=>{
+        strBirthday=e.target.value;
+        if((validateCc1(strCc1))&&(validateBirthday(strBirthday))&&(validatePin(strPin))){
+            $("#submit_btn").removeClass("active");
+            $("#submit_btn").removeClass("disabled")
+        }else{
+            $("#submit_btn").addClass("active");
+            $("#submit_btn").addClass("disabled")
+        }
+    })
+})
+
+document.querySelectorAll('#pin_input').forEach((item) =>{
+    item.addEventListener('blur', e=>{
+        strPin=e.target.value;
+        if((validateCc1(strCc1))&&(validateBirthday(strBirthday))&&(validatePin(strPin))){
+            $("#submit_btn").removeClass("active");
+            $("#submit_btn").removeClass("disabled")
+        }else{
+            $("#submit_btn").addClass("active");
+            $("#submit_btn").addClass("disabled")
+        }
+    })
+});
