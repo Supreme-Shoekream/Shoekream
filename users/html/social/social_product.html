@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/"
+    xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>STYLE | SHOEKREAM</title>
+    <!-- <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://kream.co.kr/favicon.ico"> -->
+
+    <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
+    <link rel="stylesheet" href="../../css/social/trending.css">
+    <link rel="stylesheet" href="../../css/social/social_product.css">
+
+    <!-- <link rel="stylesheet" href="../../css/social/profile.css"> -->
+
+
+
+
+</head>
+
+
+<body>
+    <div id="__nuxt">
+        <div id="__layout">
+            <div tabindex="0" class="wrap window_os lg">
+                <!-- 헤더 시작 -->
+                <div>
+                    <header th:fragment="head">
+                        <meta charset="UTF-8">
+                        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <link rel="stylesheet" href="../../css/social/style_header.css">
+                        <div>
+                            <div class="social header lg no_line">
+                                <div class="header_top">
+                                    <div class="top_inner">
+                                        <ul class="top_list">
+                                            <li class="top_item">
+                                                <a href="/notice" class="top_link"> 고객센터 </a>
+                                            </li>
+                                            <li class="top_item">
+                                                <a href="/my/wish" class="top_link"> 관심상품 </a>
+                                            </li>
+                                            <li class="top_item">
+                                                <a href="/my" class="top_link"> 마이페이지 </a>
+                                            </li>
+                                            <li class="top_item" style="display: none;">
+                                                <a href="/login" class="top_link"> 로그인 </a>
+                                            </li>
+                                            <li class="top_item">
+                                                <a href="/" class="top_link"> 로그아웃 </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="header_main">
+                                    <div class="main_inner">
+                                        <h1>
+                                            <a href="/" aria-label="홈" class="logo">
+                                                <img src="../../img/shoekream_logo.png"
+                                                    class="logo-kream icon sprite-icons">
+                                            </a>
+                                        </h1>
+                                        <div class="gnb_area">
+                                            <nav class="gnb">
+                                                <ul class="gnb_list">
+                                                    <li class="gnb_item gnb_on">
+                                                        <a href="/social/trending" class="gnb_link"> STYLE </a>
+                                                    </li>
+                                                    <li class="gnb_item">
+                                                        <a href="#" class="gnb_link"> SHOP </a>
+                                                    </li>
+                                                    <li class="gnb_item">
+                                                        <a href="/about" target="_blank" class="gnb_link"> ABOUT </a>
+                                                    </li>
+                                                </ul>
+                                            </nav>
+                                            <div class="search_btn_box">
+                                                <a aria-label="검색" href="#" class="btn_search">
+                                                    <img src="../../img/search.png"
+                                                        class="nav-search icon sprite-icons">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div style="display: none;">
+                                            <div class="search_area" value="">
+                                                <div class="search">
+                                                    <img src="../../img/search.png">
+                                                    <input type="text" placeholder="" title="검색창"
+                                                        class="input_search show_placeholder_on_focus">
+                                                    <button class="btn_search_delete" style="display: none;">
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="nav_btn_box">
+                                            <button type="button" aria-label="검색" class="btn_search">
+                                            </button>
+                                            <button type="button" aria-label="메뉴" class="btn_menu">
+                                            </button>
+                                        </div>
+                                        <div style="display: none;">
+                                            <div class="navigation_wrap">
+                                                <div class="navigation">
+                                                    <div class="navigation_inner">
+                                                        <ul class="nav_list">
+                                                            <li class="nav_item">
+                                                                <a href="#" class="nav_link"> STYLE </a>
+                                                            </li>
+                                                            <li class="nav_item">
+                                                                <a href="#" class="nav_link"> SHOP </a>
+                                                            </li>
+                                                            <li class="nav_item">
+                                                                <a href="#" class="nav_link"> 자주 묻는 질문 </a>
+                                                            </li>
+                                                            <li class="nav_item">
+                                                                <a href="#" class="nav_link"> 공지사항 </a>
+                                                            </li>
+                                                            <li class="nav_item" style="display: none;">
+                                                                <a href="#" class="nav_link"> 로그인 </a>
+                                                            </li>
+                                                            <li class="nav_item">
+                                                                <a href="#" class="nav_link"> 마이 페이지 </a>
+                                                            </li>
+                                                        </ul>
+                                                        <div class="nav_logout">
+                                                            <button class="btn_logout">로그아웃</button>
+                                                            <p class="text_mail"></p>
+                                                        </div>
+                                                        <div class="nav_download">
+                                                            <p class="download_txt">KREAM 앱 설치 후 사용해 보세요!</p>
+                                                            <div class="btn_appdown">
+                                                                <a href="#" class="btn outline medium"> 앱 다운로드 </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <button type="button" aria-label="닫기" class="btn_nav_close">
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </header>
+                </div>
+                <!--  헤더 끝-->
+                <!-- 브랜드 스크롤 시작 -->
+                <div  class="social_header is_scroll"  id="brand_scroll" style="display: none; height: 60px;"><a  
+                        href="#" class="feed_product" style="padding: 0; margin: 0 auto;">
+                        <div  class="product" style="background-color: rgb(244, 244, 244); height: 44px;padding: 0;"><img
+                                
+                                src="https://kream-phinf.pstatic.net/MjAyMjAyMThfMjgy/MDAxNjQ1MTYwNTEwMzE1.b7Tfo2yd_MAJxvpLOr5SiAzko_mSbsciipBTmmX-35sg.J7YcCqgNCCcpH9-JFP2PU9vYnDj1_P7pyjd1csXJ7jQg.JPEG/a_300efd0ab2e4431e956b8af0acc6c586.jpg?type=s"
+                                alt="Apple AirPods Max Silver (Korean Ver.)" class="scroll_product_img"></div>
+                        <p  class="scroll_product_name">Apple AirPods Max Silver (Korean Ver.)</p>
+                    </a></div>
+                <!-- 브랜드 스크롤 끝 -->
+
+
+                <!-- 컨테이너 -->
+                <div class="container social lg">
+                    <div class="content with_product_header">
+
+                        <!-- 브랜드 카드 시작 -->
+                        <div class="social_feed_product">
+                            <a href="/products/51930" class="product_box">
+                                <div class="product" style="background-color: rgb(244, 244, 244);">
+                                    <picture class="product_img">
+                                        <source type="image/webp"
+                                            srcset="https://kream-phinf.pstatic.net/MjAyMjAyMThfMjgy/MDAxNjQ1MTYwNTEwMzE1.b7Tfo2yd_MAJxvpLOr5SiAzko_mSbsciipBTmmX-35sg.J7YcCqgNCCcpH9-JFP2PU9vYnDj1_P7pyjd1csXJ7jQg.JPEG/a_300efd0ab2e4431e956b8af0acc6c586.jpg?type=m_webp">
+                                        <source
+                                            srcset="https://kream-phinf.pstatic.net/MjAyMjAyMThfMjgy/MDAxNjQ1MTYwNTEwMzE1.b7Tfo2yd_MAJxvpLOr5SiAzko_mSbsciipBTmmX-35sg.J7YcCqgNCCcpH9-JFP2PU9vYnDj1_P7pyjd1csXJ7jQg.JPEG/a_300efd0ab2e4431e956b8af0acc6c586.jpg?type=m">
+                                        <img alt="Apple AirPods Max Silver (Korean Ver.)"
+                                            src="https://kream-phinf.pstatic.net/MjAyMjAyMThfMjgy/MDAxNjQ1MTYwNTEwMzE1.b7Tfo2yd_MAJxvpLOr5SiAzko_mSbsciipBTmmX-35sg.J7YcCqgNCCcpH9-JFP2PU9vYnDj1_P7pyjd1csXJ7jQg.JPEG/a_300efd0ab2e4431e956b8af0acc6c586.jpg?type=m"
+                                            loading="lazy" class="image">
+                                    </picture>
+                                </div>
+                                <div class="product_desc">
+                                    <p class="product_name">Apple AirPods Max Silver (Korean Ver.)</p>
+                                    <div class="price_box">
+                                        <span class="amount">744,000원</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- 브랜드 카드 끝 -->
+
+                        <!-- <img src="../../img/styleImg/like_icon.png" alt="좋아요 이미지" class="icon sprite-icons social-like-gray-sm"> -->
+                        <!-- 피드 시작 -->
+                        <div class="social_feeds">
+                            <div transition-duration="0" item-selector=".item" gutter=".gutter_item"
+                                horizontal-order="true" class="masonry_posts"
+                                style="position: relative;height: 4077px;">
+                                <div class="gutter_item"></div>
+                                <div class="feed_card item square" style="position: absolute; left: 0px; top: 0px;"><a
+                                        href="#">
+                                        <div class="card_box">
+                                            <div class="social_img_box square">
+                                                <picture class="picture social_img">
+                                                    <source type="image/webp"
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMzFfMTUg/MDAxNjcyNDg3OTY2OTYw.5e0p9E-6YdRryrGU759Xlbh2U_vbylDmka_Y0_kBblcg.b1g_cWaqIzuMVfh17lgPPev3sWCfCgk22E7HGyUZOncg.JPEG/p_68947a731aad42a6828f63ab40010812.jpeg?type=m_webp">
+                                                    <source
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMzFfMTUg/MDAxNjcyNDg3OTY2OTYw.5e0p9E-6YdRryrGU759Xlbh2U_vbylDmka_Y0_kBblcg.b1g_cWaqIzuMVfh17lgPPev3sWCfCgk22E7HGyUZOncg.JPEG/p_68947a731aad42a6828f63ab40010812.jpeg?type=m">
+                                                    <img alt="소셜이미지"
+                                                        src="https://kream-phinf.pstatic.net/MjAyMjEyMzFfMTUg/MDAxNjcyNDg3OTY2OTYw.5e0p9E-6YdRryrGU759Xlbh2U_vbylDmka_Y0_kBblcg.b1g_cWaqIzuMVfh17lgPPev3sWCfCgk22E7HGyUZOncg.JPEG/p_68947a731aad42a6828f63ab40010812.jpeg?type=m"
+                                                        loading="auto" class="image">
+                                                </picture>
+                                            </div>
+                                            <div class="card_detail">
+                                                <div class="user_box">
+                                                    <picture class="picture img_profile">
+                                                        <source type="image/webp"
+                                                            srcset="/images/account_img_default.png?type=s_webp">
+                                                        <source srcset="/images/account_img_default.png?type=s"><img
+                                                            alt="사용자 프로필 이미지"
+                                                            src="/images/account_img_default.png?type=s" loading="auto"
+                                                            class="image">
+                                                    </picture>
+                                                    <p class="user_name">hytiwx</p><span aria-label="좋아요" role="button"
+                                                        class="btn like">
+                                                        <img src="../../img/styleImg/like_icon.png" alt="좋아요 이미지"
+                                                            class="icon sprite-icons social-like-gray-sm">
+                                                        <span class="like_count">11</span></span>
+                                                </div><!----><!---->
+                                            </div>
+                                        </div><!---->
+                                    </a></div>
+                                <div class="feed_card item vertical" style="position: absolute; left: 307px; top: 0px;">
+                                    <a href="#">
+                                        <div class="card_box">
+                                            <div class="social_img_box vertical">
+                                                <picture class="picture social_img">
+                                                    <source type="image/webp"
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMzFfMjEx/MDAxNjcyNDg0NTEwMDE2.tq0a3jSmVdRG2Z-zRgfcXQE1GazzGTHSxGsnHOvJgCkg.glx3973SzkkSc7Sy-ZJF_wHhuza6atbPmWoZcnJyCHUg.JPEG/p_86bc70991e824291b9d42218526ec586.jpeg?type=m_webp">
+                                                    <source
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMzFfMjEx/MDAxNjcyNDg0NTEwMDE2.tq0a3jSmVdRG2Z-zRgfcXQE1GazzGTHSxGsnHOvJgCkg.glx3973SzkkSc7Sy-ZJF_wHhuza6atbPmWoZcnJyCHUg.JPEG/p_86bc70991e824291b9d42218526ec586.jpeg?type=m">
+                                                    <img alt="소셜이미지"
+                                                        src="https://kream-phinf.pstatic.net/MjAyMjEyMzFfMjEx/MDAxNjcyNDg0NTEwMDE2.tq0a3jSmVdRG2Z-zRgfcXQE1GazzGTHSxGsnHOvJgCkg.glx3973SzkkSc7Sy-ZJF_wHhuza6atbPmWoZcnJyCHUg.JPEG/p_86bc70991e824291b9d42218526ec586.jpeg?type=m"
+                                                        loading="auto" class="image">
+                                                </picture>
+                                            </div>
+                                            <div class="card_detail">
+                                                <div class="user_box">
+                                                    <picture class="picture img_profile">
+                                                        <source type="image/webp"
+                                                            srcset="https://kream-phinf.pstatic.net/MjAyMjExMjhfMzAg/MDAxNjY5NjE5NjAxMjk0.9ReeHMBBDGYU8UfdpVjiXWeGyF4p6h-GiLZ6oL3PN5sg.s10gfQB4HkfVZ5ZX3lMUYBNvsCGH7X4itY7XzEWDrbYg.JPEG/p_c03b3564900e4011a3271102b2c6bfcd.jpeg?type=s_webp">
+                                                        <source
+                                                            srcset="https://kream-phinf.pstatic.net/MjAyMjExMjhfMzAg/MDAxNjY5NjE5NjAxMjk0.9ReeHMBBDGYU8UfdpVjiXWeGyF4p6h-GiLZ6oL3PN5sg.s10gfQB4HkfVZ5ZX3lMUYBNvsCGH7X4itY7XzEWDrbYg.JPEG/p_c03b3564900e4011a3271102b2c6bfcd.jpeg?type=s">
+                                                        <img alt="사용자 프로필 이미지"
+                                                            src="https://kream-phinf.pstatic.net/MjAyMjExMjhfMzAg/MDAxNjY5NjE5NjAxMjk0.9ReeHMBBDGYU8UfdpVjiXWeGyF4p6h-GiLZ6oL3PN5sg.s10gfQB4HkfVZ5ZX3lMUYBNvsCGH7X4itY7XzEWDrbYg.JPEG/p_c03b3564900e4011a3271102b2c6bfcd.jpeg?type=s"
+                                                            loading="auto" class="image">
+                                                    </picture>
+                                                    <p class="user_name">________hansol__</p><span aria-label="좋아요"
+                                                        role="button" class="btn like">
+                                                        <img src="../../img/styleImg/like_icon.png" alt="좋아요 이미지"
+                                                            class="icon sprite-icons social-like-gray-sm"><span
+                                                            class="like_count">17</span></span>
+                                                </div>
+                                                <p class="text_box">봐도봐도 귀여운 슈퍼스타••
+                                                    -
+                                                    -
+                                                    -
+                                                    #결산템챌린지 #KREAM스타일 #kreamchallenge #adidas #superstar #아디다스 #아디다스코디
+                                                    #슈퍼스타코디 #에어팟맥스실버 #에어팟맥스코디 #데일리룩 #데일리슈즈 #오늘의코디 #오늘의신발 #오오티디
+                                                    #dailyfashion
+                                                    #dailylook #ootd #코디추천</p><!---->
+                                            </div>
+                                        </div><!---->
+                                    </a></div>
+                                <div class="feed_card item vertical" style="position: absolute; left: 614px; top: 0px;">
+                                    <a href="#">
+                                        <div class="card_box">
+                                            <div class="social_img_box vertical">
+                                                <picture class="picture social_img">
+                                                    <source type="image/webp"
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMzFfMzIg/MDAxNjcyNDcyMjcwNjA4.LNiiF8VBFk-jv7cKB4K5qF8gq13Rv8TsGH8AwzFsQHYg.74E20evtJzax7o_SAfTJnFRbWHM1sUVI8COXdJ6Ll7Mg.JPEG/p_2d9fbf25865040008c9e9b0ab1903ade.jpeg?type=m_webp">
+                                                    <source
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMzFfMzIg/MDAxNjcyNDcyMjcwNjA4.LNiiF8VBFk-jv7cKB4K5qF8gq13Rv8TsGH8AwzFsQHYg.74E20evtJzax7o_SAfTJnFRbWHM1sUVI8COXdJ6Ll7Mg.JPEG/p_2d9fbf25865040008c9e9b0ab1903ade.jpeg?type=m">
+                                                    <img alt="소셜이미지"
+                                                        src="https://kream-phinf.pstatic.net/MjAyMjEyMzFfMzIg/MDAxNjcyNDcyMjcwNjA4.LNiiF8VBFk-jv7cKB4K5qF8gq13Rv8TsGH8AwzFsQHYg.74E20evtJzax7o_SAfTJnFRbWHM1sUVI8COXdJ6Ll7Mg.JPEG/p_2d9fbf25865040008c9e9b0ab1903ade.jpeg?type=m"
+                                                        loading="auto" class="image">
+                                                </picture>
+                                            </div>
+                                            <div class="card_detail">
+                                                <div class="user_box">
+                                                    <picture class="picture img_profile">
+                                                        <source type="image/webp"
+                                                            srcset="https://kream-phinf.pstatic.net/MjAyMjEyMzFfMjQy/MDAxNjcyNDczMDk0NTc2.c91VhZfG5RVmRwoHwjYYa85uZSfE1ZzsAtgoXgHw5V0g.LzKmYtgQ2Ic0AJO21n4oY5GmJYtoPz91r8I_1-YVRh8g.JPEG/p_0713ac753a0e49a8b1cd1f3697452c4d.jpeg?type=s_webp">
+                                                        <source
+                                                            srcset="https://kream-phinf.pstatic.net/MjAyMjEyMzFfMjQy/MDAxNjcyNDczMDk0NTc2.c91VhZfG5RVmRwoHwjYYa85uZSfE1ZzsAtgoXgHw5V0g.LzKmYtgQ2Ic0AJO21n4oY5GmJYtoPz91r8I_1-YVRh8g.JPEG/p_0713ac753a0e49a8b1cd1f3697452c4d.jpeg?type=s">
+                                                        <img alt="사용자 프로필 이미지"
+                                                            src="https://kream-phinf.pstatic.net/MjAyMjEyMzFfMjQy/MDAxNjcyNDczMDk0NTc2.c91VhZfG5RVmRwoHwjYYa85uZSfE1ZzsAtgoXgHw5V0g.LzKmYtgQ2Ic0AJO21n4oY5GmJYtoPz91r8I_1-YVRh8g.JPEG/p_0713ac753a0e49a8b1cd1f3697452c4d.jpeg?type=s"
+                                                            loading="auto" class="image">
+                                                    </picture>
+                                                    <p class="user_name">yesdragon_</p><span aria-label="좋아요"
+                                                        role="button" class="btn like">
+                                                        <img src="../../img/styleImg/like_icon.png" alt="좋아요 이미지"
+                                                            class="icon sprite-icons social-like-gray-sm"><span
+                                                            class="like_count">18</span></span>
+                                                </div>
+                                                <p class="text_box">#결산템챌린지 2022년 고생많으셨어요! 23년은 제일 행복합시다!
+                                                    #크림스타일 #크림챌린지 #daliylook #데일리룩
+                                                    #슈프림 #supreme #에어팟맥스</p><!---->
+                                            </div>
+                                        </div><!---->
+                                    </a></div>
+                                <div class="feed_card item square" style="position: absolute; left: 921px; top: 0px;"><a
+                                        href="#">
+                                        <div class="card_box">
+                                            <div class="social_img_box square">
+                                                <picture class="picture social_img">
+                                                    <source type="image/webp"
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMzFfMjA0/MDAxNjcyNDYyMDcxNTE5.6w5vqVUGvFrvIlaP5Xd1aulY4mKuP6sB-rolLMtewKog.yt3vDMZDXqbp1i45Ef9uCgo0QeWHToeyli-MlrXTDT0g.JPEG/p_854781cfca2044c698a82920b88cf9b7.jpeg?type=m_webp">
+                                                    <source
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMzFfMjA0/MDAxNjcyNDYyMDcxNTE5.6w5vqVUGvFrvIlaP5Xd1aulY4mKuP6sB-rolLMtewKog.yt3vDMZDXqbp1i45Ef9uCgo0QeWHToeyli-MlrXTDT0g.JPEG/p_854781cfca2044c698a82920b88cf9b7.jpeg?type=m">
+                                                    <img alt="소셜이미지"
+                                                        src="https://kream-phinf.pstatic.net/MjAyMjEyMzFfMjA0/MDAxNjcyNDYyMDcxNTE5.6w5vqVUGvFrvIlaP5Xd1aulY4mKuP6sB-rolLMtewKog.yt3vDMZDXqbp1i45Ef9uCgo0QeWHToeyli-MlrXTDT0g.JPEG/p_854781cfca2044c698a82920b88cf9b7.jpeg?type=m"
+                                                        loading="auto" class="image">
+                                                </picture>
+                                            </div>
+                                            <div class="card_detail">
+                                                <div class="user_box">
+                                                    <picture class="picture img_profile">
+                                                        <source type="image/webp"
+                                                            srcset="https://kream-phinf.pstatic.net/MjAyMjExMTdfMTI3/MDAxNjY4NjgyNDYxODA1.pq_ccYYxsrRrSp7u_8JPfB1Gy_GK2RPnDGivyootG3Ig.tdmlsoQ086H-t5yazlX2KQzKM7tQc004pTDUQX4uZzkg.JPEG/p_73e97b9376424a8bad87dbfaf6c57c31.jpeg?type=s_webp">
+                                                        <source
+                                                            srcset="https://kream-phinf.pstatic.net/MjAyMjExMTdfMTI3/MDAxNjY4NjgyNDYxODA1.pq_ccYYxsrRrSp7u_8JPfB1Gy_GK2RPnDGivyootG3Ig.tdmlsoQ086H-t5yazlX2KQzKM7tQc004pTDUQX4uZzkg.JPEG/p_73e97b9376424a8bad87dbfaf6c57c31.jpeg?type=s">
+                                                        <img alt="사용자 프로필 이미지"
+                                                            src="https://kream-phinf.pstatic.net/MjAyMjExMTdfMTI3/MDAxNjY4NjgyNDYxODA1.pq_ccYYxsrRrSp7u_8JPfB1Gy_GK2RPnDGivyootG3Ig.tdmlsoQ086H-t5yazlX2KQzKM7tQc004pTDUQX4uZzkg.JPEG/p_73e97b9376424a8bad87dbfaf6c57c31.jpeg?type=s"
+                                                            loading="auto" class="image">
+                                                    </picture>
+                                                    <p class="user_name">wcmzfn</p><span aria-label="좋아요" role="button"
+                                                        class="btn like">
+                                                        <img src="../../img/styleImg/like_icon.png" alt="좋아요 이미지"
+                                                            class="icon sprite-icons social-like-gray-sm"><span
+                                                            class="like_count">19</span></span>
+                                                </div>
+                                                <p class="text_box">#스트릿 #겨울코디 #결산템챌린지</p><!---->
+                                            </div>
+                                        </div><!---->
+                                    </a></div>
+                                <div class="feed_card item vertical" style="position: absolute;left: 0px;top: 315px;"><a
+                                        href="#">
+                                        <div class="card_box">
+                                            <div class="social_img_box vertical">
+                                                <picture class="picture social_img">
+                                                    <source type="image/webp"
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMzFfMTI2/MDAxNjcyNDU2OTE3MzA1.Ysy8D-_KubBtm55Aqg-5j5JEuj4DEK7tb94D2SNWG54g.L8PjAt1cDGWKiO8bXCfwjz979EZEM7nXJmDpB7vlix8g.JPEG/p_8c9356f6ce914a509f56f3dd8a3aaaef.jpeg?type=m_webp">
+                                                    <source
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMzFfMTI2/MDAxNjcyNDU2OTE3MzA1.Ysy8D-_KubBtm55Aqg-5j5JEuj4DEK7tb94D2SNWG54g.L8PjAt1cDGWKiO8bXCfwjz979EZEM7nXJmDpB7vlix8g.JPEG/p_8c9356f6ce914a509f56f3dd8a3aaaef.jpeg?type=m">
+                                                    <img alt="소셜이미지"
+                                                        src="https://kream-phinf.pstatic.net/MjAyMjEyMzFfMTI2/MDAxNjcyNDU2OTE3MzA1.Ysy8D-_KubBtm55Aqg-5j5JEuj4DEK7tb94D2SNWG54g.L8PjAt1cDGWKiO8bXCfwjz979EZEM7nXJmDpB7vlix8g.JPEG/p_8c9356f6ce914a509f56f3dd8a3aaaef.jpeg?type=m"
+                                                        loading="auto" class="image">
+                                                </picture>
+                                            </div>
+                                            <div class="card_detail">
+                                                <div class="user_box">
+                                                    <picture class="picture img_profile">
+                                                        <source type="image/webp"
+                                                            srcset="https://kream-phinf.pstatic.net/MjAyMjEwMjhfOTQg/MDAxNjY2OTY2ODEyOTAy.J6sBOWOhOXHdC6ZP8ss4MMXdSUpc7IrUcl7wc0GNMBMg.h6_JYvE1cN7eSqPfHfHm_f1ktjvWDNyx3kzILOFCeIQg.JPEG/p_67e24911d28547b99daa5ed9911beae2.jpeg?type=s_webp">
+                                                        <source
+                                                            srcset="https://kream-phinf.pstatic.net/MjAyMjEwMjhfOTQg/MDAxNjY2OTY2ODEyOTAy.J6sBOWOhOXHdC6ZP8ss4MMXdSUpc7IrUcl7wc0GNMBMg.h6_JYvE1cN7eSqPfHfHm_f1ktjvWDNyx3kzILOFCeIQg.JPEG/p_67e24911d28547b99daa5ed9911beae2.jpeg?type=s">
+                                                        <img alt="사용자 프로필 이미지"
+                                                            src="https://kream-phinf.pstatic.net/MjAyMjEwMjhfOTQg/MDAxNjY2OTY2ODEyOTAy.J6sBOWOhOXHdC6ZP8ss4MMXdSUpc7IrUcl7wc0GNMBMg.h6_JYvE1cN7eSqPfHfHm_f1ktjvWDNyx3kzILOFCeIQg.JPEG/p_67e24911d28547b99daa5ed9911beae2.jpeg?type=s"
+                                                            loading="auto" class="image">
+                                                    </picture>
+                                                    <p class="user_name">hsd_09_</p><span aria-label="좋아요" role="button"
+                                                        class="btn like">
+                                                        <img src="../../img/styleImg/like_icon.png" alt="좋아요 이미지"
+                                                            class="icon sprite-icons social-like-gray-sm"><span
+                                                            class="like_count">198</span></span>
+                                                </div>
+                                                <p class="text_box">🖤 #결산템챌린지 #셋업코디</p><!---->
+                                            </div>
+                                        </div>
+
+                                    </a></div>
+                                <div class="feed_card item square" style="position: absolute; left: 307px; top: 458px;">
+                                    <a href="#">
+                                        <div class="card_box">
+                                            <div class="social_img_box square">
+                                                <picture class="picture social_img">
+                                                    <source type="image/webp"
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMzFfMjYg/MDAxNjcyNDU2MTY0MDgw.AiUWH-Ctfz0BSjaKe1cDFOIqd33ux8XsPJIAbYBac2Ig.BujYmiGBHrINp_em7U4uBlmQsNQa-E8S6sYaV1hmxMsg.JPEG/p_80f51c1c304946db91c75cf349335a31.jpeg?type=m_webp">
+                                                    <source
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMzFfMjYg/MDAxNjcyNDU2MTY0MDgw.AiUWH-Ctfz0BSjaKe1cDFOIqd33ux8XsPJIAbYBac2Ig.BujYmiGBHrINp_em7U4uBlmQsNQa-E8S6sYaV1hmxMsg.JPEG/p_80f51c1c304946db91c75cf349335a31.jpeg?type=m">
+                                                    <img alt="소셜이미지"
+                                                        src="https://kream-phinf.pstatic.net/MjAyMjEyMzFfMjYg/MDAxNjcyNDU2MTY0MDgw.AiUWH-Ctfz0BSjaKe1cDFOIqd33ux8XsPJIAbYBac2Ig.BujYmiGBHrINp_em7U4uBlmQsNQa-E8S6sYaV1hmxMsg.JPEG/p_80f51c1c304946db91c75cf349335a31.jpeg?type=m"
+                                                        loading="auto" class="image">
+                                                </picture>
+                                            </div>
+                                            <div class="card_detail">
+                                                <div class="user_box">
+                                                    <picture class="picture img_profile">
+                                                        <source type="image/webp"
+                                                            srcset="https://kream-phinf.pstatic.net/MjAyMjEyMzFfMTk1/MDAxNjcyNDU2Mjk3MjY3.UhmJFaadigm_qJQSeaEFm_sycY0s5nAKJ722rH4O5d8g.MJh2eXDczVWm6GSCeInXBWk7V_WYQUxDZpyBSIn0QRQg.JPEG/p_df92e6f4e723476d94ec876aa93cdcc9.jpeg?type=s_webp">
+                                                        <source
+                                                            srcset="https://kream-phinf.pstatic.net/MjAyMjEyMzFfMTk1/MDAxNjcyNDU2Mjk3MjY3.UhmJFaadigm_qJQSeaEFm_sycY0s5nAKJ722rH4O5d8g.MJh2eXDczVWm6GSCeInXBWk7V_WYQUxDZpyBSIn0QRQg.JPEG/p_df92e6f4e723476d94ec876aa93cdcc9.jpeg?type=s">
+                                                        <img alt="사용자 프로필 이미지"
+                                                            src="https://kream-phinf.pstatic.net/MjAyMjEyMzFfMTk1/MDAxNjcyNDU2Mjk3MjY3.UhmJFaadigm_qJQSeaEFm_sycY0s5nAKJ722rH4O5d8g.MJh2eXDczVWm6GSCeInXBWk7V_WYQUxDZpyBSIn0QRQg.JPEG/p_df92e6f4e723476d94ec876aa93cdcc9.jpeg?type=s"
+                                                            loading="auto" class="image">
+                                                    </picture>
+                                                    <p class="user_name">183.h.g</p><span aria-label="좋아요" role="button"
+                                                        class="btn like">
+                                                        <img src="../../img/styleImg/like_icon.png" alt="좋아요 이미지"
+                                                            class="icon sprite-icons social-like-gray-sm"><span
+                                                            class="like_count">23</span></span>
+                                                </div>
+                                                <p class="text_box">#결산템챌린지 #스트릿 #코트 #겨울코디 #에어팟맥스
+                                                    .
+                                                    .
+                                                    .
+                                                    .
+                                                    .
+                                                    .
+                                                    .
+                                                    .
+                                                    .
+                                                    .
+                                                    @kream.challenge</p><!---->
+                                            </div>
+                                        </div>
+                                        <div class="img_count"><span class="count">+2</span></div>
+                                    </a></div>
+                                <div class="feed_card item vertical"
+                                    style="position: absolute; left: 614px; top: 458px;"><a href="#">
+                                        <div class="card_box">
+                                            <div class="social_img_box vertical">
+                                                <picture class="picture social_img">
+                                                    <source type="image/webp"
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMzFfMjIz/MDAxNjcyNDE0NDQyNjUz.Ump5J-SKuxQ8NsD8X7i0CXHxKRUhFtwavyBMH09gYZsg.L-c7d9UwbK7MCO3ZpsClsrCWjzavRU4qtBxiOlkKuO8g.JPEG/p_4f57ac77f0c94475b46f31faf678d21c.jpeg?type=m_webp">
+                                                    <source
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMzFfMjIz/MDAxNjcyNDE0NDQyNjUz.Ump5J-SKuxQ8NsD8X7i0CXHxKRUhFtwavyBMH09gYZsg.L-c7d9UwbK7MCO3ZpsClsrCWjzavRU4qtBxiOlkKuO8g.JPEG/p_4f57ac77f0c94475b46f31faf678d21c.jpeg?type=m">
+                                                    <img alt="소셜이미지"
+                                                        src="https://kream-phinf.pstatic.net/MjAyMjEyMzFfMjIz/MDAxNjcyNDE0NDQyNjUz.Ump5J-SKuxQ8NsD8X7i0CXHxKRUhFtwavyBMH09gYZsg.L-c7d9UwbK7MCO3ZpsClsrCWjzavRU4qtBxiOlkKuO8g.JPEG/p_4f57ac77f0c94475b46f31faf678d21c.jpeg?type=m"
+                                                        loading="auto" class="image">
+                                                </picture>
+                                            </div>
+                                            <div class="card_detail">
+                                                <div class="user_box">
+                                                    <picture class="picture img_profile">
+                                                        <source type="image/webp"
+                                                            srcset="https://kream-phinf.pstatic.net/MjAyMTEyMDZfMTMg/MDAxNjM4NzU5MjA2Mzk3.Di6x-KRUDquvDmfFIJbwPQMZLvNj1EKRYFV5AHZaUVUg.eKEGyIXlHghtPnWw9dm3BcIjoOCg0eLLA7xqJMHHNLIg.JPEG/p_ee6466b7928942b3bf83f34e2939cd77.jpeg?type=s_webp">
+                                                        <source
+                                                            srcset="https://kream-phinf.pstatic.net/MjAyMTEyMDZfMTMg/MDAxNjM4NzU5MjA2Mzk3.Di6x-KRUDquvDmfFIJbwPQMZLvNj1EKRYFV5AHZaUVUg.eKEGyIXlHghtPnWw9dm3BcIjoOCg0eLLA7xqJMHHNLIg.JPEG/p_ee6466b7928942b3bf83f34e2939cd77.jpeg?type=s">
+                                                        <img alt="사용자 프로필 이미지"
+                                                            src="https://kream-phinf.pstatic.net/MjAyMTEyMDZfMTMg/MDAxNjM4NzU5MjA2Mzk3.Di6x-KRUDquvDmfFIJbwPQMZLvNj1EKRYFV5AHZaUVUg.eKEGyIXlHghtPnWw9dm3BcIjoOCg0eLLA7xqJMHHNLIg.JPEG/p_ee6466b7928942b3bf83f34e2939cd77.jpeg?type=s"
+                                                            loading="auto" class="image">
+                                                    </picture>
+                                                    <p class="user_name">naora9</p><span aria-label="좋아요" role="button"
+                                                        class="btn like">
+                                                        <img src="../../img/styleImg/like_icon.png" alt="좋아요 이미지"
+                                                            class="icon sprite-icons social-like-gray-sm"><span
+                                                            class="like_count">46</span></span>
+                                                </div>
+                                                <p class="text_box">#결산템챌린지 #스타일챌린지 #데일리룩 #KREAM챌린지
+                                                    #KREAM스타일 #눕시 #노스페이스케이스스터디 #노스페이스 #파우더블루 #에어팟맥스</p><!---->
+                                            </div>
+                                        </div><!---->
+                                    </a></div>
+                                <div class="feed_card item vertical"
+                                    style="position: absolute; left: 921px; top: 341px;"><a href="#">
+                                        <div class="card_box">
+                                            <div class="social_img_box vertical">
+                                                <picture class="picture social_img">
+                                                    <source type="image/webp"
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMzFfMTI4/MDAxNjcyNDEzMzk4NzYw.EuYZjmAvF-dOezoiqppNDcn_i-Feypk1C1d9_syxMmEg.Ja5wlCueZFxqAB2c39ubdlgV9Ibb5NS1ojSfL-n8BEUg.JPEG/p_7a9ba19769c942759fea101b3b6669ac.jpeg?type=m_webp">
+                                                    <source
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMzFfMTI4/MDAxNjcyNDEzMzk4NzYw.EuYZjmAvF-dOezoiqppNDcn_i-Feypk1C1d9_syxMmEg.Ja5wlCueZFxqAB2c39ubdlgV9Ibb5NS1ojSfL-n8BEUg.JPEG/p_7a9ba19769c942759fea101b3b6669ac.jpeg?type=m">
+                                                    <img alt="소셜이미지"
+                                                        src="https://kream-phinf.pstatic.net/MjAyMjEyMzFfMTI4/MDAxNjcyNDEzMzk4NzYw.EuYZjmAvF-dOezoiqppNDcn_i-Feypk1C1d9_syxMmEg.Ja5wlCueZFxqAB2c39ubdlgV9Ibb5NS1ojSfL-n8BEUg.JPEG/p_7a9ba19769c942759fea101b3b6669ac.jpeg?type=m"
+                                                        loading="auto" class="image">
+                                                </picture>
+                                            </div>
+                                            <div class="card_detail">
+                                                <div class="user_box">
+                                                    <picture class="picture img_profile">
+                                                        <source type="image/webp"
+                                                            srcset="https://kream-phinf.pstatic.net/MjAyMjA2MTdfMjgg/MDAxNjU1NDU3NTA5Mjg0.3PMGozALwgmu-EZJdlOjXsuLiWemk03UEs__QQVpsJkg.BnEf293-7UF78blFj95O0xIdWmZva6GWdQ2wWAJ8SUEg.JPEG/p_f245bfb9d7c04db1ab6f8ca215cdb63b.jpeg?type=s_webp">
+                                                        <source
+                                                            srcset="https://kream-phinf.pstatic.net/MjAyMjA2MTdfMjgg/MDAxNjU1NDU3NTA5Mjg0.3PMGozALwgmu-EZJdlOjXsuLiWemk03UEs__QQVpsJkg.BnEf293-7UF78blFj95O0xIdWmZva6GWdQ2wWAJ8SUEg.JPEG/p_f245bfb9d7c04db1ab6f8ca215cdb63b.jpeg?type=s">
+                                                        <img alt="사용자 프로필 이미지"
+                                                            src="https://kream-phinf.pstatic.net/MjAyMjA2MTdfMjgg/MDAxNjU1NDU3NTA5Mjg0.3PMGozALwgmu-EZJdlOjXsuLiWemk03UEs__QQVpsJkg.BnEf293-7UF78blFj95O0xIdWmZva6GWdQ2wWAJ8SUEg.JPEG/p_f245bfb9d7c04db1ab6f8ca215cdb63b.jpeg?type=s"
+                                                            loading="auto" class="image">
+                                                    </picture>
+                                                    <p class="user_name">chai_</p><span aria-label="좋아요" role="button"
+                                                        class="btn like">
+                                                        <img src="../../img/styleImg/like_icon.png" alt="좋아요 이미지"
+                                                            class="icon sprite-icons social-like-gray-sm"><span
+                                                            class="like_count">61</span></span>
+                                                </div>
+                                                <p class="text_box">올블랙 키링 포인트🖤
+                                                    #결산템챌린지 #스타일챌린지 #버켄스탁클로그 #에어팟맥스실버 #에어팟맥스코디</p><!---->
+                                            </div>
+                                        </div>
+
+                                    </a></div>
+                                <div class="feed_card item square" style="position: absolute; left: 0px; top: 797px;"><a
+                                        href="#">
+                                        <div class="card_box">
+                                            <div class="social_img_box square">
+                                                <picture class="picture social_img">
+                                                    <source type="image/webp"
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMzBfMTM2/MDAxNjcyNDA5NjQ1MDE5.eV6k5t09bKuL9Qhn4QbOfAJnPurHKCIeyZzjcKSZ3Gcg.tKN5_6lZopJURl15K_g9ZCj8CF0oQNiGCmLM1MGWF-Ig.JPEG/p_e9a35ec8d5fb4667b59403d44c67c7a4.jpeg?type=m_webp">
+                                                    <source
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMzBfMTM2/MDAxNjcyNDA5NjQ1MDE5.eV6k5t09bKuL9Qhn4QbOfAJnPurHKCIeyZzjcKSZ3Gcg.tKN5_6lZopJURl15K_g9ZCj8CF0oQNiGCmLM1MGWF-Ig.JPEG/p_e9a35ec8d5fb4667b59403d44c67c7a4.jpeg?type=m">
+                                                    <img alt="소셜이미지"
+                                                        src="https://kream-phinf.pstatic.net/MjAyMjEyMzBfMTM2/MDAxNjcyNDA5NjQ1MDE5.eV6k5t09bKuL9Qhn4QbOfAJnPurHKCIeyZzjcKSZ3Gcg.tKN5_6lZopJURl15K_g9ZCj8CF0oQNiGCmLM1MGWF-Ig.JPEG/p_e9a35ec8d5fb4667b59403d44c67c7a4.jpeg?type=m"
+                                                        loading="auto" class="image">
+                                                </picture>
+                                            </div>
+                                            <div class="card_detail">
+                                                <div class="user_box">
+                                                    <picture class="picture img_profile">
+                                                        <source type="image/webp"
+                                                            srcset="https://kream-phinf.pstatic.net/MjAyMjA0MjlfMjg3/MDAxNjUxMTg1NjUyMjk0.nwB6qXdvhtomvFXb99l6LPWMPeOAwX57iLnp8RmH0vEg.OepwwvxJEnr8jWZcuz4OtkJc3ydcUmCLFumAFGTVcKEg.JPEG/p_2843a4f460314570a55f055f3c1edebc.jpeg?type=s_webp">
+                                                        <source
+                                                            srcset="https://kream-phinf.pstatic.net/MjAyMjA0MjlfMjg3/MDAxNjUxMTg1NjUyMjk0.nwB6qXdvhtomvFXb99l6LPWMPeOAwX57iLnp8RmH0vEg.OepwwvxJEnr8jWZcuz4OtkJc3ydcUmCLFumAFGTVcKEg.JPEG/p_2843a4f460314570a55f055f3c1edebc.jpeg?type=s">
+                                                        <img alt="사용자 프로필 이미지"
+                                                            src="https://kream-phinf.pstatic.net/MjAyMjA0MjlfMjg3/MDAxNjUxMTg1NjUyMjk0.nwB6qXdvhtomvFXb99l6LPWMPeOAwX57iLnp8RmH0vEg.OepwwvxJEnr8jWZcuz4OtkJc3ydcUmCLFumAFGTVcKEg.JPEG/p_2843a4f460314570a55f055f3c1edebc.jpeg?type=s"
+                                                            loading="auto" class="image">
+                                                    </picture>
+                                                    <p class="user_name">king_pig</p><span aria-label="좋아요"
+                                                        role="button" class="btn like">
+                                                        <img src="../../img/styleImg/like_icon.png" alt="좋아요 이미지"
+                                                            class="icon sprite-icons social-like-gray-sm"><span
+                                                            class="like_count">23</span></span>
+                                                </div>
+                                                <p class="text_box">깡시골청년(feat.시고르자브댕댕쓰)
+                                                    .
+                                                    .
+                                                    .
+                                                    .
+                                                    .
+                                                    .
+                                                    #daliy#joradan1#supreme#applewatchultra
+                                                    #appleairpodsmax#nike#apple#daliylook</p><!---->
+                                            </div>
+                                        </div><!---->
+                                    </a></div>
+                                <div class="feed_card item square" style="position: absolute; left: 307px; top: 863px;">
+                                    <a href="#">
+                                        <div class="card_box">
+                                            <div class="social_img_box square">
+                                                <picture class="picture social_img">
+                                                    <source type="image/webp"
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMzBfNTMg/MDAxNjcyNDA1MjM0MDI0.1npMwreob5HF-qIPPrLC9kI7Vi1z5HQrBCjxVZ6LFuEg.5HizP2LyzsBiNUoZPs50FXS91EgS4N3UHaNABF0x448g.JPEG/p_a828426dcbb24ca592722a7e90404001.jpeg?type=m_webp">
+                                                    <source
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMzBfNTMg/MDAxNjcyNDA1MjM0MDI0.1npMwreob5HF-qIPPrLC9kI7Vi1z5HQrBCjxVZ6LFuEg.5HizP2LyzsBiNUoZPs50FXS91EgS4N3UHaNABF0x448g.JPEG/p_a828426dcbb24ca592722a7e90404001.jpeg?type=m">
+                                                    <img alt="소셜이미지"
+                                                        src="https://kream-phinf.pstatic.net/MjAyMjEyMzBfNTMg/MDAxNjcyNDA1MjM0MDI0.1npMwreob5HF-qIPPrLC9kI7Vi1z5HQrBCjxVZ6LFuEg.5HizP2LyzsBiNUoZPs50FXS91EgS4N3UHaNABF0x448g.JPEG/p_a828426dcbb24ca592722a7e90404001.jpeg?type=m"
+                                                        loading="auto" class="image">
+                                                </picture>
+                                            </div>
+                                            <div class="card_detail">
+                                                <div class="user_box">
+                                                    <picture class="picture img_profile">
+                                                        <source type="image/webp"
+                                                            srcset="https://kream-phinf.pstatic.net/MjAyMTAyMTlfNjYg/MDAxNjEzNzAyNjQ5MTAx.j-KJ29rFeFbC-WzWjTi_I8A9YZVPwAUj-UtXolAq5Isg.Xadnqki5Y0qP714naRpJgQGUUZ6VdEqm5t6TXgkcSbog.JPEG/p_e68a274f3a8e40fea24be391906500f5.jpeg?type=s_webp">
+                                                        <source
+                                                            srcset="https://kream-phinf.pstatic.net/MjAyMTAyMTlfNjYg/MDAxNjEzNzAyNjQ5MTAx.j-KJ29rFeFbC-WzWjTi_I8A9YZVPwAUj-UtXolAq5Isg.Xadnqki5Y0qP714naRpJgQGUUZ6VdEqm5t6TXgkcSbog.JPEG/p_e68a274f3a8e40fea24be391906500f5.jpeg?type=s">
+                                                        <img alt="사용자 프로필 이미지"
+                                                            src="https://kream-phinf.pstatic.net/MjAyMTAyMTlfNjYg/MDAxNjEzNzAyNjQ5MTAx.j-KJ29rFeFbC-WzWjTi_I8A9YZVPwAUj-UtXolAq5Isg.Xadnqki5Y0qP714naRpJgQGUUZ6VdEqm5t6TXgkcSbog.JPEG/p_e68a274f3a8e40fea24be391906500f5.jpeg?type=s"
+                                                            loading="auto" class="image">
+                                                    </picture>
+                                                    <p class="user_name">hw_0827</p><span aria-label="좋아요" role="button"
+                                                        class="btn like">
+                                                        <img src="../../img/styleImg/like_icon.png" alt="좋아요 이미지"
+                                                            class="icon sprite-icons social-like-gray-sm"><span
+                                                            class="like_count">43</span></span>
+                                                </div>
+                                                <p class="text_box">내년에도 잘 부탁해요🫶
+
+                                                    #결산템챌린지 #오뭐신 #스트릿</p><!---->
+                                            </div>
+                                        </div><!---->
+                                    </a></div>
+                                <div class="feed_card item square" style="position: absolute; left: 614px; top: 960px;">
+                                    <a href="#">
+                                        <div class="card_box">
+                                            <div class="social_img_box square">
+                                                <picture class="picture social_img">
+                                                    <source type="image/webp"
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMzBfOTkg/MDAxNjcyNDAzMDY5MDcx.vUPmSM59FGDQQE01-EzTT6j99sqWctY4pSJVpA17-14g.eu7X9mUC0I-UaCPOE-E6xB7sykQj6uAmWal104rUyhcg.JPEG/p_0fecb0f913194d8980da005e8349fb46.jpg?type=m_webp">
+                                                    <source
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMzBfOTkg/MDAxNjcyNDAzMDY5MDcx.vUPmSM59FGDQQE01-EzTT6j99sqWctY4pSJVpA17-14g.eu7X9mUC0I-UaCPOE-E6xB7sykQj6uAmWal104rUyhcg.JPEG/p_0fecb0f913194d8980da005e8349fb46.jpg?type=m">
+                                                    <img alt="소셜이미지"
+                                                        src="https://kream-phinf.pstatic.net/MjAyMjEyMzBfOTkg/MDAxNjcyNDAzMDY5MDcx.vUPmSM59FGDQQE01-EzTT6j99sqWctY4pSJVpA17-14g.eu7X9mUC0I-UaCPOE-E6xB7sykQj6uAmWal104rUyhcg.JPEG/p_0fecb0f913194d8980da005e8349fb46.jpg?type=m"
+                                                        loading="auto" class="image">
+                                                </picture>
+                                            </div>
+                                            <div class="card_detail">
+                                                <div class="user_box">
+                                                    <picture class="picture img_profile">
+                                                        <source type="image/webp"
+                                                            srcset="/images/account_img_default.png?type=s_webp">
+                                                        <source srcset="/images/account_img_default.png?type=s"><img
+                                                            alt="사용자 프로필 이미지"
+                                                            src="/images/account_img_default.png?type=s" loading="auto"
+                                                            class="image">
+                                                    </picture>
+                                                    <p class="user_name">yh0624</p><span aria-label="좋아요" role="button"
+                                                        class="btn like">
+                                                        <img src="../../img/styleImg/like_icon.png" alt="좋아요 이미지"
+                                                            class="icon sprite-icons social-like-gray-sm"><span
+                                                            class="like_count">22</span></span>
+                                                </div>
+                                                <p class="text_box">#나만의에어팟맥스 #내귀는소중해🤩</p><!---->
+                                            </div>
+                                        </div><!---->
+                                    </a></div>
+                                <div class="feed_card item vertical"
+                                    style="position: absolute; left: 921px; top: 843px;"><a href="#">
+                                        <div class="card_box">
+                                            <div class="social_img_box vertical">
+                                                <picture class="picture social_img">
+                                                    <source type="image/webp"
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMzBfNDUg/MDAxNjcyNDAyNjU1MzQy.vRY0yHbWQAAhyeFjxvN9a3ZEF3TEJsBBc8jSViBIJ4Ag._rBXsVeC5pEuDPJ-_Tf7Ge0hFTjoXAChwhEf_SUGhv4g.JPEG/p_20bbd9d1883a4791943ebd9a8ba19ecb.jpeg?type=m_webp">
+                                                    <source
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMzBfNDUg/MDAxNjcyNDAyNjU1MzQy.vRY0yHbWQAAhyeFjxvN9a3ZEF3TEJsBBc8jSViBIJ4Ag._rBXsVeC5pEuDPJ-_Tf7Ge0hFTjoXAChwhEf_SUGhv4g.JPEG/p_20bbd9d1883a4791943ebd9a8ba19ecb.jpeg?type=m">
+                                                    <img alt="소셜이미지"
+                                                        src="https://kream-phinf.pstatic.net/MjAyMjEyMzBfNDUg/MDAxNjcyNDAyNjU1MzQy.vRY0yHbWQAAhyeFjxvN9a3ZEF3TEJsBBc8jSViBIJ4Ag._rBXsVeC5pEuDPJ-_Tf7Ge0hFTjoXAChwhEf_SUGhv4g.JPEG/p_20bbd9d1883a4791943ebd9a8ba19ecb.jpeg?type=m"
+                                                        loading="auto" class="image">
+                                                </picture>
+                                            </div>
+                                            <div class="card_detail">
+                                                <div class="user_box">
+                                                    <picture class="picture img_profile">
+                                                        <source type="image/webp"
+                                                            srcset="https://kream-phinf.pstatic.net/MjAyMjEwMjJfMTg5/MDAxNjY2NDMzNjkwNTA1.Z23jlb46JsBwdtCZ70CSoyshosK-PBG0yi1vV3fBuCog.z5r58PCD4Wo4JFXulE9G72qaEIR2ugte0YRPuR80f9Qg.JPEG/p_ce126ac34d8a4e5796705ac8157dd036.jpeg?type=s_webp">
+                                                        <source
+                                                            srcset="https://kream-phinf.pstatic.net/MjAyMjEwMjJfMTg5/MDAxNjY2NDMzNjkwNTA1.Z23jlb46JsBwdtCZ70CSoyshosK-PBG0yi1vV3fBuCog.z5r58PCD4Wo4JFXulE9G72qaEIR2ugte0YRPuR80f9Qg.JPEG/p_ce126ac34d8a4e5796705ac8157dd036.jpeg?type=s">
+                                                        <img alt="사용자 프로필 이미지"
+                                                            src="https://kream-phinf.pstatic.net/MjAyMjEwMjJfMTg5/MDAxNjY2NDMzNjkwNTA1.Z23jlb46JsBwdtCZ70CSoyshosK-PBG0yi1vV3fBuCog.z5r58PCD4Wo4JFXulE9G72qaEIR2ugte0YRPuR80f9Qg.JPEG/p_ce126ac34d8a4e5796705ac8157dd036.jpeg?type=s"
+                                                            loading="auto" class="image">
+                                                    </picture>
+                                                    <p class="user_name">fait__lux</p><span aria-label="좋아요"
+                                                        role="button" class="btn like">
+                                                        <img src="../../img/styleImg/like_icon.png" alt="좋아요 이미지"
+                                                            class="icon sprite-icons social-like-gray-sm"><span
+                                                            class="like_count">43</span></span>
+                                                </div>
+                                                <p class="text_box">Ditto✨🎄
+
+
+
+                                                    #결산템챌린지 #KREAM챌린지 #ootd #KREAM스타일 #balenciaga #Acnestudios</p>
+                                                <!---->
+                                            </div>
+                                        </div><!---->
+                                    </a></div>
+                                <div class="feed_card item vertical"
+                                    style="position: absolute; left: 0px; top: 1202px;"><a href="#">
+                                        <div class="card_box">
+                                            <div class="social_img_box vertical">
+                                                <picture class="picture social_img">
+                                                    <source type="image/webp"
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMzBfMTQx/MDAxNjcyMzkwMDEwNzIx.FyK-YNj8NIP6l0UjpW_m-5XrXiRo9MHEagBlEqDRRzEg.gSuMdf4hMhgcN6n6alnrDb1fGTVag_8NbxfZY0cWMGQg.JPEG/p_bc508bcbde304af98d64cbfb10f78ef5.jpeg?type=m_webp">
+                                                    <source
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMzBfMTQx/MDAxNjcyMzkwMDEwNzIx.FyK-YNj8NIP6l0UjpW_m-5XrXiRo9MHEagBlEqDRRzEg.gSuMdf4hMhgcN6n6alnrDb1fGTVag_8NbxfZY0cWMGQg.JPEG/p_bc508bcbde304af98d64cbfb10f78ef5.jpeg?type=m">
+                                                    <img alt="소셜이미지"
+                                                        src="https://kream-phinf.pstatic.net/MjAyMjEyMzBfMTQx/MDAxNjcyMzkwMDEwNzIx.FyK-YNj8NIP6l0UjpW_m-5XrXiRo9MHEagBlEqDRRzEg.gSuMdf4hMhgcN6n6alnrDb1fGTVag_8NbxfZY0cWMGQg.JPEG/p_bc508bcbde304af98d64cbfb10f78ef5.jpeg?type=m"
+                                                        loading="auto" class="image">
+                                                </picture>
+                                            </div>
+                                            <div class="card_detail">
+                                                <div class="user_box">
+                                                    <picture class="picture img_profile">
+                                                        <source type="image/webp"
+                                                            srcset="https://kream-phinf.pstatic.net/MjAyMjEwMDlfMjI4/MDAxNjY1MzE1NjE4MjI4.Syu6t66ganzkSmyBF_oWLsn0OuC1nWJHlJeL9OVfv0gg.JxI7GYJnw-b0vASUm_kmF3QbEZSbsh4X1kWLkbjjncQg.JPEG/p_139ad8edff164e928f55512106c7ad0d.jpeg?type=s_webp">
+                                                        <source
+                                                            srcset="https://kream-phinf.pstatic.net/MjAyMjEwMDlfMjI4/MDAxNjY1MzE1NjE4MjI4.Syu6t66ganzkSmyBF_oWLsn0OuC1nWJHlJeL9OVfv0gg.JxI7GYJnw-b0vASUm_kmF3QbEZSbsh4X1kWLkbjjncQg.JPEG/p_139ad8edff164e928f55512106c7ad0d.jpeg?type=s">
+                                                        <img alt="사용자 프로필 이미지"
+                                                            src="https://kream-phinf.pstatic.net/MjAyMjEwMDlfMjI4/MDAxNjY1MzE1NjE4MjI4.Syu6t66ganzkSmyBF_oWLsn0OuC1nWJHlJeL9OVfv0gg.JxI7GYJnw-b0vASUm_kmF3QbEZSbsh4X1kWLkbjjncQg.JPEG/p_139ad8edff164e928f55512106c7ad0d.jpeg?type=s"
+                                                            loading="auto" class="image">
+                                                    </picture>
+                                                    <p class="user_name">n4eklk</p><span aria-label="좋아요" role="button"
+                                                        class="btn like">
+                                                        <img src="../../img/styleImg/like_icon.png" alt="좋아요 이미지"
+                                                            class="icon sprite-icons social-like-gray-sm"><span
+                                                            class="like_count">106</span></span>
+                                                </div>
+                                                <p class="text_box">#결산템챌린지</p><!---->
+                                            </div>
+                                        </div><!---->
+                                    </a></div>
+                                <div class="feed_card item vertical"
+                                    style="position: absolute; left: 307px; top: 1268px;"><a href="#">
+                                        <div class="card_box">
+                                            <div class="social_img_box vertical">
+                                                <picture class="picture social_img">
+                                                    <source type="image/webp"
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMzBfMTMz/MDAxNjcyMzc4NDAxNDIz.HJA1MD00PVPBE32Tb3x_V1xBKj88A684fojRDlEqaaog.6EMe3UaqJk8uYZNX8KdQx-7Fi4NBJ5j-KV9-hCUPVHMg.JPEG/p_9ee906919a9f477b9a78531fbee5fea5.jpeg?type=m_webp">
+                                                    <source
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMzBfMTMz/MDAxNjcyMzc4NDAxNDIz.HJA1MD00PVPBE32Tb3x_V1xBKj88A684fojRDlEqaaog.6EMe3UaqJk8uYZNX8KdQx-7Fi4NBJ5j-KV9-hCUPVHMg.JPEG/p_9ee906919a9f477b9a78531fbee5fea5.jpeg?type=m">
+                                                    <img alt="소셜이미지"
+                                                        src="https://kream-phinf.pstatic.net/MjAyMjEyMzBfMTMz/MDAxNjcyMzc4NDAxNDIz.HJA1MD00PVPBE32Tb3x_V1xBKj88A684fojRDlEqaaog.6EMe3UaqJk8uYZNX8KdQx-7Fi4NBJ5j-KV9-hCUPVHMg.JPEG/p_9ee906919a9f477b9a78531fbee5fea5.jpeg?type=m"
+                                                        loading="auto" class="image">
+                                                </picture>
+                                            </div>
+                                            <div class="card_detail">
+                                                <div class="user_box">
+                                                    <picture class="picture img_profile">
+                                                        <source type="image/webp"
+                                                            srcset="/images/account_img_default.png?type=s_webp">
+                                                        <source srcset="/images/account_img_default.png?type=s"><img
+                                                            alt="사용자 프로필 이미지"
+                                                            src="/images/account_img_default.png?type=s" loading="auto"
+                                                            class="image">
+                                                    </picture>
+                                                    <p class="user_name">sub2_93</p><span aria-label="좋아요" role="button"
+                                                        class="btn like">
+                                                        <img src="../../img/styleImg/like_icon.png" alt="좋아요 이미지"
+                                                            class="icon sprite-icons social-like-gray-sm"><span
+                                                            class="like_count">28</span></span>
+                                                </div>
+                                                <p class="text_box">끔끔불끔</p><!---->
+                                            </div>
+                                        </div>
+
+                                    </a></div>
+                                <div class="feed_card item vertical"
+                                    style="position: absolute; left: 614px; top: 1345px;"><a href="#">
+                                        <div class="card_box">
+                                            <div class="social_img_box vertical">
+                                                <picture class="picture social_img">
+                                                    <source type="image/webp"
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMzBfMjQx/MDAxNjcyMzc0OTkxODg5.2mfyQsOzjoiSX8YHZfdJNzhh892ZIVKjPQf8o0cjsWQg.GuCE-CbC6zcWxgI3HhBSHMFzz84A-wd3sVxDz2dkVGwg.JPEG/p_8695f4147ece4f41b8e35beecf1c0524.jpeg?type=m_webp">
+                                                    <source
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMzBfMjQx/MDAxNjcyMzc0OTkxODg5.2mfyQsOzjoiSX8YHZfdJNzhh892ZIVKjPQf8o0cjsWQg.GuCE-CbC6zcWxgI3HhBSHMFzz84A-wd3sVxDz2dkVGwg.JPEG/p_8695f4147ece4f41b8e35beecf1c0524.jpeg?type=m">
+                                                    <img alt="소셜이미지"
+                                                        src="https://kream-phinf.pstatic.net/MjAyMjEyMzBfMjQx/MDAxNjcyMzc0OTkxODg5.2mfyQsOzjoiSX8YHZfdJNzhh892ZIVKjPQf8o0cjsWQg.GuCE-CbC6zcWxgI3HhBSHMFzz84A-wd3sVxDz2dkVGwg.JPEG/p_8695f4147ece4f41b8e35beecf1c0524.jpeg?type=m"
+                                                        loading="auto" class="image">
+                                                </picture>
+                                            </div>
+                                            <div class="card_detail">
+                                                <div class="user_box">
+                                                    <picture class="picture img_profile">
+                                                        <source type="image/webp"
+                                                            srcset="https://kream-phinf.pstatic.net/MjAyMjEyMzFfODcg/MDAxNjcyNDc1Mzg0ODA2.flr-cvM8qjUCXj4iOBEEFmHzM-UqM2SKtAr4MDGr3uQg.BZn1bbKJkkKeIP0N5CEY49uReqcCmNyZ9igjrYTGTqYg.JPEG/p_d6348c0a444e45f79ffe16dc564c69cd.jpeg?type=s_webp">
+                                                        <source
+                                                            srcset="https://kream-phinf.pstatic.net/MjAyMjEyMzFfODcg/MDAxNjcyNDc1Mzg0ODA2.flr-cvM8qjUCXj4iOBEEFmHzM-UqM2SKtAr4MDGr3uQg.BZn1bbKJkkKeIP0N5CEY49uReqcCmNyZ9igjrYTGTqYg.JPEG/p_d6348c0a444e45f79ffe16dc564c69cd.jpeg?type=s">
+                                                        <img alt="사용자 프로필 이미지"
+                                                            src="https://kream-phinf.pstatic.net/MjAyMjEyMzFfODcg/MDAxNjcyNDc1Mzg0ODA2.flr-cvM8qjUCXj4iOBEEFmHzM-UqM2SKtAr4MDGr3uQg.BZn1bbKJkkKeIP0N5CEY49uReqcCmNyZ9igjrYTGTqYg.JPEG/p_d6348c0a444e45f79ffe16dc564c69cd.jpeg?type=s"
+                                                            loading="auto" class="image">
+                                                    </picture>
+                                                    <p class="user_name">amelia_v</p><span aria-label="좋아요"
+                                                        role="button" class="btn like">
+                                                        <img src="../../img/styleImg/like_icon.png" alt="좋아요 이미지"
+                                                            class="icon sprite-icons social-like-gray-sm"><span
+                                                            class="like_count">61</span></span>
+                                                </div>
+                                                <p class="text_box">#결산템챌린지 #연말잘보내세요
+                                                    #어그#어그클래식미니클리어
+                                                    #어그클래식미니클리어양털부츠
+                                                    #에어팟맥스실버 #에어팟맥스코디</p><!---->
+                                            </div>
+                                        </div>
+
+                                    </a></div>
+                                <div class="feed_card item square"
+                                    style="position: absolute; left: 921px; top: 1345px;"><a href="#">
+                                        <div class="card_box">
+                                            <div class="social_img_box square">
+                                                <picture class="picture social_img">
+                                                    <source type="image/webp"
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMzBfMTMx/MDAxNjcyMzczODM3MDY4.gfk0TfpXSuuhhrHV-JPMpLpTx-JNtKfHBzChA9Rkv9kg.SMFRzFEwgGXJC5xftogBQSgeZApipLJo_IgetagCcKQg.JPEG/p_e5afd6149e5a4ee0ad0702fcde6a34e3.jpeg?type=m_webp">
+                                                    <source
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMzBfMTMx/MDAxNjcyMzczODM3MDY4.gfk0TfpXSuuhhrHV-JPMpLpTx-JNtKfHBzChA9Rkv9kg.SMFRzFEwgGXJC5xftogBQSgeZApipLJo_IgetagCcKQg.JPEG/p_e5afd6149e5a4ee0ad0702fcde6a34e3.jpeg?type=m">
+                                                    <img alt="소셜이미지"
+                                                        src="https://kream-phinf.pstatic.net/MjAyMjEyMzBfMTMx/MDAxNjcyMzczODM3MDY4.gfk0TfpXSuuhhrHV-JPMpLpTx-JNtKfHBzChA9Rkv9kg.SMFRzFEwgGXJC5xftogBQSgeZApipLJo_IgetagCcKQg.JPEG/p_e5afd6149e5a4ee0ad0702fcde6a34e3.jpeg?type=m"
+                                                        loading="auto" class="image">
+                                                </picture>
+                                            </div>
+                                            <div class="card_detail">
+                                                <div class="user_box">
+                                                    <picture class="picture img_profile">
+                                                        <source type="image/webp"
+                                                            srcset="https://kream-phinf.pstatic.net/MjAyMjA1MDdfMTQ2/MDAxNjUxOTEwNTUwOTUx.9Nh2OpaVaZxpbuMvmKg9Ooq4WxoukPAHR7elNqvt1yYg.rge81Wy-dd6EHaBh8A1fIa_-1_K5jRPr5cU4mnPlMYEg.JPEG/p_d0990238285d44578a5e02b8665d8880.jpeg?type=s_webp">
+                                                        <source
+                                                            srcset="https://kream-phinf.pstatic.net/MjAyMjA1MDdfMTQ2/MDAxNjUxOTEwNTUwOTUx.9Nh2OpaVaZxpbuMvmKg9Ooq4WxoukPAHR7elNqvt1yYg.rge81Wy-dd6EHaBh8A1fIa_-1_K5jRPr5cU4mnPlMYEg.JPEG/p_d0990238285d44578a5e02b8665d8880.jpeg?type=s">
+                                                        <img alt="사용자 프로필 이미지"
+                                                            src="https://kream-phinf.pstatic.net/MjAyMjA1MDdfMTQ2/MDAxNjUxOTEwNTUwOTUx.9Nh2OpaVaZxpbuMvmKg9Ooq4WxoukPAHR7elNqvt1yYg.rge81Wy-dd6EHaBh8A1fIa_-1_K5jRPr5cU4mnPlMYEg.JPEG/p_d0990238285d44578a5e02b8665d8880.jpeg?type=s"
+                                                            loading="auto" class="image">
+                                                    </picture>
+                                                    <p class="user_name">ssesse</p><span aria-label="좋아요" role="button"
+                                                        class="btn like">
+                                                        <img src="../../img/styleImg/like_icon.png" alt="좋아요 이미지"
+                                                            class="icon sprite-icons social-like-gray-sm"><span
+                                                            class="like_count">24</span></span>
+                                                </div>
+                                                <p class="text_box">ㅎㅎㅎㅎㅎ#결산템챌린지 #에어팟맥스 #신남</p><!---->
+                                            </div>
+                                        </div>
+
+                                    </a></div>
+                                <div class="feed_card item square" style="position: absolute; left: 0px; top: 1684px;">
+                                    <a href="#">
+                                        <div class="card_box">
+                                            <div class="social_img_box square">
+                                                <picture class="picture social_img">
+                                                    <source type="image/webp"
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMzBfMjYx/MDAxNjcyMzM1MDExODY1.jcH3rKme0oAug8__HwXgW3KKoZBCbK29R5u9aY7qZdcg.dBqMTczaS6_ZGCymakc-FsCoqmRLzeAgYzBoVpZATeUg.JPEG/p_8382dee3d9de484c8740a1bf8ae6b4eb.jpeg?type=m_webp">
+                                                    <source
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMzBfMjYx/MDAxNjcyMzM1MDExODY1.jcH3rKme0oAug8__HwXgW3KKoZBCbK29R5u9aY7qZdcg.dBqMTczaS6_ZGCymakc-FsCoqmRLzeAgYzBoVpZATeUg.JPEG/p_8382dee3d9de484c8740a1bf8ae6b4eb.jpeg?type=m">
+                                                    <img alt="소셜이미지"
+                                                        src="https://kream-phinf.pstatic.net/MjAyMjEyMzBfMjYx/MDAxNjcyMzM1MDExODY1.jcH3rKme0oAug8__HwXgW3KKoZBCbK29R5u9aY7qZdcg.dBqMTczaS6_ZGCymakc-FsCoqmRLzeAgYzBoVpZATeUg.JPEG/p_8382dee3d9de484c8740a1bf8ae6b4eb.jpeg?type=m"
+                                                        loading="auto" class="image">
+                                                </picture>
+                                            </div>
+                                            <div class="card_detail">
+                                                <div class="user_box">
+                                                    <picture class="picture img_profile">
+                                                        <source type="image/webp"
+                                                            srcset="/images/account_img_default.png?type=s_webp">
+                                                        <source srcset="/images/account_img_default.png?type=s"><img
+                                                            alt="사용자 프로필 이미지"
+                                                            src="/images/account_img_default.png?type=s" loading="auto"
+                                                            class="image">
+                                                    </picture>
+                                                    <p class="user_name">sangwookingwangjjang</p><span aria-label="좋아요"
+                                                        role="button" class="btn like">
+                                                        <img src="../../img/styleImg/like_icon.png" alt="좋아요 이미지"
+                                                            class="icon sprite-icons social-like-gray-sm"><span
+                                                            class="like_count">32</span></span>
+                                                </div>
+                                                <p class="text_box">#아워레가시 #크림스타일 #크림챌린지 #리버스모카</p>
+                                                <!---->
+                                            </div>
+                                        </div><!---->
+                                    </a></div>
+                                <div class="feed_card item vertical"
+                                    style="position: absolute; left: 307px; top: 1750px;"><a href="#">
+                                        <div class="card_box">
+                                            <div class="social_img_box vertical">
+                                                <picture class="picture social_img">
+                                                    <source type="image/webp"
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjlfNzIg/MDAxNjcyMjk4MTE0OTU4.Yut6rj2zi9IMYCRzlhoekHTmiK-8qS1XMdA4jyy891wg.3XmZdwDDXEvxv7AYNh4wnwcTzajP8pMyIbYrLLCAUXIg.JPEG/p_1e0c7fdacf574e7f9444834c73fe2ff1.jpeg?type=m_webp">
+                                                    <source
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjlfNzIg/MDAxNjcyMjk4MTE0OTU4.Yut6rj2zi9IMYCRzlhoekHTmiK-8qS1XMdA4jyy891wg.3XmZdwDDXEvxv7AYNh4wnwcTzajP8pMyIbYrLLCAUXIg.JPEG/p_1e0c7fdacf574e7f9444834c73fe2ff1.jpeg?type=m">
+                                                    <img alt="소셜이미지"
+                                                        src="https://kream-phinf.pstatic.net/MjAyMjEyMjlfNzIg/MDAxNjcyMjk4MTE0OTU4.Yut6rj2zi9IMYCRzlhoekHTmiK-8qS1XMdA4jyy891wg.3XmZdwDDXEvxv7AYNh4wnwcTzajP8pMyIbYrLLCAUXIg.JPEG/p_1e0c7fdacf574e7f9444834c73fe2ff1.jpeg?type=m"
+                                                        loading="auto" class="image">
+                                                </picture>
+                                            </div>
+                                            <div class="card_detail">
+                                                <div class="user_box">
+                                                    <picture class="picture img_profile">
+                                                        <source type="image/webp"
+                                                            srcset="https://kream-phinf.pstatic.net/MjAyMTA2MDVfMjIx/MDAxNjIyODk4MDg5Mzc3.AswlLgdsszwjhvsfkO7UZ4AQuAsClgJE_vAY7W6pvcsg.NnMrpGmDhYGyHkw1dKqcOvOh7a_qj9uEK0SLacZmMzgg.JPEG/p_be0e84a1ed5842019ca7e23fedaaf5be.jpeg?type=s_webp">
+                                                        <source
+                                                            srcset="https://kream-phinf.pstatic.net/MjAyMTA2MDVfMjIx/MDAxNjIyODk4MDg5Mzc3.AswlLgdsszwjhvsfkO7UZ4AQuAsClgJE_vAY7W6pvcsg.NnMrpGmDhYGyHkw1dKqcOvOh7a_qj9uEK0SLacZmMzgg.JPEG/p_be0e84a1ed5842019ca7e23fedaaf5be.jpeg?type=s">
+                                                        <img alt="사용자 프로필 이미지"
+                                                            src="https://kream-phinf.pstatic.net/MjAyMTA2MDVfMjIx/MDAxNjIyODk4MDg5Mzc3.AswlLgdsszwjhvsfkO7UZ4AQuAsClgJE_vAY7W6pvcsg.NnMrpGmDhYGyHkw1dKqcOvOh7a_qj9uEK0SLacZmMzgg.JPEG/p_be0e84a1ed5842019ca7e23fedaaf5be.jpeg?type=s"
+                                                            loading="auto" class="image">
+                                                    </picture>
+                                                    <p class="user_name">1week7outfits</p><span aria-label="좋아요"
+                                                        role="button" class="btn like">
+                                                        <img src="../../img/styleImg/like_icon.png" alt="좋아요 이미지"
+                                                            class="icon sprite-icons social-like-gray-sm"><span
+                                                            class="like_count">100</span></span>
+                                                </div>
+                                                <p class="text_box">맥스와 잘어울리는 노스페이스 🥷
+                                                    #크림챌린지 #크림데일리 #크림스타일 #KREAM챌린지 #KREAM스타일 #kream데일리</p><!---->
+                                            </div>
+                                        </div>
+
+                                    </a></div>
+                                <div class="feed_card item square"
+                                    style="position: absolute; left: 614px; top: 1847px;"><a href="#">
+                                        <div class="card_box">
+                                            <div class="social_img_box square">
+                                                <picture class="picture social_img">
+                                                    <source type="image/webp"
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjlfOTIg/MDAxNjcyMjk2MTc0NzA4.LA9ayPkNTJAeYrAK8cBPYFp1bSK-D06jaCE6Dktg6dQg.GvNyZ1JqPsvpqeLlsSppfuYzlyNm0rzspOJSnRuEtGsg.JPEG/p_37b5f1c12ea4427da3cad9a9abd84ca1.jpeg?type=m_webp">
+                                                    <source
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjlfOTIg/MDAxNjcyMjk2MTc0NzA4.LA9ayPkNTJAeYrAK8cBPYFp1bSK-D06jaCE6Dktg6dQg.GvNyZ1JqPsvpqeLlsSppfuYzlyNm0rzspOJSnRuEtGsg.JPEG/p_37b5f1c12ea4427da3cad9a9abd84ca1.jpeg?type=m">
+                                                    <img alt="소셜이미지"
+                                                        src="https://kream-phinf.pstatic.net/MjAyMjEyMjlfOTIg/MDAxNjcyMjk2MTc0NzA4.LA9ayPkNTJAeYrAK8cBPYFp1bSK-D06jaCE6Dktg6dQg.GvNyZ1JqPsvpqeLlsSppfuYzlyNm0rzspOJSnRuEtGsg.JPEG/p_37b5f1c12ea4427da3cad9a9abd84ca1.jpeg?type=m"
+                                                        loading="auto" class="image">
+                                                </picture>
+                                            </div>
+                                            <div class="card_detail">
+                                                <div class="user_box">
+                                                    <picture class="picture img_profile">
+                                                        <source type="image/webp"
+                                                            srcset="https://kream-phinf.pstatic.net/MjAyMjA0MjBfMjQ4/MDAxNjUwNDE1NDIxNzA0._9HuerVMDNJETl3B4mzmKuQiAzLrj6yyCl7UEvATDBAg.34OC1YQ5F9oLPACeGvjCJfTOaMpW-Ertap5QnCAnTzog.JPEG/p_f3ab42bf22b540628c3593e59b23effd.jpeg?type=s_webp">
+                                                        <source
+                                                            srcset="https://kream-phinf.pstatic.net/MjAyMjA0MjBfMjQ4/MDAxNjUwNDE1NDIxNzA0._9HuerVMDNJETl3B4mzmKuQiAzLrj6yyCl7UEvATDBAg.34OC1YQ5F9oLPACeGvjCJfTOaMpW-Ertap5QnCAnTzog.JPEG/p_f3ab42bf22b540628c3593e59b23effd.jpeg?type=s">
+                                                        <img alt="사용자 프로필 이미지"
+                                                            src="https://kream-phinf.pstatic.net/MjAyMjA0MjBfMjQ4/MDAxNjUwNDE1NDIxNzA0._9HuerVMDNJETl3B4mzmKuQiAzLrj6yyCl7UEvATDBAg.34OC1YQ5F9oLPACeGvjCJfTOaMpW-Ertap5QnCAnTzog.JPEG/p_f3ab42bf22b540628c3593e59b23effd.jpeg?type=s"
+                                                            loading="auto" class="image">
+                                                    </picture>
+                                                    <p class="user_name">chaewon</p><span aria-label="좋아요" role="button"
+                                                        class="btn like">
+                                                        <img src="../../img/styleImg/like_icon.png" alt="좋아요 이미지"
+                                                            class="icon sprite-icons social-like-gray-sm"><span
+                                                            class="like_count">44</span></span>
+                                                </div>
+                                                <p class="text_box">🎧🎧🎧🎧🎧</p><!---->
+                                            </div>
+                                        </div>
+
+                                    </a></div>
+                                <div class="feed_card item square"
+                                    style="position: absolute; left: 921px; top: 1750px;"><a href="#">
+                                        <div class="card_box">
+                                            <div class="social_img_box square">
+                                                <picture class="picture social_img">
+                                                    <source type="image/webp"
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjlfMTQ3/MDAxNjcyMjk1OTc5NzA1.cnlU8gQqCqxHBEUE8ea27B6sw3OvfM4wbSjlKkzl-Iog.P9WsJqY-SmyEQNGCN8UKKnnDDyVP7nRKpYzVqkgUexkg.JPEG/p_1a737ad89e71445cbed383409e373746.jpeg?type=m_webp">
+                                                    <source
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjlfMTQ3/MDAxNjcyMjk1OTc5NzA1.cnlU8gQqCqxHBEUE8ea27B6sw3OvfM4wbSjlKkzl-Iog.P9WsJqY-SmyEQNGCN8UKKnnDDyVP7nRKpYzVqkgUexkg.JPEG/p_1a737ad89e71445cbed383409e373746.jpeg?type=m">
+                                                    <img alt="소셜이미지"
+                                                        src="https://kream-phinf.pstatic.net/MjAyMjEyMjlfMTQ3/MDAxNjcyMjk1OTc5NzA1.cnlU8gQqCqxHBEUE8ea27B6sw3OvfM4wbSjlKkzl-Iog.P9WsJqY-SmyEQNGCN8UKKnnDDyVP7nRKpYzVqkgUexkg.JPEG/p_1a737ad89e71445cbed383409e373746.jpeg?type=m"
+                                                        loading="auto" class="image">
+                                                </picture>
+                                            </div>
+                                            <div class="card_detail">
+                                                <div class="user_box">
+                                                    <picture class="picture img_profile">
+                                                        <source type="image/webp"
+                                                            srcset="https://kream-phinf.pstatic.net/MjAyMjA0MjBfMjQ4/MDAxNjUwNDE1NDIxNzA0._9HuerVMDNJETl3B4mzmKuQiAzLrj6yyCl7UEvATDBAg.34OC1YQ5F9oLPACeGvjCJfTOaMpW-Ertap5QnCAnTzog.JPEG/p_f3ab42bf22b540628c3593e59b23effd.jpeg?type=s_webp">
+                                                        <source
+                                                            srcset="https://kream-phinf.pstatic.net/MjAyMjA0MjBfMjQ4/MDAxNjUwNDE1NDIxNzA0._9HuerVMDNJETl3B4mzmKuQiAzLrj6yyCl7UEvATDBAg.34OC1YQ5F9oLPACeGvjCJfTOaMpW-Ertap5QnCAnTzog.JPEG/p_f3ab42bf22b540628c3593e59b23effd.jpeg?type=s">
+                                                        <img alt="사용자 프로필 이미지"
+                                                            src="https://kream-phinf.pstatic.net/MjAyMjA0MjBfMjQ4/MDAxNjUwNDE1NDIxNzA0._9HuerVMDNJETl3B4mzmKuQiAzLrj6yyCl7UEvATDBAg.34OC1YQ5F9oLPACeGvjCJfTOaMpW-Ertap5QnCAnTzog.JPEG/p_f3ab42bf22b540628c3593e59b23effd.jpeg?type=s"
+                                                            loading="auto" class="image">
+                                                    </picture>
+                                                    <p class="user_name">chaewon</p><span aria-label="좋아요" role="button"
+                                                        class="btn like">
+                                                        <img src="../../img/styleImg/like_icon.png" alt="좋아요 이미지"
+                                                            class="icon sprite-icons social-like-gray-sm"><span
+                                                            class="like_count">32</span></span>
+                                                </div>
+                                                <p class="text_box">🤍🎧🎧🎧🎧</p><!---->
+                                            </div>
+                                        </div><!---->
+                                    </a></div>
+
+                                <div class="feed_card item vertical"
+                                    style="position: absolute; left: 0px; top: 2089px;"><a href="#">
+                                        <div class="card_box">
+                                            <div class="social_img_box vertical">
+                                                <picture class="picture social_img">
+                                                    <source type="image/webp"
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjlfOTEg/MDAxNjcyMjgzMzY3MDYy.GEH7I2RKTa4F0QURclLFgiZ7_huply3fNxBBxmGLQZkg.lZHKB-qd0bwWrcnjqjkVJ3XH5l2lnuw_NlCU5gI65qwg.JPEG/p_6b23de8f93464bcdabc8f5dd0684af78.jpeg?type=m_webp">
+                                                    <source
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjlfOTEg/MDAxNjcyMjgzMzY3MDYy.GEH7I2RKTa4F0QURclLFgiZ7_huply3fNxBBxmGLQZkg.lZHKB-qd0bwWrcnjqjkVJ3XH5l2lnuw_NlCU5gI65qwg.JPEG/p_6b23de8f93464bcdabc8f5dd0684af78.jpeg?type=m">
+                                                    <img alt="소셜이미지"
+                                                        src="https://kream-phinf.pstatic.net/MjAyMjEyMjlfOTEg/MDAxNjcyMjgzMzY3MDYy.GEH7I2RKTa4F0QURclLFgiZ7_huply3fNxBBxmGLQZkg.lZHKB-qd0bwWrcnjqjkVJ3XH5l2lnuw_NlCU5gI65qwg.JPEG/p_6b23de8f93464bcdabc8f5dd0684af78.jpeg?type=m"
+                                                        loading="auto" class="image">
+                                                </picture>
+                                            </div>
+                                            <div class="card_detail">
+                                                <div class="user_box">
+                                                    <picture class="picture img_profile">
+                                                        <source type="image/webp"
+                                                            srcset="https://kream-phinf.pstatic.net/MjAyMjEyMzFfODcg/MDAxNjcyNDc1Mzg0ODA2.flr-cvM8qjUCXj4iOBEEFmHzM-UqM2SKtAr4MDGr3uQg.BZn1bbKJkkKeIP0N5CEY49uReqcCmNyZ9igjrYTGTqYg.JPEG/p_d6348c0a444e45f79ffe16dc564c69cd.jpeg?type=s_webp">
+                                                        <source
+                                                            srcset="https://kream-phinf.pstatic.net/MjAyMjEyMzFfODcg/MDAxNjcyNDc1Mzg0ODA2.flr-cvM8qjUCXj4iOBEEFmHzM-UqM2SKtAr4MDGr3uQg.BZn1bbKJkkKeIP0N5CEY49uReqcCmNyZ9igjrYTGTqYg.JPEG/p_d6348c0a444e45f79ffe16dc564c69cd.jpeg?type=s">
+                                                        <img alt="사용자 프로필 이미지"
+                                                            src="https://kream-phinf.pstatic.net/MjAyMjEyMzFfODcg/MDAxNjcyNDc1Mzg0ODA2.flr-cvM8qjUCXj4iOBEEFmHzM-UqM2SKtAr4MDGr3uQg.BZn1bbKJkkKeIP0N5CEY49uReqcCmNyZ9igjrYTGTqYg.JPEG/p_d6348c0a444e45f79ffe16dc564c69cd.jpeg?type=s"
+                                                            loading="auto" class="image">
+                                                    </picture>
+                                                    <p class="user_name">amelia_v</p><span aria-label="좋아요"
+                                                        role="button" class="btn like">
+                                                        <img src="../../img/styleImg/like_icon.png" alt="좋아요 이미지"
+                                                            class="icon sprite-icons social-like-gray-sm"><span
+                                                            class="like_count">57</span></span>
+                                                </div>
+                                                <p class="text_box">🎧❄️꽁꽁싸매⚪️⚫️🟣
+
+                                                    #크림스타일#샤넬#벨벳조거
+                                                    #에어팟맥스실버#에어팟맥스코디
+                                                    #샤넬부츠#겨울코디#겨울아우터</p><!---->
+                                            </div>
+                                        </div>
+
+                                    </a></div>
+                                <div class="feed_card item square"
+                                    style="position: absolute; left: 307px; top: 2252px;"><a href="#">
+                                        <div class="card_box">
+                                            <div class="social_img_box square">
+                                                <picture class="picture social_img">
+                                                    <source type="image/webp"
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjlfMjI1/MDAxNjcyMjUxNzA4NDQz.TTCjtl0nTaMSpxzkEh23_69rHpFyRch3p2tzJ4fYcp8g.pdMhsSe-wkNtp2tTUq56MtGprYMpeBlnhKVhm5pPPtYg.JPEG/p_4ed439c396674fd3af5eddafa5794909.jpeg?type=m_webp">
+                                                    <source
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjlfMjI1/MDAxNjcyMjUxNzA4NDQz.TTCjtl0nTaMSpxzkEh23_69rHpFyRch3p2tzJ4fYcp8g.pdMhsSe-wkNtp2tTUq56MtGprYMpeBlnhKVhm5pPPtYg.JPEG/p_4ed439c396674fd3af5eddafa5794909.jpeg?type=m">
+                                                    <img alt="소셜이미지"
+                                                        src="https://kream-phinf.pstatic.net/MjAyMjEyMjlfMjI1/MDAxNjcyMjUxNzA4NDQz.TTCjtl0nTaMSpxzkEh23_69rHpFyRch3p2tzJ4fYcp8g.pdMhsSe-wkNtp2tTUq56MtGprYMpeBlnhKVhm5pPPtYg.JPEG/p_4ed439c396674fd3af5eddafa5794909.jpeg?type=m"
+                                                        loading="auto" class="image">
+                                                </picture>
+                                            </div>
+                                            <div class="card_detail">
+                                                <div class="user_box">
+                                                    <picture class="picture img_profile">
+                                                        <source type="image/webp"
+                                                            srcset="/images/account_img_default.png?type=s_webp">
+                                                        <source srcset="/images/account_img_default.png?type=s"><img
+                                                            alt="사용자 프로필 이미지"
+                                                            src="/images/account_img_default.png?type=s" loading="auto"
+                                                            class="image">
+                                                    </picture>
+                                                    <p class="user_name">sangwookingwangjjang</p><span aria-label="좋아요"
+                                                        role="button" class="btn like">
+                                                        <img src="../../img/styleImg/like_icon.png" alt="좋아요 이미지"
+                                                            class="icon sprite-icons social-like-gray-sm"><span
+                                                            class="like_count">26</span></span>
+                                                </div>
+                                                <p class="text_box">#스투시 #크림스타일 #데일리룩</p><!---->
+                                            </div>
+                                        </div><!---->
+                                    </a></div>
+                                <div class="feed_card item square"
+                                    style="position: absolute; left: 614px; top: 2232px;"><a href="#">
+                                        <div class="card_box">
+                                            <div class="social_img_box square">
+                                                <picture class="picture social_img">
+                                                    <source type="image/webp"
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjhfNDYg/MDAxNjcyMTk3NDYzNjY0.DguU_dmUeiFxEKC8eptX9xa5-1_RSBUN2IDTFthsJicg.WdGMRAOXo_rG7ZHukB_efXeUehBOVjffGJ-jswiysVEg.JPEG/p_ba90c642eba34679914a98d3899199ec.jpeg?type=m_webp">
+                                                    <source
+                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjhfNDYg/MDAxNjcyMTk3NDYzNjY0.DguU_dmUeiFxEKC8eptX9xa5-1_RSBUN2IDTFthsJicg.WdGMRAOXo_rG7ZHukB_efXeUehBOVjffGJ-jswiysVEg.JPEG/p_ba90c642eba34679914a98d3899199ec.jpeg?type=m">
+                                                    <img alt="소셜이미지"
+                                                        src="https://kream-phinf.pstatic.net/MjAyMjEyMjhfNDYg/MDAxNjcyMTk3NDYzNjY0.DguU_dmUeiFxEKC8eptX9xa5-1_RSBUN2IDTFthsJicg.WdGMRAOXo_rG7ZHukB_efXeUehBOVjffGJ-jswiysVEg.JPEG/p_ba90c642eba34679914a98d3899199ec.jpeg?type=m"
+                                                        loading="auto" class="image">
+                                                </picture>
+                                            </div>
+                                            <div class="card_detail">
+                                                <div class="user_box">
+                                                    <picture class="picture img_profile">
+                                                        <source type="image/webp"
+                                                            srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjhfMjEy/MDAxNjcyMTk2OTc3MTU0.4KLdPLILTv8sNIPc-MQxd_Q1sSNCntOVmDU_A4IVNn0g.5oGv50bAEaYTd5-z4R4ddMK8fO_GdfpsI5tYch4JykYg.JPEG/p_1e4b4f9144574783a590d961ff244594.jpeg?type=s_webp">
+                                                        <source
+                                                            srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjhfMjEy/MDAxNjcyMTk2OTc3MTU0.4KLdPLILTv8sNIPc-MQxd_Q1sSNCntOVmDU_A4IVNn0g.5oGv50bAEaYTd5-z4R4ddMK8fO_GdfpsI5tYch4JykYg.JPEG/p_1e4b4f9144574783a590d961ff244594.jpeg?type=s">
+                                                        <img alt="사용자 프로필 이미지"
+                                                            src="https://kream-phinf.pstatic.net/MjAyMjEyMjhfMjEy/MDAxNjcyMTk2OTc3MTU0.4KLdPLILTv8sNIPc-MQxd_Q1sSNCntOVmDU_A4IVNn0g.5oGv50bAEaYTd5-z4R4ddMK8fO_GdfpsI5tYch4JykYg.JPEG/p_1e4b4f9144574783a590d961ff244594.jpeg?type=s"
+                                                            loading="auto" class="image">
+                                                    </picture>
+                                                    <p class="user_name">cheonbangjichook_wook</p><span aria-label="좋아요"
+                                                        role="button" class="btn like">
+                                                        <img src="../../img/styleImg/like_icon.png" alt="좋아요 이미지"
+                                                            class="icon sprite-icons social-like-gray-sm"><span
+                                                            class="like_count">33</span></span>
+                                                </div>
+                                                <p class="text_box">초록초록🐸🎄💚 #KREAM #스트릿패션 #캐주얼룩 #크리스마스
+                                                    #겨울코디 #캐트릿</p><!---->
+                                            </div>
+                                        </div><!---->
+                                    </a></div>
+
+                            </div>
+                        </div>
+                        <!-- 피드 끝 -->
+
+
+                    </div>
+                </div>
+                <!-- 컨테이너 끝 -->
+
+
+                <!-- 푸터 시작 -->
+                
+                <!-- 푸터 끝 -->
+            </div>
+        </div>
+
+    </div>
+
+    
+</body>
+
+</html>
+<script src="../../js/style/like.js"></script>
+    <script>
+        console.log(scrollY);
+    
+        addEventListener("scroll", e => {
+            console.log(window.scrollY);
+            const mini = document.getElementById('brand_scroll');
+            if(window.scrollY>0){
+                mini.setAttribute('style', 'display: flex;');
+            }else{
+                mini.setAttribute('style', 'display: none;');
+            }
+        })
+    </script>
