@@ -2537,19 +2537,6 @@ svg:not(:root) {
     cursor: pointer;
 }
 
-.layer_header .title {
-    line-height: 22px;
-    padding: 18px 50px 20px;
-    min-height: 60px;
-    font-size: 18px;
-    letter-spacing: -.27px;
-    font-weight: 700;
-    letter-spacing: -.15px;
-    color: #000;
-    text-align: center;
-    background-color: #fff;
-}
-
 .layer_interest .suggest_list {
     padding: 0 32px;
 }
@@ -2695,7 +2682,7 @@ svg:not(:root) {
 }
 
 /* 체결 내역 더보기 */
-/* .layer {
+.layer {
     position: fixed;
     top: 0;
     left: 0;
@@ -2841,7 +2828,7 @@ svg:not(:root) {
     padding-top: 8px;
 }
 
-.btn_size {
+.size_select_wrap .btn_size {
     padding: 0 5px 0 12px;
     height: 40px;
     border: 1px solid #ebebeb;
@@ -2860,6 +2847,7 @@ svg:not(:root) {
     margin-left: 12px;
     vertical-align: top;
 }
+
 .layer_market_price .layer_size_list.lg, .layer_market_price .layer_size_list.md {
     position: fixed;
     top: 0;
@@ -2868,16 +2856,19 @@ svg:not(:root) {
     bottom: 0;
     background-color: transparent;
 }
-.lg .size_select_wrap .layer_size_list, .md .size_select_wrap .layer_size_list {
+
+/* .lg .size_select_wrap .layer_size_list, .md .size_select_wrap .layer_size_list {
     top: 48px;
     left: 0;
     right: auto;
     bottom: auto;
-}
+} */
+
 .layer_sales_types.lg, .layer_sales_types.md, .layer_size_list.lg, .layer_size_list.md {
     position: absolute;
     background-color: #fff;
 }
+
 .layer_market_price .layer_size_list.lg .layer_container, .layer_market_price .layer_size_list.md .layer_container {
     position: relative;
     top: 145px;
@@ -2905,7 +2896,7 @@ svg:not(:root) {
     top: 18px;
     right: 20px;
     cursor: pointer;
-} */
+}
 
 
 

@@ -18,7 +18,7 @@
         
         <link rel="stylesheet" href="../css/product.css">
 
-        <link rel="stylesheet" href="../css/fragment/footer.css">
+        <!-- <link rel="stylesheet" href="../css/fragment/footer.css"> -->
     </head>
     <body>
         <div id="__nuxt">
@@ -586,7 +586,7 @@
                                                                     </tbody>
                                                                 </table>
                                                             </div>
-                                                            <a class="btn outlinegrey full medium" style="color: rgba(34,34,34,.8);">체결 내역 더보기</a>
+                                                            <a class="btn outlinegrey full medium" style="color: rgba(34,34,34,.8);" onclick="conPopup()">체결 내역 더보기</a>
                                                         </div>
                                                         <div id="panel2" role="tabpanel" span="asks" class="tab_content">
                                                             <div class="table_wrap lg">
@@ -845,7 +845,115 @@
                                         <!-- 구매전 확인사항 끝 -->
 
                                         <!-- 체결 내역 더보기 시작 -->
-                                        
+                                        <div class="layer_market_price layer lg" style="display: none;">
+                                            <div class="layer_container">
+                                                <a class="btn_layer_close" onclick="conPopdown()">
+                                                    <img src="../img/close.png" class="ico-close icon sprite-icons"></img>
+                                                </a>
+                                                <div class="layer_header">
+                                                    <h2 class="title">시세</h2>
+                                                </div>
+                                                <div class="layer_content">
+                                                    <div class="buy_product">
+                                                        <div class="product" style="background-color: rgb(235, 240, 245);">
+                                                            <picture class="picture product_img">
+                                                                <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMTA4MDZfMjY0/MDAxNjI4MjM5NTA1MjU1.9FfkTXbxZFWKxDMdPayVFlD0GIyNT-mFVIQ7zZW3SPcg.c03UoCFjKXtP4XtNMgBdrmTOIQlqxrePk4JScV4GUHEg.PNG/p_8001cbaf0db042bda09fea320ee328b4.png?type=l_webp">
+                                                                <source srcset="https://kream-phinf.pstatic.net/MjAyMTA4MDZfMjY0/MDAxNjI4MjM5NTA1MjU1.9FfkTXbxZFWKxDMdPayVFlD0GIyNT-mFVIQ7zZW3SPcg.c03UoCFjKXtP4XtNMgBdrmTOIQlqxrePk4JScV4GUHEg.PNG/p_8001cbaf0db042bda09fea320ee328b4.png?type=l">
+                                                                <img alt="상품 이미지" src="https://kream-phinf.pstatic.net/MjAyMTA4MDZfMjY0/MDAxNjI4MjM5NTA1MjU1.9FfkTXbxZFWKxDMdPayVFlD0GIyNT-mFVIQ7zZW3SPcg.c03UoCFjKXtP4XtNMgBdrmTOIQlqxrePk4JScV4GUHEg.PNG/p_8001cbaf0db042bda09fea320ee328b4.png?type=l" loading="lazy" class="image"></picture>
+                                                            <!---->
+                                                            <!---->
+                                                            <!---->
+                                                            <!---->
+                                                        </div>
+                                                        <div class="buy_info">
+                                                            <div class="model_info">
+                                                                <strong class="model_number">
+                                                                    <!---->
+                                                                    <span class="text"></span>
+                                                                </strong>
+                                                                <p class="model_title">Nike Dunk Low SE Seoul</p>
+                                                                <p class="model_ko">나이키 덩크 로우 SE 서울</p>
+                                                                <div class="size_select_wrap">
+                                                                    <button type="button" class="btn btn_size" slot="button">
+                                                                        <span class="size">모든 사이즈</span>
+                                                                        <img src="../img/select_icon.png" class="ico-arr-dir-down-circle icon sprite-icons"></img>
+                                                                    </button>
+                                                                    <div class="layer_size_list layer lg" style="display: none;">
+                                                                        <div class="layer_container">
+                                                                            <a class="btn_layer_close">
+                                                                                <svg xmlns="http://www.w3.org/2000/svg" class="ico-close icon sprite-icons">
+                                                                                    <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-close" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-close"></use>
+                                                                                </svg></a>
+                                                                            <div class="layer_header">
+                                                                                <h2 class="title">사이즈 선택</h2>
+                                                                            </div>
+                                                                            <div class="layer_content">
+                                                                                <ul class="size_list">
+                                                                                    <li class="size_item item_on"><a class="size_link"> 모든 사이즈 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
+                                                                                                <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
+                                                                                            </svg></a></li>
+                                                                                    <li class="size_item"><a class="size_link"> 240 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
+                                                                                                <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
+                                                                                            </svg></a></li>
+                                                                                    <li class="size_item"><a class="size_link"> 245 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
+                                                                                                <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
+                                                                                            </svg></a></li>
+                                                                                    <li class="size_item"><a class="size_link"> 250 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
+                                                                                                <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
+                                                                                            </svg></a></li>
+                                                                                    <li class="size_item"><a class="size_link"> 255 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
+                                                                                                <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
+                                                                                            </svg></a></li>
+                                                                                    <li class="size_item"><a class="size_link"> 260 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
+                                                                                                <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
+                                                                                            </svg></a></li>
+                                                                                    <li class="size_item"><a class="size_link"> 265 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
+                                                                                                <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
+                                                                                            </svg></a></li>
+                                                                                    <li class="size_item"><a class="size_link"> 270 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
+                                                                                                <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
+                                                                                            </svg></a></li>
+                                                                                    <li class="size_item"><a class="size_link"> 275 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
+                                                                                                <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
+                                                                                            </svg></a></li>
+                                                                                    <li class="size_item"><a class="size_link"> 280 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
+                                                                                                <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
+                                                                                            </svg></a></li>
+                                                                                    <li class="size_item"><a class="size_link"> 285 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
+                                                                                                <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
+                                                                                            </svg></a></li>
+                                                                                    <li class="size_item"><a class="size_link"> 290 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
+                                                                                                <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
+                                                                                            </svg></a></li>
+                                                                                    <li class="size_item"><a class="size_link"> 295 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
+                                                                                                <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
+                                                                                            </svg></a></li>
+                                                                                    <li class="size_item"><a class="size_link"> 300 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
+                                                                                                <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
+                                                                                            </svg></a></li>
+                                                                                    <li class="size_item"><a class="size_link"> 305 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
+                                                                                                <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
+                                                                                            </svg></a></li>
+                                                                                    <li class="size_item"><a class="size_link"> 310 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
+                                                                                                <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
+                                                                                            </svg></a></li>
+                                                                                    <li class="size_item"><a class="size_link"> 320 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
+                                                                                                <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
+                                                                                            </svg></a></li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!---->
+                                                    
+
+                                                </div>
+                                            </div>
+                                        </div>
                                         <!-- 체결 내역 더보기 끝 -->
 
                                         <!-- 스크롤시 상단 고정 시작 -->
