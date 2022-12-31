@@ -149,6 +149,9 @@ function close_address(){
 function pop_address(){
     document.querySelector('.layer_address').style.display="block"
 }
+
+// 주소 리스트중 하나 클릭시 레이어창 닫고 내용 반영
+
 // 배송 요청사항 열고 닫기
 function close_layer_shipping_memo(){
     document.querySelector('.layer_shipping_memo').style.display="none"
@@ -156,9 +159,64 @@ function close_layer_shipping_memo(){
 function pop_layer_shipping_memo(){
     document.querySelector('.layer_shipping_memo').style.display="block"
 }
+
 //배송 요청 리스트 선택시 효과
+const selectable = document.querySelectorAll(".button_shipping_memo_wrap.selectable");
+const direct_input=document.querySelector(".button_shipping_memo_wrap.direct_input");
+const memo_apply_btn=document.querySelector(".shipping_memo_buttons .btn_apply");
+selectable.forEach((item)=>{
+    item.addEventListener('click',()=>{
+        selectable.forEach((e)=>{
+            e.classList.remove('checked');
+            e.childNodes[2].style.display="none";
+        })
+        //직접입력부분도 효과 없애준다.
+        direct_input.classList.remove('checked')
+        document.querySelector(".direct_input img").style.display="none"
+        document.querySelector(".textarea_shipping_memo").style.display="none"
+        //클릭한 애만 효과준다.
+        item.classList.add('checked');
+        item.childNodes[2].style.display="block";
+        //직접입력 갔다가 돌아왔을때 방지용
+        memo_apply_btn.classList.remove('disabled')
+        
+    })
+})
 
-
+//직접 입력 선택시 효과주기
+direct_input.addEventListener('click',(e)=>{
+    document.querySelector(".textarea_shipping_memo").style.display="block"
+    //위에 selectable 체크 그림 없애주기
+    selectable.forEach((e)=>{
+        e.classList.remove('checked');
+        e.childNodes[2].style.display="none";
+    })
+    direct_input.classList.add('checked')
+    document.querySelector(".direct_input img").style.display="block"
+    // 적용하기 버튼 비활성화
+    memo_apply_btn.classList.add('disabled')
+})
+//직접 입력 선택시 직접 입력에 키를 입력할 때 버튼 활성화
+//직접 입력 선택시 직접 입력에 내용이 없다면 비활성화
+let text = document.querySelector('.shipping_memo textarea')
+text.addEventListener('input',()=>{
+    if(text.value!=""){
+        memo_apply_btn.classList.remove('disabled')
+    }else{
+        memo_apply_btn.classList.add('disabled')
+    }
+})
+//배송 요청사항 내용 반영하기
+function update_layer_shipping_memo(){
+    let checkedtext =document.querySelector('.layer_shipping_memo .checked p').innerHTML
+    const input = document.querySelector('.button_shipping_memo_wrap .placeholder')
+    //직접입력할 땐 textarea의 값을 전달
+    if(checkedtext=="직접 입력"){
+        checkedtext = document.querySelector('.layer_shipping_memo textarea').value
+        console.log(checkedtext)    }
+    input.innerHTML = checkedtext
+    document.querySelector('.layer_shipping_memo').style.display="none"
+}
 // 포인트 ? 열고 닫기
 function close_point(){
     document.querySelector('.layer_point').style.display="none"
@@ -172,4 +230,15 @@ $(document).on('click', '.btn_use_credit', function(){
     console.log(document.querySelector('.value_current').text)
     $(".input_credit").val(3,000);
     //서버에서 받아온 총 포인트 값
+    //입찰시 -> 최종 주문 정보에 "결제 시점에 최대 사용"
+    //즉시구매시 -> "-3,000P"
 });
+
+
+// 새 계좌 추가 레이어 창 열고 닫기 -- 계좌 간편결재 없애는 걸로!!
+
+// 새 카드추가 열고 닫기
+
+//결재 방법 선택시 테두리 효과
+
+//체크박스 4개 선택시 버튼 활성화

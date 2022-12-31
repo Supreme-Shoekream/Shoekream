@@ -1,17 +1,6 @@
-.btn {
-    display: inline-flex;
-    cursor: pointer;
-    -webkit-box-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    justify-content: center;
-    vertical-align: middle;
-    text-align: center;
-    color: rgba(34,34,34,.8);
-    background-color: #fff;
-}
 
-/**********새 주소 추가*************/
+
+/********** 주소 변경*************/
 .layer_card .card_bind{
     padding: 0 32px;
 }
