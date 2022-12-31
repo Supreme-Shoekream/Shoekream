@@ -1,3 +1,4 @@
+
 .layer_container {
     width: 300px;
 }
@@ -14,7 +15,8 @@
     background-color: #fff;
 }
 
-/**********새 주소 추가*************/
+
+/********** 주소 변경*************/
 .layer_card .card_bind{
     padding: 0 32px;
 }

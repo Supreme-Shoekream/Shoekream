@@ -64,7 +64,7 @@ button {
 .lg .account_registration, .md .account_registration {
     padding-top: 20px;
 }
-.lg .account_registration .input_box, 
+.lg .account_registration .input_box,
 .md .account_registration .input_box {
     padding-top: 16px;
 }
@@ -77,18 +77,18 @@ button {
     letter-spacing: -.07px;
     line-height: 18px;
 }
-.lg .account_registration .input_title, 
+.lg .account_registration .input_title,
 .md .account_registration .input_title {
     line-height: 14px;
 }
 .input_item {
     position: relative;
 }
-.lg .account_registration .input_txt, 
+.lg .account_registration .input_txt,
 .md .account_registration .input_txt {
     padding: 6px 0 7px;
 }
-.input_logistics_companies .input_txt, 
+.input_logistics_companies .input_txt,
 .input_txt.hover {
     cursor: pointer;
 }
