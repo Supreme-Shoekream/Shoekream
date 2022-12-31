@@ -41,6 +41,7 @@
     font-size: 12px;
     letter-spacing: -.06px;
     color: rgba(34,34,34,.8);
+    margin-bottom: 6px;
 }
 .usable_item:before {
     content: "";
