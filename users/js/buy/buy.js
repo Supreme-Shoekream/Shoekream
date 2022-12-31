@@ -179,7 +179,7 @@ selectable.forEach((item)=>{
         item.childNodes[2].style.display="block";
         //직접입력 갔다가 돌아왔을때 방지용
         memo_apply_btn.classList.remove('disabled')
-        
+
     })
 })
 
