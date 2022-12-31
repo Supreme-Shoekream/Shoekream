@@ -113,8 +113,10 @@ input {
     /* height: 50px; */
 }
 
-.solid.disabled,
-.solid:disabled {
+.solid.disabled
+/* ,
+.solid:disabled  */
+{
     background-color: #ebebeb;
     color: #fff;
     cursor: default;
