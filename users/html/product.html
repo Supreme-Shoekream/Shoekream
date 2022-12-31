@@ -4,18 +4,21 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>KRAEM | 한정판 거래의 FLEX</title>
+        <title>SHOEKREAM | 한정판 거래의 FLEX</title>
         <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://kream.co.kr/favicon.ico">
         <!-- jquery cdn -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <!-- chart.js cdn -->
         <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
-        <link rel="stylesheet" href="../css/product.css">
 
-        <!-- 슬릭 -->
+        <!-- 슬릭 슬라이더 -->
         <link rel="stylesheet" href="../css/main/slick-theme.css">
         <link rel="stylesheet" href="../css/main/slick.css">
         <script src="../js/main/slick.min.js"></script>
         
+        <link rel="stylesheet" href="../css/product.css">
+
+        <link rel="stylesheet" href="../css/fragment/footer.css">
     </head>
     <body>
         <div id="__nuxt">
@@ -60,7 +63,7 @@
                                             <a href="/social/trending" class="gnb_link" >STYLE</a>
                                             </li>
                                             <li class="gnb_item">
-                                            <a href="#" class="gnb_link" >SHOP</a>
+                                            <a class="gnb_link" >SHOP</a>
                                             </li>
                                             <li class="gnb_item">
                                             <a href="/about" target="_blank" class="gnb_link" >ABOUT</a>
@@ -68,7 +71,7 @@
                                         </ul>
                                     </nav>
                                     <div class="search_btn_box">
-                                        <a aria-label="검색" href="#" class="btn_search">
+                                        <a aria-label="검색" class="btn_search">
                                         <img src="../img/search.png" class="nav-search icon sprite-icons">
                                         </a>
                                     </div>
@@ -101,22 +104,22 @@
                                             <div class="navigation_inner">
                                                 <ul class="nav_list">
                                                     <li class="nav_item">
-                                                        <a href="#" class="nav_link">STYLE</a>
+                                                        <a class="nav_link">STYLE</a>
                                                     </li>
                                                     <li class="nav_item">
-                                                        <a href="#" class="nav_link">SHOP</a>
+                                                        <a class="nav_link">SHOP</a>
                                                     </li>
                                                     <li class="nav_item">
-                                                        <a href="#" class="nav_link">자주 묻는 질문</a>
+                                                        <a class="nav_link">자주 묻는 질문</a>
                                                     </li>
                                                     <li class="nav_item">
-                                                        <a href="#" class="nav_link">공지사항</a>
+                                                        <a class="nav_link">공지사항</a>
                                                     </li>
                                                     <li class="nav_item" style="display:;">
-                                                        <a href="#" class="nav_link">로그인</a>
+                                                        <a class="nav_link">로그인</a>
                                                     </li>
                                                     <li class="nav_item" style="display:none;">
-                                                        <a href="#" class="nav_link">마이 페이지</a>
+                                                        <a class="nav_link">마이 페이지</a>
                                                     </li>
                                                 </ul>
                                                 <div class="nav_logout" style="display:none;">
@@ -126,7 +129,7 @@
                                                 <div class="nav_download">
                                                     <p class="download_txt">KREAM 앱 설치 후 사용해 보세요!</p>
                                                     <div class="btn_appdown">
-                                                        <a href="#" class="btn outline medium">앱 다운로드</a>
+                                                        <a class="btn outline medium">앱 다운로드</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -227,12 +230,38 @@
                                                         </div>
                                                     </div>
                                                 </div> -->
-                                                <div id="slider-div">
-                                                    <div class = "main_banner" style="width: 100%;"><img class = "bannerImg" src="https://kream-phinf.pstatic.net/MjAyMTA4MDZfMjY0/MDAxNjI4MjM5NTA1MjU1.9FfkTXbxZFWKxDMdPayVFlD0GIyNT-mFVIQ7zZW3SPcg.c03UoCFjKXtP4XtNMgBdrmTOIQlqxrePk4JScV4GUHEg.PNG/p_8001cbaf0db042bda09fea320ee328b4.png?type=l"></div>
-                                                    <div class = "main_banner" style="width: 100%;"><img class = "bannerImg" src="https://kream-phinf.pstatic.net/MjAyMTA4MDZfNDEg/MDAxNjI4MjM5NTA1MzAx.AferhzIi3eSei272TsoXwGto7buSps5uMQ0GxgwPwI0g.RRQcZGZ5R35-Tp2fXP2SrElD9cFg-l4qGPXsH6e-V6Ig.PNG/p_008c53c9c2c9416ba2375897fe4f8359.png?type=l"></div>
-                                                    <div class = "main_banner" style="width: 100%;"><img class = "bannerImg" src="https://kream-phinf.pstatic.net/MjAyMTA4MDZfMjIw/MDAxNjI4MjM5NTA1Mjk3.3a0Km5mhmJWc-bZE5Q5RMFFg66b6CfSl5HPIIG26nUkg.xcwMKQnTETcSY1PdFkPtJZ_aLhfdW5p5h-26WwHc5N4g.PNG/p_5936ba4779c84b1e90da4a4502d93e0b.png?type=l"></div>
-                                                    <div class = "main_banner" style="width: 100%;"><img class = "bannerImg" src="https://kream-phinf.pstatic.net/MjAyMTA4MTJfMzIg/MDAxNjI4NzQyMTMyNjk1.m9pp08Gu-pCfZ2YiguvnhoGelxRqLs7CCz4w6YwwL6Eg.PoLFxuEV5YKJacy5n8cA-CqKtXphyLFiavZoJrnggIQg.PNG/a_c86308e9cc2d43c08ebdef8733b88719.png?type=l"></div>
+
+                                                <div id="pro_slider-div" class="column_box" style="width: 560px;">
+                                                    <div class="main_banner" style="width: 100%; ">
+                                                        <picture class="picture">
+                                                            <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMTA4MDZfMjY0/MDAxNjI4MjM5NTA1MjU1.9FfkTXbxZFWKxDMdPayVFlD0GIyNT-mFVIQ7zZW3SPcg.c03UoCFjKXtP4XtNMgBdrmTOIQlqxrePk4JScV4GUHEg.PNG/p_8001cbaf0db042bda09fea320ee328b4.png?type=l_webp">
+                                                            <source srcset="https://kream-phinf.pstatic.net/MjAyMTA4MDZfMjY0/MDAxNjI4MjM5NTA1MjU1.9FfkTXbxZFWKxDMdPayVFlD0GIyNT-mFVIQ7zZW3SPcg.c03UoCFjKXtP4XtNMgBdrmTOIQlqxrePk4JScV4GUHEg.PNG/p_8001cbaf0db042bda09fea320ee328b4.png?type=l">
+                                                            <img alt="상품 이미지" src="https://kream-phinf.pstatic.net/MjAyMTA4MDZfMjY0/MDAxNjI4MjM5NTA1MjU1.9FfkTXbxZFWKxDMdPayVFlD0GIyNT-mFVIQ7zZW3SPcg.c03UoCFjKXtP4XtNMgBdrmTOIQlqxrePk4JScV4GUHEg.PNG/p_8001cbaf0db042bda09fea320ee328b4.png?type=l" loading="lazy" fetchpriority="high" class="image bannerImg">
+                                                        </picture>
+                                                    </div>
+                                                    <div class="main_banner" style="width: 100%;">
+                                                        <picture class="picture">
+                                                            <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMTA4MDZfNDEg/MDAxNjI4MjM5NTA1MzAx.AferhzIi3eSei272TsoXwGto7buSps5uMQ0GxgwPwI0g.RRQcZGZ5R35-Tp2fXP2SrElD9cFg-l4qGPXsH6e-V6Ig.PNG/p_008c53c9c2c9416ba2375897fe4f8359.png?type=l_webp">
+                                                            <source srcset="https://kream-phinf.pstatic.net/MjAyMTA4MDZfNDEg/MDAxNjI4MjM5NTA1MzAx.AferhzIi3eSei272TsoXwGto7buSps5uMQ0GxgwPwI0g.RRQcZGZ5R35-Tp2fXP2SrElD9cFg-l4qGPXsH6e-V6Ig.PNG/p_008c53c9c2c9416ba2375897fe4f8359.png?type=l">
+                                                            <img alt="상품 이미지" src="https://kream-phinf.pstatic.net/MjAyMTA4MDZfNDEg/MDAxNjI4MjM5NTA1MzAx.AferhzIi3eSei272TsoXwGto7buSps5uMQ0GxgwPwI0g.RRQcZGZ5R35-Tp2fXP2SrElD9cFg-l4qGPXsH6e-V6Ig.PNG/p_008c53c9c2c9416ba2375897fe4f8359.png?type=l" loading="lazy" fetchpriority="high" class="image bannerImg">
+                                                        </picture>
+                                                    </div>
+                                                    <div class="main_banner" style="width: 100%;">
+                                                        <picture class="picture"><source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMTA4MDZfMjIw/MDAxNjI4MjM5NTA1Mjk3.3a0Km5mhmJWc-bZE5Q5RMFFg66b6CfSl5HPIIG26nUkg.xcwMKQnTETcSY1PdFkPtJZ_aLhfdW5p5h-26WwHc5N4g.PNG/p_5936ba4779c84b1e90da4a4502d93e0b.png?type=l_webp">
+                                                            <source srcset="https://kream-phinf.pstatic.net/MjAyMTA4MDZfMjIw/MDAxNjI4MjM5NTA1Mjk3.3a0Km5mhmJWc-bZE5Q5RMFFg66b6CfSl5HPIIG26nUkg.xcwMKQnTETcSY1PdFkPtJZ_aLhfdW5p5h-26WwHc5N4g.PNG/p_5936ba4779c84b1e90da4a4502d93e0b.png?type=l">
+                                                            <img alt="상품 이미지" src="https://kream-phinf.pstatic.net/MjAyMTA4MDZfMjIw/MDAxNjI4MjM5NTA1Mjk3.3a0Km5mhmJWc-bZE5Q5RMFFg66b6CfSl5HPIIG26nUkg.xcwMKQnTETcSY1PdFkPtJZ_aLhfdW5p5h-26WwHc5N4g.PNG/p_5936ba4779c84b1e90da4a4502d93e0b.png?type=l" loading="lazy" fetchpriority="high" class="image bannerImg">
+                                                        </picture>
+                                                    </div>
+                                                    <div class="main_banner" style="width: 100%;">
+                                                        <picture class="picture">
+                                                            <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMTA4MTJfMzIg/MDAxNjI4NzQyMTMyNjk1.m9pp08Gu-pCfZ2YiguvnhoGelxRqLs7CCz4w6YwwL6Eg.PoLFxuEV5YKJacy5n8cA-CqKtXphyLFiavZoJrnggIQg.PNG/a_c86308e9cc2d43c08ebdef8733b88719.png?type=l_webp">
+                                                            <source srcset="https://kream-phinf.pstatic.net/MjAyMTA4MTJfMzIg/MDAxNjI4NzQyMTMyNjk1.m9pp08Gu-pCfZ2YiguvnhoGelxRqLs7CCz4w6YwwL6Eg.PoLFxuEV5YKJacy5n8cA-CqKtXphyLFiavZoJrnggIQg.PNG/a_c86308e9cc2d43c08ebdef8733b88719.png?type=l">
+                                                            <img alt="상품 이미지" src="https://kream-phinf.pstatic.net/MjAyMTA4MTJfMzIg/MDAxNjI4NzQyMTMyNjk1.m9pp08Gu-pCfZ2YiguvnhoGelxRqLs7CCz4w6YwwL6Eg.PoLFxuEV5YKJacy5n8cA-CqKtXphyLFiavZoJrnggIQg.PNG/a_c86308e9cc2d43c08ebdef8733b88719.png?type=l" loading="lazy" fetchpriority="high" class="image bannerImg">
+                                                        </picture>
+                                                    </div>
                                                 </div>
+
+
                                                 <!-- <button type="button" data-role="none" class="slick-arrow slick-next" style="display: block;">Next</button>
                                                 <ul class="slick-dots" style="display: block;">
                                                     <li class="slick-active">
@@ -273,7 +302,7 @@
                                                         <span class="title_txt">사이즈</span>
                                                     </div>
                                                     <div class="size">
-                                                        <a href="#" class="btn_size" onclick="everysizePopup()">
+                                                        <a class="btn_size" onclick="everysizePopup()">
                                                             <span class="btn_text">모든 사이즈</span>
                                                             <img src="../img/select_icon.png" class="ico-arr-dir-down-circle icon sprite-icons">
                                                         </a>
@@ -296,7 +325,7 @@
                                             </div>
                                             <div class="btn_wrap">
                                                 <div class="division_btn_box lg">
-                                                    <a href="#" class="btn_division buy">
+                                                    <a class="btn_division buy">
                                                         <strong class="title">구매</strong>
                                                         <div class="price">
                                                             <span class="amount">
@@ -306,7 +335,7 @@
                                                             <span class="desc">즉시 구매가</span>
                                                         </div>
                                                     </a>
-                                                    <a href="#" class="btn_division sell">
+                                                    <a class="btn_division sell">
                                                         <strong class="title">판매</strong>
                                                         <div class="price">
                                                             <span class="amount">
@@ -317,7 +346,7 @@
                                                         </div>
                                                     </a>
                                                 </div>
-                                                <a href="#" class="btn full outlinegrey large btn_wish" onclick="wishPopup()" aria-label="관심상품">
+                                                <a class="btn full outlinegrey large btn_wish" onclick="wishPopup()" aria-label="관심상품">
                                                     <img src="../img/select_mark.jpg" class="icon sprite-icons ico-wish-off">
                                                     <span class="btn_text">관심상품</span>
                                                     <span class="wish_count_num">1.7만</span>
@@ -376,13 +405,13 @@
                                                     <h3 class="detail_title lg">시세</h3>
                                                     <div class="sales_filter lg">
                                                         <div class="filter_unit">
-                                                            <button type="button" slot="button" class="btn btn_select on">
+                                                            <button type="button" slot="button" class="btn btn_select">
                                                                 <span class="select_text layer_open ">모든 사이즈</span>
                                                             </button>
                                                             <!-- 모든 사이즈 드롭박스 시작 -->
-                                                            <div class="layer_size_list layer lg" style="display: block; ">
+                                                            <div class="layer_size_list layer lg" style="display: none;">
                                                                 <div class="layer_container">
-                                                                    <a href="#" class="btn_layer_close">
+                                                                    <a class="btn_layer_close">
                                                                         <svg xmlns="http://www.w3.org/2000/svg" class="ico-close icon sprite-icons">
                                                                             <use href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggc3Ryb2tlPSIjMjIyIiBzdHJva2Utd2lkdGg9IjEuNSIgZD0iTTYgMTVsNi02IDYgNiIvPjwvc3ZnPg==" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-close"></use>
                                                                         </svg>
@@ -392,55 +421,55 @@
                                                                     </div>
                                                                     <div class="layer_content">
                                                                         <ul class="size_list">
-                                                                            <li class="size_item item_on"><a href="#" class="size_link"> 모든 사이즈 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
+                                                                            <li class="size_item item_on"><a class="size_link"> 모든 사이즈 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
                                                                                         <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
                                                                                     </svg></a></li>
-                                                                            <li class="size_item"><a href="#" class="size_link"> 240 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
+                                                                            <li class="size_item"><a class="size_link"> 240 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
                                                                                         <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
                                                                                     </svg></a></li>
-                                                                            <li class="size_item"><a href="#" class="size_link"> 245 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
+                                                                            <li class="size_item"><a class="size_link"> 245 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
                                                                                         <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
                                                                                     </svg></a></li>
-                                                                            <li class="size_item"><a href="#" class="size_link"> 250 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
+                                                                            <li class="size_item"><a class="size_link"> 250 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
                                                                                         <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
                                                                                     </svg></a></li>
-                                                                            <li class="size_item"><a href="#" class="size_link"> 255 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
+                                                                            <li class="size_item"><a class="size_link"> 255 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
                                                                                         <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
                                                                                     </svg></a></li>
-                                                                            <li class="size_item"><a href="#" class="size_link"> 260 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
+                                                                            <li class="size_item"><a class="size_link"> 260 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
                                                                                         <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
                                                                                     </svg></a></li>
-                                                                            <li class="size_item"><a href="#" class="size_link"> 265 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
+                                                                            <li class="size_item"><a class="size_link"> 265 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
                                                                                         <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
                                                                                     </svg></a></li>
-                                                                            <li class="size_item"><a href="#" class="size_link"> 270 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
+                                                                            <li class="size_item"><a class="size_link"> 270 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
                                                                                         <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
                                                                                     </svg></a></li>
-                                                                            <li class="size_item"><a href="#" class="size_link"> 275 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
+                                                                            <li class="size_item"><a class="size_link"> 275 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
                                                                                         <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
                                                                                     </svg></a></li>
-                                                                            <li class="size_item"><a href="#" class="size_link"> 280 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
+                                                                            <li class="size_item"><a class="size_link"> 280 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
                                                                                         <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
                                                                                     </svg></a></li>
-                                                                            <li class="size_item"><a href="#" class="size_link"> 285 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
+                                                                            <li class="size_item"><a class="size_link"> 285 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
                                                                                         <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
                                                                                     </svg></a></li>
-                                                                            <li class="size_item"><a href="#" class="size_link"> 290 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
+                                                                            <li class="size_item"><a class="size_link"> 290 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
                                                                                         <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
                                                                                     </svg></a></li>
-                                                                            <li class="size_item"><a href="#" class="size_link"> 295 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
+                                                                            <li class="size_item"><a class="size_link"> 295 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
                                                                                         <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
                                                                                     </svg></a></li>
-                                                                            <li class="size_item"><a href="#" class="size_link"> 300 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
+                                                                            <li class="size_item"><a class="size_link"> 300 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
                                                                                         <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
                                                                                     </svg></a></li>
-                                                                            <li class="size_item"><a href="#" class="size_link"> 305 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
+                                                                            <li class="size_item"><a class="size_link"> 305 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
                                                                                         <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
                                                                                     </svg></a></li>
-                                                                            <li class="size_item"><a href="#" class="size_link"> 310 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
+                                                                            <li class="size_item"><a class="size_link"> 310 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
                                                                                         <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
                                                                                     </svg></a></li>
-                                                                            <li class="size_item"><a href="#" class="size_link"> 320 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
+                                                                            <li class="size_item"><a class="size_link"> 320 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
                                                                                         <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
                                                                                     </svg></a></li>
                                                                         </ul>
@@ -557,7 +586,7 @@
                                                                     </tbody>
                                                                 </table>
                                                             </div>
-                                                            <a href="#" class="btn outlinegrey full medium" style="color: rgba(34,34,34,.8);">체결 내역 더보기</a>
+                                                            <a class="btn outlinegrey full medium" style="color: rgba(34,34,34,.8);">체결 내역 더보기</a>
                                                         </div>
                                                         <div id="panel2" role="tabpanel" span="asks" class="tab_content">
                                                             <div class="table_wrap lg">
@@ -606,7 +635,7 @@
                                                                     </tbody>
                                                                 </table>
                                                             </div>
-                                                            <a href="#" class="btn outlinegrey full medium">입찰 내역 더보기</a>
+                                                            <a class="btn outlinegrey full medium">입찰 내역 더보기</a>
                                                         </div>
                                                         <div id="panel3" role="tabpanel" span="bids" class="tab_content">
                                                             <div class="table_wrap lg">
@@ -655,7 +684,7 @@
                                                                     </tbody>
                                                                 </table>
                                                             </div>
-                                                            <a href="#" class="btn outlinegrey full medium">입찰 내역 더보기</a>
+                                                            <a class="btn outlinegrey full medium">입찰 내역 더보기</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -733,7 +762,7 @@
                                                                             <div class="content_box ">
                                                                                 <div class="emphasis_box">
                                                                                     <strong class="emphasis">검수 결과는 불합격•검수 보류•합격의 세가지 상태로 결과가 변경됩니다.</strong>
-                                                                                    <a href="#" class="txt_link">검수기준 보기</a>
+                                                                                    <a class="txt_link">검수기준 보기</a>
                                                                                 </div>
                                                                                 <ul class="content_list">
                                                                                     <li class="content_item">
@@ -814,7 +843,11 @@
                                             </div>
                                         </div>
                                         <!-- 구매전 확인사항 끝 -->
+
+                                        <!-- 체결 내역 더보기 시작 -->
                                         
+                                        <!-- 체결 내역 더보기 끝 -->
+
                                         <!-- 스크롤시 상단 고정 시작 -->
                                         <div class="floating_price lg">
                                             <div class="inner_box">
@@ -832,14 +865,12 @@
                                                     </div>
                                                 </div>
                                                 <div class="btn_area">
-                                                    <a href="#" class="btn outlinegrey large btn_wish btn_wish_simple" aria-label="관심상품">
-                                                        <img src="../img/select_mark.jpg" class="icon sprite-icons ico-wish-off">
-                                                            <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-wish-off" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-wish-off"></use>
-                                                        </img>
+                                                    <a class="btn outlinegrey large btn_wish btn_wish_simple" aria-label="관심상품" onclick="wishPopup()">
+                                                        <img src="../img/select_mark.jpg" class="icon sprite-icons ico-wish-off"></img>
                                                         <span class="wish_count_num">1.7만</span>
                                                     </a>
                                                     <div class="division_btn_box lg">
-                                                        <a href="#" class="btn_division buy">
+                                                        <a class="btn_division buy">
                                                             <strong class="title">구매</strong>
                                                             <div class="price">
                                                                 <span class="amount">
@@ -849,7 +880,7 @@
                                                                 <span class="desc">즉시 구매가</span>
                                                             </div>
                                                         </a>
-                                                        <a href="#" class="btn_division sell">
+                                                        <a class="btn_division sell">
                                                             <strong class="title">판매</strong>
                                                             <div class="price">
                                                                 <span class="amount">
@@ -1117,6 +1148,7 @@
                                 </div>
                             </div>
                             <!-- 스타일 끝 -->
+                            
                             <!-- 브랜드 다른 상품 시작 -->
                             <div class="other_product_area">
                                 <h3 class="more_title">
@@ -1355,14 +1387,14 @@
                     <!-- 푸터 상단 배너 시작 -->
                     <!-- <div>
                             <div class="banner_bottom lg">
-                                <a href="#" class="banner_box">
+                                <a class="banner_box">
                                     <div class="banner_info">
                                         <strong class="info_subtitle">service guide</strong>
                                         <p class="info_title">KREAM은 처음이지? <br>서비스 소개를 확인해보세요.</p>
                                         <span class="info_txt">서비스 안내</span>
                                     </div>
                                 </a>
-                                <a href="#" class="banner_box">
+                                <a class="banner_box">
                                     <div class="banner_info">
                                         <strong class="info_subtitle">download the app</strong>
                                         <p class="info_title">KREAM 앱을 설치하여 <br>한정판 스니커즈를 FLEX 하세요!</p>
@@ -1377,7 +1409,7 @@
                         <div size-select="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]" all-size-option="[object Object]" show-all-size-option="true">
                             <div class="lg layer_detail_size_select select_only_size">
                                 <div class="layer_container">
-                                    <a href="#" class="btn_layer_close" onclick="everysizePopdown()">
+                                    <a class="btn_layer_close" onclick="everysizePopdown()">
                                         <img src="../img/close.png" class="ico-close icon sprite-icons"></img>
                                     </a>
                                     <div class="layer_header">
@@ -1574,7 +1606,7 @@
                         <!-- 관심 상품 클릭시 팝업 레이어창 시작 -->
                         <div class="layer_interest lg">
                             <div class="layer_container">
-                                <a href="#" class="btn_layer_close">
+                                <a class="btn_layer_close">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="ico-close icon sprite-icons">
                                         <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-close" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-close"></use>
                                     </svg>
@@ -1602,104 +1634,104 @@
                                     </div>
                                     <div class="lg interest_list">
                                         <div class="interest_btn_box">
-                                            <a href="#" class="btn outlinegrey medium btn_interest">
+                                            <a class="btn outlinegrey medium btn_interest">
                                                 <p class="info_txt">240</p>
                                                 <img src="../img/select_mark.jpg" class="icon sprite-icons wish-s-off"></img>
                                             </a>
                                         </div>
                                         <div class="interest_btn_box">
-                                            <a href="#" class="btn outlinegrey medium btn_interest">
+                                            <a class="btn outlinegrey medium btn_interest">
                                                 <p class="info_txt">245</p>
                                                 <img src="../img/select_mark.jpg" class="icon sprite-icons wish-s-off"></img>
                                             </a>
                                         </div>
                                         <div class="interest_btn_box">
-                                            <a href="#" class="btn outlinegrey medium btn_interest">
+                                            <a class="btn outlinegrey medium btn_interest">
                                                 <p class="info_txt">250</p>
                                                 <img src="../img/select_mark.jpg" class="icon sprite-icons wish-s-off"></img>
                                             </a>
                                         </div>
                                         <div class="interest_btn_box">
-                                            <a href="#" class="btn outlinegrey medium btn_interest">
+                                            <a class="btn outlinegrey medium btn_interest">
                                                 <p class="info_txt">255</p>
                                                 <img src="../img/select_mark.jpg" class="icon sprite-icons wish-s-off"></img>
                                             </a>
                                         </div>
                                         <div class="interest_btn_box">
-                                            <a href="#" class="btn outlinegrey medium btn_interest">
+                                            <a class="btn outlinegrey medium btn_interest">
                                                 <p class="info_txt">260</p>
                                                 <img src="../img/select_mark.jpg" class="icon sprite-icons wish-s-off"></img>
                                             </a>
                                         </div>
                                         <div class="interest_btn_box">
-                                            <a href="#" class="btn outlinegrey medium btn_interest">
+                                            <a class="btn outlinegrey medium btn_interest">
                                                 <p class="info_txt">265</p>
                                                 <img src="../img/select_mark.jpg" class="icon sprite-icons wish-s-off"></img>
                                             </a>
                                         </div>
                                         <div class="interest_btn_box">
-                                            <a href="#" class="btn outlinegrey medium btn_interest">
+                                            <a class="btn outlinegrey medium btn_interest">
                                                 <p class="info_txt">270</p>
                                                 <img src="../img/select_mark.jpg" class="icon sprite-icons wish-s-off"></img>
                                             </a>
                                         </div>
                                         <div class="interest_btn_box">
-                                            <a href="#" class="btn outlinegrey medium btn_interest">
+                                            <a class="btn outlinegrey medium btn_interest">
                                                 <p class="info_txt">275</p>
                                                 <img src="../img/select_mark.jpg" class="icon sprite-icons wish-s-off"></img>
                                             </a>
                                         </div>
                                         <div class="interest_btn_box">
-                                            <a href="#" class="btn outlinegrey medium btn_interest">
+                                            <a class="btn outlinegrey medium btn_interest">
                                                 <p class="info_txt">280</p>
                                                 <img src="../img/select_mark.jpg" class="icon sprite-icons wish-s-off"></img>
                                             </a>
                                         </div>
                                         <div class="interest_btn_box">
-                                            <a href="#" class="btn outlinegrey medium btn_interest">
+                                            <a class="btn outlinegrey medium btn_interest">
                                                 <p class="info_txt">285</p>
                                                 <img src="../img/select_mark.jpg" class="icon sprite-icons wish-s-off"></img>
                                             </a>
                                         </div>
                                         <div class="interest_btn_box">
-                                            <a href="#" class="btn outlinegrey medium btn_interest">
+                                            <a class="btn outlinegrey medium btn_interest">
                                                 <p class="info_txt">290</p>
                                                 <img src="../img/select_mark.jpg" class="icon sprite-icons wish-s-off"></img>
                                             </a>
                                         </div>
                                         <div class="interest_btn_box">
-                                            <a href="#" class="btn outlinegrey medium btn_interest">
+                                            <a class="btn outlinegrey medium btn_interest">
                                                 <p class="info_txt">295</p>
                                                 <img src="../img/select_mark.jpg" class="icon sprite-icons wish-s-off"></img>
                                             </a>
                                         </div>
                                         <div class="interest_btn_box">
-                                            <a href="#" class="btn outlinegrey medium btn_interest">
+                                            <a class="btn outlinegrey medium btn_interest">
                                                 <p class="info_txt">300</p>
                                                 <img src="../img/select_mark.jpg" class="icon sprite-icons wish-s-off"></img>
                                             </a>
                                         </div>
                                         <div class="interest_btn_box">
-                                            <a href="#" class="btn outlinegrey medium btn_interest">
+                                            <a class="btn outlinegrey medium btn_interest">
                                                 <p class="info_txt">305</p>
                                                 <img src="../img/select_mark.jpg" class="icon sprite-icons wish-s-off"></img>
                                             </a>
                                         </div>
                                         <div class="interest_btn_box">
-                                            <a href="#" class="btn outlinegrey medium btn_interest">
+                                            <a class="btn outlinegrey medium btn_interest">
                                                 <p class="info_txt">310</p>
                                                 <img src="../img/select_mark.jpg" class="icon sprite-icons wish-s-off"></img>
                                             </a>
                                         </div>
                                         <div class="interest_btn_box">
-                                            <a href="#" class="btn outlinegrey medium btn_interest">
+                                            <a class="btn outlinegrey medium btn_interest">
                                                 <p class="info_txt">320</p>
                                                 <img src="../img/select_mark.jpg" class="icon sprite-icons wish-s-off"></img>
                                             </a>
                                         </div>
                                     </div>
                                     <div class="layer_btn">
-                                        <a href="#" class="btn outline medium" onclick="wishPopdown()">확인</a>
+                                        <a class="btn outline medium" onclick="wishPopdown()">확인</a>
                                     </div>
                                 </div>
                             </div>
@@ -1711,136 +1743,72 @@
                 </div>
                 
                 <!-- 푸터 시작 -->
-                <!-- <div class="footer lg floating_price">
-                                <div class="inner">
-                                    <div class="service_area">
-                                        <div class="customer_service">
-                                            <strong class="service_title">
-                                                고객센터
-                                                <a href="tel:1588-7813" class="sevice_tel">1588-7813</a>
-                                            </strong>
-                                            <div class="service_time">
-                                                <dl class="time_box">
-                                                    <dt class="time_term">운영시간 평일 11:00 - 18:00 (토∙일, 공휴일 휴무) 점심시간 평일 13:00 - 14:00</dt>
-                                                </dl>
-                                            </div>
-                                            <p class="service_noti">1:1 문의하기는 앱에서만 가능합니다.</p>
-                                            <div class="service_btn_box">
-                                                <a href="#" class="btn solid small">자주 묻는 질문</a>
-                                            </div>
-                                        </div>
-                                        <div class="footer_menu">
-                                            <div class="menu_box">
-                                                <strong class="menu_title">이용안내</strong>
-                                                <ul class="menu_list">
-                                                    <li class="menu_item">
-                                                        <a href="#" class="menu_link">검수기준</a>
-                                                    </li>
-                                                    <li class="menu_item">
-                                                        <a href="#" class="menu_link">이용정책</a>
-                                                    </li>
-                                                    <li class="menu_item">
-                                                        <a href="#" class="menu_link">페널티 정책</a>
-                                                    </li>
-                                                    <li class="menu_item">
-                                                        <a href="#" class="menu_link">커뮤니티 가이드라인</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="menu_box">
-                                                <strong class="menu_title">고객지원</strong>
-                                                <ul class="menu_list">
-                                                    <li class="menu_item">
-                                                        <a href="/notice" class="menu_link">공지사항</a>
-                                                    </li>
-                                                    <li class="menu_item">
-                                                        <a href="/about" target="_blank" class="menu_link">서비스 소개</a>
-                                                    </li>
-                                                    <li class="menu_item">
-                                                        <a href="/showroom" target="_blank" class="menu_link">쇼룸 안내</a>
-                                                    </li>
-                                                    <li class="menu_item">
-                                                        <a href="/about/seller_reception" target="_blank" class="menu_link">판매자 방문접수</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="corporation_area">
-                                        <ul class="term_list">
-                                            <li class="term_item">
-                                                <a href="https://www.kreamcorp.com/" target="_blank" rel="noopener noreferrer" class="term_link">회사소개</a>
-                                            </li>
-                                            <li class="term_item">
-                                                <a href="https://recruit.kreamcorp.com/" target="_blank" rel="noopener noreferrer" class="term_link">인재채용</a>
-                                            </li>
-                                            <li class="term_item" style="">
-                                                <a href="https://www.kreamcorp.com/view/contact.html" target="_blank" rel="noopener noreferrer" class="term_link">제휴제안</a>
-                                            </li>
-                                            <li class="term_item">
-                                                <a href="#" class="term_link">이용약관</a>
-                                            </li>
-                                            <li class="term_item privacy">
-                                                <a href="#" class="term_link">개인정보처리방침</a>
-                                            </li>
-                                        </ul>
-                                        <div class="footer_sns">
-                                            <div class="sns_box">
-                                                <a href="#" aria-label="인스타그램" class="sns">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="ico-instagram icon sprite-icons">
-                                                        <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-instagram" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-instagram"></use>
-                                                    </svg>
-                                                </a>
-                                                <a href="#" aria-label="페이스북" class="sns">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="ico-facebook icon sprite-icons">
-                                                        <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-facebook" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-facebook"></use>
-                                                    </svg>
-                                                </a>
-                                                <a href="#" aria-label="카카오톡" class="sns">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="ico-talk icon sprite-icons">
-                                                        <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-talk" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-talk"></use>
-                                                    </svg>
-                                                </a>
-                                            </div>
-                                            <button class="btn_business"> 
-                                                사업자정보
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="arr-down icon sprite-icons">
-                                                    <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-arr-down" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-arr-down"></use>
-                                                </svg>
-                                            </button>
-                                        </div>
-                                        <div class="business_info">
-                                            <div class="info_list">
-                                                <dl class="info_item">
-                                                    <dt class="business_title">
-                                                        크림 주식회사 · 대표 김창욱
-                                                        <span class="blank"></span>
-                                                        사업자등록번호 : 570-88-01618 
-                                                        <a href="https://www.ftc.go.kr/bizCommPop.do?wrkr_no=5708801618">사업자정보확인</a>
-                                                        <span class="blank"></span>
-                                                        통신판매업 : 제 2021-성남분당C-0093호
-                                                        <span class="blank"></span>
-                                                        사업장소재지 : 경기도 성남시 분당구 분당내곡로 131 판교테크원 타워1, 8층
-                                                        <span class="blank"></span>
-                                                        호스팅 서비스 : 네이버 클라우드 ㈜
-                                                    </dt>
-                                                </dl>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="notice_guarantee">
-                                        <p class="title">신한은행 채무지급보증 안내</p>
-                                        <p class="description">
-                                            당사는 고객님의 현금 결제 금액에 대해 신한은행과 채무지급보증 계약을 체결하여 안전거래를 보장하고 있습니다.
-                                            <a href="#" class="link_guarantee">서비스가입 사실 확인</a>
-                                        </p>
-                                    </div>
-                                    <div class="notice_area">
-                                        <p class="notice">크림(주)는 통신판매 중개자로서 통신판매의 당사자가 아니므로 개별 판매자가 등록한 상품정보에 대해서 책임을 지지 않습니다. 단, 거래과정에서 검수하고 보증하는 내용에 대한 책임은 당사에 있습니다.</p>
-                                        <p class="copyright">© KREAM Corp.</p>
-                                    </div>
-                                </div>
-                </div> -->
+                <div class="footer_flex_box2">
+                    <div id="footer_left_box2">
+                        <div class="footer_box_text2" id="fbtext2_left">
+                            <div class="fbb2_Btext">이용안내</div>
+                            <ul>
+                                <li><a href="/auth_polic">검수기준</a></li>
+                                <li><a href="/faq/policy">이용정책</a></li>
+                                <li><a href="#">패널티 정책</a></li>
+                                <li><a href="#">커뮤니티 가이드라인</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer_box_text2">
+                            <div class="fbb2_Btext">고객지원</div>
+                            <ul>
+                                <li><a href="/notice">공지사항</a></li>
+                                <li><a href="/about">서비스 소개</a></li>
+                                <li><a href="https://kream.co.kr/showroom">쇼룸 안내</a></li>
+                                <li><a href="https://kream.co.kr/privacy">판매자 방문접수</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="footer_right_box2">
+                        <div class="fbb2_Btext">고객센터 1588-7813</div>
+                        <ul>
+                            <li>운영시간평일 11:00 - 18:00 (토 ∙ 일, 공휴일 휴무)</li>
+                            <li>점심시간평일 13:00 - 14:00</li>
+                        </ul>
+                        <div id="footer_ask_text">1:1 문의하기는 앱에서만 가능합니다.</div>
+                        <div id="footer_ask_box"><a href="/faq">자주 묻는 질문</a></div>
+                    </div>
+                </div>
+                <div class="footer_flex_box3">
+                    <div id="footer_box3">
+                        <div id="footer_box3_1">
+                            <ul id="footer_box3_1_text">
+                                <li><a href="#">회사소개</a></li>
+                                <li><a href="#">인재채용</a></li>
+                                <li><a href="#">제휴제안</a></li>
+                                <li><a href="#">이용약관</a></li>
+                                <li id="policy"><a href="https://kream.co.kr/privacy">개인정보처리방침</a></li>
+                            </ul>
+                            <ul id="sns_img">
+                                <li id="insta_img"><a href="https://www.instagram.com/kream.co.kr/"></a></li>
+                                <li id="facebook_img"><a href="https://www.facebook.com/kreamcokr"></a></li>
+                                <li id="chat_img"><a href="https://pf.kakao.com/_adpxlxb"></a></li>
+                            </ul>
+                        </div>
+                        <div id="footer_box3_2">
+                            <ul>
+                                <li>슈크림 주식회사 · 대표 슈프림</li>
+                                <li>사업자등록번호: 570-88-01618 <a href="#">사업자정보확인</a></li>
+                                <li>통신판매업: 제 2021-성남분당C-0093호</li>
+                            </ul>
+                            <ul>
+                                <li>사업장소재지: 경기도 성남시 분당구 분당내곡로 117, 8층</li>
+                                <li>개인정보관리책임자: 슈프림</li>
+                                <li>호스팅 서비스: 네이버 클라우드 (주)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer_flex_box4">
+                    <p id="footer_left_box4">슈크림(주)는 통신판매 중개자로서 통신판매의 당사자가 아니므로 개별 판매자가 등록한 상품정보에 대해서 책임을 지지 않습니다. 단, 거래과정에서 검수하고
+                        보증하는 내용에 대한 책임은 당사에 있습니다.</p>
+                    <p id="footer_right_box4">© 2022 SHOEKREAM.Corp.</p>
+                </div>
                 <!-- 푸터 끝 -->
 
                 <!-- <div>
@@ -1859,45 +1827,8 @@
                 </div>
             </div>
         </div>
-    
 </body>
 
     <script src="../js/product.js"></script>
-    <!-- <script>
-        // <![CDATA[  <-- For SVG support
-        if ('WebSocket' in window) {
-            (function () {
-                function refreshCSS() {
-                    var sheets = [].slice.call(document.getElementsByTagName("link"));
-                    var head = document.getElementsByTagName("head")[0];
-                    for (var i = 0; i < sheets.length; ++i) {
-                        var elem = sheets[i];
-                        var parent = elem.parentElement || head;
-                        parent.removeChild(elem);
-                        var rel = elem.rel;
-                        if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-                            var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-                            elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-                        }
-                        parent.appendChild(elem);
-                    }
-                }
-                var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-                var address = protocol + window.location.host + window.location.pathname + '/ws';
-                var socket = new WebSocket(address);
-                socket.onmessage = function (msg) {
-                    if (msg.data == 'reload') window.location.reload();
-                    else if (msg.data == 'refreshcss') refreshCSS();
-                };
-                if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-                    console.log('Live reload enabled.');
-                    sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-                }
-            })();
-        }
-        else {
-            console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-        }
-        // ]]>
-    </script> -->
+    
 </html>

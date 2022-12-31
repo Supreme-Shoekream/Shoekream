@@ -8,10 +8,10 @@
 const is_fixed= document.querySelector(".is_fixed");
     // 왼쪽 상품 사진 
 
-// const y = document.querySelector(".feed_area");
-
-// const y2 = window.pageYOffset + y.getBoundingClientRect().top;
-
+// const t = $(".meditaion_notice_product");
+// const top = t.offset().top;
+// const bottom = $("p.meditaion_notice_product").offset().top + $("p.meditaion_notice_product").outerHeight();
+// console.log(bottom);
 
 window.addEventListener('scroll', function(){
     // console.log(y2);
@@ -20,10 +20,12 @@ window.addEventListener('scroll', function(){
 
         // window.scrollY: 브라우저 최상단에서 현재까지 스크롤 된 좌표값 구함
         // 좌표값이 1240인 곳에서 멈춰야함
+        is_fixed.classList.remove('is_fixed');
         is_fixed.classList.add('is_absolute');
             // css에서 position:absolute , top:1250px으로 지정해줬음
     }else{
         is_fixed.classList.remove('is_absolute');
+        is_fixed.classList.add('is_fixed');
     }
 });
 
@@ -106,6 +108,8 @@ dates.forEach((date)=>{
     })
 });
 
+
+
 // 기능5. 시세 - 그래프 띄우기
     // const a = document.querySelector('.tab_list .graph_month');
     // const b = document.getElementById(a.getAttribute('aria-controls'));
@@ -152,6 +156,8 @@ conclusiones.forEach((conclusion)=>{
     conclusion.setAttribute("aria-selected","true");
     })
 });
+
+
 
 // 기능7. 시세 - 모든 사이즈
 const filter_unit = document.querySelector(".filter_unit");
@@ -228,26 +234,34 @@ const items = document.querySelectorAll(".like");
 
 
 // 기능11. 슬릭슬라이더
-// $(function(){
-//     $('#slider-div').slick({
-//       slide: 'div',        //슬라이드 되어야 할 태그 ex) div, li 
-//       infinite : true,     //무한 반복 옵션     
-//       slidesToShow : 1,        // 한 화면에 보여질 컨텐츠 개수
-//       slidesToScroll : 1,        //스크롤 한번에 움직일 컨텐츠 개수
-//       speed : 100,     // 다음 버튼 누르고 다음 화면 뜨는데까지 걸리는 시간(ms)
-//       arrows : true,         // 옆으로 이동하는 화살표 표시 여부
-//       dots : true,         // 스크롤바 아래 점으로 페이지네이션 여부
-//       autoplay : false,            // 자동 스크롤 사용 여부
-//     //   autoplaySpeed : 3000,         // 자동 스크롤시 다음으로 넘어가는데 걸리는 시간 (ms)
-//       pauseOnHover : false,        // 슬라이드 이동시 마우스 호버하면 슬라이더 멈추게 설정
-//       vertical : false,        // 세로 방향 슬라이드 옵션
-//     //   prevArrow : "<button type='button' class='slick-prev'>Previous</button>",        // 이전 화살표 모양 설정
-//     //   nextArrow : "<button type='button' class='slick-next'>Next</button>",        // 다음 화살표 모양 설정
-//       dotsClass : "slick-dots",     //아래 나오는 페이지네이션(점) css class 지정
-//       draggable : true    //드래그 가능 여부 
+$('picture.picture').click(function(e){
+    e.preventDefault();
+});
 
-//     });
-// })
+$(function(){
+    $('#pro_slider-div').slick({
+      slide: 'div',        //슬라이드 되어야 할 태그 ex) div, li 
+      infinite : true,     //무한 반복 옵션     
+      slidesToShow : 1,        // 한 화면에 보여질 컨텐츠 개수
+      slidesToScroll : 1,        //스크롤 한번에 움직일 컨텐츠 개수
+      speed : 100,     // 다음 버튼 누르고 다음 화면 뜨는데까지 걸리는 시간(ms)
+      arrows : true,         // 옆으로 이동하는 화살표 표시 여부
+      dots : true,         // 스크롤바 아래 점으로 페이지네이션 여부
+      autoplay : false,            // 자동 스크롤 사용 여부
+    //   autoplaySpeed : 3000,         // 자동 스크롤시 다음으로 넘어가는데 걸리는 시간 (ms)
+      pauseOnHover : false,        // 슬라이드 이동시 마우스 호버하면 슬라이더 멈추게 설정
+      vertical : false,        // 세로 방향 슬라이드 옵션
+      prevArrow : "<button type='button' class='slick-prev'>Previous</button>",        // 이전 화살표 모양 설정
+      nextArrow : "<button type='button' class='slick-next'>Next</button>",        // 다음 화살표 모양 설정
+      dotsClass : "slick-dots",     //아래 나오는 페이지네이션(점) css class 지정
+      draggable : true    //드래그 가능 여부 
+    });
+})
+
+
+
+
+
 
 
 
