@@ -15,7 +15,7 @@
 
 
     <link rel="stylesheet" href="../../css/social/myprofile.css">
-    <link rel="stylesheet" href="../../css/social/profile.css">
+    <link rel="stylesheet" href="../../css/social/users.css">
 </head>
 
 <body>
@@ -189,9 +189,9 @@
                         <ul class="tab_list">
                             <li class="tab_item"><a href="#" class="tab_link"><span class="tab_menu">게시물</span><span
                                         class="menu_count">0</span></a></li>
-                            <li class="tab_item"><a href="#" class="tab_link"><span class="tab_menu">팔로워</span><span
+                            <li class="tab_item"><a href="#" class="tab_link"  onclick="follower_up()"><span class="tab_menu">팔로워</span><span
                                         class="menu_count">0</span></a></li>
-                            <li class="tab_item"><a href="#" class="tab_link"><span class="tab_menu">팔로잉</span><span
+                            <li class="tab_item"><a href="#" class="tab_link"  onclick="following_up()"><span class="tab_menu">팔로잉</span><span
                                         class="menu_count">3</span></a></li>
                         </ul>
                     </div>
@@ -545,11 +545,10 @@
                         </div>
                         
                     </div>
-
                     <!-- 피드 끝 -->
 
                                         <!--                        팝업 (팔로워) 시작-->
-                                        <div id="follower_pop" class="layer_social_user_list layer lg">
+                                        <div id="follower_pop" class="layer_social_user_list layer lg" onclick="follower_down()">
                                             <div class="layer_container">
                                                 <a class="btn_layer_close" onclick="follower_down()">
                                                     <img src="../../img/x.png" class="ico-close icon sprite-icons">
@@ -598,7 +597,7 @@
                                         <!--                        팝업 (팔로워) 끝-->
                     
                                         <!--                        팝업 (팔로잉) 시작-->
-                                        <div id="following_pop" class="layer_social_user_list layer lg">
+                                        <div id="following_pop" class="layer_social_user_list layer lg" onclick="following_down()">
                                             <div class="layer_container">
                                                 <a class="btn_layer_close" onclick="following_down()">
                                                     <img src="../../img/x.png" class="ico-close icon sprite-icons">
@@ -634,7 +633,10 @@
                                                                     </div>
                                                                 </div>
                                                             </li>
-                                                            
+                                                            <div class="list_loading" style="display: none;">
+                                                                <img src="/_nuxt/img/loading.410eb77.gif" alt="리스트 로딩중입니다."
+                                                                    class="loading_img">
+                                                            </div>
                                                         </ul>
                                                         <!---->
                                                     </div>
@@ -642,43 +644,42 @@
                                             </div>
                                         </div>
                                         <!--                        팝업 (팔로잉) 끝-->
+
                 </div>
-            </div>
-            <!-- 푸터 -->
+                 <!-- 푸터 시작-->
 
-            <!-- 푸터 끝 -->
-            <div>
-
+                <!-- 푸터 끝 -->
             </div>
         </div>
     </div>
-    </div>
+    
 
 
     <!-- 본문 끝 -->
 
-
-
-
     
+
+
+
     <!-- Layer content-->
     <script src="../../js/style/like.js"></script>
     <script src="../../js/style/profile.js"></script>
 
+    <script>
+        console.log(scrollY);
+    
+        addEventListener("scroll", e => {
+            console.log(window.scrollY);
+            const mini = document.getElementById('mini');
+            if(window.scrollY>0){
+                mini.setAttribute('style', 'display: flex;');
+            }else{
+                mini.setAttribute('style', 'display: none;');
+            }
+        })
+    </script>
 </body>
-<script>
-    console.log(scrollY);
 
-    addEventListener("scroll", e => {
-        // console.log(window.scrollY);
-        const mini = document.getElementById('mini');
-        if(window.scrollY>0){
-            mini.setAttribute('style', 'display: flex;');
-        }else{
-            mini.setAttribute('style', 'display: none;');
-        }
-    })
-</script>
 
 
 </html>
