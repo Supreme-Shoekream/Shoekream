@@ -73,7 +73,7 @@ input, textarea {
     margin-bottom: 32px;
     /* height: calc(100% - 60px);
     width: 680px; */
-    max-height: 750px;
+    /* max-height: 750px; */
     overflow-y: auto;
     overflow: hidden;
     position: absolute;
@@ -85,6 +85,8 @@ input, textarea {
     border-radius: 16px;
     -webkit-box-shadow: 0 4px 10px 0 rgba(0, 0, 0, .1);
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, .1);
+    width: 40%;
+    height: 90%;
 }
 
 
@@ -118,7 +120,8 @@ input, textarea {
 }
 
 .layer_btn{
-    padding: 24px 32px 32px;
+    /* padding: 24px 32px 32px; */
+    padding: 15px 32px 32px;
     display: flex;
     -webkit-box-pack: center;
     justify-content: center;
@@ -178,7 +181,8 @@ input, textarea {
 
 
 .layer_content{
-    max-height: 644px;
+    /* max-height: 644px; */
+    max-height: 596px;
     overflow-y: auto;
     padding: 0 32px;
     margin-top: 32px;
@@ -258,6 +262,18 @@ input, textarea {
     border: 0;
     border-bottom: 1px solid #ebebeb;
 }
+
+.input_item input {
+    padding: 8px 0;
+    width: 100%;
+    font-size: 15px;
+    letter-spacing: -.15px;
+    line-height: 22px;
+    border: 0;
+    border-bottom: 1px solid #ebebeb;
+}
+
+
 /*view페이지 전용*/
 .input_item p{
     padding: 8px 0;

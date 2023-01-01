@@ -88,19 +88,21 @@
                     </div>
                     <div class="input_box">
                         <h4 class="input_title">진행 상황</h4>
-                        <select name="ship_status" class="input_item_selectbox">
-                            <option value="ship_status">== 진행 상황 ==</option>
-                            <option value="발송완료">발송완료</option>
-                            <option value="입고완료">입고완료</option>
-                            <option value="검수합격">검수합격</option>
-                            <option value="배송완료">배송완료</option>
-                        </select>
-                        <p></p>
+                        <div class="input_item">
+                            <select name="ship_status" class="input_item_selectbox">
+                                <option value="ship_status">== 진행 상황 ==</option>
+                                <option value="발송완료">발송완료</option>
+                                <option value="입고완료">입고완료</option>
+                                <option value="검수합격">검수합격</option>
+                                <option value="배송완료">배송완료</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="input_box">
                         <h4 class="input_title">배송 날짜</h4>
-                        <input type="date" class="input_item_selectbox">
-                        <p></p>
+                        <div class="input_item">
+                            <input type="date" name="delivery_status" placeholder="배송 날짜">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -109,7 +111,7 @@
             <div class="user_bind" style="margin: 0 3%;">
                 <div class="user_input">
                     <div class="input_box">
-                        <h4 class="input_title">우편번호</h4>
+                        <h4 class="input_title">우편 번호</h4>
                         <div class="input_item">
                             <input type="text" id="sample6_postcode" placeholder="우편번호">
                         </div>
@@ -119,7 +121,7 @@
             <div class="user_bind" style="margin: 0 3%;">
                 <div class="user_input">
                     <div class="input_box">
-                        <div class="layer_btn" style=" padding: 10px 50px; right: 100px; position: absolute;">
+                        <div class="layer_btn" style=" padding: 10px 50px; right: 55px; position: absolute;">
                             <a href="#" class="btn btn_save solid medium" onclick="sample6_execDaumPostcode()">우편번호 검색</a>
                         </div>
                     </div>
