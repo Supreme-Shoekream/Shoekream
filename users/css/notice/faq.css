@@ -313,6 +313,20 @@ tbody {
     height: 32px;
     color: #222;
 }
+.menu_item.active .menu_link {
+    font-weight: 700;
+    color: #222;
+}
+.menu_item:not(.active) .menu_link{
+    border-color: #ebebeb;
+}
+.category_text.active {
+    font-weight: 700;
+    color: #222;
+}
+.category_text:not(.active) {
+    border-color: #ebebeb;
+}
 /*드롭다운*/
 .dropdown_content {
     /* display: none; */

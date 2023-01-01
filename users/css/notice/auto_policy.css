@@ -434,3 +434,17 @@ tbody {
     color: rgba(34,34,34,.6);
     margin-top: 5px;
 }
+.menu_item.active .menu_link {
+    font-weight: 700;
+    color: #222;
+}
+.menu_item:not(.active) .menu_link{
+    border-color: #ebebeb;
+}
+.category_txt.active {
+    font-weight: 700;
+    color: #222;
+}
+.category_txt:not(.active) {
+    border-color: #ebebeb;
+}
