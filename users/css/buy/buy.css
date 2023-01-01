@@ -921,6 +921,44 @@ section .section_title .title_txt, section .section_title .title_txt {
     width: 24px;
     height: 24px;
 }
+.selected .clickable_card {
+    border: 1px solid #222;
+}
+.other_card{
+    overflow: hidden;
+    margin-top: -15px;
+    padding-top: 15px;
+    background-color: #fafafa;
+    border: 1px solid #ebebeb;
+    border-top: 0 solid #ebebeb;
+    border-radius: 0 0 10px 10px;
+}
+.other_card_list{
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 330px;
+    padding: 0 16px;
+}
+.other_card_item:first-child {
+    border-top: 0;
+}
+.other_card_item{
+    position: relative;
+    border-top: 1px solid #ebebeb;
+    cursor: pointer;
+}
+.other_card_item .card_info {
+    padding: 12px 50px 12px 0;
+}
+.other_card img {
+    display: none;
+    position: absolute;
+    top: 50%;
+    margin-top: -9px;
+    right: 0;
+}
+
+
 /*일반결재*/
 .general_payment {
     padding-top: 7px;
@@ -928,6 +966,9 @@ section .section_title .title_txt, section .section_title .title_txt {
 .pay_item, .pay_method{
     display: flex;
     -webkit-box-direction: normal;
+}
+.pay_item.selected .pay_box {
+    border: 1px solid #222;
 }
 .pay_method {
     -webkit-box-orient: horizontal;
