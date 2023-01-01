@@ -91,3 +91,38 @@ const inputImage = document.getElementById('imgUpload');
 inputImage.addEventListener("change", e => {
     readImage(e.target);
 })
+
+// onintut
+function search(){
+    const lists=document.getElementById('lists');
+    lists.style.display='block';
+
+}
+
+function isNull(input){
+    const lists = document.getElementById('lists');
+    if(input.value==""){
+        lists.style.display='none';
+    }
+}
+
+
+// 선택된 태그 추가
+// $('li.product_item').click(function(e){
+//     e.preventDefault();
+// });
+
+const items = document.querySelectorAll(".product_item");
+    //배열로 저장되기 때문에 forEach로 하나씩 이벤트를 등록해준다.
+    items.forEach((item)=>{
+
+
+        item.addEventListener('click',()=>{
+            // const ch=item.childNodes;
+
+            console.log(item);
+            const parent = document.getElementById('selected_product_list');
+            parent.appendChild(item);
+            
+        })
+    })
