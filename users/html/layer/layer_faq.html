@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="../../css/layer/layer_faq.css">
 <div class="layer lg layer_faq" style="display: block;">
     <div class="layer_container"><a 
-            class="btn_layer_close"><img src="../../img/close.png".></a>
+            class="btn_layer_close"><img src="../../img/close.png" onclick="closeLayer()"></a>
         <div class="layer_header">
             <h2 class="title"> 이용정책 </h2>
         </div>
@@ -13,9 +13,9 @@
                         <div class="dropdown_head"><!---->
                             <div class="title_box"><!---->
                                 <p class="title">페널티 정책</p>
-                            </div><img src="../../img/down.png" onclick="close_faq()">
+                            </div><img src="../../img/down.png" class="opencloses" >
                         </div>
-                        <div class="dropdown_content">
+                        <div class="dropdown_content" style="display:none;">
                             <div class="content">
                                 <p>최종 수정일 &nbsp;2022년 7월 1일</p>
                                 <p>&nbsp;</p>
@@ -192,7 +192,7 @@
                                 <p class="title">가품 ・ 손상/오염/사용감 있는 상품 판매에 대한 제재</p>
                             </div><img src="../../img/down.png">
                         </div>
-                        <div class="dropdown_content">
+                        <div class="dropdown_content" style="display: none;">
                             <div class="content">
                                 <p>최종 수정일 &nbsp;2021년 1월 29일</p>
                                 <p>&nbsp;</p>
@@ -249,7 +249,7 @@
                                 <p class="title">검수 기준 악용에 대한 제재</p>
                             </div><img src="../../img/down.png">
                         </div>
-                        <div class="dropdown_content">
+                        <div class="dropdown_content" style="display: none;">
                             <div class="content">
                                 <p>최종 수정일 &nbsp;2021년 12월 10일</p>
                                 <p>&nbsp;</p>
@@ -355,7 +355,7 @@
                                 <p class="title">거래 실패 시 반송 운임 기준</p>
                             </div><img src="../../img/down.png">
                         </div>
-                        <div class="dropdown_content">
+                        <div class="dropdown_content" style="display: none;">
                             <div class="content">
                                 <p>최종 수정일 &nbsp;2021년 10월 8일</p>
                                 <p>&nbsp;</p>
@@ -408,7 +408,7 @@
                                 <p class="title">부적절행위 금지</p>
                             </div><img src="../../img/down.png">
                         </div>
-                        <div class="dropdown_content">
+                        <div class="dropdown_content" style="display: none;">
                             <div class="content">
                                 <p>최종 수정일 &nbsp;2022년 8월 29일</p>
                                 <p>&nbsp;</p>
@@ -437,7 +437,7 @@
                                 <p class="title">이상시세 입찰/거래 취소 정책</p>
                             </div><img src="../../img/down.png">
                         </div>
-                        <div class="dropdown_content">
+                        <div class="dropdown_content" style="display: none;">
                             <div class="content">
                                 <p>최종 수정일 2022년 3월 21일</p>
                                 <p>&nbsp;</p>
@@ -472,7 +472,7 @@
                                 <p class="title">커뮤니티 가이드라인</p>
                             </div><img src="../../img/down.png">
                         </div>
-                        <div class="dropdown_content">
+                        <div class="dropdown_content" style="display: none;">
                             <div class="content">
                                 <p>최종 수정일 &nbsp;2021년 12월 3일</p>
                                 <p><br><br>KREAM 내 STYLE 서비스는 회원들의 일상 속 스니커즈, 의류 등의 패션 스타일을 공유하여 서로 영감을 얻을 수 있는 공간입니다.
@@ -574,7 +574,7 @@
                                 <p class="title">검수 및 품질 보증 관련 주의사항</p>
                             </div><img src="../../img/down.png">
                         </div>
-                        <div class="dropdown_content">
+                        <div class="dropdown_content" style="display: none;">
                             <div class="content">
                                 <p>최종 수정일 &nbsp;2021년 9월 10일</p>
                                 <p>&nbsp;</p>
@@ -629,7 +629,7 @@
                                 <p class="title">검수센터 입고 지원 정책</p>
                             </div><img src="../../img/down.png">
                         </div>
-                        <div class="dropdown_content">
+                        <div class="dropdown_content" style="display: none;">
                             <div class="content">
                                 <p>최종 수정일 2022년 4월 1일</p>
                                 <p>&nbsp;</p>
@@ -673,7 +673,7 @@
                                 <p class="title">배송 사고 보상 프로세스</p>
                             </div><img src="../../img/down.png">
                         </div>
-                        <div class="dropdown_content">
+                        <div class="dropdown_content" style="display: none;">
                             <div class="content">
                                 <p>최종 수정일 2021년 5월 17일</p>
                                 <p>&nbsp;</p>
@@ -728,7 +728,7 @@
                                 <p class="title">세금계산서 관련 안내</p>
                             </div><img src="../../img/down.png">
                         </div>
-                        <div class="dropdown_content">
+                        <div class="dropdown_content" style="display: none;">
                             <div class="content">
                                 <p>최종 수정일 &nbsp;2022년 3월 25일</p>
                                 <p>&nbsp;</p>
@@ -762,7 +762,7 @@
                                 <p class="title">세무 관련 유의사항</p>
                             </div><img src="../../img/down.png">
                         </div>
-                        <div class="dropdown_content">
+                        <div class="dropdown_content" style="display: none;">
                             <div class="content">
                                 <p>최종 수정일 2022년 9월 21일</p>
                                 <p>&nbsp;</p>
@@ -792,7 +792,7 @@
                                 <p class="title">이용 제한 정책</p>
                             </div><img src="../../img/down.png">
                         </div>
-                        <div class="dropdown_content">
+                        <div class="dropdown_content" style="display: none;">
                             <div class="content">
                                 <p>최종 수정일 &nbsp;2021년 11월 8일</p>
                                 <p>&nbsp;</p>
@@ -911,7 +911,7 @@
                                 <p class="title">포인트 정책</p>
                             </div><img src="../../img/down.png">
                         </div>
-                        <div class="dropdown_content">
+                        <div class="dropdown_content" style="display: none;">
                             <div class="content">
                                 <p>최종 수정일 &nbsp;2021년 9월 10일</p>
                                 <p>&nbsp;</p>
@@ -936,7 +936,7 @@
                                 <p class="title">포인트 보상 정책</p>
                             </div><img src="../../img/down.png">
                         </div>
-                        <div class="dropdown_content">
+                        <div class="dropdown_content" style="display: none;">
                             <div class="content">
                                 <p>최종 수정일 2021년 11월 30일</p>
                                 <p>&nbsp;</p>
@@ -1033,7 +1033,7 @@
                                 <p class="title">서비스 수수료</p>
                             </div><img src="../../img/down.png">
                         </div>
-                        <div class="dropdown_content">
+                        <div class="dropdown_content" style="display: none;">
                             <div class="content">
                                 <p>최종 수정일 &nbsp;2022년 12월 1일</p>
                                 <p>적용일 &nbsp;2022년 12월 1일 부터</p>
@@ -1127,3 +1127,4 @@
         </div>
     </div>
 </div>
+<script src="../../js/layer/layer_faq.js"></script>
