@@ -1,19 +1,4 @@
-// function like_clicked(){
-//     const icon = document.getElementById('like_icon');
-//     // const cnt = document.getElementById('like_icon');
-//     if(icon.getAttribute('src')=='../../img/styleImg/like_icon.png'){
-//         icon.setAttribute('src','../../img/styleImg/like_after_icon.png');
-//         // 숫자 ++1
-//     }else{
-//         icon.setAttribute('src','../../img/styleImg/like_icon.png');
-//         // 숫자 --1;
-//     }
-// }
 
-// window.onload = function(){
-//     var sl = document.getElementById('span_like');
-//     sl.onclick = like_clicked;
-// }
 
 $('span.like').click(function(e){
     e.preventDefault();
