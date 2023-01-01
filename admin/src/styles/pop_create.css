@@ -351,3 +351,8 @@ input::-webkit-inner-spin-button {
     border: 0;
     border-bottom: 1px solid #ebebeb;
 }
+
+select{
+    width: 100%;
+    border: none;
+}
