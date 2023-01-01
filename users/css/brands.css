@@ -145,16 +145,23 @@ nav {
     align-items: center;
 }
 
-.header .logo {
+/* .header .logo {
     display: -webkit-box;
     display: flex;
     width: 145px;
     height: 30px;
+} */
+
+.header .logo {
+    display: -webkit-box;
+    display: flex;
+    width: 120px;
+    height: 24px;
 }
 
-.header .logo>.logo-kream {
+/* .header .logo>.logo-kream {
     width: 100%;
-}
+} */
 
 svg:not(:root) {
     overflow-clip-margin: content-box;
