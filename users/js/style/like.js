@@ -23,7 +23,6 @@ const items = document.querySelectorAll(".like");
     //배열로 저장되기 때문에 forEach로 하나씩 이벤트를 등록해준다.
     items.forEach((item)=>{
 
-
         item.addEventListener('click',()=>{
 
             const ch=item.childNodes;
