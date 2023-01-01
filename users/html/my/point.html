@@ -123,6 +123,8 @@
         helpBtn.addEventListener('click', () => {
             pointLayer.style.display = "block"
         })
+        // 외부영역 클릭이벤트
+        // querySelector(레이어div)
         pointLayer.addEventListener('click', (e) => {
             if(e.target == e.currentTarget){
             pointLayer.style.display = "none"
