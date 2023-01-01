@@ -263,7 +263,6 @@ function conPopup() {
     const body = document.querySelector("body");
     body.style.overflow = "hidden";
 }
-
 function conPopdown() {
     const layer = document.querySelector(".layer_market_price");
     layer.style.display = "none";
@@ -274,15 +273,15 @@ function conPopdown() {
 
 
 // 기능13. 체결 내역 더보기 - 모든 사이즈
-const size_select_wrap = document.querySelector(".size_select_wrap .btn");
+const size_select_wrap = document.querySelector(".size_select_wrap");
     
 size_select_wrap.addEventListener("click", () => {
-    const layer = document.querySelector(".size_select_wrap .layer_size_list")
+    const layer = document.querySelector(".size_select_wrap .layer_size_list");
+    console.log(layer);
 
     if(layer.style.display == "none"){
         layer.style.display = "block";
     }else{
-        console.log("123");
         layer.style.display = "none";
     }
 });
