@@ -21,8 +21,36 @@ button {
     appearance: none;
     border-radius: 0;
 }
+input::placeholder{
+    color: lightgray;
+}
+input:focus{
+    outline: none;
+}
+/* 체크박스 꾸미기 - 활성화 x */
+input[class="check"] + label {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	border: 1px solid #bcbcbc;
+	cursor: pointer;
+}
 
+/* 체크박스 꾸미기 - 활성화 */
+input[class="check"]:checked + label {
+    background-image:url("/users/img/check.png");
+    background-size: 100%;
+    border: 1px solid #fff;
+}
 
+/* input 안보이게 */
+.check{
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
 
 
 .container.my .content_area {
@@ -63,6 +91,7 @@ button {
 .input_box {
     position: relative;
     padding: 10px 0 14px;
+    margin: 8px 0 14px 0;
 }
 .input_title {
     font-size: 13px;
@@ -87,7 +116,7 @@ button {
 .btn.btn_dropdown {
     position: absolute;
     top: 50%;
-    right: 0;
+    right: 5px;
     margin-top: -12px;
     line-height: 0;
 }
@@ -126,11 +155,70 @@ button {
     letter-spacing: -.14px;
 }
 .btn_dropdown img{
-    width: 10px;
+    width: 15px;
     height: 15px;
 }
 .container.my {
     margin: 0 auto;
     padding: 40px 40px 160px;
     max-width: 1280px;
+}
+.input_logistics_companies input::placeholder{
+    color: black;
+}
+.receipt_config_wrap{
+    display: flex;
+}
+.label_txt{
+    font-size: 14px;
+    margin-left:10px;
+    line-height: 150%;
+}
+.btn_save {
+    background-color: #ebebeb;
+    color: #fff;
+    cursor: default;
+}
+.bank_dropdown_menu{
+    background-color: white;
+    position: absolute;
+    z-index: 1010;
+    width: 100%;
+}
+.receipt_list{
+    border: 1px solid rgb(230, 228, 228);
+    overflow-y: auto;
+    max-height: 240px;
+}
+.receipt_list li{
+    padding: 11px 20px 10px 16px;
+    color: gray;
+    font-size: 13px;
+}
+.bank_list:hover{
+    cursor: pointer;
+}
+.input_txt_color::placeholder{
+    color:black;
+}
+.select_receipt{
+    font-weight: bolder;
+    color: black !important;
+}
+.receipt_list_li img{
+    width: 18x;
+    height: 18px;
+    float: right;
+}
+.receipt_dropdown_menu{
+    cursor: pointer;
+}
+.receipt_dropdown_menu{
+    background-color: white;
+    position: absolute;
+    z-index: 1010;
+    width: 100%;
+}
+.btn_active{
+    cursor: pointer;    
 }
