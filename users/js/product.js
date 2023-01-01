@@ -67,16 +67,15 @@ function wishPopup() {
 
     layer.style.visibility ='visible';
 }
-
 function wishPopdown() {
     const layer = document.querySelector('.layer_interest.lg');
     layer.classList.remove('layer');
+    layer.style.visibility ='hidden';
     
     const body = document.querySelector('body');
-    body.style.overflow = '';
-
-    layer.style.visibility ='hidden';
+    body.style.overflow = "";
 }
+
 
 
 // 기능4. 시세 - 개월 버튼
@@ -162,18 +161,18 @@ conclusiones.forEach((conclusion)=>{
 // 기능7. 시세 - 모든 사이즈
 const filter_unit = document.querySelector(".filter_unit");
     
-        filter_unit.addEventListener("click", () => {
-            const layer =document.querySelector(".filter_unit .layer_size_list")
-            // const ch = filter_unit.childNodes;
-            // const ch5 = ch[5];
-            if(layer.style.display==='none'){
-                document.querySelector(".filter_unit .btn.btn_select").classList.add("on");
-                layer.style.display = "block";
-            }else{
-                document.querySelector(".filter_unit .btn.btn_select").classList.remove("on");
-                layer.style.display = "none";
-            }
-    });
+filter_unit.addEventListener("click", () => {
+    const layer =document.querySelector(".filter_unit .layer_size_list")
+    // const ch = filter_unit.childNodes;
+    // const ch5 = ch[5];
+    if(layer.style.display==="none"){
+        document.querySelector(".filter_unit .btn.btn_select").classList.add("on");
+        layer.style.display = "block";
+    }else{
+        document.querySelector(".filter_unit .btn.btn_select").classList.remove("on");
+        layer.style.display = "none";
+    }
+});
 
 
 // 기능8. 스크롤시 상단 고정 배너
@@ -216,7 +215,7 @@ const items = document.querySelectorAll(".like");
     //배열로 저장되기 때문에 forEach로 하나씩 이벤트를 등록해준다.
     items.forEach((item) => {
 
-        item.addEventListener('click',()=>{
+        item.addEventListener("click",()=>{
 
             const ch = item.childNodes;
 
@@ -264,7 +263,6 @@ function conPopup() {
     const body = document.querySelector("body");
     body.style.overflow = "hidden";
 }
-
 function conPopdown() {
     const layer = document.querySelector(".layer_market_price");
     layer.style.display = "none";
@@ -275,10 +273,11 @@ function conPopdown() {
 
 
 // 기능13. 체결 내역 더보기 - 모든 사이즈
-const size_select_wrap = document.querySelector(".size_select_wrap .btn");
+const size_select_wrap = document.querySelector(".size_select_wrap");
     
 size_select_wrap.addEventListener("click", () => {
-    const layer = document.querySelector(".size_select_wrap .layer_size_list")
+    const layer = document.querySelector(".size_select_wrap .layer_size_list");
+    console.log(layer);
 
     if(layer.style.display == "none"){
         layer.style.display = "block";
@@ -287,19 +286,56 @@ size_select_wrap.addEventListener("click", () => {
     }
 });
 
-// const dropdowns = document.querySelectorAll(".dropdown");
-// dropdowns.forEach((dropdown) => {
 
-//     dropdown.addEventListener("click",() => {
+// 기능14. 관심상품 클릭시 버튼 활성화
+const wishes = document.querySelectorAll(".interest_btn_box .btn_interest");
+    wishes.forEach((wish) => {
+        wish.addEventListener("click", () => {
 
-//         const ch = dropdown.childNodes;
-//         console.log(ch);
+            const ch = wish.childNodes;
+            // console.log(ch);
 
-//         if(ch[3].getAttribute("class", "dc")){
-//             ch[3].removeAttribute("class", "dc");
-//         }else{
-//             ch[3].setAttribute("class", "dc");
-//         }
+            if(ch[3].getAttribute("src") == "../img/select_mark_off.PNG"){
+                ch[3].setAttribute("src","../img/select_mark_on.png");
+            }else{
+                ch[3].setAttribute("src","../img/select_mark_off.PNG");
+            } 
+        })
+    });
 
-//     })
-// });
+const boxes = document.querySelectorAll(".interest_btn_box");
+const wish_onoff = document.querySelector(".wish-onoff"); // 메인 관심상품
+const wish_onoff2 = document.querySelector(".btn_wish_simple .wish-onoff"); // 상단 고정 배너 관심상품
+let count = 0;
+
+    boxes.forEach((box) => {
+        box.addEventListener("click", () => {
+
+            const ch = box.childNodes;
+            // console.log(ch);
+            
+            if(ch[1].getAttribute("class") == "btn outlinegrey medium btn_interest"){
+                ch[1].classList.add("wish_on");
+                count++;
+                // console.log("+:" + count);
+            }else{
+                ch[1].classList.remove("wish_on");
+                count--;
+                // console.log("-:" + count);
+            }
+
+            if(count > 0) {
+                wish_onoff.setAttribute("src","../img/select_mark_on.png");
+                wish_onoff2.setAttribute("src","../img/select_mark_on.png");
+            }else{
+                wish_onoff.setAttribute("src","../img/select_mark_off.PNG");
+                wish_onoff2.setAttribute("src","../img/select_mark_off.png");
+            }
+        })
+    });
+
+
+
+
+
+

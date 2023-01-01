@@ -88,7 +88,11 @@
     border: 1px solid #d3d3d3;
     color: rgba(34,34,34,.8);
 }
-
+/* input[type=file]::file-selector-button{
+    border: 1px solid #d3d3d3;
+    color: rgba(34,34,34,.8);
+    background-color: white;
+} */
 .small, .xsmall {
     font-size: 12px;
     letter-spacing: -.06px;

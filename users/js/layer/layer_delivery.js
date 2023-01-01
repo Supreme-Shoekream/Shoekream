@@ -75,22 +75,6 @@ document.querySelector('#hp_input').addEventListener('input', e=>{
     })
 });
 
-// 버튼 활성화
-// document.querySelectorAll('#name_input').forEach((item) =>{
-//     item.addEventListener('blur', e=>{
-//     let strName=e.target.value;
-//     if(validateName(strName)){
-//         document.querySelectorAll('#hp_input').forEach((item) =>{
-//             item.addEventListener('input', e=>{
-//             let strHp=e.target.value;
-//         if(validateHp(strHp)){
-//                 $("#submit_btn").removeClass("active");
-//                 $(this).addClass("active");
-//                 $("#submit_btn").removeClass("disabled")
-//             }
-//                 })
-//             })
-// }})});
 let strName
 let strHp
 document.querySelectorAll('#name_input').forEach((item) =>{
