@@ -2,6 +2,101 @@
 *{list-style: none;}
 /*======= PC버전 ======== */
 
+/* body, button, dd, div, dl, dt, fieldset, figcaption, figure, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, select, table, td, textarea, th, ul {
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    display: block;
+} */
+
+/* = = = = = header = = = = = */
+
+/* .header.no_line{
+    box-shadow: 0 0 0 0;
+}
+
+.header.lg, .header.md{
+    min-height: 100px;
+}
+
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: #fff;
+}
+
+.header .header_top{
+    box-shadow: 0 1px 0 0 rgb(0 0 0 / 10%);
+}
+
+*, :after, :before {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.header .top_inner{
+    display: flex;
+    padding: 8px 40px;
+}
+
+.header .main_inner{
+    display: flex;
+    padding: 0 40px;
+    height: 68px;
+    min-width: 320px;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+li, ol, ul {
+    list-style: none;
+}
+
+.header .top_list{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-left: auto;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+.header .top_link{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    font-size: 12px;
+    letter-spacing: -.06px;
+    color: rgba(34,34,34,.8);
+}
+
+.header .top_item+.top_item{
+    margin-left: 24px;
+}
+
+.logo */
+
+
+/* = = = = = = = = = = = = */
+
 /*프리미엄 업*/
 
 .status_value{
@@ -101,6 +196,7 @@ header #header_bottom #hb_box{
     align-items: center;
     justify-content: space-between;
 }
+
 header #header_bottom #hb_box .hb_text{
     font-size: 1.46rem;
     margin-top: -0.26rem;
@@ -120,7 +216,7 @@ header #header_bottom #hb_box #hb_no_text .hb_button_img{
     margin-top: 0.46rem;
     background: url(../img/search.png) no-repeat center/cover;
 }
-/* header css 끝*/
+header css 끝
 
 .qf_box .hb_fixed_box{
     width: 100rem;
@@ -190,6 +286,7 @@ header #header_bottom #hb_box #hb_no_text .hb_button_img{
 a { text-decoration:none }
 
 /*최상단 div 가운데 정렬*/
+
 .container_search_md{
     width: 118rem;
     height: auto;
@@ -325,6 +422,7 @@ a:visited{
     display: none;
 }
 
+
 .filter_list .filter_menu .menu_list{
     position: relative;
     right: 4rem;
@@ -378,38 +476,7 @@ a:visited{
     font-weight: unset;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* 상품 정렬 select_desc */
-
-
-
-
 
 #desc_pop{
 
@@ -487,14 +554,14 @@ search content
     margin-left: 1.5rem;
 }
 
-.search_content .filter_sorting{
+/* .search_content .filter_sorting{
     position: relative;
     top:16.5rem;
     font-size: 1.5rem;
     width:27rem;
     height: 35rem;
 
-}
+} */
 .popular{
     width: 13rem;
     display: flex;
@@ -510,10 +577,14 @@ search content
 
 .search_content .search_option{
     display: flex;
-    height: 6.4rem;
+}
+
+.search_option{
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
     align-items: center;
-    float: right;
-    font-size: 1.5rem;
+    height: 68px;
 }
 
 .search_content .search_result .search_result_list{
@@ -947,6 +1018,295 @@ footer #sns_and_button #footer_button{
     display: none;
 }
 
+/* dropmenu */
+.side_btn1 .side_btn {
+    height: 20px;
+    width: 20px;
+}
+
+button {
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+/* 카테고리 테마 별 간격 */
+#drop-content3 {
+    padding-bottom: 1px;
+}
+
+#drop-content1 {
+    padding-bottom: 1px;
+}
+
+.filter_list .filter_menu .menu_list {
+    position: relative;
+    right: 4rem;
+    display: block;
+}
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+/* 스니커즈 사이즈라인 */
+#line1 {
+    border-bottom:1px dashed rgba(187, 179, 179, 0.918);
+    margin-bottom:15px;
+}
+
+
+
+/* 브랜드 스크롤 */
+.filter_menu{
+    max-height: 315px;
+    overflow-y: auto;
+}
+
+
+li, ol, ul {
+    list-style: none;
+}
+
+/* ================================ */
+
+/* 체크박스 꾸미기 - 활성화 x */
+input[class="check"] + label {
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	border: 1px solid #bcbcbc;
+	cursor: pointer;
+}
+
+/* 체크박스 꾸미기 - 활성화 */
+input[class="check"]:checked + label {
+    background-image:url("../img/check.png");
+    background-size: 100%;
+    border: 1px solid #fff;
+}
+
+/* input 안보이게 */
+
+.check{
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+/* ================================ */
+.link_txt {
+    font-size: 14px;
+    align-items: flex-start;
+    vertical-align: top;
+    
+
+}
+
+.check_label{
+    margin-right: 8px;
+    flex-shrink: 0;
+    width: 16px;
+    height: 17px;
+    display: flex;
+}
+
+.menu .checkMenu{
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: start;
+    align-items: flex-start;
+    font-size: 14px;
+    letter-spacing: -.21px;
+    text-align: center;
+}
+
+
+
+/* .content{
+    display: -webkit-box;
+    display: flex;
+    position: relative;
+    margin: 0 auto;
+    padding: 0 40px 80px;
+    max-width: 1280px;
+} */
+
+.menu+.menu{
+    padding-top: 10px;
+}
+
+/* 신발 사이즈 */
+.filter_menu{
+    padding-bottom: 24px;
+}
+
+.column_list.has_more{
+    margin-bottom: 18px;
+}
+
+.column_list{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -2px;
+}
+
+.column_menu{
+    margin-top: 0;
+}
+
+.column_menu{
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 2px;
+    width: calc(32% - 4px);
+    height: 32px;
+    border: 1px solid #d3d3d3;
+    font-size: 13px;
+    color: #000;
+}
+
+.column_menu1{
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 2px;
+    width: calc(49% - 4px);
+    height: 32px;
+    border: 1px solid #d3d3d3;
+    font-size: 13px;
+    color: #000;
+}
+
+.column_list{
+    margin-top: 15px;
+}
+
+.search_option .filter_btns {
+    display: flex;
+}
+
+.search_option{
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 68px;
+}
+
+.filter_express{
+    margin-top: 1px;
+}
+
+/* .search_option .filter_btns .search_option{
+    display: flex;
+} */
+
+.express_btn{
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 28px;
+    padding: 0 9px;
+    border: 1px solid #ebebeb;
+    border-radius: 17px;
+}
+
+.express_btn .text{
+    line-height: 20px;
+    margin-left: 3px;
+    font-size: 13px;
+    letter-spacing: -.07px;
+    letter-spacing: normal;
+}
+
+.brand_btn{
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 28px;
+    padding: 0 9px;
+    border: 1px solid #ebebeb;
+    border-radius: 17px;
+    margin-left: 6px;
+}
+
+.brand_btn .text{
+    line-height: 20px;
+    margin-left: 3px;
+    font-size: 13px;
+    letter-spacing: -.07px;
+    letter-spacing: normal;
+}
+
+.filter_sorting{
+    position: relative;
+}
+
+div {
+    display: block;
+}
+
+.sorting_title{
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+    letter-spacing: -.21px;
+    font-weight: 600;
+    text-align: right;
+    padding-right: 10px;
+}
+
+.desc_logo {
+    height: 24px;
+    width: 24px;
+}
+
+button {
+    padding: 0;
+    border: 0;
+    outline: none;
+    background: none;
+    background-color: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0;
+}
+
+.sorting_list{
+    overflow: hidden;
+    position: absolute;
+    top: 28px;
+    right: 0;
+    width: 278px;
+    background-color: #fff;
+    border: 1px solid #ebebeb;
+    -webkit-box-shadow: 0 4px 10px 0 rgb(0 0 0 / 10%);
+    box-shadow: 0 4px 10px 0 rgb(0 0 0 / 10%);
+    z-index: 10;
+}
+li, ol, ul {
+    list-style: none;
+}
+
+
+
+
+
+
 /*탑버튼*/
 footer .footer_flex_box #top_button_box{
     position: fixed;
@@ -1274,7 +1634,7 @@ input:focus{
 
 .brand_img { width: 8rem; height: 8rem; }
 
-.brand_name { max-width: 8rem; margin: -.8rem auto 0; font-size: 1.2rem; }
+.brand_name { max-width: 8rem; margin: -.8rem auto 0; font-size: 13px; }
 
 .brand_item+.brand_item { margin-left: 2rem; }
 
@@ -1580,9 +1940,9 @@ input:focus{
     text-align: center;
     font-size: 1.25rem;
 }
-.link_txt{
+/* .link_txt{
     white-space: nowrap;
-}
+} */
 /*search sibal*/
 
 .search_suggests{
@@ -1696,62 +2056,6 @@ input:focus{
     }
 
     .h1_header, #main1_title{display: none;}
-    /****************** 모바일 헤더 *********************/
-    #fixed{
-        height: 7.4rem;
-    }
-    header #header_top{ display: none; }
-    header #header_bottom{
-        display: flex;
-        justify-content:space-between;
-        padding: 1.5rem 2.7rem 0.45rem 2.6rem;
-    }
-    header #header_bottom #hb_logo_box{
-        height: 100%;
-    }
-    header #header_bottom #hb_logo_box #hb_logo{
-        width: 13rem;
-        height: 4.5rem;
-        margin: 0;
-        background: url(../img/kream_logo.png)no-repeat center/cover;
-        background-size: 12.5rem;
-        padding: 0;
-    }
-    header #header_bottom #hb_box{
-        display: flex;
-        list-style: none;
-        width: 8.3rem;
-        margin: 0;
-        padding: 0.5rem 0.4rem 0 0;
-        align-items: center;
-    }
-    header #header_bottom #hb_box .hb_text{
-        display: none;
-    }
-    header #header_bottom #hb_box #hb_no_text, header #header_bottom #hb_box #hb_mo_text{
-        display: block;
-    }
-    header #header_bottom #hb_box .hb_text a{
-        text-decoration: none;
-        color: black;
-    }
-    header #header_bottom #hb_box #hb_no_text .hb_button_img{
-        width: 3rem;
-        height: 3rem;
-    }
-    header #header_bottom #hb_box #hb_mo_text .hb_button_img{
-        margin: 0;
-        border: none;
-        width: 3rem;
-        height: 3rem;
-        background: url(../img/hb_mo_button.png) no-repeat center/cover;
-    }
-    /*======================모바일 헤더 끝 ========= */
-
-
-
-
-
 
     /*================ desc 레이어 위치 =============*/
 
@@ -1908,6 +2212,23 @@ input:focus{
         font-weight: 300;
     }
 
+    .btn_quick_filter {
+        
+        display: inline-block;
+        padding: 10px 12px;
+        height: 38px;
+        background-color: #f4f4f4;
+        border-radius: 12px;
+        font-size: 15px;
+        letter-spacing: -.15px;
+        vertical-align: top;
+        margin-left: 8px;
+    }
+    
+    a:visited {
+        color: black;
+    }
+
 
     .search_top .top_box .brand_list {
         position: relative;
@@ -1954,17 +2275,6 @@ input:focus{
     body .search_content .search_result .search_result_list .product_item .product_img {
         width: 23.6rem;
         height: 23.6rem;
-    }
-
-    body .search_content .search_option {
-        width: 96%;
-        display: flex;
-        height: 6.4rem;
-        align-items: center;
-        padding: 0 2rem;
-        box-sizing: border-box;
-        margin: 0 auto;
-        margin-bottom: 1.3rem;
     }
 
     body .search_content .search_result .search_result_list{
@@ -2040,6 +2350,7 @@ input:focus{
         width: 42vw;
         margin-bottom: 3vw;
     }
+
     .sec_flex_box .sec_img_box .sec_img_a{
         text-decoration: none;
 

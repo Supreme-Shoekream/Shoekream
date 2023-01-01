@@ -110,11 +110,13 @@ input {
 .solid {
     background-color: #222;
     color: #fff;
-    height: 50px;
+    /* height: 50px; */
 }
 
-.solid.disabled,
-.solid:disabled {
+.solid.disabled
+/* ,
+.solid:disabled  */
+{
     background-color: #ebebeb;
     color: #fff;
     cursor: default;
@@ -428,7 +430,8 @@ input::-webkit-inner-spin-button {
 }
 
 .has_button .input_txt {
-    padding-right: 3rem; height: 3.8rem; 
+    padding-right: 3rem; 
+    height: 3.8rem; 
 }
 
 .input_txt {

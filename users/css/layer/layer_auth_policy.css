@@ -18,7 +18,9 @@ table {
     border: 0;
     border-collapse: collapse;
 }
-
+.category a{
+    color:#222;
+}
 .category_list_items:after {
     content: "";
     display: block;
@@ -29,7 +31,9 @@ table {
     border-top: 1px solid #ebebeb;
     border-bottom: 1px solid #ebebeb;
 }
-
+.wrap_auth .content{
+    padding:0px;
+}
 
 .category_list_items .category.category_on{
     color: #222;

@@ -41,6 +41,7 @@
     font-size: 12px;
     letter-spacing: -.06px;
     color: rgba(34,34,34,.8);
+    margin-bottom: 6px;
 }
 .usable_item:before {
     content: "";
@@ -64,19 +65,7 @@
 .layer_btn .btn{
     width: 120px;
 }
-.btn {
-    display: -webkit-inline-box;
-    display: inline-flex;
-    cursor: pointer;
-    -webkit-box-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    justify-content: center;
-    vertical-align: middle;
-    text-align: center;
-    color: rgba(34,34,34,.8);
-    background-color: #fff;
-}
+
 .outline {
     border: 1px solid #d3d3d3;
 }

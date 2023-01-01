@@ -155,3 +155,93 @@ document.querySelector('#hp_input').addEventListener('input', e=>{
         document.querySelector('#hp_input_error').innerHTML=errorMsg;
     })
 });
+
+// 버튼 활성화
+// document.querySelectorAll('#email_input').forEach((item) =>{
+//     item.addEventListener('input', e=>{
+//     let strEmail=e.target.value;
+//     if(validateEmail(strEmail)){
+//         document.querySelectorAll('#password_input').forEach((item) =>{
+//             item.addEventListener('input', e=>{
+//             let strPassword=e.target.value;
+//         if(validatePassword(strPassword)){
+//             document.querySelectorAll('#name_input').forEach((item) =>{
+//                 item.addEventListener('input', e=>{
+//                 let strName=e.target.value;
+//             if(validateName(strName)){
+//                 document.querySelectorAll('#hp_input').forEach((item) =>{
+//                     item.addEventListener('input', e=>{
+//                     let strHp=e.target.value;
+//                 if(validateHp(strHp)){
+//                     $("#btn_submitSignIn").removeClass("active");
+//                     $(this).addClass("active");
+//                     $("#btn_submitSignIn").removeClass("disabled")
+//                 }
+//                     })
+//             })
+//         }
+//     })
+// })
+// }
+// })
+// })
+// }})});
+
+
+
+
+let strEmail
+let strPassword
+let strName
+let strHp
+document.querySelectorAll('#email_input').forEach((item) =>{
+    item.addEventListener('blur', e=>{
+        strEmail=e.target.value;
+        if((validateEmail(strEmail))&&(validatePassword(strPassword))&&(validateName(strName))&&(validateHp(strHp))){
+            $("#btn_submitSignIn").removeClass("active");
+            $("#btn_submitSignIn").removeClass("disabled")
+        }else{
+            $("#btn_submitSignIn").addClass("active");
+            $("#btn_submitSignIn").addClass("disabled")
+        }
+    })
+})
+
+document.querySelectorAll('#password_input').forEach((item) =>{
+    item.addEventListener('blur', e=>{
+        strPassword=e.target.value;
+        if((validateEmail(strEmail))&&(validatePassword(strPassword))&&(validateName(strName))&&(validateHp(strHp))){
+            $("#btn_submitSignIn").removeClass("active");
+            $("#btn_submitSignIn").removeClass("disabled")
+        }else{
+            $("#btn_submitSignIn").addClass("active");
+            $("#btn_submitSignIn").addClass("disabled")
+        }
+    })
+})
+
+document.querySelectorAll('#name_input').forEach((item) =>{
+    item.addEventListener('blur', e=>{
+        strName=e.target.value;
+        if((validateEmail(strEmail))&&(validatePassword(strPassword))&&(validateName(strName))&&(validateHp(strHp))){
+            $("#btn_submitSignIn").removeClass("active");
+            $("#btn_submitSignIn").removeClass("disabled")
+        }else{
+            $("#btn_submitSignIn").addClass("active");
+            $("#btn_submitSignIn").addClass("disabled")
+        }
+    })
+})
+
+document.querySelectorAll('#hp_input').forEach((item) =>{
+    item.addEventListener('blur', e=>{
+        strHp=e.target.value;
+        if((validateEmail(strEmail))&&(validatePassword(strPassword))&&(validateName(strName))&&(validateHp(strHp))){
+            $("#btn_submitSignIn").removeClass("active");
+            $("#btn_submitSignIn").removeClass("disabled")
+        }else{
+            $("#btn_submitSignIn").addClass("active");
+            $("#btn_submitSignIn").addClass("disabled")
+        }
+    })
+});

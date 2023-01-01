@@ -18,6 +18,7 @@
 .button_shipping_memo_wrap > img{
     width: 20px;
     height: 20px;
+    display: none;
 }
 .button_shipping_memo_wrap+.button_shipping_memo_wrap {
     border-top: 1px solid rgba(34,34,34,.05);
@@ -41,7 +42,7 @@
     border: 1px solid #d3d3d3;
     color: rgba(34,34,34,.8);
 }
-.btn {
+/* .btn {
     display: inline-flex;
     cursor: pointer;
     -webkit-box-align: center;
@@ -52,7 +53,7 @@
     text-align: center;
     color: rgba(34,34,34,.8);
     background-color: #fff;
-}
+} */
 .outlinegrey {
     border: 1px solid #d3d3d3;
     color: rgba(34,34,34,.8);
@@ -64,11 +65,7 @@
     font-size: 14px;
     letter-spacing: -.14px;
 }
-.solid {
-    font-weight: 700;
-    color: #fff;
-    background-color: #222;
-}
+
 .shipping_memo_buttons .btn+.btn {
     margin-left: 8px;
 }
@@ -76,4 +73,9 @@
     background-color: #ebebeb;
     color: #fff;
     cursor: default;
+}
+.solid {
+    font-weight: 700;
+    color: #fff;
+    background-color: #222;
 }

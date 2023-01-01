@@ -1,0 +1,114 @@
+<link rel="stylesheet" href="../../css/layer/layer.css">
+<link rel="stylesheet" href="../../css/layer/layer_delivery.css">
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"
+    integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+<!-- 우편번호 -->
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+    function sample6_execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                var addr = ''; // 주소 변수
+                var extraAddr = ''; // 참고항목 변수
+                //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                    addr = data.roadAddress;
+                } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                    addr = data.jibunAddress;
+                }
+                // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+                if(data.userSelectedType === 'R'){
+                    // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                    // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                    if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                        extraAddr += data.bname;
+                    }
+                    // 건물명이 있고, 공동주택일 경우 추가한다.
+                    if(data.buildingName !== '' && data.apartment === 'Y'){
+                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                    }
+                    // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                    if(extraAddr !== ''){
+                        extraAddr = ' (' + extraAddr + ')';
+                    }
+                    // 조합된 참고항목을 해당 필드에 넣는다.
+                    document.getElementById("sample6_extraAddress").value = extraAddr;
+                } else {
+                    document.getElementById("sample6_extraAddress").value = '';
+                }
+                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                document.getElementById('sample6_postcode').value = data.zonecode;
+                document.getElementById("sample6_address").value = addr;
+                // 커서를 상세주소 필드로 이동한다.
+                document.getElementById("sample6_detailAddress").focus();
+            }
+        }).open();
+    }
+</script>
+<!-- 우편번호 -->
+<div class="layer_delivery layer lg">  <!-- style="display: none; 추가해주기 -->
+    <div class="layer_container"><a href="#" class="btn_layer_close">
+            <div><img src="../../img/close.png" onclick="closeLayer()"></div>
+            <!---->
+        </a>
+        <div class="layer_header">
+            <h2 class="title"> 새 주소 추가 </h2>
+        </div>
+        <div class="layer_content">
+            <div class="delivery_bind">
+                <div class="delivery_input">
+                    <div class="input_box" id="name_input_box">
+                        <h4 class="input_title">이름</h4>
+                        <div class="input_item"><input type="text" placeholder="수령인의 이름" autocomplete="off"
+                                class="input_txt" id="name_input"></div>
+                        <p class="input_error" id="name_input_error"></p>
+                    </div>
+                    <div class="input_box" id="hp_input_box">
+                        <h4 class="input_title">휴대폰 번호</h4>
+                        <div class="input_item">
+                            <input type="number" maxlength="11" name="hp" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="- 없이 입력" autocomplete="off" class="input_txt" id="hp_input" oninput="maxLengthCheck(this)">
+                            </div>
+                        <p class="input_error" id="hp_input_error"></p>
+                    </div>
+                    <div class="input_box">
+                        <h4 class="input_title">우편번호</h4>
+                        <div class="input_item">
+                            <input type="text" placeholder="우편 번호를 검색하세요" readonly="readonly" autocomplete="off" class="input_txt" id="sample6_postcode">
+                                <a href="#" class="btn btn_zipcode outline small" data-v-1c44afeb="" onclick="sample6_execDaumPostcode()"> 우편번호 </a>
+                        </div>
+                    </div>
+                    <div class="input_box">
+                        <h4 class="input_title">주소</h4>
+                        <div class="input_item">
+                            <input type="text" placeholder="우편 번호 검색 후, 자동입력 됩니다" readonly="readonly" autocomplete="off" class="input_txt" id="sample6_address"></div>
+                    </div>
+                    <div class="input_box">
+                        <h4 class="input_title">상세 주소</h4>
+                        <div class="input_item">
+                            <input type="text" placeholder="건물, 아파트, 동/호수 입력" autocomplete="off" class="input_txt" id="sample6_detailAddress"></div>
+                    </div>
+                    <div class="input_box" style="display:none">
+                        <h4 class="input_title">참고항목</h4>
+                        <div class="input_item">
+                            <input type="text"autocomplete="off" class="input_txt" id="sample6_extraAddress"></div>
+                    </div>
+                </div>
+                <div class="delivery_check">
+                    <div class="checkbox_item"><input id="check1" type="checkbox" name="" class="check"><label
+                            for="check1" class="check_label"><span class="label_txt">기본 배송지로 설정</span>
+                            <!---->
+                        </label></div>
+                </div>
+            </div>
+            <div class="layer_btn">
+                <a href="#" class="btn btn_delete outlinegrey medium" onclick="closeLayer()"> 취소 </a>
+                <a disabled="disabled" href="#" class="btn btn_save solid medium disabled" id="submit_btn"> 저장하기 </a>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../js/layer/layer_delivery.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
