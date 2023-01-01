@@ -114,7 +114,17 @@ $(document).on('click', '.deadline_tab a', function(){
         $(".deadline_tab a").removeClass("is_active");
     }
     this.className+=" is_active";
-    // setExpire();
+    //🌈날짜 계산 후 반영 필요
+    const today = new Date();
+    let deadline = new Date(today);
+    let period =this.innerHTML.replace('일','').trim();
+    period = Number(period) //숫자로 변환하지 않으면 잘못 계산함
+    deadline.setDate(today.getDate()+period);
+    console.log("deadline:"+deadline)
+    let dmonth =deadline.getMonth()+1
+    let deadline_txt = period + "일 ("+deadline.getFullYear()+"/"+dmonth+"/"+deadline.getDate()+" 마감)"
+    console.log(deadline_txt);
+    document.querySelector('.deadline_txt').innerHTML= deadline_txt
 });
 // 구매 입찰하기 입찰 마감기한 클릭시 버튼 활성화
 let wish_price = 0;
@@ -136,8 +146,8 @@ function step2(){
     fees = Math.floor(wish_price*0.015/100)*100
     console.log("fees:"+fees)
     document.querySelector('.fees').innerHTML = fees.toLocaleString('ko-KR') + "원"
-    price_total=wish_price  +fees + 3000 
-    document.querySelector('.order_info .amount').innerHTML= price_total.toLocaleString('ko','KR') 
+    price_total=wish_price  +fees + 3000
+    document.querySelector('.order_info .amount').innerHTML= price_total.toLocaleString('ko','KR')
     //총 결재금액 = 즉시구매가(구매희망가) + 수수료 + 배송비 - 사용포인트(0)
 }
 
@@ -162,7 +172,20 @@ function pop_address(){
 }
 
 // 주소 리스트중 하나 클릭시 레이어창 닫고 내용 반영
-
+const address = document.querySelectorAll('.select');
+address.forEach((item) => {
+    item.addEventListener('click', () => {
+        address.forEach((e) => {
+            // console.log(e.childNodes[3].childNodes[0]);
+            e.childNodes[3].style.display='none';
+        })
+        let edit_address=item.childNodes[1].childNodes[3].childNodes[5].childNodes[1].innerHTML
+        // console.log(edit_address)
+        item.childNodes[3].style.display='block';
+        close_address();
+        document.querySelector('.address_info .address_txt').innerHTML= edit_address
+    })
+})
 // 배송 요청사항 열고 닫기
 function close_layer_shipping_memo(){
     document.querySelector('.layer_shipping_memo').style.display="none"
@@ -255,24 +278,31 @@ document.querySelector('.btn_use_credit').addEventListener('click',(e)=>{
     point_input.value= form_has_point
     form_apply_point.innerHTML=form_has_point
     let apply_point = Number(form_has_point.replaceAll(',', ''));
-    
-    price_total = wish_price  +fees + 3000 - apply_point 
+
+    price_total = wish_price  +fees + 3000 - apply_point
     //총 결재금액 = 즉시구매가(구매희망가) + 수수료 + 배송비 - 사용포인트
-    
     span_price_total.innerHTML = price_total.toLocaleString('ko-KR')
 })
-point_input.addEventListener('input',()=>{
 
-})
 
 // 내용입력 후 커서가 없어질때 조건
 point_input.addEventListener('blur',()=>{
     let point = point_input.value
     //1000원 단위로만 입력 가능하다.
     if(point!='' && point%1000!=0){
+        if(point/1000 <1){
+            //000입력 방지
+            point_input.value = 0;
+        }else{
         const form_point = point.toLocaleString('ko-KR');
         point_input.value = form_point.slice(0,form_point.length-3)+"000"
+        }
     }
+    let apply_point =Number(point_input.value.replaceAll(',', ''));
+    //총 결재금액 = 즉시구매가(구매희망가) + 수수료 + 배송비 - 사용포인트
+    price_total = wish_price  + fees + 3000 - apply_point
+    form_apply_point.innerHTML=apply_point
+    span_price_total.innerHTML = price_total.toLocaleString('ko-KR')
 })
 
 point_input.addEventListener('input', e=>{
@@ -286,7 +316,7 @@ point_input.addEventListener('input', e=>{
 point_input.addEventListener('keyup', function(e) {
     let str_point = e.target.value;
     str_point = Number(str_point.replaceAll(',', ''));
-    
+
     if(isNaN(str_point)) {
         point_input.value = '';
     }else {
@@ -298,9 +328,6 @@ point_input.addEventListener('keyup', function(e) {
     }
 
     let apply_point = Number(form_has_point.replaceAll(',', ''));
-    price_total = price_total - apply_point //총 결재금액 - 사용포인트
-    console.log(price_total)
-    span_price_total.innerHTML = price_total.toLocaleString('ko-KR')
 
 })
 // 새 카드추가 열고 닫기
@@ -310,6 +337,20 @@ function close_card(){
 function pop_card(){
     document.querySelector('.layer_card').style.display="block"
 }
+
+// 새 카드 추가 레이어창 저장시 div 추가 other_card에
+
+
+
+
+// 새 카드 저장 시 레이어 창
+
+
+
+// 카드 드롭다운 클릭시 카드리스트 나오고 선택시 반영하고 닫기
+
+
+
 //결재 방법 선택시 테두리 효과
 const items = document.querySelectorAll(".method");
 items.forEach((item)=>{
@@ -320,3 +361,10 @@ items.forEach((item)=>{
     item.classList.add('selected');
     })
 })
+
+
+//체크 박스 모두 선택 시 결재하기 버튼 활성화
+
+
+
+//결재하기 버튼 클릭시 경고창 이후 결재완료페이지
