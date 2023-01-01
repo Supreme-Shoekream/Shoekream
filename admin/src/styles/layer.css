@@ -342,3 +342,6 @@ input::-webkit-inner-spin-button {
     margin: 10px;
     padding: 10px;
 }
+#notice_view_btn {
+    padding: 0;
+}
