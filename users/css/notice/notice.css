@@ -247,3 +247,10 @@ h3 {
     font-weight: 700;
     color: #222;
 }
+.menu_item.active {
+    font-weight: 700;
+    color: #222;
+}
+.menu_item:not(.active) {
+    border-color: #ebebeb;
+}
