@@ -190,18 +190,19 @@ document.querySelector('#hp_input').addEventListener('input', e=>{
 
 
 
-let strCc1
-let strBirthday
-let strPin
+let strEmail
+let strPassword
+let strName
+let strHp
 document.querySelectorAll('#email_input').forEach((item) =>{
     item.addEventListener('blur', e=>{
         strEmail=e.target.value;
         if((validateEmail(strEmail))&&(validatePassword(strPassword))&&(validateName(strName))&&(validateHp(strHp))){
-            $("#submit_btn").removeClass("active");
-            $("#submit_btn").removeClass("disabled")
+            $("#btn_submitSignIn").removeClass("active");
+            $("#btn_submitSignIn").removeClass("disabled")
         }else{
-            $("#submit_btn").addClass("active");
-            $("#submit_btn").addClass("disabled")
+            $("#btn_submitSignIn").addClass("active");
+            $("#btn_submitSignIn").addClass("disabled")
         }
     })
 })
@@ -210,11 +211,11 @@ document.querySelectorAll('#password_input').forEach((item) =>{
     item.addEventListener('blur', e=>{
         strPassword=e.target.value;
         if((validateEmail(strEmail))&&(validatePassword(strPassword))&&(validateName(strName))&&(validateHp(strHp))){
-            $("#submit_btn").removeClass("active");
-            $("#submit_btn").removeClass("disabled")
+            $("#btn_submitSignIn").removeClass("active");
+            $("#btn_submitSignIn").removeClass("disabled")
         }else{
-            $("#submit_btn").addClass("active");
-            $("#submit_btn").addClass("disabled")
+            $("#btn_submitSignIn").addClass("active");
+            $("#btn_submitSignIn").addClass("disabled")
         }
     })
 })
@@ -223,11 +224,11 @@ document.querySelectorAll('#name_input').forEach((item) =>{
     item.addEventListener('blur', e=>{
         strName=e.target.value;
         if((validateEmail(strEmail))&&(validatePassword(strPassword))&&(validateName(strName))&&(validateHp(strHp))){
-            $("#submit_btn").removeClass("active");
-            $("#submit_btn").removeClass("disabled")
+            $("#btn_submitSignIn").removeClass("active");
+            $("#btn_submitSignIn").removeClass("disabled")
         }else{
-            $("#submit_btn").addClass("active");
-            $("#submit_btn").addClass("disabled")
+            $("#btn_submitSignIn").addClass("active");
+            $("#btn_submitSignIn").addClass("disabled")
         }
     })
 })
@@ -236,11 +237,11 @@ document.querySelectorAll('#hp_input').forEach((item) =>{
     item.addEventListener('blur', e=>{
         strHp=e.target.value;
         if((validateEmail(strEmail))&&(validatePassword(strPassword))&&(validateName(strName))&&(validateHp(strHp))){
-            $("#submit_btn").removeClass("active");
-            $("#submit_btn").removeClass("disabled")
+            $("#btn_submitSignIn").removeClass("active");
+            $("#btn_submitSignIn").removeClass("disabled")
         }else{
-            $("#submit_btn").addClass("active");
-            $("#submit_btn").addClass("disabled")
+            $("#btn_submitSignIn").addClass("active");
+            $("#btn_submitSignIn").addClass("disabled")
         }
     })
 });
