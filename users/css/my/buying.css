@@ -350,13 +350,13 @@ button {
 
 .btn_filter {
     position: relative;
-    padding: 5px 3px 5px 10px;
+    padding: 0px 3px 5px 10px;
     display: inline-block;
-    width: 12rem;
-    line-height: 24px;
+    width: 11rem;
+    line-height: 28px;
     background-color: #fff;
     border: 1px solid #d3d3d3;
-    border-radius: 12px;
+    border-radius: 10px;
     font-size: 13px;
     letter-spacing: -.07px;
 }
@@ -469,3 +469,196 @@ button {
 
 
 .status_warning .status_link { color: #ff7500;}
+
+.tab_item.active .title {
+    color: #222;
+    font-weight: 700;
+}
+
+.tab_item.active .count {
+    color: #f15746;
+}
+
+.tab_item.active .tab_box {
+    border-bottom: .2rem solid #222;
+    padding-bottom: 14px;
+}
+
+/* 상태 레이어창 */
+
+.layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(34, 34, 34, .5);
+    z-index: 1010;
+}
+
+.layer_container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    width: 448px;
+    height: 155px;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px 0 rgb(0 0 0 / 10%);
+}
+
+.layer_header .title {
+    padding: 18px 50px 0;
+    min-height: 60px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #000;
+    text-align: center;
+}
+
+.status_list_area {
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 6px 28px 0;
+    height: 270px;
+}
+
+.status_list_area:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.status_item {
+    float: left;
+    display: table;
+    margin: 4px;
+    width: calc(33.33333% - 8px);
+    height: 52px;
+}
+
+.status_item .btn {
+    display: table-cell;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #d3d3d3;
+    border-radius: 12px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.status_item.active .btn {
+    border: 1px solid #222;
+    border-radius: 12px;
+    font-weight: 700;
+}
+
+.status_item:not(.active) .btn{
+    border-color: #ebebeb;
+}
+
+.status_item .info_txt {
+    display: inline-block;
+    font-size: 14px;
+    color: #000;
+}
+
+.layer_btn {
+    padding: 1rem 3rem 3rem;
+    display: flex;
+    justify-content: center;
+}
+
+.layer_btn .btn {
+    width: 120px;
+}
+
+a:active, a:focus {
+    background-color: rgba(0,0,0,.1);
+}
+
+.btn_layer_close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    cursor: pointer;
+}
+
+.btn {
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: middle;
+    text-align: center;
+    background-color: #fff;
+    margin-top: 1.2rem;
+    align-self: flex-start;
+}
+
+.solid {
+    background-color: #222;
+    color: #fff;
+    height: 50px;
+}
+
+.solid.disabled,
+.solid:disabled {
+    background-color: #ebebeb;
+    color: #fff;
+    cursor: default;
+}
+
+.medium {
+    padding: 0 1.8rem;
+    height: 42px;
+    line-height: 4rem;
+    border-radius: 12px;
+    font-size: 14px;
+    letter-spacing: -.14px;
+}
+
+.status_item.active a {
+    color: #222;
+    font-weight: 700;
+    border: .2rem solid #222;
+}
+
+.status_item:not(.active) a {
+    border-color: #ebebeb;
+}
+
+.status_item.status_on .btn{
+    color: #222;
+    font-weight: 700;
+    border: .1rem solid #222;
+}
+
+#expired {
+    color: #f15746;
+}
+
+.ico-arr-dir-down-circle {
+    width: 24px;
+    margin: 0;
+}
+
+.mo .head_status .status_link:after, .sm .head_status .status_link:after {
+    right: 0;
+}
+.head_status .status_link:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -4px;
+    width: 16px;
+    height: 24px;
+    background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAxNiAyNCI+PHBhdGggZmlsbD0iI0QzRDNEMyIgZD0iTTEyIDEzbC00IDUtNC01aDh6bS04LTJsNC01IDQgNUg0eiIvPjwvc3ZnPg==) no-repeat;
+}
+
+
+
+
+
+
+
+
