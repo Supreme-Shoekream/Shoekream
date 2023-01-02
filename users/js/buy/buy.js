@@ -338,8 +338,7 @@ function pop_card(){
     document.querySelector('.layer_card').style.display="block"
 }
 
-// 새 카드 추가 레이어창 저장시 div 추가 other_card에
-
+// 새 카드 추가 레이어창 저장시 div 추가 other_card에 -- 백앤드 연동필요
 
 
 
@@ -348,8 +347,25 @@ function pop_card(){
 
 
 // 카드 드롭다운 클릭시 카드리스트 나오고 선택시 반영하고 닫기
-
-
+const card_drop_btn = document.querySelector('.clickable_card img')
+const main_card = document.querySelector('.main_card .clickable_card')
+console.log(card_drop_btn)
+const card_drop_div = document.querySelector('.other_card')
+card_drop_btn.addEventListener('click',()=>{
+    if(card_drop_div.style.display=='none'){
+        card_drop_div.style.display='block'
+    }else{
+        card_drop_div.style.display='none'
+    }
+})
+const cards = document.querySelectorAll('.other_card_item')
+cards.forEach((card)=>{
+    card.addEventListener('click',()=>{
+        
+        main_card.childNodes[1].innerHTML = card.childNodes[1].innerHTML
+        card_drop_div.style.display='none'
+    })
+})
 
 //결재 방법 선택시 테두리 효과
 const items = document.querySelectorAll(".method");
@@ -362,9 +378,28 @@ items.forEach((item)=>{
     })
 })
 
-
 //체크 박스 모두 선택 시 결재하기 버튼 활성화
-
+const checks = document.querySelectorAll(".check");
+console.log(checks)
+checks.forEach((check)=>{
+    check.addEventListener('click',getCheck)
+})
+function getCheck() {
+    const query = 'input[class=check]:checked';
+    const selectedElements = document.querySelectorAll(query);
+    const cnt = selectedElements.length;
+    if (cnt == 4) {
+        document.querySelector('#submit').classList.remove('disabled')
+    } else {
+        document.querySelector('#submit').className = 'btn full solid disabled';
+    }
+}
 
 
 //결재하기 버튼 클릭시 경고창 이후 결재완료페이지
+function pop_order_price_confirm(){
+    document.querySelector('.layer_order_price_confirm').style.display="block"
+}
+function close_order_price_confirm(){
+    document.querySelector('.layer_order_price_confirm').style.display="none"
+}

@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="../../css/layer/layer_shipping_memo.css">
     <link rel="stylesheet" href="../../css/layer/layer_point.css">
     <link rel="stylesheet" href="../../css/layer/layer_card.css">
+    <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://kream.co.kr/favicon.ico">
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"
         integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 </head>
@@ -49,7 +50,7 @@
                     <h2 class="title"><span class="title_txt">즉시 구매하기</span></h2>
                 </div>
                 <div class="right">
-                    <button type="button" class="btn btn_standard outlinegrey small"> 검수기준 </button>
+                    <button type="button" class="btn btn_standard outlinegrey small" onclick="pop_auth_policy()"> 검수기준 </button>
                 </div>
             </div>
         </div>
@@ -568,7 +569,7 @@
                                 </div>
                             </div>
                             <!--card 드롭다운 시작-->
-                            <div class="other_card" style="display: block;">
+                            <div class="other_card" style="display: none;">
                                 <ul class="other_card_list">
                                     <li class="other_card_item">
                                         <div class="card_info"><span class="card_name"> BC</span>
@@ -579,7 +580,7 @@
                                                             class="dot"></span></span><span class="hyphen"></span>
                                                     <div class="last_num_box"><span class="last_num">6795</span></div>
                                                 </span><!----></div>
-                                        </div><img src="../../img/wcheck.png">
+                                        </div>
                                     </li>
                                     <li class="other_card_item card_on">
                                         <div class="card_info"><span class="card_name"> BC</span>
@@ -588,9 +589,9 @@
                                                         class="dot"><span class="dot"></span></span><span
                                                         class="hyphen"></span><span class="dot"><span
                                                             class="dot"></span></span><span class="hyphen"></span>
-                                                    <div class="last_num_box"><span class="last_num">0736</span></div>
-                                                </span><span class="mark">기본 결제</span></div>
-                                        </div><img src="../../img/wcheck.png">
+                                                    <div class="last_num_box"><span class="last_num">0736</span>
+                                                    <!-- </div></span><span class="mark">기본 결제</span></div> -->
+                                        </div>
                                     </li>
                                 </ul>
                             </div>
@@ -700,7 +701,7 @@
                                 <dd class="price"><span class="amount">274,000</span><span class="unit">원</span></dd>
                             </dl><span class="price_warning" style="display: none;"><em>주의! </em></span>
                         </div>
-                        <div class="btn_confirm"><a disabled="disabled" href="#" class="btn full solid false disabled">
+                        <div class="btn_confirm"><a href="#" class="btn full solid false disabled disabled" id="submit" onclick="pop_order_price_confirm()">
                                 결제하기 </a></div>
                     </div>
                 </section>
@@ -722,7 +723,7 @@
                 </div>
                 <!--결제하기 클릭시 나오는 팝업-->
                 <div class="layer_order_price_confirm layer md" style="display: none;">
-                    <div class="layer_container"><a href="#" class="btn_layer_close">
+                    <div class="layer_container"><a onclick="close_order_price_confirm()" class="btn_layer_close">
                             <img src="../../img/close.png">
                         </a>
                         <div class="layer_header"></div>
