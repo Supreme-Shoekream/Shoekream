@@ -713,6 +713,17 @@ section .section_title .title_txt {
 .md .account_registration .input_title {
   line-height: 14px;
 }
+.registration_btn_box {
+  padding-top: 20px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+.layer_payout_account .btn_save{
+  width: 102px;
+  border-radius: 10px;
+}
 /****************최종 주문 정보*****************/
 .instant_group {
   padding-top: 22px;
@@ -829,6 +840,138 @@ section .section_title .title_txt {
   top: 50%;
   margin-top: -17px;
   right: 0%;
+}
+/*******현금영수증 정보 변경 레이어 창*******/
+.layer_processing_fee>.layer_container {
+  height: 470px;
+}
+.btn_layer_close{
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  cursor: pointer;
+}
+.btn_layer_close img{
+  width: 24px;
+  height: 24px;
+}
+.layer_processing_fee>.layer_container>.layer_content {
+  padding: 0 20px 20px;
+}
+.layer_processing_fee>.layer_container .layer_content {
+  height: calc(100% - 60px);
+}
+.form_wrap:not(.mo_ls):not(.mo):not(.sm) {
+  height: 100%;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+.receipt_config_form .description {
+  font-size: 13px;
+  letter-spacing: -.07px;
+  font-weight: 400;
+}
+.input_logistics_companies .input_txt, .input_txt.hover{
+  cursor: pointer;
+}
+.layer_processing_fee .layer_dropdown {
+  position: absolute;
+  top: 37px;
+  bottom: auto;
+  background-color: transparent;
+  border: 1px solid #ebebeb;
+}
+.layer_dropdown .layer_container{
+  position: relative;
+  top: auto;
+  left: auto;
+  -webkit-transform: none;
+  transform: none;
+  width: 100%;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.layer_dropdown .btn_layer_close, .layer_dropdown .layer_header {
+  display: none;
+}
+.layer_dropdown .drop_list {
+  overflow-y: auto;
+  max-height: 240px;
+}
+.layer_dropdown .drop_item.item_on .drop_link {
+  color: #222;
+  font-weight: 700;
+}
+.layer_dropdown .drop_link {
+  position: relative;
+  display: block;
+  padding: 11px 50px 10px 16px;
+  font-size: 13px;
+  letter-spacing: -.07px;
+  color: rgba(34,34,34,.8);
+}
+.layer_dropdown .drop_item.item_on .drop_link:after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 12px);
+  right: 12px;
+  width: 24px;
+  height: 24px;
+  background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggc3Ryb2tlPSIjMjIyIiBzdHJva2Utd2lkdGg9IjEuNSIgZD0iTTE4LjQgNy4yTDkuNiAxNmwtNC00Ii8+PC9zdmc+) no-repeat;
+}
+.button_wrap {
+  padding-top: 20px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+.form_wrap:not(.mo_ls):not(.mo):not(.sm) .button_wrap button {
+  width: 128px;
+}
+.form_wrap:not(.mo_ls):not(.mo):not(.sm) .button_wrap button+button {
+  margin-left: 8px;
+}
+.receipt_config_wrap {
+  margin-top: 28px;
+}
+.receipt_config_wrap .checkbox_item {
+  display: -webkit-box;
+  display: flex;
+}
+.receipt_config_wrap .checkbox_item .label_txt {
+  padding-left: 8px;
+  display: inline-block;
+  line-height: 24px;
+  font-size: 13px;
+  letter-spacing: -.07px;
+  vertical-align: top;
+}
+/* 체크박스 꾸미기 */
+input[class="check"] + label {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #bcbcbc;
+  cursor: pointer;
+}
+input[class="check"]:checked + label {
+  background-image: url("../../img/check.png");
+  background-size: 100%;
+  border: 1px solid #fff;
+}
+.check {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 /* 선택시 효과 */
 .selected .clickable_card {
