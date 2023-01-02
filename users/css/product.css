@@ -1367,11 +1367,16 @@ svg:not(:root) {
     font-size: 14px;
     color: rgba(34,34,34,.8);
 }
-.item_on .ico-check-s {
+
+/* .item_on .ico-check-s {
     display: block;
-}
-.ico-check-s {
+} */
+
+/* .ico-check-s {
     display: none;
+} */
+
+.ico-check-s {
     position: absolute;
     top: 50%;
     right: 12px;
@@ -3077,6 +3082,10 @@ svg:not(:root) {
     height: 20px;
 }
 
+.sl .size_link.item_on {
+    font-weight: 700;
+    color: #222;
+}
 
 
 
