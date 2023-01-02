@@ -335,6 +335,59 @@ let count = 0;
     });
 
 
+// 사이즈 선택시 체크 표시
+// const list = document.querySelector(".conclusion2_layer_content");
+const item = document.querySelectorAll('.sl .size_item .size_link');
+const input = document.querySelector(".input_text");
+const checkImage = document.querySelector(".ico-check-s");
+
+item.forEach((target) => {
+    target.addEventListener("click", function(){
+        // input.placeholder = event.target.textContent;
+        item.forEach((e) => {
+            e.classList.remove("item_on");
+            e.childNodes[1].style.display="none";
+            // console.log(e.childNodes[1]);
+            // console.log(target.childNodes[0]);
+        })
+
+        $('span.input_text').text(target.innerHTML.replace('<img src="../img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;">',""));
+        $('a.item_on').css("display", "block");
+        
+        // input.classList.add("input_txt_color");
+
+        target.classList.add("item_on");
+        target.childNodes[1].style.display = "block";
+        
+
+        // console.log(target.childNodes[1]);
+        // list.style.display = "block";
+
+
+    })
+
+    // item.forEach((e) => {
+    //     // console.log("e:" + e.childNodes[0]);
+    //     // console.log(target.childNodes[0]);
+    //     let ev = e.childNodes[0];
+
+    //     let tv = target.childNodes[0];
+        
+    //     // if(e.childNodes[0].nodeValue == target.childNodes[0].nodeValue){
+    //     if(ev == tv){
+    //         console.log("=======")
+    //         e.classList.add("item_on");
+    //         e.childNodes[1].style.display = "block";
+    //         // target.classList.add("item_on");
+    //         // target.childNodes[1].style.display = "block";
+    //     }
+    // })
+    
+});
+
+
+
+
 
 
 
