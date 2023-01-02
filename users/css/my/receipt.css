@@ -42,7 +42,6 @@ input[class="check"]:checked + label {
     background-size: 100%;
     border: 1px solid #fff;
 }
-
 /* input 안보이게 */
 .check{
     position: absolute;
@@ -130,8 +129,6 @@ input[class="check"]:checked + label {
     justify-content: center;
     vertical-align: middle;
     text-align: center;
-    color: rgba(34,34,34,.8);
-    background-color: #fff;
 }
 .button_wrap {
     padding-top: 20px;
@@ -140,12 +137,7 @@ input[class="check"]:checked + label {
     justify-content: center;
 }
 .form_wrap:not(.mo_ls):not(.mo):not(.sm) .button_wrap button {
-    width: 128px;
-}
-.solid {
-    font-weight: 700;
-    color: #fff;
-    background-color: #222;
+    width: 102px;
 }
 .medium {
     padding: 0 18px;
@@ -178,6 +170,11 @@ input[class="check"]:checked + label {
     background-color: #ebebeb;
     color: #fff;
     cursor: default;
+}
+.solid {
+    font-weight: 700;
+    color: #fff;
+    background-color: #222;
 }
 .bank_dropdown_menu{
     background-color: white;
@@ -221,4 +218,12 @@ input[class="check"]:checked + label {
 }
 .btn_active{
     cursor: pointer;    
+}
+.input_hp:focus{
+    border-bottom:2px solid black;
+}
+.solid.disabled, .solid:disabled{
+    background-color: #ebebeb;
+    color: #fff;
+    cursor: default;
 }

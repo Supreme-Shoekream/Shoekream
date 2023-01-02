@@ -261,3 +261,6 @@ button {
     height: 18px;
     float: right;
 }
+.input_write:focus{
+    border-bottom: 2px solid black;
+}
