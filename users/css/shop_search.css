@@ -380,7 +380,7 @@ a { text-decoration:none }
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 1rem 0;
+    margin-top: 1rem;
 
 }
 .content .title_box{
@@ -1073,14 +1073,11 @@ ul {
     margin-bottom:15px;
 }
 
-
-
 /* 브랜드 스크롤 */
 .filter_menu{
     max-height: 400px;
     overflow-y: auto;
 }
-
 
 li, ol, ul {
     list-style: none;
@@ -3231,6 +3228,11 @@ input:focus{
         background-color: rgba(0,0,0,.5);
         z-index: 10001;
     }
+
+    .brand_list {
+        margin-top: 50px;
+    }
+
     @keyframes slidein {
         from {
             margin-left: 100%;
