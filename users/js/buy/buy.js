@@ -157,10 +157,10 @@ function step2(){
 
 // 새 주소 추가 레이어 열고 닫기
 function close_new_delivery(){
-    document.querySelector('.layer_new_delivery').style.display="none"
+    document.querySelector('.layer_delivery').style.display="none"
 }
 function pop_new_delivery(){
-    document.querySelector('.layer_new_delivery').style.display="block"
+    document.querySelector('.layer_delivery').style.display="block"
 }
 
 // 주소 변경 레이어 열고 닫기

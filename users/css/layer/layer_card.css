@@ -114,7 +114,7 @@
     position: relative;
     font-size: 0;
 }
-.checkbox_item .check_label {
+.card_check .checkbox_item .check_label {
     position: relative;
     cursor: pointer;
     display: inline-block;

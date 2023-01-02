@@ -65,9 +65,12 @@ bid_input.addEventListener("blur", (e) => {
   } else {
     $(".step-1 .btn_confirm a").addClass("disabled");
   }
+  //수수료 반영
   fees = -Math.floor((str_price * 0.015) / 100) * 100;
   document.querySelector(".fees").innerHTML =
     fees.toLocaleString("ko-KR") + "원";
+  //정산금액 반영
+  document.querySelector('.price_total .amount').innerHTML=(str_price-fees).toLocaleString("ko-KR") + "원";
 });
 // ***입찰 <-> 즉시***
 
@@ -179,18 +182,18 @@ function step2() {
 
 /***^^^^^^*****step2*^^^^^^******/
 //판매 정산 계좌 변경
-function pop_order_price_confirm(){
+function pop_payout_account(){
   document.querySelector('.layer_payout_account').style.display="block"
 }
-function close_order_price_confirm(){
+function close_payout_account(){
   document.querySelector('.layer_payout_account').style.display="none"
 }
 // 새 주소 추가 레이어 열고 닫기
 function close_new_delivery() {
-  document.querySelector(".layer_new_delivery").style.display = "none";
+  document.querySelector(".layer_delivery").style.display = "none";
 }
 function pop_new_delivery() {
-  document.querySelector(".layer_new_delivery").style.display = "block";
+  document.querySelector(".layer_delivery").style.display = "block";
 }
 
 // 주소 변경 레이어 열고 닫기
@@ -295,7 +298,21 @@ function update_layer_shipping_memo() {
   input.innerHTML = checkedtext;
   document.querySelector(".layer_shipping_memo").style.display = "none";
 }
+// 현금 영수증 정보 열고 닫기
+function pop_processing_fee(){
+  document.querySelector('.layer_processing_fee').style.display="block"
+}
+function close_processing_fee(){
+  document.querySelector('.layer_processing_fee').style.display="none"
+}
+// 현금 영수증 레이어창
+  //선택시 내용 셀렉트 div 바뀌는거 .drop_item".item_on"
 
+  //receipt_config_form childnodes이용해서 input_box receipt_config_wrap display설정
+
+  // input_box input_title 내용 변경 휴대폰번호<->카드번호
+
+  // 버튼활성화 disabled고려
 // 새 카드추가 열고 닫기
 function close_card() {
   document.querySelector(".layer_card").style.display = "none";
@@ -323,7 +340,6 @@ card_drop_btn.addEventListener('click',()=>{
 const cards = document.querySelectorAll('.other_card_item')
 cards.forEach((card)=>{
     card.addEventListener('click',()=>{
-        
         main_card.childNodes[1].innerHTML = card.childNodes[1].innerHTML
         card_drop_div.style.display='none'
     })
