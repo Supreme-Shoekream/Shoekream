@@ -22,7 +22,28 @@ $(".status_item").click(function(){
     }); 
 
 // 진행중 상태일경우
-// document.querySelector('.tab_item').addEventListener('click', function(){
+
+const tab_items = document.querySelectorAll('.tab_item');
+tab_items.forEach((item) => {
+    item.addEventListener('click', () => {
+        tab_items.forEach((e) => {
+            e.classList.remove("active")
+            e.classList.remove("tab_on")
+        })
+        item.classList.add("active")
+        console.log(item)
+        if (item.classList.contains('buy')){
+            console.log("hi")
+        }
+        })
+})
+
+
+
+
+
+// const tab_item = document.querySelectorAll('.tab_item')
+// document.querySelectorAll('.tab_item').addEventListener('click', function(){
 //     if(document.querySelector('.title').innerHTML == '진행중'){
 //         document.querySelector('.status_box.field_price').style.display='none';    
 //         document.querySelector('.status_box.field_expires_at').style.display='none';
@@ -43,30 +64,35 @@ $(".status_item").click(function(){
 //         document.querySelector('.status_box.field_expires_at').style.display='block';
 //     }
 // });
-$(".tab_item").click(function(){
-    $(".tab_item").removeClass("active");
-    $(this).addClass("active");
-    $(".tab_item").removeClass("tab_on")
-    if($(this).val() == 'inProgress'){
-        $(".status_box.field_price").css({display: 'none'});
-        $('.status_box.field_expires_at').css({display: 'none'});
-        $('.status_box.field_date_purchased').css({display: 'none'});
-        $('.status_box.field_date_paid').css({display: 'none'});
-        $('.status_box.field_status').css({display: 'block'});
-    }else if($(".tab_item").has('end')){
-        $(".status_box.field_price").css({display: 'none'});
-        $('.status_box.field_expires_at').css({display: 'none'});
-        $('.status_box.field_date_paid').css({display: 'none'});
-        $('.status_box.field_date_purchased').css({display: 'block'});
-        $('.status_box.field_status').css({display: 'block'});
-    }else{
-        $(".status_box.field_date_paid").css({display: 'none'});
-        $('.status_box.field_date_purchased').css({display: 'none'});
-        $('.status_box.field_status').css({display: 'none'});
-        $('.status_box.field_price').css({display: 'block'});
-        $('.status_box.field_expires_at').css({display: 'block'});
-    }
-    }); 
+
+// $(".tab_item").click(function(){
+//     $(".tab_item").removeClass("active");
+//     $(this).addClass("active");
+//     $(".tab_item").removeClass("tab_on")
+//     let str = this.val();
+//     console.log(str);
+//     // if($(this).val() == 'inProgress'){
+//     if($(this).val() == 'inProgress'){
+//         $(".status_box.field_price").css({display: 'none'});
+//         $('.status_box.field_expires_at').css({display: 'none'});
+//         $('.status_box.field_date_purchased').css({display: 'none'});
+//         $('.status_box.field_date_paid').css({display: 'none'});
+//         $('.status_box.field_status').css({display: 'block'});
+//     }else if($(".tab_item").has('end')){
+//         $(".status_box.field_price").css({display: 'none'});
+//         $('.status_box.field_expires_at').css({display: 'none'});
+//         $('.status_box.field_date_paid').css({display: 'none'});
+//         $('.status_box.field_date_purchased').css({display: 'block'});
+//         $('.status_box.field_status').css({display: 'block'});
+//     }else{
+//         $(".status_box.field_date_paid").css({display: 'none'});
+//         $('.status_box.field_date_purchased').css({display: 'none'});
+//         $('.status_box.field_status').css({display: 'none'});
+//         $('.status_box.field_price').css({display: 'block'});
+//         $('.status_box.field_expires_at').css({display: 'block'});
+//     }
+//     }); 
+
 
 
 // $(document).on('click', '.tab_item', function(){
