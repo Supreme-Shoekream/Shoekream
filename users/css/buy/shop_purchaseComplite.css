@@ -174,7 +174,7 @@ a{
     margin-top: 1.5rem;
     text-align: center;
     width: 28rem;
-    font-size: 0.5rem;
+    font-size: 1.3rem;
     color: grey;
 }
 
@@ -197,7 +197,7 @@ a{
 }
 
 .buy_before_check .complite_btn .btn_small{
-    width: 150px;
+    width: 170px;
     height: 50px;
     border-radius: 1.5rem;
     border:0.1rem solid rgb(179, 179, 179);
