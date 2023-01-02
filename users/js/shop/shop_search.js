@@ -10,6 +10,17 @@ function dd_menu1() {
     }
 }
 
+function dd_cm1() {
+    let click = document.getElementById("dd-content1");
+    if (click.style.display === "none") {
+        click.style.display = "block";
+
+    } else {
+        click.style.display = "none";
+
+    }
+}
+
 const items = document.querySelectorAll(".side_btn1");
 //배열로 저장되기 때문에 forEach로 하나씩 이벤트를 등록해준다.
 items.forEach((item) => {
