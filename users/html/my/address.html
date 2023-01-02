@@ -313,6 +313,12 @@
             editLayer.style.display="none"
         })
     })
+    editLayer.addEventListener('click', (e) => {
+        if(e.target == e.currentTarget){
+            editLayer.style.display="none"
+        }
+    })
+    
 </script>
 <script type="text/javascript" th:src="@{/lib/js/pjs_header_nav.js}"></script>
 <script type="text/javascript" th:src="@{/lib/js/loginpage_mypage_all.js}"></script>
