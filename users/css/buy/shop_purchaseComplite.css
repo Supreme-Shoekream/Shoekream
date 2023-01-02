@@ -132,15 +132,15 @@ a{
     height: 100rem;
 }
 .container_buy .content{
-    width: 70rem;
-    height: 100rem;
+    width: 400px;
+    /* height: 100rem; */
     box-sizing:border-box;
-    margin:25rem auto 20rem auto;
+    margin:150px auto 100px auto;
 }
 .container_buy .content .buy_before .buy_before_check{
     border:1px solid rgb(201, 201, 201);
-    width: 62rem;
-    height: 85rem;
+    /* width: 62rem; */
+    /* height: 85rem; */
     background-color: white;
     box-sizing:border-box;
 }
@@ -166,15 +166,15 @@ a{
 }
 
 .buy_before_check .complite_content .complite_title{
-    margin-top: 2.5rem;
+    margin-top: 1rem;
     font-weight: bold;
-    font-size: 3rem;
+    font-size: 2rem;
 }
 .buy_before_check .complite_content .sub_title{
     margin-top: 1.5rem;
     text-align: center;
     width: 28rem;
-    font-size: 1.5rem;
+    font-size: 0.5rem;
     color: grey;
 }
 
@@ -182,7 +182,7 @@ a{
     margin-top: 1.5rem;
     text-align: center;
     width: 28rem;
-    font-size: 1.5rem;
+    font-size: 0.5rem;
     color: grey;
     margin: 0 auto;
 }
@@ -197,12 +197,15 @@ a{
 }
 
 .buy_before_check .complite_btn .btn_small{
-    width: 17rem;
-    height: 5rem;
+    width: 150px;
+    height: 50px;
     border-radius: 1.5rem;
     border:0.1rem solid rgb(179, 179, 179);
     background: rgb(204, 204, 204);
     background: rgb(255, 255, 255);
+    font-size: 13px;
+    color: black;
+    /* font-weight: bold; */
 }
 
 .buy_before_check .sub_content{
@@ -219,7 +222,7 @@ a{
     box-sizing: border-box;
     background: rgb(255, 255, 255);
     padding: 3.2rem;
-    width: 60rem;
+    /* width: 60rem; */
     height: 32.9rem;
     margin: 0 auto;
 }
@@ -228,7 +231,7 @@ a{
     border-bottom: 0.2rem solid rgb(202, 202, 202);
 }
 .price_descion_box .price_now >p{
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 1.5rem;
 }
@@ -242,7 +245,7 @@ a{
     font-weight: bold;
 }
 .price_descion_box .price_now_box .unit{
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bold;
     color: red;
 }

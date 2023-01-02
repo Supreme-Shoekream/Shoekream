@@ -14,44 +14,6 @@
     <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
 </head>
 
-<!-- <script>
-    $(function () {
-        const productId = $('#productId').val();
-        const price = $('#price').val();
-        const date = $('#date').val();
-        const price_replace = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-
-        let today = new Date();
-        today.setDate(today.getDate() + parseInt(date));
-        let year = today.getFullYear();
-        let month = today.getMonth() + 1;
-        let date2 = today.getDate();
-        let todayStr = `${year}/${month >= 10 ? month : '0' + month}/${date2 >= 10 ? date2 : '0' + date2}`;
-
-        if(date==0){
-            $('.statusType_txt').text('즉시 구매가 완료 되었습니다.');
-            $('.price_now_title').text(' 총 결제금액 ');
-            $('.price_finish').text(price_replace);
-            $('.statusType').text('즉시 구매가');
-        }else if(date!=0){
-            $('.statusType_txt').text('구매 입찰이 완료 되었습니다.');
-            $('.sub_content').append("<p>'구매내역 > 입찰 중' 상태일 때는 입찰 지우기가 가능합니다.</p>");
-            $('.price_now_title').text(' 총 결제금액 ');
-            $('.price_finish').text(price_replace);
-            $('.statusType').text('입찰 희망가');
-            $('.price_total').append("<dl class='price_box'><dt class='price_title'> 입찰 마감기한 </dt>" +
-                "<dd class='price_empty_price'>"+date+"일 - "+todayStr+"까지</dd></dl>")
-        }
-        axios.get('/api/pro_buyfinish/'+productId)
-            .then(function (response) {
-                console.log(response);
-                let productOriginFileName = response.data.data.productOriginFileName;
-                $('.product_img').attr("src", "/lib/product/"+productOriginFileName);
-            }).catch(function (err) {
-            console.log(err);
-        });
-    });
-</script> -->
 
 
 <!-- <body id="pop2"> -->
@@ -208,7 +170,7 @@
                 <div>
                     <div class="buy_product">
                         <div class="product">
-                            <img src="../../img/shopimg/content_1.jpg" alt="buy_check 이미지" class="product_img">
+                            <img src="../../img/shopimg/content_13.jpg" alt="buy_check 이미지" class="product_img">
                         </div>
                     </div>
                 </div>
@@ -224,9 +186,12 @@
                         <button type="button" class="btn_small" onclick="location.href='../../'"> SHOP 바로가기 </button>
                     </div>
                 </div>
-                <div class="sub_title">
+                <!-- <div class="sub_title">
                     <p >즉시구매는 취소가 불가능합니다.</p>
-                </div>
+                </div> -->
+                <div class="sub_content">
+                  <p>즉시구매는 취소가 불가능합니다.</p>
+              </div>
                 <div class="sub_content"></div>
                 <div class="price_descion_box">
                     <div class="instant_group">
@@ -245,20 +210,24 @@
                                     <span class="statusType"></span>
                                 </dt>
                                 <dd class="price_text">
-                                    <span class="unit">5,000<span class="price_finish"></span>원 </span>
+                                    <span class="unit">14,000<span class="price_finish"></span>원 </span>
                                 </dd>
                             </dl>
                             <dl class="price_addtion">
                                 <dt class="price_title">
                                     <span>검수비</span>
                                 </dt>
-                                <dd class="price_text">무료</dd>
+                                <dd class="price_text">
+                                  <span class="unit">5,000<span class="price_finish"></span>원 </span>
+                                </dd>
                             </dl>
                             <dl class="price_addtion">
                                 <dt class="price_title">
                                     <span>배송비</span>
                                 </dt>
-                                <dd class="price_text">무료 이벤트</dd>
+                                <dd class="price_text">
+                                  <span class="unit">5,000<span class="price_finish"></span>원 </span>
+                                </dd>
                             </dl>
                         </div>
                         <div class="price_total"></div>
@@ -290,7 +259,7 @@
                     <li><a href="/notice">공지사항</a></li>
                     <li><a href="/about">서비스 소개</a></li>
                     <li><a href="https://kream.co.kr/showroom">쇼룸 안내</a></li>
-                    <li><a href="https://kream.co.kr/privacy">판매자 방문접수</a></li>
+                    <li><a href="https://kream.co.kr/privacy">구매자 방문접수</a></li>
                 </ul>
             </div>
         </div>
@@ -324,7 +293,7 @@
                 <ul>
                     <li>슈크림 주식회사 · 대표 슈프림</li>
                     <li>사업자등록번호: 570-88-01618 <a href="#">사업자정보확인</a></li>
-                    <li>통신판매업: 제 2021-성남분당C-0093호</li>
+                    <li>통신구매업: 제 2021-성남분당C-0093호</li>
                 </ul>
                 <ul>
                     <li>사업장소재지: 경기도 성남시 분당구 분당내곡로 117, 8층</li>
@@ -335,7 +304,7 @@
         </div>
     </div>
     <div class="footer_flex_box4">
-        <p id="footer_left_box4">슈크림(주)는 통신판매 중개자로서 통신판매의 당사자가 아니므로 개별 판매자가 등록한 상품정보에 대해서 책임을 지지 않습니다. 단, 거래과정에서 검수하고
+        <p id="footer_left_box4">슈크림(주)는 통신구매 중개자로서 통신구매의 당사자가 아니므로 개별 구매자가 등록한 상품정보에 대해서 책임을 지지 않습니다. 단, 거래과정에서 검수하고
             보증하는 내용에 대한 책임은 당사에 있습니다.</p>
         <p id="footer_right_box4">© 2022 SHOEKREAM.Corp.</p>
     </div>
