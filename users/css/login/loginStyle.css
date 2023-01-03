@@ -167,6 +167,56 @@ input {
     width: 400px; 
 }
 
+.email_area {
+    margin: 0 auto; 
+    margin-top: 150px;
+    width: 500px;
+}
+
+.email_txt {
+    color: #919191;
+    font-weight: 100;
+    margin: 0;
+    padding: 0;
+}
+
+.email_box {
+    padding: 40px 0 30px; 
+    font-size: 1.4rem; 
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.email_result {
+    font-weight: 700;
+    font-size: 20px;;
+}
+
+#find_email_btn {
+    margin-top: 1.2rem;
+    align-self: flex-start;
+    width: 50%;
+    height: 100%;
+    border: 1px solid #d3d3d3;
+    border-radius: 12px;
+    text-align: center;
+    background-color: #fff;
+    font-weight: 300;
+}
+
+#find_login_btn {
+    color: #ebebeb;
+    width: 50%;
+    align-self: flex-end;
+    margin-left: 10px;
+}
+
+.find_btn_box {
+    display: flex;
+    padding-top: 44px;
+}
+    
 .help_title {
     padding-bottom: 4rem;
     text-align: center;
