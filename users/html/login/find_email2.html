@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/" xmlns:sec="http://www.w3.org/1999/xhtml"></html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHOEKREAM | 한정판 거래의 FLEX</title>
+    <link rel="stylesheet" href="../../css/login/loginStyle.css">
+    <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://kream.co.kr/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css"/>
+</head>
+
+<!--header 넣을곳-->
+<div th:replace="/fragment/head :: head"></div>
+<!--header 넣을곳-->
+
+<body>
+    <div class="email_area">
+        <h2 class="help_title">이메일 주소 찾기에 성공 하였습니다.</h2>
+        <div>
+            <div class="email_box">
+                <p class="email_txt">이메일 주소</p>
+                <p class="email_result"><span>s********l@gmail.com</span></p>
+            </div><!--.email_box END-->
+            
+            <div class="find_btn_box">
+                <a href="#" type="button" class="btn full solid" id="find_email_btn"> 비밀번호 찾기 </a>
+                <a href="#" type="button" class="btn full solid" id="find_login_btn"> 로그인 </a>
+            </div><!--.find_btn_box END-->
+        </div>
+    </div><!--.email_area END-->
+
+<!--footer 넣을곳-->
+<div th:replace="fragment/footer :: footer"></div>
+<!--footer 넣을곳-->
+        
+</body>
+</html>
+<script src="../../js/login/find_email.js"></script>
