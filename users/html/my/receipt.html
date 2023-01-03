@@ -13,7 +13,7 @@
     <script defer src="../../js/my/mypage_navbar.js"></script>
 </head>
 
-<body>
+<>
     <div class="container my lg">
         <div>
             <!-- navbar -->
@@ -123,16 +123,26 @@
                 inputPlaceholder.classList.add("input_txt_color") // 글자바뀌는곳의 글씨색 변경
                 target.classList.add("select_receipt") // 글씨강조추가
                 target.childNodes[1].style.display = "block" // 체크표시추가
+<<<<<<< HEAD
+                dropdown.style.display="none"   
+                if(inputPlaceholder.placeholder == '미신청'){
+                    
+                    inputHp.style.display="none"
+                    btnSave.classList.add('btn_active')
+                    document.querySelector('.btn_save').classList.remove('disabled'); 
+                                    
+=======
                 dropdown.style.display="none"
                 if(inputPlaceholder.placeholder == '미신청'){
                     
                     inputHp.style.display="none"
                     btnSave.classList.remove('btn_save')
                     btnSave.classList.add('btn_active')
+>>>>>>> 50221c21ffba4c47e9c57444316431706123b0fa
                 }else{
                     inputHp.style.display="block"
                     btnSave.classList.remove('btn_active')
-                    btnSave.classList.add('btn_save')
+                    document.querySelector('.btn_save').classList.add('disabled');
                 }
             })
         })
@@ -152,6 +162,8 @@
             })
         })
 
+<<<<<<< HEAD
+=======
         $(function(){
             $('input_hp').on('input', function(){
                 if($('input_hp').val=''){
@@ -161,6 +173,7 @@
                 }
             })
         })
+>>>>>>> 50221c21ffba4c47e9c57444316431706123b0fa
 
         
 
@@ -202,6 +215,28 @@
                 document.querySelector('.btn_save').classList.remove('disabled');
             }
         });
+    </script>
+    <script>
+        const check1 = false;
+document.querySelector('.check').addEventListener('check', e=>{
+    
+        if(e.target.checked){
+            check1 = true;
+        }else{
+            check1 = false;
+        }
+})
+document.querySelector('.input_hp').addEventListener('input', e=>{
+    let strName=e.target.value;
+    if(strName=='' && check1==false){
+        document.querySelector('.btn_save').classList.add('disabled');
+    } else {
+        document.querySelector('.btn_save').classList.remove('disabled');
+    }
+    
+});
+
+
     </script>
 </body>
 
