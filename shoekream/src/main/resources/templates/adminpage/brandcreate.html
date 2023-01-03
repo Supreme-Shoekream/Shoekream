@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--head 시작 -->
+<div th:replace="fragment/adminhead :: head"></div>
+<!--head 끝 -->
+<style>
+  * {
+    margin: 0 auto;
+  }
+  .brand_layer {
+    width: 500px;
+    background-color: #fff;
+  }
+  .font-16 {
+    background-color: black;
+    width: 100%;
+    color: #fff;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 100;
+    margin: 0;
+  }
+  table {
+    border-spacing: 0 20px;
+  }
+  th {
+    background-color: black;
+    width: 200px;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 100;
+    border: 1px solid white;
+  }
+  td {
+    width: 300px;
+    padding: 10px;
+    text-align: center;
+    font-size: 15px;
+    border: 1px solid black;
+  }
+  .logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+  button {
+    background-color: black;
+    width: 100%;
+    color: #fff;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 100;
+  }
+</style>
+<body>
+
+<!-- header 시작 -->
+<div th:replace="fragment/adminheader :: header"></div>
+<!-- header 끝 -->
+<!-- right-sidebar 시작 -->
+<div th:replace="fragment/adminrightsidebar :: rightsidebar"></div>
+<!-- right-sidebar 끝 -->
+<!-- left-side-bar 시작 -->
+<div th:replace="fragment/adminnavbar :: navbar"></div>
+<!-- left-side-bar 끝 -->
+
+<!-- 작성하는 메인 -->
+<div class="main-container">
+  <div class="pd-ltr-20 xs-pd-20-10">
+    <div class="min-height-200px">
+      <div class="pop_layer">
+        <div class="brand_layer">
+          <h4 class="font-16">Brand</h4>
+          <img src="https://t1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/6H5a/image/X9gJ1rAPQNiN7l8WJAqCsxBqzmY.jpg" class="logo" alt="logo"/>
+          <table class="brand_table">
+            <tr>
+              <th>브랜드 이름</th>
+              <td>나이키</td>
+            </tr>
+            <tr>
+              <th>총 상품 개수</th>
+              <td>100</td>
+            </tr>
+            <tr>
+              <th>총 거래채결 수</th>
+              <td>100</td>
+            </tr>
+            <tr>
+              <th>등록 날짜</th>
+              <td>2022-12-20</td>
+            </tr>
+            <tr>
+              <th>작성자</th>
+              <td>김사과</td>
+            </tr>
+            <tr>
+              <th>수정 날짜</th>
+              <td>2022-12-22</td>
+            </tr>
+            <tr>
+              <th>수정한 관리자</th>
+              <td>반하나</td>
+            </tr>
+          </table>
+          <button>확인</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 작성하는 메인 끝 -->
+
+<!-- js -->
+<div th:replace="fragment/adminjs :: js"></div>
+<!-- js -->
+
+</body>

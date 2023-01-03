@@ -1,0 +1,347 @@
+*{
+    margin:0; 
+    padding: 0; 
+    list-style: none;
+}
+*, :after, :before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+input, textarea {
+    padding: 0;
+    outline: 0;
+    border: 0;
+    resize: none;
+    border-radius: 0;
+    -webkit-appearance: none;
+    background-color: transparent;
+}
+a{
+    color: rgb(55, 125, 255);
+    font-size: 1.2rem;
+}
+.btn{
+    display: -webkit-inline-box;
+    display: inline-flex;
+    cursor: pointer;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    vertical-align: middle;
+    text-align: center;
+    color: rgba(34,34,34,.8);
+    background-color: #fff;
+}
+#__layout {
+    opacity: 1;
+}
+.wrap {
+    position: relative;
+    padding-top: 100px;
+}
+.container.buy {
+    background-color: #fafafa;
+}
+.content{
+    margin: 0 auto;
+    padding: 120px 40px 160px;
+    max-width: 780px;
+}
+.buy_before{
+    -webkit-box-shadow: 0 4px 10px 0 rgba(0,0,0,.1);
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,.1);
+}
+.buy_before_check {
+    background-color: #fff;
+}
+.title_area {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    line-height: 38px;
+    padding: 32px 32px 40px;
+}
+.check_title {
+    font-size: 32px;
+    letter-spacing: -.48px;
+    font-weight: 700;
+}
+.check_title .accent_text {
+    color: #f15746;
+}
+.br_mo {
+    display: none;
+}
+.buy_product_area{
+    padding: 0 32px 18px;
+}
+.buy_product_area .buy_product{
+    -webkit-box-align: start;
+    align-items: flex-start;
+    padding: 0;
+}
+.buy_product{
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 0 32px 22px;
+    background-color: #fff;
+}
+.buy_before .buy_product .product, .inventory_item_product .product, .layer_market_price .buy_product .product, .sell_before .buy_product .product {
+    padding-top: 0;
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    border-radius: 10px;
+}
+.product{
+    overflow: hidden;
+    position: relative;
+    padding-top: 100%;
+    border-radius: 8px;
+}
+.buy_before .buy_product .product_img, .inventory_item_product .product_img, .layer_market_price .buy_product .product_img, .sell_before .buy_product .product_img {
+    width: 100%;
+}
+.image{
+    -o-object-fit: cover;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    image-rendering: auto;
+}
+.buy_info{
+    overflow: hidden;
+    -webkit-box-flex: 1;
+    flex: 1;
+    padding-left: 16px;
+}
+.buy_before .model_info, 
+.layer_market_price .model_info{
+    padding-top: 0;
+}
+.model_number{
+    display: flex;
+    font-size: 0;
+}
+.model_number .text{
+    line-height: 17px;
+    font-size: 14px;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.model_ko, .model_title {
+    line-height: 16px;
+    margin-top: 2px;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.model_title{
+    font-size: 14px;
+}
+.model_ko, .model_title{
+    line-height: 16px;
+    margin-top: 2px;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.model_ko {
+    font-size: 13px;
+    letter-spacing: -.07px;
+    letter-spacing: -.05px;
+    color: rgba(34,34,34,.5);
+}
+.model_desc{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    margin-top: 4px;
+}
+.model_desc .size_txt {
+    line-height: 17px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0;
+}
+.buy_before_check .check_list, 
+.sell_before_check .check_list{
+    margin: 0 32px 8px;
+    padding: 0;
+    border-top: 2px solid #222;
+}
+.check_list {
+    padding-bottom: 16px;
+}
+.check_item:first-child {
+    border-top: none;
+}
+
+.check_item {
+    padding: 19px 0 20px;
+    border-top: 1px solid #ebebeb;
+}
+.check_area {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.notice_group{
+    margin-right: 20px;
+    word-break: keep-all;
+    word-wrap: break-word;
+}
+.notice_maintext{
+    line-height: 18px;
+    font-size: 15px;
+    letter-spacing: -.15px;
+    letter-spacing: -.01px;
+    color: black;
+}
+.notice_subtext{
+    margin-top: 4px;
+    line-height: 16px;
+    font-size: 13px;
+    letter-spacing: -.07px;
+    letter-spacing: -.05px;
+    color: rgba(34,34,34,.5);
+}
+
+.checkbox_item{
+    margin-left: auto;
+    position: relative;
+    font-size: 0;
+}
+
+/* 체크박스 꾸미기 */
+input[class="check"] + label {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	border: 1px solid #bcbcbc;
+	cursor: pointer;
+}
+input[class="check"]:checked + label {
+    background-image:url("../../img/check.png");
+    background-size: 100%;
+    border: 1px solid #fff;
+}
+.check{
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.check_view, .check_view:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+.btn_confirm {
+    padding: 0 32px 32px;
+}
+
+.solid.disabled, .solid:disabled {
+    background-color: #ebebeb;
+    color: #fff;
+    cursor: default;
+}
+.solid{
+    font-weight: 700;
+    color: #fff;
+    background-color: #222;
+}
+.full {
+    width: 100%;
+    font-size: 16px;
+    letter-spacing: -.16px;
+    font-weight: 700;
+    height: 52px;
+    border-radius: 12px;
+}
+
+
+.check_view {
+    margin-top: 8px;
+    display: inline-block;
+    vertical-align: top;
+    line-height: 20px;
+    font-size: 14px;
+    letter-spacing: -.21px;
+    letter-spacing: -.15px;
+    color: #1d85e6;
+}
+.view_data a{
+    text-decoration: underline;
+    font-size: 14px;
+}
+
+.layer_order_notice .layer_content{
+    padding: 0 16px;
+}
+
+
+.layer .layer_container iframe {
+    height: 398px;
+}
+.wrap_btn {
+    margin: 20px 16px 0;
+}
+
+.solid {
+    font-weight: 700;
+    color: #fff;
+    background-color: #222;
+}
+
+.large {
+    padding: 0 25px;
+    height: 52px;
+    border-radius: 14px;
+    font-size: 16px;
+    letter-spacing: -.16px;
+    width: 100%;
+}
+h2 {
+    display: block;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.icon{
+    width: 24px;
+    height: 24px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

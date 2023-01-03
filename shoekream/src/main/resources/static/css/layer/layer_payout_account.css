@@ -1,0 +1,162 @@
+input, textarea {
+    padding: 0;
+    outline: 0;
+    border: 0;
+    resize: none;
+    border-radius: 0;
+    -webkit-appearance: none;
+    background-color: transparent;
+}
+button {
+    padding: 0;
+    border: 0;
+    outline: none;
+    background: none;
+    background-color: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0;
+}
+/* .btn {
+    display: inline-flex;
+    cursor: pointer;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    vertical-align: middle;
+    text-align: center;
+    color: rgba(34,34,34,.8);
+    background-color: #fff;
+} */
+.layer_payout_account>.layer_container>.layer_content {
+    padding: 0 20px 20px;
+}
+.registered_account_box{
+    overflow: hidden;
+    margin-top: 21px;
+    padding: 15px 15px 16px;
+    border-radius: 10px;
+    background-color: #fafafa;
+    border: 1px solid #ebebeb;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.registered_account_box .box_title {
+    line-height: 14px;
+    margin-bottom: 5px;
+    font-size: 12px;
+    letter-spacing: -.06px;
+    font-weight: 700;
+    letter-spacing: -.5px;
+}
+.registered_account_box .box_account_info {
+    line-height: 22px;
+    font-size: 15px;
+    letter-spacing: -.15px;
+    letter-spacing: -1px;
+}
+
+.lg .content_registration, .md .content_registration{
+    width: 100%;
+}
+.lg .account_registration, .md .account_registration {
+    padding-top: 20px;
+}
+.lg .account_registration .input_box,
+.md .account_registration .input_box {
+    padding-top: 16px;
+}
+.input_box {
+    position: relative;
+    padding: 10px 0 14px;
+}
+.input_title {
+    font-size: 13px;
+    letter-spacing: -.07px;
+    line-height: 18px;
+}
+.lg .account_registration .input_title,
+.md .account_registration .input_title {
+    line-height: 14px;
+}
+.input_item {
+    position: relative;
+}
+.lg .account_registration .input_txt,
+.md .account_registration .input_txt {
+    padding: 6px 0 7px;
+}
+.input_logistics_companies .input_txt,
+.input_txt.hover {
+    cursor: pointer;
+}
+.input_box .input_txt {
+    padding: 8px 0;
+    width: 100%;
+    font-size: 15px;
+    letter-spacing: -.15px;
+    line-height: 22px;
+    border-bottom: 1px solid #ebebeb;
+}
+.btn.btn_dropdown{
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: -12px;
+    line-height: 0;
+}
+.btn.btn_dropdown img{
+    width: 24px;
+    height: 24px;
+}
+
+.registration_btn_box {
+    padding-top: 20px;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+.lg .btn_save, .md .btn_save {
+    width: 102px;
+    border-radius: 10px;
+}
+.medium {
+    padding: 0 18px;
+    height: 42px;
+    border-radius: 12px;
+    font-size: 14px;
+    letter-spacing: -.14px;
+}
+.solid {
+    font-weight: 700;
+    color: #fff;
+    background-color: #222;
+}
+.solid.disabled, .solid:disabled {
+    background-color: #ebebeb;
+    color: #fff;
+    cursor: default;
+}
+
+
+/* 정규식 에러 */
+.input_error {
+    display: none;
+}
+
+.has_error .input_error {
+    display: block;
+    position: absolute;
+    line-height: 16px;
+    font-size: 11px;
+    color: #f15746;
+}
+.has_error .input_txt {
+    border-bottom-color: #ef6253;
+}
+.has_error .input_title {
+    color: #f15746;
+}

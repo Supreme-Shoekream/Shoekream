@@ -1,0 +1,239 @@
+
+.category_list {
+    padding: 0 0 16px;
+}
+
+.lg .category_list_items, .md .category_list_items {
+    background: #fff;
+    width: 100%;
+    position: relative;
+}
+.category_list_items {
+    width: 100%;
+}
+table {
+    table-layout: fixed;
+    width: 100%;
+    border-spacing: 0;
+    border: 0;
+    border-collapse: collapse;
+}
+.category a{
+    color:#222;
+}
+.category_list_items:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.category_list_items tr {
+    border-top: 1px solid #ebebeb;
+    border-bottom: 1px solid #ebebeb;
+}
+.wrap_auth .content{
+    padding:0px;
+}
+
+.category_list_items .category.category_on{
+    color: #222;
+    font-weight: 700;
+}
+
+.layer_content .category_list_items .category, 
+.md .category_list_items .category, 
+.mo .category_list_items .category, 
+.sm .category_list_items .category {
+    font-size: 16px;
+    height: 59px;
+}
+
+.category_list_items .category {
+    width: 33.3333333333%;
+    color: rgba(34,34,34,.5);
+    text-align: center;
+    background-color: #fff;
+    cursor: pointer;
+    display: -webkit-inline-box;
+    display: inline-flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    flex-direction: column-reverse;
+    -webkit-box-pack: center;
+    justify-content: center;
+    padding: 0 12px;
+    font-size: 18px;
+    letter-spacing: -.09px;
+    height: 75px;
+}
+.category_list_items td {
+    border-left: 1px solid #ebebeb;
+    border-right: 1px solid #ebebeb;
+}
+.layer_content .category_list_items .category .category_text{
+    max-width: 96px;
+    max-height: 37px;
+}
+
+.layer_wrap{
+    min-width: 320px;
+    min-height: 100%;
+    max-width: 640px;
+    color: #222;
+    font-family: Noto Sans KR,sans-serif;
+    font-size: 14px;
+    line-height: 1.2;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 0;
+}
+.blind{
+    overflow: hidden;
+    position: absolute!important;
+    width: 1px;
+    height: 1px;
+    border: 0;
+    padding: 0;
+    clip: rect(0,0,0,0);
+}
+.content .description_wrap {
+    padding: 20px 0 19px;
+}
+.content .description {
+    line-height: 17px;
+    letter-spacing: .11px;
+}
+
+.content .description_list {
+    margin-bottom: 14px;
+}
+.content .description_list .list_item {
+    position: relative;
+    margin-top: 14px;
+    padding-left: 10px;
+    color: rgba(34,34,34,.6);
+    line-height: 17px;
+    letter-spacing: .15px;
+}
+
+.content .check_wrap {
+    padding: 0 0 20px;
+}
+
+.content .title_check {
+    position: relative;
+    padding: 30px 0 6px;
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: .17px;
+}
+.description_wrap .content .description {
+    line-height: 17px;
+    letter-spacing: .11px;
+}
+.description_wrap .content .description_list {
+    margin-bottom: 14px;
+}
+
+.description_wrap .content .description_list .list_item {
+    position: relative;
+    margin-top: 14px;
+    padding-left: 10px;
+    color: rgba(34,34,34,.6);
+    line-height: 17px;
+    letter-spacing: .15px;
+}
+.wrap_auth .content .description_list .list_item:before {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 3px;
+    height: 3px;
+    background-color: #333;
+    content: "";
+}
+.wrap_auth .content .more_info_list .more_list_item {
+    color: rgba(34,34,34,.5);
+    font-size: 11px;
+    line-height: 14px;
+    letter-spacing: .12px;
+    margin-top: 2px;
+}
+/* check_wrap 시작! */
+.wrap_auth .content .check_wrap {
+    padding: 0 0 20px;
+}
+.wrap_auth .content .btn_check {
+    position: relative;
+    width: 100%;
+    height: 67px;
+    min-height: 32px;
+    padding-top: 25px;
+    text-align: left;
+    letter-spacing: .16px;
+}
+.wrap_auth .content .title_check {
+    position: relative;
+    padding: 30px 0 6px;
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: .17px;
+}
+.wrap_auth .content .title_check:before {
+    position: absolute;
+    top: 0;
+    left: -16px;
+    right: -16px;
+    height: 8px;
+    content: "";
+}
+table thead th {
+    height: 35px;
+    padding: 5px;
+    color: rgba(34,34,34,.5);
+    background-color: hsla(0,0%,92.2%,.2);
+    font-size: 11px;
+    line-height: 14px;
+    letter-spacing: .12px;
+}
+table th {
+    color: #222;
+    font-weight: 400;
+}
+table tbody th {
+    padding: 4px 0;
+    text-align: left;
+}
+.check_wrap table tbody td, .check_wrap table tbody th {
+    height: 40px;
+    padding: 4px 5px;
+    border-top: 1px solid #f2f2f2;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: .13px;
+}
+.check_wrap table th .etc {
+    color: rgba(34,34,34,.5);
+    margin: 0;
+}
+.check_wrap table td .text_info_warning {
+    color: #f15746;
+}
+.check_wrap table td [class*=text] {
+    display: block;
+    margin-top: -1px;
+    font-size: 11px;
+    line-height: 14px;
+    letter-spacing: .12px;
+}
+.content .more_info_list {
+    padding: 15px 0;
+    border-top: 1px solid #f2f2f2;
+}
+ .content .etc_desc {
+    font-size: 13px;
+    color: rgba(34,34,34,.6);
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
