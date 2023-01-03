@@ -2420,6 +2420,7 @@ svg:not(:root) {
 }
 
 .layer_detail_size_select.select_only_size .layer_container .layer_content {
+    width: 100%;
     position: relative;
     -webkit-box-flex: 1;
     flex: 1;
