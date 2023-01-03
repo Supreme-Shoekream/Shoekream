@@ -12,7 +12,7 @@
     <script defer src="../../js/my/mypage_navbar.js"></script>
 </head>
 
-<body>
+<>
     <div class="container my lg">
         <div>
             <!-- navbar -->
@@ -122,15 +122,17 @@
                 inputPlaceholder.classList.add("input_txt_color") // 글자바뀌는곳의 글씨색 변경
                 target.classList.add("select_receipt") // 글씨강조추가
                 target.childNodes[1].style.display = "block" // 체크표시추가
+                dropdown.style.display="none"   
                 if(inputPlaceholder.placeholder == '미신청'){
                     
                     inputHp.style.display="none"
-                    btnSave.classList.remove('btn_save')
-                    btnSave.classList.add('btn_active')                    
+                    btnSave.classList.add('btn_active')
+                    document.querySelector('.btn_save').classList.remove('disabled'); 
+                                    
                 }else{
                     inputHp.style.display="block"
                     btnSave.classList.remove('btn_active')
-                    btnSave.classList.add('btn_save')
+                    document.querySelector('.btn_save').classList.add('disabled');
                 }
                 dropdown.style.display="none" // 리스트창 닫기
             })
@@ -150,7 +152,31 @@
                 
             })
         })
+
+
         
+    </script>
+    <script>
+        const check1 = false;
+document.querySelector('.check').addEventListener('check', e=>{
+    
+        if(e.target.checked){
+            check1 = true;
+        }else{
+            check1 = false;
+        }
+})
+document.querySelector('.input_hp').addEventListener('input', e=>{
+    let strName=e.target.value;
+    if(strName=='' && check1==false){
+        document.querySelector('.btn_save').classList.add('disabled');
+    } else {
+        document.querySelector('.btn_save').classList.remove('disabled');
+    }
+    
+});
+
+
     </script>
 </body>
 
