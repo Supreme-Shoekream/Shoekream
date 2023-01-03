@@ -351,7 +351,20 @@ item.forEach((target) => {
             // console.log(target.childNodes[0]);
         })
 
+
+        // 사이즈값 찍어주기
         $('span.input_text').text(target.innerHTML.replace('<img src="../img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;">',""));
+
+        // 사이즈값 가져오기
+        let size = $('span.it1').text(); // 앞에 찍어주는 사이즈값(메인 사이즈팝업창)
+        let size2 = $('span.sss').text(); // 사이즈 팝업창에서의 사이즈값
+
+        console.log("size:" + size);
+        console.log("size2:" + size2);
+        if(size == size2){
+            
+        }
+
         $('a.item_on').css("display", "block");
         
         // input.classList.add("input_txt_color");
