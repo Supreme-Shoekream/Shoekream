@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--head 시작 -->
+<div th:replace="fragment/adminhead :: head"></div>
+<!--head 끝 -->
+<body>
+
+<!-- header 시작 -->
+<div th:replace="fragment/adminheader :: header"></div>
+<!-- header 끝 -->
+<!-- right-sidebar 시작 -->
+<div th:replace="fragment/adminrightsidebar :: rightsidebar"></div>
+<!-- right-sidebar 끝 -->
+<!-- left-side-bar 시작 -->
+<div th:replace="fragment/adminnavbar :: navbar"></div>
+<!-- left-side-bar 끝 -->
+<div class="main-container">
+  <div class="pd-ltr-20 xs-pd-20-10">
+    <div class="min-height-200px">
+
+      <!-- Simple Datatable start -->
+      <div class="card-box mb-30">
+        <div class="pd-20">
+          <h4 class="text-blue h4">브랜드 리스트</h4>
+          <!--제품사진/상품명/사이즈/브랜드/카테고리/최근거래가-->
+        </div>
+        <div class="card-box mb-30">
+          <table class="data-table table nowrap">
+            <thead>
+            <tr>
+              <th class="table-plus datatable-nosort">로고</th>
+              <th>이름</th>
+              <th>상품 </th>
+              <th>총 거래 체결 수</th>
+              <th class="datatable-nosort">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="table-plus">
+                <img
+                        src="https://t1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/6H5a/image/X9gJ1rAPQNiN7l8WJAqCsxBqzmY.jpg"
+                        width="70"
+                        height="70"
+                        alt=""
+                />
+              </td>
+              <td>
+                <h5 class="font-16">나이키</h5>
+
+              </td>
+              <td>100</td>
+              <td>10</td>
+
+              <td>
+                <div class="dropdown">
+                  <a
+                          class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
+                          href="#"
+                          role="button"
+                          data-toggle="dropdown"
+                  >
+                    <i class="dw dw-more"></i>
+                  </a>
+                  <div
+                          class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
+                  >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-eye"></i> View</a
+                    >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-edit2"></i> Edit</a
+                    >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-delete-3"></i> Delete</a
+                    >
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="table-plus">
+                <img
+                        src="https://t1.daumcdn.net/thumb/R1280x0.fpng/?fname=http://t1.daumcdn.net/brunch/service/user/6H5a/image/1L-h60bjVOGwIO69wU1Oxx0Ufdw.png"
+                        width="70"
+                        height="70"
+                        alt=""
+                />
+              </td>
+              <td>
+                <h5 class="font-16">구찌</h5>
+
+              </td>
+              <td>100</td>
+              <td>10</td>
+
+              <td>
+                <div class="dropdown">
+                  <a
+                          class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
+                          href="#"
+                          role="button"
+                          data-toggle="dropdown"
+                  >
+                    <i class="dw dw-more"></i>
+                  </a>
+                  <div
+                          class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
+                  >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-eye"></i> View</a
+                    >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-edit2"></i> Edit</a
+                    >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-delete-3"></i> Delete</a
+                    >
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="table-plus">
+                <img
+                        src="https://t1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/6H5a/image/X9gJ1rAPQNiN7l8WJAqCsxBqzmY.jpg"
+                        width="70"
+                        height="70"
+                        alt=""
+                />
+              </td>
+              <td>
+                <h5 class="font-16">나이키</h5>
+
+              </td>
+              <td>100</td>
+              <td>10</td>
+
+              <td>
+                <div class="dropdown">
+                  <a
+                          class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
+                          href="#"
+                          role="button"
+                          data-toggle="dropdown"
+                  >
+                    <i class="dw dw-more"></i>
+                  </a>
+                  <div
+                          class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
+                  >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-eye"></i> View</a
+                    >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-edit2"></i> Edit</a
+                    >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-delete-3"></i> Delete</a
+                    >
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="table-plus">
+                <img
+                        src="https://t1.daumcdn.net/thumb/R1280x0.fpng/?fname=http://t1.daumcdn.net/brunch/service/user/6H5a/image/1L-h60bjVOGwIO69wU1Oxx0Ufdw.png"
+                        width="70"
+                        height="70"
+                        alt=""
+                />
+              </td>
+              <td>
+                <h5 class="font-16">구찌</h5>
+
+              </td>
+              <td>100</td>
+              <td>10</td>
+
+              <td>
+                <div class="dropdown">
+                  <a
+                          class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
+                          href="#"
+                          role="button"
+                          data-toggle="dropdown"
+                  >
+                    <i class="dw dw-more"></i>
+                  </a>
+                  <div
+                          class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
+                  >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-eye"></i> View</a
+                    >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-edit2"></i> Edit</a
+                    >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-delete-3"></i> Delete</a
+                    >
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="table-plus">
+                <img
+                        src="https://t1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/6H5a/image/X9gJ1rAPQNiN7l8WJAqCsxBqzmY.jpg"
+                        width="70"
+                        height="70"
+                        alt=""
+                />
+              </td>
+              <td>
+                <h5 class="font-16">나이키</h5>
+
+              </td>
+              <td>100</td>
+              <td>10</td>
+
+              <td>
+                <div class="dropdown">
+                  <a
+                          class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
+                          href="#"
+                          role="button"
+                          data-toggle="dropdown"
+                  >
+                    <i class="dw dw-more"></i>
+                  </a>
+                  <div
+                          class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
+                  >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-eye"></i> View</a
+                    >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-edit2"></i> Edit</a
+                    >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-delete-3"></i> Delete</a
+                    >
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="table-plus">
+                <img
+                        src="https://t1.daumcdn.net/thumb/R1280x0.fpng/?fname=http://t1.daumcdn.net/brunch/service/user/6H5a/image/1L-h60bjVOGwIO69wU1Oxx0Ufdw.png"
+                        width="70"
+                        height="70"
+                        alt=""
+                />
+              </td>
+              <td>
+                <h5 class="font-16">구찌</h5>
+
+              </td>
+              <td>100</td>
+              <td>10</td>
+
+              <td>
+                <div class="dropdown">
+                  <a
+                          class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
+                          href="#"
+                          role="button"
+                          data-toggle="dropdown"
+                  >
+                    <i class="dw dw-more"></i>
+                  </a>
+                  <div
+                          class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
+                  >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-eye"></i> View</a
+                    >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-edit2"></i> Edit</a
+                    >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-delete-3"></i> Delete</a
+                    >
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="table-plus">
+                <img
+                        src="https://t1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/6H5a/image/X9gJ1rAPQNiN7l8WJAqCsxBqzmY.jpg"
+                        width="70"
+                        height="70"
+                        alt=""
+                />
+              </td>
+              <td>
+                <h5 class="font-16">나이키</h5>
+
+              </td>
+              <td>100</td>
+              <td>10</td>
+
+              <td>
+                <div class="dropdown">
+                  <a
+                          class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
+                          href="#"
+                          role="button"
+                          data-toggle="dropdown"
+                  >
+                    <i class="dw dw-more"></i>
+                  </a>
+                  <div
+                          class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
+                  >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-eye"></i> View</a
+                    >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-edit2"></i> Edit</a
+                    >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-delete-3"></i> Delete</a
+                    >
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="table-plus">
+                <img
+                        src="https://t1.daumcdn.net/thumb/R1280x0.fpng/?fname=http://t1.daumcdn.net/brunch/service/user/6H5a/image/1L-h60bjVOGwIO69wU1Oxx0Ufdw.png"
+                        width="70"
+                        height="70"
+                        alt=""
+                />
+              </td>
+              <td>
+                <h5 class="font-16">구찌</h5>
+
+              </td>
+              <td>100</td>
+              <td>10</td>
+
+              <td>
+                <div class="dropdown">
+                  <a
+                          class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
+                          href="#"
+                          role="button"
+                          data-toggle="dropdown"
+                  >
+                    <i class="dw dw-more"></i>
+                  </a>
+                  <div
+                          class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
+                  >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-eye"></i> View</a
+                    >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-edit2"></i> Edit</a
+                    >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-delete-3"></i> Delete</a
+                    >
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="table-plus">
+                <img
+                        src="https://t1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/6H5a/image/X9gJ1rAPQNiN7l8WJAqCsxBqzmY.jpg"
+                        width="70"
+                        height="70"
+                        alt=""
+                />
+              </td>
+              <td>
+                <h5 class="font-16">나이키</h5>
+
+              </td>
+              <td>100</td>
+              <td>10</td>
+
+              <td>
+                <div class="dropdown">
+                  <a
+                          class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
+                          href="#"
+                          role="button"
+                          data-toggle="dropdown"
+                  >
+                    <i class="dw dw-more"></i>
+                  </a>
+                  <div
+                          class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
+                  >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-eye"></i> View</a
+                    >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-edit2"></i> Edit</a
+                    >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-delete-3"></i> Delete</a
+                    >
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="table-plus">
+                <img
+                        src="https://t1.daumcdn.net/thumb/R1280x0.fpng/?fname=http://t1.daumcdn.net/brunch/service/user/6H5a/image/1L-h60bjVOGwIO69wU1Oxx0Ufdw.png"
+                        width="70"
+                        height="70"
+                        alt=""
+                />
+              </td>
+              <td>
+                <h5 class="font-16">구찌</h5>
+
+              </td>
+              <td>100</td>
+              <td>10</td>
+
+              <td>
+                <div class="dropdown">
+                  <a
+                          class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
+                          href="#"
+                          role="button"
+                          data-toggle="dropdown"
+                  >
+                    <i class="dw dw-more"></i>
+                  </a>
+                  <div
+                          class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
+                  >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-eye"></i> View</a
+                    >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-edit2"></i> Edit</a
+                    >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-delete-3"></i> Delete</a
+                    >
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="table-plus">
+                <img
+                        src="https://t1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/6H5a/image/X9gJ1rAPQNiN7l8WJAqCsxBqzmY.jpg"
+                        width="70"
+                        height="70"
+                        alt=""
+                />
+              </td>
+              <td>
+                <h5 class="font-16">나이키</h5>
+
+              </td>
+              <td>100</td>
+              <td>10</td>
+
+              <td>
+                <div class="dropdown">
+                  <a
+                          class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
+                          href="#"
+                          role="button"
+                          data-toggle="dropdown"
+                  >
+                    <i class="dw dw-more"></i>
+                  </a>
+                  <div
+                          class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
+                  >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-eye"></i> View</a
+                    >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-edit2"></i> Edit</a
+                    >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-delete-3"></i> Delete</a
+                    >
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="table-plus">
+                <img
+                        src="https://t1.daumcdn.net/thumb/R1280x0.fpng/?fname=http://t1.daumcdn.net/brunch/service/user/6H5a/image/1L-h60bjVOGwIO69wU1Oxx0Ufdw.png"
+                        width="70"
+                        height="70"
+                        alt=""
+                />
+              </td>
+              <td>
+                <h5 class="font-16">구찌</h5>
+
+              </td>
+              <td>100</td>
+              <td>10</td>
+
+              <td>
+                <div class="dropdown">
+                  <a
+                          class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
+                          href="#"
+                          role="button"
+                          data-toggle="dropdown"
+                  >
+                    <i class="dw dw-more"></i>
+                  </a>
+                  <div
+                          class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
+                  >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-eye"></i> View</a
+                    >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-edit2"></i> Edit</a
+                    >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-delete-3"></i> Delete</a
+                    >
+                  </div>
+                </div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- Simple Datatable End -->
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- js -->
+<div th:replace="fragment/adminjs :: js"></div>
+<!-- js -->
+
+</body>
+</html>

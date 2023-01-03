@@ -1,0 +1,244 @@
+*,
+:after,
+:before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+a,
+a:active,
+a:focus,
+a:hover {
+    text-decoration: none;
+}
+body, button, dd, div, dl, dt, fieldset, figcaption, 
+figure, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, 
+p, select, table, td, textarea, th, ul {
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, .1);
+}
+li,  ol,  ul {
+    list-style: none;
+    padding: 0px;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed;
+    width: 100%;
+    border-top: 1px solid #ebebeb;
+    word-break: break-word;
+    word-wrap: break-word;
+    text-align: center;
+    border: 0;
+}
+input, textarea {
+    padding: 0;
+    outline: 0;
+    border: 0;
+    resize: none;
+    border-radius: 0;
+    background-color: transparent;
+}
+
+.view_data {
+    margin-top: 8px;
+    display: inline-block;
+    vertical-align: top;
+    line-height: 20px;
+    font-size: 14px;
+    letter-spacing: -.21px;
+    letter-spacing: -.15px;
+    color: #1d85e6;
+    text-decoration: underline;
+}
+
+.layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(34, 34, 34, .5);
+    z-index: 1010;
+}
+
+.layer_agreement.md .layer_container,
+.layer_agreement.mo .layer_container,
+.layer_agreement.sm .layer_container,
+.layer_auth_policy.md .layer_container,
+.layer_auth_policy.mo .layer_container,
+.layer_auth_policy.sm .layer_container,
+.layer_faq.md .layer_container,
+.layer_faq.mo .layer_container,
+.layer_faq.sm .layer_container,
+.layer_order_notice.md .layer_container,
+.layer_order_notice.mo .layer_container,
+.layer_order_notice.sm .layer_container,
+.layer_privacy.md .layer_container,
+.layer_privacy.mo .layer_container,
+.layer_privacy.sm .layer_container {
+    height: calc(100% - 60px);
+}
+
+.layer_agreement .layer_container,
+.layer_auth_policy .layer_container,
+.layer_faq .layer_container,
+.layer_order_notice .layer_container,
+.layer_privacy .layer_container {
+    width: 580px;
+}
+
+.layer_agreement .layer_content,
+.layer_auth_policy .layer_content,
+.layer_faq .layer_content,
+.layer_order_notice .layer_content,
+.layer_privacy .layer_content {
+    max-height: 528px;
+    overflow-y: auto;
+    padding: 0 32px;
+    margin-bottom: 32px;
+}
+
+.layer_container {
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    width: 448px;
+    border-radius: 16px;
+    -webkit-box-shadow: 0 4px 10px 0 rgba(0, 0, 0, .1);
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, .1);
+}
+
+
+.btn {
+    display: -webkit-inline-box;
+    display: inline-flex;
+    cursor: pointer;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    vertical-align: middle;
+    text-align: center;
+    color: rgba(34,34,34,.8);
+    background-color: #fff;
+}
+/*
+이거 아마 다른거!!있었던것같은데 ㅠㅠ
+.layer .layer_container {
+    width: 440px;
+} 
+*/
+.layer_container {
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    width: 448px;
+    border-radius: 16px;
+    -webkit-box-shadow: 0 4px 10px 0 rgb(0 0 0 / 10%);
+    box-shadow: 0 4px 10px 0 rgb(0 0 0 / 10%);
+}
+
+
+.btn_layer_close {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.btn_layer_close img {
+    width: 24px;
+    height: 24px;
+}
+
+
+.layer_header .title {
+    line-height: 22px;
+    padding: 18px 50px 20px;
+    min-height: 60px;
+    font-size: 18px;
+    letter-spacing: -.27px;
+    font-weight: 700;
+    letter-spacing: -.15px;
+    color: #000;
+    text-align: center;
+    background-color: #fff;
+}
+
+.layer_agreement.md .layer_header .title,
+.layer_agreement.mo .layer_header .title,
+.layer_agreement.sm .layer_header .title,
+.layer_auth_policy.md .layer_header .title,
+.layer_auth_policy.mo .layer_header .title,
+.layer_auth_policy.sm .layer_header .title,
+.layer_faq.md .layer_header .title,
+.layer_faq.mo .layer_header .title,
+.layer_faq.sm .layer_header .title,
+.layer_order_notice.md .layer_header .title,
+.layer_order_notice.mo .layer_header .title,
+.layer_order_notice.sm .layer_header .title,
+.layer_privacy.md .layer_header .title,
+.layer_privacy.mo .layer_header .title,
+.layer_privacy.sm .layer_header .title {
+    height: 60px;
+}
+
+.layer_header .title {
+    line-height: 22px;
+    padding: 18px 50px 20px;
+    min-height: 60px;
+    font-size: 18px;
+    letter-spacing: -.27px;
+    font-weight: 700;
+    letter-spacing: -.15px;
+    color: #000;
+    text-align: center;
+    background-color: #fff;
+}
+
+.layer_agreement.md .layer_content,
+.layer_agreement.mo .layer_content,
+.layer_agreement.sm .layer_content,
+.layer_auth_policy.md .layer_content,
+.layer_auth_policy.mo .layer_content,
+.layer_auth_policy.sm .layer_content,
+.layer_faq.md .layer_content,
+.layer_faq.mo .layer_content,
+.layer_faq.sm .layer_content,
+.layer_order_notice.md .layer_content,
+.layer_order_notice.mo .layer_content,
+.layer_order_notice.sm .layer_content,
+.layer_privacy.md .layer_content,
+.layer_privacy.mo .layer_content,
+.layer_privacy.sm .layer_content {
+    max-height: calc(100% - 86px);
+    padding: 0 20px;
+    margin-bottom: 26px;
+}
+
+.layer_agreement .layer_content,
+.layer_auth_policy .layer_content,
+.layer_faq .layer_content,
+.layer_order_notice .layer_content,
+.layer_privacy .layer_content{
+    max-height: 528px;
+    overflow-y: auto;
+    padding: 0 32px;
+    margin-bottom: 32px;
+}

@@ -1,0 +1,91 @@
+.list_wrap {
+    height: 560px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 0 20px 80px;
+}
+.my_item.select{
+    cursor: pointer;
+}
+.other .my_item {
+    padding: 17px 0 16px;
+    border-bottom: 1px solid #ebebeb;
+}
+.btn_bind img{
+    width: 24px;
+    height: 24px;
+}
+.my_item {
+    position: relative;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.my_item .info_bind{
+    margin-right: 24px;
+}
+.address_info{
+    line-height: 17px;
+}
+.is_active .address_info .name {
+    font-weight: 700;
+}
+.address_info .name{
+    display: inline-block;
+    vertical-align: top;
+    line-height: 20px;
+    font-size: 15px;
+    letter-spacing: -.15px;
+    font-weight: 700;
+}
+.address_info .mark{
+    display: inline-block;
+    vertical-align: top;
+    line-height: 14px;
+    margin-top: 0;
+    margin-left: 4px;
+    padding: 3px 6px;
+    font-size: 12px;
+    letter-spacing: -.06px;
+    border-radius: 10px;
+    background-color: #f4f4f4;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.address_info .phone {
+    padding-top: 5px;
+    font-size: 15px;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.address_info .phone .hyphen {
+    margin-left: 4px;
+    margin-right: 2px;
+    display: -webkit-inline-box;
+    display: inline-flex;
+    width: 4px;
+    height: 1px;
+    background-color: #000;
+}
+.address_info .phone .dot {
+    white-space: nowrap;
+    margin-top: -5px;
+}
+.address_info .phone .dot:after {
+    content: "";
+    margin-left: 2px;
+    display: inline-flex;
+    width: 5px;
+    height: 5px;
+    background-color: #222;
+    border-radius: 100%;
+}
+.address_info .address_box {
+    padding-top: 4px;
+    font-size: 14px;
+    letter-spacing: -.21px;
+}
