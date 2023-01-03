@@ -468,5 +468,42 @@ button {
 
 .status_danger .status_link { color: #f15746; }
 
-
 .status_warning .status_link { color: #ff7500;}
+
+.status_item.active a {
+    color: #222;
+    font-weight: 700;
+    border: .2rem solid #222;
+}
+
+.status_item:not(.active) a {
+    border-color: #ebebeb;
+}
+
+.status_item.status_on .btn{
+    color: #222;
+    font-weight: 700;
+    border: .1rem solid #222;
+}
+
+#expired {
+    color: #f15746;
+}
+
+.ico-arr-dir-down-circle {
+    width: 24px;
+    margin: 0;
+}
+
+.head_status .status_link:after {
+    right: 0;
+}
+.head_status .status_link:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -4px;
+    width: 16px;
+    height: 24px;
+    background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAxNiAyNCI+PHBhdGggZmlsbD0iI0QzRDNEMyIgZD0iTTEyIDEzbC00IDUtNC01aDh6bS04LTJsNC01IDQgNUg0eiIvPjwvc3ZnPg==) no-repeat;
+}
