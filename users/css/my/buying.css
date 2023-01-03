@@ -642,7 +642,7 @@ a:active, a:focus {
     margin: 0;
 }
 
-.mo .head_status .status_link:after, .sm .head_status .status_link:after {
+.head_status .status_link:after {
     right: 0;
 }
 .head_status .status_link:after {
@@ -654,11 +654,3 @@ a:active, a:focus {
     height: 24px;
     background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAxNiAyNCI+PHBhdGggZmlsbD0iI0QzRDNEMyIgZD0iTTEyIDEzbC00IDUtNC01aDh6bS04LTJsNC01IDQgNUg0eiIvPjwvc3ZnPg==) no-repeat;
 }
-
-
-
-
-
-
-
-

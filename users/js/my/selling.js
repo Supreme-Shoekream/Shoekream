@@ -34,8 +34,8 @@ tab_items.forEach((item) => {
         }else if(item.classList.contains('inProgress')){ // 진행중 상태일경우
             document.querySelector('.status_box.field_price').style.display='none';    
             document.querySelector('.status_box.field_expires_at').style.display='none';
-            document.querySelector('.status_box.field_date_paid').style.display='none';
-            document.querySelector('.status_box.field_date_purchased').style.display='block';
+            document.querySelector('.status_box.field_date_purchased').style.display='none';
+            document.querySelector('.status_box.field_date_paid').style.display='block';
             document.querySelector('.status_box.field_status').style.display='block';
         }else { // 구매입찰 상태일경우
             document.querySelector('.status_box.field_date_paid').style.display='none';
@@ -46,9 +46,3 @@ tab_items.forEach((item) => {
         }
         })
 })
-
-// // 버튼에 상태 value 값으로 전달
-// $(document).on('click', '.status_item', function(){
-//     $(".status_layer").css('display', 'none'); // 팝업 닫고
-//     $(".status").val(document.querySelector('.status_item.active .btn').text.trim());
-// });
