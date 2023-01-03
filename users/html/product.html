@@ -17,8 +17,12 @@
         <script src="../js/main/slick.min.js"></script>
         
         <link rel="stylesheet" href="../css/product.css">
-
-        <!-- <link rel="stylesheet" href="../css/fragment/footer.css"> -->
+        <link rel="stylesheet" href="../css/fragment/footer.css">
+        <style>
+            .layer_header {
+                margin: auto;
+            }
+        </style>
     </head>
     <body>
         <div id="__nuxt">
@@ -40,12 +44,10 @@
                                     <li class="top_item">
                                         <a href="/my" class="top_link">마이페이지</a>
                                     </li>
-
-                                     <li class="top_item" style="display:block;">
-
+                                    <li class="top_item" style="display:block;">
                                         <a href="/login" class="top_link">로그인</a>
                                     </li>
-                                    <li class="top_item" style="display:;">
+                                    <li class="top_item" style="display:none;">
                                         <a href="/" class="top_link">로그아웃</a>
                                     </li>
                                 </ul>
@@ -408,7 +410,7 @@
                                                     <div class="sales_filter lg">
                                                         <div class="filter_unit">
                                                             <button type="button" slot="button" class="btn btn_select">
-                                                                <span class="select_text layer_open ">모든 사이즈</span>
+                                                                <span class="select_text layer_open input_text">모든 사이즈</span>
                                                             </button>
                                                             <!-- 모든 사이즈 드롭박스 시작 -->
                                                             <div class="layer_size_list layer lg" style="display: none;">
@@ -421,59 +423,25 @@
                                                                     <div class="layer_header">
                                                                         <h2 class="title">사이즈 선택</h2>
                                                                     </div>
-                                                                    <div class="layer_content">
-                                                                        <ul class="size_list">
-                                                                            <li class="size_item item_on"><a class="size_link"> 모든 사이즈 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
-                                                                                        <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
-                                                                                    </svg></a></li>
-                                                                            <li class="size_item"><a class="size_link"> 240 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
-                                                                                        <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
-                                                                                    </svg></a></li>
-                                                                            <li class="size_item"><a class="size_link"> 245 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
-                                                                                        <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
-                                                                                    </svg></a></li>
-                                                                            <li class="size_item"><a class="size_link"> 250 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
-                                                                                        <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
-                                                                                    </svg></a></li>
-                                                                            <li class="size_item"><a class="size_link"> 255 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
-                                                                                        <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
-                                                                                    </svg></a></li>
-                                                                            <li class="size_item"><a class="size_link"> 260 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
-                                                                                        <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
-                                                                                    </svg></a></li>
-                                                                            <li class="size_item"><a class="size_link"> 265 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
-                                                                                        <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
-                                                                                    </svg></a></li>
-                                                                            <li class="size_item"><a class="size_link"> 270 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
-                                                                                        <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
-                                                                                    </svg></a></li>
-                                                                            <li class="size_item"><a class="size_link"> 275 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
-                                                                                        <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
-                                                                                    </svg></a></li>
-                                                                            <li class="size_item"><a class="size_link"> 280 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
-                                                                                        <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
-                                                                                    </svg></a></li>
-                                                                            <li class="size_item"><a class="size_link"> 285 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
-                                                                                        <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
-                                                                                    </svg></a></li>
-                                                                            <li class="size_item"><a class="size_link"> 290 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
-                                                                                        <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
-                                                                                    </svg></a></li>
-                                                                            <li class="size_item"><a class="size_link"> 295 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
-                                                                                        <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
-                                                                                    </svg></a></li>
-                                                                            <li class="size_item"><a class="size_link"> 300 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
-                                                                                        <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
-                                                                                    </svg></a></li>
-                                                                            <li class="size_item"><a class="size_link"> 305 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
-                                                                                        <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
-                                                                                    </svg></a></li>
-                                                                            <li class="size_item"><a class="size_link"> 310 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
-                                                                                        <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
-                                                                                    </svg></a></li>
-                                                                            <li class="size_item"><a class="size_link"> 320 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
-                                                                                        <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
-                                                                                    </svg></a></li>
+                                                                    <div class="layer_content conclusion2_layer_content" style="display: block;">
+                                                                        <ul class="size_list sl">
+                                                                            <li class="size_item"><a class="size_link item_on">모든 사이즈<img src="../img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: block;"></img></a></li>
+                                                                            <li class="size_item"><a class="size_link">240<img src="../img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"></img></a></li>
+                                                                            <li class="size_item"><a class="size_link">245<img src="../img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"></img></a></li>
+                                                                            <li class="size_item"><a class="size_link">250<img src="../img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"></img></a></li>
+                                                                            <li class="size_item"><a class="size_link">255<img src="../img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"></img></a></li>
+                                                                            <li class="size_item"><a class="size_link">260<img src="../img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"></img></a></li>
+                                                                            <li class="size_item"><a class="size_link">265<img src="../img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"></img></a></li>
+                                                                            <li class="size_item"><a class="size_link">270<img src="../img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"></img></a></li>
+                                                                            <li class="size_item"><a class="size_link">275<img src="../img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"></img></a></li>
+                                                                            <li class="size_item"><a class="size_link">280<img src="../img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"></img></a></li>
+                                                                            <li class="size_item"><a class="size_link">285<img src="../img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"></img></a></li>
+                                                                            <li class="size_item"><a class="size_link">290<img src="../img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"></img></a></li>
+                                                                            <li class="size_item"><a class="size_link">295<img src="../img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"></img></a></li>
+                                                                            <li class="size_item"><a class="size_link">300<img src="../img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"></img></a></li>
+                                                                            <li class="size_item"><a class="size_link">305<img src="../img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"></img></a></li>
+                                                                            <li class="size_item"><a class="size_link">310<img src="../img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"></img></a></li>
+                                                                            <li class="size_item"><a class="size_link">320<img src="../img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"></img></a></li>
                                                                         </ul>
                                                                     </div>
                                                                 </div>
@@ -877,7 +845,7 @@
                                                                 <p class="model_ko">나이키 덩크 로우 SE 서울</p>
                                                                 <div class="size_select_wrap">
                                                                     <button type="button" class="btn btn_size" slot="button">
-                                                                        <span class="size">모든 사이즈</span>
+                                                                        <span class="size input_text">모든 사이즈</span>
                                                                         <img src="../img/select_icon.png" class="ico-arr-dir-down-circle icon sprite-icons"></img>
                                                                     </button>
                                                                     <div class="layer_size_list layer lg" style="display: none;">
@@ -889,59 +857,26 @@
                                                                             <div class="layer_header">
                                                                                 <h2 class="title">사이즈 선택</h2>
                                                                             </div>
-                                                                            <div class="layer_content">
-                                                                                <ul class="size_list">
-                                                                                    <li class="size_item item_on"><a class="size_link"> 모든 사이즈 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
-                                                                                                <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
-                                                                                            </svg></a></li>
-                                                                                    <li class="size_item"><a class="size_link"> 240 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
-                                                                                                <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
-                                                                                            </svg></a></li>
-                                                                                    <li class="size_item"><a class="size_link"> 245 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
-                                                                                                <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
-                                                                                            </svg></a></li>
-                                                                                    <li class="size_item"><a class="size_link"> 250 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
-                                                                                                <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
-                                                                                            </svg></a></li>
-                                                                                    <li class="size_item"><a class="size_link"> 255 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
-                                                                                                <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
-                                                                                            </svg></a></li>
-                                                                                    <li class="size_item"><a class="size_link"> 260 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
-                                                                                                <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
-                                                                                            </svg></a></li>
-                                                                                    <li class="size_item"><a class="size_link"> 265 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
-                                                                                                <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
-                                                                                            </svg></a></li>
-                                                                                    <li class="size_item"><a class="size_link"> 270 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
-                                                                                                <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
-                                                                                            </svg></a></li>
-                                                                                    <li class="size_item"><a class="size_link"> 275 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
-                                                                                                <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
-                                                                                            </svg></a></li>
-                                                                                    <li class="size_item"><a class="size_link"> 280 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
-                                                                                                <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
-                                                                                            </svg></a></li>
-                                                                                    <li class="size_item"><a class="size_link"> 285 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
-                                                                                                <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
-                                                                                            </svg></a></li>
-                                                                                    <li class="size_item"><a class="size_link"> 290 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
-                                                                                                <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
-                                                                                            </svg></a></li>
-                                                                                    <li class="size_item"><a class="size_link"> 295 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
-                                                                                                <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
-                                                                                            </svg></a></li>
-                                                                                    <li class="size_item"><a class="size_link"> 300 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
-                                                                                                <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
-                                                                                            </svg></a></li>
-                                                                                    <li class="size_item"><a class="size_link"> 305 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
-                                                                                                <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
-                                                                                            </svg></a></li>
-                                                                                    <li class="size_item"><a class="size_link"> 310 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
-                                                                                                <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
-                                                                                            </svg></a></li>
-                                                                                    <li class="size_item"><a class="size_link"> 320 <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
-                                                                                                <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
-                                                                                            </svg></a></li>
+                                                                            <div class="layer_content conclusion2_layer_content" style="display: block;">
+                                                                                <ul class="size_list sl">
+                                                                                    <li class="size_item"><a class="size_link item_on">모든 사이즈<img src="../img/wcheck.png" class="ico-check-s icon sprite-icons"  style="display: block;"></img></a></li>
+                                                                                    <li class="size_item"><a class="size_link">240<img src="../img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"></svg></a></li>
+                                                                                    <li class="size_item"><a class="size_link">245<img src="../img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"></img></a></li>
+                                                                                    <li class="size_item"><a class="size_link">250<img src="../img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"></img></a></li>
+                                                                                    <li class="size_item"><a class="size_link">255<img src="../img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"></img></a></li>
+                                                                                    <li class="size_item"><a class="size_link">260<img src="../img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"></img></a></li>
+                                                                                    <li class="size_item"><a class="size_link">265<img src="../img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"></img></a></li>
+                                                                                    <li class="size_item"><a class="size_link">270<img src="../img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"></img></a></li>
+                                                                                    <li class="size_item"><a class="size_link">275<img src="../img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"></img></a></li>
+                                                                                    <li class="size_item"><a class="size_link">280<img src="../img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"></img></a></li>
+                                                                                    <li class="size_item"><a class="size_link">285<img src="../img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"></img></a></li>
+                                                                                    <li class="size_item"><a class="size_link">290<img src="../img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"></img></a></li>
+                                                                                    <li class="size_item"><a class="size_link">290<img src="../img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"></img></a></li>
+                                                                                    <li class="size_item"><a class="size_link">295<img src="../img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"></img></a></li>
+                                                                                    <li class="size_item"><a class="size_link">300<img src="../img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"></img></a></li>
+                                                                                    <li class="size_item"><a class="size_link">305<img src="../img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"></img></a></li>
+                                                                                    <li class="size_item"><a class="size_link">310<img src="../img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"></img></a></li>
+                                                                                    <li class="size_item"><a class="size_link">320<img src="../img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"></img></a></li>
                                                                                 </ul>
                                                                             </div>
                                                                         </div>
@@ -954,15 +889,21 @@
                                                     <div class="tab_info">
                                                         <div class="tab_area">
                                                             <ul role="tablist" class="tab_list">
-                                                                <li role="tab" aria-selected="true" aria-controls="panel1" class="item on"><a href="#" class="item_link">체결 거래</a></li>
-                                                                <li role="tab" aria-selected="false" aria-controls="panel2" class="item"><a href="#" class="item_link">판매 입찰</a></li>
-                                                                <li role="tab" aria-selected="false" aria-controls="panel3" class="item"><a href="#" class="item_link">구매 입찰</a></li>
+                                                                <li role="tab" aria-selected="true" aria-controls="panel1" class="conclusion item on">
+                                                                    <a class="item_link">체결 거래</a>
+                                                                </li>
+                                                                <li role="tab" aria-selected="false" aria-controls="panel2" class="conclusion item">
+                                                                    <a class="item_link">판매 입찰</a>
+                                                                </li>
+                                                                <li role="tab" aria-selected="false" aria-controls="panel3" class="conclusion item">
+                                                                    <a class="item_link">구매 입찰</a>
+                                                                </li>
                                                             </ul>
-                                                            <div id="panel1" role="tabpanel" class="tab_content show" span="sales" data-v-b6b2883e="">
+                                                            <div id="panel1" role="tabpanel" class="tab_content show" span="sales">
                                                                 <div class="price_table">
                                                                     <div class="market_price_table" style="">
                                                                         <div class="price_head">
-                                                                            <div class="head_box">
+                                                                            <div class="head_box hb1">
                                                                                 <div class="head_sort"><a href="#" class="sort_link sort"><span class="sort_txt">사이즈</span></a></div>
                                                                                 <div class="head_sort"><a href="#" class="sort_link sort"><span class="sort_txt">거래가</span></a></div>
                                                                                 <div class="head_sort is_active descending"><a href="#" class="sort_link sort"><span class="sort_txt">거래일</span></a></div>
@@ -1006,9 +947,9 @@
                                                                                 <div class="list_txt"> 285
                                                                                     <!---->
                                                                                 </div>
-                                                                                <div class="list_txt"> 349,000원 <i class="express_icon"><svg xmlns="http://www.w3.org/2000/svg" class="ico-express icon sprite-icons">
-                                                                                            <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-express" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-express"></use>
-                                                                                        </svg><span class="blind">빠른배송</span></i></div>
+                                                                                <div class="list_txt"> 349,000원 
+                                                                                    <!---->
+                                                                                </div>
                                                                                 <div class="list_txt is_active"> 22/12/31
                                                                                     <!---->
                                                                                 </div>
@@ -1028,9 +969,9 @@
                                                                                 <div class="list_txt"> 250
                                                                                     <!---->
                                                                                 </div>
-                                                                                <div class="list_txt"> 324,000원 <i class="express_icon"><svg xmlns="http://www.w3.org/2000/svg" class="ico-express icon sprite-icons">
-                                                                                            <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-express" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-express"></use>
-                                                                                        </svg><span class="blind">빠른배송</span></i></div>
+                                                                                <div class="list_txt"> 324,000원 
+                                                                                    <!---->
+                                                                                </div>
                                                                                 <div class="list_txt is_active"> 22/12/30
                                                                                     <!---->
                                                                                 </div>
@@ -1072,9 +1013,9 @@
                                                                                 <div class="list_txt"> 265
                                                                                     <!---->
                                                                                 </div>
-                                                                                <div class="list_txt"> 224,000원 <i class="express_icon"><svg xmlns="http://www.w3.org/2000/svg" class="ico-express icon sprite-icons">
-                                                                                            <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-express" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-express"></use>
-                                                                                        </svg><span class="blind">빠른배송</span></i></div>
+                                                                                <div class="list_txt"> 224,000원 
+                                                                                    <!---->
+                                                                                </div>
                                                                                 <div class="list_txt is_active"> 22/12/30
                                                                                     <!---->
                                                                                 </div>
@@ -1094,9 +1035,9 @@
                                                                                 <div class="list_txt"> 290
                                                                                     <!---->
                                                                                 </div>
-                                                                                <div class="list_txt"> 337,000원 <i class="express_icon"><svg xmlns="http://www.w3.org/2000/svg" class="ico-express icon sprite-icons">
-                                                                                            <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-express" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-express"></use>
-                                                                                        </svg><span class="blind">빠른배송</span></i></div>
+                                                                                <div class="list_txt"> 337,000원 
+                                                                                    <!---->
+                                                                                </div>
                                                                                 <div class="list_txt is_active"> 22/12/30
                                                                                     <!---->
                                                                                 </div>
@@ -1127,9 +1068,9 @@
                                                                                 <div class="list_txt"> 265
                                                                                     <!---->
                                                                                 </div>
-                                                                                <div class="list_txt"> 223,000원 <i class="express_icon"><svg xmlns="http://www.w3.org/2000/svg" class="ico-express icon sprite-icons">
-                                                                                            <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-express" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-express"></use>
-                                                                                        </svg><span class="blind">빠른배송</span></i></div>
+                                                                                <div class="list_txt"> 223,000원 
+                                                                                    <!---->
+                                                                                </div>
                                                                                 <div class="list_txt is_active"> 22/12/29
                                                                                     <!---->
                                                                                 </div>
@@ -1138,9 +1079,9 @@
                                                                                 <div class="list_txt"> 270
                                                                                     <!---->
                                                                                 </div>
-                                                                                <div class="list_txt"> 229,000원 <i class="express_icon"><svg xmlns="http://www.w3.org/2000/svg" class="ico-express icon sprite-icons">
-                                                                                            <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-express" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-express"></use>
-                                                                                        </svg><span class="blind">빠른배송</span></i></div>
+                                                                                <div class="list_txt"> 229,000원 
+                                                                                    <!---->
+                                                                                </div>
                                                                                 <div class="list_txt is_active"> 22/12/29
                                                                                     <!---->
                                                                                 </div>
@@ -1149,9 +1090,9 @@
                                                                                 <div class="list_txt"> 270
                                                                                     <!---->
                                                                                 </div>
-                                                                                <div class="list_txt"> 216,000원 <i class="express_icon"><svg xmlns="http://www.w3.org/2000/svg" class="ico-express icon sprite-icons">
-                                                                                            <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-express" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-express"></use>
-                                                                                        </svg><span class="blind">빠른배송</span></i></div>
+                                                                                <div class="list_txt"> 216,000원 
+                                                                                    <!---->
+                                                                                </div>
                                                                                 <div class="list_txt is_active"> 22/12/29
                                                                                     <!---->
                                                                                 </div>
@@ -1160,9 +1101,9 @@
                                                                                 <div class="list_txt"> 275
                                                                                     <!---->
                                                                                 </div>
-                                                                                <div class="list_txt"> 249,000원 <i class="express_icon"><svg xmlns="http://www.w3.org/2000/svg" class="ico-express icon sprite-icons">
-                                                                                            <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-express" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-express"></use>
-                                                                                        </svg><span class="blind">빠른배송</span></i></div>
+                                                                                <div class="list_txt"> 249,000원 
+                                                                                    <!---->
+                                                                                </div>
                                                                                 <div class="list_txt is_active"> 22/12/29
                                                                                     <!---->
                                                                                 </div>
@@ -1204,9 +1145,9 @@
                                                                                 <div class="list_txt"> 275
                                                                                     <!---->
                                                                                 </div>
-                                                                                <div class="list_txt"> 249,000원 <i class="express_icon"><svg xmlns="http://www.w3.org/2000/svg" class="ico-express icon sprite-icons">
-                                                                                            <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-express" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-express"></use>
-                                                                                        </svg><span class="blind">빠른배송</span></i></div>
+                                                                                <div class="list_txt"> 249,000원 
+                                                                                    <!---->
+                                                                                </div>
                                                                                 <div class="list_txt is_active"> 22/12/29
                                                                                     <!---->
                                                                                 </div>
@@ -1215,9 +1156,9 @@
                                                                                 <div class="list_txt"> 275
                                                                                     <!---->
                                                                                 </div>
-                                                                                <div class="list_txt"> 249,000원 <i class="express_icon"><svg xmlns="http://www.w3.org/2000/svg" class="ico-express icon sprite-icons">
-                                                                                            <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-express" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-express"></use>
-                                                                                        </svg><span class="blind">빠른배송</span></i></div>
+                                                                                <div class="list_txt"> 249,000원 
+                                                                                    <!---->
+                                                                                </div>
                                                                                 <div class="list_txt is_active"> 22/12/29
                                                                                     <!---->
                                                                                 </div>
@@ -1248,9 +1189,9 @@
                                                                                 <div class="list_txt"> 265
                                                                                     <!---->
                                                                                 </div>
-                                                                                <div class="list_txt"> 227,000원 <i class="express_icon"><svg xmlns="http://www.w3.org/2000/svg" class="ico-express icon sprite-icons">
-                                                                                            <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-express" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-express"></use>
-                                                                                        </svg><span class="blind">빠른배송</span></i></div>
+                                                                                <div class="list_txt"> 227,000원 
+                                                                                    <!---->
+                                                                                </div>
                                                                                 <div class="list_txt is_active"> 22/12/28
                                                                                     <!---->
                                                                                 </div>
@@ -1270,9 +1211,9 @@
                                                                                 <div class="list_txt"> 265
                                                                                     <!---->
                                                                                 </div>
-                                                                                <div class="list_txt"> 210,000원 <i class="express_icon"><svg xmlns="http://www.w3.org/2000/svg" class="ico-express icon sprite-icons">
-                                                                                            <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-express" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-express"></use>
-                                                                                        </svg><span class="blind">빠른배송</span></i></div>
+                                                                                <div class="list_txt"> 210,000원 
+                                                                                    <!---->
+                                                                                </div>
                                                                                 <div class="list_txt is_active"> 22/12/28
                                                                                     <!---->
                                                                                 </div>
@@ -1369,9 +1310,9 @@
                                                                                 <div class="list_txt"> 285
                                                                                     <!---->
                                                                                 </div>
-                                                                                <div class="list_txt"> 350,000원 <i class="express_icon"><svg xmlns="http://www.w3.org/2000/svg" class="ico-express icon sprite-icons">
-                                                                                            <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-express" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-express"></use>
-                                                                                        </svg><span class="blind">빠른배송</span></i></div>
+                                                                                <div class="list_txt"> 350,000원 
+                                                                                    <!---->
+                                                                                </div>
                                                                                 <div class="list_txt is_active"> 22/12/27
                                                                                     <!---->
                                                                                 </div>
@@ -1413,9 +1354,9 @@
                                                                                 <div class="list_txt"> 280
                                                                                     <!---->
                                                                                 </div>
-                                                                                <div class="list_txt"> 294,000원 <i class="express_icon"><svg xmlns="http://www.w3.org/2000/svg" class="ico-express icon sprite-icons">
-                                                                                            <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-express" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-express"></use>
-                                                                                        </svg><span class="blind">빠른배송</span></i></div>
+                                                                                <div class="list_txt"> 294,000원 
+                                                                                    <!---->
+                                                                                </div>
                                                                                 <div class="list_txt is_active"> 22/12/27
                                                                                     <!---->
                                                                                 </div>
@@ -1446,9 +1387,9 @@
                                                                                 <div class="list_txt"> 270
                                                                                     <!---->
                                                                                 </div>
-                                                                                <div class="list_txt"> 230,000원 <i class="express_icon"><svg xmlns="http://www.w3.org/2000/svg" class="ico-express icon sprite-icons">
-                                                                                            <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-express" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-express"></use>
-                                                                                        </svg><span class="blind">빠른배송</span></i></div>
+                                                                                <div class="list_txt"> 230,000원 
+                                                                                    <!---->
+                                                                                </div>
                                                                                 <div class="list_txt is_active"> 22/12/26
                                                                                     <!---->
                                                                                 </div>
@@ -1457,9 +1398,9 @@
                                                                                 <div class="list_txt"> 265
                                                                                     <!---->
                                                                                 </div>
-                                                                                <div class="list_txt"> 225,000원 <i class="express_icon"><svg xmlns="http://www.w3.org/2000/svg" class="ico-express icon sprite-icons">
-                                                                                            <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-express" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-express"></use>
-                                                                                        </svg><span class="blind">빠른배송</span></i></div>
+                                                                                <div class="list_txt"> 225,000원 
+                                                                                    <!---->
+                                                                                </div>
                                                                                 <div class="list_txt is_active"> 22/12/26
                                                                                     <!---->
                                                                                 </div>
@@ -1468,9 +1409,9 @@
                                                                                 <div class="list_txt"> 280
                                                                                     <!---->
                                                                                 </div>
-                                                                                <div class="list_txt"> 289,000원 <i class="express_icon"><svg xmlns="http://www.w3.org/2000/svg" class="ico-express icon sprite-icons">
-                                                                                            <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-express" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-express"></use>
-                                                                                        </svg><span class="blind">빠른배송</span></i></div>
+                                                                                <div class="list_txt"> 289,000원 
+                                                                                    <!---->
+                                                                                </div>
                                                                                 <div class="list_txt is_active"> 22/12/26
                                                                                     <!---->
                                                                                 </div>
@@ -1490,9 +1431,9 @@
                                                                                 <div class="list_txt"> 265
                                                                                     <!---->
                                                                                 </div>
-                                                                                <div class="list_txt"> 220,000원 <i class="express_icon"><svg xmlns="http://www.w3.org/2000/svg" class="ico-express icon sprite-icons">
-                                                                                            <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-express" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-express"></use>
-                                                                                        </svg><span class="blind">빠른배송</span></i></div>
+                                                                                <div class="list_txt"> 220,000원 
+                                                                                    <!---->
+                                                                                </div>
                                                                                 <div class="list_txt is_active"> 22/12/25
                                                                                     <!---->
                                                                                 </div>
@@ -1501,9 +1442,9 @@
                                                                                 <div class="list_txt"> 270
                                                                                     <!---->
                                                                                 </div>
-                                                                                <div class="list_txt"> 230,000원 <i class="express_icon"><svg xmlns="http://www.w3.org/2000/svg" class="ico-express icon sprite-icons">
-                                                                                            <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-express" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-express"></use>
-                                                                                        </svg><span class="blind">빠른배송</span></i></div>
+                                                                                <div class="list_txt"> 230,000원 
+                                                                                    <!---->
+                                                                                </div>
                                                                                 <div class="list_txt is_active"> 22/12/25
                                                                                     <!---->
                                                                                 </div>
@@ -1512,9 +1453,9 @@
                                                                                 <div class="list_txt"> 265
                                                                                     <!---->
                                                                                 </div>
-                                                                                <div class="list_txt"> 219,000원 <i class="express_icon"><svg xmlns="http://www.w3.org/2000/svg" class="ico-express icon sprite-icons">
-                                                                                            <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-express" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-express"></use>
-                                                                                        </svg><span class="blind">빠른배송</span></i></div>
+                                                                                <div class="list_txt"> 219,000원 
+                                                                                    <!---->
+                                                                                </div>
                                                                                 <div class="list_txt is_active"> 22/12/25
                                                                                     <!---->
                                                                                 </div>
@@ -1542,8 +1483,8 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div id="panel3" role="tabpanel" class="tab_content" span="bids" data-v-b6b2883e="">
-                                                                <div class="price_table" data-v-3c9dd7e9="">
+                                                            <div id="panel3" role="tabpanel" class="tab_content" span="bids">
+                                                                <div class="price_table">
                                                                     <div class="market_price_table" style="display: none;">
                                                                         <div class="price_head">
                                                                             <div class="head_box">
@@ -1860,7 +1801,7 @@
                                         </div>
                                     </div>
                                     <div class="more_btn_box">
-                                        <button type="button" class="btn outlinegrey medium"> 더보기 </button>
+                                        <button type="button" class="btn outlinegrey medium" onclick="location.href='./social/social_product.html'">더보기</button>
                                     </div>
                                     <div class="list_loading" style="display: none;">
                                         <img src="/_nuxt/img/loading.410eb77.gif" loading="lazy" alt="리스트 로딩중입니다." class="loading_img">
@@ -1874,7 +1815,7 @@
                                 <h3 class="more_title">
                                     <span class="owner">Nike</span>
                                     <span class="title_txt">의 다른 상품</span>
-                                    <a href="/brands/nike" class="btn_more">
+                                    <a href="./brands.html" class="btn_more">
                                         <span class="btn_txt">더보기</span>
                                         <img src="../img/right_arrow.png" class="icon sprite-icons arr-right-gray"></img>
                                     </a>
@@ -2463,72 +2404,74 @@
                 </div>
                 
                 <!-- 푸터 시작 -->
-                <div class="footer_flex_box2">
-                    <div id="footer_left_box2">
-                        <div class="footer_box_text2" id="fbtext2_left">
-                            <div class="fbb2_Btext">이용안내</div>
-                            <ul>
-                                <li><a href="/auth_polic">검수기준</a></li>
-                                <li><a href="/faq/policy">이용정책</a></li>
-                                <li><a href="#">패널티 정책</a></li>
-                                <li><a href="#">커뮤니티 가이드라인</a></li>
-                            </ul>
+                <footer style="margin-top: 0;">
+                    <div class="footer_flex_box2">
+                        <div id="footer_left_box2">
+                            <div class="footer_box_text2" id="fbtext2_left">
+                                <div class="fbb2_Btext">이용안내</div>
+                                <ul>
+                                    <li><a href="/auth_polic">검수기준</a></li>
+                                    <li><a href="/faq/policy">이용정책</a></li>
+                                    <li><a href="#">패널티 정책</a></li>
+                                    <li><a href="#">커뮤니티 가이드라인</a></li>
+                                </ul>
+                            </div>
+                            <div class="footer_box_text2">
+                                <div class="fbb2_Btext">고객지원</div>
+                                <ul>
+                                    <li><a href="/notice">공지사항</a></li>
+                                    <li><a href="/about">서비스 소개</a></li>
+                                    <li><a href="https://kream.co.kr/showroom">쇼룸 안내</a></li>
+                                    <li><a href="https://kream.co.kr/privacy">판매자 방문접수</a></li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="footer_box_text2">
-                            <div class="fbb2_Btext">고객지원</div>
+                        <div id="footer_right_box2">
+                            <div class="fbb2_Btext">고객센터 1588-7813</div>
                             <ul>
-                                <li><a href="/notice">공지사항</a></li>
-                                <li><a href="/about">서비스 소개</a></li>
-                                <li><a href="https://kream.co.kr/showroom">쇼룸 안내</a></li>
-                                <li><a href="https://kream.co.kr/privacy">판매자 방문접수</a></li>
+                                <li>운영시간평일 11:00 - 18:00 (토 ∙ 일, 공휴일 휴무)</li>
+                                <li>점심시간평일 13:00 - 14:00</li>
                             </ul>
-                        </div>
-                    </div>
-                    <div id="footer_right_box2">
-                        <div class="fbb2_Btext">고객센터 1588-7813</div>
-                        <ul>
-                            <li>운영시간평일 11:00 - 18:00 (토 ∙ 일, 공휴일 휴무)</li>
-                            <li>점심시간평일 13:00 - 14:00</li>
-                        </ul>
-                        <div id="footer_ask_text">1:1 문의하기는 앱에서만 가능합니다.</div>
-                        <div id="footer_ask_box"><a href="/faq">자주 묻는 질문</a></div>
-                    </div>
-                </div>
-                <div class="footer_flex_box3">
-                    <div id="footer_box3">
-                        <div id="footer_box3_1">
-                            <ul id="footer_box3_1_text">
-                                <li><a href="#">회사소개</a></li>
-                                <li><a href="#">인재채용</a></li>
-                                <li><a href="#">제휴제안</a></li>
-                                <li><a href="#">이용약관</a></li>
-                                <li id="policy"><a href="https://kream.co.kr/privacy">개인정보처리방침</a></li>
-                            </ul>
-                            <ul id="sns_img">
-                                <li id="insta_img"><a href="https://www.instagram.com/kream.co.kr/"></a></li>
-                                <li id="facebook_img"><a href="https://www.facebook.com/kreamcokr"></a></li>
-                                <li id="chat_img"><a href="https://pf.kakao.com/_adpxlxb"></a></li>
-                            </ul>
-                        </div>
-                        <div id="footer_box3_2">
-                            <ul>
-                                <li>슈크림 주식회사 · 대표 슈프림</li>
-                                <li>사업자등록번호: 570-88-01618 <a href="#">사업자정보확인</a></li>
-                                <li>통신판매업: 제 2021-성남분당C-0093호</li>
-                            </ul>
-                            <ul>
-                                <li>사업장소재지: 경기도 성남시 분당구 분당내곡로 117, 8층</li>
-                                <li>개인정보관리책임자: 슈프림</li>
-                                <li>호스팅 서비스: 네이버 클라우드 (주)</li>
-                            </ul>
+                            <div id="footer_ask_text">1:1 문의하기는 앱에서만 가능합니다.</div>
+                            <div id="footer_ask_box"><a href="/faq">자주 묻는 질문</a></div>
                         </div>
                     </div>
-                </div>
-                <div class="footer_flex_box4">
-                    <p id="footer_left_box4">슈크림(주)는 통신판매 중개자로서 통신판매의 당사자가 아니므로 개별 판매자가 등록한 상품정보에 대해서 책임을 지지 않습니다. 단, 거래과정에서 검수하고
-                        보증하는 내용에 대한 책임은 당사에 있습니다.</p>
-                    <p id="footer_right_box4">© 2022 SHOEKREAM.Corp.</p>
-                </div>
+                    <div class="footer_flex_box3">
+                        <div id="footer_box3">
+                            <div id="footer_box3_1">
+                                <ul id="footer_box3_1_text">
+                                    <li><a href="#">회사소개</a></li>
+                                    <li><a href="#">인재채용</a></li>
+                                    <li><a href="#">제휴제안</a></li>
+                                    <li><a href="#">이용약관</a></li>
+                                    <li id="policy"><a href="https://kream.co.kr/privacy">개인정보처리방침</a></li>
+                                </ul>
+                                <ul id="sns_img">
+                                    <li id="insta_img"><a href="https://www.instagram.com/kream.co.kr/"></a></li>
+                                    <li id="facebook_img"><a href="https://www.facebook.com/kreamcokr"></a></li>
+                                    <li id="chat_img"><a href="https://pf.kakao.com/_adpxlxb"></a></li>
+                                </ul>
+                            </div>
+                            <div id="footer_box3_2">
+                                <ul>
+                                    <li>슈크림 주식회사 · 대표 슈프림</li>
+                                    <li>사업자등록번호: 570-88-01618 <a href="#">사업자정보확인</a></li>
+                                    <li>통신판매업: 제 2021-성남분당C-0093호</li>
+                                </ul>
+                                <ul>
+                                    <li>사업장소재지: 경기도 성남시 분당구 분당내곡로 117, 8층</li>
+                                    <li>개인정보관리책임자: 슈프림</li>
+                                    <li>호스팅 서비스: 네이버 클라우드 (주)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer_flex_box4">
+                        <p id="footer_left_box4">슈크림(주)는 통신판매 중개자로서 통신판매의 당사자가 아니므로 개별 판매자가 등록한 상품정보에 대해서 책임을 지지 않습니다. 단, 거래과정에서 검수하고
+                            보증하는 내용에 대한 책임은 당사에 있습니다.</p>
+                        <p id="footer_right_box4">© 2022 SHOEKREAM.Corp.</p>
+                    </div>
+                </footer>
                 <!-- 푸터 끝 -->
 
                 <!-- <div>
@@ -2547,7 +2490,5 @@
             </div>
         </div>
 </body>
-
     <script src="../js/product.js"></script>
-    
 </html>

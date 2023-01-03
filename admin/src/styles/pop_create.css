@@ -85,8 +85,8 @@ input, textarea {
     border-radius: 16px;
     -webkit-box-shadow: 0 4px 10px 0 rgba(0, 0, 0, .1);
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, .1);
-    width: 40%;
-    height: 90%;
+    width: 500px;
+    height: 500px;
 }
 
 
@@ -120,11 +120,11 @@ input, textarea {
 }
 
 .layer_btn{
-    /* padding: 24px 32px 32px; */
-    padding: 15px 32px 32px;
+    padding: 24px 32px 32px;
     display: flex;
     -webkit-box-pack: center;
     justify-content: center;
+    height: 100%;
 }
 
 /* .layer_btn_address{
@@ -181,8 +181,7 @@ input, textarea {
 
 
 .layer_content{
-    /* max-height: 644px; */
-    max-height: 596px;
+    max-height: 760px;
     overflow-y: auto;
     padding: 0 32px;
     margin-top: 32px;
@@ -191,6 +190,7 @@ input, textarea {
 .top, .center{
     display: flex;
     width: 100%;
+    height: auto;
 }
 
 .top .user_bind, .center .user_bind{
@@ -214,6 +214,7 @@ input, textarea {
     position: relative;
     padding: 5px 0 7px;
     width: 100%;
+    border-bottom: 1px solid #ebebeb;
 }
 
 .user_input{
@@ -262,18 +263,6 @@ input, textarea {
     border: 0;
     border-bottom: 1px solid #ebebeb;
 }
-
-.input_item input {
-    padding: 8px 0;
-    width: 100%;
-    font-size: 15px;
-    letter-spacing: -.15px;
-    line-height: 22px;
-    border: 0;
-    border-bottom: 1px solid #ebebeb;
-}
-
-
 /*view페이지 전용*/
 .input_item p{
     padding: 8px 0;
@@ -294,6 +283,7 @@ img#previewImg{cursor:pointer;max-height:200px; max-width:100%;display:block;}
 .filebox input[type="file"] {position: absolute;width: 1px;height: 1px;padding: 0;margin: -1px;overflow: hidden;clip:rect(0,0,0,0);border: 0;}
 .filebox .upload-name{display: inline-block; padding: 0.3em 0.4em; font-size: inherit; font-family: inherit; text-align:center;
     line-height: normal; vertical-align: middle; background-color: #f5f5f5; border: 1px solid #ebebeb; border-bottom-color:
+<<<<<<< HEAD
     #e2e2e2; border-radius: .25em; -webkit-appearance: none; -moz-appearance: none; appearance: none; margin-bottom: 10px;}
 
 /*layer_admin_register*/
@@ -302,9 +292,11 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0
 }
+
 .has_button .input_txt {
     padding-right: 3rem;
 }
+
 .input_txt {
     padding: .8rem 0;
     width: 100%;
@@ -314,15 +306,19 @@ input::-webkit-inner-spin-button {
     border-bottom: .1rem solid #ebebeb;
     margin-bottom: 5px;
 }
+
 .has_error .input_title { 
     color: #f15746; 
 }
+
 .has_error .input_txt { 
     border-bottom-color: #ef6253; 
 }
+
 .has_error .input_txt:focus { 
     border-bottom-color: #ef6253;
 }
+
 .has_error .input_error {
     display: block;
     position: absolute;
@@ -331,33 +327,32 @@ input::-webkit-inner-spin-button {
     color: #f15746;
     margin-top: -10px;
 }
+=======
+     #e2e2e2; border-radius: .25em; -webkit-appearance: none; -moz-appearance: none; appearance: none; margin-bottom: 10px;}
 
-/*layer_notice_create*/
-#layer_notice_create {
-    width: 500px;
-    margin: 10px;
-    padding: 10px;
-}
-.notice_content {
-    border: 1px solid #ebebeb;
-    margin-top: 10px;
-    font-family: inherit;
-    font-size: inherit;
-}
-.select {
-    border: 1px solid #ebebeb;
-    width: 200px;
-    height: 30px;
-    margin-top: 10px;
-    font-family: inherit;
+.input_item input {
+    padding: 8px 0;
+    width: 100%;
+    font-size: 15px;
+    letter-spacing: -.15px;
+    line-height: 22px;
+    border: 0;
+    border-bottom: 1px solid #ebebeb;
 }
 
-/*layer_notice_view*/
-#layer_notice_view {
-    width: 520px;
-    margin: 10px;
-    padding: 10px;
+
+>>>>>>> e73f32c878f35413936c7d3fe9e0123fdbf9a13d
+.input_input{
+    padding: 8px 0;
+    width: 100%;
+    font-size: 15px;
+    letter-spacing: -.15px;
+    line-height: 22px;
+    border: 0;
+    border-bottom: 1px solid #ebebeb;
 }
-#notice_view_btn {
-    padding: 0;
+
+select{
+    width: 100%;
+    border: none;
 }

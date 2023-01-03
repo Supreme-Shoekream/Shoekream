@@ -7,7 +7,8 @@
     <title>구매 내역</title>
 
     <link rel="stylesheet" href="../../css/my/buying.css">
-
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+    integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -45,7 +46,7 @@
                                                 </dl>
                                             </a>
                                         </div> -->
-                                        <div class="tab_item tab_on">
+                                        <div class="tab_item tab_on buy">
                                             <a class="tab_link">
                                                 <dl class="tab_box">
                                                     <dt class="title">구매입찰</dt>
@@ -53,7 +54,7 @@
                                                 </dl>
                                             </a>
                                         </div>
-                                        <div class="tab_item">
+                                        <div class="tab_item inProgress">
                                             <a class="tab_link">
                                                 <dl class="tab_box">
                                                     <dt class="title">진행중</dt>
@@ -62,7 +63,7 @@
                                                 </dl>
                                             </a>
                                         </div>
-                                        <div class="tab_item">
+                                        <div class="tab_item end">
                                             <a class="tab_link">
                                                 <dl class="tab_box">
                                                     <dt class="title">종료</dt>
@@ -141,11 +142,12 @@
                                         <!-- purchase_list -->
                                         <div class="purchase_list finished bid">
                                             <div class="purchase_head">
-                                                <div class="head_product">
-                                                    <a href="#" class="btn_filter">
-                                                        <span>전체</span>
-                                                        <img src="/lib/img/select_icon.png" class="ico-arr-dir-down-circle icon sprite-icons"></img>
-                                                    </a>
+                                                <div class="head_product" onclick="status_layer()">
+                                                    <!-- <a href="#" class="btn_filter"> -->
+                                                        <!-- <span class="status">전체</span> -->
+                                                        <!-- <input type="text" placeholder="전체" disabled="disabled" autocomplete="off" value="" class="status">
+                                                        <img src="/users/img/select_icon.png" class="ico-arr-dir-down-circle icon sprite-icons"></img>
+                                                    </a> -->
                                                 </div>
                                                 <div class="head_status">
                                                     <div class="status_box field_price">
@@ -180,7 +182,7 @@
                                                 <!--상품-->
                                             </div>
                                             <!--상태 팝업 1 입찰중-->
-                                            <div class="layer lg" style="display: none;" id="status1">
+                                            <!-- <div class="layer lg" style="display: none;" id="status1">
                                                 <div class="layer_container">
                                                     <div class="layer_header">
                                                         <h2 class="title">선택한 상태 보기</h2>
@@ -198,7 +200,7 @@
                                                         <img src="/lib/img/nav_close_icon.png" class="ico-close icon sprite-icons">
                                                     </a>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <!--상태 팝업 2 진행중-->
                                             <div class="layer lg" style="display: none;" id="status2">
                                                 <div class="layer_container">
@@ -227,22 +229,33 @@
                                                 </div>
                                             </div>
                                             <!--상태 팝업 3 종료-->
-                                            <div class="layer lg" style="display: none;" id="status3">
+                                            <!-- layer_status 넣을곳 -->
+                                            <div class="layer lg status_layer" style="display: none;">
                                                 <div class="layer_container">
                                                     <div class="layer_header">
                                                         <h2 class="title">선택한 상태 보기</h2>
                                                     </div>
                                                     <div class="layer_content">
-                                                        <div class="select_status">
-                                                            <ul class="status_list">
-                                                                <li class="status_item item_on"><a class="status_link">전체</a></li>
-                                                                <li class="status_item"><a class="status_link">배송완료</a></li>
-                                                                <li class="status_item status_danger"><a class="status_link">취소완료</a></li>
-                                                            </ul>
+                                                        <div class="status_list_area">
+                                                            <div class="status_item status_on">
+                                                                <a type="button" class="btn outlinegrey medium">
+                                                                    <span class="info_txt">전체</span>
+                                                                </a>
+                                                            </div>
+                                                            <div class="status_item">
+                                                                <a type="button" class="btn outlinegrey medium">
+                                                                    <span class="info_txt">입찰 중</span>
+                                                                </a>
+                                                            </div>
+                                                            <div class="status_item">
+                                                                <a type="button" class="btn outlinegrey medium">
+                                                                    <span class="info_txt" id="expired">기한만료</span>
+                                                                </a>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <a class="btn_layer_close">
-                                                        <img src="/lib/img/nav_close_icon.png" class="ico-close icon sprite-icons">
+                                                    <a href="javascript:void(0);" class="btn_layer_close" onclick="closeLayer()">
+                                                        <img src="../../img/nav_close_icon.png" class="ico-close icon sprite-icons">
                                                     </a>
                                                 </div>
                                             </div>
@@ -466,4 +479,6 @@
             }
         </script>
 </body>
+
+<script src="../../js/my/buying.js"></script>
 </html>

@@ -7,8 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SHOEKREAM | 한정판 거래의 FLEX</title>
     <link rel="stylesheet" href="../../css/buy/header.css">
+    <link rel="stylesheet" href="../../css/layer/layer.css">
     <link rel="stylesheet" href="../../css/sell/sellcheck.css">
-    <link rel="stylesheet" href="../../css/layer/popup.css">
+    <link rel="stylesheet" href="../../css/layer/layer_auth_policy.css">
+    <link rel="stylesheet" href="../../css/layer/layer_faq.css">
     <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://kream.co.kr/favicon.ico">
     <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" />
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"
@@ -47,7 +49,7 @@
                                         <img src="../../img/logo.png"></a>
                                 </h1>
                                 <div class="center">
-                                    <h2 class="title"><span class="title_txt">구매 동의</span></h2>
+                                    <h2 class="title"><span class="title_txt">판매 동의</span></h2>
                                 </div>
                                 <div class="right">
                                     <button type="button" class="btn btn_standard outlinegrey small" onclick="pop_auth_policy()"> 검수기준 </button>
@@ -193,8 +195,8 @@
                                     <!---->
                                     <!--notice-popup 시작-->
                                     <div class="layer lg layer_order_notice" style="display: none;">
-                                        <div class="layer_container">
-                                            <a href="javascript:void(0);" onclick="closeLayer()" class="btn_layer_close">
+                                        <div class="layer_container" style="width:440px;">
+                                            <a href="javascript:void(0);" onclick="close_notice()" class="btn_layer_close">
                                                 <img src="../../img/close.png" class="icon" style="width: 24px;">
                                             </a>
                                             <div class="layer_header">
@@ -204,7 +206,7 @@
                                                     src="https://kream.co.kr/api/app/pages/0401_notice.html"
                                                     frameborder="0"></iframe>
                                                 <div class="wrap_btn">
-                                                    <button type="button" class="btn solid full large" onclick="closeLayer()"> 동의 후
+                                                    <button type="button" class="btn solid full large" onclick="close_notice()"> 동의 후
                                                         계속 </button>
                                                 </div>
                                             </div>
@@ -213,10 +215,12 @@
                                 <!--notice-popup 끝-->
                                 </div>
                             </div>
-                            <!--검수기준 레이어창-->
-                            
-                            <!--이용정책 레이어창-->
+                            <!--검수기준 레이어창 시작-->
 
+                            <!--검수기준 레이어창 끝-->
+                            <!--이용정책 레이어창 시작-->
+
+                            <!--이용정책 레이어창 끝-->
                         </div>
                     </div>
                 </div>
@@ -228,5 +232,4 @@
     </div>
 </body>
 <script src="../../js/buy/buyCheck.js"></script>
-<script src="../../js/buy/popup.js"></script>
 </html>

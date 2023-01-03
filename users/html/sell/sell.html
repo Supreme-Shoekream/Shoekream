@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,231 +8,429 @@
     <title>SHOEKREAM | 한정판 거래의 FLEX</title>
     <link rel="stylesheet" href="../../css/buy/header.css">
     <link rel="stylesheet" href="../../css/sell/sell.css">
+    <link rel="stylesheet" href="../../css/layer/layer.css">
+    <link rel="stylesheet" href="../../css/layer/layer_delivery.css">
+    <link rel="stylesheet" href="../../css/layer/layer_address.css">
+    <link rel="stylesheet" href="../../css/layer/layer_shipping_memo.css">
+    <link rel="stylesheet" href="../../css/layer/layer_card.css">
     <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://kream.co.kr/favicon.ico">
     <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" />
-    <link rel="stylesheet" href="../../css/layer/layer.css">
-    <link rel="stylesheet" href="../../css/layer/layer_faq.css">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 </head>
+
 <body>
-<!--header시작-->
-<header class="header">
-    <div class="header_top">
-        <div class="top_inner">
-            <ul class="top_list">
-                <li class="top_item">
-                    <a href="/notice" class="top_link"> 고객센터 </a>
-                </li>
-                <li class="top_item">
-                    <a href="/my/wish" class="top_link"> 관심상품 </a>
-                </li>
-                <li class="top_item">
-                    <a href="/my" class="top_link"> 마이페이지 </a>
-                </li>
-                <li class="top_item">
-                    <a href="/" class="top_link"> 로그아웃 </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="header_main">
-        <div class="main_inner">
-            <h1>
-                <a href="#" aria-label="홈" class="logo">
-                    <img src="../../img/logo.png"></a>
-            </h1>
-            <div class="center">
-                <h2 class="title"><span class="title_txt">판매 입찰하기</span></h2>
-            </div>
-            <div class="right">
-                <button type="button" class="btn btn_standard outlinegrey small"> 검수기준 </button>
-            </div>
-        </div>
-    </div>
-</header>
-</div>
-<!--header끝-->
-<div class="container sell md step-1">
-    <!---->
-    <div class="content">
-        <div class="sell_immediate">
-            <div class="product_info_area">
-                <div class="product_info">
-                    <div class="product" style="background-color: rgb(235, 240, 245);">
-                        <img class="product_img"
-                            src="https://kream-phinf.pstatic.net/MjAyMjExMDNfNDkg/MDAxNjY3NDQyOTg3Nzgz.AvVXZUTxfsUxU_LRcKTfFDh82OOcajr5aip30AtoVCEg.HQa_q9G1grgcHNthQzFDSoLEf5J56ppC87pzob2VHxQg.JPEG/a_60233a3586974852b69ab4cfef79a543.jpg?type=l_webp">
-                    </div>
-                    <div class="product_detail"><strong class="model_number"><!---->NJ1DM63A/NJ1DN58A </strong>
-                        <p class="model_title">The North Face 1992 Nuptse Jacket Black</p>
-                        <p class="model_ko">노스페이스 1992 눕시 다운 자켓 블랙</p>
-                        <div class="model_desc">
-                            <p class="size_txt">M</p><!---->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="price_descision_box">
-                <ul class="price_list">
-                    <li class="list_item">
-                        <p class="title">즉시 구매가</p><span class="price">540,000</span><span class="unit">원</span>
+    <!--header시작-->
+    <header class="header">
+        <div class="header_top">
+            <div class="top_inner">
+                <ul class="top_list">
+                    <li class="top_item">
+                        <a href="/notice" class="top_link"> 고객센터 </a>
                     </li>
-                    <li class="list_item">
-                        <p class="title">즉시 판매가</p><span class="price">479,000</span><span class="unit">원</span>
+                    <li class="top_item">
+                        <a href="/my/wish" class="top_link"> 관심상품 </a>
+                    </li>
+                    <li class="top_item">
+                        <a href="/my" class="top_link"> 마이페이지 </a>
+                    </li>
+                    <li class="top_item">
+                        <a href="/" class="top_link"> 로그아웃 </a>
                     </li>
                 </ul>
-                <div class="instant_group">
-                    <div class="tab_area sell_tab">
-                        <ul role="tablist" class="tab_list">
-                            <li role="tab" aria-selected="false" aria-controls="panel1" class="item on">
-                                <a href="#" class="item_link">판매 입찰</a>
-                            </li>
-                            <li role="tab" aria-selected="true" aria-controls="panel2" class="item"><a href="#"
-                                    class="item_link">즉시 판매</a></li>
-                        </ul><!----><!---->
+            </div>
+        </div>
+        <div class="header_main">
+            <div class="main_inner">
+                <h1>
+                    <a aria-label="홈" class="logo">
+                        <img src="../../img/logo.png"></a>
+                </h1>
+                <div class="center">
+                    <h2 class="title"><span class="title_txt">판매 입찰하기</span></h2>
+                </div>
+                <div class="right">
+                    <button type="button" class="btn btn_standard outlinegrey small" onclick="pop_auth_policy()"> 검수기준
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    </div>
+    <!--header끝-->
+    <div class="container sell md step-1">
+        <!---->
+        <div class="content">
+            <div class="sell_immediate">
+                <div class="product_info_area">
+                    <div class="product_info">
+                        <div class="product" style="background-color: rgb(235, 240, 245);">
+                            <img class="product_img"
+                                src="https://kream-phinf.pstatic.net/MjAyMjExMDNfNDkg/MDAxNjY3NDQyOTg3Nzgz.AvVXZUTxfsUxU_LRcKTfFDh82OOcajr5aip30AtoVCEg.HQa_q9G1grgcHNthQzFDSoLEf5J56ppC87pzob2VHxQg.JPEG/a_60233a3586974852b69ab4cfef79a543.jpg?type=l_webp">
+                        </div>
+                        <div class="product_detail"><strong class="model_number"><!---->NJ1DM63A/NJ1DN58A </strong>
+                            <p class="model_title">The North Face 1992 Nuptse Jacket Black</p>
+                            <p class="model_ko">노스페이스 1992 눕시 다운 자켓 블랙</p>
+                            <div class="model_desc">
+                                <p class="size_txt">M</p><!---->
+                            </div>
+                        </div>
                     </div>
-                    <div class="price_now active_input has_danger has_warning">
-                        <dl class="price_now_box">
-                            <dt class="price_now_title"> 판매 희망가 </dt>
-                            <dd class="price">
-                                <span class="amount" style="display:none;">540,000</span>
-                                <input type="number" pattern="([0-9]+.{0,1}[0-9]*,{0,1})*[0-9]" required="required"
-                                    placeholder="희망가 입력" autocomplete="off" class="input_amount">
-                                <span class="unit">원</span>
-                            </dd>
-                        </dl>
-                        <div class="price_warning" style="display: block;">
-                            <div class="price_warning" style="display:block">
+                </div>
+                <div class="price_descision_box">
+                    <ul class="price_list">
+                        <li class="list_item">
+                            <p class="title">즉시 구매가</p><span class="price">540,000</span><span class="unit">원</span>
+                        </li>
+                        <li class="list_item">
+                            <p class="title">즉시 판매가</p><span class="price">479,000</span><span class="unit">원</span>
+                        </li>
+                    </ul>
+                    <div class="instant_group">
+                        <div class="tab_area sell_tab">
+                            <ul role="tablist" class="tab_list">
+                                <li role="tab" aria-selected="false" aria-controls="panel1" class="item" id="bid">
+                                    <a class="item_link" onclick="sell_bid()">판매 입찰</a>
+                                </li>
+                                <li role="tab" aria-selected="true" aria-controls="panel2" class="item on" id="now"><a
+                                        class="item_link" onclick="sell_now()">즉시 판매</a></li>
+                            </ul><!----><!---->
+                        </div>
+                        <div class="price_now active_input">
+                            <dl class="price_now_box">
+                                <dt class="price_now_title"> 판매 희망가 </dt>
+                                <dd class="price">
+                                    <span class="amount" style="display:block;" id="now_price">540,000</span>
+                                    <input type="text" pattern="([0-9]+.{0,1}[0-9]*,{0,1})*[0-9]" required="required"
+                                        maxlength="13" placeholder="희망가 입력" autocomplete="off" class="input_amount"
+                                        id="bid_input" style="display:none">
+                                    <span class="unit">원</span>
+                                </dd>
+                            </dl>
+                            <div class="price_warning" style="display: none;">
                                 <p> 3만원 부터 천원단위로 입력하세요. </p>
-                            </div><!---->
+                            </div>
                         </div>
-                    </div>
-                    <div class="price_bind"><dl class="price_addition"><dt class="price_title"><span >검수비</span><!----></dt><dd class="price_text">무료</dd></dl><dl class="price_addition"><dt class="price_title"><span >수수료</span><button class="btn_title"><img src="../../img/qmark.png"></button></dt><dd class="price_text">-6,600원</dd></dl><dl class="price_addition"><dt class="price_title"><span >배송비</span><!----></dt><dd class="price_text">선불 ・ 판매자 부담</dd></dl></div>
-                </div>
-            </div>
-            <!--판매입찰시 입찰 마감기한-->
-            <div data-v-e0394b7a="" class="deadline_info_area">
-                <div class="section_title">
-                    <h3 class="title_txt">입찰 마감기한</h3>
-                </div>
-                <div class="section_content">
-                    <div class="bid_deadline">
-                        <p class="deadline_txt"> 30일 (2023/01/24 마감) </p>
-                        <div class="deadline_tab"><a href="#" class="btn outlinegrey medium"> 1일 </a><a href="#"
-                                class="btn outlinegrey medium"> 3일 </a><a href="#" class="btn outlinegrey medium"> 7일
-                            </a><a href="#" class="btn outlinegrey medium is_active"> 30일 </a><a href="#"
-                                class="btn outlinegrey medium"> 60일 </a></div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="sell_total_confirm" is-instant="true" style="display:block">
-                <div class="price_total">
-                    <dl class="price_box price_empty">
-                        <dt class="price_title">총 결제금액</dt>
-                        <dd class="price_empty_desc">다음 화면에서 확인</dd>
-                    </dl><span class="price_warning" style="display: none;"><em>주의! </em></span>
-                </div>
-                <div class="btn_confirm"><a href="#" class="btn full solid false disabled"> 즉시 판매 계속 </a></div>
-            </div>
-        </div><!----><!---->
-    </div><!----><!---->
-</div>
-
-
-
-<!--step2!!-->
-<div class="container sell md step-2"><!---->
-    <div class="content"><!---->
-        <div class="sell_immediate">
-            <div class="product_info_area">
-                <div class="product_info">
-                    <div class="product" style="background-color: rgb(244, 244, 244);">
-                        <img class="product_img"
-                            src="https://kream-phinf.pstatic.net/MjAyMjExMDNfNDkg/MDAxNjY3NDQyOTg3Nzgz.AvVXZUTxfsUxU_LRcKTfFDh82OOcajr5aip30AtoVCEg.HQa_q9G1grgcHNthQzFDSoLEf5J56ppC87pzob2VHxQg.JPEG/a_60233a3586974852b69ab4cfef79a543.jpg?type=l_webp">
-                    </div>
-                    <div class="product_detail"><strong class="model_number"><!---->NJ1DM63A/NJ1DN58A </strong>
-                        <p class="model_title">The North Face 1992 Nuptse Jacket Black</p>
-                        <p class="model_ko">노스페이스 1992 눕시 다운 자켓 블랙</p>
-                        <div class="model_desc">
-                            <p class="size_txt">M</p><!---->
+                        <div class="price_bind">
+                            <dl class="price_addition">
+                                <dt class="price_title"><span>검수비</span><!----></dt>
+                                <dd class="price_text">무료</dd>
+                            </dl>
+                            <dl class="price_addition">
+                                <dt class="price_title"><span>수수료</span><button class="btn_title"></button></dt>
+                                <dd class="price_text fees">-6,600원</dd>
+                            </dl>
+                            <dl class="price_addition">
+                                <dt class="price_title"><span>배송비</span><!----></dt>
+                                <dd class="price_text">선불 ・ 판매자 부담</dd>
+                            </dl>
                         </div>
                     </div>
                 </div>
-            </div>
-            <section ><div class="section_unit"><div class="section_title"><h3 class="title_txt">판매 정산 계좌</h3></div><div class="section_content"><div class="account_info"><dl class="info_list"><div class="info_box"><dt class="title">계좌</dt><dd class="desc">우리은행 1002652376687</dd></div><div class="info_box"><dt class="title">예금주</dt><dd class="desc">전주은</dd></div><!----></dl></div><ahref="#" class="btn btn_edit outlinegrey small"> 변경 </ahref=></div></div><!----></section>
-            <section>
-                <div class="section_unit">
+                <!--판매입찰시 입찰 마감기한-->
+                <div class="deadline_info_area" style="display: none;">
                     <div class="section_title">
-                        <h3 class="title_txt">반송 주소</h3><a href="#" class="add_more_btn">+ 새 주소 추가</a>
+                        <h3 class="title_txt">입찰 마감기한</h3>
                     </div>
                     <div class="section_content">
-                        <div class="delivery_info">
-                            <div class="address_info">
-                                <dl class="info_list">
-                                    <div class="info_box">
-                                        <dt class="title">받는 분</dt>
-                                        <dd class="desc">김**</dd>
-                                    </div>
-                                    <div class="info_box">
-                                        <dt class="title">연락처</dt>
-                                        <dd class="desc">010-1***-*111</dd>
-                                    </div>
-                                    <div class="info_box">
-                                        <dt class="title">배송 주소</dt>
-                                        <dd class="desc">경기 성남시 분당구 판교역로 235 (삼평동, 에이치스퀘어 엔동) 사과나무
-                                        </dd>
-                                    </div>
-                                </dl>
-                            </div><a href="#" class="btn btn_edit outlinegrey small"> 변경 </a>
-                        </div>
-                        <div>
-                            <div class="button_shipping_memo_wrap">
-                                <button class="button_shipping_memo">
-                                    <span class="placeholder">배송 시 요청사항을 선택하세요.</span>
-                                    <img src="../../img/right.png">
-                                </button>
-                            </div>
-                            <!--배송 요청사항 레이어창-->
-                            
+                        <div class="bid_deadline">
+                            <p class="deadline_txt"> 30일 (2023/01/24 마감) </p>
+                            <div class="deadline_tab"><a class="btn outlinegrey medium"> 1일 </a><a
+                                    class="btn outlinegrey medium"> 3일 </a><a class="btn outlinegrey medium"> 7일
+                                </a><a class="btn outlinegrey medium is_active"> 30일 </a><a
+                                    class="btn outlinegrey medium"> 60일 </a></div>
                         </div>
                     </div>
                 </div>
-                <!--주소 변경 클릭시 나오는 모달창-->
-                <div class="layer_address layer md" style="display: none;">
-                    <div class="layer_container"><a href="#" class="btn_layer_close"><svg
-                                xmlns="http://www.w3.org/2000/svg" class="icon sprite-icons ico-close">
-                                <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-close"
-                                    xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-close"></use>
-                            </svg></a>
-                        <div class="layer_header">
-                            <h2 class="title">주소록</h2>
+
+
+                <div class="sell_total_confirm" is-instant="true" style="display:block">
+                    <div class="price_total">
+                        <dl class="price_box price_empty">
+                            <dt class="price_title">정산금액</dt>
+                            <dd class="price"><span class="step1 amount">531,900</span><span class="unit">원</span></dd>
+                        </dl><span class="price_warning " style="display: none;"><em>주의! </em></span>
+                    </div>
+                    <div class="btn_confirm"><a class="btn full solid false" onclick="step2()" id="next"> 즉시 판매 계속 </a>
+                    </div>
+                </div>
+            </div><!----><!---->
+        </div><!----><!---->
+    </div>
+
+
+
+    <!--step2!!-->
+    <div class="container sell md step-2" style="display: none;"><!---->
+        <div class="content"><!---->
+            <div class="sell_immediate">
+                <div class="product_info_area">
+                    <div class="product_info">
+                        <div class="product" style="background-color: rgb(244, 244, 244);">
+                            <img class="product_img"
+                                src="https://kream-phinf.pstatic.net/MjAyMjExMDNfNDkg/MDAxNjY3NDQyOTg3Nzgz.AvVXZUTxfsUxU_LRcKTfFDh82OOcajr5aip30AtoVCEg.HQa_q9G1grgcHNthQzFDSoLEf5J56ppC87pzob2VHxQg.JPEG/a_60233a3586974852b69ab4cfef79a543.jpg?type=l_webp">
                         </div>
-                        <div class="layer_content">
-                            <div class="list_wrap"><!---->
-                                <div class="my_list"><!---->
-                                    <div class="other">
-                                        <div class="other_list">
-                                            <div class="my_item is_active select">
-                                                <div class="info_bind"><!---->
-                                                    <div class="address_info">
-                                                        <div class="name_box"><span class="name">김**</span><span
-                                                                class="mark">기본 배송지</span></div>
-                                                        <p class="phone">010<span class="hyphen"></span>1<span
-                                                                class="dot"></span><span class="dot"></span><span
-                                                                class="dot"></span><span class="hyphen"></span><span
-                                                                class="dot"></span>111</p>
-                                                        <div class="address_box"><span
-                                                                class="zipcode">(13494)</span><span class="address">경기
-                                                                성남시 분당구 판교역로 235
-                                                                (삼평동, 에이치스퀘어 엔동) 사과나무</span></div>
+                        <div class="product_detail"><strong class="model_number"><!---->NJ1DM63A/NJ1DN58A </strong>
+                            <p class="model_title">The North Face 1992 Nuptse Jacket Black</p>
+                            <p class="model_ko">노스페이스 1992 눕시 다운 자켓 블랙</p>
+                            <div class="model_desc">
+                                <p class="size_txt">M</p><!---->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <section>
+                    <div class="section_unit">
+                        <div class="section_title">
+                            <h3 class="title_txt">판매 정산 계좌</h3>
+                        </div>
+                        <div class="section_content">
+                            <div class="account_info">
+                                <dl class="info_list">
+                                    <div class="info_box">
+                                        <dt class="title">계좌</dt>
+                                        <dd class="desc">우리은행 1002652376687</dd>
+                                    </div>
+                                    <div class="info_box">
+                                        <dt class="title">예금주</dt>
+                                        <dd class="desc">전주은</dd>
+                                    </div><!---->
+                                </dl>
+                            </div><a class="btn btn_edit outlinegrey small" onclick="pop_payout_account()"> 변경 </a>
+                        </div>
+                    </div><!--판매 정산계좌 레이어창-->
+                    <div class="layer_payout_account layer lg" style="display: none;">
+                        <div class="layer_container"><a class="btn_layer_close"><img src="../../img/close.png"
+                                    onclick="close_payout_account()"></a>
+                            <div class="layer_header">
+                                <h2 class="title">판매 정산 계좌</h2>
+                            </div>
+                            <div class="layer_content">
+                                <div class="registered_account_box">
+                                    <h4 class="box_title">등록된 계좌 정보</h4>
+                                    <p class="box_account_info"><span class="account">우리은행 1002652376687</span><span
+                                            class="account_devider">/</span><span class="name">전주은</span></p>
+                                </div>
+                                <div class="content_registration">
+                                    <div class="account_registration">
+                                        <div class="input_logistics_companies input_box">
+                                            <h4 class="input_title">은행명</h4>
+                                            <div class="input_item"><input type="text" placeholder="선택하세요"
+                                                    readonly="readonly" autocomplete="off" inputmode="numeric"
+                                                    class="input_txt"><button dtype="button"
+                                                    class="btn btn_dropdown"><img src="../../img/down.png"></button>
+                                                <div style="display: none;" class="layer_dropdown layer md">
+                                                    <div class="layer_container"><a class="btn_layer_close"><img
+                                                                src="../../img/close.png"></a>
+                                                        <div class="layer_header">
+                                                            <h2 class="title">은행 선택</h2>
+                                                        </div>
+                                                        <div class="layer_content">
+                                                            <ul class="drop_list">
+                                                                <li class="drop_item"><a class="drop_link"> 국민은행 </a>
+                                                                </li>
+                                                                <li class="drop_item"><a class="drop_link"> 신한은행 </a>
+                                                                </li>
+                                                                <li class="drop_item"><a class="drop_link"> 우리은행 </a>
+                                                                </li>
+                                                                <li class="drop_item"><a class="drop_link"> 하나은행 </a>
+                                                                </li>
+                                                                <li class="drop_item"><a class="drop_link"> 기업은행 </a>
+                                                                </li>
+                                                                <li class="drop_item"><a class="drop_link"> 농협은행 </a>
+                                                                </li>
+                                                                <li class="drop_item"><a class="drop_link"> SC은행 </a>
+                                                                </li>
+                                                                <li class="drop_item"><a class="drop_link"> 우체국 </a>
+                                                                </li>
+                                                                <li class="drop_item"><a class="drop_link"> 한국씨티은행 </a>
+                                                                </li>
+                                                                <li class="drop_item"><a class="drop_link"> 산업은행 </a>
+                                                                </li>
+                                                                <li class="drop_item"><a class="drop_link"> 카카오뱅크 </a>
+                                                                </li>
+                                                                <li class="drop_item"><a class="drop_link"> 부산은행 </a>
+                                                                </li>
+                                                                <li class="drop_item"><a class="drop_link"> 대구은행 </a>
+                                                                </li>
+                                                                <li class="drop_item"><a class="drop_link"> 광주은행 </a>
+                                                                </li>
+                                                                <li class="drop_item"><a class="drop_link"> 케이뱅크 </a>
+                                                                </li>
+                                                                <li class="drop_item"><a class="drop_link"> 수협중앙회 </a>
+                                                                </li>
+                                                                <li class="drop_item"><a class="drop_link"> 제주은행 </a>
+                                                                </li>
+                                                                <li class="drop_item"><a class="drop_link"> 전북은행 </a>
+                                                                </li>
+                                                                <li class="drop_item"><a class="drop_link"> 지역농축협 </a>
+                                                                </li>
+                                                                <li class="drop_item"><a class="drop_link"> 경남은행 </a>
+                                                                </li>
+                                                                <li class="drop_item"><a class="drop_link"> 새마을금고연합회
+                                                                    </a></li>
+                                                                <li class="drop_item"><a class="drop_link"> 신협 </a></li>
+                                                                <li class="drop_item"><a class="drop_link"> 저축은행 </a>
+                                                                </li>
+                                                                <li class="drop_item"><a class="drop_link"> HSBC은행 </a>
+                                                                </li>
+                                                                <li class="drop_item"><a class="drop_link"> 도이치은행 </a>
+                                                                </li>
+                                                                <li class="drop_item"><a class="drop_link"> 제이피모간체이스은행
+                                                                    </a></li>
+                                                                <li class="drop_item"><a class="drop_link"> BOA은행 </a>
+                                                                </li>
+                                                                <li class="drop_item"><a class="drop_link"> 비엔피파리바은행
+                                                                    </a></li>
+                                                                <li class="drop_item"><a class="drop_link"> 중국공상은행 </a>
+                                                                </li>
+                                                                <li class="drop_item"><a class="drop_link"> 산림조합 </a>
+                                                                </li>
+                                                                <li class="drop_item"><a class="drop_link"> 중국건설은행 </a>
+                                                                </li>
+                                                                <li class="drop_item"><a class="drop_link"> 토스뱅크 </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="btn_bind"><svg xmlns="http://www.w3.org/2000/svg"
-                                                        class="ico-check-s icon sprite-icons">
-                                                        <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"
-                                                            xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s">
-                                                        </use>
-                                                    </svg></div>
+                                            </div>
+                                        </div>
+                                        <div class="input_box">
+                                            <h4 class="input_title">계좌번호</h4>
+                                            <div class="input_item"><input type="tel" placeholder="- 없이 입력하세요"
+                                                    autocomplete="off" class="input_txt"></div>
+                                            <p class="input_error">올바른 계좌번호를 입력해주세요.</p>
+                                        </div>
+                                        <div class="input_box">
+                                            <h4 class="input_title">예금주</h4>
+                                            <div class="input_item"><input type="text" placeholder="예금주명을 정확히 입력하세요."
+                                                    autocomplete="off" class="input_txt"></div>
+                                            <p class="input_error">올바른 이름을 입력해주세요. (2-50자)</p>
+                                        </div>
+                                    </div>
+                                    <div class="registration_btn_box"><a d disabled="disabled"
+                                            class="btn btn_save solid medium disabled"> 변경하기 </a></div><!---->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="section_unit">
+                        <div class="section_title">
+                            <h3 class="title_txt">반송 주소</h3><a class="add_more_btn" onclick="pop_new_delivery()">+ 새 주소
+                                추가</a>
+                        </div>
+                        <div class="section_content">
+                            <div class="delivery_info">
+                                <div class="address_info">
+                                    <dl class="info_list">
+                                        <div class="info_box">
+                                            <dt class="title">받는 분</dt>
+                                            <dd class="desc">김**</dd>
+                                        </div>
+                                        <div class="info_box">
+                                            <dt class="title">연락처</dt>
+                                            <dd class="desc">010-1***-*111</dd>
+                                        </div>
+                                        <div class="info_box">
+                                            <dt class="title">배송 주소</dt>
+                                            <dd class="desc">경기 성남시 분당구 판교역로 235 (삼평동, 에이치스퀘어 엔동) 사과나무
+                                            </dd>
+                                        </div>
+                                    </dl>
+                                </div><a class="btn btn_edit outlinegrey small" onclick="pop_address()"> 변경 </a>
+                            </div>
+                            <div>
+                                <div class="button_shipping_memo_wrap">
+                                    <button class="button_shipping_memo" onclick="pop_layer_shipping_memo()">
+                                        <span class="placeholder">배송 시 요청사항을 선택하세요.</span>
+                                        <img src="../../img/right.png">
+                                    </button>
+                                </div>
+                                <!--배송 요청사항 레이어창-->
+                                <div class="layer_shipping_memo layer lg" style="display: none;">
+                                    <div class="layer_container"><a class="btn_layer_close"
+                                            onclick="close_layer_shipping_memo()">
+                                            <img src="../../img/close.png"></a>
+                                        <div class="layer_header">
+                                            <p class="title">배송 요청사항</p>
+                                        </div>
+                                        <div class="layer_content">
+                                            <div class="button_shipping_memo_wrap selectable"
+                                                updated-memo="[object Object]">
+                                                <p>요청사항 없음</p><img src="../../img/wcheck.png" style="display: block;">
+                                            </div>
+                                            <div class="button_shipping_memo_wrap selectable checked"
+                                                updated-memo="[object Object]">
+                                                <p>문 앞에 놓아주세요</p><img src="../../img/wcheck.png">
+                                            </div>
+                                            <div class="button_shipping_memo_wrap selectable"
+                                                updated-memo="[object Object]">
+                                                <p>경비실에 맡겨 주세요</p><img src="../../img/wcheck.png">
+                                            </div>
+                                            <div class="button_shipping_memo_wrap selectable"
+                                                updated-memo="[object Object]">
+                                                <p>파손 위험 상품입니다. 배송 시 주의해주세요</p><img src="../../img/wcheck.png">
+                                            </div>
+                                            <div class="shipping_memo">
+                                                <div class="button_shipping_memo_wrap direct_input"
+                                                    updatedmemo="[object Object]">
+                                                    <p>직접 입력</p>
+                                                    <img src="../../img/wcheck.png">
+                                                </div>
+                                                <!--직접 입력하는 드롭다운-->
+                                                <div><textarea placeholder="내용을 입력해주세요.(최대 40자)" maxlength="40"
+                                                        class="textarea_shipping_memo"
+                                                        style="display: none;"></textarea>
+                                                </div>
+                                                <!--직접 입력하는 드롭다운-->
+                                            </div>
+                                            <div class="shipping_memo_buttons">
+                                                <button type="button" class="btn btn_cancel outlinegrey medium"
+                                                    onclick="close_layer_shipping_memo()"> 취소
+                                                </button><a class="btn btn_apply solid medium"
+                                                    onclick="update_layer_shipping_memo()"> 적용하기 </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--배송 요청사항 클릭시 레이어창 끝-->
+                            </div>
+                        </div>
+                    </div>
+                    <!--주소 변경 클릭시 나오는 모달창-->
+                    <div class="layer_address layer md" style="display: none;">
+                        <div class="layer_container" onclick="close_address()"><a class="btn_layer_close"><img
+                                    src="../../img/close.png"></a>
+                            <div class="layer_header">
+                                <h2 class="title">주소록</h2>
+                            </div>
+                            <div class="layer_content">
+                                <div class="list_wrap"><!---->
+                                    <div class="my_list"><!---->
+                                        <div class="other">
+                                            <div class="other_list">
+                                                <div class="my_item is_active select">
+                                                    <div class="info_bind"><!---->
+                                                        <div class="address_info">
+                                                            <div class="name_box"><span class="name">김**</span><span
+                                                                    class="mark">기본 배송지</span></div>
+                                                            <p class="phone">010<span class="hyphen"></span>1<span
+                                                                    class="dot"></span><span class="dot"></span><span
+                                                                    class="dot"></span><span class="hyphen"></span><span
+                                                                    class="dot"></span>111</p>
+                                                            <div class="address_box"><span
+                                                                    class="zipcode">(13494)</span><span
+                                                                    class="address">경기
+                                                                    성남시 분당구 판교역로 235
+                                                                    (삼평동, 에이치스퀘어 엔동) 사과나무</span></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn_bind" style="display: block;"><img
+                                                            src="../../img/wcheck.png"></div>
+                                                </div>
                                             </div>
                                             <div class="my_item select">
                                                 <div class="info_bind"><!---->
@@ -247,258 +446,412 @@
                                                                 (영평동) 바나나 나무</span></div>
                                                     </div>
                                                 </div>
-                                                <div class="btn_bind"><!----></div>
+                                                <div class="btn_bind" style="display: none;"><!----><img
+                                                        src="../../img/wcheck.png"></div>
                                             </div>
-                                            <div class="my_item select">
-                                                <div class="info_bind"><!---->
-                                                    <div class="address_info">
-                                                        <div class="name_box"><span class="name">전**</span><!----></div>
-                                                        <p class="phone">010<span class="hyphen"></span>6<span
-                                                                class="dot"></span><span class="dot"></span><span
-                                                                class="dot"></span><span class="hyphen"></span><span
-                                                                class="dot"></span>205</p>
-                                                        <div class="address_box"><span
-                                                                class="zipcode">(22176)</span><span class="address">인천
-                                                                미추홀구 낙섬중로 129
-                                                                (용현동, 엘에이치미추홀3단지) 305동 2611호</span></div>
+                                        </div>
+                                        <div class="my_item select">
+                                            <div class="info_bind"><!---->
+                                                <div class="address_info">
+                                                    <div class="name_box"><span class="name">전**</span><!----></div>
+                                                    <p class="phone">010<span class="hyphen"></span>6<span
+                                                            class="dot"></span><span class="dot"></span><span
+                                                            class="dot"></span><span class="hyphen"></span><span
+                                                            class="dot"></span>205</p>
+                                                    <div class="address_box"><span class="zipcode">(22176)</span><span
+                                                            class="address">인천
+                                                            미추홀구 낙섬중로 129
+                                                            (용현동, 엘에이치미추홀3단지) 305동 2611호</span></div>
+                                                </div>
+                                            </div>
+                                            <div class="btn_bind" style="display: none;"><img
+                                                    src="../../img/wcheck.png"></div><!---->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!---->
+                    </div>
+
+
+                </section>
+
+                <section>
+                    <div class="section_title">
+                        <h3 class="title_txt">최종 주문 정보</h3>
+                    </div>
+                    <div class="section_content">
+                        <div class="instant_group">
+                            <div class="price_total order_info">
+                                <dl class="price_box">
+                                    <dt class="price_title"> 정산금액 </dt>
+                                    <dd class="price"><span class="amount">274,000</span><span class="unit">원</span>
+                                    </dd>
+                                </dl><span class="price_warning" style="display: none;"><em>주의! </em></span>
+                            </div>
+                            <div class="price_bind">
+                                <dl class="price_addition is_dark">
+                                    <dt class="price_title"><span>즉시 판매가</span><!----></dt>
+                                    <dd class="price_text product_price">267,000원</dd>
+                                </dl>
+
+                                <dl class="price_addition">
+                                    <dt class="price_title"><span>검수비</span><!----></dt>
+                                    <dd class="price_text">무료</dd>
+                                </dl>
+                                <dl class="price_addition">
+                                    <dt class="price_title"><span>수수료</span><button class="btn_title"><img
+                                                src="../../img/qmark.png"></button></dt>
+                                    <dd class="price_text fees2">-4,000원</dd>
+                                </dl>
+                                <dl class="price_addition">
+                                    <dt class="price_title"><span>배송비</span><!---->
+                                    </dt>
+                                    <dd class="price_text">선불 ・ 판매자 부담 </dd>
+                                </dl>
+                            </div>
+                            <div class="price_bind">
+                                <dl class="price_addition">
+                                    <dt class="price_title dark"><span>입찰 마감 기한</span><!----></dt>
+                                    <dd class="price_text">30일 - 2023/01/28까지</dd>
+                                </dl>
+                            </div><!---->
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="section_unit">
+                        <div class="section_title">
+                            <h3 class="title_txt">현금영수증 정보</h3>
+                        </div>
+                        <div class="section_content">
+                            <div class="account_info">
+                                <dl class="info_list">
+                                    <div class="info_box">
+                                        <dt class="title">형태</dt>
+                                        <dd class="desc"> 미신청 </dd>
+                                    </div><!--<div class="info_box"><dt class="title">휴대폰번호</dt><dd class="desc"> 01063913205 </dd></div>-->
+                                </dl>
+                            </div>
+                            <p class="fee_description md"> 판매 거래 시 수수료에 대해 건별로 현금영수증을 발급합니다. </p><a
+                                class="btn btn_edit outlinegrey small" onclick="pop_processing_fee()"> 변경 </a>
+                        </div>
+                    </div>
+                    <!--현금 영수증 정보 변경 레이어창 시작-->
+                    <div class="layer_processing_fee layer lg" show-close-button="true" style="display: none;">
+                        <div class="layer_container"><a href="#" onclick="close_processing_fee()" class="btn_layer_close">
+                                <img src="../../img/close.png"></a>
+                            <div class="layer_header">
+                                <h2 class="title">현금영수증 정보</h2>
+                            </div>
+                            <div class="layer_content">
+                                <div class="form_wrap lg">
+                                    <div class="receipt_config_form">
+                                        <p class="description"> 현금영수증은 판매 거래 시 발생하는 수수료에 대해
+                                            &lt;정산완료&gt; 후 7일 이내에 건별로 발급됩니다. ‘미신청' 선택 시 자진발급으로 처리됩니다. </p>
+                                        <div class="input_logistics_companies input_box">
+                                            <h4 class="input_title">형태</h4>
+                                            <div class="input_item"><input type="text" placeholder="선택하세요"
+                                                    readonly="readonly" autocomplete="off" inputmode="numeric"
+                                                    class="input_txt text_fill"><button type="button"
+                                                    class="btn btn_dropdown"><img src="../../img/down.png"></button>
+
+                                                    <!--드롭다운 부분-->
+                                                <div class="layer_dropdown layer lg" style="display: none;">
+                                                    <div class="layer_container"><a href="#"
+                                                            class="btn_layer_close"><svg
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                class="ico-close icon sprite-icons">
+                                                                <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-close"
+                                                                    xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-close">
+                                                                </use>
+                                                            </svg></a>
+                                                        <div class="layer_header">
+                                                            <h2 class="title">형태 선택</h2>
+                                                        </div>
+                                                        <div class="layer_content">
+                                                            <ul class="drop_list">
+                                                                <li class="drop_item item_on"><a href="#"
+                                                                        class="drop_link"> 미신청 </a></li>
+                                                                <li class="drop_item"><a href="#" class="drop_link">
+                                                                        개인소득공제(휴대폰) </a></li>
+                                                                <li class="drop_item"><a href="#" class="drop_link">
+                                                                        개인소득공제(현금영수증카드) </a></li>
+                                                            </ul>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="btn_bind"><!----></div>
                                             </div>
                                         </div>
+                                        <!--개인소득 공제(휴대폰) 선택시 나오는 부분-->
+                                        <div class="input_box" style="display: none;">
+                                            <h4 class="input_title">휴대폰번호</h4>
+                                            <div class="input_item"><input type="tel" placeholder="- 없이 입력"
+                                                    autocomplete="off" class="input_txt"></div>
+                                        </div>
+                                        <div class="receipt_config_wrap" style="display: none;">
+                                            <div class="checkbox_item"><input id="check1" type="checkbox"
+                                                    class="check"><label for="check1" class="check_label"><!----></label>
+                                                    <label class="label_txt" for="check1"style="width:100%;">현금영수증 신청 정보를 저장하여 자동으로 발급되는 것에
+                                                        동의합니다.</label></div>
+                                        </div>
+
                                     </div>
-                                </div><!---->
+                                    <div class="button_wrap"><button type="button" class="btn outlinegrey medium" onclick="close_processing_fee()"> 취소
+                                        </button><button type="button" class="btn btn_save solid  medium"> 저장하기
+                                        </button></div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!--새 주소 추가 버튼 클릭시 나오는 모달창-->
-                <div class="layer_delivery layer md" style="display: none;">
-                    <div class="layer_container"><a href="#" class="btn_layer_close">
-                            <div><svg xmlns="http://www.w3.org/2000/svg" class="ico-close icon sprite-icons">
-                                    <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-close"
-                                        xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-close"></use>
-                                </svg></div><!---->
-                        </a>
-                        <div class="layer_header">
-                            <h2 class="title"> 새 주소 추가 </h2>
-                        </div>
-                        <div class="layer_content">
-                            <div class="delivery_bind">
-                                <div class="delivery_input">
-                                    <div class="input_box has_error">
-                                        <h4 class="input_title">이름</h4>
-                                        <div class="input_item"><input type="text" placeholder="수령인의 이름"
-                                                autocomplete="off" class="input_txt"></div>
-                                        <p class="input_error">올바른 이름을 입력해주세요. (2- 50자)</p>
-                                    </div>
-                                    <div class="input_box">
-                                        <h4 class="input_title">휴대폰 번호</h4>
-                                        <div class="input_item"><input type="tel" placeholder="- 없이 입력"
-                                                autocomplete="off" class="input_txt"></div>
-                                        <p class="input_error">정확한 휴대폰 번호를 입력해주세요.
-                                        </p>
-                                    </div>
-                                    <div class="input_box">
-                                        <h4 class="input_title">우편번호</h4>
-                                        <div class="input_item"><input type="text" placeholder="우편 번호를 검색하세요"
-                                                readonly="readonly" autocomplete="off" class="input_txt"><a href="#"
-                                                class="btn btn_zipcode outline small" data-v-1c44afeb=""> 우편번호 </a>
-                                        </div>
-                                    </div>
-                                    <div class="input_box">
-                                        <h4 class="input_title">주소</h4>
-                                        <div class="input_item"><input type="text" placeholder="우편 번호 검색 후, 자동입력 됩니다"
-                                                readonly="readonly" autocomplete="off" class="input_txt"></div>
-                                    </div>
-                                    <div class="input_box">
-                                        <h4 class="input_title">상세 주소</h4>
-                                        <div class="input_item"><input type="text" placeholder="건물, 아파트, 동/호수 입력"
-                                                autocomplete="off" class="input_txt">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="delivery_check">
-                                    <div class="checkbox_item">
-                                        <input class="check" type="checkbox" name="" class="">
-                                        <label class="check_label">
-                                            <img src="../../img/check.png" style="display: none;"></label>
-                                        <span class="label_txt">기본 배송지로 설정</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="layer_btn"><a href="#" class="btn btn_delete outlinegrey medium"> 취소 </a><a
-                                    disabled="disabled" href="#" class="btn btn_save solid medium disabled"> 저장하기 </a>
-                            </div>
-                        </div>
+                    <!--현금 영수증 정보 변경 레이어창 끝-->
+                </section>
+                <section>
+                    <div class="section_title">
+                        <h3 class="title_txt">패널티 결제 방법</h3>
                     </div>
-                </div>
-            </section>
-            
-            <section>
-                <div class="section_title">
-                    <h3 class="title_txt">최종 주문 정보</h3>
-                </div>
-                <div class="section_content">
-                    <div class="instant_group">
-                        <div class="price_total order_info">
+                    <div class="section_content">
+                        <div class="simple_payment">
+                            <h4 class="method_title">
+                                <div class="main_title"> 카드 간편결제 <span class="sub_title">일시불</span></div><a href="#none"
+                                    class="btn_card_add" onclick="pop_card()">+ 새 카드 추가</a>
+                            </h4>
+                            <!-- layer_card 시작-->
+                            <div class="layer_card layer lg" style="display: none;">
+                                <div class="layer_container"><a class="btn_layer_close">
+                                        <div><img src="../../img/close.png" onclick="close_card()"></div>
+                                        <!---->
+                                    </a>
+                                    <div class="layer_header">
+                                        <h2 class="title"> 새 카드 추가 </h2>
+                                    </div>
+                                    <div class="layer_content">
+                                        <div class="card_bind">
+                                            <div class="card_input">
+                                                <div class="input_box" id="card_input_box">
+                                                    <h4 class="input_title">카드번호</h4>
+                                                    <div class="input_item" id="connected-input">
+                                                        <input type="number" maxlength="4" placeholder="1111"
+                                                            autocomplete="off" class="input_card" id="cc-1"
+                                                            oninput="maxLengthCheck(this)"> -
+                                                        <input type="number" maxlength="4" placeholder="1111"
+                                                            autocomplete="off" class="input_card" id="cc-2"
+                                                            oninput="maxLengthCheck(this)"> -
+                                                        <input type="number" maxlength="4" placeholder="1111"
+                                                            autocomplete="off" class="input_card" id="cc-3"
+                                                            oninput="maxLengthCheck(this)"> -
+                                                        <input type="number" maxlength="4" placeholder="1111"
+                                                            autocomplete="off" class="input_card" id="cc-4"
+                                                            oninput="maxLengthCheck(this)">
+                                                    </div>
+                                                    <p class="input_error" id="card_input_error"></p>
+                                                </div>
+                                                <div class="input_box" id="expirydate_input_box">
+                                                    <h4 class="input_title">유효기간</h4>
+                                                    <div class="input_item">
+                                                        <!-- <input type="tel" placeholder="12" autocomplete="off" class="input_expirydate"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="tel" placeholder="2025" autocomplete="off" class="input_expirydate" id="expirydate_input"> -->
+                                                        <select class="input_expiration_month" id="expiration-month"
+                                                            aria-label="Expiration Month" required>
+                                                            <option>01</option>
+                                                            <option>02</option>
+                                                            <option>03</option>
+                                                            <option>04</option>
+                                                            <option>05</option>
+                                                            <option>06</option>
+                                                            <option>07</option>
+                                                            <option>08</option>
+                                                            <option>09</option>
+                                                            <option>10</option>
+                                                            <option>11</option>
+                                                            <option>12</option>
+                                                        </select>
+                                                        <select class="input_expiration_year" id="expiration-year"
+                                                            aria-label="Expiration Year" required>
+                                                            <option>2023</option>
+                                                            <option>2024</option>
+                                                            <option>2025</option>
+                                                        </select>
+                                                    </div>
+                                                    <p class="input_error"></p>
+                                                </div>
+                                                <div class="input_box" id="birthday_input_box">
+                                                    <h4 class="input_title">생년월일</h4>
+                                                    <div class="input_item">
+                                                        <input type="number" maxlength="6" placeholder="951201"
+                                                            autocomplete="off" class="input_birthday"
+                                                            id="birthday_input" oninput="maxLengthCheck(this)">
+                                                    </div>
+                                                    <p class="input_error" id="birthday_input_error"></p>
+                                                </div>
+                                                <div class="input_box" id="pin_input_box">
+                                                    <h4 class="input_title">비밀번호</h4>
+                                                    <div class="input_item">
+                                                        <input type="number" maxlength="2" placeholder="96"
+                                                            autocomplete="off" class="input_cardpw" id="pin_input"
+                                                            oninput="maxLengthCheck(this)">**
+                                                    </div>
+                                                    <p class="input_error" id="pin_input_error"></p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="layer_btn">
+                                            <a class="btn btn_delete outlinegrey medium" onclick="closeLayer()"> 취소 </a>
+                                            <a disabled="disabled" class="btn btn_save solid medium disabled"
+                                                id="submit_btn"> 저장하기 </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--layer_card 끝-->
+                            <div class="card_list">
+                                <div class="main_card">
+                                    <div class="clickable_card">
+                                        <div class="card_info"><span class="card_name"> BC</span>
+                                            <div class="card_num"><span class="num_bind"><span class="dot"><span
+                                                            class="dot"></span></span><span class="hyphen"></span><span
+                                                        class="dot"><span class="dot"></span></span><span
+                                                        class="hyphen"></span><span class="dot"><span
+                                                            class="dot"></span></span><span class="hyphen"></span>
+                                                    <div class="last_num_box"><span class="last_num">6795</span></div>
+                                                </span><!----></div>
+                                        </div><img src="../../img/down.png">
+                                    </div>
+                                </div>
+                                <!--card 드롭다운 시작-->
+                                <div class="other_card" style="display: none;">
+                                    <ul class="other_card_list">
+                                        <li class="other_card_item">
+                                            <div class="card_info"><span class="card_name"> BC</span>
+                                                <div class="card_num"><span class="num_bind"><span class="dot"><span
+                                                                class="dot"></span></span><span
+                                                            class="hyphen"></span><span class="dot"><span
+                                                                class="dot"></span></span><span
+                                                            class="hyphen"></span><span class="dot"><span
+                                                                class="dot"></span></span><span class="hyphen"></span>
+                                                        <div class="last_num_box"><span class="last_num">6795</span>
+                                                        </div>
+                                                    </span><!----></div>
+                                            </div>
+                                        </li>
+                                        <li class="other_card_item card_on">
+                                            <div class="card_info"><span class="card_name"> BC</span>
+                                                <div class="card_num"><span class="num_bind"><span class="dot"><span
+                                                                class="dot"></span></span><span
+                                                            class="hyphen"></span><span class="dot"><span
+                                                                class="dot"></span></span><span
+                                                            class="hyphen"></span><span class="dot"><span
+                                                                class="dot"></span></span><span class="hyphen"></span>
+                                                        <div class="last_num_box"><span class="last_num">0736</span>
+                                                            <!-- </div></span><span class="mark">기본 결제</span></div> -->
+                                                        </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!--card 드롭다운 끝-->
+                            </div>
+
+                        </div>
+                        <div class="method_desc">
+                            <p class="desc_txt"> - 페널티는 일시불만 지원하며, 카드사 홈페이지나 앱에서 분할납부로 변경 가능합니다. 단, 카드사별 정책에 따라 분할 납부 변경
+                                시 수수료가 발생할 수 있습니다. </p>
+                            <p class="desc_txt"> - 수수료(페널티, 착불배송비 등)가 정산되지 않을 경우, 별도 고시 없이 해당 금액을 결제 시도 할 수 있습니다. </p><a
+                                href="/faq/penalty" class="desc_link">페널티 정책</a>
+                        </div>
+                        <!---->
+                    </div>
+                    <!--패널티 정책 팝업창 있는곳--><!---->
+                </section>
+                <section class="sell_check">
+                    <div>
+                        <ul class="check_list md last_bold">
+                            <li class="check_item"><a class="check_area">
+                                    <div class="notice_group">
+                                        <p class="notice_maintext">거래가 체결되면 일요일 · 공휴일을 제외하고 48시간 내에 KREAM으로 발송을 완료한 후,
+                                            발송 정보를 정확히 입력해야 합니다.</p>
+                                        <p class="notice_subtext">착불 배송 시 판매 금액에서 차감 정산하며, 미정산 시 별도 고지없이 해당 금액을 결제 시도할 수
+                                            있습니다.</p><!---->
+                                    </div>
+                                    <div class="checkbox_item"><input id="agree1" type="checkbox" name="checklist"
+                                            class="check"><label for="agree1" class="check_label">
+                                            <!----><!----></label></div>
+                                </a></li>
+                            <li class="check_item"><a class="check_area">
+                                    <div class="notice_group">
+                                        <p class="notice_maintext">송장 번호 미기재·오입력 시 입고가 진행되지 않으며, 발송 후 5일(일요일·공휴일 제외) 내
+                                            미도착은 허위 정보 입력으로 간주하여 미입고 페널티를 부과합니다.</p>
+                                        <p class="notice_subtext">앱 알림 해제, 알림톡 차단, 전화번호 변경 후 미등록 시에는 거래 진행 상태 알림을 받을 수
+                                            없으며 이로 인한 거래 실패는 판매자의 책임입니다.</p><!---->
+                                    </div>
+                                    <div class="checkbox_item"><input id="agree2" type="checkbox" name="checklist"
+                                            class="check"><label for="agree2" class="check_label">
+                                            <!----><!----></label></div>
+                                </a></li>
+                            <li class="check_item"><a class="check_area">
+                                    <div class="notice_group">
+                                        <p class="notice_maintext">검수 기준과 페널티 및 이용 정책을 다시 한번 확인하였습니다.</p>
+                                        <p class="notice_subtext">이용정책 위반 시, 판매 금액의 최대 15.0%의 페널티가 부과됩니다. 페널티 회피 시 이후
+                                            거래가 제한되며 별도 고지없이 해당 금액을 결제 시도할 수 있습니다.</p>
+                                        <!---->
+                                    </div>
+
+                                    <div class="checkbox_item"><input id="agree3" type="checkbox" name="checklist"
+                                            class="check"><label for="agree3" class="check_label">
+                                            <!----><!----></label></div>
+                                </a></li>
+                            <li class="check_item"><a class="check_area">
+                                    <div class="notice_group">
+                                        <p class="notice_maintext">판매 조건을 모두 확인하였으며, 거래 진행에 동의합니다.</p>
+                                        <!----><!---->
+                                    </div>
+                                    <div class="checkbox_item"><input id="agree4" type="checkbox" name="checklist"
+                                            class="check"><label for="agree4" class="check_label">
+                                            <!----><!----></label></div>
+                                </a></li>
+                        </ul>
+                        <!--검수기준 있던곳🌈🌈🌈🌈-->
+                    </div>
+                    <div class="sell_total_confirm" is-instant="true">
+                        <div class="price_total">
                             <dl class="price_box">
-                                <dt class="price_title"> 정산금액 </dt>
+                                <dt class="price_title"> 정산 금액 </dt>
                                 <dd class="price"><span class="amount">274,000</span><span class="unit">원</span></dd>
                             </dl><span class="price_warning" style="display: none;"><em>주의! </em></span>
                         </div>
-                        <div class="price_bind">
-                            <dl class="price_addition is_dark">
-                                <dt class="price_title"><span >판매 희망가</span><!----></dt>
-                                <dd class="price_text">267,000원</dd>
-                            </dl>
-                            
-                            <dl class="price_addition">
-                                <dt class="price_title"><span >검수비</span><!----></dt>
-                                <dd class="price_text">무료</dd>
-                            </dl>
-                            <dl class="price_addition">
-                                <dt class="price_title"><span >수수료</span><button
-                                        class="btn_title"><img src="../../img/qmark.png"></button></dt>
-                                <dd class="price_text">-4,000원</dd>
-                            </dl>
-                            <dl class="price_addition">
-                                <dt class="price_title"><span >배송비</span><!---->
-                                </dt>
-                                <dd class="price_text">선불 ・ 판매자 부담 </dd>
-                            </dl>
-                        </div>
-                        <div class="price_bind"><dl class="price_addition"><dt class="price_title dark"><span >입찰 마감 기한</span><!----></dt><dd class="price_text">30일 - 2023/01/28까지</dd></dl></div><!---->
+                        <div class="btn_confirm"><a disabled="disabled" class="btn full solid false disabled"
+                                id="submit" onclick="pop_order_price_confirm()"> 판매 입찰하기 </a></div>
                     </div>
-                </div>
-            </section>
-            <section ><div class="section_unit"><div class="section_title"><h3 class="title_txt">현금영수증 정보</h3></div><div class="section_content"><div class="account_info"><dl class="info_list"><div class="info_box"><dt class="title">형태</dt><dd class="desc"> 미신청 </dd></div><!----></dl></div><p class="fee_description md"> 판매 거래 시 수수료에 대해 건별로 현금영수증을 발급합니다. </p><ahref="#" class="btn btn_edit outlinegrey small"> 변경 </ahref=></div></div><!----></section>
-            <section >
-                <div  class="section_title">
-                    <h3  class="title_txt">패널티 결제 방법</h3>
-                </div>
-                <div class="section_content">
-                    <div  class="simple_payment">
-                        <h4  class="method_title">
-                            <div  class="main_title"> 카드 간편결제 <span 
-                                    class="sub_title">일시불</span></div><a  href="#none"
-                                class="btn_card_add">+ 새 카드 추가</a>
-                        </h4>
-                        <div class="card_list">
-                            <div class="main_card">
-                                <div class="clickable_card">
-                                    <div class="card_info"><span
-                                            class="card_name"> BC</span>
-                                        <div class="card_num"><span 
-                                                class="num_bind"><span class="dot"><span
-                                                        class="dot"></span></span><span
-                                                    class="hyphen"></span><span 
-                                                    class="dot"><span class="dot"></span></span><span
-                                                    class="hyphen"></span><span 
-                                                    class="dot"><span class="dot"></span></span><span
-                                                    class="hyphen"></span>
-                                                <div class="last_num_box"><span
-                                                        class="last_num">6795</span></div>
-                                            </span><!----></div>
-                                    </div><img src="../../img/down.png">
+                </section>
+                <!--결제하기 클릭시 나오는 팝업-->
+                <div class="layer_order_price_confirm layer md" style="display: none;">
+                    <div class="layer_container"><a onclick="close_order_price_confirm()" class="btn_layer_close">
+                            <img src="../../img/close.png">
+                        </a>
+                        <div class="layer_header"></div>
+                        <div class="layer_content">
+                            <div class="alert_title">
+                                <div class="alert_notice">
+                                    <p class="notice">한번 더 확인하세요</p><span class="rectangle"></span>
                                 </div>
+                                <p class="title"> 총 결제금액 </p>
+                                <p class="price">274,000원</p>
                             </div>
-                        </div>
-                    </div>
-                    <div class="method_desc"><p class="desc_txt"> - 페널티는 일시불만 지원하며, 카드사 홈페이지나 앱에서 분할납부로 변경 가능합니다. 단, 카드사별 정책에 따라 분할 납부 변경 시 수수료가 발생할 수 있습니다. </p><p class="desc_txt"> - 수수료(페널티, 착불배송비 등)가 정산되지 않을 경우, 별도 고시 없이 해당 금액을 결제 시도 할 수 있습니다. </p><a href="/faq/penalty" class="desc_link">페널티 정책</a></div>
-                    <!---->
-                </div>
-                <!--패널티 정책 팝업창 있는곳--><!---->
-            </section>
-            <section class="sell_check">
-                <div>
-                    <ul class="check_list md last_bold">
-                        <li class="check_item"><a href="#" class="check_area">
-                                <div class="notice_group">
-                                    <p class="notice_maintext">거래가 체결되면 일요일 · 공휴일을 제외하고 48시간 내에 KREAM으로 발송을 완료한 후, 발송 정보를 정확히 입력해야 합니다.</p>
-                                    <p class="notice_subtext">착불 배송 시 판매 금액에서 차감 정산하며, 미정산 시 별도 고지없이 해당 금액을 결제 시도할 수 있습니다.</p><!---->
-                                </div>
-                                <div class="checkbox_item"><input id="undefined" type="checkbox"
-                                        name="checklist" class="check"><label for="undefined" class="check_label">
-                                            <!----><!----></label></div>
-                            </a></li>
-                        <li class="check_item"><a href="#" class="check_area">
-                                <div class="notice_group">
-                                    <p class="notice_maintext">송장 번호 미기재·오입력 시 입고가 진행되지 않으며, 발송 후 5일(일요일·공휴일 제외) 내 미도착은 허위 정보 입력으로 간주하여 미입고 페널티를 부과합니다.</p>
-                                    <p class="notice_subtext">앱 알림 해제, 알림톡 차단, 전화번호 변경 후 미등록 시에는 거래 진행 상태 알림을 받을 수 없으며 이로 인한 거래 실패는 판매자의 책임입니다.</p><!---->
-                                </div>
-                                <div class="checkbox_item"><input id="undefined" type="checkbox"
-                                        name="checklist" class="check"><label for="undefined" class="check_label">
-                                            <!----><!----></label></div>
-                            </a></li>
-                        <li class="check_item"><a href="#" class="check_area">
-                                <div class="notice_group">
-                                    <p class="notice_maintext">검수 기준과 페널티 및 이용 정책을 다시 한번 확인하였습니다.</p>
-                                    <p class="notice_subtext">이용정책 위반 시, 판매 금액의 최대 15.0%의 페널티가 부과됩니다. 페널티 회피 시 이후 거래가 제한되며 별도 고지없이 해당 금액을 결제 시도할 수 있습니다.</p>
-                                    <!---->
-                                </div>
-                                
-                                <div class="checkbox_item"><input id="undefined" type="checkbox"
-                                        name="checklist" class="check"><label for="undefined" class="check_label">
-                                            <!----><!----></label></div>
-                            </a></li>
-                        <li class="check_item"><a href="#" class="check_area">
-                                <div class="notice_group">
-                                    <p class="notice_maintext">판매 조건을 모두 확인하였으며, 거래 진행에 동의합니다.</p>
-                                    <!----><!---->
-                                </div>
-                                <div class="checkbox_item"><input id="undefined" type="checkbox"
-                                        name="checklist" class="check"><label for="undefined" class="check_label">
-                                            <!----><!----></label></div>
-                            </a></li>
-                    </ul>
-                    <!--검수기준 있던곳🌈🌈🌈🌈-->
-                </div>
-                <div class="sell_total_confirm" is-instant="true">
-                    <div class="price_total">
-                        <dl class="price_box">
-                            <dt class="price_title"> 정산 금액 </dt>
-                            <dd class="price"><span class="amount">274,000</span><span class="unit">원</span></dd>
-                        </dl><span class="price_warning" style="display: none;"><em>주의! </em></span>
-                    </div>
-                    <div class="btn_confirm"><a disabled="disabled" href="#"
-                            class="btn full solid false disabled"> 판매 입찰하기 </a></div>
-                </div>
-            </section>
-            <!--결제하기 클릭시 나오는 팝업-->
-            <div class="layer_order_price_confirm layer md" style="display: none;">
-                <div class="layer_container"><a href="#" class="btn_layer_close"><svg
-                            xmlns="http://www.w3.org/2000/svg" class="ico-close icon sprite-icons">
-                            <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-close"
-                                xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-close"></use>
-                        </svg></a>
-                    <div class="layer_header"></div>
-                    <div class="layer_content">
-                        <div class="alert_title">
-                            <div class="alert_notice">
-                                <p class="notice">한번 더 확인하세요</p><span data-v-4ae17423=""
-                                    class="rectangle"></span>
+                            <div class="alert_box">
+                                <p class="alert_desc">해당 거래는 개인간 거래로 단순변심 또는 실수에 따른
+                                    <em>취소는 불가능합니다.</em>
+                                </p>
                             </div>
-                            <p class="title"> 총 결제금액 </p>
-                            <p class="price">274,000원</p>
+                            <div class="layer_btn"><button type="button" class="btn solid buy full large"> 판매하기
+                                </button></div>
                         </div>
-                        <div class="alert_box">
-                            <p class="alert_desc">해당 거래는 개인간 거래로 단순변심 또는 실수에 따른
-                                <em>취소는 불가능합니다.</em>
-                            </p>
-                        </div>
-                        <div class="layer_btn"><button type="button"
-                                class="btn solid sell full large"> 바로
-                                결제하기 </button></div>
                     </div>
-                </div>
-            </div><!----><!----><!---->
-        </div><!---->
-    </div><!----><!---->
-</div>
-
-
-
+                </div><!----><!----><!---->
+            </div><!---->
+        </div><!----><!---->
+    </div>
 </body>
 <script src="../../js/sell/sell.js"></script>
+<script src="../../js/layer/layer_card.js"></script>
+<script src="../../js/layer/layer_delivery.js"></script>
+
 </html>

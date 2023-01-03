@@ -12,6 +12,13 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="../css/shop_search.css">
 
+    <style>
+        body .hb_fixed_box .quick_filter .clicked.btn_quick_filter {
+            background-color: #FEF7F6;
+            color: #F15746;
+            font-weight: 700;
+        }
+    </style>
 </head>
 
 
@@ -146,1335 +153,1419 @@
                 </div>
             </div> -->
 
-            <div class="search_title no_input">
-                <h2 class="title_txt">SHOP</h2>
-            </div>
+                <div class="search_title no_input">
+                    <h2 class="title_txt">SHOP</h2>
+                </div>
 
-            <!-- <div class="search_title has_input">
-                <H2 class="title_txt"></H2>
-                <div value="" class="search_area" style="background-color: #FFFFFF">
-                    <input type="text" placeholder="브랜드명, 모델명 ,모델번호 등" title="검색창" name="검색메인"
-                        class="in_search show_placeholder_on_focus for_search" autocomplete="off">
-                    <div class="btn_search_delete lg">
-                        <img src="../img/h_img/logo/close_btn.png" class="stop">
+                <div class="search_suggests">
+
+                </div>
+
+                <div id="fixed2"></div>
+                <div class="quick_filter">
+                    <div class="filter_box">
+
+                        <a href="" class="btn_quick_filter">
+                            <img src="../img/shopimg/tune.png" alt="" style="width: 20px; height: 20px;">
+                        </a>
+
+                        <a href="#" class="btn_quick_filter btn_quick_filter_js_2">럭셔리
+                        </a>
+
+                        <div class="divide" style="font-size: 3rem;font-weight: lighter; color:rgb(218, 218, 218);">|
+                        </div>
+
+                        <a href="#" class="btn_quick_filter btn_quick1">신발</a>
+                        <a href="#" class="btn_quick_filter btn_quick1">의류</a>
+                        <a href="#" class="btn_quick_filter btn_quick1">패션 잡화</a>
+                        <a href="#" class="btn_quick_filter btn_quick1">라이프</a>
+                        <a href="#" class="btn_quick_filter btn_quick1">테크</a>
+
                     </div>
                 </div>
-            </div> -->
-            <div class="search_suggests">
-
+                <div id="fixed3"></div>
             </div>
-
-            <div id="fixed2"></div>
-            <div class="quick_filter">
-                <div class="filter_box">
-                    <a href="" class="btn_quick_filter">
-                        <img src="../img/shopimg/tune.png" alt="" style="width: 20px; height: 20px;"></a>
-                    <a href="#" class="btn_quick_filter btn_quick_filter_js_2">럭셔리</a>
-
-                    <div class="divide" style="font-size: 3rem;font-weight: lighter; color:rgb(218, 218, 218);">|
-                    </div>
-
-                    <a href="#" class="btn_quick_filter btn_quick_filter_js" id="top_menu01">스니커즈</a>
-                    <a href="#" class="btn_quick_filter btn_quick_filter_js" id="top_menu01">의류</a>
-                    <a href="#" class="btn_quick_filter btn_quick_filter_js" id="top_menu01">패션 잡화</a>
-                    <a href="#" class="btn_quick_filter btn_quick_filter_js" id="top_menu01">라이프</a>
-                    <a href="#" class="btn_quick_filter btn_quick_filter_js" id="top_menu01">테크</a>
-
-                    
-                </div>
-            </div>
-            <div id="fixed3"></div>
-        </div>
-    </div>
-
-    <div class="container_search_md">
-        <!-- container -->
-
-        <!-- search-top 시작 -->
-        <div class="search_top">
-            <div class="top_box">
-                <ul class="brand_list">
-                    <li class="brand_item">
-                        <a class="brand_box">
-                            <p class="brand_name">
-                                <input type="image" src="../img/shopimg/shop_top_1.jpg" alt="지갑_top1" value="지갑_top1" class="brand_img">지갑
-                            </p>
-                        </a>
-                    </li>
-                    <li class="brand_item">
-                        <a class="brand_box">
-                            <p class="brand_name">
-                                <input type="image" src="../img/shopimg/shop_top_2.jpg" alt="어그" value="어그"
-                                    class="brand_img">어그
-
-                            </p>
-                        </a>
-                    </li>
-                    <li class="brand_item">
-                        <a class="brand_box">
-                            <p class="brand_name">
-                                <input type="image" src="../img/shopimg/shop_top_3.jpg" value="주얼리" alt="주얼리"
-                                    class="brand_img">주얼리
-
-                            </p>
-                        </a>
-                    </li>
-                    <li class="brand_item">
-                        <a class="brand_box">
-                            <p class="brand_name">
-                                <input type="image" src="../img/shopimg/shop_top_4.jpg" value="눕시" alt="눕시"
-                                    class="brand_img">눕시
-                            </p>
-                        </a>
-                    </li>
-
-                    <li class="brand_item">
-                        <a class="brand_box">
-                            <p class="brand_name">
-                                <input type="image" src="../img/shopimg/shop_top_5.jpg" value="머플러" alt="머플러"
-                                    class="brand_img">머플러
-
-                            </p>
-                        </a>
-                    </li>
-                    <li class="brand_item">
-                        <a class="brand_box">
-                            <p class="brand_name">
-                                <input type="image" src="../img/shopimg/shop_top_6.jpg" value="아식스" alt="아식스"
-                                    class="brand_img">아식스
-                            </p>
-                        </a>
-                    </li>
-                    <li class="brand_item">
-                        <a class="brand_box">
-                            <p class="brand_name">
-                                <input type="image" src="../img/shopimg/shop_top_7.jpg" value="애플" alt="애플"
-                                    class="brand_img">애플
-                            </p>
-                        </a>
-                    </li>
-                    <li class="brand_item">
-                        <a class="brand_box">
-                            <p class="brand_name">
-                                <input type="image" src="../img/shopimg/shop_top_8.jpg" value="스캇" alt="스캇"
-                                    class="brand_img">스캇
-                            </p>
-                        </a>
-                    </li>
-                    <li class="brand_item">
-                        <a class="brand_box">
-                            <p class="brand_name">
-                                <input type="image" src="../img/shopimg/shop_top_9.jpg" value="샤넬" alt="샤넬"
-                                    class="brand_img">샤넬
-                            </p>
-                        </a>
-                    </li>
-                    <li class="brand_item">
-                        <a class="brand_box">
-                            <p class="brand_name">
-                                <input type="image" src="../img/shopimg/shop_top_10.jpg" value="다이슨" alt="다이슨"
-                                    class="brand_img">다이슨
-                            </p>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-
         </div>
 
-        <!-- search-top 끝 -->
+        <div class="container_search_md">
+            <!-- container -->
 
-        <div class="content">
-            <!-- 사이드바 -->
-            <div class="search_filter">
-                <div class="filter_status">
-                    <div class="status_box">
-                        <span class="status_txt" style="font-weight: bold;">필터</span>
-                    </div>
+            <!-- search-top 시작 -->
+            <div class="search_top">
+                <div class="top_box">
+                    <ul class="brand_list">
+                        <li class="brand_item">
+                            <a class="brand_box">
+                                <p class="brand_name">
+                                    <input type="image" src="../img/shopimg/shop_top_1.jpg" alt="지갑_top1"
+                                        value="지갑_top1" class="brand_img">지갑
+                                </p>
+                            </a>
+                        </li>
+                        <li class="brand_item">
+                            <a class="brand_box">
+                                <p class="brand_name">
+                                    <input type="image" src="../img/shopimg/shop_top_2.jpg" alt="어그" value="어그"
+                                        class="brand_img">어그
 
-                    <a href="#" class="st_clear" style="color:rgb(158, 158, 158)">모두 삭제</a>
+                                </p>
+                            </a>
+                        </li>
+                        <li class="brand_item">
+                            <a class="brand_box">
+                                <p class="brand_name">
+                                    <input type="image" src="../img/shopimg/shop_top_3.jpg" value="주얼리" alt="주얼리"
+                                        class="brand_img">주얼리
+
+                                </p>
+                            </a>
+                        </li>
+                        <li class="brand_item">
+                            <a class="brand_box">
+                                <p class="brand_name">
+                                    <input type="image" src="../img/shopimg/shop_top_4.jpg" value="눕시" alt="눕시"
+                                        class="brand_img">눕시
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="brand_item">
+                            <a class="brand_box">
+                                <p class="brand_name">
+                                    <input type="image" src="../img/shopimg/shop_top_5.jpg" value="머플러" alt="머플러"
+                                        class="brand_img">머플러
+
+                                </p>
+                            </a>
+                        </li>
+                        <li class="brand_item">
+                            <a class="brand_box">
+                                <p class="brand_name">
+                                    <input type="image" src="../img/shopimg/shop_top_6.jpg" value="아식스" alt="아식스"
+                                        class="brand_img">아식스
+                                </p>
+                            </a>
+                        </li>
+                        <li class="brand_item">
+                            <a class="brand_box">
+                                <p class="brand_name">
+                                    <input type="image" src="../img/shopimg/shop_top_7.jpg" value="애플" alt="애플"
+                                        class="brand_img">애플
+                                </p>
+                            </a>
+                        </li>
+                        <li class="brand_item">
+                            <a class="brand_box">
+                                <p class="brand_name">
+                                    <input type="image" src="../img/shopimg/shop_top_8.jpg" value="스캇" alt="스캇"
+                                        class="brand_img">스캇
+                                </p>
+                            </a>
+                        </li>
+                        <li class="brand_item">
+                            <a class="brand_box">
+                                <p class="brand_name">
+                                    <input type="image" src="../img/shopimg/shop_top_9.jpg" value="샤넬" alt="샤넬"
+                                        class="brand_img">샤넬
+                                </p>
+                            </a>
+                        </li>
+                        <li class="brand_item">
+                            <a class="brand_box">
+                                <p class="brand_name">
+                                    <input type="image" src="../img/shopimg/shop_top_10.jpg" value="다이슨" alt="다이슨"
+                                        class="brand_img">다이슨
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
 
-                <!-- 사이드바 1번 항목 -->
-                <div class="filter_list">
-                    <div class="filter_title">
-                        <div class="title_box">
-                            <span class="main_title">카테고리</span>
-                            <span class="placeholder">모든 카테고리</span>
-                        </div>
-
-                        <div class="dropdown">
-                            <button onclick="dd_menu1()" class="side_btn1">
-                                <img class="side_btn" src="../img/shopimg/side_btn1.png" alt="">
-                            </button>
-                        </div>
-
-                        <!-- 12345 -->
-
-
-                    </div>
-
-                    <div class="filter_menu" id="drop-content1" style="display:none">
-                        <ul class="menu_list">
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input0" class="check">
-                                <label class="check_label" for="input0"></label>
-                                <span class="link_txt">신발</span>
-                            </li>
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input1" class="check">
-                                <label class="check_label" for="input1"></label>
-                                <span class="link_txt">의류</span>
-                            </li>
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input2" class="check">
-                                <label class="check_label" for="input2"></label>
-                                <span class="link_txt">패션 잡화</span>
-                            </li>
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input3" class="check">
-                                <label class="check_label" for="input3"></label>
-                                <span class="link_txt">라이프</span>
-                            </li>
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input4" class="check">
-                                <label class="check_label" for="input4"></label>
-                                <span class="link_txt">테크</span>
-                            </li>
-
-                        </ul>
-                    </div>
-
-
-                </div>
-
-                <!-- 사이드바 2번 항목 -->
-                <div class="filter_list">
-                    <div class="filter_title">
-                        <div class="title_box">
-                            <span class="main_title">브랜드</span>
-                            <span class="placeholder">모든 브랜드</span>
-                        </div>
-
-                        <div class="dropdown">
-                            <button onclick="dd_menu2()" class="side_btn1">
-                                <img class="side_btn" src="../img/shopimg/side_btn1.png" alt="">
-                            </button>
-                        </div>
-
-                    </div>
-
-                    <div class="filter_menu" id="drop-content2" style="display:none">
-                        <ul class="menu_list">
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input5" class="check">
-                                <label class="check_label" for="input5"></label>
-                                <span class="link_txt">A Cold Wall</span>
-                            </li>
-
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input6" class="check">
-                                <label class="check_label" for="input6"></label>
-                                <span class="link_txt">A.P.C</span>
-                            </li>
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input7" class="check">
-                                <label class="check_label" for="input7"></label>
-                                <span class="link_txt">Adidas</span>
-                            </li>
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input8" class="check">
-                                <label class="check_label" for="input8"></label>
-                                <span class="link_txt">Aesop</span>
-                            </li>
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input9" class="check">
-                                <label class="check_label" for="input9"></label>
-                                <span class="link_txt">Alexander</span>
-                            </li>
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input10" class="check">
-                                <label class="check_label" for="input10"></label>
-                                <span class="link_txt">Apple</span>
-                            </li>
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input11" class="check">
-                                <label class="check_label" for="input11"></label>
-                                <span class="link_txt">Asics</span>
-                            </li>
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input12" class="check">
-                                <label class="check_label" for="input12"></label>
-                                <span class="link_txt">Balenciaga</span>
-                            </li>
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input13" class="check">
-                                <label class="check_label" for="input13"></label>
-                                <span class="link_txt">Barbour</span>
-                            </li>
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input14" class="check">
-                                <label class="check_label" for="input14"></label>
-                                <span class="link_txt">Burberry</span>
-                            </li>
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input15" class="check">
-                                <label class="check_label" for="input15"></label>
-                                <span class="link_txt">Canada Goose</span>
-                            </li>
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input16" class="check">
-                                <label class="check_label" for="input16"></label>
-                                <span class="link_txt">Celine</span>
-                            </li>
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input17" class="check">
-                                <label class="check_label" for="input17"></label>
-                                <span class="link_txt">Chanel</span>
-                            </li>
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input18" class="check">
-                                <label class="check_label" for="input18"></label>
-                                <span class="link_txt">Comme</span>
-                            </li>
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input19" class="check">
-                                <label class="check_label" for="input19"></label>
-                                <span class="link_txt">Converse</span>
-                            </li>
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input20" class="check">
-                                <label class="check_label" for="input20"></label>
-                                <span class="link_txt">Diesel</span>
-                            </li>
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input21" class="check">
-                                <label class="check_label" for="input21"></label>
-                                <span class="link_txt">Dior</span>
-                            </li>
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input22" class="check">
-                                <label class="check_label" for="input22"></label>
-                                <span class="link_txt">Dyson</span>
-                            </li>
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input23" class="check">
-                                <label class="check_label" for="input23"></label>
-                                <span class="link_txt">Jodan</span>
-                            </li>
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input24" class="check">
-                                <label class="check_label" for="input24"></label>
-                                <span class="link_txt">Nike</span>
-                            </li>
-
-
-
-                        </ul>
-                    </div>
-
-                </div>
-                <!-- 사이드바 3번 항목 -->
-                <div class="filter_list">
-
-                    <div class="filter_title">
-
-                        <div class="title_box">
-                            <span class="main_title">성별</span>
-                            <span class="placeholder">모든 성별</span>
-                        </div>
-
-                        <div class="dropdown">
-                            <button onclick="dd_menu3()" class="side_btn1">
-                                <img class="side_btn" src="../img/shopimg/side_btn1.png" alt="">
-                            </button>
-                        </div>
-
-                    </div>
-
-                    <div class="filter_menu" id="drop-content3" style="display:none">
-
-                        <ul class="menu_list">
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input25" class="check">
-                                <label class="check_label" for="input25"></label>
-                                <span class="link_txt">남성</span>
-                            </li>
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input26" class="check">
-                                <label class="check_label" for="input26"></label>
-                                <span class="link_txt">여성</span>
-                            </li>
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input27" class="check">
-                                <label class="check_label" for="input27"></label>
-                                <span class="link_txt">키즈</span>
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-                <!-- 사이드바 4번 항목 -->
-                <div class="filter_list">
-                    <div class="filter_title">
-                        <div class="title_box">
-                            <span class="main_title">컬렉션</span>
-                            <span class="placeholder">모든 컬렉션</span>
-                        </div>
-
-                        <div class="dropdown">
-                            <button onclick="dd_menu4()" class="side_btn1">
-                                <img class="side_btn" src="../img/shopimg/side_btn1.png" alt="">
-                            </button>
-                        </div>
-
-                    </div>
-                    <div class="filter_menu" id="drop-content4" style="display:none">
-                        <ul class="menu_list">
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input28" class="check">
-                                <label class="check_label" for="input28"></label>
-                                <span class="link_txt">Luxury</span>
-                            </li>
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input29" class="check">
-                                <label class="check_label" for="input29"></label>
-                                <span class="link_txt">Contemporary</span>
-                            </li>
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input30" class="check">
-                                <label class="check_label" for="input30"></label>
-                                <span class="link_txt">Jordan 1</span>
-                            </li>
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input31" class="check">
-                                <label class="check_label" for="input31"></label>
-                                <span class="link_txt">Jordan 3</span>
-                            </li>
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input32" class="check">
-                                <label class="check_label" for="input32"></label>
-                                <span class="link_txt">Jordan 4</span>
-                            </li>
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input33" class="check">
-                                <label class="check_label" for="input33"></label>
-                                <span class="link_txt">Jordan 5</span>
-                            </li>
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input34" class="check">
-                                <label class="check_label" for="input34"></label>
-                                <span class="link_txt">Jordan 6</span>
-                            </li>
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input35" class="check">
-                                <label class="check_label" for="input35"></label>
-                                <span class="link_txt">Jordan 11</span>
-                            </li>
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input36" class="check">
-                                <label class="check_label" for="input36"></label>
-                                <span class="link_txt">Nike Dunk</span>
-                            </li>
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input37" class="check">
-                                <label class="check_label" for="input37"></label>
-                                <span class="link_txt">Nike Air Force</span>
-                            </li>
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input38" class="check">
-                                <label class="check_label" for="input38"></label>
-                                <span class="link_txt">Nike Air Max 1</span>
-                            </li>
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input39" class="check">
-                                <label class="check_label" for="input39"></label>
-                                <span class="link_txt">Nike Air Max 95</span>
-                            </li>
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input40" class="check">
-                                <label class="check_label" for="input40"></label>
-                                <span class="link_txt">Nike Air Max 97</span>
-                            </li>
-
-
-
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- 사이드바 5번 항목 -->
-                <div class="filter_list">
-
-                    <div class="filter_title">
-                        <div class="title_box">
-                            <span class="main_title">스니커즈</span>
-                            <span class="placeholder">모든 사이즈</span>
-                        </div>
-
-                        <div class="dropdown">
-                            <button onclick="dd_menu5()" class="side_btn1">
-                                <img class="side_btn" src="../img/shopimg/side_btn1.png" alt="">
-                            </button>
-                        </div>
-
-                    </div>
-
-                    <div class="filter_menu_size" id="drop-content5" style="display:none">
-
-                        <div class="column_list has_more">
-                            <a href="#" class="column_menu"> 215 </a>
-                            <a href="#" class="column_menu"> 220 </a>
-                            <a href="#" class="column_menu"> 225 </a>
-                            <a href="#" class="column_menu"> 230 </a>
-                            <a href="#" class="column_menu"> 235 </a>
-                            <a href="#" class="column_menu"> 240 </a>
-                            <a href="#" class="column_menu"> 245 </a>
-                            <a href="#" class="column_menu"> 250 </a>
-                            <a href="#" class="column_menu"> 255 </a>
-                            <a href="#" class="column_menu"> 260 </a>
-                            <a href="#" class="column_menu"> 265 </a>
-                            <a href="#" class="column_menu"> 270 </a>
-                            <a href="#" class="column_menu"> 275 </a>
-                            <a href="#" class="column_menu"> 280 </a>
-                            <a href="#" class="column_menu"> 285 </a>
-                            <a href="#" class="column_menu"> 290 </a>
-                            <a href="#" class="column_menu"> 295 </a>
-                            <a href="#" class="column_menu"> 300 </a>
-                            <a href="#" class="column_menu"> 305 </a>
-                            <a href="#" class="column_menu"> 310 </a>
-                            <a href="#" class="column_menu"> 315 </a>
-                            <a href="#" class="column_menu"> 320 </a>
-                            <a href="#" class="column_menu"> 325 </a>
-                            <a href="#" class="column_menu"> 330 </a>
-                        </div>
-
-                        <div id="line1">
-                            <!-- 아래쪽 테두리용 div -->
-                        </div>
-
-                        <div class="column_list has_more">
-                            <a href="#" class="column_menu"> 70 </a>
-                            <a href="#" class="column_menu"> 80 </a>
-                            <a href="#" class="column_menu"> 90 </a>
-                            <a href="#" class="column_menu"> 110 </a>
-                            <a href="#" class="column_menu"> 115 </a>
-                            <a href="#" class="column_menu"> 120 </a>
-                            <a href="#" class="column_menu"> 125 </a>
-                            <a href="#" class="column_menu"> 130 </a>
-                            <a href="#" class="column_menu"> 135 </a>
-                            <a href="#" class="column_menu"> 140 </a>
-                            <a href="#" class="column_menu"> 145 </a>
-                            <a href="#" class="column_menu"> 150 </a>
-                            <a href="#" class="column_menu"> 155 </a>
-                            <a href="#" class="column_menu"> 160 </a>
-                            <a href="#" class="column_menu"> 165 </a>
-                            <a href="#" class="column_menu"> 170 </a>
-                            <a href="#" class="column_menu"> 175 </a>
-                            <a href="#" class="column_menu"> 180 </a>
-                            <a href="#" class="column_menu"> 185 </a>
-                            <a href="#" class="column_menu"> 190 </a>
-                            <a href="#" class="column_menu"> 195 </a>
-                            <a href="#" class="column_menu"> 200 </a>
-                            <a href="#" class="column_menu"> 205 </a>
-                            <a href="#" class="column_menu"> 210 </a>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <!-- 사이드바 6번 항목 -->
-                <div class="filter_list">
-
-                    <div class="filter_title">
-                        <div class="title_box">
-                            <span class="main_title">의류 사이즈</span>
-                            <span class="placeholder">모든 사이즈</span>
-                        </div>
-
-                        <div class="dropdown">
-                            <button onclick="dd_menu6()" class="side_btn1">
-                                <img class="side_btn" src="../img/shopimg/side_btn1.png" alt="">
-                            </button>
-                        </div>
-
-                    </div>
-
-                    <div class="filter_menu_size" id="drop-content6" style="display:none">
-
-                        <div class="column_list column_double">
-                            <a href="#" class="column_menu1"> XXS </a>
-                            <a href="#" class="column_menu1"> XS </a>
-                            <a href="#" class="column_menu1"> S </a>
-                            <a href="#" class="column_menu1"> M </a>
-                            <a href="#" class="column_menu1"> L </a>
-                            <a href="#" class="column_menu1"> XL </a>
-                            <a href="#" class="column_menu1"> XXL </a>
-                            <a href="#" class="column_menu1"> XXXL </a>
-                        </div>
-
-                        <div class="column_list">
-                            <a href="#" class="column_menu"> 28 </a>
-                            <a href="#" class="column_menu"> 29 </a>
-                            <a href="#" class="column_menu"> 30 </a>
-                            <a href="#" class="column_menu"> 31 </a>
-                            <a href="#" class="column_menu"> 32 </a>
-                            <a href="#" class="column_menu"> 33 </a>
-                            <a href="#" class="column_menu"> 34 </a>
-                            <a href="#" class="column_menu"> 35 </a>
-                            <a href="#" class="column_menu"> 36 </a>
-                        </div>
-                    </div>
-
-                </div>
-
-
-                <!-- 사이드바 7번 항목 -->
-                <div class="filter_list">
-
-                    <div class="filter_title">
-
-                        <div class="title_box">
-                            <span class="main_title">가격</span>
-                            <span class="placeholder">모든 가격</span>
-                        </div>
-
-                        <div class="dropdown">
-                            <button onclick="dd_menu7()" class="side_btn1">
-                                <img class="side_btn" src="../img/shopimg/side_btn1.png" alt="">
-                            </button>
-                        </div>
-
-                    </div>
-
-                    <div class="filter_menu" id="drop-content7" style="display:none">
-                        <ul class="menu_list">
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input41" class="check">
-                                <label class="check_label" for="input41"></label>
-                                <span class="link_txt">10만원 이하</span>
-                            </li>
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input42" class="check">
-                                <label class="check_label" for="input42"></label>
-                                <span class="link_txt">10만원 - 30만원 이하</span>
-                            </li>
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input43" class="check">
-                                <label class="check_label" for="input43"></label>
-                                <span class="link_txt">30만원 - 50만원 이하</span>
-                            </li>
-
-                            <li class="menu checkMenu">
-                                <input type="checkbox" name="check" id="input44" class="check">
-                                <label class="check_label" for="input44"></label>
-                                <span class="link_txt">50만원 이상</span>
-                            </li>
-
-                        </ul>
-                    </div>
-
-
-
-                </div>
             </div>
-            <!-- content -->
-            <div class="search_content">
 
-                <div class="search_option">
+            <!-- search-top 끝 -->
 
-                    <div class="filter_btns">
-
-                        <div class="filter_express filter_btn">
-                            <a href="/search" class="express_btn">
-                                <span class="text">빠른배송</span>
-                            </a>
+            <div class="content">
+                <!-- 사이드바 -->
+                <div class="search_filter">
+                    <div class="filter_status">
+                        <div class="status_box">
+                            <span class="status_txt" style="font-weight: bold;">필터</span>
                         </div>
 
-                        <div class="filter_brand filter_btn">
-                            <a href="/search" class="brand_btn">
-                                <span class="text">브랜드배송</span>
-                            </a>
-                        </div>
-
+                        <a href="#" class="st_clear" style="color:rgb(158, 158, 158)">모두 삭제</a>
                     </div>
 
-                    <div>
-                        <div class="filter_sorting">
+                    <!-- 사이드바 1번 항목 -->
+                    <div class="filter_list">
+                        <div class="filter_title">
+                            <div class="title_box">
+                                <span class="main_title">카테고리</span>
+                                <span class="placeholder" id="placehod">모든 카테고리</span>
+                            </div>
 
-                            <button type="button" onclick="dd_menu8()" class="sorting_title"> 프리미엄순
-                                <img class="desc_logo" src="../img/shopimg/desc_logo_b.png">
-                            </button>
+                            <div class="dropdown">
+                                <button onclick="dd_menu1()" class="side_btn1">
+                                    <img class="side_btn" src="../img/shopimg/side_btn1.png" alt="">
+                                </button>
+                            </div>
+                        </div>
+                        <!--  -->
+                        <div class="filter_menu" id="drop-content1" style="display:none">
 
-                            <div class="filter_menu" id="drop-content8" style="display:none">
-                                <ul class="sorting_list" style="display: none;">
+                            <ul class="menu_list">
 
-                                    <li class="sorting_item">
-                                        <a href="#" class="sorting_link">
-                                            <div class="sorting_desc">
-                                                <p class="main_desc">인기순</p>
-                                                <p class="sub_desc">많이 판매된 순서대로 정렬합니다.</p>
-                                            </div>
+                                <!------------------------------ 카테고리 > 신발 ------------------------------>
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input0" onclick="dd_cm1()" class="check">
+                                    <label class="check_label" for="input0"></label>
+                                    <span class="link_txt">신발</span>
+                                </li>
+
+                                <!-- style="display:none" -->
+                                <ul class="menu_list menu_2depth" id="dd-content1" style="display:none" >
+                                    <li class="menu">
+                                        <a href="#" class="menu_link">
+                                            <input type="checkbox" name="check" id="input0_1" class="check">
+                                            <label class="check_label" for="input0_1"></label>
+                                            <span class="link_txt">스니커즈</span>
                                         </a>
+                                        <ul class="menu_list menu_2depth" style="display:none;">
+                                        </ul>
                                     </li>
 
-                                    <li class="sorting_item item_on">
-                                        <a href="#" class="sorting_link">
-                                            <div class="sorting_desc">
-                                                <p class="main_desc">프리미엄순</p>
-                                                <p class="sub_desc">발매가 대비 가격이 높은 순서대로 정렬합니다.</p>
-                                            </div>
+                                    <li class="menu">
+                                        <a href="#" class="menu_link">
+                                            <input type="checkbox" name="check" id="input0_2" class="check">
+                                            <label class="check_label" for="input0_2"></label>
+                                            <span class="link_txt">부츠</span>
                                         </a>
+                                        <ul class="menu_list menu_2depth" style="display:none;">
+                                        </ul>
                                     </li>
 
-                                    <li class="sorting_item">
-                                        <a href="#" class="sorting_link">
-                                            <div class="sorting_desc">
-                                                <p class="main_desc">즉시 구매가순</p>
-                                                <p class="sub_desc">즉시 구매가가 낮은 순서대로 정렬합니다.</p>
-                                            </div>
+                                    <li class="menu">
+                                        <a href="#" class="menu_link">
+                                            <input type="checkbox" name="check" id="input0_3" class="check">
+                                            <label class="check_label" for="input0_3"></label>
+                                            <span class="link_txt">더비/레이스업</span>
                                         </a>
+                                        <ul class="menu_list menu_2depth" style="display:none;">
+                                        </ul>
                                     </li>
 
-                                    <li class="sorting_item">
-                                        <a href="#" class="sorting_link">
-                                            <div class="sorting_desc">
-                                                <p class="main_desc">즉시 판매가순</p>
-                                                <p class="sub_desc">즉시 판매가가 높은 순서대로 정렬합니다.</p>
-                                            </div>
-                                        </a>
+                                    <li class="menu">
+                                        <a href="#" class="menu_link">
+                                            <input type="checkbox" name="check" id="input0_4" class="check">
+                                            <label class="check_label" for="input0_4"></label>
+                                            <span class="link_txt">로퍼/플랫</span></a>
+                                        <ul class="menu_list menu_2depth" style="display:none;">
+                                        </ul>
                                     </li>
-
-                                    <li class="sorting_item">
-                                        <a href="#" class="sorting_link">
-                                            <div class="sorting_desc">
-                                                <p class="main_desc">발매일순</p>
-                                                <p class="sub_desc">최신 상품 순서대로 정렬합니다. 아직 발매 전인 상품이 노출될 수 있습니다.</p>
-                                            </div>
+                                    <li class="menu">
+                                        <a href="#" class="menu_link">
+                                            <input type="checkbox" name="check" id="input0_5" class="check">
+                                            <label class="check_label" for="input0_5"></label>
+                                            <span class="link_txt">샌들/슬리퍼</span>
                                         </a>
+                                        <ul class="menu_list menu_2depth" style="display:none;">
+                                        </ul>
                                     </li>
-
                                 </ul>
+
+                                <!------------------------------ 카테고리 > 신발 끝------------------------------>
+
+
+                                <!------------------------------ 카테고리 > 의류 ------------------------------>
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input1" class="check">
+                                    <label class="check_label" for="input1"></label>
+                                    <span class="link_txt">의류</span>
+                                </li>
+
+                                <!------------------------------ 카테고리 > 의류 끝 ------------------------------>
+
+                                
+                                <!------------------------------ 카테고리 > 패션 잡화 ------------------------------>
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input2" class="check">
+                                    <label class="check_label" for="input2"></label>
+                                    <span class="link_txt">패션 잡화</span>
+                                </li>
+
+                                <!------------------------------ 카테고리 > 패션 잡화 끝 ------------------------------>
+
+                                <!------------------------------ 카테고리 > 라이프 ------------------------------>
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input3" class="check">
+                                    <label class="check_label" for="input3"></label>
+                                    <span class="link_txt">라이프</span>
+                                </li>
+
+                                <!------------------------------ 카테고리 > 라이프 끝 ------------------------------>
+
+                                <!------------------------------ 카테고리 > 테크 ------------------------------>
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input4" class="check">
+                                    <label class="check_label" for="input4"></label>
+                                    <span class="link_txt">테크</span>
+                                </li>
+
+                                <!------------------------------ 카테고리 > 테크 끝 ------------------------------>
+
+                            </ul>
+
+                        </div>
+                    </div>
+
+                    <!-- 사이드바 2번 항목 -->
+                    <div class="filter_list">
+                        <div class="filter_title">
+                            <div class="title_box">
+                                <span class="main_title">브랜드</span>
+                                <span class="placeholder">모든 브랜드</span>
+                            </div>
+
+                            <div class="dropdown">
+                                <button onclick="dd_menu2()" class="side_btn1">
+                                    <img class="side_btn" src="../img/shopimg/side_btn1.png" alt="">
+                                </button>
+                            </div>
+
+                        </div>
+
+                        <div class="filter_menu" id="drop-content2" style="display:none">
+
+                            <ul class="menu_list">
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input5" class="check">
+                                    <label class="check_label" for="input5"></label>
+                                    <span class="link_txt">A Cold Wall</span>
+                                </li>
+
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input6" class="check">
+                                    <label class="check_label" for="input6"></label>
+                                    <span class="link_txt">A.P.C</span>
+                                </li>
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input7" class="check">
+                                    <label class="check_label" for="input7"></label>
+                                    <span class="link_txt">Adidas</span>
+                                </li>
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input8" class="check">
+                                    <label class="check_label" for="input8"></label>
+                                    <span class="link_txt">Aesop</span>
+                                </li>
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input9" class="check">
+                                    <label class="check_label" for="input9"></label>
+                                    <span class="link_txt">Alexander</span>
+                                </li>
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input10" class="check">
+                                    <label class="check_label" for="input10"></label>
+                                    <span class="link_txt">Apple</span>
+                                </li>
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input11" class="check">
+                                    <label class="check_label" for="input11"></label>
+                                    <span class="link_txt">Asics</span>
+                                </li>
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input12" class="check">
+                                    <label class="check_label" for="input12"></label>
+                                    <span class="link_txt">Balenciaga</span>
+                                </li>
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input13" class="check">
+                                    <label class="check_label" for="input13"></label>
+                                    <span class="link_txt">Barbour</span>
+                                </li>
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input14" class="check">
+                                    <label class="check_label" for="input14"></label>
+                                    <span class="link_txt">Burberry</span>
+                                </li>
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input15" class="check">
+                                    <label class="check_label" for="input15"></label>
+                                    <span class="link_txt">Canada Goose</span>
+                                </li>
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input16" class="check">
+                                    <label class="check_label" for="input16"></label>
+                                    <span class="link_txt">Celine</span>
+                                </li>
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input17" class="check">
+                                    <label class="check_label" for="input17"></label>
+                                    <span class="link_txt">Chanel</span>
+                                </li>
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input18" class="check">
+                                    <label class="check_label" for="input18"></label>
+                                    <span class="link_txt">Comme</span>
+                                </li>
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input19" class="check">
+                                    <label class="check_label" for="input19"></label>
+                                    <span class="link_txt">Converse</span>
+                                </li>
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input20" class="check">
+                                    <label class="check_label" for="input20"></label>
+                                    <span class="link_txt">Diesel</span>
+                                </li>
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input21" class="check">
+                                    <label class="check_label" for="input21"></label>
+                                    <span class="link_txt">Dior</span>
+                                </li>
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input22" class="check">
+                                    <label class="check_label" for="input22"></label>
+                                    <span class="link_txt">Dyson</span>
+                                </li>
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input23" class="check">
+                                    <label class="check_label" for="input23"></label>
+                                    <span class="link_txt">Jodan</span>
+                                </li>
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input24" class="check">
+                                    <label class="check_label" for="input24"></label>
+                                    <span class="link_txt">Nike</span>
+                                </li>
+
+
+
+                            </ul>
+                        </div>
+
+                    </div>
+                    <!-- 사이드바 3번 항목 -->
+                    <div class="filter_list">
+
+                        <div class="filter_title">
+
+                            <div class="title_box">
+                                <span class="main_title">성별</span>
+                                <span class="placeholder">모든 성별</span>
+                            </div>
+
+                            <div class="dropdown">
+                                <button onclick="dd_menu3()" class="side_btn1">
+                                    <img class="side_btn" src="../img/shopimg/side_btn1.png" alt="">
+                                </button>
+                            </div>
+
+                        </div>
+
+                        <div class="filter_menu" id="drop-content3" style="display:none">
+
+                            <ul class="menu_list">
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input25" class="check">
+                                    <label class="check_label" for="input25"></label>
+                                    <span class="link_txt">남성</span>
+                                </li>
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input26" class="check">
+                                    <label class="check_label" for="input26"></label>
+                                    <span class="link_txt">여성</span>
+                                </li>
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input27" class="check">
+                                    <label class="check_label" for="input27"></label>
+                                    <span class="link_txt">키즈</span>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- 사이드바 4번 항목 -->
+                    <div class="filter_list">
+                        <div class="filter_title">
+                            <div class="title_box">
+                                <span class="main_title">컬렉션</span>
+                                <span class="placeholder">모든 컬렉션</span>
+                            </div>
+
+                            <div class="dropdown">
+                                <button onclick="dd_menu4()" class="side_btn1">
+                                    <img class="side_btn" src="../img/shopimg/side_btn1.png" alt="">
+                                </button>
+                            </div>
+
+                        </div>
+                        <div class="filter_menu" id="drop-content4" style="display:none">
+                            <ul class="menu_list">
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input28" class="check">
+                                    <label class="check_label" for="input28"></label>
+                                    <span class="link_txt">Luxury</span>
+                                </li>
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input29" class="check">
+                                    <label class="check_label" for="input29"></label>
+                                    <span class="link_txt">Contemporary</span>
+                                </li>
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input30" class="check">
+                                    <label class="check_label" for="input30"></label>
+                                    <span class="link_txt">Jordan 1</span>
+                                </li>
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input31" class="check">
+                                    <label class="check_label" for="input31"></label>
+                                    <span class="link_txt">Jordan 3</span>
+                                </li>
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input32" class="check">
+                                    <label class="check_label" for="input32"></label>
+                                    <span class="link_txt">Jordan 4</span>
+                                </li>
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input33" class="check">
+                                    <label class="check_label" for="input33"></label>
+                                    <span class="link_txt">Jordan 5</span>
+                                </li>
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input34" class="check">
+                                    <label class="check_label" for="input34"></label>
+                                    <span class="link_txt">Jordan 6</span>
+                                </li>
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input35" class="check">
+                                    <label class="check_label" for="input35"></label>
+                                    <span class="link_txt">Jordan 11</span>
+                                </li>
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input36" class="check">
+                                    <label class="check_label" for="input36"></label>
+                                    <span class="link_txt">Nike Dunk</span>
+                                </li>
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input37" class="check">
+                                    <label class="check_label" for="input37"></label>
+                                    <span class="link_txt">Nike Air Force</span>
+                                </li>
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input38" class="check">
+                                    <label class="check_label" for="input38"></label>
+                                    <span class="link_txt">Nike Air Max 1</span>
+                                </li>
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input39" class="check">
+                                    <label class="check_label" for="input39"></label>
+                                    <span class="link_txt">Nike Air Max 95</span>
+                                </li>
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input40" class="check">
+                                    <label class="check_label" for="input40"></label>
+                                    <span class="link_txt">Nike Air Max 97</span>
+                                </li>
+
+
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 사이드바 5번 항목 -->
+                    <div class="filter_list">
+
+                        <div class="filter_title">
+                            <div class="title_box">
+                                <span class="main_title">스니커즈</span>
+                                <span class="placeholder">모든 사이즈</span>
+                            </div>
+
+                            <div class="dropdown">
+                                <button onclick="dd_menu5()" class="side_btn1">
+                                    <img class="side_btn" src="../img/shopimg/side_btn1.png" alt="">
+                                </button>
+                            </div>
+
+                        </div>
+
+                        <div class="filter_menu_size" id="drop-content5" style="display:none">
+
+                            <div class="column_list has_more">
+                                <a href="#" class="column_menu"> 215 </a>
+                                <a href="#" class="column_menu"> 220 </a>
+                                <a href="#" class="column_menu"> 225 </a>
+                                <a href="#" class="column_menu"> 230 </a>
+                                <a href="#" class="column_menu"> 235 </a>
+                                <a href="#" class="column_menu"> 240 </a>
+                                <a href="#" class="column_menu"> 245 </a>
+                                <a href="#" class="column_menu"> 250 </a>
+                                <a href="#" class="column_menu"> 255 </a>
+                                <a href="#" class="column_menu"> 260 </a>
+                                <a href="#" class="column_menu"> 265 </a>
+                                <a href="#" class="column_menu"> 270 </a>
+                                <a href="#" class="column_menu"> 275 </a>
+                                <a href="#" class="column_menu"> 280 </a>
+                                <a href="#" class="column_menu"> 285 </a>
+                                <a href="#" class="column_menu"> 290 </a>
+                                <a href="#" class="column_menu"> 295 </a>
+                                <a href="#" class="column_menu"> 300 </a>
+                                <a href="#" class="column_menu"> 305 </a>
+                                <a href="#" class="column_menu"> 310 </a>
+                                <a href="#" class="column_menu"> 315 </a>
+                                <a href="#" class="column_menu"> 320 </a>
+                                <a href="#" class="column_menu"> 325 </a>
+                                <a href="#" class="column_menu"> 330 </a>
+                            </div>
+
+                            <div id="line1">
+                                <!-- 아래쪽 테두리용 div -->
+                            </div>
+
+                            <div class="column_list has_more">
+                                <a href="#" class="column_menu"> 70 </a>
+                                <a href="#" class="column_menu"> 80 </a>
+                                <a href="#" class="column_menu"> 90 </a>
+                                <a href="#" class="column_menu"> 110 </a>
+                                <a href="#" class="column_menu"> 115 </a>
+                                <a href="#" class="column_menu"> 120 </a>
+                                <a href="#" class="column_menu"> 125 </a>
+                                <a href="#" class="column_menu"> 130 </a>
+                                <a href="#" class="column_menu"> 135 </a>
+                                <a href="#" class="column_menu"> 140 </a>
+                                <a href="#" class="column_menu"> 145 </a>
+                                <a href="#" class="column_menu"> 150 </a>
+                                <a href="#" class="column_menu"> 155 </a>
+                                <a href="#" class="column_menu"> 160 </a>
+                                <a href="#" class="column_menu"> 165 </a>
+                                <a href="#" class="column_menu"> 170 </a>
+                                <a href="#" class="column_menu"> 175 </a>
+                                <a href="#" class="column_menu"> 180 </a>
+                                <a href="#" class="column_menu"> 185 </a>
+                                <a href="#" class="column_menu"> 190 </a>
+                                <a href="#" class="column_menu"> 195 </a>
+                                <a href="#" class="column_menu"> 200 </a>
+                                <a href="#" class="column_menu"> 205 </a>
+                                <a href="#" class="column_menu"> 210 </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- 사이드바 6번 항목 -->
+                    <div class="filter_list">
+
+                        <div class="filter_title">
+                            <div class="title_box">
+                                <span class="main_title">의류 사이즈</span>
+                                <span class="placeholder">모든 사이즈</span>
+                            </div>
+
+                            <div class="dropdown">
+                                <button onclick="dd_menu6()" class="side_btn1">
+                                    <img class="side_btn" src="../img/shopimg/side_btn1.png" alt="">
+                                </button>
+                            </div>
+
+                        </div>
+
+                        <div class="filter_menu_size" id="drop-content6" style="display:none">
+
+                            <div class="column_list column_double">
+                                <a href="#" class="column_menu1"> XXS </a>
+                                <a href="#" class="column_menu1"> XS </a>
+                                <a href="#" class="column_menu1"> S </a>
+                                <a href="#" class="column_menu1"> M </a>
+                                <a href="#" class="column_menu1"> L </a>
+                                <a href="#" class="column_menu1"> XL </a>
+                                <a href="#" class="column_menu1"> XXL </a>
+                                <a href="#" class="column_menu1"> XXXL </a>
+                            </div>
+
+                            <div class="column_list">
+                                <a href="#" class="column_menu"> 28 </a>
+                                <a href="#" class="column_menu"> 29 </a>
+                                <a href="#" class="column_menu"> 30 </a>
+                                <a href="#" class="column_menu"> 31 </a>
+                                <a href="#" class="column_menu"> 32 </a>
+                                <a href="#" class="column_menu"> 33 </a>
+                                <a href="#" class="column_menu"> 34 </a>
+                                <a href="#" class="column_menu"> 35 </a>
+                                <a href="#" class="column_menu"> 36 </a>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <!-- 사이드바 7번 항목 -->
+                    <div class="filter_list">
+
+                        <div class="filter_title">
+
+                            <div class="title_box">
+                                <span class="main_title">가격</span>
+                                <span class="placeholder">모든 가격</span>
+                            </div>
+
+                            <div class="dropdown">
+                                <button onclick="dd_menu7()" class="side_btn1">
+                                    <img class="side_btn" src="../img/shopimg/side_btn1.png" alt="">
+                                </button>
+                            </div>
+
+                        </div>
+
+                        <div class="filter_menu" id="drop-content7" style="display:none">
+                            <ul class="menu_list">
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input41" class="check">
+                                    <label class="check_label" for="input41"></label>
+                                    <span class="link_txt">10만원 이하</span>
+                                </li>
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input42" class="check">
+                                    <label class="check_label" for="input42"></label>
+                                    <span class="link_txt">10만원 - 30만원 이하</span>
+                                </li>
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input43" class="check">
+                                    <label class="check_label" for="input43"></label>
+                                    <span class="link_txt">30만원 - 50만원 이하</span>
+                                </li>
+
+                                <li class="menu checkMenu">
+                                    <input type="checkbox" name="check" id="input44" class="check">
+                                    <label class="check_label" for="input44"></label>
+                                    <span class="link_txt">50만원 이상</span>
+                                </li>
+
+                            </ul>
+                        </div>
+
+
+
+                    </div>
+                </div>
+                <!-- content -->
+                <div class="search_content">
+
+                    <div class="search_option">
+
+                        <div class="filter_btns">
+
+                            <div class="tag_item">
+                                <span class="tag">필터 출력</span>
+                            </div>
+
+                        </div>
+
+                        <div>
+                            <div class="filter_sorting">
+
+                                <button type="button" onclick="dd_menu8()" class="sorting_title">sorting_title
+                                    <img class="desc_logo" src="../img/shopimg/desc_logo_b.png">
+                                </button>
+
+                                <div class="filter_menu" id="drop-content8" >
+                                    <!-- style="display: none;" -->
+                                    <ul class="sorting_list" >
+
+                                        <li class="sorting_item">
+                                            <a href="#" class="sorting_link">
+                                                <div class="sorting_desc">
+                                                    <p class="main_desc">인기순</p>
+                                                    <p class="sub_desc">많이 판매된 순서대로 정렬합니다.</p>
+
+                                                    <img src="../img/wcheck.png" class="sorting_img">
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                        <li class="sorting_item">
+                                            <a href="#" class="sorting_link">
+                                                <div class="sorting_desc">
+                                                    <p class="main_desc">프리미엄순</p>
+                                                    <p class="sub_desc">발매가 대비 가격이 높은 순서대로 정렬합니다.</p>
+
+                                                    <img src="../img/wcheck.png" class="sorting_img">
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                        <li class="sorting_item">
+                                            <a href="#" class="sorting_link">
+                                                <div class="sorting_desc">
+                                                    <p class="main_desc">즉시 구매가순</p>
+                                                    <p class="sub_desc">즉시 구매가가 낮은 순서대로 정렬합니다.</p>
+
+                                                    <img src="../img/wcheck.png" class="sorting_img">
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                        <li class="sorting_item">
+                                            <a href="#" class="sorting_link">
+                                                <div class="sorting_desc">
+                                                    <p class="main_desc">즉시 판매가순</p>
+                                                    <p class="sub_desc">즉시 판매가가 높은 순서대로 정렬합니다.</p>
+
+                                                    <img src="../img/wcheck.png" class="sorting_img">
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                        <li class="sorting_item">
+                                            <a href="#" class="sorting_link">
+                                                <div class="sorting_desc">
+                                                    <p class="main_desc">발매일순</p>
+                                                    <p class="sub_desc">최신 상품 순서대로 정렬합니다. 아직 발매 전인 상품이 노출될 수 있습니다.</p>
+
+                                                    <img src="../img/wcheck.png" class="sorting_img">
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+                    <!-- content 상품 시작-->
+                    <div class="search_result">
+                        <div class="search_result_list">
+                            <!-- 상품 이미지,이너링크-->
+                            <!-- product -->
+
+                            <!-- 1째줄 상품 -->
+
+                            <div class="sec_flex_box">
+                                <div class="sec_img_box">
+                                    <a href="#" class="item_inner">
+                                        <div class="product" style="background-color: rgb(244, 244, 244);">
+                                            <picture class="picture product_img">
+                                                <img src="../img/shopimg/content_11.jpg" class="image">
+                                            </picture>
+                                            
+                                        </div>
+
+                                        <div class="product_info_area">
+                                            <div class="title">
+                                                <p class="product_info_brand brand"> The North Face</p>
+                                                
+                                                <div class="product_info_product_name">
+                                                    <p class="name">The North Face 1996 Eco Nuptse Jacket Black</p>
+                                                    <p class="translated_name">노스페이스 1996 에코 눕시 자켓 블랙</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="price price_area">
+                                            <p class="amount"> 65,000,000원 </p>
+                                            <p class="desc"> 즉시 판매가 </p>
+                                        </div>
+                                    </a>
+
+                                    <div class="action_wish_review">
+                                        <span class="wish_figure">
+                                            <span aria-label="관심상품" role="button" class="btn_wish" icon-name="ico-wish-grey">
+                                                <img width="14" height="16" src="../img/brands_wish.png" class="icon sprite-icons">
+                                            </span>
+                                            
+                                            <span class="text">3.1만</span>
+                                        </span>
+                                        
+                                        <span class="review_figure">
+                                            <span class="review_link" aria-label="조던 1 레트로 하이 OG 시카고 2022 리뷰" role="button">
+                                                <img width="15" height="15" src="../img/brands_hashtag.png" class="icon sprite-icons">
+                                            </span>
+                                            
+                                            <span class="text">2,306</span>
+                                        </span>
+
+                                    </div>
+
+
+                                </div>
+
+                                <div class="sec_img_box">
+                                    <a href="#" class="sec_img_a">
+                                        <div class="sec_img" id="sec2_img1">
+                                            <p class="sec_imgClass" id="sec2_imgClass1">
+                                            </p>
+                                        </div>
+                                        <div class="sec_brand_box">
+                                            <div class="sec_brand_text">
+
+                                            </div>
+                                            <div class="sec_mark_box">
+                                                <a href="#" class="a_mark">
+                                                    <div class="sec_marking"></div>
+                                                </a>
+                                            </div>
+                                            <div class="sec_price">
+                                                <div class="sec_num"></div>
+                                                <div class="sec_won">원</div>
+                                            </div>
+                                            <div class="sec_price_text">즉시 구매가</div>
+
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="sec_img_box">
+                                    <a href="#" class="sec_img_a">
+                                        <div class="sec_img" id="sec2_img1">
+                                            <p class="sec_imgClass" id="sec2_imgClass1">
+                                            </p>
+                                        </div>
+                                        <div class="sec_brand_box">
+                                            <div class="sec_brand_text">
+
+                                            </div>
+                                            <div class="sec_mark_box">
+                                                <a href="#" class="a_mark">
+                                                    <div class="sec_marking"></div>
+                                                </a>
+                                            </div>
+                                            <div class="sec_price">
+                                                <div class="sec_num"></div>
+                                                <div class="sec_won">원</div>
+                                            </div>
+                                            <div class="sec_price_text">즉시 구매가</div>
+
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="sec_img_box">
+                                    <a href="#" class="sec_img_a">
+                                        <div class="sec_img" id="sec2_img1">
+                                            <p class="sec_imgClass" id="sec2_imgClass1">
+                                            </p>
+                                        </div>
+                                        <div class="sec_brand_box">
+                                            <div class="sec_brand_text">
+
+                                            </div>
+                                            <div class="sec_mark_box">
+                                                <a href="#" class="a_mark">
+                                                    <div class="sec_marking"></div>
+                                                </a>
+                                            </div>
+                                            <div class="sec_price">
+                                                <div class="sec_num"></div>
+                                                <div class="sec_won">원</div>
+                                            </div>
+                                            <div class="sec_price_text">즉시 구매가</div>
+
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- 2째줄 상품 -->
+
+                            <div class="sec_flex_box">
+                                <div class="sec_img_box">
+                                    <a href="#" class="sec_img_a">
+                                        <div class="sec_img" id="sec2_img1">
+                                            <p class="sec_imgClass" id="sec2_imgClass1">
+                                            </p>
+                                        </div>
+                                        <div class="sec_brand_box">
+                                            <div class="sec_brand_text">
+
+                                            </div>
+                                            <div class="sec_mark_box">
+                                                <a href="#" class="a_mark">
+                                                    <div class="sec_marking"></div>
+                                                </a>
+                                            </div>
+                                            <div class="sec_price">
+                                                <div class="sec_num"></div>
+                                                <div class="sec_won">원</div>
+                                            </div>
+                                            <div class="sec_price_text">즉시 구매가</div>
+
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="sec_img_box">
+                                    <a href="#" class="sec_img_a">
+                                        <div class="sec_img" id="sec2_img1">
+                                            <p class="sec_imgClass" id="sec2_imgClass1">
+                                            </p>
+                                        </div>
+                                        <div class="sec_brand_box">
+                                            <div class="sec_brand_text">
+
+                                            </div>
+                                            <div class="sec_mark_box">
+                                                <a href="#" class="a_mark">
+                                                    <div class="sec_marking"></div>
+                                                </a>
+                                            </div>
+                                            <div class="sec_price">
+                                                <div class="sec_num"></div>
+                                                <div class="sec_won">원</div>
+                                            </div>
+                                            <div class="sec_price_text">즉시 구매가</div>
+
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="sec_img_box">
+                                    <a href="#" class="sec_img_a">
+                                        <div class="sec_img" id="sec2_img1">
+                                            <p class="sec_imgClass" id="sec2_imgClass1">
+                                            </p>
+                                        </div>
+                                        <div class="sec_brand_box">
+                                            <div class="sec_brand_text">
+
+                                            </div>
+                                            <div class="sec_mark_box">
+                                                <a href="#" class="a_mark">
+                                                    <div class="sec_marking"></div>
+                                                </a>
+                                            </div>
+                                            <div class="sec_price">
+                                                <div class="sec_num"></div>
+                                                <div class="sec_won">원</div>
+                                            </div>
+                                            <div class="sec_price_text">즉시 구매가</div>
+
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="sec_img_box">
+                                    <a href="#" class="sec_img_a">
+                                        <div class="sec_img" id="sec2_img1">
+                                            <p class="sec_imgClass" id="sec2_imgClass1">
+                                            </p>
+                                        </div>
+                                        <div class="sec_brand_box">
+                                            <div class="sec_brand_text">
+
+                                            </div>
+                                            <div class="sec_mark_box">
+                                                <a href="#" class="a_mark">
+                                                    <div class="sec_marking"></div>
+                                                </a>
+                                            </div>
+                                            <div class="sec_price">
+                                                <div class="sec_num"></div>
+                                                <div class="sec_won">원</div>
+                                            </div>
+                                            <div class="sec_price_text">즉시 구매가</div>
+
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- 3째줄 상품 -->
+
+                            <div class="sec_flex_box">
+                                <div class="sec_img_box">
+                                    <a href="#" class="sec_img_a">
+                                        <div class="sec_img" id="sec2_img1">
+                                            <p class="sec_imgClass" id="sec2_imgClass1">
+                                            </p>
+                                        </div>
+                                        <div class="sec_brand_box">
+                                            <div class="sec_brand_text">
+
+                                            </div>
+                                            <div class="sec_mark_box">
+                                                <a href="#" class="a_mark">
+                                                    <div class="sec_marking"></div>
+                                                </a>
+                                            </div>
+                                            <div class="sec_price">
+                                                <div class="sec_num"></div>
+                                                <div class="sec_won">원</div>
+                                            </div>
+                                            <div class="sec_price_text">즉시 구매가</div>
+
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="sec_img_box">
+                                    <a href="#" class="sec_img_a">
+                                        <div class="sec_img" id="sec2_img1">
+                                            <p class="sec_imgClass" id="sec2_imgClass1">
+                                            </p>
+                                        </div>
+                                        <div class="sec_brand_box">
+                                            <div class="sec_brand_text">
+
+                                            </div>
+                                            <div class="sec_mark_box">
+                                                <a href="#" class="a_mark">
+                                                    <div class="sec_marking"></div>
+                                                </a>
+                                            </div>
+                                            <div class="sec_price">
+                                                <div class="sec_num"></div>
+                                                <div class="sec_won">원</div>
+                                            </div>
+                                            <div class="sec_price_text">즉시 구매가</div>
+
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="sec_img_box">
+                                    <a href="#" class="sec_img_a">
+                                        <div class="sec_img" id="sec2_img1">
+                                            <p class="sec_imgClass" id="sec2_imgClass1">
+                                            </p>
+                                        </div>
+                                        <div class="sec_brand_box">
+                                            <div class="sec_brand_text">
+
+                                            </div>
+                                            <div class="sec_mark_box">
+                                                <a href="#" class="a_mark">
+                                                    <div class="sec_marking"></div>
+                                                </a>
+                                            </div>
+                                            <div class="sec_price">
+                                                <div class="sec_num"></div>
+                                                <div class="sec_won">원</div>
+                                            </div>
+                                            <div class="sec_price_text">즉시 구매가</div>
+
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="sec_img_box">
+                                    <a href="#" class="sec_img_a">
+                                        <div class="sec_img" id="sec2_img1">
+                                            <p class="sec_imgClass" id="sec2_imgClass1">
+                                            </p>
+                                        </div>
+                                        <div class="sec_brand_box">
+                                            <div class="sec_brand_text">
+
+                                            </div>
+                                            <div class="sec_mark_box">
+                                                <a href="#" class="a_mark">
+                                                    <div class="sec_marking"></div>
+                                                </a>
+                                            </div>
+                                            <div class="sec_price">
+                                                <div class="sec_num"></div>
+                                                <div class="sec_won">원</div>
+                                            </div>
+                                            <div class="sec_price_text">즉시 구매가</div>
+
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- 4째줄 상품 -->
+
+                            <div class="sec_flex_box">
+                                <div class="sec_img_box">
+                                    <a href="#" class="sec_img_a">
+                                        <div class="sec_img" id="sec2_img1">
+                                            <p class="sec_imgClass" id="sec2_imgClass1">
+                                            </p>
+                                        </div>
+                                        <div class="sec_brand_box">
+                                            <div class="sec_brand_text">
+
+                                            </div>
+                                            <div class="sec_mark_box">
+                                                <a href="#" class="a_mark">
+                                                    <div class="sec_marking"></div>
+                                                </a>
+                                            </div>
+                                            <div class="sec_price">
+                                                <div class="sec_num"></div>
+                                                <div class="sec_won">원</div>
+                                            </div>
+                                            <div class="sec_price_text">즉시 구매가</div>
+
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="sec_img_box">
+                                    <a href="#" class="sec_img_a">
+                                        <div class="sec_img" id="sec2_img1">
+                                            <p class="sec_imgClass" id="sec2_imgClass1">
+                                            </p>
+                                        </div>
+                                        <div class="sec_brand_box">
+                                            <div class="sec_brand_text">
+
+                                            </div>
+                                            <div class="sec_mark_box">
+                                                <a href="#" class="a_mark">
+                                                    <div class="sec_marking"></div>
+                                                </a>
+                                            </div>
+                                            <div class="sec_price">
+                                                <div class="sec_num"></div>
+                                                <div class="sec_won">원</div>
+                                            </div>
+                                            <div class="sec_price_text">즉시 구매가</div>
+
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="sec_img_box">
+                                    <a href="#" class="sec_img_a">
+                                        <div class="sec_img" id="sec2_img1">
+                                            <p class="sec_imgClass" id="sec2_imgClass1">
+                                            </p>
+                                        </div>
+                                        <div class="sec_brand_box">
+                                            <div class="sec_brand_text">
+
+                                            </div>
+                                            <div class="sec_mark_box">
+                                                <a href="#" class="a_mark">
+                                                    <div class="sec_marking"></div>
+                                                </a>
+                                            </div>
+                                            <div class="sec_price">
+                                                <div class="sec_num"></div>
+                                                <div class="sec_won">원</div>
+                                            </div>
+                                            <div class="sec_price_text">즉시 구매가</div>
+
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="sec_img_box">
+                                    <a href="#" class="sec_img_a">
+                                        <div class="sec_img" id="sec2_img1">
+                                            <p class="sec_imgClass" id="sec2_imgClass1">
+                                            </p>
+                                        </div>
+                                        <div class="sec_brand_box">
+                                            <div class="sec_brand_text">
+
+                                            </div>
+                                            <div class="sec_mark_box">
+                                                <a href="#" class="a_mark">
+                                                    <div class="sec_marking"></div>
+                                                </a>
+                                            </div>
+                                            <div class="sec_price">
+                                                <div class="sec_num"></div>
+                                                <div class="sec_won">원</div>
+                                            </div>
+                                            <div class="sec_price_text">즉시 구매가</div>
+
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- 5째줄 상품 -->
+
+                            <div class="sec_flex_box">
+                                <div class="sec_img_box">
+                                    <a href="#" class="sec_img_a">
+                                        <div class="sec_img" id="sec2_img1">
+                                            <p class="sec_imgClass" id="sec2_imgClass1">
+                                            </p>
+                                        </div>
+                                        <div class="sec_brand_box">
+                                            <div class="sec_brand_text">
+
+                                            </div>
+                                            <div class="sec_mark_box">
+                                                <a href="#" class="a_mark">
+                                                    <div class="sec_marking"></div>
+                                                </a>
+                                            </div>
+                                            <div class="sec_price">
+                                                <div class="sec_num"></div>
+                                                <div class="sec_won">원</div>
+                                            </div>
+                                            <div class="sec_price_text">즉시 구매가</div>
+
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="sec_img_box">
+                                    <a href="#" class="sec_img_a">
+                                        <div class="sec_img" id="sec2_img1">
+                                            <p class="sec_imgClass" id="sec2_imgClass1">
+                                            </p>
+                                        </div>
+                                        <div class="sec_brand_box">
+                                            <div class="sec_brand_text">
+
+                                            </div>
+                                            <div class="sec_mark_box">
+                                                <a href="#" class="a_mark">
+                                                    <div class="sec_marking"></div>
+                                                </a>
+                                            </div>
+                                            <div class="sec_price">
+                                                <div class="sec_num"></div>
+                                                <div class="sec_won">원</div>
+                                            </div>
+                                            <div class="sec_price_text">즉시 구매가</div>
+
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="sec_img_box">
+                                    <a href="#" class="sec_img_a">
+                                        <div class="sec_img" id="sec2_img1">
+                                            <p class="sec_imgClass" id="sec2_imgClass1">
+                                            </p>
+                                        </div>
+                                        <div class="sec_brand_box">
+                                            <div class="sec_brand_text">
+
+                                            </div>
+                                            <div class="sec_mark_box">
+                                                <a href="#" class="a_mark">
+                                                    <div class="sec_marking"></div>
+                                                </a>
+                                            </div>
+                                            <div class="sec_price">
+                                                <div class="sec_num"></div>
+                                                <div class="sec_won">원</div>
+                                            </div>
+                                            <div class="sec_price_text">즉시 구매가</div>
+
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="sec_img_box">
+                                    <a href="#" class="sec_img_a">
+                                        <div class="sec_img" id="sec2_img1">
+                                            <p class="sec_imgClass" id="sec2_imgClass1">
+                                            </p>
+                                        </div>
+                                        <div class="sec_brand_box">
+                                            <div class="sec_brand_text">
+
+                                            </div>
+                                            <div class="sec_mark_box">
+                                                <a href="#" class="a_mark">
+                                                    <div class="sec_marking"></div>
+                                                </a>
+                                            </div>
+                                            <div class="sec_price">
+                                                <div class="sec_num"></div>
+                                                <div class="sec_won">원</div>
+                                            </div>
+                                            <div class="sec_price_text">즉시 구매가</div>
+
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+
+                            <!-- product 끝-->
+                        </div>
+                    </div>
+                    <!-- content 끝-->
                 </div>
-
-                <!-- content 상품 시작-->
-                <div class="search_result">
-                    <div class="search_result_list">
-                        <!-- 상품 이미지,이너링크-->
-                        <!-- product -->
-
-                        <!-- 1째줄 상품 -->
-
-                        <div class="sec_flex_box">
-                            <div class="sec_img_box">
-                                <a href="#" class="sec_img_a">
-                                    <div class="sec_img" id="sec2_img1">
-                                        <p class="sec_imgClass" id="sec2_imgClass1">
-                                        </p>
-                                    </div>
-                                    <div class="sec_brand_box">
-                                        <div class="sec_brand_text">
-
-                                        </div>
-                                        <div class="sec_mark_box">
-                                            <a href="#" class="a_mark">
-                                                <div class="sec_marking"></div>
-                                            </a>
-                                        </div>
-                                        <div class="sec_price">
-                                            <div class="sec_num"></div>
-                                            <div class="sec_won">원</div>
-                                        </div>
-                                        <div class="sec_price_text">즉시 구매가</div>
-
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="sec_img_box">
-                                <a href="#" class="sec_img_a">
-                                    <div class="sec_img" id="sec2_img1">
-                                        <p class="sec_imgClass" id="sec2_imgClass1">
-                                        </p>
-                                    </div>
-                                    <div class="sec_brand_box">
-                                        <div class="sec_brand_text">
-
-                                        </div>
-                                        <div class="sec_mark_box">
-                                            <a href="#" class="a_mark">
-                                                <div class="sec_marking"></div>
-                                            </a>
-                                        </div>
-                                        <div class="sec_price">
-                                            <div class="sec_num"></div>
-                                            <div class="sec_won">원</div>
-                                        </div>
-                                        <div class="sec_price_text">즉시 구매가</div>
-
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="sec_img_box">
-                                <a href="#" class="sec_img_a">
-                                    <div class="sec_img" id="sec2_img1">
-                                        <p class="sec_imgClass" id="sec2_imgClass1">
-                                        </p>
-                                    </div>
-                                    <div class="sec_brand_box">
-                                        <div class="sec_brand_text">
-
-                                        </div>
-                                        <div class="sec_mark_box">
-                                            <a href="#" class="a_mark">
-                                                <div class="sec_marking"></div>
-                                            </a>
-                                        </div>
-                                        <div class="sec_price">
-                                            <div class="sec_num"></div>
-                                            <div class="sec_won">원</div>
-                                        </div>
-                                        <div class="sec_price_text">즉시 구매가</div>
-
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="sec_img_box">
-                                <a href="#" class="sec_img_a">
-                                    <div class="sec_img" id="sec2_img1">
-                                        <p class="sec_imgClass" id="sec2_imgClass1">
-                                        </p>
-                                    </div>
-                                    <div class="sec_brand_box">
-                                        <div class="sec_brand_text">
-
-                                        </div>
-                                        <div class="sec_mark_box">
-                                            <a href="#" class="a_mark">
-                                                <div class="sec_marking"></div>
-                                            </a>
-                                        </div>
-                                        <div class="sec_price">
-                                            <div class="sec_num"></div>
-                                            <div class="sec_won">원</div>
-                                        </div>
-                                        <div class="sec_price_text">즉시 구매가</div>
-
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- 2째줄 상품 -->
-
-                        <div class="sec_flex_box">
-                            <div class="sec_img_box">
-                                <a href="#" class="sec_img_a">
-                                    <div class="sec_img" id="sec2_img1">
-                                        <p class="sec_imgClass" id="sec2_imgClass1">
-                                        </p>
-                                    </div>
-                                    <div class="sec_brand_box">
-                                        <div class="sec_brand_text">
-
-                                        </div>
-                                        <div class="sec_mark_box">
-                                            <a href="#" class="a_mark">
-                                                <div class="sec_marking"></div>
-                                            </a>
-                                        </div>
-                                        <div class="sec_price">
-                                            <div class="sec_num"></div>
-                                            <div class="sec_won">원</div>
-                                        </div>
-                                        <div class="sec_price_text">즉시 구매가</div>
-
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="sec_img_box">
-                                <a href="#" class="sec_img_a">
-                                    <div class="sec_img" id="sec2_img1">
-                                        <p class="sec_imgClass" id="sec2_imgClass1">
-                                        </p>
-                                    </div>
-                                    <div class="sec_brand_box">
-                                        <div class="sec_brand_text">
-
-                                        </div>
-                                        <div class="sec_mark_box">
-                                            <a href="#" class="a_mark">
-                                                <div class="sec_marking"></div>
-                                            </a>
-                                        </div>
-                                        <div class="sec_price">
-                                            <div class="sec_num"></div>
-                                            <div class="sec_won">원</div>
-                                        </div>
-                                        <div class="sec_price_text">즉시 구매가</div>
-
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="sec_img_box">
-                                <a href="#" class="sec_img_a">
-                                    <div class="sec_img" id="sec2_img1">
-                                        <p class="sec_imgClass" id="sec2_imgClass1">
-                                        </p>
-                                    </div>
-                                    <div class="sec_brand_box">
-                                        <div class="sec_brand_text">
-
-                                        </div>
-                                        <div class="sec_mark_box">
-                                            <a href="#" class="a_mark">
-                                                <div class="sec_marking"></div>
-                                            </a>
-                                        </div>
-                                        <div class="sec_price">
-                                            <div class="sec_num"></div>
-                                            <div class="sec_won">원</div>
-                                        </div>
-                                        <div class="sec_price_text">즉시 구매가</div>
-
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="sec_img_box">
-                                <a href="#" class="sec_img_a">
-                                    <div class="sec_img" id="sec2_img1">
-                                        <p class="sec_imgClass" id="sec2_imgClass1">
-                                        </p>
-                                    </div>
-                                    <div class="sec_brand_box">
-                                        <div class="sec_brand_text">
-
-                                        </div>
-                                        <div class="sec_mark_box">
-                                            <a href="#" class="a_mark">
-                                                <div class="sec_marking"></div>
-                                            </a>
-                                        </div>
-                                        <div class="sec_price">
-                                            <div class="sec_num"></div>
-                                            <div class="sec_won">원</div>
-                                        </div>
-                                        <div class="sec_price_text">즉시 구매가</div>
-
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- 3째줄 상품 -->
-
-                        <div class="sec_flex_box">
-                            <div class="sec_img_box">
-                                <a href="#" class="sec_img_a">
-                                    <div class="sec_img" id="sec2_img1">
-                                        <p class="sec_imgClass" id="sec2_imgClass1">
-                                        </p>
-                                    </div>
-                                    <div class="sec_brand_box">
-                                        <div class="sec_brand_text">
-
-                                        </div>
-                                        <div class="sec_mark_box">
-                                            <a href="#" class="a_mark">
-                                                <div class="sec_marking"></div>
-                                            </a>
-                                        </div>
-                                        <div class="sec_price">
-                                            <div class="sec_num"></div>
-                                            <div class="sec_won">원</div>
-                                        </div>
-                                        <div class="sec_price_text">즉시 구매가</div>
-
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="sec_img_box">
-                                <a href="#" class="sec_img_a">
-                                    <div class="sec_img" id="sec2_img1">
-                                        <p class="sec_imgClass" id="sec2_imgClass1">
-                                        </p>
-                                    </div>
-                                    <div class="sec_brand_box">
-                                        <div class="sec_brand_text">
-
-                                        </div>
-                                        <div class="sec_mark_box">
-                                            <a href="#" class="a_mark">
-                                                <div class="sec_marking"></div>
-                                            </a>
-                                        </div>
-                                        <div class="sec_price">
-                                            <div class="sec_num"></div>
-                                            <div class="sec_won">원</div>
-                                        </div>
-                                        <div class="sec_price_text">즉시 구매가</div>
-
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="sec_img_box">
-                                <a href="#" class="sec_img_a">
-                                    <div class="sec_img" id="sec2_img1">
-                                        <p class="sec_imgClass" id="sec2_imgClass1">
-                                        </p>
-                                    </div>
-                                    <div class="sec_brand_box">
-                                        <div class="sec_brand_text">
-
-                                        </div>
-                                        <div class="sec_mark_box">
-                                            <a href="#" class="a_mark">
-                                                <div class="sec_marking"></div>
-                                            </a>
-                                        </div>
-                                        <div class="sec_price">
-                                            <div class="sec_num"></div>
-                                            <div class="sec_won">원</div>
-                                        </div>
-                                        <div class="sec_price_text">즉시 구매가</div>
-
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="sec_img_box">
-                                <a href="#" class="sec_img_a">
-                                    <div class="sec_img" id="sec2_img1">
-                                        <p class="sec_imgClass" id="sec2_imgClass1">
-                                        </p>
-                                    </div>
-                                    <div class="sec_brand_box">
-                                        <div class="sec_brand_text">
-
-                                        </div>
-                                        <div class="sec_mark_box">
-                                            <a href="#" class="a_mark">
-                                                <div class="sec_marking"></div>
-                                            </a>
-                                        </div>
-                                        <div class="sec_price">
-                                            <div class="sec_num"></div>
-                                            <div class="sec_won">원</div>
-                                        </div>
-                                        <div class="sec_price_text">즉시 구매가</div>
-
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- 4째줄 상품 -->
-
-                        <div class="sec_flex_box">
-                            <div class="sec_img_box">
-                                <a href="#" class="sec_img_a">
-                                    <div class="sec_img" id="sec2_img1">
-                                        <p class="sec_imgClass" id="sec2_imgClass1">
-                                        </p>
-                                    </div>
-                                    <div class="sec_brand_box">
-                                        <div class="sec_brand_text">
-
-                                        </div>
-                                        <div class="sec_mark_box">
-                                            <a href="#" class="a_mark">
-                                                <div class="sec_marking"></div>
-                                            </a>
-                                        </div>
-                                        <div class="sec_price">
-                                            <div class="sec_num"></div>
-                                            <div class="sec_won">원</div>
-                                        </div>
-                                        <div class="sec_price_text">즉시 구매가</div>
-
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="sec_img_box">
-                                <a href="#" class="sec_img_a">
-                                    <div class="sec_img" id="sec2_img1">
-                                        <p class="sec_imgClass" id="sec2_imgClass1">
-                                        </p>
-                                    </div>
-                                    <div class="sec_brand_box">
-                                        <div class="sec_brand_text">
-
-                                        </div>
-                                        <div class="sec_mark_box">
-                                            <a href="#" class="a_mark">
-                                                <div class="sec_marking"></div>
-                                            </a>
-                                        </div>
-                                        <div class="sec_price">
-                                            <div class="sec_num"></div>
-                                            <div class="sec_won">원</div>
-                                        </div>
-                                        <div class="sec_price_text">즉시 구매가</div>
-
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="sec_img_box">
-                                <a href="#" class="sec_img_a">
-                                    <div class="sec_img" id="sec2_img1">
-                                        <p class="sec_imgClass" id="sec2_imgClass1">
-                                        </p>
-                                    </div>
-                                    <div class="sec_brand_box">
-                                        <div class="sec_brand_text">
-
-                                        </div>
-                                        <div class="sec_mark_box">
-                                            <a href="#" class="a_mark">
-                                                <div class="sec_marking"></div>
-                                            </a>
-                                        </div>
-                                        <div class="sec_price">
-                                            <div class="sec_num"></div>
-                                            <div class="sec_won">원</div>
-                                        </div>
-                                        <div class="sec_price_text">즉시 구매가</div>
-
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="sec_img_box">
-                                <a href="#" class="sec_img_a">
-                                    <div class="sec_img" id="sec2_img1">
-                                        <p class="sec_imgClass" id="sec2_imgClass1">
-                                        </p>
-                                    </div>
-                                    <div class="sec_brand_box">
-                                        <div class="sec_brand_text">
-
-                                        </div>
-                                        <div class="sec_mark_box">
-                                            <a href="#" class="a_mark">
-                                                <div class="sec_marking"></div>
-                                            </a>
-                                        </div>
-                                        <div class="sec_price">
-                                            <div class="sec_num"></div>
-                                            <div class="sec_won">원</div>
-                                        </div>
-                                        <div class="sec_price_text">즉시 구매가</div>
-
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- 5째줄 상품 -->
-
-                        <div class="sec_flex_box">
-                            <div class="sec_img_box">
-                                <a href="#" class="sec_img_a">
-                                    <div class="sec_img" id="sec2_img1">
-                                        <p class="sec_imgClass" id="sec2_imgClass1">
-                                        </p>
-                                    </div>
-                                    <div class="sec_brand_box">
-                                        <div class="sec_brand_text">
-
-                                        </div>
-                                        <div class="sec_mark_box">
-                                            <a href="#" class="a_mark">
-                                                <div class="sec_marking"></div>
-                                            </a>
-                                        </div>
-                                        <div class="sec_price">
-                                            <div class="sec_num"></div>
-                                            <div class="sec_won">원</div>
-                                        </div>
-                                        <div class="sec_price_text">즉시 구매가</div>
-
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="sec_img_box">
-                                <a href="#" class="sec_img_a">
-                                    <div class="sec_img" id="sec2_img1">
-                                        <p class="sec_imgClass" id="sec2_imgClass1">
-                                        </p>
-                                    </div>
-                                    <div class="sec_brand_box">
-                                        <div class="sec_brand_text">
-
-                                        </div>
-                                        <div class="sec_mark_box">
-                                            <a href="#" class="a_mark">
-                                                <div class="sec_marking"></div>
-                                            </a>
-                                        </div>
-                                        <div class="sec_price">
-                                            <div class="sec_num"></div>
-                                            <div class="sec_won">원</div>
-                                        </div>
-                                        <div class="sec_price_text">즉시 구매가</div>
-
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="sec_img_box">
-                                <a href="#" class="sec_img_a">
-                                    <div class="sec_img" id="sec2_img1">
-                                        <p class="sec_imgClass" id="sec2_imgClass1">
-                                        </p>
-                                    </div>
-                                    <div class="sec_brand_box">
-                                        <div class="sec_brand_text">
-
-                                        </div>
-                                        <div class="sec_mark_box">
-                                            <a href="#" class="a_mark">
-                                                <div class="sec_marking"></div>
-                                            </a>
-                                        </div>
-                                        <div class="sec_price">
-                                            <div class="sec_num"></div>
-                                            <div class="sec_won">원</div>
-                                        </div>
-                                        <div class="sec_price_text">즉시 구매가</div>
-
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="sec_img_box">
-                                <a href="#" class="sec_img_a">
-                                    <div class="sec_img" id="sec2_img1">
-                                        <p class="sec_imgClass" id="sec2_imgClass1">
-                                        </p>
-                                    </div>
-                                    <div class="sec_brand_box">
-                                        <div class="sec_brand_text">
-
-                                        </div>
-                                        <div class="sec_mark_box">
-                                            <a href="#" class="a_mark">
-                                                <div class="sec_marking"></div>
-                                            </a>
-                                        </div>
-                                        <div class="sec_price">
-                                            <div class="sec_num"></div>
-                                            <div class="sec_won">원</div>
-                                        </div>
-                                        <div class="sec_price_text">즉시 구매가</div>
-
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-
-                        <!-- product 끝-->
+            </div>
+        </div>
+
+
+        <!-- Layer content-->
+        <div class="layer_container">
+            <div class="layer_content">
+                <div class="interest_header">
+                    <h2 class="interest_title">관심 상품 추가</h2>
+                </div>
+                <div class="pop_close" onclick="comment_down()"></div>
+                <div class="interest_list">
+                    <div class="interest_item"></div>
+                    <div class="interest_un_list_box">
+                        <div class="interest_un_list"></div>
+                    </div>
+                    <div class="interest_layer_btn">
+                        <a href="#a" class="interest_check_btn" onclick="comment_down()"> 확인</a>
                     </div>
                 </div>
-                <!-- content 끝-->
             </div>
         </div>
-    </div>
 
+        <!-- dropmenu -->
 
-    <!-- Layer content-->
-    <div class="layer_container">
-        <div class="layer_content">
-            <div class="interest_header">
-                <h2 class="interest_title">관심 상품 추가</h2>
-            </div>
-            <div class="pop_close" onclick="comment_down()"></div>
-            <div class="interest_list">
-                <div class="interest_item"></div>
-                <div class="interest_un_list_box">
-                    <div class="interest_un_list"></div>
-                </div>
-                <div class="interest_layer_btn">
-                    <a href="#a" class="interest_check_btn" onclick="comment_down()"> 확인</a>
-                </div>
-            </div>
-        </div>
-    </div>
+        <!-- Layer content 끝-->
 
-    <!-- dropmenu -->
-    
-    <!-- Layer content 끝-->
+        <!-- footer -->
 
-    <!-- footer -->
-    <div th:replace="include/checkFooter :: footer"></div>
-    <!-- footer 끝 -->
+        <!-- footer 끝 -->
 
-    <script src="../js/shop/shop_search.js"></script>
-
-
-    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-    <script th:src="@{/lib/js/search.js}"></script>
-    <script th:src="@{/lib/js/pop.js}"></script>
+        <script src="../js/shop/shop_search.js"></script>
 </body>
 
 </html>

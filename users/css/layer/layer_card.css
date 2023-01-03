@@ -1,5 +1,5 @@
 
-.layer_container {
+.layer_card .layer_container {
     width: 300px;
 }
 .btn {
@@ -114,7 +114,7 @@
     position: relative;
     font-size: 0;
 }
-.checkbox_item .check_label {
+.card_check .checkbox_item .check_label {
     position: relative;
     cursor: pointer;
     display: inline-block;
