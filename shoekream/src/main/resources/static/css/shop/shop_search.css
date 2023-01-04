@@ -10,110 +10,8 @@
 div {
     display: block;
 } */
-
-/* = = = = = header = = = = = */
-
-/* .header.no_line{
-    box-shadow: 0 0 0 0;
-}
-
-.header.lg, .header.md{
-    min-height: 100px;
-}
-
-.header{
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    background-color: #fff;
-}
-
-.header .header_top{
-    box-shadow: 0 1px 0 0 rgb(0 0 0 / 10%);
-}
-
-*, :after, :before {
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
-}
-
-.header .top_inner{
-    display: flex;
-    padding: 8px 40px;
-}
-
-.header .main_inner{
-    display: flex;
-    padding: 0 40px;
-    height: 68px;
-    min-width: 320px;
-    -webkit-box-align: center;
-    align-items: center;
-}
-
-h1 {
-    display: block;
-    font-size: 2em;
-    margin-block-start: 0.67em;
-    margin-block-end: 0.67em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-weight: bold;
-}
-
-li, ol, ul {
-    list-style: none;
-}
-
-.header .top_list{
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-    margin-left: auto;
-}
-
-li {
-    display: list-item;
-    text-align: -webkit-match-parent;
-}
-
-.header .top_link{
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-    font-size: 12px;
-    letter-spacing: -.06px;
-    color: rgba(34,34,34,.8);
-}
-
-.header .top_item+.top_item{
-    margin-left: 24px;
-}
-
-.logo */
-
-
-/* = = = = = = = = = = = = */
-
 /*프리미엄 업*/
-.tag_item{
-    display: flex;
-}
-.filter_btns > div {
-    display: -webkit-inline-box;
-    display: inline-flex;
-    -webkit-box-align: center;
-    align-items: center;
-    margin: 8px 8px 0 0;
-    padding: 4px 10px 4px 10px;
-    background-color: #f4f4f4;
-    border-radius: 6px;
-    font-size: 13px;
-    font-weight: 300;
-    text-align: center;
-}
+
 .status_value{
     position: relative;
     top: -220px;
@@ -199,7 +97,7 @@ header #header_bottom #hb_logo_box #hb_logo{
     margin-left: 1.19rem;
     width: 13.5rem;
     height: 3.8rem;
-    background: url(../img/kream_logo.png)no-repeat center/cover;
+    background: url(/img/kream_logo.png)no-repeat center/cover;
     background-size: 12rem;
 }
 header #header_bottom #hb_box{
@@ -229,7 +127,7 @@ header #header_bottom #hb_box #hb_no_text .hb_button_img{
     width: 2.8rem;
     height: 2.8rem;
     margin-top: 0.46rem;
-    background: url(../img/search.png) no-repeat center/cover;
+    background: url(/img/search.png) no-repeat center/cover;
 }
 header css 끝
 
@@ -359,7 +257,7 @@ a { text-decoration:none }
 
 }
 .search_top .top_box .brand_list{
-    margin-top: 38px;
+    margin-top: 180px;
     text-align: center;
     font-weight: bold;
     font-size: 1.5rem;
@@ -549,7 +447,7 @@ a:visited{
 .desc_check{
     width: 18px;
     height: 18px;
-    background-image: url(../img/h_img/logo/desc_check.png);
+    background-image: url(/img/h_img/logo/desc_check.png);
     background-repeat : no-repeat;
     background-size : cover;
     display: none;
@@ -800,12 +698,12 @@ search content
 .sec_marking{
     width: 100%;
     height: 100%;
-    background: url(../img/h_img/logo/like_logo.PNG) no-repeat center /cover;
+    background: url(/img/h_img/logo/like_logo.PNG) no-repeat center /cover;
 }
 .sec_marking_b{
     width: 100%;
     height: 100%;
-    background: url(../img/h_img/logo/like_logo_b.PNG) no-repeat center /cover;
+    background: url(/img/h_img/logo/like_logo_b.PNG) no-repeat center /cover;
 }
 
 
@@ -819,7 +717,7 @@ search content
 /*************섹션 2 브랜드****************/
 .sec_flex_box .sec_img_box .sec_brand_line #sec2_brand1{
     width: 2.3rem;
-    background: url(../img/sec_brand/sec_brand_jo.png) no-repeat center/cover;
+    background: url(/img/sec_brand/sec_brand_jo.png) no-repeat center/cover;
 }
 
 /*****************섹션 2 이미지 박스 색상******************/
@@ -843,7 +741,7 @@ footer .footer_flex_box a{
 footer .footer_flex_box #footer_left_box{
     width: 50%;
     height: 100%;
-    background: url(../img/footer_left.png) no-repeat center/cover ;
+    background: url(/img/footer_left.png) no-repeat center/cover ;
     background-position: right;
     background-color: rgb(86, 86, 86);
     background-size: 35rem;
@@ -851,7 +749,7 @@ footer .footer_flex_box #footer_left_box{
 footer .footer_flex_box #footer_right_box{
     width: 50%;
     height: 100%;
-    background: url(../img/footer_right.png) no-repeat center/cover ;
+    background: url(/img/footer_right.png) no-repeat center/cover ;
     background-position: right;
     background-color: rgb(59, 58, 60);
     background-size: 35rem;
@@ -998,13 +896,13 @@ footer .footer_flex_box3 #sns_img li{
     height: 2.35rem;
 }
 footer .footer_flex_box3 #sns_img #insta_img{
-    background: url(../img/insta_img.png)no-repeat center/cover;
+    background: url(/img/insta_img.png)no-repeat center/cover;
 }
 footer .footer_flex_box3 #sns_img #facebook_img{
-    background: url(../img/facebook_img.png)no-repeat center/cover;
+    background: url(/img/facebook_img.png)no-repeat center/cover;
 }
 footer .footer_flex_box3 #sns_img #chat_img{
-    background: url(../img/chat_img.png)no-repeat center/cover;
+    background: url(/img/chat_img.png)no-repeat center/cover;
 }
 footer .footer_flex_box3 #footer_box3_2{
     margin-top: 1.7rem;
@@ -1072,6 +970,7 @@ button {
 .menu_list {
     margin-top: 1px;
     margin-bottom: 10px;
+    padding-left: 40px;
 }
 
 ul {
@@ -1111,7 +1010,7 @@ input[class="check"] + label {
 
 /* 체크박스 꾸미기 - 활성화 */
 input[class="check"]:checked + label {
-    background-image:url("../img/check.png");
+    background-image:url("/img/check.png");
     background-size: 100%;
     border: 1px solid #fff;
 }
@@ -1454,7 +1353,7 @@ footer .footer_flex_box #top_button{
     padding-top: 0.4rem;
     border: 0;
     border-radius: 35px;
-    background: url(../img/top_img.png)no-repeat center/cover;
+    background: url(/img/top_img.png)no-repeat center/cover;
     background-size: 1.3rem;
 }
 
@@ -1493,7 +1392,7 @@ footer .footer_flex_box #top_button{
     padding: 1.2rem 0 1.2rem 4.3rem;
     border: none;
     border-radius: 8px;
-    background: url(../img/search.png) no-repeat left/cover;
+    background: url(/img/search.png) no-repeat left/cover;
     background-size: 2.4rem;
     background-position-x: 1.2rem;
     background-color: #f4f4f4;
@@ -1528,22 +1427,22 @@ footer .footer_flex_box #top_button{
     margin: 0 auto;
 }
 #spi_1{
-    background: url(../img/search.png) no-repeat center/cover;
+    background: url(/img/search.png) no-repeat center/cover;
 }
 #spi_2{
-    background: url(../img/search.png) no-repeat center/cover;
+    background: url(/img/search.png) no-repeat center/cover;
 }
 #spi_3{
-    background: url(../img/search.png) no-repeat center/cover;
+    background: url(/img/search.png) no-repeat center/cover;
 }
 #spi_4{
-    background: url(../img/search.png) no-repeat center/cover;
+    background: url(/img/search.png) no-repeat center/cover;
 }
 #spi_5{
-    background: url(../img/search.png) no-repeat center/cover;
+    background: url(/img/search.png) no-repeat center/cover;
 }
 #spi_6{
-    background: url(../img/search.png) no-repeat center/cover;
+    background: url(/img/search.png) no-repeat center/cover;
 }
 #search_product_back_1{
     background-color: rgb(246, 238, 237);
@@ -2069,18 +1968,18 @@ input:focus{
 } */
 /*search sibal*/
 
-.search_suggests{
-    position: fixed;
-    top: 172px;
-    left: 36%;
-    background: #fff;
-    z-index: 10000;
-    height: auto;
-    max-width: 405px;
-    width: 405px;
-    overflow-y: auto;
-    border: 1px solid #fffdef;
-}
+/*.search_suggests{*/
+/*    position: fixed;*/
+/*    top: 172px;*/
+/*    left: 36%;*/
+/*    background: #fff;*/
+/*    z-index: 10000;*/
+/*    height: auto;*/
+/*    max-width: 405px;*/
+/*    width: 405px;*/
+/*    overflow-y: auto;*/
+/*    border: 1px solid #fffdef;*/
+/*}*/
 .suggest_listt.lg{
     padding-right: 43px;
 }
@@ -2747,7 +2646,7 @@ input:focus{
     footer .footer_flex_box #footer_left_box{
         width: 100%;
         height: 50%;
-        background: url(../img/footer_left.png) no-repeat center/cover ;
+        background: url(/img/footer_left.png) no-repeat center/cover ;
         background-color: rgb(86, 86, 86);
         background-size: 43.5rem;
         background-position: calc(100% + 61px) 0;
@@ -2755,7 +2654,7 @@ input:focus{
     footer .footer_flex_box #footer_right_box{
         width: 100%;
         height: 50%;
-        background: url(../img/footer_right.png) no-repeat center/cover ;
+        background: url(/img/footer_right.png) no-repeat center/cover ;
         background-position:right;
         background-color: rgb(59, 58, 60);
         background-position: calc(100% + 61px) 0;
@@ -2912,13 +2811,13 @@ input:focus{
         height: 2.85rem;
     }
     footer .footer_flex_box3 #sns_img #insta_img{
-        background: url(../img/insta_img.png)no-repeat center/cover;
+        background: url(/img/insta_img.png)no-repeat center/cover;
     }
     footer .footer_flex_box3 #sns_img #facebook_img{
-        background: url(../img/facebook_img.png)no-repeat center/cover;
+        background: url(/img/facebook_img.png)no-repeat center/cover;
     }
     footer .footer_flex_box3 #sns_img #chat_img{
-        background: url(../img/chat_img.png)no-repeat center/cover;
+        background: url(/img/chat_img.png)no-repeat center/cover;
     }
     footer .footer_flex_box3 #footer_box3_2{
         margin-top: 1.7rem;
@@ -2989,14 +2888,14 @@ input:focus{
         padding-top: 0.4rem;
         border: 0;
         border-radius: 35px;
-        background: url(../img/top_img.png)no-repeat center/cover;
+        background: url(/img/top_img.png)no-repeat center/cover;
         background-size: 1.5rem;
     }
     .up_down_img{
         width: 2rem;
         height: 2rem;
         margin-top: 0.25rem;
-        background: url(../img/up_down_down.png)no-repeat center/cover;
+        background: url(/img/up_down_down.png)no-repeat center/cover;
     }
 
 
@@ -3046,7 +2945,7 @@ input:focus{
         height: 5.1rem;
         border: none;
         border-radius: 8px;
-        background: url(../img/search.png) no-repeat ;
+        background: url(/img/search.png) no-repeat ;
         background-size: 3rem;
         background-position-x: 1.6rem;
         background-color: #f4f4f4;

@@ -219,11 +219,11 @@ const items = document.querySelectorAll(".like");
 
             const ch = item.childNodes;
 
-            if(ch[1].getAttribute('src')=='../img/smile.png'){
-                ch[1].setAttribute('src','../img/heart.png');
+            if(ch[1].getAttribute('src')=='/img/smile.png'){
+                ch[1].setAttribute('src','/img/heart.png');
                 // 숫자 ++1
             }else{
-                ch[1].setAttribute('src','../img/smile.png');
+                ch[1].setAttribute('src','/img/smile.png');
             }
             
         });
@@ -295,10 +295,10 @@ const wishes = document.querySelectorAll(".interest_btn_box .btn_interest");
             const ch = wish.childNodes;
             // console.log(ch);
 
-            if(ch[3].getAttribute("src") == "../img/select_mark_off.PNG"){
-                ch[3].setAttribute("src","../img/select_mark_on.png");
+            if(ch[3].getAttribute("src") == "/img/select_mark_off.PNG"){
+                ch[3].setAttribute("src","/img/select_mark_on.png");
             }else{
-                ch[3].setAttribute("src","../img/select_mark_off.PNG");
+                ch[3].setAttribute("src","/img/select_mark_off.PNG");
             } 
         })
     });
@@ -325,11 +325,11 @@ let count = 0;
             }
 
             if(count > 0) {
-                wish_onoff.setAttribute("src","../img/select_mark_on.png");
-                wish_onoff2.setAttribute("src","../img/select_mark_on.png");
+                wish_onoff.setAttribute("src","/img/select_mark_on.png");
+                wish_onoff2.setAttribute("src","/img/select_mark_on.png");
             }else{
-                wish_onoff.setAttribute("src","../img/select_mark_off.PNG");
-                wish_onoff2.setAttribute("src","../img/select_mark_off.png");
+                wish_onoff.setAttribute("src","/img/select_mark_off.PNG");
+                wish_onoff2.setAttribute("src","/img/select_mark_off.png");
             }
         })
     });
@@ -353,7 +353,7 @@ item.forEach((target) => {
 
 
         // 사이즈값 찍어주기
-        $('span.input_text').text(target.innerHTML.replace('<img src="../img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;">',""));
+        $('span.input_text').text(target.innerHTML.replace('<img src="/img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;">',""));
 
         // 사이즈값 가져오기
         let size = $('span.it1').text(); // 앞에 찍어주는 사이즈값(메인 사이즈팝업창)

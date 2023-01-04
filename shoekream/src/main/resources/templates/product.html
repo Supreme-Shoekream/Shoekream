@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -18,6 +19,7 @@
         
         <link rel="stylesheet" href="/css/product.css">
         <link rel="stylesheet" href="/css/fragment/footer.css">
+        <link rel="stylesheet" href="/css/fragment/header.css">
         <style>
             .layer_header {
                 margin: auto;
@@ -34,63 +36,11 @@
                     <header th:replace="/fragment/header.html :: header"></header>
                     <!-- 헤더 끝 -->
     
-                                <!-- 모바일 버전 시작 -->
-                            <!-- <div class="nav_btn_box">
-                                    <button type="button" aria-label="검색" class="btn_search" style="display:;">
-                                    <img src="../img/search.png" class="nav-search icon sprite-icons">
-                                    </button>
-                                    <button type="button" aria-label="메뉴" class="btn_menu">
-                                    <img src="../img/search.png" class="nav-search icon sprite-icons">
-                                    </button>
-                                </div>
-                                <div style="display: none;">
-                                    <div class="navigation_wrap">
-                                        <div class="navigation">
-                                            <div class="navigation_inner">
-                                                <ul class="nav_list">
-                                                    <li class="nav_item">
-                                                        <a class="nav_link">STYLE</a>
-                                                    </li>
-                                                    <li class="nav_item">
-                                                        <a class="nav_link">SHOP</a>
-                                                    </li>
-                                                    <li class="nav_item">
-                                                        <a class="nav_link">자주 묻는 질문</a>
-                                                    </li>
-                                                    <li class="nav_item">
-                                                        <a class="nav_link">공지사항</a>
-                                                    </li>
-                                                    <li class="nav_item" style="display:;">
-                                                        <a class="nav_link">로그인</a>
-                                                    </li>
-                                                    <li class="nav_item" style="display:none;">
-                                                        <a class="nav_link">마이 페이지</a>
-                                                    </li>
-                                                </ul>
-                                                <div class="nav_logout" style="display:none;">
-                                                    <button class="btn_logout">로그아웃</button>
-                                                    <p class="text_mail"></p>
-                                                </div>
-                                                <div class="nav_download">
-                                                    <p class="download_txt">KREAM 앱 설치 후 사용해 보세요!</p>
-                                                    <div class="btn_appdown">
-                                                        <a class="btn outline medium">앱 다운로드</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <button type="button" aria-label="닫기" class="btn_nav_close">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="ico-close icon sprite-icons">
-                                                    <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-close" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-close"></use>
-                                                </svg>
-                                            </button>
-                                        </div>
-                                    </div>
-                            </div> -->
+
                             </div>
                         </div>
                     </div>
-                    <!-- 모바일버전 끝 -->
-                    <!---->
+
                     <!-- 컨텐츠 시작 -->
                     <div class="container detail lg">
                         <div class="content">
@@ -167,7 +117,7 @@
                                             <div class="detail_main_title lg">
                                                 <div class="main_title_box">
                                                     <div>
-                                                    <a href="/brands/nike" click.prevent="onClickBrand" class="brand" >Nike</a>
+                                                    <a href="/brand" click.prevent="onClickBrand" class="brand" >Nike</a>
                                                     </div>
                                                     <p class="title">Nike Dunk Low SE Seoul</p>
                                                     <p class="sub_title">나이키 덩크 로우 SE 서울</p>
@@ -1499,9 +1449,6 @@
                                                         <!---->
                                                     </div>
                                                 </div>
-                                                <div class="img_count">
-                                                    <span class="count">+5</span>
-                                                </div>
                                             </a>
                                         </div>
                                         <div class="feed_card item square" style="position: absolute; left: 614px; top: 0px;">
@@ -1674,7 +1621,7 @@
                                         </div>
                                     </div>
                                     <div class="more_btn_box">
-                                        <button type="button" class="btn outlinegrey medium" onclick="location.href='./social/social_product.html'">더보기</button>
+                                        <button type="button" class="btn outlinegrey medium" onclick="location.href='/social/social_product'">더보기</button>
                                     </div>
                                     <div class="list_loading" style="display: none;">
                                         <img src="/_nuxt/img/loading.410eb77.gif" loading="lazy" alt="리스트 로딩중입니다." class="loading_img">
@@ -1688,7 +1635,7 @@
                                 <h3 class="more_title">
                                     <span class="owner">Nike</span>
                                     <span class="title_txt">의 다른 상품</span>
-                                    <a href="./brands.html" class="btn_more">
+                                    <a href="/brand" class="btn_more">
                                         <span class="btn_txt">더보기</span>
                                         <img src="/img/right_arrow.png" class="icon sprite-icons arr-right-gray"></img>
                                     </a>
@@ -2270,28 +2217,14 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- 관심 상품 클릭시 팝업 레이어창 끝 -->
-                        <!---->
-                        <!---->
-                        <!---->
+
                 </div>
                 
-                <!-- 푸터 시작 -->
+                <!-- 푸터 -->
                 <footer th:replace="/fragment/footer.html :: footer"></footer>
-                <!-- 푸터 끝 -->
+                <!-- 푸터 -->
 
-                <!-- <div>
-                                <div id="toast" class="toast lg">
-                                    <div class="wrap">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon sprite-icons toast-icon toast-success">
-                                            <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-toast-success" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-toast-success"></use>
-                                        </svg>
-                                        <div class="toast-content">
-                                            <p>내용</p>
-                                        </div>
-                                    </div>
-                                </div>
-                </div>  -->
+
                 </div>
             </div>
         </div>

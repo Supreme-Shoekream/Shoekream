@@ -85,7 +85,7 @@ header #header_bottom #hb_logo_box #hb_logo{
     margin-left: 1.19rem;
     width: 13.5rem;
     height: 3.8rem;
-    background: url(../img/kream_logo.png)no-repeat center/cover;
+    background: url(/img/kream_logo.png)no-repeat center/cover;
     background-size: 12rem;
 }
 header #header_bottom #hb_box{
@@ -115,7 +115,7 @@ header #header_bottom #hb_box #hb_no_text .hb_button_img{
     width: 2.8rem;
     height: 2.8rem;
     margin-top: 0.6rem;
-    background: url(../img/search.png) no-repeat center/cover;
+    background: url(/img/search.png) no-repeat center/cover;
 }
 /* header css 끝*/
 
@@ -439,13 +439,13 @@ footer .footer_flex_box3 #sns_img li{
     height: 2.35rem;
 }
 footer .footer_flex_box3 #sns_img #insta_img{
-    background: url(../img/insta_img.png)no-repeat center/cover;
+    background: url(/img/insta_img.png)no-repeat center/cover;
 }
 footer .footer_flex_box3 #sns_img #facebook_img{
-    background: url(../img/facebook_img.png)no-repeat center/cover;
+    background: url(/img/facebook_img.png)no-repeat center/cover;
 }
 footer .footer_flex_box3 #sns_img #chat_img{
-    background: url(../img/chat_img.png)no-repeat center/cover;
+    background: url(/img/chat_img.png)no-repeat center/cover;
 }
 footer .footer_flex_box3 #footer_box3_2{
     margin-top: 1.7rem;
@@ -506,7 +506,7 @@ footer .footer_flex_box #top_button{
     padding-top: 0.4rem;
     border: 0;
     border-radius: 35px;
-    background: url(../img/top_img.png)no-repeat center/cover;
+    background: url(/img/top_img.png)no-repeat center/cover;
     background-size: 1.3rem;
 }
 
