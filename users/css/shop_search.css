@@ -98,7 +98,22 @@ li {
 /* = = = = = = = = = = = = */
 
 /*프리미엄 업*/
-
+.tag_item{
+    display: flex;
+}
+.filter_btns > div {
+    display: -webkit-inline-box;
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 8px 8px 0 0;
+    padding: 4px 10px 4px 10px;
+    background-color: #f4f4f4;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 300;
+    text-align: center;
+}
 .status_value{
     position: relative;
     top: -220px;

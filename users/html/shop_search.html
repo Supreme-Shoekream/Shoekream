@@ -316,7 +316,6 @@
                             <ul class="menu_list">
 
                                 <!------------------------------ 카테고리 > 신발 ------------------------------>
-
                                 <li class="menu checkMenu">
                                     <input type="checkbox" name="check" id="input0" onclick="dd_cm1()" class="check">
                                     <label class="check_label" for="input0"></label>
@@ -900,13 +899,7 @@
 
                     <div class="search_option">
 
-                        <div class="filter_btns">
-
-                            <div class="tag_item">
-                                <span class="tag">필터 출력</span>
-                            </div>
-
-                        </div>
+                        
 
                         <div>
                             <div class="filter_sorting">
@@ -979,6 +972,7 @@
                             </div>
                         </div>
                     </div>
+                    <div class="filter_btns"></div>
 
                     <!-- content 상품 시작-->
                     <div class="search_result">
@@ -1566,6 +1560,54 @@
         <!-- footer 끝 -->
 
         <script src="../js/shop/shop_search.js"></script>
+        <script>
+            // 카테고리 이름 저장
+            const categoryName = document.querySelectorAll('.input_txt')
+            // 카테고리 체크 저장
+            const categoryCheckbox = document.querySelectorAll('.check')
+            categoryCheckbox.forEach((e) => {
+                e.addEventListener('click', f => {
+                    if(e.checked == true){
+                        // 체크x -> 체크o
+                        console.log('체크됨')
+                        categoryCheckbox.forEach(g => {
+                            g.checked = false;
+                        })
+                        e.checked = true;
+                        // 체크박스의 모든체크박스를 풀고 클릭한 체크박스만 체크
+                        const deleteTagDiv = document.querySelectorAll('.tag_delete');
+                        deleteTagDiv.forEach(h => {
+                            h.remove();
+                        })
+                        let thisCategoryName = e.nextElementSibling.nextElementSibling.innerHTML;
+                        // 클릭한 카테고리의 이름 저장
+                        let newDiv = document.createElement("div");
+                        // div생성                        
+                        newDiv.innerHTML = thisCategoryName;
+                        // 이름을 생성된 div에 넣어줌
+                        newDiv.setAttribute("name", thisCategoryName);
+                        // 생성된 div의 name에 이름 저장
+                        newDiv.setAttribute("class", "tag_delete");
+                        let divList = document.querySelector('.filter_btns');
+                        // div 생성위치 저장
+                        divList.appendChild(newDiv);
+                        // div 생성
+                    }else{
+                        // 체크o -> 체크x
+                        console.log('체크해제됨')
+                        categoryCheckbox.forEach(g => {
+                            g.checked = false;
+                        })
+                        // 체크해제 할 때 모든 체크박스 해제
+                        const deleteTagDiv = document.querySelectorAll('.tag_delete');
+                        deleteTagDiv.forEach(h => {
+                            h.remove();
+                        })
+                        // 생성된 태그 div 전부 제거
+                    }                    
+                })
+            })
+        </script>
 </body>
 
 </html>
