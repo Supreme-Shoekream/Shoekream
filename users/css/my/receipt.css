@@ -137,21 +137,7 @@ input[class="check"]:checked + label {
     justify-content: center;
 }
 .form_wrap:not(.mo_ls):not(.mo):not(.sm) .button_wrap button {
-<<<<<<< HEAD
-    width: 128px;
-}
-.solid.disabled, .solid:disabled {
-    background-color: #ebebeb;
-    color: #fff;
-    cursor: default;
-}
-.solid {
-    font-weight: 700;
-    color: #fff;
-    background-color: #222;
-=======
     width: 102px;
->>>>>>> 50221c21ffba4c47e9c57444316431706123b0fa
 }
 .medium {
     padding: 0 18px;
