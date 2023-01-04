@@ -1,0 +1,256 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body, button, dd, div, dl, dt, fieldset, figcaption, figure, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, select, table, td, textarea, th, ul {
+    margin: 0;
+    padding: 0;
+}
+li, ol, ul {
+    list-style: none;
+}
+
+a, a:active, a:focus, a:hover {
+    text-decoration: none;
+}
+a {
+    color: inherit;
+    -webkit-tap-highlight-color: rgba(0,0,0,.1);
+}
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+h3 {
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+#__layout {
+    opacity: 1;
+}
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: #fff;
+}
+.wrap{
+    position: relative;
+    padding-top: 90px;
+}
+.header.lg, .header.md{
+    -webkit-box-shadow: 0 0 0 0 transparent;
+    box-shadow: 0 0 0 0 transparent;
+    min-height: 100px;
+}
+.header .header_top{
+    -webkit-box-shadow: 0 1px 0 0 rgb(0 0 0 / 10%);
+    box-shadow: 0 1px 0 0 rgb(0 0 0 / 10%);
+}
+.header .top_inner{
+    display: flex;
+    padding: 8px 40px;
+}
+
+.header .top_list {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-left: auto;
+}
+
+.header .top_link{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    font-size: 12px;
+    letter-spacing: -.06px;
+    color: rgba(34,34,34,.8);
+}
+.header .top_item+.top_item {
+    margin-left: 24px;
+}
+
+.header .main_inner{
+    display: flex;
+    padding: 0 40px;
+    height: 68px;
+    min-width: 320px;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.header .logo{
+    display: -webkit-box;
+    display: flex;
+    width: 120px;
+    height: 24px;
+}
+.header .logo img{
+    width:150px;
+    height: 150px;
+    position: relative;
+    top:-70px;
+    left:-20px;
+}
+.header .gnb_area, .header .gnb_list{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.header .gnb_area{
+    margin-left: auto;
+}
+.header .gnb_item {
+    margin-right: 40px;
+}
+.header .gnb_link, .header .search_btn_box {
+    display: flex;
+}
+.header .gnb_link {
+    position: relative;
+    font-size: 15px;
+    letter-spacing: -.15px;
+}
+.header .btn_search{
+    display: inherit;
+    border: none!important;
+}
+.btn_search {
+    padding: 0 16px;
+    height: 32px;
+    line-height: 30px;
+    font-size: 13px;
+    letter-spacing: -.07px;
+    color: rgba(34,34,34,.8);
+    border: 1px solid #ebebeb;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.container.customer {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 40px 40px 160px;
+}
+.container.customer .snb_area{
+    float: left;
+    width: 160px;
+    margin-right: 40px;
+}
+
+.container.customer .snb_main_title{
+    padding-bottom: 25px;
+    font-size: 32px;
+    letter-spacing: -.48px;
+    color: #000;
+    text-transform: uppercase;
+}
+.menu_item.menu_on .menu_link{
+    color: #222;
+    font-weight: 700;
+}
+.menu_link{
+    line-height: 18px;
+    font-size: 15px;
+    letter-spacing: -.15px;
+    color: rgba(34,34,34,.5);
+}
+.menu_item+.menu_item {
+    margin-top: 12px;
+}
+.container.customer .content_area{
+    overflow: hidden;
+}
+
+.content_title.border{
+    padding-bottom: 16px;
+    border-bottom: 3px solid #222;
+}
+.content_title{
+    display: flex;
+    padding: 5px 0 6px;
+}
+.content_title.border .title{
+    font-size: 24px;
+    letter-spacing: -.36px;
+}
+.content_title.border .title>h3{
+    line-height: 29px;
+    font-size: inherit;
+    margin:0;
+}
+.dropdown_head {
+    padding: 17px 0 19px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    border-bottom: 1px solid #ebebeb;
+    cursor: pointer;
+}
+/* page 처리 */
+.pagination {
+    padding: 28px 0;
+}
+.pagination_box{
+    position: relative;
+    font-size: 0;
+    text-align: center;
+}
+
+.pagination{
+    padding: 28px 0;
+}
+.prev_btn_box {
+    margin-right: 25px;
+}
+.next_btn_box, .prev_btn_box{
+    display: inline-block;
+    vertical-align: top;
+}
+.next_btn_box .btn_arr, .prev_btn_box .btn_arr {
+    padding: 3px;
+    width: 24px;
+    height: 24px;
+}
+.btn_arr img{
+    width: 18px;
+    height: 22px;
+}
+.page_bind {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.btn_page{
+    display: inline-block;
+    padding: 0 8px;
+    font-size: 16px;
+    color: rgba(34,34,34,.5);
+}
+.btn_page+.btn_page{
+    margin-left: 12px;
+}
+.btn_page.active{
+    font-weight: 700;
+    color: #222;
+}
+.menu_item.active {
+    font-weight: 700;
+    color: #222;
+}
+.menu_item:not(.active) {
+    border-color: #ebebeb;
+}
