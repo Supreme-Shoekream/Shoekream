@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org/">
+<!--head 시작 -->
+<div th:replace="fragment/adminhead :: head"></div>
+<!--head 끝 -->
+<body>
+<div class="pre-loader">
+  <div class="pre-loader-box">
+    <div class="loader-logo">
+      <img src="vendors/images/adminlogo.png" alt="" />
+    </div>
+    <div class="loader-progress" id="progress_div">
+      <div class="bar" id="bar1"></div>
+    </div>
+    <div class="percent" id="percent1">0%</div>
+    <div class="loading-text">Loading...</div>
+  </div>
+</div>
+<!-- header 시작 -->
+<div th:replace="fragment/adminheader :: header"></div>
+<!-- header 끝 -->
+<!-- right-sidebar 시작 -->
+<div th:replace="fragment/adminrightsidebar :: rightsidebar"></div>
+<!-- right-sidebar 끝 -->
+<!-- left-side-bar 시작 -->
+<div th:replace="fragment/adminnavbar :: navbar"></div>
+<!-- left-side-bar 끝 -->
+<div class="main-container">
+  <div class="pd-ltr-20 xs-pd-20-10">
+    <div class="min-height-200px">
+
+      <!-- Simple Datatable start -->
+      <div class="card-box mb-30">
+        <div class="pd-20">
+          <h4 class="text-blue h4">관리자 리스트</h4>
+          <!--번호/이름/아이디/전화번호/등록날짜-->
+        </div>
+        <div class="pb-20">
+          <table class="data-table table stripe hover nowrap">
+            <thead>
+            <tr>
+              <th>idx</th>
+              <th>ID</th>
+              <th>name</th>
+              <th>Hp</th>
+              <th>regdate</th>
+            </tr>
+            </thead>
+            <tfoot>
+            <tr>
+              <th>번호</th>
+              <th>아이디</th>
+              <th>이름</th>
+              <th>핸드폰</th>
+              <th>등록날짜</th>
+            </tr>
+            </tfoot>
+            <tbody id="itemList">
+            <tr class="bg-pink" v-for="dto in itemList">
+              <th scope="row">{{dto.id}}</th>
+              <td>{{dto.userid}}</td>
+              <td>{{dto.status}}</td>
+              <td>{{dto.hp}}</td>
+              <td>{{dto.regDate}}</td>
+            </tr>
+            </tbody>
+          </table>
+          <div class="row">
+            <div class="col-sm-5">
+              <div id="pageNum" class="dataTables_info" role="status"></div>
+              <br><button type="button" class="btn btn-primary m-t-15 waves-effect" onclick="location.href='/userregist'">고객등록</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Simple Datatable End -->
+    </div>
+
+  </div>
+</div>
+<!-- js -->
+<div th:replace="fragment/adminjs :: js"></div>
+<script src="/js/admin/admin_list.js"></script>
+<!-- js -->
+
+</body>
+</html>
