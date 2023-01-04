@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/" xmlns:sec="http://www.w3.org/1999/xhtml"></html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHOEKREAM | 한정판 거래의 FLEX</title>
+    <link rel="stylesheet" href="/css/login/loginStyle.css">
+    <link rel="stylesheet" href="/css/fragment/footer.css">
+    <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://kream.co.kr/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css"/>
+</head>
+
+<!--header 넣을곳-->
+<header th:replace="/fragment/header.html :: header"></header>
+<!--header 넣을곳-->
+
+<body>
+    <div class="help_area">
+        <h2 class="help_title">이메일 아이디 찾기</h2>
+        <div>
+            <div class="help_notice">
+                <p class="notice_txt">
+                    가입 시 등록한 휴대폰 번호를 입력하면<br> 이메일 주소의 일부를 알려드립니다.
+                </p>
+            </div><!--.help_notice END-->
+            
+            <div class="input_box" id="hp_input_box">
+                <h3 class="input_title">휴대폰 번호</h3>
+                <div class="input_item">
+                    <input type="number" maxlength="11" oninput="maxLengthCheck(this)" class="input_txt" name="hp" id="hp_input" placeholder="가입하신 휴대폰 번호">
+                </div><!--.input_item END-->
+                <p class="input_error" id="hp_input_error"></p>
+            </div><!--.input_box END-->
+
+            <div class="help_btn_box">
+                <a disabled="disabled" href="#" type="button" class="btn full solid disabled" id="find_btn"> 이메일 아이디 찾기 </a>
+            </div><!--.help_btn_box END-->
+        </div>
+    </div><!--.help_area END-->
+
+<!--footer 넣을곳-->
+<footer th:replace="fragment/footer.html :: footer"></footer>
+<!--footer 넣을곳-->
+        
+</body>
+</html>
+<script src="/js/login/find_email.js"></script>

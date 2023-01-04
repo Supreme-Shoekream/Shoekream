@@ -18,5 +18,4 @@ public class pageController {
     public ModelAndView buyselect(){
         return new ModelAndView("/buy/buySelect");
     }
-
 }
