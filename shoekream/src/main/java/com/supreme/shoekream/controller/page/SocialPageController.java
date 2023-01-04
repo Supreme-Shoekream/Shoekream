@@ -31,4 +31,7 @@ public class SocialPageController {
 
     @GetMapping(path = "/users")   // http://localhost:8889/social/style_profile_edit
     public ModelAndView users(){ return new ModelAndView("social/users"); }
+
+    @GetMapping(path = "/upload")
+    public ModelAndView upload(){ return new ModelAndView("social/upload"); }
 }
