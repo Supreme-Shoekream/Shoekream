@@ -6,7 +6,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <div class="layer_card layer lg" style="display:none" th:fragment="layer_card">
     <div class="layer_container"><a href="#" class="btn_layer_close">
-            <div><img src="/img/close.png" onclick="closeLayer()"></div>
+            <div><img src="/img/close.png" onclick="close_card()"></div>
             <!---->
         </a>
         <div class="layer_header">
@@ -69,11 +69,11 @@
                 
             </div>
             <div class="layer_btn">
-                <a href="#" class="btn btn_delete outlinegrey medium" onclick="closeLayer()"> 취소 </a>
+                <a href="#" class="btn btn_delete outlinegrey medium" onclick="close_card()"> 취소 </a>
                 <a disabled="disabled" href="#" class="btn btn_save solid medium disabled" id="submit_btn"> 저장하기 </a>
             </div>
         </div>
     </div>
+    <script src="/js/layer/layer_card.js"></script>
 </div>
 </html>
-<!--<script src="/js/layer/layer_card.js"></script>-->

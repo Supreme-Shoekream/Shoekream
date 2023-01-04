@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SHOEKREAM | 한정판 거래의 FLEX</title>
+  <link rel="stylesheet" href="/css/sell/sellSelect.css">
+  <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://kream.co.kr/favicon.ico">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css"/>
+  <link rel="stylesheet" href="/css/order/header.css">
+  <link rel="stylesheet" href="/css/layer/layer.css">
+  <link rel="stylesheet" href="/css/layer/layer_auth_policy.css">
+    <link rel="stylesheet" href="/css/fragment/footer.css">
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+  integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+  crossorigin="anonymous"></script>
+
+</head>
+<body>
+<!-- Header 시작 -->
+<header th:replace="/fragment/order_header.html :: order_header"></header>
+<!-- Header 끝 -->
+    <div class="container sell lg">
+        <div class="content_area">
+            <div class="sell_before">
+                <div class="sell_before_check">
+                    <div class="product_info">
+                        <div class="product_thumb">
+                            <div class="product" style="background-color: rgb(235, 240, 245);">
+                                <img class="product_img" src="https://kream-phinf.pstatic.net/MjAyMjEyMDFfMTUy/MDAxNjY5ODg2NzQ5NTA1.W-ENBVBUcJ1HF3wOE4t2XVqe2UWB_yt992EeH70Jymkg.f6izHKIFNoOtH8A66N0D17fN-VXMVtpNSCPfLM0QLRAg.PNG/a_2b04630496ac4730a559f772a04e4972.png?type=m_webp">
+                            </div>
+                        </div>
+                        <div class="product_detail">
+                            <p class="code">DQ0581-001</p>
+                            <p class="name">Nike x Sacai Zoom Cortez SP Iron Grey</p>
+                            <p class="translated_name">나이키 x 사카이 줌 코르테즈 SP 아이언 그레이</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="sell_before_select">
+                    <div class="select_area lg">
+                        <ul class="select_list">
+                        <li class="select_item">
+                            <button role="button" aria-selected="false" class="select_link sell bid" >
+                                <div class="link_inner">
+                                    <span class="size"> 225 </span>
+                                    <span class="price">판매입찰</span>
+                                </div>
+                            </button>
+                        </li>
+                        <li class="select_item">
+                            <button role="button" aria-selected="true" class="select_link sell" >
+                                <div class="link_inner">
+                                    <span class="size"> 230 </span>
+                                    <span class="price">345,000</span>
+                                </div>
+                            </button>
+                        </li>
+                        <li class="select_item">
+                            <button role="button" aria-selected="false" class="select_link sell" >
+                                <div class="link_inner">
+                                    <span class="size"> 235(US 4.5) </span>
+                                    <span class="price">340,000</span>
+                                </div>
+                            </button>
+                        </li>
+                        <li class="select_item">
+                            <button role="button" aria-selected="false" class="select_link sell" >
+                                <div class="link_inner">
+                                    <span class="size"> 235(US 5) </span>
+                                    <span class="price">340,000</span>
+                                </div>
+                            </button>
+                        </li>
+                        <li class="select_item">
+                            <button role="button" aria-selected="false" class="select_link sell" >
+                                <div class="link_inner">
+                                    <span class="size"> 240(US 5.5) </span>
+                                    <span class="price">334,000</span>
+                                </div>
+                            </button>
+                        </li>
+                        <li class="select_item">
+                            <button role="button" aria-selected="false" class="select_link sell">
+                                <div class="link_inner">
+                                    <span class="size">240(US 6) </span>
+                                    <span class="price">314,000</span>
+                                </div>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="order_btn_area" style="display: none;" id="next">
+                    <a  href="#" class="btn_order order_sell sell clickable" >
+                        <div  class="box">
+                            <div  class="order_case_info">
+                                <span  class="order_price">345,000</span>
+                                <span  class="order_desc">선불발송</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+            <!--검수기준 레이어 창 layer_auth_policy-->
+            <div th:replace="/layer/layer_auth_policy.html :: layer_auth_policy"></div>
+            <!--검수기준 레이어창 끝 layer_auth_policy-->
+
+    </div>
+        <!--footer 시작-->
+        <footer th:replace="/fragment/footer.html :: footer"></footer>
+        <!--footer 끝-->
+</div>
+</div>
+<script type="text/javascript" src="/js/order/Select.js"></script>
+</body>
+</html>

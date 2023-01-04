@@ -24,7 +24,7 @@ body, button, dd, div, dl, dt, fieldset, figcaption, figure, form, h1, h2, h3, h
 }
 
 .content{
-    padding: 0;
+    padding: 20px 40px 160px;
     margin: 0 auto;
     max-width: 780px;
 }

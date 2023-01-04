@@ -28,8 +28,6 @@ public class Admin extends BaseEntity implements Auditable {
     private String hp;
     @Enumerated(EnumType.STRING)
     private UserStatus status;
-
-
 }
 
 
