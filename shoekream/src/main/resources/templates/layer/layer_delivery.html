@@ -54,9 +54,9 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <div class="layer_delivery layer lg" style="display:none" th:fragment="layer_delivery">
     <div class="layer_container"><a href="#" class="btn_layer_close">
-            <div><img src="/img/close.png" onclick="closeLayer()"></div>
-            <!---->
-        </a>
+        <div><img src="../../img/close.png" onclick="closeLayer()"></div>
+        <!---->
+    </a>
         <div class="layer_header">
             <h2 class="title"> 새 주소 추가 </h2>
         </div>
@@ -66,21 +66,21 @@
                     <div class="input_box" id="name_input_box">
                         <h4 class="input_title">이름</h4>
                         <div class="input_item"><input type="text" placeholder="수령인의 이름" autocomplete="off"
-                                class="input_txt" id="name_input"></div>
+                                                       class="input_txt" id="name_input"></div>
                         <p class="input_error" id="name_input_error"></p>
                     </div>
                     <div class="input_box" id="hp_input_box">
                         <h4 class="input_title">휴대폰 번호</h4>
                         <div class="input_item">
                             <input type="number" maxlength="11" name="hp" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="- 없이 입력" autocomplete="off" class="input_txt" id="hp_input" oninput="maxLengthCheck(this)">
-                            </div>
+                        </div>
                         <p class="input_error" id="hp_input_error"></p>
                     </div>
                     <div class="input_box">
                         <h4 class="input_title">우편번호</h4>
                         <div class="input_item">
                             <input type="text" placeholder="우편 번호를 검색하세요" readonly="readonly" autocomplete="off" class="input_txt" id="sample6_postcode">
-                                <a href="#" class="btn btn_zipcode outline small" data-v-1c44afeb="" onclick="sample6_execDaumPostcode()"> 우편번호 </a>
+                            <a href="#" class="btn btn_zipcode outline small" data-v-1c44afeb="" onclick="sample6_execDaumPostcode()"> 우편번호 </a>
                         </div>
                     </div>
                     <div class="input_box">
@@ -102,8 +102,8 @@
                 <div class="delivery_check">
                     <div class="checkbox_item"><input id="check1" type="checkbox" name="" class="check"><label
                             for="check1" class="check_label"><span class="label_txt">기본 배송지로 설정</span>
-                            <!---->
-                        </label></div>
+                        <!---->
+                    </label></div>
                 </div>
             </div>
             <div class="layer_btn">
@@ -112,6 +112,8 @@
             </div>
         </div>
     </div>
-</div>
-<!--<script src="/js/layer/layer_delivery.js"></script>-->
-<!--<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>-->
+    <script src="/js/layer/layer_delivery.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    </div>
+
+</html>

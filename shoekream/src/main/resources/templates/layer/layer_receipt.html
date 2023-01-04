@@ -4,6 +4,69 @@
 <!--    <div class="layer lg layer_alert">-->
 <html xmlns:th="http://www.thymeleaf.org">
 <div class="layer_alert layer lg" style="display:none" th:fragment="layer_recipt">
-        <div class="layer_container"><a href="#" class="btn_layer_close"></a><div class="layer_header"><h2 class="title">현금영수증 정보</h2></div><div class="layer_content"><div class="alert_box"><p class="alert_desc">이미 진행중인 판매 거래를 포함하여 앞으로의 모든 판매 거래의 현금영수증 발급이 해당 정보로 변경됩니다.
-        계속 진행하시겠습니까? </p></div><div class="layer_btn"><button type="button" class="btn outlinegrey medium"> 취소 </button><button type="button" class="btn solid
-                 medium"> 계속 변경 </button></div></div></div></div>
+        <div class="layer_container"><a href="#" onclick="close_processing_fee()" class="btn_layer_close">
+                <img src="/img/close.png"></a>
+                <div class="layer_header">
+                        <h2 class="title">현금영수증 정보</h2>
+                </div>
+                <div class="layer_content">
+                        <div class="form_wrap lg">
+                                <div class="receipt_config_form">
+                                        <p class="description"> 현금영수증은 판매 거래 시 발생하는 수수료에 대해
+                                                &lt;정산완료&gt; 후 7일 이내에 건별로 발급됩니다. ‘미신청' 선택 시 자진발급으로 처리됩니다. </p>
+                                        <div class="input_logistics_companies input_box">
+                                                <h4 class="input_title">형태</h4>
+                                                <div class="input_item"><input type="text" placeholder="선택하세요"
+                                                                               readonly="readonly" autocomplete="off" inputmode="numeric"
+                                                                               class="input_txt text_fill"><button type="button"
+                                                                                                                   class="btn btn_dropdown"><img src="/img/down.png"></button>
+
+                                                        <!--드롭다운 부분-->
+                                                        <div class="layer_dropdown layer lg" style="display: none;">
+                                                                <div class="layer_container"><a href="#"
+                                                                                                class="btn_layer_close"><svg
+                                                                        xmlns="http://www.w3.org/2000/svg"
+                                                                        class="ico-close icon sprite-icons">
+                                                                        <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-close"
+                                                                             xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-close">
+                                                                        </use>
+                                                                </svg></a>
+                                                                        <div class="layer_header">
+                                                                                <h2 class="title">형태 선택</h2>
+                                                                        </div>
+                                                                        <div class="layer_content">
+                                                                                <ul class="drop_list">
+                                                                                        <li class="drop_item item_on"><a href="#"
+                                                                                                                         class="drop_link"> 미신청 </a></li>
+                                                                                        <li class="drop_item"><a href="#" class="drop_link">
+                                                                                                개인소득공제(휴대폰) </a></li>
+                                                                                        <li class="drop_item"><a href="#" class="drop_link">
+                                                                                                개인소득공제(현금영수증카드) </a></li>
+                                                                                </ul>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <!--개인소득 공제(휴대폰) 선택시 나오는 부분-->
+                                        <div class="input_box" style="display: none;">
+                                                <h4 class="input_title">휴대폰번호</h4>
+                                                <div class="input_item"><input type="tel" placeholder="- 없이 입력"
+                                                                               autocomplete="off" class="input_txt"></div>
+                                        </div>
+                                        <div class="receipt_config_wrap" style="display: none;">
+                                                <div class="checkbox_item"><input id="check1" type="checkbox"
+                                                                                  class="check"><label for="check1" class="check_label"><!----></label>
+                                                        <label class="label_txt" for="check1"style="width:100%;">현금영수증 신청 정보를 저장하여 자동으로 발급되는 것에
+                                                                동의합니다.</label></div>
+                                        </div>
+
+                                </div>
+                                <div class="button_wrap"><button type="button" class="btn outlinegrey medium" onclick="close_processing_fee()"> 취소
+                                </button><button type="button" class="btn btn_save solid  medium"> 저장하기
+                                </button></div>
+                        </div>
+                </div>
+        </div>
+</div>
+</html>
