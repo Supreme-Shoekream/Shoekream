@@ -1,5 +1,6 @@
-<html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/"
-    xmlns:sec="http://www.w3.org/1999/xhtml">
+<html class="no-js" lang="ko"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org/">
 
 <head>
     <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://kream.co.kr/favicon.ico">
@@ -10,7 +11,8 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!--axios cdn -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <link rel="stylesheet" href="../css/shop_search.css">
+    <link rel="stylesheet" href="/css/shop/shop_search.css">
+    <link rel="stylesheet" href="/css/footer.css">
 
     <style>
         body .hb_fixed_box .quick_filter .clicked.btn_quick_filter {
@@ -26,132 +28,14 @@
 
     <!--content 시작-->
     <div id="qf_box">
+        <div th:replace="fragment/shop_header :: header"></div>
         <div class="hb_fixed_box">
 
             <div class="header lg no_line">
-                <!-- <div class="header_top">
-                    <div class="top_inner">
-                        <ul class="top_list">
 
-                            <li class="top_item">
-                                <a href="/notice" class="top_link"> 고객센터 </a>
-                            </li>
+<!--                &lt;!&ndash;헤더 시작&ndash;&gt;-->
 
-                            <li class="top_item">
-                                <a href="/my/wish" class="top_link"> 관심상품 </a>
-                            </li>
-
-                            <li class="top_item">
-                                <a href="/my" class="top_link"> 마이페이지 </a>
-                            </li>
-
-                            <li class="top_item">
-                                <a href="/login" class="top_link"> 로그인 </a>
-                            </li>
-
-                        </ul>
-                    </div>
-                </div> -->
-                <!-- <div class="header_main">
-                    <div class="main_inner">
-
-                        <h1>
-                            <a href="#" aria-label="홈" class="logo">
-                            <img src="../img/logo.png">
-                            </a>
-                        </h1>
-
-                        <div class="gnb_area">
-                            <nav class="gnb">
-                                <ul class="gnb_list">
-                                    <li class="gnb_item">
-                                        <a href="/social/trending" class="gnb_link"> STYLE </a>
-                                    </li>
-
-                                    <li class="gnb_item gnb_on">
-                                        <a href="#" class="gnb_link"> SHOP </a>
-                                    </li>
-
-                                    <li class="gnb_item">
-                                        <a href="/about" target="_blank" class="gnb_link"> ABOUT </a>
-                                    </li>
-                                </ul>
-                            </nav>
-
-                            <div class="search_btn_box">
-                                <a aria-label="검색" href="#" class="btn_search"></a>
-                            </div>
-                        </div>
-
-                        <div style=">
-                            <div value="" class="search_area">
-
-                                <div class="search">
-                                    <input type="text" placeholder="" title="검색창" value="" class="input_search show_placeholder_on_focus">
-                                    <button class="btn_search_delete"></button>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="nav_btn_box">
-                            <button type="button" aria-label="검색" class="btn_search"></button>
-                            <button type="button" aria-label="메뉴" class="btn_menu"></button>
-                        </div>
-
-                        <div>
-                            <div class="navigation_wrap">
-                                <div class="navigation">
-                                    <div class="navigation_inner">
-                                        <ul class="nav_list">
-                                            <li class="nav_item">
-                                                <a href="#" class="nav_link"> STYLE </a>
-                                            </li>
-
-                                            <li class="nav_item">
-                                                <a href="#" class="nav_link"> SHOP </a>
-                                            </li>
-
-                                            <li class="nav_item">
-                                                <a href="#" class="nav_link"> 자주 묻는 질문 </a>
-                                            </li>
-
-                                            <li class="nav_item">
-                                                <a href="#" class="nav_link"> 공지사항 </a>
-                                            </li>
-
-                                            <li class="nav_item">
-                                                <a href="#" class="nav_link"> 로그인 </a>
-                                            </li>
-
-                                            <li class="nav_item">
-                                                <a href="#" class="nav_link"> 마이 페이지 </a>
-                                            </li>
-
-                                        </ul>
-
-                                        <div class="nav_logout">
-                                            <button class="btn_logout">로그아웃</button>
-                                            <p class="text_mail"></p>
-                                        </div>
-
-                                        <div class="nav_download">
-                                            <p class="download_txt">KREAM 앱 설치 후 사용해 보세요!</p>
-                                            <div class="btn_appdown">
-                                                <a href="#" class="btn outline medium"> 앱 다운로드 </a>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    
-                                    <button type="button" aria-label="닫기" class="btn_nav_close"></button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div> -->
+<!--                &lt;!&ndash;헤더 끝&ndash;&gt;-->
 
                 <div class="search_title no_input">
                     <h2 class="title_txt">SHOP</h2>
@@ -166,7 +50,7 @@
                     <div class="filter_box">
 
                         <a href="" class="btn_quick_filter">
-                            <img src="../img/shopimg/tune.png" alt="" style="width: 20px; height: 20px;">
+                            <img src="/img/shopimg/tune.png" alt="" style="width: 20px; height: 20px;">
                         </a>
 
                         <a href="#" class="btn_quick_filter btn_quick_filter_js_2">럭셔리
@@ -197,7 +81,7 @@
                         <li class="brand_item">
                             <a class="brand_box">
                                 <p class="brand_name">
-                                    <input type="image" src="../img/shopimg/shop_top_1.jpg" alt="지갑_top1"
+                                    <input type="image" src="/img/shopimg/shop_top_1.jpg" alt="지갑_top1"
                                         value="지갑_top1" class="brand_img">지갑
                                 </p>
                             </a>
@@ -205,7 +89,7 @@
                         <li class="brand_item">
                             <a class="brand_box">
                                 <p class="brand_name">
-                                    <input type="image" src="../img/shopimg/shop_top_2.jpg" alt="어그" value="어그"
+                                    <input type="image" src="/img/shopimg/shop_top_2.jpg" alt="어그" value="어그"
                                         class="brand_img">어그
 
                                 </p>
@@ -214,7 +98,7 @@
                         <li class="brand_item">
                             <a class="brand_box">
                                 <p class="brand_name">
-                                    <input type="image" src="../img/shopimg/shop_top_3.jpg" value="주얼리" alt="주얼리"
+                                    <input type="image" src="/img/shopimg/shop_top_3.jpg" value="주얼리" alt="주얼리"
                                         class="brand_img">주얼리
 
                                 </p>
@@ -223,7 +107,7 @@
                         <li class="brand_item">
                             <a class="brand_box">
                                 <p class="brand_name">
-                                    <input type="image" src="../img/shopimg/shop_top_4.jpg" value="눕시" alt="눕시"
+                                    <input type="image" src="/img/shopimg/shop_top_4.jpg" value="눕시" alt="눕시"
                                         class="brand_img">눕시
                                 </p>
                             </a>
@@ -232,7 +116,7 @@
                         <li class="brand_item">
                             <a class="brand_box">
                                 <p class="brand_name">
-                                    <input type="image" src="../img/shopimg/shop_top_5.jpg" value="머플러" alt="머플러"
+                                    <input type="image" src="/img/shopimg/shop_top_5.jpg" value="머플러" alt="머플러"
                                         class="brand_img">머플러
 
                                 </p>
@@ -241,7 +125,7 @@
                         <li class="brand_item">
                             <a class="brand_box">
                                 <p class="brand_name">
-                                    <input type="image" src="../img/shopimg/shop_top_6.jpg" value="아식스" alt="아식스"
+                                    <input type="image" src="/img/shopimg/shop_top_6.jpg" value="아식스" alt="아식스"
                                         class="brand_img">아식스
                                 </p>
                             </a>
@@ -249,7 +133,7 @@
                         <li class="brand_item">
                             <a class="brand_box">
                                 <p class="brand_name">
-                                    <input type="image" src="../img/shopimg/shop_top_7.jpg" value="애플" alt="애플"
+                                    <input type="image" src="/img/shopimg/shop_top_7.jpg" value="애플" alt="애플"
                                         class="brand_img">애플
                                 </p>
                             </a>
@@ -257,7 +141,7 @@
                         <li class="brand_item">
                             <a class="brand_box">
                                 <p class="brand_name">
-                                    <input type="image" src="../img/shopimg/shop_top_8.jpg" value="스캇" alt="스캇"
+                                    <input type="image" src="/img/shopimg/shop_top_8.jpg" value="스캇" alt="스캇"
                                         class="brand_img">스캇
                                 </p>
                             </a>
@@ -265,7 +149,7 @@
                         <li class="brand_item">
                             <a class="brand_box">
                                 <p class="brand_name">
-                                    <input type="image" src="../img/shopimg/shop_top_9.jpg" value="샤넬" alt="샤넬"
+                                    <input type="image" src="/img/shopimg/shop_top_9.jpg" value="샤넬" alt="샤넬"
                                         class="brand_img">샤넬
                                 </p>
                             </a>
@@ -273,7 +157,7 @@
                         <li class="brand_item">
                             <a class="brand_box">
                                 <p class="brand_name">
-                                    <input type="image" src="../img/shopimg/shop_top_10.jpg" value="다이슨" alt="다이슨"
+                                    <input type="image" src="/img/shopimg/shop_top_10.jpg" value="다이슨" alt="다이슨"
                                         class="brand_img">다이슨
                                 </p>
                             </a>
@@ -306,7 +190,7 @@
 
                             <div class="dropdown">
                                 <button onclick="dd_menu1()" class="side_btn1">
-                                    <img class="side_btn" src="../img/shopimg/side_btn1.png" alt="">
+                                    <img class="side_btn" src="/img/shopimg/side_btn1.png" alt="">
                                 </button>
                             </div>
                         </div>
@@ -433,7 +317,7 @@
 
                             <div class="dropdown">
                                 <button onclick="dd_menu2()" class="side_btn1">
-                                    <img class="side_btn" src="../img/shopimg/side_btn1.png" alt="">
+                                    <img class="side_btn" src="/img/shopimg/side_btn1.png" alt="">
                                 </button>
                             </div>
 
@@ -582,7 +466,7 @@
 
                             <div class="dropdown">
                                 <button onclick="dd_menu3()" class="side_btn1">
-                                    <img class="side_btn" src="../img/shopimg/side_btn1.png" alt="">
+                                    <img class="side_btn" src="/img/shopimg/side_btn1.png" alt="">
                                 </button>
                             </div>
 
@@ -623,7 +507,7 @@
 
                             <div class="dropdown">
                                 <button onclick="dd_menu4()" class="side_btn1">
-                                    <img class="side_btn" src="../img/shopimg/side_btn1.png" alt="">
+                                    <img class="side_btn" src="/img/shopimg/side_btn1.png" alt="">
                                 </button>
                             </div>
 
@@ -726,7 +610,7 @@
 
                             <div class="dropdown">
                                 <button onclick="dd_menu5()" class="side_btn1">
-                                    <img class="side_btn" src="../img/shopimg/side_btn1.png" alt="">
+                                    <img class="side_btn" src="/img/shopimg/side_btn1.png" alt="">
                                 </button>
                             </div>
 
@@ -808,7 +692,7 @@
 
                             <div class="dropdown">
                                 <button onclick="dd_menu6()" class="side_btn1">
-                                    <img class="side_btn" src="../img/shopimg/side_btn1.png" alt="">
+                                    <img class="side_btn" src="/img/shopimg/side_btn1.png" alt="">
                                 </button>
                             </div>
 
@@ -855,7 +739,7 @@
 
                             <div class="dropdown">
                                 <button onclick="dd_menu7()" class="side_btn1">
-                                    <img class="side_btn" src="../img/shopimg/side_btn1.png" alt="">
+                                    <img class="side_btn" src="/img/shopimg/side_btn1.png" alt="">
                                 </button>
                             </div>
 
@@ -912,20 +796,20 @@
                             <div class="filter_sorting">
 
                                 <button type="button" onclick="dd_menu8()" class="sorting_title">sorting_title
-                                    <img class="desc_logo" src="../img/shopimg/desc_logo_b.png">
+                                    <img class="desc_logo" src="/img/shopimg/desc_logo_b.png">
                                 </button>
 
-                                <div class="filter_menu" style="display: none" id="drop-content8">
+                                <div class="filter_menu" id="drop-content8" style="display: none">
                                     <!-- style="display: none;" -->
-                                    <ul class="sorting_list">
+                                    <ul class="sorting_list" >
 
                                         <li class="sorting_item">
                                             <a class="sorting_link">
-                                                <div class="sorting_desc" >
+                                                <div class="sorting_desc">
                                                     <p class="main_desc" onclick="rdd_1btn()">인기순</p>
                                                     <p class="sub_desc">많이 판매된 순서대로 정렬합니다.</p>
 
-                                                    <img src="../img/wcheck.png" class="sorting_img">
+                                                    <img src="/img/wcheck.png" class="sorting_img">
                                                 </div>
                                             </a>
                                         </li>
@@ -936,7 +820,7 @@
                                                     <p class="main_desc" onclick="rdd_2btn()">프리미엄순</p>
                                                     <p class="sub_desc">발매가 대비 가격이 높은 순서대로 정렬합니다.</p>
 
-                                                    <img src="../img/wcheck.png" class="sorting_img">
+                                                    <img src="/img/wcheck.png" class="sorting_img">
                                                 </div>
                                             </a>
                                         </li>
@@ -947,7 +831,7 @@
                                                     <p class="main_desc" onclick="rdd_3btn()">즉시 구매가순</p>
                                                     <p class="sub_desc">즉시 구매가가 낮은 순서대로 정렬합니다.</p>
 
-                                                    <img src="../img/wcheck.png" class="sorting_img">
+                                                    <img src="/img/wcheck.png" class="sorting_img">
                                                 </div>
                                             </a>
                                         </li>
@@ -958,7 +842,7 @@
                                                     <p class="main_desc" onclick="rdd_4btn()">즉시 판매가순</p>
                                                     <p class="sub_desc">즉시 판매가가 높은 순서대로 정렬합니다.</p>
 
-                                                    <img src="../img/wcheck.png" class="sorting_img">
+                                                    <img src="/img/wcheck.png" class="sorting_img">
                                                 </div>
                                             </a>
                                         </li>
@@ -969,7 +853,7 @@
                                                     <p class="main_desc" onclick="rdd_5btn()">발매일순</p>
                                                     <p class="sub_desc">최신 상품 순서대로 정렬합니다. 아직 발매 전인 상품이 노출될 수 있습니다.</p>
 
-                                                    <img src="../img/wcheck.png" class="sorting_img">
+                                                    <img src="/img/wcheck.png" class="sorting_img">
                                                 </div>
                                             </a>
                                         </li>
@@ -993,7 +877,7 @@
                                     <a href="#" class="item_inner">
                                         <div class="product" style="background-color: rgb(244, 244, 244);">
                                             <picture class="picture product_img">
-                                                <img src="../img/shopimg/content_11.jpg" class="image">
+                                                <img src="/img/shopimg/content_11.jpg" class="image">
                                             </picture>
                                             
                                         </div>
@@ -1017,7 +901,7 @@
                                     <div class="action_wish_review">
                                         <span class="wish_figure">
                                             <span aria-label="관심상품" role="button" class="btn_wish" icon-name="ico-wish-grey">
-                                                <img width="14" height="16" src="../img/brands_wish.png" class="icon sprite-icons">
+                                                <img width="14" height="16" src="/img/brands_wish.png" class="icon sprite-icons">
                                             </span>
                                             
                                             <span class="text">3.1만</span>
@@ -1025,7 +909,7 @@
                                         
                                         <span class="review_figure">
                                             <span class="review_link" aria-label="조던 1 레트로 하이 OG 시카고 2022 리뷰" role="button">
-                                                <img width="15" height="15" src="../img/brands_hashtag.png" class="icon sprite-icons">
+                                                <img width="15" height="15" src="/img/brands_hashtag.png" class="icon sprite-icons">
                                             </span>
                                             
                                             <span class="text">2,306</span>
@@ -1562,10 +1446,10 @@
         <!-- Layer content 끝-->
 
         <!-- footer -->
-
+        <footer th:replace="/fragment/footer.html :: footer"></footer>
         <!-- footer 끝 -->
 
-        <script src="../js/shop/shop_search.js"></script>
+        <script src="/js/shop/shop_search.js"></script>
 </body>
 
 </html>

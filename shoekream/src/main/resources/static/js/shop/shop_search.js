@@ -31,11 +31,11 @@ items.forEach((item) => {
 
         const ch = item.childNodes;
 
-        if (ch[1].getAttribute('src') == '../img/shopimg/side_btn1.png') {
-            ch[1].setAttribute('src', '../img/shopimg/side_btn0.png');
+        if (ch[1].getAttribute('src') == '/img/shopimg/side_btn1.png') {
+            ch[1].setAttribute('src', '/img/shopimg/side_btn0.png');
             // 숫자 ++1
         } else {
-            ch[1].setAttribute('src', '../img/shopimg/side_btn1.png');
+            ch[1].setAttribute('src', '/img/shopimg/side_btn1.png');
         }
 
     })
@@ -43,77 +43,76 @@ items.forEach((item) => {
 
 // ======================================================================
 
-// function dd_menu2() {
-//     let click = document.getElementById("drop-content2");
-//     if (click.style.display === "none") {
-//         click.style.display = "block";
-        
+function dd_menu2() {
+    let click = document.getElementById("drop-content2");
+    if (click.style.display === "none") {
+        click.style.display = "block";
 
-//     } else {
-//         click.style.display = "none";
+    } else {
+        click.style.display = "none";
 
-//     }
-// }
+    }
+}
 
-// function dd_menu3() {
-//     let click = document.getElementById("drop-content3");
-//     if (click.style.display === "none") {
-//         click.style.display = "block";
+function dd_menu3() {
+    let click = document.getElementById("drop-content3");
+    if (click.style.display === "none") {
+        click.style.display = "block";
 
-//     } else {
-//         click.style.display = "none";
+    } else {
+        click.style.display = "none";
 
-//     }
-// }
+    }
+}
 
-// function dd_menu4() {
-//     let click = document.getElementById("drop-content4");
-//     if (click.style.display === "none") {
-//         click.style.display = "block";
+function dd_menu4() {
+    let click = document.getElementById("drop-content4");
+    if (click.style.display === "none") {
+        click.style.display = "block";
 
-//     } else {
-//         click.style.display = "none";
+    } else {
+        click.style.display = "none";
 
-//     }
-// }
+    }
+}
 
 
-// function dd_menu5() {
-//     let click = document.getElementById("drop-content5");
-//     if (click.style.display === "none") {
-//         click.style.display = "block";
+function dd_menu5() {
+    let click = document.getElementById("drop-content5");
+    if (click.style.display === "none") {
+        click.style.display = "block";
 
-//     } else {
-//         click.style.display = "none";
+    } else {
+        click.style.display = "none";
 
-//     }
-// }
+    }
+}
 
-// function dd_menu6() {
-//     let click = document.getElementById("drop-content6");
-//     if (click.style.display === "none") {
-//         click.style.display = "block";
+function dd_menu6() {
+    let click = document.getElementById("drop-content6");
+    if (click.style.display === "none") {
+        click.style.display = "block";
 
-//     } else {
-//         click.style.display = "none";
+    } else {
+        click.style.display = "none";
 
-//     }
-// }
+    }
+}
 
-// function dd_menu7() {
-//     let click = document.getElementById("drop-content7");
-//     if (click.style.display === "none") {
-//         click.style.display = "block";
+function dd_menu7() {
+    let click = document.getElementById("drop-content7");
+    if (click.style.display === "none") {
+        click.style.display = "block";
 
-//     } else {
-//         click.style.display = "none";
+    } else {
+        click.style.display = "none";
 
-//     }
-// }
+    }
+}
 
-// let click = document.getElementById("drop-content8");
+const tes1 = document.querySelector('.sorting_link')
+const tes2 = document.querySelector('.filter_menu')
 
-    
 function dd_menu8() {
     let click = document.getElementById("drop-content8");
     if (click.style.display === "none") {
@@ -240,51 +239,51 @@ const receiptList = document.querySelectorAll(".sorting_item")
 // ======================================================================
 
 
-// rdd1 = function rdd_menu1() {
-//     const rdd1 = document.getElementsByClassName('.main_desc');
-//     rdd1.innerText 
-//     = '인기순';
-// } 
+rdd1 = function rdd_menu1() {
+    const rdd1 = document.getElementsByClassName('.main_desc');
+    rdd1.innerText 
+    = '인기순';
+} 
 
-// rdd2 = function rdd_menu2() {
-//     const rdd2 = document.getElementsByClassName('.main_desc');
-//     rdd2.innerText 
-//     = '프리미엄순';
-// }
+rdd2 = function rdd_menu2() {
+    const rdd2 = document.getElementsByClassName('.main_desc');
+    rdd2.innerText 
+    = '프리미엄순';
+}
 
-// rdd3 = function rdd_menu3() {
-//     const rdd3 = document.getElementsByClassName('.main_desc');
-//     rdd3.innerText 
-//     = '즉시 구매가순';
-// } 
+rdd3 = function rdd_menu3() {
+    const rdd3 = document.getElementsByClassName('.main_desc');
+    rdd3.innerText 
+    = '즉시 구매가순';
+} 
 
-// rdd4 = function rdd_menu4() {
-//     const rdd4 = document.getElementsByClassName('.main_desc');
-//     rdd4.innerText 
-//     = '즉시 판매가순';
-// } 
+rdd4 = function rdd_menu4() {
+    const rdd4 = document.getElementsByClassName('.main_desc');
+    rdd4.innerText 
+    = '즉시 판매가순';
+} 
 
-// rdd5 = function rdd_menu5() {
-//     const rdd5 = document.getElementsByClassName('.main_desc');
-//     rdd5.innerText 
-//     = '발매일순';
-// } 
+rdd5 = function rdd_menu5() {
+    const rdd5 = document.getElementsByClassName('.main_desc');
+    rdd5.innerText 
+    = '발매일순';
+} 
 
-const sortbtn = document.querySelectorAll('.sorting_link')   // 버튼
-const dd_list = document.querySelector('.filter_menu') // 리스트, 클릭시 none시킬거
-const dd_sortitem = document.querySelector('.sorting_item') // 리스트 none
-const dd_checkbtn = document.querySelector('.sorting_img') // 체크img, 클릭시 block시킬거
-const dd_sortlink = document.querySelector('.sorting_link')
-const dd_listmenu = document.querySelector('.sorting_list') // if 클릭됐을 때
-const sorting_title = document.getElementsByClassName('.sorting_title') //문구 출력
+// const sortbtn = document.querySelectorAll('.sorting_link')   // 버튼
+// const dd_list = document.querySelector('.filter_menu') // 리스트, 클릭시 none시킬거
+// const dd_sortitem = document.querySelector('.sorting_item') // 리스트 none
+// const dd_checkbtn = document.querySelector('.sorting_img') // 체크img, 클릭시 block시킬거
+// const dd_sortlink = document.querySelector('.sorting_link')
+// const dd_listmenu = document.querySelector('.sorting_list') // if 클릭됐을 때
+// const sorting_title = document.getElementsByClassName('.sorting_title') //문구 출력
 
 // sorting_title.forEach((target) => {
 //     //sorting_title 버튼을 클릭했을 때
 //     target.addEventListener('click',() =>{
-//         if ('click', rdd1) {
-//             dd_listmenu.style.display="block"
+//         if (true) {
+//             dd_listmenu.style.display="block";
 //         } else {
-            
+//             sorting_link.style.display="block";
 //         }
 //     })
 // })
@@ -309,7 +308,7 @@ const sorting_title = document.getElementsByClassName('.sorting_title') //문구
 
 // catebtn.forEach((target) => {
 //     target.addEventListener('click',() =>{
-//         if (catebtn2.getAttribute('src') == '../img/shopimg/side_btn0.png') {
+//         if (catebtn2.getAttribute('src') == '/img/shopimg/side_btn0.png') {
 //             layer1.style.display="none";
 //             layer2.style.display="block";
 //         } else {
@@ -369,7 +368,7 @@ const catebtn2 = document.querySelector('.side_btn')    //사진 비교를 위�
 
 catebtn.forEach((target) => {
     target.addEventListener('click',() =>{
-        if (catebtn2.getAttribute('src') == '../img/shopimg/side_btn0.png') {
+        if (catebtn2.getAttribute('src') == '/img/shopimg/side_btn0.png') {
             layer1.style.display="none";
             layer2.style.display="block";
         } else {
