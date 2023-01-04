@@ -6,13 +6,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("product") //http://localhost:8888/product
-public class ProductController {
+@RequestMapping("brand") //http://localhost:8888/brand
+public class BrandPageController {
 
-    @GetMapping(path="") //http://localhost:8888/product
-    public ModelAndView product(){
-        return new ModelAndView("/product");
-    }   //viewName: 페이지이름이랑 같아야함
+    @GetMapping(path="") //http://localhost:8888/brand
+    public ModelAndView brand(){
+        return new ModelAndView("/brand");
+    }
 
 
 }
