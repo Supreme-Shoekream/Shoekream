@@ -182,3 +182,13 @@
 
 </html>
 <script src="/js/social/upload.js"></script>
+<script>
+  window.onload = function(){
+    const items = document.querySelectorAll('gnb_item');
+    items.forEach((it) => {
+      it.classList.remove('gnb_on');
+    })
+    const item = document.getElementById('st_gnb');
+    item.classList.add('gnb_on');
+  }
+</script>
