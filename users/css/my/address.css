@@ -265,21 +265,23 @@ button {
 }
 
 /**************************************** js ***************************/
-/* input error 경우 */
-/*.has_error .input_title {*/
-/*    color: #f15746;*/
-/*}*/
-/*.has_error .input_txt {*/
-/*    border-bottom-color: #ef6253 !important;*/
-/*}*/
-/*.has_error .input_error {*/
-/*    display: block;*/
-/*    position: absolute;*/
-/*    line-height: 1.6rem;*/
-/*    font-size: 1.1rem;*/
-/*    color: #f15746;*/
-/*}*/
-
+input error 경우 */
+.input_title {
+   color: #f15746 !important;
+}
+.input_txt {
+   border-bottom-color: black;
+}
+.show_none .input_error {
+   display: block;
+   position: absolute;
+   line-height: 1.6rem;
+   font-size: 1.1rem;
+   color: #f15746;
+}
+.input_border:focus{
+    border-bottom: 2px solid black !important;
+}
 /* 기본 배송지로 설정 */
 .input_button #input_button_check {
     margin-top: 1rem;
@@ -431,5 +433,11 @@ button {
     }
     .other_list .my_item { display: block }
 }
-
+.show_none{
+    display: none;
+}
+.error_none{
+    border-bottom: 2px solid black;
+    width: 100%;
+}
 

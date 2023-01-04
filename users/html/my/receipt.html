@@ -79,15 +79,15 @@
                                     </div>
 
                         </div>
-                        <div class="input_hp">
-                        <div class="input_box" id="input_hp"><h4 class="input_title">휴대폰번호</h4><div class="input_item"><input type="tel" placeholder="- 없이 입력" autocomplete="off" class="input_txt input_hp"  
+                        <div class="input_hp" id="hp_input_box">
+                        <div class="input_box" id="input_hp"><h4 class="input_title">휴대폰번호</h4><div class="input_item"><input id="hp_input" type="tel" placeholder="- 없이 입력" autocomplete="off" class="input_txt input_hp"  
                             oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"></div></div>
                         
                         <div class="receipt_config_wrap"><div class="checkbox_item"><input class="check" id="check1" type="checkbox" name="" class="blind"><label for="check1" class="check_label"><!--라벨텍스트 있던곳--></label></div><label for="check1"><span style="width: 600px;"class="label_txt">현금영수증 신청 정보를 저장하여 자동으로 발급되는 것에 동의합니다.</span></label></div>
                         </div>
                         <!---->
                     </div>
-                    <div class="button_wrap"><!----><button type="button" class="solid btn_save btn medium"> 저장하기 </button>
+                    <div class="button_wrap"><!----><button type="button" class="solid btn_save btn medium disabled"> 저장하기 </button>
                     </div>
                 </div>
             </div>
@@ -125,11 +125,12 @@
                 target.childNodes[1].style.display = "block" // 체크표시추가
                 dropdown.style.display="none"
                 if(inputPlaceholder.placeholder == '미신청'){
-                    
+                    btnSave.classList.remove('disabled')
                     inputHp.style.display="none"
                     btnSave.classList.remove('btn_save')
                     btnSave.classList.add('btn_active')
                 }else{
+                    btnSave.classList.add('disabled')
                     inputHp.style.display="block"
                     btnSave.classList.remove('btn_active')
                     btnSave.classList.add('btn_save')
@@ -152,16 +153,17 @@
             })
         })
 
-        $(function(){
-            $('input_hp').on('input', function(){
-                if($('input_hp').val=''){
-                    $('btn_save').classList.remove('disabled')
-                }else{
-                    $('btn_save').classList.add('disabled')
-                }
-            })
-        })
-
+        // $(function(){
+        //     $('input_hp').on('input', function(){
+        //         if($('input_hp').val=''){
+                    
+        //             $('btn_save').classList.add('disabled')
+        //         }else{
+        //             $('btn_save').classList.remove('disabled')
+        //         }
+        //     })
+        // })
+       
         
 
 
@@ -170,38 +172,54 @@
 
 
 
-
-        // //핸드폰 정규식
+        //핸드폰 정규식
         // function validateHp(strHp){
-        // const reg_hp = /^[0-9]+$/;
+        // const reg_hp = /^[0-9]$/;
         // if(!reg_hp.test(''+strHp)){
         //     return false;
         // }
         // return true;
         // }
+        // // 휴대폰 번호 유효성 검사
+        // document.querySelector('#hp_input').addEventListener('input', e=>{
+        //         strHp = e.target.value;
+        //         let errorMsg='';
+        //         if(!validateHp(strHp)){
+        //             errorMsg='휴대폰 번호를 정확히 입력해주세요.';
+        //             document.querySelector('#hp_input_box').className='input_box has_error';
+        //             document.querySelector('#hp_input').setAttribute('validateresult',false);
+        //         } else {
+        //             document.querySelector('#hp_input_box').className='input_box fill';
+        //             document.querySelector('#hp_input').setAttribute('validateresult',true);
+        //         }
+        // });
         // //핸드폰 유효성 검사할때마다 버튼 활성화 조건 (!정규식 || checked없을때) => has_danger error disabled // input
-
+        
 
         // //체크할때마다 버튼활성화조건 (!정규식 || checked없을때) 체크on off => disabled // click
         
     </script>
     <script>
-        const check1 = false;
-        document.querySelector('.check').addEventListener('check', e=>{
-                if(e.target.checked){
-                    check1 = true;
-                }else{
-                    check1 = false;
-                }
-        })
-        document.querySelector('.input_hp').addEventListener('input', e=>{
-            let strName=e.target.value;
-            if(strName=='' && check1==false){
-                document.querySelector('.btn_save').classList.add('disabled');
-            } else {
+        // document.querySelector('.input_hp').addEventListener('input', e=>{
+        //     let strName=e.target.value;
+        //     if(strName=='' && $('#check1').is(':checked') == false){
+        //         document.querySelector('.btn_save').classList.add('disabled');
+        //         console.log($('#check1').is(':checked'))
+        //     } else {
+        //         document.querySelector('.btn_save').classList.remove('disabled');
+        //         console.log($('#check1').is(':checked'))
+        //     }
+        // });
+
+        document.querySelector('.input_hp').addEventListener('input', e => {
+            let strHp = e.target.value;
+            let checkHP = $('#check1').is(':checked')
+            if(strHp && checkHP){
                 document.querySelector('.btn_save').classList.remove('disabled');
+            }else{
+                document.querySelector('.btn_save').classList.add('disabled');
             }
-        });
+        })
     </script>
 </body>
 

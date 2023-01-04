@@ -67,7 +67,7 @@
                     <div class="account_registration">
                         <div class="input_logistics_companies input_box">
                             <h4 class="input_title">은행명</h4>
-                            <div onclick="dropdown()" class="input_item"><input type="text"
+                            <div onclick="dropdown()" class="input_item"><input id="input_bank" type="text"
                                     placeholder="선택하세요" readonly="readonly" autocomplete="off" inputmode="numeric"
                                     class="input_txt"><button  type="button" class="btn btn_dropdown"
                                    ><img src="/users/img/down.png" alt="img"></button>
@@ -109,26 +109,29 @@
                             </ul>
                             </div>
                         </div>
-                        <div class="input_box">
+                        <div class="input_box" id="input_acc_box">
                             <h4 class="input_title">계좌번호</h4>
-                            <div class="input_item"><input type="tel"
+                            <div class="input_item"><input id="input_acc" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" type="text"
                                     placeholder="- 없이 입력하세요" autocomplete="off" class="input_txt input_write"></div>
                             <p class="input_error">올바른 계좌번호를 입력해주세요.</p>
                         </div>
-                        <div class="input_box">
+                        <div class="input_box" id="input_holder_box">
                             <h4 class="input_title">예금주</h4>
-                            <div class="input_item"><input type="text"
+                            <div class="input_item"><input id="input_holder" type="text"
                                     placeholder="예금주명을 정확히 입력하세요." autocomplete="off" class="input_txt input_write"></div>
                             <p class="input_error">올바른 이름을 입력해주세요. (2-50자)</p>
                         </div>
                     </div>
-                    <div class="registration_btn_box"><a
+                    <div class="registration_btn_box"><a id="submit_btn"
                             disabled="disabled" href="#" class="btn btn_save solid medium disabled"> 변경하기 </a></div>
                     <!---->
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
+    <div><div style="display: none;" class="layer lg layer_alert"><div class="layer_container"><a href="#" class="btn_layer_close"></a><div class="layer_header"></div><div class="layer_content"><div class="alert_box high"><p class="alert_desc">이미 진행 중인 거래를 포함하여 앞으로
+        모든 거래의 대금 정산이 해당 계좌로 변경됩니다.</p></div><div class="layer_btn"><button type="button" class="btn outlinegrey medium"> 취소 </button><button type="button" class="btn solid
+                 medium"> 확인 </button></div></div></div></div><div  id="toast" class="toast lg"><div  class="wrap"><div  class="toast-content"></div></div></div></div>
     <script>
         
         function dropdown(){
@@ -162,6 +165,7 @@
             })
         })
         */
+        
         const bankId = document.querySelector(".bank_dropdown_menu")
         const bankList = document.querySelectorAll('.bank_list_li')
         const bankName = document.querySelector(".input_txt")
@@ -178,8 +182,79 @@
                 target.classList.add("select_bank")
                 target.childNodes[1].style.display = "block"
                 bankId.style.display = "none"
+                // if(bankNameForm.placeholder != '선택하세요'){
+                // switch(!(accountHolder.value && accountForm.value)){
+                //     case true : submitButton.disabled = true; submitButton.classList.add('disabled'); break;
+                //     case false : submitButton.disabled = false; submitButton.classList.remove('disabled'); break;
+                //     }
+                // }
+                
+            //     if(bankNameForm.placeholder != '선택하세요' && validateName(strName) && validateAcc(strAcc)){
+            // submitButton.classList.remove('disabled')
+            //     }else{
+            //         submitButton.classList.add('disabled')
+            //     }          
         })})
         
+        const bankNameForm = document.querySelector('#input_bank')
+        const accountForm = document.querySelector('#input_acc')
+        const accountHolder = document.querySelector('#input_holder')
+        const submitButton = document.querySelector('#submit_btn')
+        bankNameForm.addEventListener('keyup', activeEvent);
+        accountForm.addEventListener('keyup', activeEvent);
+        accountHolder.addEventListener('keyup', activeEvent);
+        let strName
+        let strAcc
+        function activeEvent() {
+                    switch(accountHolder.value && accountHolder.value && bankNameForm.placeholder != '선택하세요' && validateName(strName) && validateAcc(strAcc)){
+            case true : submitButton.disabled = true; submitButton.classList.remove('disabled'); break;
+            case false : submitButton.disabled = false; submitButton.classList.add('disabled'); break;
+        }
+        }
+        // 계좌번호 정규 표현식
+        function validateAcc(strAcc){
+            const reg_acc = /^[0-9]{2,}$/;
+            if(!reg_acc.test(''+strAcc)){
+                return false;
+            }
+            return true;
+        }
+        // 이름 정규 표현식
+        function validateName(strName){
+            const reg_name =  /^[가-힣a-zA-Z]{2,50}$/;
+            // const reg_name = /^[가-힣]{2,50}$/;
+            if(!reg_name.test(''+strName)){
+                return false;
+            }
+            return true;
+        }
+        // 이름 유효성 검사
+        document.querySelector('#input_holder').addEventListener('input', e=>{
+            strName=e.target.value;
+            let errorMsg='';
+            if(!validateName(strName)){
+                errorMsg='이름을 정확히 입력해주세요.';
+                document.querySelector('#input_holder_box').className='has_button input_box has_error';
+                document.querySelector('#input_holder').setAttribute('validateresult',false);
+                
+            } else {
+                document.querySelector('#input_holder_box').className='has_button input_box fill';
+                document.querySelector('#input_holder').setAttribute('validateresult',true);
+            }
+        });
+        // 계좌번호 유효성 검사
+        document.querySelector('#input_acc').addEventListener('input', e => {
+            strAcc = e.target.value;
+            if(!validateAcc(strAcc)){
+                document.querySelector('#input_acc_box').className='has_button input_box has_error';
+                document.querySelector('#input_acc').setAttribute('validateresult',false);
+            } else {
+                document.querySelector('#input_acc_box').className='has_button input_box fill';
+                document.querySelector('#input_acc').setAttribute('validateresult',true);
+                
+            }
+
+        })
     </script>
 </body>
 
