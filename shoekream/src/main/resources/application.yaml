@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/aidev
+    url: jdbc:mysql://127.0.0.1:3306/aidev?serverTimezone=Asia/Seoul
     username: root
     password: 1234
   jpa:
@@ -11,4 +11,4 @@ spring:
         format_sql: true
 
 server:
-  port: 8889
+  port: 8890

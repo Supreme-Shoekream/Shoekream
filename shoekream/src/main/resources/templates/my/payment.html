@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/my/payment.css">
+    <link rel="stylesheet" href="../../css/fragment/mypage_navbar.css">
+    <link rel="stylesheet" href="../../css/layer/layer.css">
+    <link rel="stylesheet" href="../../css/layer/layer_card.css">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script defer src="../../js/my/mypage_navbar.js"></script>
+</head>
+
+<body>
+    <div class="container my lg">
+        <div>
+            <!-- navbar -->
+            <div class="snb_area"><a href="/my" class="nuxt-link-active">
+                    <h2 class="snb_main_title">마이 페이지</h2>
+                </a>
+                <nav class="snb">
+                    <div class="snb_list"><strong class="snb_title">쇼핑 정보</strong>
+                        <ul class="snb_menu">
+                            <li class="menu_item"><a id="buying" href="/users/html/my/buying.html" class="menu_link">구매
+                                    내역 </a></li>
+                            <li class="menu_item"><a id="selling" href="/users/html/my/selling.html"
+                                    class="menu_link">판매 내역
+                                </a></li>
+                            <li class="menu_item"><a id="wish" href="/users/html/my/wish.html" class="menu_link">관심상품
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="snb_list"><strong class="snb_title">내 정보</strong>
+                        <ul class="snb_menu">
+                            <li class="menu_item"><a name="profile" href="/users/html/my/profile.html"
+                                    class="menu_link">
+                                    프로필 정보 </a></li>
+                            <li class="menu_item"><a name="address" href="/users/html/my/address.html"
+                                    class="menu_link">주소록
+                                </a></li>
+                            <li class="menu_item"><a name="payment" href="/users/html/my/payment.html"
+                                    class="menu_link">결제 정보
+                                </a></li>
+                            <li class="menu_item"><a name="account" href="/users/html/my/account.html"
+                                    class="menu_link">판매 정산
+                                    계좌 </a></li>
+                            <li class="menu_item"><a name="receipt" href="/users/html/my/receipt.html"
+                                    class="menu_link">현금영수증
+                                    정보 </a></li>
+                            <li class="menu_item"><a name="point" href="/users/html/my/point.html" class="menu_link">포인트
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="content_area">
+            <div class="my_payment">
+                <!---->
+                <div class="content_title border has_sub">
+                    <div class="title">
+                        <h3>결제 정보</h3>
+                        <p class="sub_title">수수료(페널티, 착불배송비 등)가 정산되지 않을 경우, 별도 고지 없이 해당 금액을 결제 시도할 수
+                            있습니다.</p>
+                    </div>
+                    <div class="btn_box"><a href="#" class="btn btn_add">
+                            <!----><span class="btn_txt">+ 새 카드 추가하기</span>
+                        </a></div>
+                </div>
+                <!---->
+                <div class="my_list">
+                    <!---->
+                    <div class="other"></div>
+                </div>
+                <div>
+                    <div class="empty_area has_bg">
+                        <p class="desc">추가하신 결제 정보가 없습니다.</p>
+                        <!---->
+                    </div>
+                </div>
+            </div>
+            <div class="layer_alert layer lg" style="display: none;">
+                <div class="layer_container"><a href="#" class="btn_layer_close"></a>
+                    <div class="layer_header">
+                        <h2 class="title">삭제하시겠습니까?</h2>
+                    </div>
+                    <div class="layer_content">
+                        <div class="layer_btn"><button type="button" class="btn outline medium"> 취소 </button><button
+                                type="button" class="btn solid medium"> 계속 변경 </button></div>
+                    </div>
+                </div>
+            </div>
+            <!---->
+        </div>
+    </div>
+    <div class="layer_card layer lg" style="display: none;">
+        <div class="layer_container"><a href="#" class="btn_layer_close">
+                <div><img src="../../img/close.png" onclick="closeLayer()"></div>
+                <!---->
+            </a>
+            <div class="layer_header">
+                <h2 class="title"> 새 카드 추가 </h2>
+            </div>
+            <div class="layer_content">
+                <div class="card_bind">
+                    <div class="card_input">
+                        <div class="input_box" id="card_input_box">
+                            <h4 class="input_title">카드번호</h4>
+                            <div class="input_item" id="connected-input">
+                                <input type="number" maxlength="4" placeholder="1111" autocomplete="off"
+                                    class="input_card" id="cc-1" oninput="maxLengthCheck(this)"> -
+                                <input type="number" maxlength="4" placeholder="1111" autocomplete="off"
+                                    class="input_card" id="cc-2" oninput="maxLengthCheck(this)"> -
+                                <input type="number" maxlength="4" placeholder="1111" autocomplete="off"
+                                    class="input_card" id="cc-3" oninput="maxLengthCheck(this)"> -
+                                <input type="number" maxlength="4" placeholder="1111" autocomplete="off"
+                                    class="input_card" id="cc-4" oninput="maxLengthCheck(this)">
+                            </div>
+                            <p class="input_error" id="card_input_error"></p>
+                        </div>
+                        <div class="input_box" id="expirydate_input_box">
+                            <h4 class="input_title">유효기간</h4>
+                            <div class="input_item">
+                                <!-- <input type="tel" placeholder="12" autocomplete="off" class="input_expirydate"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="tel" placeholder="2025" autocomplete="off" class="input_expirydate" id="expirydate_input"> -->
+                                <select class="input_expiration_month" id="expiration-month"
+                                    aria-label="Expiration Month" required>
+                                    <option>01</option>
+                                    <option>02</option>
+                                    <option>03</option>
+                                    <option>04</option>
+                                    <option>05</option>
+                                    <option>06</option>
+                                    <option>07</option>
+                                    <option>08</option>
+                                    <option>09</option>
+                                    <option>10</option>
+                                    <option>11</option>
+                                    <option>12</option>
+                                </select>
+                                <select class="input_expiration_year" id="expiration-year" aria-label="Expiration Year"
+                                    required>
+                                    <option>2023</option>
+                                    <option>2024</option>
+                                    <option>2025</option>
+                                </select>
+                            </div>
+                            <p class="input_error"></p>
+                        </div>
+                        <div class="input_box" id="birthday_input_box">
+                            <h4 class="input_title">생년월일</h4>
+                            <div class="input_item">
+                                <input type="number" maxlength="6" placeholder="951201" autocomplete="off"
+                                    class="input_birthday" id="birthday_input" oninput="maxLengthCheck(this)">
+                            </div>
+                            <p class="input_error" id="birthday_input_error"></p>
+                        </div>
+                        <div class="input_box" id="pin_input_box">
+                            <h4 class="input_title">비밀번호</h4>
+                            <div class="input_item">
+                                <input type="number" maxlength="2" placeholder="96" autocomplete="off"
+                                    class="input_cardpw" id="pin_input" oninput="maxLengthCheck(this)">**
+                            </div>
+                            <p class="input_error" id="pin_input_error"></p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="layer_btn">
+                    <a href="#" class="btn btn_delete outlinegrey medium" onclick="closeLayer()"> 취소 </a>
+                    <a disabled="disabled" href="#" class="btn btn_save solid medium disabled" id="submit_btn"> 저장하기
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../js/layer/layer_card.js"></script>
+    <script>
+
+
+        const layerPayment = document.querySelector('.layer_card')
+
+        const addBtn = document.querySelector('.btn_box')
+        addBtn.addEventListener('click', (e) => {
+            layerPayment.style.display = "block"
+        })
+        layerPayment.addEventListener('click', (e) => {
+            if (e.target == e.currentTarget) {
+                layerPayment.style.display = "none"
+            }
+
+        })
+    </script>
+</body>
+
+</html>
