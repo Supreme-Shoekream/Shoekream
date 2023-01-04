@@ -1,0 +1,132 @@
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/"
+    xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>STYLE | 내 프로필 수정</title>
+    <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://kream.co.kr/favicon.ico">
+
+    <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!--axios cdn -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- session -->
+    <link rel="stylesheet" href="/css/social/style_profile_edit.css">
+    <link rel="stylesheet" href="/css/fragment/footer.css">
+
+
+</head>
+
+<body>
+    <!-- 본문 -->
+    <div id="__nuxt">
+        <div id="__layout">
+            <div tabindex="0" class="wrap win_os">
+                <div class="wrap_inner">
+                    <!-- 헤더 시작 -->
+                    <div>
+                        <header th:replace="/fragment/header :: header"></header>
+                    </div>
+                    <!-- 헤더 끝 -->
+                    <div class="container my lg">
+                        <div   class="content_area">
+                            <div  class="my_profile">
+                                <div   class="content_title border">
+                                    <div  class="title">
+                                        <h3 >프로필 정보</h3><!---->
+                                    </div><!---->
+                                </div>
+                                <div   class="user_profile">
+                                    <div  class="profile_thumb">
+                                        <img id="profile_img"
+                                        src="/img/kream_empty_img.png" alt="사용자 이미지" class="thumb_img">
+                                    </div>
+                                    <div  class="profile_detail"><strong 
+                                            class="name">8izhs1</strong>
+                                        <div  class="profile_btn_box">
+                                            <input id="modify_img" type="file"accept="image/*" style="display: none;">
+                                            <label for="modify_img"  class="btn outlinegrey small">이미지 변경</label>
+                                                 <a class="btn outlinegrey small" onclick="delete_img()"> 삭제 </a></div>
+                                    </div>
+                                </div><input  type="file" accept="image/jpeg,image/png"
+                                    hidden="hidden"><canvas  width="1000" height="1000"
+                                    style="display: none;"></canvas>
+                                <div  class="profile_info">
+                                    
+                                    <div  class="profile_group">
+                                        <h4  class="group_title">개인 정보</h4>
+                                        <div  class="unit">
+                                            <h5  class="title">프로필 이름</h5>
+                                            <!-- <p  class="desc">8izhs1</p> -->
+                                            <input type="text" class="desc" value="8izhs1">
+                                            <button 
+                                                 type="button"
+                                                class="btn btn_modify outlinegrey small"> 변경 </button>
+                                        </div>
+                                        <!-- <div id="modify_name" class="modify name" style="display: none;">
+                                            <h5  class="title">이름</h5>
+                                            <div   class="input_box">
+                                                <h6   class="input_title">새로운 이름
+                                                </h6>
+                                                <div  class="input_item"><input 
+                                                        type="text" placeholder="고객님의 이름" autocomplete="off"
+                                                        class="input_txt"></div>
+                                                <p   class="input_error">올바른 이름을
+                                                    입력해주세요. (2-50자)</p>
+                                            </div>
+                                            <div  class="modify_btn_box"><button 
+                                                     type="button" class="btn outlinegrey medium"
+                                                    slot="button"> 취소 </button><button 
+                                                     disabled="disabled" type="button"
+                                                    class="btn solid medium disabled" slot="button"> 저장 </button></div> -->
+                                        </div>
+                                        <div  class="unit">
+                                            <h5  class="title">이름</h5>
+                                            <!-- <p  class="desc">jjjjj</p> -->
+                                            <input type="text" value="jjjjj" class="desc">
+                                            <button
+                                                  type="button"
+                                                class="btn btn_modify outlinegrey small"> 변경 
+                                            </button>
+                                        </div>
+                                        <div  class="unit">
+                                            <h5  class="title">소개</h5>
+                                            <p  class="desc"><input class="desc" type="text" placeholder="나를 소개하세요"></p>
+                                            <button 
+                                                 type="button"
+                                                class="btn btn_modify outlinegrey small"> 변경 
+                                            </button>
+                                        </div>
+                                        
+                                    </div>
+                                    <a  href="/my/withdrawal" class="btn_withdrawal">회원 탈퇴</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 본문 끝 -->
+
+    <!-- footer -->
+    <footer th:replace="/fragment/footer :: footer"></footer>
+    <!-- footer 끝-->
+    <!-- Layer content-->
+
+</body>
+
+</html>
+<script src="/js/social/style_profile_edit.js"></script>
+<!-- <script>
+    function namepop(){
+        const block=document.getElementById('modify_name');
+        block.style.display='block';
+    }
+</script> -->
