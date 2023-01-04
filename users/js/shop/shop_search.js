@@ -9,15 +9,16 @@
 //     }
 // }
 
-function dd_cm1() {
-    let click = document.getElementById("dd-content1");
-    if (click.style.display === "none") {
-        click.style.display = "block";
-    } else {
-        click.style.display = "none";
+    function dd_cm1() {
+        const clickCheck = document.querySelector('#input0'); // 체크여부확인
+        let click = document.getElementById("dd-content1");
+        if (click.style.display === "none") {
+            click.style.display = "block";
+        } else if(clickCheck.checked == false){
+            click.style.display = "none";
 
+        }
     }
-}
 
 // ======================================================================
 //  +버튼 클릭시  ( + ↔ - ) 버튼 변경
