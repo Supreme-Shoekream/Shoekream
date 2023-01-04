@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/my/receipt.css">
+    <link rel="stylesheet" href="../../css/fragment/mypage_navbar.css">
+    <link rel="stylesheet" href="/users/css/layer/layer_receipt.css">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script defer src="../../js/my/mypage_navbar.js"></script>
+</head>
+
+<body>
+    <div class="container my lg">
+        <div>
+            <!-- navbar -->
+            <div class="snb_area"><a href="/my" class="nuxt-link-active">
+                <h2 class="snb_main_title">마이 페이지</h2>
+            </a>
+            <nav class="snb">
+                <div class="snb_list"><strong class="snb_title">쇼핑 정보</strong>
+                    <ul class="snb_menu">
+                        <li class="menu_item"><a id="buying" href="/users/html/my/buying.html" class="menu_link">구매
+                                내역 </a></li>
+                        <li class="menu_item"><a id="selling" href="/users/html/my/selling.html" class="menu_link">판매 내역
+                            </a></li>
+                        <li class="menu_item"><a id="wish" href="/users/html/my/wish.html" class="menu_link">관심상품 </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="snb_list"><strong class="snb_title">내 정보</strong>
+                    <ul class="snb_menu">
+                        <li class="menu_item"><a name="profile" href="/users/html/my/profile.html" class="menu_link">
+                                프로필 정보 </a></li>
+                        <li class="menu_item"><a name="address" href="/users/html/my/address.html" class="menu_link">주소록
+                            </a></li>
+                        <li class="menu_item"><a name="payment" href="/users/html/my/payment.html" class="menu_link">결제 정보
+                            </a></li>
+                        <li class="menu_item"><a name="account" href="/users/html/my/account.html" class="menu_link">판매 정산
+                                계좌 </a></li>
+                        <li class="menu_item"><a name="receipt" href="/users/html/my/receipt.html" class="menu_link">현금영수증
+                                정보 </a></li>
+                        <li class="menu_item"><a name="point" href="/users/html/my/point.html" class="menu_link">포인트 </a>
+                        </li>
+                    </ul>
+                </div>        
+        </nav>
+        </div>
+        </div>
+        <div class="content_area">
+            <div class="my_account">
+                <div class="content_title">
+                    <div class="title">
+                        <h3>현금영수증 정보</h3>
+                        <!---->
+                    </div>
+                    <!---->
+                </div>
+                <div class="form_wrap lg">
+                    <div class="receipt_config_form">
+                        <p class="description"> 현금영수증은 판매 거래 시 발생하는 수수료에 대해 &lt;정산완료&gt; 후 7일 이내에 건별로
+                            발급됩니다. ‘미신청' 선택 시 자진발급으로 처리됩니다. </p>
+                        <div class="input_logistics_companies input_box">
+                            <h4 class="input_title">형태</h4>
+                            <div class="input_item"><input type="text"
+                                    placeholder="개인소득공제(휴대폰)" readonly="readonly" autocomplete="off" inputmode="numeric"
+                                    class="input_txt text_fill"><button
+                                    type="button" class="btn btn_dropdown"><img src="/users/img/down.png" alt=""></button>
+                                </div>
+                                <div class="receipt_dropdown_menu" style="display: none;">
+                                    <ul class="receipt_list">
+                                        <li class="receipt_list_li">미신청<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
+                                        <li class="receipt_list_li">개인소득공제(휴대폰)<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
+                                        <li class="receipt_list_li">개인소득공제(현금영수증카드)<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
+                                    </ul>
+                                    </div>
+
+                        </div>
+                        <div class="input_hp" id="hp_input_box">
+                        <div class="input_box" id="input_hp"><h4 class="input_title">휴대폰번호</h4><div class="input_item"><input id="hp_input" type="tel" placeholder="- 없이 입력" autocomplete="off" class="input_txt input_hp"  
+                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"></div></div>
+                        
+                        <div class="receipt_config_wrap"><div class="checkbox_item"><input class="check" id="check1" type="checkbox" name="" class="blind"><label for="check1" class="check_label"><!--라벨텍스트 있던곳--></label></div><label for="check1"><span style="width: 600px;"class="label_txt">현금영수증 신청 정보를 저장하여 자동으로 발급되는 것에 동의합니다.</span></label></div>
+                        </div>
+                        <!---->
+                    </div>
+                    <div class="button_wrap"><!----><button type="button" class="solid btn_save btn medium disabled"> 저장하기 </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="layer lg layer_alert" style="display: none;"><div class="layer_container"><a href="#" class="btn_layer_close"></a><div class="layer_header"><h2 class="title">현금영수증 정보</h2></div><div class="layer_content"><div class="alert_box"><p class="alert_desc">이미 진행중인 판매 거래를 포함하여 앞으로의 모든 판매 거래의 현금영수증 발급이 해당 정보로 변경됩니다. 
+        계속 진행하시겠습니까? </p></div><div class="layer_btn">
+            <button type="button" class="btn outlinegrey medium close_layer"> 취소 </button>
+            <button type="button" class="btn solid medium close_layer"> 계속 변경 </button></div></div></div></div>
+    <script>
+        const dropdownBtn = document.querySelector('.input_item')
+        const dropdown = document.querySelector('.receipt_dropdown_menu')
+        dropdownBtn.addEventListener('click', () => {
+            if(dropdown.style.display=="none"){
+                dropdown.style.display="block"
+            }else{
+                dropdown.style.display="none"
+            }
+        })
+        const receiptList = document.querySelectorAll('.receipt_list_li') // 리스트
+        const inputPlaceholder = document.querySelector('.input_txt') // 글자바뀌는곳
+        const inputHp = document.querySelector('.input_hp')
+        const btnSave = document.querySelector('.btn_save')
+        const layer = document.querySelector('.layer_alert')
+        const closeLayer = document.querySelectorAll('.close_layer')
+        receiptList.forEach((target) => {
+            target.addEventListener('click', (e) => {
+                inputPlaceholder.placeholder = event.target.textContent // 글자바꾸기
+                receiptList.forEach((e) => {
+                    e.classList.remove("select_receipt") // 글씨강조지우기
+                    e.childNodes[1].style.display="none" // 체크표시지우기
+                })
+                inputPlaceholder.classList.add("input_txt_color") // 글자바뀌는곳의 글씨색 변경
+                target.classList.add("select_receipt") // 글씨강조추가
+                target.childNodes[1].style.display = "block" // 체크표시추가
+                dropdown.style.display="none"
+                if(inputPlaceholder.placeholder == '미신청'){
+                    btnSave.classList.remove('disabled')
+                    inputHp.style.display="none"
+                    btnSave.classList.remove('btn_save')
+                    btnSave.classList.add('btn_active')
+                }else{
+                    btnSave.classList.add('disabled')
+                    inputHp.style.display="block"
+                    btnSave.classList.remove('btn_active')
+                    btnSave.classList.add('btn_save')
+                }
+            })
+        })
+        btnSave.addEventListener('click', () => {            
+            layer.style.display="block"
+        })
+        layer.addEventListener('click', (e) => {
+            if(e.target == e.currentTarget){
+                layer.style.display="none"
+            }
+        })
+        
+        closeLayer.forEach((target) => {
+            target.addEventListener('click', () => {
+                layer.style.display="none"
+                
+            })
+        })
+
+        // $(function(){
+        //     $('input_hp').on('input', function(){
+        //         if($('input_hp').val=''){
+                    
+        //             $('btn_save').classList.add('disabled')
+        //         }else{
+        //             $('btn_save').classList.remove('disabled')
+        //         }
+        //     })
+        // })
+       
+        
+
+
+
+
+
+
+
+        //핸드폰 정규식
+        // function validateHp(strHp){
+        // const reg_hp = /^[0-9]$/;
+        // if(!reg_hp.test(''+strHp)){
+        //     return false;
+        // }
+        // return true;
+        // }
+        // // 휴대폰 번호 유효성 검사
+        // document.querySelector('#hp_input').addEventListener('input', e=>{
+        //         strHp = e.target.value;
+        //         let errorMsg='';
+        //         if(!validateHp(strHp)){
+        //             errorMsg='휴대폰 번호를 정확히 입력해주세요.';
+        //             document.querySelector('#hp_input_box').className='input_box has_error';
+        //             document.querySelector('#hp_input').setAttribute('validateresult',false);
+        //         } else {
+        //             document.querySelector('#hp_input_box').className='input_box fill';
+        //             document.querySelector('#hp_input').setAttribute('validateresult',true);
+        //         }
+        // });
+        // //핸드폰 유효성 검사할때마다 버튼 활성화 조건 (!정규식 || checked없을때) => has_danger error disabled // input
+        
+
+        // //체크할때마다 버튼활성화조건 (!정규식 || checked없을때) 체크on off => disabled // click
+        
+    </script>
+    <script>
+        // document.querySelector('.input_hp').addEventListener('input', e=>{
+        //     let strName=e.target.value;
+        //     if(strName=='' && $('#check1').is(':checked') == false){
+        //         document.querySelector('.btn_save').classList.add('disabled');
+        //         console.log($('#check1').is(':checked'))
+        //     } else {
+        //         document.querySelector('.btn_save').classList.remove('disabled');
+        //         console.log($('#check1').is(':checked'))
+        //     }
+        // });
+
+        document.querySelector('.input_hp').addEventListener('input', e => {
+            let strHp = e.target.value;
+            let checkHP = $('#check1').is(':checked')
+            if(strHp && checkHP){
+                document.querySelector('.btn_save').classList.remove('disabled');
+            }else{
+                document.querySelector('.btn_save').classList.add('disabled');
+            }
+        })
+    </script>
+</body>
+
+</html>

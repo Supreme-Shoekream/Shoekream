@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/my/point.css">
+    <link rel="stylesheet" href="../../css/fragment/mypage_navbar.css">
+    <link rel="stylesheet" href="../../css/layer/layer.css">
+    <link rel="stylesheet" href="../../css/layer/layer_point.css">
+    <script defer src="../../js/my/mypage_navbar.js"></script>
+</head>
+
+<body>
+    <div class="container my lg">
+        <div>
+            <!-- navbar -->
+            <div class="snb_area"><a href="/my" class="nuxt-link-active">
+                    <h2 class="snb_main_title">마이 페이지</h2>
+                </a>
+                <nav class="snb">
+                    <div class="snb_list"><strong class="snb_title">쇼핑 정보</strong>
+                        <ul class="snb_menu">
+                            <li class="menu_item"><a id="buying" href="/users/html/my/buying.html" class="menu_link">구매
+                                    내역 </a></li>
+                            <li class="menu_item"><a id="selling" href="/users/html/my/selling.html" class="menu_link">판매 내역
+                                </a></li>
+                            <li class="menu_item"><a id="wish" href="/users/html/my/wish.html" class="menu_link">관심상품 </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="snb_list"><strong class="snb_title">내 정보</strong>
+                        <ul class="snb_menu">
+                            <li class="menu_item"><a name="profile" href="/users/html/my/profile.html" class="menu_link">프로필 정보 </a></li>
+                            <li class="menu_item"><a name="address" href="/users/html/my/address.html" class="menu_link">주소록</a></li>
+                            <li class="menu_item"><a name="payment" href="/users/html/my/payment.html" class="menu_link">결제 정보</a></li>
+                            <li class="menu_item"><a name="account" href="/users/html/my/account.html" class="menu_link">판매 정산 계좌 </a></li>
+                            <li class="menu_item"><a name="receipt" href="/users/html/my/receipt.html" class="menu_link">현금영수증정보 </a></li>
+                            <li class="menu_item"><a name="point" href="/users/html/my/point.html" class="menu_link">포인트 </a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="content_area">
+            <div class="point">
+                <div class="content_title">
+                    <div class="title">
+                        <h3>포인트</h3>
+                        <!---->
+                    </div><button type="button" class="btn_help"><img src="/users/img/question.png" alt=""></button>
+                    <!---->
+                </div>
+                <div class="dashboard">
+                    <div class="point_summary">
+                        <div class="point_info">
+                            <p class="title">사용 가능한 포인트</p>
+                            <p class="point"><b>0P</b></p>
+                        </div>
+                        <div class="divider">
+                            <div class="divider_line"></div>
+                        </div>
+                        <div class="point_info">
+                            <p class="title">이번달 소멸예정 포인트</p>
+                            <p class="point"><b>0P</b></p>
+                        </div>
+                    </div>
+                    <div class="register">
+                        <!-- 버튼자리 -->
+                    </div>
+                </div>
+                <p class="description"> 포인트 유효기간은 적립일로부터 최대 1년까지이며, 유형에 따라 달라질 수 있습니다. </p>
+                <table class="point_history_table">
+                    <thead>
+                        <tr>
+                            <th class="point_history_header">상세 내역</th>
+                            <th class="point_history_header">적립/사용</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="2">
+                                <div class="point_empty">
+                                    <p class="text">적립 또는 사용한 내역이 없습니다.</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!---->
+                <!---->
+                <!---->
+            </div>
+        </div>
+    </div>
+
+    <div class="layer_point layer lg" style="display: none;">
+        <div class="layer_container"><a href="#" class="btn_layer_close">
+            <img src="../../img/close.png">
+        </a>
+            <div class="layer_header">
+                <h2 class="title">이용안내</h2>
+            </div>
+            <div class="layer_content">
+                <div class="usable_wrap">
+                    <ul class="usable_list">
+                        <li class="usable_item"> 1,000P 이상부터 구매금액 제한 없이 사용하실 수 있습니다. </li>
+                        <li class="usable_item"> 입찰 삭제, 거래 취소 시 사용한 포인트는 환불됩니다. </li>
+                        <li class="usable_item"> 먼저 적립된 포인트부터 순서대로 사용되며, 사용하지 않으실 경우 유효기간이 지나면 자동 소멸됩니다. </li>
+                        <li class="usable_item"> 유효기간이 지난 후 환불받은 포인트는 다시 사용하실 수 없습니다. </li>
+                    </ul>
+                </div>
+                <div class="layer_btn"><a href="#" class="btn outline medium"> 확인 </a></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var layerPointOpen = false;
+        const helpBtn = document.querySelector('.btn_help')
+        const pointLayer = document.querySelector('.layer_point')
+        helpBtn.addEventListener('click', () => {
+            pointLayer.style.display = "block"
+        })
+        // 외부영역 클릭이벤트
+        // querySelector(레이어div)
+        pointLayer.addEventListener('click', (e) => {
+            if(e.target == e.currentTarget){
+            pointLayer.style.display = "none"
+            }
+        })
+        const layerClose = document.querySelector('.btn_layer_close')
+        layerClose.addEventListener('click', () => {
+            pointLayer.style.display = "none"
+        })
+        const layerOk = document.querySelector('.layer_content .btn')
+        layerOk.addEventListener('click', () => {
+            pointLayer.style.display = "none"
+        }) 
+    </script>
+</body>
+
+</html>
