@@ -1,0 +1,78 @@
+.layer_point .layer_container{
+    width: 444px;
+}
+.usable_wrap {
+    padding: 19px 32px 30px;
+}
+.usable_point{
+    padding-bottom: 30px;
+}
+.usable_point .title{
+    font-size: 14px;
+    letter-spacing: -.21px;
+}
+.point_box {
+    padding: 18px 0 2px;
+    border-bottom: 2px solid #222;
+    line-height: 36px;
+    font-size: 24px;
+    letter-spacing: -.12px;
+}
+.point_box .point {
+    font-weight: 700;
+}
+.point_info {
+    padding-top: 13px;
+    font-size: 13px;
+    letter-spacing: -.07px;
+    color: rgba(34,34,34,.8);
+}
+.point_info .info_item+.info_item{
+    margin-top: 8px;
+    color: rgba(34,34,34,.5);
+}
+.usable_list {
+    border-top: 1px solid #ebebeb;
+    padding-top: 20px;
+}
+.usable_item{
+    position: relative;
+    padding-left: 11px;
+    font-size: 12px;
+    letter-spacing: -.06px;
+    color: rgba(34,34,34,.8);
+    margin-bottom: 6px;
+}
+.usable_item:before {
+    content: "";
+    position: absolute;
+    top: 9px;
+    left: 0;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 3px;
+    height: 3px;
+    background-color: #333;
+    border-radius: 50%;
+}
+.layer_btn {
+    padding: 24px 32px 32px;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+.layer_btn .btn{
+    width: 120px;
+}
+
+.outline {
+    border: 1px solid #d3d3d3;
+}
+.medium {
+    padding: 0 18px;
+    height: 42px;
+    border-radius: 12px;
+    font-size: 14px;
+    letter-spacing: -.14px;
+}

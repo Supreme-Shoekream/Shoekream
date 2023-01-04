@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--head 시작 -->
+<div th:replace="fragment/adminhead :: head"></div>
+<!--head 끝 -->
+<body>
+
+<!-- header 시작 -->
+<div th:replace="fragment/adminheader :: header"></div>
+<!-- header 끝 -->
+<!-- right-sidebar 시작 -->
+<div th:replace="fragment/adminrightsidebar :: rightsidebar"></div>
+<!-- right-sidebar 끝 -->
+<!-- left-side-bar 시작 -->
+<div th:replace="fragment/adminnavbar :: navbar"></div>
+<!-- left-side-bar 끝 -->
+<div class="main-container">
+  <div class="pd-ltr-20 xs-pd-20-10">
+    <div class="min-height-200px">
+
+      <!-- Simple Datatable start -->
+      <div class="card-box mb-30">
+        <div style="display: flex;" class="pd-20">
+          <h4 class="text-blue h4">공지사항 리스트</h4>
+          <h4 class="text-blue h4">공지사항 리스트</h4>
+          <!--이름/아이디/전화번호/주소/회원상태/포인트-->
+        </div>
+        <div class="pb-20">
+          <table class="data-table table stripe hover nowrap">
+            <thead>
+            <tr>
+              <th class="table-plus datatable-nosort">Writer</th>
+              <th>Title</th>
+              <th>Date</th>
+
+              <th class="datatable-nosort">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="table-plus">김사과</td>
+              <td>[이벤트 발표] LUCKY DRAW - 조던 1 레트로 하이 OG 시카고 2015</td>
+              <td>2022-12-15</td>
+
+              <td>
+                <div class="dropdown">
+                  <a
+                          class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
+                          href="#"
+                          role="button"
+                          data-toggle="dropdown"
+                  >
+                    <i class="dw dw-more"></i>
+                  </a>
+                  <div
+                          class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
+                  >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-eye"></i> View</a
+                    >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-edit2"></i> Edit</a
+                    >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-delete-3"></i> Delete</a
+                    >
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="table-plus">반하나</td>
+
+
+              <td>[이벤트 발표] LUCKY DRAW - 어그 클래식 울트라 미니 & 미니 플랫폼 부츠 체스트넛</td>
+              <td>2022-12-15</td>
+
+              <td>
+                <div class="dropdown">
+                  <a
+                          class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
+                          href="#"
+                          role="button"
+                          data-toggle="dropdown"
+                  >
+                    <i class="dw dw-more"></i>
+                  </a>
+                  <div
+                          class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
+                  >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-eye"></i> View</a
+                    >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-edit2"></i> Edit</a
+                    >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-delete-3"></i> Delete</a
+                    >
+                  </div>
+                </div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- Simple Datatable End -->
+    </div>
+  </div>
+</div>
+<!-- js -->
+<div th:replace="fragment/adminjs :: js"></div>
+<!-- js -->
+
+</body>
+</html>

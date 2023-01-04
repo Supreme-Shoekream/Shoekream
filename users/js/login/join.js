@@ -68,18 +68,18 @@ function validateName(strName){
 }
 
 // ssn1 정규 표현식
-function validateBirthday1(strBirthday1){
-    const reg_birthday1 =  /^(?:[0-9]{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[1,2][0-9]|3[0,1]))$/;
-    if(!reg_birthday1.test(''+strBirthday1)){
+function validateBirthdate1(strBirthdate1){
+    const reg_birthdate1 =  /^(?:[0-9]{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[1,2][0-9]|3[0,1]))$/;
+    if(!reg_birthdate1.test(''+strBirthdate1)){
         return false;
     }
     return true;
 }
 
 // ssn2 정규 표현식
-function validateBirthday(strBirthday){
-    const reg_birthday =  /^[1-4]{1}$/;
-    if(!reg_birthday.test(''+strBirthday)){
+function validateBirthdate(strBirthdate){
+    const reg_birthdate =  /^[1-4]{1}$/;
+    if(!reg_birthdate.test(''+strBirthdate)){
         return false;
     }
     return true;
