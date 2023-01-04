@@ -18,10 +18,7 @@
 
 
     <link rel="stylesheet" href="/css/social/trending.css">
-
-
-
-
+    <link rel="stylesheet" href="/css/fragment/footer.css">
 </head>
 
 
@@ -411,6 +408,18 @@
     </div>
 
     <script src="/js/social/like.js"></script>
+
 </body>
 
 </html>
+
+<script>
+    window.onload = function(){
+        const items = document.querySelectorAll('gnb_item');
+        items.forEach((it) => {
+            it.classList.remove('gnb_on');
+        })
+        const item = document.getElementById('st_gnb');
+        item.classList.add('gnb_on');
+    }
+</script>

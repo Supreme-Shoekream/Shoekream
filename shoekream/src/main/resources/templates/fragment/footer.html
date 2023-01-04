@@ -80,33 +80,11 @@
         <p id="footer_right_box4">© 2022 SHOEKREAM.Corp.</p>
     </div>
 </footer>
-<!---------------------------------------------------- js ---------------------------------------------------->
-<!-- 팝업 배경 DIV -->
-<div id="popup_mask">
-    <!-- 팝업창 -->
-    <div id="popupDiv">
-        <div class="layer_container">
-            <img src="/lib/img/nav_close_icon.png" alt="닫기" id="popCloseBtn">
-            <div class="layer_header">
-                <h2 class="title">정말 탈퇴하시겠습니까?</h2>
-            </div>
-            <div class="layer_content">
-                <p>탈퇴하기 클릭 시 바로 탈퇴 처리됩니다.</p>
-                <p>탈퇴 후 14일 이내 재가입할 수 없으며,</p>
-                <p>재가입 시 동일 이메일을 사용할 수 없습니다.</p>
-            </div>
-            <div class="withdrawal_btn_box1">
-                <div class="checkbox_item">
-                    <input type="checkbox" name="blind" id="undefined">
-                    <span class="label_txt_withdrawal">KREAM 회원을 탈퇴하겠습니다.</span>
-                </div>
-                <button type="button" class="btn_withdrawal" id="no_btn">탈퇴 안할래요</button>
-                <form action="/logout">
-                    <a href="#" class="link_withdrawal">탈퇴하기</a>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
+<div th:replace="/layer/layer_auth_policy :: layer_auth_policy"></div>  // 검수기준
+<div th:replace="/layer/layer_faq :: layer_faq"></div>                  // 이용정책
+<div th:replace="/layer/layer_guide :: layer_guide"></div>              // 커뮤니티 가이드라인
+<div th:replace="/layer/layer_penalty :: layer_penalty"></div>          // 패널티 정책
+
+
 </body>
 </html>
