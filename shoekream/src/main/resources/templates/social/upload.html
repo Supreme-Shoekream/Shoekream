@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STYLE | SHEOKREAM</title>
+  <!-- <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://kream.co.kr/favicon.ico"> -->
+  <link rel="stylesheet" href="../../css/social/upload.css">
+  <link rel="stylesheet" href="../../css/social/users.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div id="__nuxt">
+    <div id="__layer">
+      <!-- 헤더 -->
+      <header th:fragment="head">
+        <link rel="stylesheet" href="../../css/social/style_header.css">
+        <div>
+          <div class="social header lg no_line">
+            <div class="header_top">
+              <div class="top_inner">
+                <ul class="top_list">
+                  <li class="top_item">
+                    <a href="/notice" class="top_link"> 고객센터 </a>
+                  </li>
+                  <li class="top_item">
+                    <a href="/my/wish" class="top_link"> 관심상품 </a>
+                  </li>
+                  <li class="top_item">
+                    <a href="/my" class="top_link"> 마이페이지 </a>
+                  </li>
+                  <li class="top_item" style="display: none;">
+                    <a href="/login" class="top_link"> 로그인 </a>
+                  </li>
+                  <li class="top_item">
+                    <a href="/" class="top_link"> 로그아웃 </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="header_main">
+              <div class="main_inner">
+                <h1>
+                  <a href="/" aria-label="홈" class="logo">
+                    <img src="../../img/shoekream_logo.png" class="logo-kream icon sprite-icons">
+                  </a>
+                </h1>
+                <div class="gnb_area">
+                  <nav class="gnb">
+                    <ul class="gnb_list">
+                      <li class="gnb_item gnb_on">
+                        <a href="/social/trending" class="gnb_link"> STYLE </a>
+                      </li>
+                      <li class="gnb_item">
+                        <a href="#" class="gnb_link"> SHOP </a>
+                      </li>
+                      <li class="gnb_item">
+                        <a href="/about" target="_blank" class="gnb_link"> ABOUT </a>
+                      </li>
+                    </ul>
+                  </nav>
+                  <div class="search_btn_box">
+                    <a aria-label="검색" href="#" class="btn_search">
+                      <img src="../../img/search.png" class="nav-search icon sprite-icons">
+                    </a>
+                  </div>
+                </div>
+                <div style="display: none;">
+                  <div class="search_area" value="">
+                    <div class="search">
+                      <img src="../../img/search.png">
+                      <input type="text" placeholder="" title="검색창" class="input_search show_placeholder_on_focus">
+                      <button class="btn_search_delete" style="display: none;">
+
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="nav_btn_box">
+                  <button type="button" aria-label="검색" class="btn_search">
+
+                  </button>
+                  <button type="button" aria-label="메뉴" class="btn_menu">
+
+                  </button>
+                </div>
+                <div style="display: none;">
+                  <div class="navigation_wrap">
+                    <div class="navigation">
+                      <div class="navigation_inner">
+                        <ul class="nav_list">
+                          <li class="nav_item">
+                            <a href="#" class="nav_link"> STYLE </a>
+                          </li>
+                          <li class="nav_item">
+                            <a href="#" class="nav_link"> SHOP </a>
+                          </li>
+                          <li class="nav_item">
+                            <a href="#" class="nav_link"> 자주 묻는 질문 </a>
+                          </li>
+                          <li class="nav_item">
+                            <a href="#" class="nav_link"> 공지사항 </a>
+                          </li>
+                          <li class="nav_item" style="display: none;">
+                            <a href="#" class="nav_link"> 로그인 </a>
+                          </li>
+                          <li class="nav_item">
+                            <a href="#" class="nav_link"> 마이 페이지 </a>
+                          </li>
+                        </ul>
+                        <div class="nav_logout">
+                          <button class="btn_logout">로그아웃</button>
+                          <p class="text_mail"></p>
+                        </div>
+                        <div class="nav_download">
+                          <p class="download_txt">KREAM 앱 설치 후 사용해 보세요!</p>
+                          <div class="btn_appdown">
+                            <a href="#" class="btn outline medium"> 앱 다운로드 </a>
+                          </div>
+                        </div>
+                      </div>
+                      <button type="button" aria-label="닫기" class="btn_nav_close">
+
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!---->
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- 헤더 끝 -->
+
+
+
+
+      <div class="join_area">
+
+        <div class="upload_header scroll join_title" style="position: fixed; z-index: 999;">
+          <a href="./myprofile.html" class="close_icon">
+            <img src="../../img/4781857_arrow_arrows_back_direction_left_icon.png" alt="취소 이미지" class="close_icon">
+          </a>
+          <h3>STYLE UPLOAD</h3>
+          <button type="submit" class="submit" disabled="disabled" onclick="sendit">업로드</button>
+        </div>
+
+        <div style="margin-top: 200px;">
+          <!-- 사진 박스 시작 -->
+          <div class="input_box">
+            <h3 class="input_title ess ph">사진 추가하기</h3>
+            <div class="input_item" style="border: none; height: 400px;
+                      border-bottom: 0.1rem solid #ebebeb;">
+              <input id="imgUpload" style="border: none; 
+                      margin-top: 0.1rem solid #ebebeb;" type="file" accept="image/*" class="input_txt in_essValue"
+                name="photo">
+              <div class="preview">
+                <img src="https://dummyimage.com/400x400/ffffff/000000.png&text=preview+image" style="width: 300px;"
+                  alt="" id="previewImage">
+              </div>
+            </div><!--.input_item END-->
+          </div>
+          <!-- 사진박스 끝 -->
+
+          <!-- 글 내용 시작 -->
+          <div class="input_box">
+            <h3 class="input_title ess">글 내용</h3>
+            <div class="input_items">
+              <!-- <input type="text" id="content_input" class="input_txt in_essValue" name="content" placeholder="아이템과 스타일을 자랑해보세요..."> -->
+              <textarea resize="none" rows="1" oninput="resize(this)" name="content" id="content_input"
+                class="input_txt in_essValue" cols="30" rows="1" placeholder="아이템과 스타일을 자랑해보세요..."></textarea>
+            </div>
+          </div>
+          <!-- 글 내용 끝 -->
+
+          <div class="input_box">
+            <h3 class="input_title ess" style="margin-bottom: 10px;">상품 태그 추가하기</h3>
+            <div class="input_item add_tag">
+              <!-- 선택된 태그 들어올 자리 시작 -->
+              <ul id="selected_product_list">
+
+              </ul>
+              <!-- 선택된 태그 들어올 자리 끝 -->
+            </div>
+          </div>
+        </div>
+
+        <!-- 상품태그 추가 버튼 -->
+        <div id="tag_box">
+          <a id="tag_btn" onclick="addProducts()">
+            <img src="../../img/styleImg/tag_icon.png" alt="상품 태그 아이콘" id="tag">
+          </a>
+          <div id="tag_text">상품 태그를 추가해 보세요!</div>
+        </div>
+        <!-- 상품태그 추가 버튼 끝 -->
+        <!-- <button type="submit" disabled="disabled" class="btn btn_join full solid disabled" onclick="sendit()"> 가입하기 </button> -->
+      </div>
+
+
+      <!-- 팝업 시작 -->
+      <div id="follower_pop" class="layer_social_user_list layer lg">
+        <div class="layer_container" style="height: 500px;">
+
+          <div class="layer_header" id="search_layer_header">
+            <img src="../../img/search.png" alt="돋보기 아이콘" class="ico-close icon sprite-icons" id="search_icon">
+            <input 
+            style="border: none; border-bottom: 1px solid black; 
+            margin-top: 25px; margin-left: 100px; width: 250px;" type="text" oninput="search()" onkeyup="isNull(this)">
+            <a class="btn_layer_close" onclick="closeSearch()">
+              <img src="../../img/x.png" class="ico-close icon sprite-icons">
+            </a>
+          </div>
+          <div class="layer_content" style="margin-top: 50px;margin-top: 25px;
+                margin-left: 70px;
+                width: 300px;">
+                <!-- 상품 리스트 시작 -->
+            <div id="lists" style="display: none;">
+              <ul  class="product_list">
+                <li class="product_item"><a
+                    class="product_link">
+                    <div  class="product" style="background-color: rgb(244, 244, 244);">
+                      <picture class="picture product_img">
+                        <source type="image/webp"
+                          srcset="https://kream-phinf.pstatic.net/MjAyMTEwMDZfMTQ4/MDAxNjMzNTIyMDM5NzU5.eUn6XN8tURKKvgXvI4rctyH0A_zEw20vnbLKSNWVq50g.-UFhiggBfGucxWg9epEsFzH3Ib3_iX1Crk4wu1BXzOcg.JPEG/a_cf38ac4233bf4dc39d0bce472218b77f.jpg?type=m_webp">
+                        <source
+                          srcset="https://kream-phinf.pstatic.net/MjAyMTEwMDZfMTQ4/MDAxNjMzNTIyMDM5NzU5.eUn6XN8tURKKvgXvI4rctyH0A_zEw20vnbLKSNWVq50g.-UFhiggBfGucxWg9epEsFzH3Ib3_iX1Crk4wu1BXzOcg.JPEG/a_cf38ac4233bf4dc39d0bce472218b77f.jpg?type=m">
+                        <img alt="Arc'teryx Zeta SL Jacket Black"
+                          src="https://kream-phinf.pstatic.net/MjAyMTEwMDZfMTQ4/MDAxNjMzNTIyMDM5NzU5.eUn6XN8tURKKvgXvI4rctyH0A_zEw20vnbLKSNWVq50g.-UFhiggBfGucxWg9epEsFzH3Ib3_iX1Crk4wu1BXzOcg.JPEG/a_cf38ac4233bf4dc39d0bce472218b77f.jpg?type=m"
+                          loading="lazy" class="image">
+                      </picture>
+                    </div>
+                    <div  class="product_desc">
+                      <p  class="product_name">Arc'teryx Zeta SL Jacket Black</p>
+                      <div  class="price_box"><span 
+                          class="amount">700,000</span><span  class="unit">원</span></div>
+                    </div>
+                  </a></li>
+                <li  class="product_item"><a
+                    class="product_link">
+                    <div  class="product" style="background-color: rgb(244, 244, 244);">
+                      <picture class="picture product_img">
+                        <source type="image/webp"
+                          srcset="https://kream-phinf.pstatic.net/MjAyMDEwMjJfMjY0/MDAxNjAzMzM0MDAyMjkz.wFUvINtdW_HtWw_dT93iON6PHbdGH6z_2MwUIyl3Uhog.h2DQIPhdatdIih9yvHtenOjPoS825NR_w0Fbx8ZoVZQg.PNG/p_25672_0_001365ad1ca1402ea03e6b9e0f6ae500.png?type=m_webp">
+                        <source
+                          srcset="https://kream-phinf.pstatic.net/MjAyMDEwMjJfMjY0/MDAxNjAzMzM0MDAyMjkz.wFUvINtdW_HtWw_dT93iON6PHbdGH6z_2MwUIyl3Uhog.h2DQIPhdatdIih9yvHtenOjPoS825NR_w0Fbx8ZoVZQg.PNG/p_25672_0_001365ad1ca1402ea03e6b9e0f6ae500.png?type=m">
+                        <img alt="Salomon XT-6 ADV White"
+                          src="https://kream-phinf.pstatic.net/MjAyMDEwMjJfMjY0/MDAxNjAzMzM0MDAyMjkz.wFUvINtdW_HtWw_dT93iON6PHbdGH6z_2MwUIyl3Uhog.h2DQIPhdatdIih9yvHtenOjPoS825NR_w0Fbx8ZoVZQg.PNG/p_25672_0_001365ad1ca1402ea03e6b9e0f6ae500.png?type=m"
+                          loading="lazy" class="image">
+                      </picture>
+                    </div>
+                    <div  class="product_desc">
+                      <p  class="product_name">Salomon XT-6 ADV White</p>
+                      <div  class="price_box"><span 
+                          class="amount">204,000</span><span  class="unit">원</span></div>
+                    </div>
+                  </a></li>
+                <li  class="product_item"><a 
+                    class="product_link">
+                    <div  class="product" style="background-color: rgb(241, 241, 234);">
+                      <picture class="picture product_img">
+                        <source type="image/webp"
+                          srcset="https://kream-phinf.pstatic.net/MjAyMjA4MThfMjI5/MDAxNjYwNzk3NTE1OTgx.PIl1nZ-_EhAoytfkTem0L7vuNWvDise9DI1cPUSrK7Ag.xtPv15NnoMHGmygFr_n-5I_dt4UhWhK4IlPcmPHPaoYg.PNG/a_33ff4989dff04f66b485b0933136bb4e.png?type=m_webp">
+                        <source
+                          srcset="https://kream-phinf.pstatic.net/MjAyMjA4MThfMjI5/MDAxNjYwNzk3NTE1OTgx.PIl1nZ-_EhAoytfkTem0L7vuNWvDise9DI1cPUSrK7Ag.xtPv15NnoMHGmygFr_n-5I_dt4UhWhK4IlPcmPHPaoYg.PNG/a_33ff4989dff04f66b485b0933136bb4e.png?type=m">
+                        <img alt="Adidas Superstar Golden Beige"
+                          src="https://kream-phinf.pstatic.net/MjAyMjA4MThfMjI5/MDAxNjYwNzk3NTE1OTgx.PIl1nZ-_EhAoytfkTem0L7vuNWvDise9DI1cPUSrK7Ag.xtPv15NnoMHGmygFr_n-5I_dt4UhWhK4IlPcmPHPaoYg.PNG/a_33ff4989dff04f66b485b0933136bb4e.png?type=m"
+                          loading="lazy" class="image">
+                      </picture>
+                    </div>
+                    <div  class="product_desc">
+                      <p  class="product_name">Adidas Superstar Golden Beige</p>
+                      <div  class="price_box"><span 
+                          class="amount">112,000</span><span  class="unit">원</span></div>
+                    </div>
+                  </a></li>
+              </ul><!---->
+            </div>
+            <!-- 상품 리스트 끝 -->
+          </div>
+        </div>
+      </div>
+      <!-- 팝업 끝 -->
+
+    </div>
+    <!-- 푸터 -->
+    <!-- 푸터 끝 -->
+  </div>
+
+
+</body>
+
+</html>
+<script src="../../js/style/upload.js"></script>
