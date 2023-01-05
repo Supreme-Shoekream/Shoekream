@@ -9,10 +9,13 @@
     <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://kream.co.kr/favicon.ico">
     <link rel="stylesheet" href="/css/notice/notice.css">
     <link rel="stylesheet" href="/css/fragment/footer.css">
+    <head th:replace="/fragment/footer_head :: head"></head>
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"
     integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 </head>
+
 <!--header 넣을곳-->
+
 <header th:replace="/fragment/header.html :: header"></header>
 <!--header 넣을곳-->
 <body>
@@ -362,7 +365,8 @@
         </div>
     </div>
 <!--footer 넣을곳-->
-<footer th:replace="fragment/footer.html :: footer"></footer>
+
+    <footer th:replace="/fragment/footer :: footer"></footer>
 <!--footer 넣을곳-->
 
 </body>
