@@ -23,7 +23,7 @@ public class ProductApiResponse {
     private String modelNum;
     private String releaseDate;
     private String color;
-    private LocalDateTime regDate;
+    private LocalDateTime createdAt;
     private String createBy;
 
 }

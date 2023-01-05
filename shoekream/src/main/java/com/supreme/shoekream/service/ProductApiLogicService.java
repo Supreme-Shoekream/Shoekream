@@ -16,24 +16,34 @@ public class ProductApiLogicService extends BaseService<ProductApiRequest, Produ
         ProductApiResponse productApiResponse = ProductApiResponse.builder()
                 .idx(product.getIdx())
                 .name(product.getName())
-                .nameKor(product.getName_kor())
+                .nameKor(product.getNameKor())
                 .img(product.getImg())
-                .brandIdx(product.getBrand_idx())
+                .brandIdx(product.getBrandIdx())
                 .size(product.getSize())
-                .categoryIdx(product.getCategory_idx())
-                .wishCount(product.getWish_count())
-                .modelNum(product.getModel_num())
-                .releaseDate(product.getRelease_date())
+                .categoryIdx(product.getCategoryIdx())
+                .wishCount(product.getWishCount())
+                .modelNum(product.getModelNum())
+                .releaseDate(product.getReleaseDate())
                 .color(product.getColor())
-                .regDate(product.getRegDate())
-                .createBy(product.getCreate_by())
+                .createdAt(product.getCreatedAt())
+                .createBy(product.getCreateBy())
                 .build();
         return productApiResponse;
     }
 
     @Override
     public Header<ProductApiResponse> create(Header<ProductApiRequest> request) {
-        return null;
+        ProductApiRequest productApiRequest = request.getData();
+        Product product = Product.builder()
+                .name("Apple AirPods Max Silver")
+                .nameKor("에어팟 맥스 실버")
+                .size("one size")
+                .color("silver")
+                .firstPrice("769,000원")
+                .build();
+        Product newProduct = baseRepository.save(product);
+
+        return Header.OK(response(newProduct));
     }
 
     @Override

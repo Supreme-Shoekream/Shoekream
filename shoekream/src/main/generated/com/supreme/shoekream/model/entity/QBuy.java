@@ -19,13 +19,13 @@ public class QBuy extends EntityPathBase<Buy> {
 
     public static final QBuy buy = new QBuy("buy");
 
-    public final com.supreme.shoekream.model.config.QBaseEntity _super = new com.supreme.shoekream.model.config.QBaseEntity(this);
+    public final NumberPath<Long> cardIdx = createNumber("cardIdx", Long.class);
 
-    public final NumberPath<Long> card_idx = createNumber("card_idx", Long.class);
+    public final DateTimePath<java.time.LocalDateTime> createdAt = createDateTime("createdAt", java.time.LocalDateTime.class);
 
     public final NumberPath<Long> idx = createNumber("idx", Long.class);
 
-    public final NumberPath<Long> member_idx = createNumber("member_idx", Long.class);
+    public final NumberPath<Long> memberIdx = createNumber("memberIdx", Long.class);
 
     public final EnumPath<com.supreme.shoekream.model.enumclass.Period> period = createEnum("period", com.supreme.shoekream.model.enumclass.Period.class);
 
@@ -33,19 +33,13 @@ public class QBuy extends EntityPathBase<Buy> {
 
     public final NumberPath<Long> price = createNumber("price", Long.class);
 
-    public final NumberPath<Long> product_idx = createNumber("product_idx", Long.class);
+    public final NumberPath<Long> productIdx = createNumber("productIdx", Long.class);
 
     public final EnumPath<com.supreme.shoekream.model.enumclass.Progress> progress = createEnum("progress", com.supreme.shoekream.model.enumclass.Progress.class);
-
-    //inherited
-    public final DateTimePath<java.time.LocalDateTime> regDate = _super.regDate;
 
     public final EnumPath<com.supreme.shoekream.model.enumclass.SellBuyStatus> status = createEnum("status", com.supreme.shoekream.model.enumclass.SellBuyStatus.class);
 
     public final EnumPath<com.supreme.shoekream.model.enumclass.Type> type = createEnum("type", com.supreme.shoekream.model.enumclass.Type.class);
-
-    //inherited
-    public final DateTimePath<java.time.LocalDateTime> updateDate = _super.updateDate;
 
     public QBuy(String variable) {
         super(Buy.class, forVariable(variable));

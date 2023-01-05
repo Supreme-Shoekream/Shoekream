@@ -80,9 +80,18 @@ public class AdminPageController {
         return new ModelAndView("/adminpage/style.html");
     }
 
+
     @GetMapping("/notice_create")   // http://localhosg:8889/admin/notice_create
     public ModelAndView notice_create(){ return new ModelAndView("/adminpage/admin_layer/layer_notice_create.html");}
 
     @GetMapping("/product_create")
     public ModelAndView product_create(){ return new ModelAndView("/adminpage/admin_layer/pop_create_product.html");}
+
+    public ModelAndView cNotice(){ return new ModelAndView("/adminpage/admin_layer/layer_notice_create.html");}
+
+    @GetMapping(path="admin")   //http://localhost:8889/admin/admin
+    public ModelAndView admin(){
+        return new ModelAndView("/adminpage/admin.html");
+    }
+
 }

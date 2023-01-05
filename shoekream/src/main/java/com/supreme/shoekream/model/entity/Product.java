@@ -18,17 +18,18 @@ import javax.persistence.*;
 public class Product extends BaseEntity implements Auditable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY) private Long idx; // 번호
     private String name; // 상품명
-    private String name_kor; // 상품명(한글)
+    private String nameKor; // 상품명(한글)
     private String img; // 상품 이미지 주소
-    private Long brand_idx; // 브랜드
+    private Long brandIdx; // 브랜드
     private String size; // 사이즈
-    private String category_idx; // 카테고리
-    private Long wish_count; // 관심상품수
-    private String model_num; // 모델번호
-    private String release_date; // 출시일
+    private String categoryIdx; // 카테고리
+    private Long wishCount; // 관심상품수
+    private String modelNum; // 모델번호
+    private String releaseDate; // 출시일
     private String color; // 컬러
+    private String firstPrice; // 발매가
 //    private LocalDateTime reg_date; // 등록한 날짜
-    private String create_by; // 등록한 관리자
+    private String createBy; // 등록한 관리자
 //    private LocalDateTime update_date; // 수정한 날짜
-    private String update_by; // 수정한 관리자
+    private String updateBy; // 수정한 관리자
 }
