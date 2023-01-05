@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="/src/styles/layer.css">
-<div class="layer_name layer lg">
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="create_product" style="display: none;" class="layer_name layer lg">
     <div class="layer_container">
         <a href="#" class="btn_layer_close">
             <div>
@@ -146,4 +147,5 @@
     inputImage.addEventListener('change', e => {
         readImage(e.target);
     })
+
 </script>
