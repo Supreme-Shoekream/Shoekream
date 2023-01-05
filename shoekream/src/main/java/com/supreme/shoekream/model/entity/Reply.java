@@ -25,6 +25,5 @@ public class Reply extends BaseEntity implements Auditable {
     private Long memberIdx;     //ManyToOne
     private String content;
     private Long boardIdx;      // ManyToOne
-    private LocalDateTime createdAt;
-
+//    private LocalDateTime createdAt;
 }

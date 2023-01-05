@@ -78,4 +78,7 @@ public class AdminPageController {
     public ModelAndView style(){
         return new ModelAndView("/adminpage/style.html");
     }
+
+    @GetMapping("/notice_create")   // http://localhosg:8889/admin/notice_create
+    public ModelAndView cNotice(){ return new ModelAndView("/adminpage/admin_layer/layer_notice_create.html");}
 }

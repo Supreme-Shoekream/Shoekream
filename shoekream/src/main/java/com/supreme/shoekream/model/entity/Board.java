@@ -26,6 +26,6 @@ public class Board extends BaseEntity implements Auditable {
     private Long memberIdx;     // ManyToOne
     private String content;
     private String img;
-    private LocalDateTime createdAt;
-    private LocalDateTime modifiedAt;
+//    private LocalDateTime createdAt;
+//    private LocalDateTime modifiedAt;
 }

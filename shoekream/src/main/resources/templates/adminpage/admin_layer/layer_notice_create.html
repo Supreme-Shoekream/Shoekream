@@ -1,0 +1,72 @@
+<link rel="stylesheet" href="./src/styles/layer.css">
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+<div class="layer_user layer lg">
+    <div class="layer_container">
+        <a href="#" class="btn_layer_close">
+            <div>
+                <img src="./src/images/close.png" onclick="closeLayer()">
+            </div>
+        </a>
+
+        <div class="layer_header">
+            <h2 class="title"> 공지사항 </h2>
+        </div>
+        <div class="layer_content" id="layer_notice_create">
+        <div class="top">
+            <div class="user_bind">
+                <div class="user_input">
+                    <div class="input_box ">
+                        <h4 class="input_title">제목</h4>
+                        <div class="input_item">
+                            <input type="text" class="input_txt">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="user_bind">
+                <div class="user_input">
+                    <div class="input_box ">
+                        <h4 class="input_title">카테고리</h4>
+                        <div class="input_item">
+                            <select class="select" id="category" name="category">
+                                <option value="">--Choose option--</option>
+                                <option value="공지사항">공지사항</option>
+                                <option value="이용정책">이용정책</option>
+                                <option value="공통">공통</option>
+                                <option value="구매">구매</option>
+                                <option value="판매">판매</option>
+                                <option value="신발">신발</option>
+                                <option value="의류">의류</option>
+                                <option value="패션잡화">패션잡화</option>
+                                <option value="테크">테크</option>
+                                <option value="라이프">라이프</option>
+                                <option value="프리미엄 시계">프리미엄 시계</option>
+                                <option value="프리미엄 가방">프리미엄 가방</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom">
+            <div class="user_bind">
+                <div class="user_input">
+                    <div class="input_box">
+                        <h4 class="input_title">공지사항 내용</h4>
+                        <div class="input_item">
+                            <textarea name="message" class="notice_content" rows="10" cols="30" style="width:460px; height:300px;"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="layer_btn">
+            <a disabled="disabled" href="#" class="btn btn_save solid medium disabled"> 작성 </a>
+            <a href="#" class="btn btn_delete outlinegrey medium" onclick="closeLayer()"> 닫기 </a>
+        </div>
+        </div>
+    </div>
+</div>
