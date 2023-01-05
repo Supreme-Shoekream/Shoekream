@@ -9,7 +9,12 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/my")
 public class MypageController {
 
-    @GetMapping(path="/profile")
+
+    @GetMapping(path="")    // http://localhost:8889/social
+    public ModelAndView mypage(){
+        return new ModelAndView("my/mypage");
+    }
+    @GetMapping(path="profile")
     public ModelAndView profile(){
         return new ModelAndView("my/profile");
     }
@@ -23,7 +28,7 @@ public class MypageController {
     }
     @GetMapping(path="account")
     public ModelAndView account(){
-        return new ModelAndView("/my/aacount");
+        return new ModelAndView("/my/account");
     }
     @GetMapping(path="receipt")
     public ModelAndView receipt(){
@@ -37,14 +42,5 @@ public class MypageController {
     public ModelAndView withdrawal(){
         return new ModelAndView("/my/withdrawal");
     }
-    @GetMapping(path="buying")   //http://localhost:8889/my/buying
-    public ModelAndView buying() { return new ModelAndView("/my/buying"); }
-    @GetMapping(path="buying_detail")   //http://localhost:8889/my/buying_detail
-    public ModelAndView buying_detail() { return new ModelAndView("/my/buying_detail"); }
-    @GetMapping(path="buying_end")   //http://localhost:8889/my/buying_end
-    public ModelAndView buying_end() { return new ModelAndView("/my/buying_end"); }
-    @GetMapping(path="selling")   //http://localhost:8889/my/selling
-    public ModelAndView selling() { return new ModelAndView("/my/selling.html"); }
-    @GetMapping(path="selling_detail")   //http://localhost:8889/my/selling_detail
-    public ModelAndView selling_detail() { return new ModelAndView("/my/selling_detail.html"); }
+
 }
