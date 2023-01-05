@@ -1,3 +1,4 @@
+
 <html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/">
 
 <!-- footer_head.html -->
@@ -11,259 +12,267 @@
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/my/address.css">
+    <link rel="stylesheet" href="/css/layer/layer.css">
+    <link rel="stylesheet" href="/css/layer/layer_delivery.css">
+    <link rel="stylesheet" href="/css/fragment/mypage_navbar.css">
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script defer src="/js/my/mypage_navbar.js"></script>
+    <link rel="stylesheet" href="/css/fragment/footer.css">
+</head>
+
 <body>
-    <div class="wrap">
-
-        <div class="container my">
-            <div>
-                <!--snb_area start-->
-                <div th:replace="include/pjs_mypage_snb_mo :: mypage_snb_mo"></div>
-                <!--snb_area end-->
-            </div>
-            <div class="content_area">
-                <div class="my_addressbook">
-                    <div class="content_title">
-                        <div class="title">
-                            <h3>주소록</h3>
-                            <!---->
-                        </div>
-
-                        <div class="btn_box">
-                            <a href="#" class="btn btn_add">
-                                <!---->
-                                <span class="btn_txt"> + 새 배송지추가 </span>
-                            </a>
-                        </div>
-
-                    </div>
-
-                    <div class="my_list">
-                        <div class="basic">
-                            <div class="my_item is_active" default-mark="기본 배송지" >
-                                <div class="info_bind"><!---->
-                                    <div class="address_info">
-                                        <div class="name_box">
-                                            <span class="name">김**</span>
-                                            <span class="mark">기본 배송지</span>
-                                        </div>
-
-                                        <p class="phone">010<span class="hyphen"></span>6
-                                            <span class="dot"></span>
-                                            <span class="dot"></span>
-                                            <span class="dot"></span>
-                                            <span class="hyphen"></span>
-                                            <span class="dot"></span>822
-                                        </p>
-
-                                        <div class="address_box">
-                                            <span class="zipcode">(12345)</span>
-                                            <span class="address">서울 서울구 서울동 서울집<span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="btn_bind">
-                                    <!---->
-                                    <a href="#" class="btn outlinegrey small address_edit"> 수정 </a>
-                                    <a href="#" class="btn outlinegrey small address_delete"> 삭제 </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="other">
-                            <div class="other_list"></div>
-                        </div>
-                    </div>
-                    <!--새 주소 추가 레이어창 시작-->
-                    <div class="layer_delivery layer lg" style="display: none;">
-                        <div class="layer_container"><a href="#" class="btn_layer_close">
-                                <div><img src="../../img/close.png"></div>
-                                <!---->
-                            </a>
-                            <div class="layer_header">
-                                <h2 class="title"> 새 주소 추가 </h2>
-                            </div>
-                            <div class="layer_content">
-                                <div class="delivery_bind">
-                                    <div class="delivery_input">
-                                        <div class="input_box" id="name_input_box">
-                                            <h4 class="input_title">이름</h4>
-                                            <div class="input_item"><input id="name_input" type="text" placeholder="수령인의 이름" autocomplete="off"
-                                                    class="input_txt input_border"></div>
-                                            <p class="show_none input_error">올바른 이름을 입력해주세요. (2 - 50자)</p>
-                                        </div>
-                                        <div class="input_box" id="hp_input_box">
-                                            <h4 class="input_title">휴대폰 번호</h4>
-                                            <div class="input_item"><input id="hp_input" type="tel" placeholder="- 없이 입력" autocomplete="off"
-                                                    class="input_txt input_border"></div>
-                                            <p class="input_error show_none">정확한 휴대폰 번호를 입력해주세요.</p>
-                                        </div>
-                                        <div class="input_box">
-                                            <h4 class="input_title">우편번호</h4>
-                                            <div class="input_item"><input id="sample6_postcode" type="text" placeholder="우편 번호를 검색하세요" readonly="readonly"
-                                                    autocomplete="off" class="input_txt"><a onclick="sample6_execDaumPostcode()" href="#" class="btn btn_zipcode outline small"
-                                                    > 우편번호 </a></div>
-                                        </div>
-                                        <div class="input_box">
-                                            <h4 class="input_title">주소</h4>
-                                            <div class="input_item"><input id="sample6_address" type="text" placeholder="우편 번호 검색 후, 자동입력 됩니다"
-                                                    readonly="readonly" autocomplete="off" class="input_txt"></div>
-                                        </div>
-                                        <div class="input_box">
-                                            <h4 class="input_title">상세 주소</h4>
-                                            <div class="input_item"><input id="sample6_detailAddress" type="text" placeholder="건물, 아파트, 동/호수 입력" autocomplete="off"
-                                                    class="input_txt input_border"></div>
-                                        </div>
-                                    </div>
-                                    <div class="delivery_check">
-                                        <div class="checkbox_item"><input id="check1" type="checkbox" name="" class="check"><label
-                                                for="check1" class="check_label"><span class="label_txt">기본 배송지로 설정</span>
-                                                <!---->
-                                            </label></div>
-                                    </div>
-                                </div>
-                                <div class="layer_btn"><a href="#" class="btn btn_delete outlinegrey medium"> 취소 </a><a id="btn_save"
-                                        href="#" class="btn btn_save solid medium disabled" onclick="closeLayer()"> 저장하기 </a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--새 주소 추가 레이어창 끝-->
-                    <div></div>
-                    <!--주소 수정 레이어창 시작-->
+<header th:replace="/fragment/header::header"></header>
+<div class="container my lg" style="margin-top: 100px">
+    <div>
+        <!-- navbar -->
+        <nav th:replace="/fragment/mypage_navbar::nav"></nav>
+        <!--navbar-->
+    </div>
+    <div class="content_area">
+        <div class="my_addressbook">
+            <div class="content_title">
+                <div class="title">
+                    <h3>주소록</h3>
+                    <!---->
                 </div>
-            </div>
-        </div>
-        <!---->
-        <!--footer-->
-        <div class="underline"></div>
-        <!--footer end-->
 
-        <div class="layer_address layer lg" style="display: none;">
-            <div class="layer_container"><a href="#" class="btn_layer_close">
-                <img src="../../img/close.png">
-            </a>
-                <div class="layer_header">
-                    <h2 class="title">주소록</h2>
-                </div>
-                <div class="layer_content">
-                    <div class="list_wrap">
+                <div class="btn_box">
+                    <a href="#" class="btn btn_add">
                         <!---->
-                        <div class="my_list">
-                            <!---->
-                            <div class="other">
-                                <div class="other_list">
-                                    <div class="my_item is_active select">
-                                        <div class="info_bind">
-                                            <!---->
-                                            <div class="address_info">
-                                                <div class="name_box"><span class="name">반**</span><span class="mark">기본
-                                                        배송지</span></div>
-                                                <p class="phone">010<span class="hyphen"></span>2<span class="dot"></span><span
-                                                        class="dot"></span><span class="dot"></span><span
-                                                        class="hyphen"></span><span class="dot"></span>222</p>
-                                                <div class="address_box"><span class="zipcode">(63309)</span><span
-                                                        class="address">제주특별자치도 제주시 첨단로 242 (영평동) 바나나 나무</span></div>
-                                            </div>
-                                        </div>
-                                        <div class="btn_bind"><img src="../../img/wcheck.png"></div>
-                                    </div>
-                                    <div class="my_item select">
-                                        <div class="info_bind">
-                                            <!---->
-                                            <div class="address_info">
-                                                <div class="name_box"><span class="name">김**</span>
-                                                    <!---->
-                                                </div>
-                                                <p class="phone">010<span class="hyphen"></span>1<span class="dot"></span><span
-                                                        class="dot"></span><span class="dot"></span><span
-                                                        class="hyphen"></span><span class="dot"></span>111</p>
-                                                <div class="address_box"><span class="zipcode">(13494)</span><span
-                                                        class="address">경기 성남시 분당구 판교역로 235 (삼평동, 에이치스퀘어 엔동) 사과나무</span></div>
-                                            </div>
-                                        </div>
-                                        <div class="btn_bind">
-                                            <!---->
-                                        </div>
-                                    </div>
-                                    <div class="my_item select">
-                                        <div class="info_bind">
-                                            <!---->
-                                            <div class="address_info">
-                                                <div class="name_box"><span class="name">전**</span>
-                                                    <!---->
-                                                </div>
-                                                <p class="phone">010<span class="hyphen"></span>6<span class="dot"></span><span
-                                                        class="dot"></span><span class="dot"></span><span
-                                                        class="hyphen"></span><span class="dot"></span>205</p>
-                                                <div class="address_box"><span class="zipcode">(22176)</span><span
-                                                        class="address">인천 미추홀구 낙섬중로 129 (용현동, 엘에이치미추홀3단지) 305동 2611호</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="btn_bind">
-                                            <!---->
-                                        </div>
-                                    </div>
+                        <span class="btn_txt"> + 새 배송지추가 </span>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="my_list">
+                <div class="basic">
+                    <div class="my_item is_active" default-mark="기본 배송지" >
+                        <div class="info_bind"><!---->
+                            <div class="address_info">
+                                <div class="name_box">
+                                    <span class="name">김**</span>
+                                    <span class="mark">기본 배송지</span>
+                                </div>
+
+                                <p class="phone">010<span class="hyphen"></span>6
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="hyphen"></span>
+                                    <span class="dot"></span>822
+                                </p>
+
+                                <div class="address_box">
+                                    <span class="zipcode">(12345)</span>
+                                    <span class="address">서울 서울구 서울동 서울집</span>
                                 </div>
                             </div>
                         </div>
-                        <!---->
+
+                        <div class="btn_bind">
+                            <!---->
+                            <a href="#" class="btn outlinegrey small address_edit"> 수정 </a>
+                            <a href="#" class="btn outlinegrey small address_delete"> 삭제 </a>
+                        </div>
                     </div>
                 </div>
+                <div class="other">
+                    <div class="other_list"></div>
+                </div>
             </div>
-        </div>
-        <div class="layer_delivery layer_edit layer lg" style="display: none;">
-            <div class="layer_container"><a href="#" class="btn_layer_close btn_edit_delete">
-                    <div><img src="../../img/close.png"></div>
+            <!--새 주소 추가 레이어창 시작-->
+            <div class="layer_delivery layer lg" style="display: none;">
+                <div class="layer_container"><a href="#" class="btn_layer_close">
+                    <div><img src="/img/close.png"></div>
                     <!---->
                 </a>
-                <div class="layer_header">
-                    <h2 class="title"> 배송지 수정 </h2>
-                </div>
-                <div class="layer_content">
-                    <div class="delivery_bind">
-                        <div class="delivery_input">
-                            <div class="input_box" id="name_input_box2">
-                                <h4 class="input_title">이름</h4>
-                                <div class="input_item"><input id="name_input2" type="text" placeholder="김**" autocomplete="off"
-                                        class="input_txt input_border"></div>
-                                <p class="show_none input_error">올바른 이름을 입력해주세요. (2 - 50자)</p>
+                    <div class="layer_header">
+                        <h2 class="title"> 새 주소 추가 </h2>
+                    </div>
+                    <div class="layer_content">
+                        <div class="delivery_bind">
+                            <div class="delivery_input">
+                                <div class="input_box" id="name_input_box">
+                                    <h4 class="input_title">이름</h4>
+                                    <div class="input_item"><input id="name_input" type="text" placeholder="수령인의 이름" autocomplete="off"
+                                                                   class="input_txt input_border"></div>
+                                    <p class="show_none input_error">올바른 이름을 입력해주세요. (2 - 50자)</p>
+                                </div>
+                                <div class="input_box" id="hp_input_box">
+                                    <h4 class="input_title">휴대폰 번호</h4>
+                                    <div class="input_item"><input id="hp_input" type="tel" placeholder="- 없이 입력" autocomplete="off"
+                                                                   class="input_txt input_border"></div>
+                                    <p class="input_error show_none">정확한 휴대폰 번호를 입력해주세요.</p>
+                                </div>
+                                <div class="input_box">
+                                    <h4 class="input_title">우편번호</h4>
+                                    <div class="input_item"><input id="sample6_postcode" type="text" placeholder="우편 번호를 검색하세요" readonly="readonly"
+                                                                   autocomplete="off" class="input_txt"><a onclick="sample6_execDaumPostcode()" href="#" class="btn btn_zipcode outline small"
+                                    > 우편번호 </a></div>
+                                </div>
+                                <div class="input_box">
+                                    <h4 class="input_title">주소</h4>
+                                    <div class="input_item"><input id="sample6_address" type="text" placeholder="우편 번호 검색 후, 자동입력 됩니다"
+                                                                   readonly="readonly" autocomplete="off" class="input_txt"></div>
+                                </div>
+                                <div class="input_box">
+                                    <h4 class="input_title">상세 주소</h4>
+                                    <div class="input_item"><input id="sample6_detailAddress" type="text" placeholder="건물, 아파트, 동/호수 입력" autocomplete="off"
+                                                                   class="input_txt input_border"></div>
+                                </div>
                             </div>
-                            <div class="input_box" id="hp_input_box2">
-                                <h4 class="input_title">휴대폰 번호</h4>
-                                <div class="input_item"><input id="hp_input2" type="tel" placeholder="0106 822" autocomplete="off"
-                                        class="input_txt input_border"></div>
-                                <p class="show_none input_error">정확한 휴대폰 번호를 입력해주세요.</p>
-                            </div>
-                            <div class="input_box">
-                                <h4 class="input_title">우편번호</h4>
-                                <div class="input_item"><input id="sample6_postcode2" type="text" placeholder="12345" readonly="readonly"
-                                        autocomplete="off" class="input_txt"><a onclick="sample6_execDaumPostcode2()" href="#" class="btn btn_zipcode outline small"
-                                        > 우편번호 </a></div>
-                            </div>
-                            <div class="input_box">
-                                <h4 class="input_title">주소</h4>
-                                <div class="input_item"><input id="sample6_address2" type="text" placeholder="서울 서울구 서울동"
-                                        readonly="readonly" autocomplete="off" class="input_txt"></div>
-                            </div>
-                            <div class="input_box">
-                                <h4 class="input_title">상세 주소</h4>
-                                <div class="input_item"><input id="sample6_detailAddress2" type="text" placeholder="서울집" autocomplete="off"
-                                        class="input_txt input_border"></div>
-                            </div>
-                        </div>
-                        <div class="delivery_check">
-                            <div class="checkbox_item"><input id="check2" type="checkbox" name="" class="check"><label
-                                    for="check1" class="check_label"><span class="label_txt">기본 배송지로 설정</span>
+                            <div class="delivery_check">
+                                <div class="checkbox_item"><input id="check1" type="checkbox" name="" class="check"><label
+                                        for="check1" class="check_label"><span class="label_txt">기본 배송지로 설정</span>
                                     <!---->
                                 </label></div>
+                            </div>
                         </div>
+                        <div class="layer_btn"><a href="#" class="btn btn_delete outlinegrey medium"> 취소 </a><a id="btn_save"
+                                                                                                                href="#" class="btn btn_save solid medium disabled" onclick="closeLayer()"> 저장하기 </a></div>
                     </div>
-                    <div class="layer_btn"><a href="#" class="btn btn_edit outlinegrey medium"> 취소 </a><a id="btn_save2"
-                            href="#" class="btn btn_edit solid medium disabled" onclick="closeLayer()"> 저장하기 </a></div>
                 </div>
             </div>
+            <!--새 주소 추가 레이어창 끝-->
+            <div></div>
+            <!--주소 수정 레이어창 시작-->
         </div>
-
+    </div>
+</div>
+<footer th:replace="/fragment/footer::footer"></footer>
+<div class="layer_address layer lg" style="display: none;">
+    <div class="layer_container"><a href="" class="btn_layer_close">
+        <img src="/img/close.png">
+    </a>
+        <div class="layer_header">
+            <h2 class="title">주소록</h2>
+        </div>
+        <div class="layer_content">
+            <div class="list_wrap">
+                <!---->
+                <div class="my_list">
+                    <!---->
+                    <div class="other">
+                        <div class="other_list">
+                            <div class="my_item is_active select">
+                                <div class="info_bind">
+                                    <!---->
+                                    <div class="address_info">
+                                        <div class="name_box"><span class="name">반**</span><span class="mark">기본
+                                                        배송지</span></div>
+                                        <p class="phone">010<span class="hyphen"></span>2<span class="dot"></span><span
+                                                class="dot"></span><span class="dot"></span><span
+                                                class="hyphen"></span><span class="dot"></span>222</p>
+                                        <div class="address_box"><span class="zipcode">(63309)</span><span
+                                                class="address">제주특별자치도 제주시 첨단로 242 (영평동) 바나나 나무</span></div>
+                                    </div>
+                                </div>
+                                <div class="btn_bind"><img src="/img/wcheck.png"></div>
+                            </div>
+                            <div class="my_item select">
+                                <div class="info_bind">
+                                    <!---->
+                                    <div class="address_info">
+                                        <div class="name_box"><span class="name">김**</span>
+                                            <!---->
+                                        </div>
+                                        <p class="phone">010<span class="hyphen"></span>1<span class="dot"></span><span
+                                                class="dot"></span><span class="dot"></span><span
+                                                class="hyphen"></span><span class="dot"></span>111</p>
+                                        <div class="address_box"><span class="zipcode">(13494)</span><span
+                                                class="address">경기 성남시 분당구 판교역로 235 (삼평동, 에이치스퀘어 엔동) 사과나무</span></div>
+                                    </div>
+                                </div>
+                                <div class="btn_bind">
+                                    <!---->
+                                </div>
+                            </div>
+                            <div class="my_item select">
+                                <div class="info_bind">
+                                    <!---->
+                                    <div class="address_info">
+                                        <div class="name_box"><span class="name">전**</span>
+                                            <!---->
+                                        </div>
+                                        <p class="phone">010<span class="hyphen"></span>6<span class="dot"></span><span
+                                                class="dot"></span><span class="dot"></span><span
+                                                class="hyphen"></span><span class="dot"></span>205</p>
+                                        <div class="address_box"><span class="zipcode">(22176)</span><span
+                                                class="address">인천 미추홀구 낙섬중로 129 (용현동, 엘에이치미추홀3단지) 305동 2611호</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="btn_bind">
+                                    <!---->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!---->
+            </div>
+        </div>
+    </div>
+</div>
+<div class="layer_delivery layer_edit layer lg" style="display: none;">
+    <div class="layer_container"><a href="#" class="btn_layer_close btn_edit_delete">
+        <div><img src="/img/close.png"></div>
+        <!---->
+    </a>
+        <div class="layer_header">
+            <h2 class="title"> 배송지 수정 </h2>
+        </div>
+        <div class="layer_content">
+            <div class="delivery_bind">
+                <div class="delivery_input">
+                    <div class="input_box" id="name_input_box2">
+                        <h4 class="input_title">이름</h4>
+                        <div class="input_item"><input id="name_input2" type="text" placeholder="김**" autocomplete="off"
+                                                       class="input_txt input_border"></div>
+                        <p class="show_none input_error">올바른 이름을 입력해주세요. (2 - 50자)</p>
+                    </div>
+                    <div class="input_box" id="hp_input_box2">
+                        <h4 class="input_title">휴대폰 번호</h4>
+                        <div class="input_item"><input id="hp_input2" type="tel" placeholder="0106 822" autocomplete="off"
+                                                       class="input_txt input_border"></div>
+                        <p class="show_none input_error">정확한 휴대폰 번호를 입력해주세요.</p>
+                    </div>
+                    <div class="input_box">
+                        <h4 class="input_title">우편번호</h4>
+                        <div class="input_item"><input id="sample6_postcode2" type="text" placeholder="12345" readonly="readonly"
+                                                       autocomplete="off" class="input_txt"><a onclick="sample6_execDaumPostcode2()" href="#" class="btn btn_zipcode outline small"
+                        > 우편번호 </a></div>
+                    </div>
+                    <div class="input_box">
+                        <h4 class="input_title">주소</h4>
+                        <div class="input_item"><input id="sample6_address2" type="text" placeholder="서울 서울구 서울동"
+                                                       readonly="readonly" autocomplete="off" class="input_txt"></div>
+                    </div>
+                    <div class="input_box">
+                        <h4 class="input_title">상세 주소</h4>
+                        <div class="input_item"><input id="sample6_detailAddress2" type="text" placeholder="서울집" autocomplete="off"
+                                                       class="input_txt input_border"></div>
+                    </div>
+                </div>
+                <div class="delivery_check">
+                    <div class="checkbox_item"><input id="check2" type="checkbox" name="" class="check"><label
+                            for="check1" class="check_label"><span class="label_txt">기본 배송지로 설정</span>
+                        <!---->
+                    </label></div>
+                </div>
+            </div>
+            <div class="layer_btn"><a href="#" class="btn btn_edit outlinegrey medium"> 취소 </a><a id="btn_save2"
+                                                                                                  href="#" class="btn btn_edit solid medium disabled" onclick="closeLayer()"> 저장하기 </a></div>
+        </div>
+    </div>
+</div>
 </body>
 <script>
 
@@ -295,7 +304,7 @@
     // })
     function closeLayer(){
         if(saveBtn.classList.contains('disabled')){
-            
+
         }else{
             addressLayer.style.display = "none"
         }
@@ -303,7 +312,7 @@
     cancelBtn.addEventListener('click', (e) => {
         addressLayer.style.display = "none"
     })
-    
+
     const addressDelBtn = document.querySelector('.address_delete')
     const addressDiv = document.querySelector('.is_active')
     addressDelBtn.addEventListener('click', () => {
@@ -359,22 +368,22 @@
         return true;
     }
 
-    
+
     // 휴대폰 번호 유효성 검사
     document.querySelector('#hp_input').addEventListener('input', e=>{
-            strHp=e.target.value
-            let errorMsg='';
-            if(!validateHp(strHp)){
-                errorMsg='휴대폰 번호를 정확히 입력해주세요.';
-                document.querySelector('#hp_input_box').className='input_box has_error';
-                document.querySelector('#hp_input').setAttribute('validateresult',false);
-                document.querySelector('#hp_input').classList.remove('input_border')
-            } else {
-                document.querySelector('#hp_input_box').className='input_box fill';
-                document.querySelector('#hp_input').setAttribute('validateresult',true);
-                document.querySelector('#hp_input').classList.add('input_border')
-            }
-       
+        strHp=e.target.value
+        let errorMsg='';
+        if(!validateHp(strHp)){
+            errorMsg='휴대폰 번호를 정확히 입력해주세요.';
+            document.querySelector('#hp_input_box').className='input_box has_error';
+            document.querySelector('#hp_input').setAttribute('validateresult',false);
+            document.querySelector('#hp_input').classList.remove('input_border')
+        } else {
+            document.querySelector('#hp_input_box').className='input_box fill';
+            document.querySelector('#hp_input').setAttribute('validateresult',true);
+            document.querySelector('#hp_input').classList.add('input_border')
+        }
+
     });
     // 이름 유효성 검사2
     document.querySelector('#name_input2').addEventListener('input', e=>{
@@ -394,21 +403,21 @@
 
     // 휴대폰 번호 유효성 검사2
     document.querySelector('#hp_input2').addEventListener('input', e=>{
-            strHp=e.target.value
-            let errorMsg='';
-            if(!validateHp(strHp)){
-                errorMsg='휴대폰 번호를 정확히 입력해주세요.';
-                document.querySelector('#hp_input_box2').className='input_box has_error';
-                document.querySelector('#hp_input2').setAttribute('validateresult',false);
-                document.querySelector('#hp_input2').classList.remove('input_border')
-            } else {
-                document.querySelector('#hp_input_box2').className='input_box fill';
-                document.querySelector('#hp_input2').setAttribute('validateresult',true);
-                document.querySelector('#hp_input2').classList.add('input_border')
-            }
-       
+        strHp=e.target.value
+        let errorMsg='';
+        if(!validateHp(strHp)){
+            errorMsg='휴대폰 번호를 정확히 입력해주세요.';
+            document.querySelector('#hp_input_box2').className='input_box has_error';
+            document.querySelector('#hp_input2').setAttribute('validateresult',false);
+            document.querySelector('#hp_input2').classList.remove('input_border')
+        } else {
+            document.querySelector('#hp_input_box2').className='input_box fill';
+            document.querySelector('#hp_input2').setAttribute('validateresult',true);
+            document.querySelector('#hp_input2').classList.add('input_border')
+        }
+
     });
-   
+
     const nameForm = document.querySelector('#name_input')
     const hpForm = document.querySelector('#hp_input')
     const postForm = document.querySelector('#sample6_postcode')
@@ -416,7 +425,7 @@
     const detailForm = document.querySelector('#sample6_detailAddress')
     const checkForm = document.querySelector('#check1')
     const btnSave = document.querySelector('#btn_save')
-   
+
     nameForm.addEventListener('keyup', activeEvent);
     hpForm.addEventListener('keyup', activeEvent);
     postForm.addEventListener('keyup', activeEvent);
@@ -424,9 +433,9 @@
     detailForm.addEventListener('keyup', activeEvent)
     function activeEvent() {
         switch(validateHp(strHp) && validateName(strName) && nameForm.value != '' && hpForm.value !='' && postForm.value !='' && addrForm.value !='' && detailForm.value != ''){
-        case true : btnSave.classList.remove('disabled'); break;
-        case false : btnSave.classList.add('disabled'); break;
-    }
+            case true : btnSave.classList.remove('disabled'); break;
+            case false : btnSave.classList.add('disabled'); break;
+        }
     }
 
     const nameForm2 = document.querySelector('#name_input2')
@@ -436,7 +445,7 @@
     const detailForm2 = document.querySelector('#sample6_detailAddress2')
     const checkForm2 = document.querySelector('#check2')
     const btnSave2 = document.querySelector('#btn_save2')
-   
+
     nameForm2.addEventListener('keyup', activeEvent2);
     hpForm2.addEventListener('keyup', activeEvent2);
     postForm2.addEventListener('keyup', activeEvent2);
@@ -444,11 +453,11 @@
     detailForm2.addEventListener('keyup', activeEvent2);
     function activeEvent2() {
         switch(validateHp(strHp) && validateName(strName) && nameForm2.value != '' && hpForm2.value !='' && postForm2.value !='' && addrForm2.value !='' && detailForm2.value != ''){
-        case true : btnSave2.classList.remove('disabled'); break;
-        case false : btnSave2.classList.add('disabled'); break;
+            case true : btnSave2.classList.remove('disabled'); break;
+            case false : btnSave2.classList.add('disabled'); break;
+        }
     }
-    }
-    
+
 </script>
 
 <script defer>
@@ -486,7 +495,7 @@
                     }
                     // 조합된 참고항목을 해당 필드에 넣는다.
                     // document.getElementById("sample6_extraAddress").value = extraAddr;
-                
+
                 } else {
                     document.getElementById("sample6_extraAddress").value = '';
                 }
@@ -535,7 +544,7 @@
                     }
                     // 조합된 참고항목을 해당 필드에 넣는다.
                     // document.getElementById("sample6_extraAddress").value = extraAddr;
-                
+
                 } else {
                     document.getElementById("sample6_extraAddress2").value = '';
                 }
@@ -549,8 +558,4 @@
         }).open();
     }
 </script>
-<script type="text/javascript" th:src="@{/lib/js/pjs_header_nav.js}"></script>
-<script type="text/javascript" th:src="@{/lib/js/loginpage_mypage_all.js}"></script>
-<script type="text/javascript" th:src="@{/lib/js/mypage_address.js}"></script>
-
 </html>

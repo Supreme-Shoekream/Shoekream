@@ -11,22 +11,17 @@
 footer{
     position: relative;
     /*margin-top: 30rem;*/
-    padding-bottom: 1rem;
 }
-
 footer .footer_flex_box2{
     border-top: 1px solid lightgray;
-    margin: 0 auto;
-    padding: 0;
-    width: 96%;
+    padding: 50px 40px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     height: 25.65rem;
-    border-bottom: 1px solid lightgray;
 }
 footer .footer_flex_box2 #footer_left_box2{
     display: flex;
-    margin-top: 5.1rem;
 }
 footer .footer_flex_box2 #footer_left_box2 #fbtext2_left{
     margin-right: 11.2rem;
@@ -47,9 +42,6 @@ footer .footer_flex_box2 #footer_left_box2 a{
     text-decoration: none;
     color: gray;
     font-size: 1.4rem;
-}
-footer .footer_flex_box2 #footer_right_box2{
-    margin-top: 5.1rem;
 }
 footer .footer_flex_box2 #footer_right_box2 ul{
     list-style: none;
@@ -79,8 +71,7 @@ footer .footer_flex_box2 #footer_right_box2 a{
 
 footer .footer_flex_box3{
     margin: 0 auto;
-    padding: 0;
-    width: 96%;
+    padding: 0 40px;
     display: flex;
     justify-content: space-between;
 }
@@ -95,6 +86,7 @@ footer .footer_flex_box3 ul{
 footer .footer_flex_box3 #footer_box3{
     width: 99.85%;
     margin: 0 auto;
+    border-top: 1px solid #d3d3d3;
 }
 footer .footer_flex_box3 #footer_box3 #footer_box3_1{
     width: 100%;
@@ -145,10 +137,7 @@ footer .footer_flex_box3 #footer_box3_2 ul li a{
 }
 
 footer .footer_flex_box4{
-    margin: 0 auto;
-    margin-bottom: 2.9rem;
-    padding: 0;
-    width: 96%;
+    padding: 0 40px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;

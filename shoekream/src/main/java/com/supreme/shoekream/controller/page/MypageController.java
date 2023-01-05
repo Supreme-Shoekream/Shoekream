@@ -9,7 +9,12 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/my")
 public class MypageController {
 
-    @GetMapping(path="/profile")
+
+    @GetMapping(path="")    // http://localhost:8889/social
+    public ModelAndView mypage(){
+        return new ModelAndView("my/mypage");
+    }
+    @GetMapping(path="profile")
     public ModelAndView profile(){
         return new ModelAndView("my/profile");
     }
@@ -23,7 +28,7 @@ public class MypageController {
     }
     @GetMapping(path="account")
     public ModelAndView account(){
-        return new ModelAndView("/my/aacount");
+        return new ModelAndView("/my/account");
     }
     @GetMapping(path="receipt")
     public ModelAndView receipt(){
