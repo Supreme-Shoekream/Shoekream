@@ -1,16 +1,10 @@
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 
-.header.no_line{
-    /*-webkit-box-shadow: 0 0 0 0 transparent!important;*/
-    box-shadow: 0 0 0 0 transparent!important;
-}
 
 .header.lg, .header.md{
-    /*-webkit-box-shadow: 0 0 0 0 transparent;*/
-    /*box-shadow: 0 0 0 0 transparent;*/
     min-height: 100px;
+    border-bottom: 1px solid #E5E5E5;
 }
-
 .header{
     position: fixed;
     top: 0;

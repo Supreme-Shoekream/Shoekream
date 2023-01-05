@@ -66,7 +66,9 @@ body, button, dd, div, dl, dt, fieldset, figcaption, figure, form, h1, h2, h3, h
 
 
 
-
+.snb_menu{
+    margin: 0;
+}
 .snb_main_title {
     line-height: 29px;
     padding-bottom: 30px;

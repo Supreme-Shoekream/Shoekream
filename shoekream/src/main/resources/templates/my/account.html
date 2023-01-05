@@ -6,47 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../../css/my/account.css">
-    <link rel="stylesheet" href="../../css/fragment/mypage_navbar.css">
-    <script defer src="../../js/my/mypage_navbar.js"></script>
+    <link rel="stylesheet" href="/css/my/account.css">
+    <link rel="stylesheet" href="/css/fragment/mypage_navbar.css">
+    <link rel="stylesheet" href="/css/fragment/footer.css">
+    <script defer src="/js/my/mypage_navbar.js"></script>
 </head>
 
 <body>
-    <div class="container my lg">
+<!--header-->
+<header th:replace="/fragment/header::header"></header>
+<!--header-->
+    <div class="container my lg" style="margin-top: 100px;">
         <div>
             <!-- navbar -->
-            <div class="snb_area"><a href="/my" class="nuxt-link-active">
-                <h2 class="snb_main_title">마이 페이지</h2>
-            </a>
-            <nav class="snb">
-                <div class="snb_list"><strong class="snb_title">쇼핑 정보</strong>
-                    <ul class="snb_menu">
-                        <li class="menu_item"><a id="buying" href="/users/html/my/buying.html" class="menu_link">구매
-                                내역 </a></li>
-                        <li class="menu_item"><a id="selling" href="/users/html/my/selling.html" class="menu_link">판매 내역
-                            </a></li>
-                        <li class="menu_item"><a id="wish" href="/users/html/my/wish.html" class="menu_link">관심상품 </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="snb_list"><strong class="snb_title">내 정보</strong>
-                    <ul class="snb_menu">
-                        <li class="menu_item"><a name="profile" href="/users/html/my/profile.html" class="menu_link">
-                                프로필 정보 </a></li>
-                        <li class="menu_item"><a name="address" href="/users/html/my/address.html" class="menu_link">주소록
-                            </a></li>
-                        <li class="menu_item"><a name="payment" href="/users/html/my/payment.html" class="menu_link">결제 정보
-                            </a></li>
-                        <li class="menu_item"><a name="account" href="/users/html/my/account.html" class="menu_link">판매 정산
-                                계좌 </a></li>
-                        <li class="menu_item"><a name="receipt" href="/users/html/my/receipt.html" class="menu_link">현금영수증
-                                정보 </a></li>
-                        <li class="menu_item"><a name="point" href="/users/html/my/point.html" class="menu_link">포인트 </a>
-                        </li>
-                    </ul>
-                </div>       
-        </nav>
-        </div>
+            <nav th:replace="/fragment/mypage_navbar::nav"></nav>
+            <!--navbar-->
         </div>
         <div class="content_area">
             <div class="my_account">
@@ -70,42 +44,42 @@
                             <div onclick="dropdown()" class="input_item"><input id="input_bank" type="text"
                                     placeholder="선택하세요" readonly="readonly" autocomplete="off" inputmode="numeric"
                                     class="input_txt"><button  type="button" class="btn btn_dropdown"
-                                   ><img src="/users/img/down.png" alt="img"></button>
+                                   ><img src="/img/down.png" alt="img"></button>
                                 </div>
                             <div class="bank_dropdown_menu" style="display: none;">
                             <ul class="bank_list">
-                                <li class="bank_list_li">국민은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
-                                <li class="bank_list_li">신한은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
-                                <li class="bank_list_li">우리은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
-                                <li class="bank_list_li">하나은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
-                                <li class="bank_list_li">기업은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
-                                <li class="bank_list_li">농협은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
-                                <li class="bank_list_li">SC은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
-                                <li class="bank_list_li">우체국<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
-                                <li class="bank_list_li">한국씨티은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
-                                <li class="bank_list_li">산업은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
-                                <li class="bank_list_li">카카오뱅크<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
-                                <li class="bank_list_li">부산은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
-                                <li class="bank_list_li">대구은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
-                                <li class="bank_list_li">광주은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
-                                <li class="bank_list_li">케이뱅크<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
-                                <li class="bank_list_li">수협중앙회<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
-                                <li class="bank_list_li">제주은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
-                                <li class="bank_list_li">전북은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
-                                <li class="bank_list_li">지역농축협<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
-                                <li class="bank_list_li">경남은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
-                                <li class="bank_list_li">새마을금고연합회<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
-                                <li class="bank_list_li">신협<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
-                                <li class="bank_list_li">저축은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
-                                <li class="bank_list_li">HSBC은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
-                                <li class="bank_list_li">도이치은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
-                                <li class="bank_list_li">제이피모간체이스은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
-                                <li class="bank_list_li">BOA은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
-                                <li class="bank_list_li">비엔피파리바은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
-                                <li class="bank_list_li">중국공상은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
-                                <li class="bank_list_li">산림조합<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
-                                <li class="bank_list_li">중국건설은행<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
-                                <li class="bank_list_li">토스뱅크<img class="check_image" src="/users/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">국민은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">신한은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">우리은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">하나은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">기업은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">농협은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">SC은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">우체국<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">한국씨티은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">산업은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">카카오뱅크<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">부산은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">대구은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">광주은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">케이뱅크<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">수협중앙회<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">제주은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">전북은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">지역농축협<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">경남은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">새마을금고연합회<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">신협<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">저축은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">HSBC은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">도이치은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">제이피모간체이스은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">BOA은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">비엔피파리바은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">중국공상은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">산림조합<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">중국건설은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                <li class="bank_list_li">토스뱅크<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
                             </ul>
                             </div>
                         </div>
@@ -123,12 +97,13 @@
                         </div>
                     </div>
                     <div class="registration_btn_box"><a id="submit_btn"
-                            disabled="disabled" href="#" class="btn btn_save solid medium disabled"> 변경하기 </a></div>
+                            disabled="disabled" href="" class="btn btn_save solid medium disabled"> 변경하기 </a></div>
                     <!---->
                 </div>
             </div>
         </div>
     </div>
+    <footer th:replace="/fragment/footer::footer"></footer>
     <div><div style="display: none;" class="layer lg layer_alert"><div class="layer_container"><a href="#" class="btn_layer_close"></a><div class="layer_header"></div><div class="layer_content"><div class="alert_box high"><p class="alert_desc">이미 진행 중인 거래를 포함하여 앞으로
         모든 거래의 대금 정산이 해당 계좌로 변경됩니다.</p></div><div class="layer_btn"><button type="button" class="btn outlinegrey medium"> 취소 </button><button type="button" class="btn solid
                  medium"> 확인 </button></div></div></div></div><div  id="toast" class="toast lg"><div  class="wrap"><div  class="toast-content"></div></div></div></div>
