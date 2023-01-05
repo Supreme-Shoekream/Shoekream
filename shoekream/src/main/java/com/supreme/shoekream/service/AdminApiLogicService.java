@@ -43,15 +43,16 @@ public class AdminApiLogicService extends BaseService<AdminApiRequest, AdminApiR
                 .adminid(adminUserApiRequest.getAdminid())
                 .adminpw(adminUserApiRequest.getAdminpw())
                 .name(adminUserApiRequest.getName())
+                .hp(adminUserApiRequest.getHp())
                 .status(UserStatus.REGISTERED)
                 .build();
-        Admin newUsers = baseRepository.save(admin);
+        Admin newUsers = adminRepository.save(admin);
         return Header.OK(response(newUsers));
     }
 
     @Override
     public Header<AdminApiResponse> read(Long idx) {
-        return baseRepository.findById(idx).map(admins -> response(admins))
+        return adminRepository.findById(idx).map(admins -> response(admins))
                 .map(Header::OK).orElseGet(()->Header.ERROR("데이터 없음"));
     }
     public Header<AdminApiResponse> read(String userid, String userpw) {

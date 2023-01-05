@@ -1,175 +1,53 @@
-<!DOCTYPE html>
 <html>
-	<head>
-		<!-- Basic Page Info -->
-		<meta charset="utf-8" />
-		<title>DeskApp - Bootstrap Admin Dashboard HTML Template</title>
-
-		<!-- Site favicon -->
-		<link
-			rel="apple-touch-icon"
-			sizes="180x180"
-			href="/vendors/images/adminlogo.png"
-		/>
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="32x32"
-			href="/vendors/images/adminlogo.png"
-		/>
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="16x16"
-			href="/vendors/images/adminlogo.png"
-		/>
-
-		<!-- Mobile Specific Metas -->
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1, maximum-scale=1"
-		/>
-
-		<!-- Google Font -->
-		<link
-			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-			rel="stylesheet"
-		/>
-		<!-- CSS -->
-		<link rel="stylesheet" type="text/css" href="/vendors/styles/core.css" />
-		<link
-			rel="stylesheet"
-			type="text/css"
-			href="/vendors/styles/icon-font.min.css"
-		/>
-		<link
-			rel="stylesheet"
-			type="text/css"
-			href="/src/plugins/jquery-steps/jquery.steps.css"
-		/>
-		<link rel="stylesheet" type="text/css" href="/vendors/styles/style.css" />
-
-	</head>
-
-	<body class="login-page">
-		<div class="login-header box-shadow">
-			<div
-				class="container-fluid d-flex justify-content-between align-items-center"
-			>
-				<div class="brand-logo">
-					<a href="/login">
-						<img src="/vendors/images/adminlogo.png" alt="" />
-					</a>
-				</div>
-				<div class="login-menu">
-					<ul>
-						<li><a href="/login">Login</a></li>
-					</ul>
-				</div>
+<head>
+<link rel="stylesheet" href="/src/styles/layer.css">
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"
+		integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+</head>
+	<div class="layer_user layer lg">
+	<div class="layer_container">
+		<a href="#" class="btn_layer_close">
+			<div>
+				<img src="/img/close.png">
 			</div>
+		</a>
+		<div class="layer_header">
+			<h2 class="title"> 관리자 등록페이지 </h2>
 		</div>
-		<div
-			class="register-page-wrap d-flex align-items-center flex-wrap justify-content-center"
-		>
-			<div class="container">
-				<div class="row align-items-center">
-					<div class="col-md-6 col-lg-7">
-						<img src="/vendors/images/register-page-img.png" alt="" />
-					</div>
-					<div class="col-md-6 col-lg-5">
-						<div class="register-box bg-white box-shadow border-radius-10">
-							<div class="wizard-content">
-								<form class="tab-wizard2 wizard-circle wizard">
-									<h5></h5>
-									<section>
-										<div class="form-wrap max-width-600 mx-auto">
-											<div class="form-group row">
-												<label class="col-sm-4 col-form-label">Username*</label>
-												<div class="col-sm-8">
-													<input type="text" class="form-control" id="name" />
-												</div>
-											</div>
-											<div class="form-group row">
-												<label class="col-sm-4 col-form-label"
-													>User ID*</label
-												>
-												<div class="col-sm-8">
-													<input type="text" class="form-control" id="userid"/>
-												</div>
-											</div>
-
-											<div class="form-group row">
-												<label class="col-sm-4 col-form-label">Password*</label>
-												<div class="col-sm-8">
-													<input type="password" class="form-control" id="userpw"/>
-												</div>
-											</div>
-											<div class="form-group row">
-												<label class="col-sm-4 col-form-label"
-												>Confirm Password*</label
-												>
-												<div class="col-sm-8">
-													<input type="password" class="form-control" />
-												</div>
-											</div>
-										</div>
-									</section>
-								</form>
+			<div class="layer_content">
+				<div class="bottom">
+					<div class="user_bind">
+						<div class="user_input">
+							<div class="input_box" id="id_input_box">
+								<h4 class="input_title">관리자 아이디</h4>
+								<div class="input_item"><input type="text" autocomplete="off" class="input_txt" id="id_input"></div>
+								<p class="input_error" id="id_input_error"></p>
+							</div>
+							<div class="input_box" id="password_input_box">
+								<h4 class="input_title">관리자 비밀번호</h4>
+								<div class="input_item"><input type="password"  autocomplete="off" class="input_txt" id="password_input"></div>
+								<p class="input_error" id="password_input_error"></p>
+							</div>
+							<div class="input_box" id="name_input_box">
+								<h4 class="input_title">관리자 이름</h4>
+								<div class="input_item"><input type="text" autocomplete="off" class="input_txt" id="name_input"></div>
+								<p class="input_error" id="name_input_error"></p>
+							</div>
+							<div class="input_box" id="hp_input_box">
+								<h4 class="input_title">관리자 전화번호</h4>
+								<div class="input_item"><input type="text" maxlength="13" oninput="autoHyphen(this)" autocomplete="off" class="input_txt" id="hp_input"></div>
+								<p class="input_error" id="hp_input_error"></p>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-		<!-- success Popup html Start -->
-		<button
-			type="button"
-			id="success-modal-btn"
-			hidden
-			data-toggle="modal"
-			data-target="#success-modal"
-			data-backdrop="static"
-		>
-			Launch modal
-		</button>
-		<div
-			class="modal fade"
-			id="success-modal"
-			tabindex="-1"
-			role="dialog"
-			aria-labelledby="exampleModalCenterTitle"
-			aria-hidden="true"
-		>
-			<div
-				class="modal-dialog modal-dialog-centered max-width-400"
-				role="document"
-			>
-				<div class="modal-content">
-					<div class="modal-body text-center font-18">
-						<h3 class="mb-20">Form Submitted!</h3>
-						<div class="mb-30 text-center">
-							<img src="vendors/images/success.png" />
-						</div>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-						eiusmod
-					</div>
-					<div class="modal-footer justify-content-center">
-						<a href="/login" class="btn btn-primary" id="registBtn">Done</a>
-					</div>
+
+				<div class="layer_btn">
+					<a href="#" class="btn btn_delete outlinegrey medium"> 취소 </a>
+					<a disabled="disabled" href="#" class="btn btn_save solid medium disabled"> 생성 </a>
 				</div>
-			</div>
 		</div>
-		<!-- success Popup html End -->
-
-		<!-- js -->
-<!--		<script src="vendors/scripts/core.js"></script>-->
-<!--		<script src="vendors/scripts/script.min.js"></script>-->
-<!--		<script src="vendors/scripts/process.js"></script>-->
-<!--		<script src="vendors/scripts/layout-settings.js"></script>-->
-<!--		<script src="src/plugins/jquery-steps/jquery.steps.js"></script>-->
-<!--		<script src="vendors/scripts/steps-setting.js"></script>-->
-		<script src="/js/admin/register.js"></script>
-		<!-- Google Tag Manager (noscript) -->
-
-	</body>
+	</div>
+</div>
+<script src="/js/admin/register.js"></script>
 </html>
