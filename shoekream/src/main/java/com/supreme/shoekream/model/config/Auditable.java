@@ -3,9 +3,9 @@ package com.supreme.shoekream.model.config;
 import java.time.LocalDateTime;
 
 public interface Auditable {
-    LocalDateTime getRegDate();
-    LocalDateTime getUpdateDate();
+    LocalDateTime getCreatedAt();
+    LocalDateTime getModifiedAt();
 
-    void setRegDate(LocalDateTime regDate);
-    void setUpdateDate(LocalDateTime updateDate);
+    void setCreatedAt(LocalDateTime createdAt);
+    void setModifiedAt(LocalDateTime modifiedAt);
 }
