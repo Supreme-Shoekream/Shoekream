@@ -22,13 +22,13 @@ import java.time.LocalDateTime;
 //@EntityListeners(AuditingEntityListener.class) // 이벤트리스너(crud되기전후에 이벤트 발생)
 public class Buy{
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long idx; // 번호
-    private Long product_idx; // 구매 상품 번호
-    private Long member_idx; // 구매 회원 번호
+    private Long productIdx; // 구매 상품 번호
+    private Long memberIdx; // 구매 회원 번호
     @Enumerated(EnumType.STRING) private Type type; // 구매 방법(구매입찰/즉시구매)
     private Long price; // 구매 가격
     @Enumerated(EnumType.STRING) private Period period; // 입찰 마감기한(1일/3일/7일/30일/60일)
     private Long point; // 구매시 사용한 포인트
-    private Long card_idx; // 카드 번호
+    private Long cardIdx; // 카드 번호
     private LocalDateTime createdAt; // 구매 날짜
 //    private Long sell_idx; // 체결 번호
     @Enumerated(EnumType.STRING) private Progress progress; // 진행 상황(발송완료/입고완료/검수합격/배송완료)

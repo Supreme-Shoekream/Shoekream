@@ -246,8 +246,17 @@ input, textarea {
     position: relative;
 }
 
-.input_item_selectbox {
+/* .input_item_selectbox {
     margin: 10px 0px;
+} */
+.input_item_selectbox {
+    padding: 8px 0;
+    width: 100%;
+    font-size: 15px;
+    letter-spacing: -.15px;
+    line-height: 22px;
+    border: 0;
+    border-bottom: 1px solid #ebebeb;
 }
 .input_item_selectbox p{
     border-bottom: 1px solid #ebebeb;
