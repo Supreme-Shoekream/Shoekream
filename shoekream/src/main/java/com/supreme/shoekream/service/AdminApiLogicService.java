@@ -24,11 +24,12 @@ public class AdminApiLogicService extends BaseService<AdminApiRequest, AdminApiR
 
     private AdminApiResponse response(Admin users){
         AdminApiResponse adminUserApiResponse = AdminApiResponse.builder()
-                .idx(users.getId())
+                .idx(users.getIdx())
                 .adminid(users.getAdminid())
                 .adminpw(users.getAdminpw())
                 .name(users.getName())
-                .regDate(users.getRegDate())
+                .hp(users.getHp())
+                .createdAt(users.getCreatedAt())
                 .status(users.getStatus())
                 .build();
         return adminUserApiResponse;
@@ -49,8 +50,8 @@ public class AdminApiLogicService extends BaseService<AdminApiRequest, AdminApiR
     }
 
     @Override
-    public Header<AdminApiResponse> read(Long id) {
-        return baseRepository.findById(id).map(admins -> response(admins))
+    public Header<AdminApiResponse> read(Long idx) {
+        return baseRepository.findById(idx).map(admins -> response(admins))
                 .map(Header::OK).orElseGet(()->Header.ERROR("데이터 없음"));
     }
     public Header<AdminApiResponse> read(String userid, String userpw) {
@@ -77,8 +78,8 @@ public class AdminApiLogicService extends BaseService<AdminApiRequest, AdminApiR
     }
 
     @Override
-    public Header delete(Long id) {
-        Optional<Admin> admins = baseRepository.findById(id);
+    public Header delete(Long idx) {
+        Optional<Admin> admins = baseRepository.findById(idx);
         return admins.map(admin->{
             baseRepository.delete(admin);
             return Header.OK();

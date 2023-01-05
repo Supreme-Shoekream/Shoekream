@@ -36,7 +36,7 @@
       <div class="card-box mb-30">
         <div class="pd-20">
           <h4 class="text-blue h4">관리자 리스트</h4>
-          <!--번호/이름/아이디/전화번호/등록날짜-->
+          <!--번호/아이디/이름/전화번호/등록날짜-->
         </div>
         <div class="pb-20">
           <table class="data-table table stripe hover nowrap">
@@ -49,6 +49,15 @@
               <th>regdate</th>
             </tr>
             </thead>
+            <tbody id="itemList">
+            <tr class="bg-pink" v-for="dto in itemList">
+              <th scope="row">{{dto.idx}}</th>
+              <td>{{dto.userid}}</td>
+              <td>{{dto.name}}</td>
+              <td>{{dto.hp}}</td>
+              <td>{{dto.regDate}}</td>
+            </tr>
+            </tbody>
             <tfoot>
             <tr>
               <th>번호</th>
@@ -58,20 +67,12 @@
               <th>등록날짜</th>
             </tr>
             </tfoot>
-            <tbody id="itemList">
-            <tr class="bg-pink" v-for="dto in itemList">
-              <th scope="row">{{dto.id}}</th>
-              <td>{{dto.userid}}</td>
-              <td>{{dto.status}}</td>
-              <td>{{dto.hp}}</td>
-              <td>{{dto.regDate}}</td>
-            </tr>
-            </tbody>
+
           </table>
           <div class="row">
             <div class="col-sm-5">
               <div id="pageNum" class="dataTables_info" role="status"></div>
-              <br><button type="button" class="btn btn-primary m-t-15 waves-effect" onclick="location.href='/userregist'">고객등록</button>
+              <br><button type="button" class="btn btn-primary m-t-15 waves-effect" onclick="location.href='/admin/register.html'">고객등록</button>
             </div>
           </div>
         </div>
