@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 //@EntityListeners(AuditingEntityListener.class)
 public class Conclusion {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY) private Long idx; // 번호
-    private Long sell_idx; // 판매 번호
-    private Long buy_idx; // 구매 번호
+    private Long sellIdx; // 판매 번호
+    private Long buyIdx; // 구매 번호
     private LocalDateTime createdAt; // 체결 날짜
 }
