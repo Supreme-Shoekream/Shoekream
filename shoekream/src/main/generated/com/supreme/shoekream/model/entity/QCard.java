@@ -40,10 +40,7 @@ public class QCard extends EntityPathBase<Card> {
     public final NumberPath<Integer> memberIdx = createNumber("memberIdx", Integer.class);
 
     //inherited
-    public final DateTimePath<java.time.LocalDateTime> regDate = _super.regDate;
-
-    //inherited
-    public final DateTimePath<java.time.LocalDateTime> updateDate = _super.updateDate;
+    public final DateTimePath<java.time.LocalDateTime> modifiedAt = _super.modifiedAt;
 
     public QCard(String variable) {
         super(Card.class, forVariable(variable));

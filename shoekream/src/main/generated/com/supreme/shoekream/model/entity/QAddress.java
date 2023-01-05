@@ -29,19 +29,19 @@ public class QAddress extends EntityPathBase<Address> {
 
     public final BooleanPath addressBasic = createBoolean("addressBasic");
 
+    //inherited
+    public final DateTimePath<java.time.LocalDateTime> createdAt = _super.createdAt;
+
     public final StringPath hp = createString("hp");
 
     public final NumberPath<Long> idx = createNumber("idx", Long.class);
 
     public final NumberPath<Long> memberIdx = createNumber("memberIdx", Long.class);
 
+    //inherited
+    public final DateTimePath<java.time.LocalDateTime> modifiedAt = _super.modifiedAt;
+
     public final StringPath name = createString("name");
-
-    //inherited
-    public final DateTimePath<java.time.LocalDateTime> regDate = _super.regDate;
-
-    //inherited
-    public final DateTimePath<java.time.LocalDateTime> updateDate = _super.updateDate;
 
     public final StringPath zipcode = createString("zipcode");
 

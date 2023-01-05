@@ -31,13 +31,10 @@ public class QAccount extends EntityPathBase<Account> {
 
     public final NumberPath<Long> memberIdx = createNumber("memberIdx", Long.class);
 
+    //inherited
+    public final DateTimePath<java.time.LocalDateTime> modifiedAt = _super.modifiedAt;
+
     public final StringPath name = createString("name");
-
-    //inherited
-    public final DateTimePath<java.time.LocalDateTime> regDate = _super.regDate;
-
-    //inherited
-    public final DateTimePath<java.time.LocalDateTime> updateDate = _super.updateDate;
 
     public QAccount(String variable) {
         super(Account.class, forVariable(variable));

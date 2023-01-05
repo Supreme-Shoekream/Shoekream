@@ -21,18 +21,21 @@ public class QPoint extends EntityPathBase<Point> {
 
     public final com.supreme.shoekream.model.config.QBaseEntity _super = new com.supreme.shoekream.model.config.QBaseEntity(this);
 
+    //inherited
+    public final DateTimePath<java.time.LocalDateTime> createdAt = _super.createdAt;
+
     public final NumberPath<Long> idx = createNumber("idx", Long.class);
 
     public final NumberPath<Long> memberIdx = createNumber("memberIdx", Long.class);
+
+    //inherited
+    public final DateTimePath<java.time.LocalDateTime> modifiedAt = _super.modifiedAt;
 
     public final NumberPath<Integer> point = createNumber("point", Integer.class);
 
     public final EnumPath<com.supreme.shoekream.model.enumclass.PointType> reason = createEnum("reason", com.supreme.shoekream.model.enumclass.PointType.class);
 
     public final DateTimePath<java.time.LocalDateTime> regDate = createDateTime("regDate", java.time.LocalDateTime.class);
-
-    //inherited
-    public final DateTimePath<java.time.LocalDateTime> updateDate = _super.updateDate;
 
     public QPoint(String variable) {
         super(Point.class, forVariable(variable));
