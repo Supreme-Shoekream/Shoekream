@@ -28,7 +28,8 @@ public class AdminApiLogicService extends BaseService<AdminApiRequest, AdminApiR
                 .adminid(users.getAdminid())
                 .adminpw(users.getAdminpw())
                 .name(users.getName())
-                .regDate(users.getCreatedAt())
+                .hp(users.getHp())
+                .createdAt(users.getCreatedAt())
                 .status(users.getStatus())
                 .build();
         return adminUserApiResponse;
