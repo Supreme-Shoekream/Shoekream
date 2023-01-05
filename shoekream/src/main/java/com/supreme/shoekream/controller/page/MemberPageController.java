@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/")
-public class AccountPageController {
+public class MemberPageController {
     @GetMapping(path="login")   //http://localhost:8889/login
     public ModelAndView login(){
         return new ModelAndView("/login/login");
