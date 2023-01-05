@@ -79,8 +79,13 @@ public class AdminPageController {
         return new ModelAndView("/adminpage/style.html");
     }
 
+
+    @GetMapping("/notice_create")   // http://localhosg:8889/admin/notice_create
+    public ModelAndView cNotice(){ return new ModelAndView("/adminpage/admin_layer/layer_notice_create.html");}
+
     @GetMapping(path="admin")   //http://localhost:8889/admin/admin
     public ModelAndView admin(){
         return new ModelAndView("/adminpage/admin.html");
     }
+
 }

@@ -46,3 +46,5 @@ public class QLike extends EntityPathBase<Like> {
 
 }
 
+}
+

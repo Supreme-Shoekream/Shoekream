@@ -1,0 +1,89 @@
+<link rel="stylesheet" href="./src/styles/pop_point.css">
+<div class="layer_name layer lg">
+    <div class="layer_container">
+        <a href="#" class="btn_layer_close">
+            <div>
+                <img src="./src/images/close.png">
+            </div>
+        </a>
+
+        <div class="layer_header">
+            <h2 class="title"> 포인트 지급 </h2>
+        </div>
+        <div class="layer_content">
+        <div class="top">
+            <div class="user_bind">
+                <div class="user_input">
+                    <div class="input_box ">
+                        <h4 class="input_title">포인트 지급</h4>
+                        <!-- 사용자 아이디 시작 -->
+                        <div class="input_item">
+                            <p class="title">사용자ID</p>
+                            <p class="info">apple</p>
+                        </div>
+                        <!-- 사용자 아이디 끝 -->
+
+                        <!-- 지급 이유 시작 -->
+                        <div class="input_item">
+                            <p class="title">지급 이유</p>
+                            <select class="info" name="reason" id="select" onchange="selectPoint()">
+                                <option value="event">이벤트 당첨</option>
+                                <option value="account">계좌 등록</option>
+                                <option value="birthday">생일 포인트</option>
+                                <option value="membership">우수 회원</option>
+                            </select>
+                        </div>
+                        <!-- 지급 이유 끝 -->
+
+                        <!-- 지급 포인트 시작 -->
+                        <div class="input_item">
+                            <p class="title">지급 포인트</p>
+                            <p class="info" id="insertedPoint"></p>
+                        </div>
+                        <!-- 지급 포인트 끝 -->
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="layer_btn">
+            <a href="#" class="btn btn_save solid medium">확인</a>
+            <a href="#" class="btn btn_save solid medium "> 취소 </a>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // const pointSelector = document.getElementById('select');
+    // pointSelector.addEventListener("change", e => {
+    //     console.log(e);
+    // })
+
+    function selectPoint(){
+        const bar = document.getElementById('select');
+        var point=0;
+    
+        switch(bar.value){
+            case 'event':
+                point = 10000;
+                break;
+            case 'account':
+                point = 1000;
+                break;
+            case 'birthday': 
+                point = 5000;
+                break;
+            case 'membership':
+                point = 5000;
+                break;
+            // default:
+            //     point = 0;
+        }
+
+        const insertPoint = document.getElementById('insertedPoint');
+        insertPoint.innerText = point;
+    }
+
+</script>

@@ -13,10 +13,10 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Data
 @Builder
-@ToString(callSuper = true)
-@EqualsAndHashCode(callSuper = true)
-@EntityListeners(AuditingEntityListener.class)
-public class Like extends BaseEntity implements Auditable {
+@ToString
+//@EqualsAndHashCode(callSuper = true)
+//@EntityListeners(AuditingEntityListener.class)
+public class Like {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,5 +25,5 @@ public class Like extends BaseEntity implements Auditable {
     private Long boardIdx;   // 나중에 OneToOne 처리
     private Long memberIdx;     // 나중에 ManyToONe 처리
 
-    private LocalDateTime createdAt;
+//    private LocalDateTime createdAt;
 }
