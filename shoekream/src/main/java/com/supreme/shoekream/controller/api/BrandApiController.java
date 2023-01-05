@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/brand")   //http://localhost:8889/brand
+@RequestMapping("/api/brand")   //http://localhost:8889/brand
 @RequiredArgsConstructor
 public class BrandApiController extends CrudController < BrandApiRequest, BrandApiResponse, Brand> {
 

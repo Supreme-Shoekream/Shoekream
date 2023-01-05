@@ -161,26 +161,26 @@ init();
 // desc sorting 실패1
 // ======================================================================
 // 
-const receiptList = document.querySelectorAll(".sorting_item")
-// 리스트 main_desc
-        const Sortingtit = document.querySelector(".main_desc") 
-        // 글자바뀌는곳 sorting_title
-        receiptList.forEach((target) => {
-            target.addEventListener("click", function(event) {
-                Sortingtit.sortingtit = event.target.textContent // 글자바꾸기
-                receiptList.forEach((e) => {
-                    // e.classList.remove("select_receipt") 
-                    // 글씨강조지우기
-                    e.childNodes[1].style.display="none" 
-                    // 체크표시지우기
-                })
-                // Sortingtit.classList.add("input_txt_color") 
-                // 글자바뀌는곳의 글씨색 변경
-                // target.classList.add("select_receipt") // 글씨강조추가
-                target.childNodes[1].style.display = "block" // 체크표시추가
-                dd_menu8.style.display="none" // 리스트창 닫기
-            })
-        })
+// const receiptList = document.querySelectorAll(".sorting_item")
+// // 리스트 main_desc
+//         const Sortingtit = document.querySelector(".main_desc") 
+//         // 글자바뀌는곳 sorting_title
+//         receiptList.forEach((target) => {
+//             target.addEventListener("click", function(event) {
+//                 Sortingtit.sortingtit = event.target.textContent // 글자바꾸기
+//                 receiptList.forEach((e) => {
+//                     // e.classList.remove("select_receipt") 
+//                     // 글씨강조지우기
+//                     e.childNodes[1].style.display="none" 
+//                     // 체크표시지우기
+//                 })
+//                 // Sortingtit.classList.add("input_txt_color") 
+//                 // 글자바뀌는곳의 글씨색 변경
+//                 // target.classList.add("select_receipt") // 글씨강조추가
+//                 target.childNodes[1].style.display = "block" // 체크표시추가
+//                 dd_menu8.style.display="none" // 리스트창 닫기
+//             })
+//         })
 // 
 // ======================================================================
 
