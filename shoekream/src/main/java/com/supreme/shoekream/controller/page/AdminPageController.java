@@ -2,6 +2,7 @@ package com.supreme.shoekream.controller.page;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -80,5 +81,8 @@ public class AdminPageController {
     }
 
     @GetMapping("/notice_create")   // http://localhosg:8889/admin/notice_create
-    public ModelAndView cNotice(){ return new ModelAndView("/adminpage/admin_layer/layer_notice_create.html");}
+    public ModelAndView notice_create(){ return new ModelAndView("/adminpage/admin_layer/layer_notice_create.html");}
+
+    @GetMapping("/product_create")
+    public ModelAndView product_create(){ return new ModelAndView("/adminpage/admin_layer/pop_create_product.html");}
 }
