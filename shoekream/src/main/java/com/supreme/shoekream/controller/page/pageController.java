@@ -50,4 +50,10 @@ public class pageController {
 
     @GetMapping(path = "sellnowfinish")  //http://localhost:8889/sellnowfinish
     public ModelAndView sellnowfinish(){return new ModelAndView("/order/sellnowfinish");}
+
+    @GetMapping(path = "penalty")
+    public ModelAndView penalty(){ return new ModelAndView("/layer/layer_penalty"); }
+
+    @GetMapping(path = "guide")
+    public ModelAndView guide(){ return new ModelAndView("/layer/layer_guide"); }
 }
