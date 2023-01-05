@@ -19,19 +19,13 @@ public class QConclusion extends EntityPathBase<Conclusion> {
 
     public static final QConclusion conclusion = new QConclusion("conclusion");
 
-    public final com.supreme.shoekream.model.config.QBaseEntity _super = new com.supreme.shoekream.model.config.QBaseEntity(this);
-
     public final NumberPath<Long> buy_idx = createNumber("buy_idx", Long.class);
+
+    public final DateTimePath<java.time.LocalDateTime> createdAt = createDateTime("createdAt", java.time.LocalDateTime.class);
 
     public final NumberPath<Long> idx = createNumber("idx", Long.class);
 
-    //inherited
-    public final DateTimePath<java.time.LocalDateTime> regDate = _super.regDate;
-
     public final NumberPath<Long> sell_idx = createNumber("sell_idx", Long.class);
-
-    //inherited
-    public final DateTimePath<java.time.LocalDateTime> updateDate = _super.updateDate;
 
     public QConclusion(String variable) {
         super(Conclusion.class, forVariable(variable));

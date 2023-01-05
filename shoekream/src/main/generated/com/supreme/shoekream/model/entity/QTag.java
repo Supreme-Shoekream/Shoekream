@@ -23,15 +23,15 @@ public class QTag extends EntityPathBase<Tag> {
 
     public final NumberPath<Long> boardIdx = createNumber("boardIdx", Long.class);
 
+    //inherited
+    public final DateTimePath<java.time.LocalDateTime> createdAt = _super.createdAt;
+
     public final NumberPath<Long> idx = createNumber("idx", Long.class);
 
+    //inherited
+    public final DateTimePath<java.time.LocalDateTime> modifiedAt = _super.modifiedAt;
+
     public final NumberPath<Long> productIdx = createNumber("productIdx", Long.class);
-
-    //inherited
-    public final DateTimePath<java.time.LocalDateTime> regDate = _super.regDate;
-
-    //inherited
-    public final DateTimePath<java.time.LocalDateTime> updateDate = _super.updateDate;
 
     public QTag(String variable) {
         super(Tag.class, forVariable(variable));

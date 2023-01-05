@@ -18,10 +18,10 @@ import java.time.LocalDateTime;
 @ToString(callSuper = true) //부모의 toString을 사용하기 위해
 @EqualsAndHashCode(callSuper = true)//Generating equals/hashCode 에러 없애는 방법
 @EntityListeners(AuditingEntityListener.class)//이벤트리스너(crud되기전후에 이벤트 발생)
-public class Admin extends BaseEntity implements Auditable {
+public class Admin extends BaseEntity implements Auditable {    //regDate updateDate쓸때만 적어주시면 됩니다!
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idx;
     private String adminid;
     private String adminpw;
     private String name;

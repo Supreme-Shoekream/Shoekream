@@ -21,37 +21,39 @@ public class QProduct extends EntityPathBase<Product> {
 
     public final com.supreme.shoekream.model.config.QBaseEntity _super = new com.supreme.shoekream.model.config.QBaseEntity(this);
 
-    public final NumberPath<Long> brand_idx = createNumber("brand_idx", Long.class);
+    public final NumberPath<Long> brandIdx = createNumber("brandIdx", Long.class);
 
-    public final StringPath category_idx = createString("category_idx");
+    public final StringPath categoryIdx = createString("categoryIdx");
 
     public final StringPath color = createString("color");
 
-    public final StringPath create_by = createString("create_by");
+    public final StringPath createBy = createString("createBy");
+
+    //inherited
+    public final DateTimePath<java.time.LocalDateTime> createdAt = _super.createdAt;
+
+    public final StringPath firstPrice = createString("firstPrice");
 
     public final NumberPath<Long> idx = createNumber("idx", Long.class);
 
     public final StringPath img = createString("img");
 
-    public final StringPath model_num = createString("model_num");
+    public final StringPath modelNum = createString("modelNum");
+
+    //inherited
+    public final DateTimePath<java.time.LocalDateTime> modifiedAt = _super.modifiedAt;
 
     public final StringPath name = createString("name");
 
-    public final StringPath name_kor = createString("name_kor");
+    public final StringPath nameKor = createString("nameKor");
 
-    //inherited
-    public final DateTimePath<java.time.LocalDateTime> regDate = _super.regDate;
-
-    public final StringPath release_date = createString("release_date");
+    public final StringPath releaseDate = createString("releaseDate");
 
     public final StringPath size = createString("size");
 
-    public final StringPath update_by = createString("update_by");
+    public final StringPath updateBy = createString("updateBy");
 
-    //inherited
-    public final DateTimePath<java.time.LocalDateTime> updateDate = _super.updateDate;
-
-    public final NumberPath<Long> wish_count = createNumber("wish_count", Long.class);
+    public final NumberPath<Long> wishCount = createNumber("wishCount", Long.class);
 
     public QProduct(String variable) {
         super(Product.class, forVariable(variable));

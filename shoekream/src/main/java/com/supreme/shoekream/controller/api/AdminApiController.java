@@ -28,24 +28,24 @@ public class AdminApiController extends CrudController<AdminApiRequest, AdminApi
     }
 
     @Override
-    @GetMapping("{id}")     //http://localhost:8888/api/admin/{id} (get)
-    public Header<AdminApiResponse> read(@PathVariable(name="id") Long id) {
+    @GetMapping("{idx}")     //http://localhost:8888/api/admin/{id} (get)
+    public Header<AdminApiResponse> read(@PathVariable(name="idx") Long id) {
         return adminApiLogicService.read(id);
     }
 
     @Override
-    @PutMapping("")     //http://localhost:8888/api/user  (put)
+    @PutMapping("{idx}")     //http://localhost:8888/api/user/{idx}  (put)
     public Header<AdminApiResponse> update(@RequestBody Header<AdminApiRequest> request) {
         return adminApiLogicService.update(request);
     }
 
 
-    @GetMapping("")     //http://localhost:8888/api/admin?page=1 (get)      //id 대신 변수를 넣으면 sort종류를 바꿀 수 있음
-    public Header<List<AdminApiResponse>> findAll(@PageableDefault(sort={"id"},direction= Sort.Direction.DESC) Pageable pageable){
+    @GetMapping("")     //http://localhost:8888/api/admin?page=1 (get)      //idx 대신 변수를 넣으면 sort종류를 바꿀 수 있음
+    public Header<List<AdminApiResponse>> findAll(@PageableDefault(sort={"idx"},direction= Sort.Direction.DESC) Pageable pageable){
         return adminApiLogicService.search(pageable);
     }
     @Override
-    @DeleteMapping("{id}")  //http://localhost:8888/api/admin/{id} (delete)
+    @DeleteMapping("{idx}")  //http://localhost:8888/api/admin/{idx} (delete)
     public Header<AdminApiResponse> delete(Long id) {
         return adminApiLogicService.delete(id);
     }
