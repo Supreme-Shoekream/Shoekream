@@ -52,7 +52,15 @@ button {
     appearance: none;
     border-radius: 0;
 }
-
+.container.my {
+    margin: 0 auto;
+    padding: 40px 40px 160px;
+    max-width: 1280px;
+}
+.container.my .content_area {
+    overflow: hidden;
+    min-height: 380px;
+}
 .container { overflow: hidden; position: relative; }
 
 .wrap { position:relative; padding-top:10rem; overflow-anchor:none }
@@ -265,10 +273,7 @@ button {
 }
 
 /**************************************** js ***************************/
-input error 경우 */
-.input_title {
-   color: #f15746 !important;
-}
+/*input error 경우 */
 .input_txt {
    border-bottom-color: black;
 }
