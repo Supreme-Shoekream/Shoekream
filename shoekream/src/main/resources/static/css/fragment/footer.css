@@ -13,7 +13,7 @@ footer{
     /*margin-top: 30rem;*/
 }
 footer .footer_flex_box2{
-    border-top: 1px solid lightgray;
+    border-top: 1px solid #ebebeb;
     padding: 50px 40px;
     width: 100%;
     display: flex;
@@ -86,7 +86,7 @@ footer .footer_flex_box3 ul{
 footer .footer_flex_box3 #footer_box3{
     width: 99.85%;
     margin: 0 auto;
-    border-top: 1px solid #d3d3d3;
+    border-top: 1px solid #ebebeb;
 }
 footer .footer_flex_box3 #footer_box3 #footer_box3_1{
     width: 100%;
