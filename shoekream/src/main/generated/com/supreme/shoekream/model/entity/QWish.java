@@ -27,15 +27,12 @@ public class QWish extends EntityPathBase<Wish> {
 
     public final NumberPath<Long> memberIdx = createNumber("memberIdx", Long.class);
 
+    //inherited
+    public final DateTimePath<java.time.LocalDateTime> modifiedAt = _super.modifiedAt;
+
     public final NumberPath<Long> productIdx = createNumber("productIdx", Long.class);
 
-    //inherited
-    public final DateTimePath<java.time.LocalDateTime> regDate = _super.regDate;
-
     public final StringPath size = createString("size");
-
-    //inherited
-    public final DateTimePath<java.time.LocalDateTime> updateDate = _super.updateDate;
 
     public QWish(String variable) {
         super(Wish.class, forVariable(variable));
