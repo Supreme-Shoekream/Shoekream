@@ -25,19 +25,19 @@ public class QAdmin extends EntityPathBase<Admin> {
 
     public final StringPath adminpw = createString("adminpw");
 
+    //inherited
+    public final DateTimePath<java.time.LocalDateTime> createdAt = _super.createdAt;
+
     public final StringPath hp = createString("hp");
 
-    public final NumberPath<Long> id = createNumber("id", Long.class);
+    public final NumberPath<Long> idx = createNumber("idx", Long.class);
+
+    //inherited
+    public final DateTimePath<java.time.LocalDateTime> modifiedAt = _super.modifiedAt;
 
     public final StringPath name = createString("name");
 
-    //inherited
-    public final DateTimePath<java.time.LocalDateTime> regDate = _super.regDate;
-
     public final EnumPath<com.supreme.shoekream.model.enumclass.UserStatus> status = createEnum("status", com.supreme.shoekream.model.enumclass.UserStatus.class);
-
-    //inherited
-    public final DateTimePath<java.time.LocalDateTime> updateDate = _super.updateDate;
 
     public QAdmin(String variable) {
         super(Admin.class, forVariable(variable));

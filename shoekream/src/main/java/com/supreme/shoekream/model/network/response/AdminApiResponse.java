@@ -18,6 +18,5 @@ public class AdminApiResponse {
     private String adminpw;
     private String name;
     private LocalDateTime regDate;
-    private LocalDateTime lastLoginAt;
     private UserStatus status;
 }

@@ -21,6 +21,9 @@ public class QFollow extends EntityPathBase<Follow> {
 
     public final com.supreme.shoekream.model.config.QBaseEntity _super = new com.supreme.shoekream.model.config.QBaseEntity(this);
 
+    //inherited
+    public final DateTimePath<java.time.LocalDateTime> createdAt = _super.createdAt;
+
     public final NumberPath<Long> followerIdx = createNumber("followerIdx", Long.class);
 
     public final NumberPath<Long> followingIdx = createNumber("followingIdx", Long.class);
@@ -28,10 +31,7 @@ public class QFollow extends EntityPathBase<Follow> {
     public final NumberPath<Long> idx = createNumber("idx", Long.class);
 
     //inherited
-    public final DateTimePath<java.time.LocalDateTime> regDate = _super.regDate;
-
-    //inherited
-    public final DateTimePath<java.time.LocalDateTime> updateDate = _super.updateDate;
+    public final DateTimePath<java.time.LocalDateTime> modifiedAt = _super.modifiedAt;
 
     public QFollow(String variable) {
         super(Follow.class, forVariable(variable));

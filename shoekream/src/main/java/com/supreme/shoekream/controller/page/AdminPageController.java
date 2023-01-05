@@ -78,4 +78,9 @@ public class AdminPageController {
     public ModelAndView style(){
         return new ModelAndView("/adminpage/style.html");
     }
+
+    @GetMapping(path="admin")   //http://localhost:8889/admin/admin
+    public ModelAndView admin(){
+        return new ModelAndView("/adminpage/admin.html");
+    }
 }

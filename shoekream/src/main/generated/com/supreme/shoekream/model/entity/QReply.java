@@ -32,10 +32,7 @@ public class QReply extends EntityPathBase<Reply> {
     public final NumberPath<Long> memberIdx = createNumber("memberIdx", Long.class);
 
     //inherited
-    public final DateTimePath<java.time.LocalDateTime> regDate = _super.regDate;
-
-    //inherited
-    public final DateTimePath<java.time.LocalDateTime> updateDate = _super.updateDate;
+    public final DateTimePath<java.time.LocalDateTime> modifiedAt = _super.modifiedAt;
 
     public QReply(String variable) {
         super(Reply.class, forVariable(variable));
