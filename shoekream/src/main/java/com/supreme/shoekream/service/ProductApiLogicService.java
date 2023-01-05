@@ -33,7 +33,17 @@ public class ProductApiLogicService extends BaseService<ProductApiRequest, Produ
 
     @Override
     public Header<ProductApiResponse> create(Header<ProductApiRequest> request) {
-        return null;
+        ProductApiRequest productApiRequest = request.getData();
+        Product product = Product.builder()
+                .name("Apple AirPods Max Silver")
+                .nameKor("에어팟 맥스 실버")
+                .size("one size")
+                .color("silver")
+                .firstPrice("769,000원")
+                .build();
+        Product newProduct = baseRepository.save(product);
+
+        return Header.OK(response(newProduct));
     }
 
     @Override

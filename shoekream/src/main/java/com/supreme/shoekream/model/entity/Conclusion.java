@@ -13,12 +13,12 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Data
 @Builder
-@ToString(callSuper = true)
-@EqualsAndHashCode(callSuper = true)
-@EntityListeners(AuditingEntityListener.class)
-public class Conclusion extends BaseEntity implements Auditable {
+@ToString
+//@EqualsAndHashCode(callSuper = true)
+//@EntityListeners(AuditingEntityListener.class)
+public class Conclusion {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY) private Long idx; // 번호
     private Long sell_idx; // 판매 번호
     private Long buy_idx; // 구매 번호
-    //    private LocalDateTime reg_date; // 체결 날짜
+    private LocalDateTime createdAt; // 체결 날짜
 }
