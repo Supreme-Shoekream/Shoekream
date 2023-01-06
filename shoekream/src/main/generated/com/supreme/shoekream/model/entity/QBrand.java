@@ -19,19 +19,19 @@ public class QBrand extends EntityPathBase<Brand> {
 
     public static final QBrand brand = new QBrand("brand");
 
-    public final StringPath create_by = createString("create_by");
+    public final DateTimePath<java.time.LocalDateTime> createdAt = createDateTime("createdAt", java.time.LocalDateTime.class);
+
+    public final StringPath createdBy = createString("createdBy");
 
     public final NumberPath<Long> idx = createNumber("idx", Long.class);
 
+    public final DateTimePath<java.time.LocalDateTime> modifiedAt = createDateTime("modifiedAt", java.time.LocalDateTime.class);
+
+    public final StringPath modifiedBy = createString("modifiedBy");
+
     public final StringPath name = createString("name");
 
-    public final DateTimePath<java.time.LocalDateTime> reg_date = createDateTime("reg_date", java.time.LocalDateTime.class);
-
-    public final NumberPath<Long> total_conclusion = createNumber("total_conclusion", Long.class);
-
-    public final StringPath update_by = createString("update_by");
-
-    public final DateTimePath<java.time.LocalDateTime> update_date = createDateTime("update_date", java.time.LocalDateTime.class);
+    public final NumberPath<Long> totalConclusion = createNumber("totalConclusion", Long.class);
 
     public QBrand(String variable) {
         super(Brand.class, forVariable(variable));

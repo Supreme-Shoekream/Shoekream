@@ -19,9 +19,9 @@ public class Brand {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idx;                   // 번호
     private String name;                // 브랜드명
-    private Long total_conclusion;      // 총 거래체결 수
-    private String update_by;           // 수정한 관리자
-    private LocalDateTime update_date;  // 수정 날짜
-    private String create_by;           // 작성자
-    private LocalDateTime reg_date;     // 등록날짜
+    private Long totalConclusion;      // 총 거래체결 수
+    private String modifiedBy;           // 수정한 관리자
+    private LocalDateTime modifiedAt;  // 수정 날짜
+    private String createdBy;           // 작성자
+    private LocalDateTime createdAt;     // 등록날짜
 }
