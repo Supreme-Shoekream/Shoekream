@@ -34,4 +34,7 @@ public class SocialPageController {
 
     @GetMapping(path = "/upload")
     public ModelAndView upload(){ return new ModelAndView("social/upload"); }
+
+    @GetMapping(path = "/admin")
+    public ModelAndView admin(){ return new ModelAndView("adminpage/admin_layer/pop_style_view");}
 }
