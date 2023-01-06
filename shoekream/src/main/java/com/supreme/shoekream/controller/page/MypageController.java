@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/my")
+@RequestMapping("my")
 public class MypageController {
 
 
-    @GetMapping(path="")    // http://localhost:8889/social
+    @GetMapping(path="mypage")    // http://localhost:8889/my/mypage
     public ModelAndView mypage(){
         return new ModelAndView("/my/mypage");
     }

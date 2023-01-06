@@ -15,8 +15,8 @@ public class BrandApiResponse {
     private Long idx;
     private String name;
     private Long total_conclusion;
-    private String update_by;
-    private LocalDateTime update_date;
-    private String create_by;
-    private LocalDateTime reg_date;
+    private String modifiedBy;
+    private LocalDateTime modifiedAt;
+    private String createdBy;
+    private LocalDateTime createdAt;
 }

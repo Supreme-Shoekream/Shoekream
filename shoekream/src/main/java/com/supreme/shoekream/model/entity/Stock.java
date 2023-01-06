@@ -18,8 +18,8 @@ public class Stock {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idx;                   // 번호
-    private Long product_idx;           // 상품번호
-    private LocalDateTime reg_date;     // 등록날짜
+    private Long productIdx;           // 상품번호
+    private LocalDateTime createdAt;     // 등록날짜
     private Long price;                 // 가격
-    private Long sell_idx;              // 판매건 번호
+    private Long sellIdx;              // 판매건 번호
 }

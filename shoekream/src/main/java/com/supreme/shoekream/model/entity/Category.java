@@ -18,5 +18,5 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idx;            // 번호
     private String name;        // 이름
-    private String img_url;     // 이미지
+    private String imgUrl;     // 이미지
 }
