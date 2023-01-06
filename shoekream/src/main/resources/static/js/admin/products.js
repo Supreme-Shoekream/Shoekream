@@ -52,7 +52,7 @@ function sendit(){
         return false;
     }
 
-    fetch("http://localhost:8888/admin/products", {
+    fetch("http://localhost:8888/api/admin/products", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

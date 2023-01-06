@@ -25,7 +25,7 @@ public class AdminPageController {
         return new ModelAndView("adminpage/products.html");
     }
 
-    @GetMapping(path="products/create")   //http://localhost:8889/admin/productcreate
+    @GetMapping(path="products/create")   //http://localhost:8889/admin/products/create
     public ModelAndView productcreate(){
         return new ModelAndView("/adminpage/productcreate.html");
     }
