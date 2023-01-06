@@ -1,0 +1,151 @@
+<link rel="stylesheet" href="/src/styles/layer.css">
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="create_product" style="display: none;" class="layer_name layer lg">
+    <div class="layer_container">
+        <a href="#" class="btn_layer_close">
+            <div>
+                <img src="/img/close_white.png">
+            </div>
+        </a>
+        <div class="layer_header">
+            <h2 class="title"> 상품 추가 페이지 </h2>
+        </div>
+        <div class="layer_content">
+        <div class="top">
+            <div class="user_bind">
+                <div class="user_input">
+                    <div class="input_box ">
+                        <h4 class="input_title">상품코드</h4>
+                        <div class="input_item">
+                            <input type="text" id="product_number" class="input_input">
+                        </div>
+                    </div>
+                    <div class="input_box" style="margin-top: 20px;">
+                        <h4 class="input_title">상품명</h4>
+                        <div class="input_item">
+                            <input type="text" id="product_name" class="input_input">
+                        </div>
+                    </div>
+                    <div class="input_box" style="margin-top: 20px;">
+                        <h4 class="input_title">상품명(KOR)</h4>
+                        <div class="input_item">
+                            <input type="text" id="product_name_kor" class="input_input">
+                        </div>
+                    </div>
+                    <div class="center" style="margin-top: 20px;">
+                        <!-- <div class="user_bind">
+                            <div class="user_input">
+                                <div class="input_box">
+                                    <h4 class="input_title">가격</h4>
+                                    <div class="input_item">
+                                        <input type="text" id="re_cost" class="input_input">
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="user_bind">
+                            <div class="user_input">
+                                <div class="input_box">
+                                    <h4 class="input_title">발매가</h4>
+                                    <div class="input_item">
+                                        <input type="text" id="origin_cost" class="input_input">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+            <div class="user_bind img">
+                <h4 class="input_title">상품 이미지</h4>
+                <input id="brand_logo" style="border: none; 
+                      margin-top: 0.1rem solid #ebebeb;" type="file" accept="image/*" class="input_input"
+                name="photo">
+              <div class="preview">
+                <img src="https://dummyimage.com/400x400/ffffff/000000.png&text=+" style="width: 200px;"
+                  alt="" id="previewImage">
+              </div>
+            </div>
+        </div>
+        <div class="center">
+            <div class="user_bind">
+                <div class="user_input">
+                    <div class="input_box">
+                        <h4 class="input_title">브랜드</h4>
+                        <div class="input_item">
+                            <input type="text" id="brand" class="input_input">
+                        </div>
+                    </div>
+                    <div class="input_box">
+                        <h4 class="input_title">카테고리</h4>
+                        <div class="input_item">
+                            <select name="category" id="category" class="input_input">
+                                <option value="shoes">신발</option>
+                                <option value="outer">아우터</option>
+                                <option value="top">상의</option>
+                                <option value="bottom">하의</option>
+                                <option value="acc">액세서리</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="user_bind">
+                <div class="user_input">
+                    <div class="input_box">
+                        <h4 class="input_title">발매일</h4>
+                        <div class="input_item">
+                            <input type="date" value="xxx" min="yyy" max="zzz" id="createdAt" class="input_input">
+                        </div>
+                    </div>
+                    <div class="input_box">
+                        <h4 class="input_title">사이즈</h4>
+                        <div class="input_item">
+                            <select name="size" id="size" class="input_input">
+                                <option value="xs">xs</option>
+                                <option value="s">s</option>
+                                <option value="m">m</option>
+                                <option value="l">l</option>
+                                <option value="xl">xl</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="user_input" style="width: 80%; margin: 0 auto;">
+            <div class="input_box">
+                <h4 class="input_title">색상</h4>
+                <div class="input_item">
+                    <input type="text" id="color" class="input_input">
+                </div>
+            </div>
+        </div>
+
+        <div class="layer_btn">
+            <a href="#" class="btn btn_save solid medium">확인</a>
+        </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    function readImage(input){
+
+        if(input.files && input.files[0]){
+            const reader = new FileReader();
+
+            reader.onload = e => {
+                const previewImage = document.getElementById('previewImage');
+                previewImage.src = e.target.result;
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    const inputImage = document.getElementById('brand_logo');
+    inputImage.addEventListener('change', e => {
+        readImage(e.target);
+    })
+
+</script>

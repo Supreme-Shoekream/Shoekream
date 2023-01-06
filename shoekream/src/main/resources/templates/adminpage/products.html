@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <!--head 시작 -->
 <div th:replace="fragment/adminhead :: head"></div>
 <!--head 끝 -->
+<link rel="stylesheet" href="/src/styles/layer.css">
+<link rel="stylesheet" href="/src/styles/pop_delete.css">
 <body>
 
 <!-- header 시작 -->
@@ -21,7 +24,12 @@
       <div class="card-box mb-30" >
         <div class="pd-20" >
           <h4 class="text-blue h4">상품 리스트</h4>
-
+          <a onclick="create_pop()"
+             style="width: 130px; height: 30px; background-color: #1b00ff; color: white;
+             border-radius: 10px; margin-left: 10px;
+              text-align: center; align-items: center;"
+          >상품 추가</a>
+          <div class="create_pop" th:replace="/adminpage/admin_layer/pop_create_product :: create_product"></div>
           <!--제품사진/상품명/사이즈/브랜드/카테고리/최근거래가-->
         </div>
         <div class="card-box mb-30">
@@ -75,12 +83,15 @@
                     <a class="dropdown-item" href="#"
                     ><i class="dw dw-eye"></i> View</a
                     >
+                    <div th:replace="/adminpage/admin_layer/layer_product_view :: product_view"></div>
                     <a class="dropdown-item" href="#"
                     ><i class="dw dw-edit2"></i> Edit</a
                     >
+                    <div th:replace="/adminpage/admin_layer/layer_product_edit :: product_edit"></div>
                     <a class="dropdown-item" href="#"
                     ><i class="dw dw-delete-3"></i> Delete</a
                     >
+                    <div th:replace="/adminpage/admin_layer/pop_product_delete :: product_delete"></div>
                   </div>
                 </div>
               </td>
@@ -503,6 +514,8 @@
 </div>
 <!-- js -->
 <div th:replace="fragment/adminjs :: js"></div>
+<!--<script src="/js/admin/admin_pop.js"></script>-->
+<!--<block th:replace="js/admin/admin_pop :: admin_pop"></block>-->
 <!-- js -->
 
 </body>

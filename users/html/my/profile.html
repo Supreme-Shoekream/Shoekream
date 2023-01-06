@@ -227,6 +227,9 @@ document.querySelector('#name_input').addEventListener('input', e=>{
     document.querySelector('#name_input_error').innerHTML=errorMsg;
 });
 
+ if(validateName() && 계좌번호() && ture ){
+    remove .ds
+ }
 function pop_name(){
     document.querySelector('.unit_name').style.display="none"
     document.querySelector('.modify_name').style.display="block"
@@ -280,7 +283,6 @@ const boxes = document.querySelectorAll(".size_item .btn");
 
 // 프로필 이미지 변경
 function readImage(input){
-    // console.log(input);
     if(input.files && input.files[0]){
         const reader = new FileReader();
 
@@ -294,7 +296,6 @@ function readImage(input){
 
 const modifyImg = document.getElementById('modify_img');
 modifyImg.addEventListener("change", e => {
-    // console.log(e.target);
     readImage(e.target);
 })
 
