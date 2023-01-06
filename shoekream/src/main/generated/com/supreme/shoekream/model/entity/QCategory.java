@@ -21,7 +21,7 @@ public class QCategory extends EntityPathBase<Category> {
 
     public final NumberPath<Integer> idx = createNumber("idx", Integer.class);
 
-    public final StringPath img_url = createString("img_url");
+    public final StringPath imgUrl = createString("imgUrl");
 
     public final StringPath name = createString("name");
 
