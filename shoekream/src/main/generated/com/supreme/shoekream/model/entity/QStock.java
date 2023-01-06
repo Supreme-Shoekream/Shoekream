@@ -19,15 +19,15 @@ public class QStock extends EntityPathBase<Stock> {
 
     public static final QStock stock = new QStock("stock");
 
+    public final DateTimePath<java.time.LocalDateTime> createdAt = createDateTime("createdAt", java.time.LocalDateTime.class);
+
     public final NumberPath<Long> idx = createNumber("idx", Long.class);
 
     public final NumberPath<Long> price = createNumber("price", Long.class);
 
-    public final NumberPath<Long> product_idx = createNumber("product_idx", Long.class);
+    public final NumberPath<Long> productIdx = createNumber("productIdx", Long.class);
 
-    public final DateTimePath<java.time.LocalDateTime> reg_date = createDateTime("reg_date", java.time.LocalDateTime.class);
-
-    public final NumberPath<Long> sell_idx = createNumber("sell_idx", Long.class);
+    public final NumberPath<Long> sellIdx = createNumber("sellIdx", Long.class);
 
     public QStock(String variable) {
         super(Stock.class, forVariable(variable));

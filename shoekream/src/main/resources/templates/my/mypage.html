@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head th:replace="/fragment/footer_head :: head"></head>
+    <link rel="stylesheet" href="/css/my/mypage.css">
+    <link rel="stylesheet" href="css/fragment/footer.css">
+
     <title>마이 페이지</title>
 
-    <link rel="stylesheet" href="/css/my/mypage.css">
+
 
 </head>
 
@@ -18,13 +22,13 @@
             <!---->
             <div class="wrap_inner">
                 <!-- head.html -->
-                <div th:replace="include/pjs_header_nav :: header_nav"></div>
+<!--                <div th:replace="include/pjs_header_nav :: header_nav"></div>-->
                 <!-- head.html 끝-->
                 <!--conents-->
                 <div class="container my lg">
                     <div>
                         <!--snb_area start-->
-                        <div th:replace="include/pjs_mypage_snb :: mypage_snb"></div>
+<!--                        <div th:replace="include/pjs_mypage_snb :: mypage_snb"></div>-->
                         <!--snb_area end-->
                     </div>
                     <div class="content_area">
@@ -176,13 +180,13 @@
                             </div>
                             <!---->
                             <!--point layer start-->
-                            <div th:replace="include/pjs_point_layer :: point_layer"></div>
+<!--                            <div th:replace="include/pjs_point_layer :: point_layer"></div>-->
                             <!--point layer end-->
                         </div>
                     </div>
                 </div>
                 <!--footer start-->
-                <div th:replace="include/pjs_footer :: footer"></div>
+<!--                <div th:replace="include/pjs_footer :: footer"></div>-->
                 <!--footer end-->
                 <!--mobile footer start-->
                 <div class="footer only_copy right">
