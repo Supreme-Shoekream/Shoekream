@@ -22,7 +22,12 @@ public class AdminPageController {
 
     @GetMapping(path="products")   //http://localhost:8889/admin/products
     public ModelAndView products(){
-        return new ModelAndView("/adminpage/products.html");
+        return new ModelAndView("adminpage/products.html");
+    }
+
+    @GetMapping(path="products/create")   //http://localhost:8889/admin/productcreate
+    public ModelAndView productcreate(){
+        return new ModelAndView("/adminpage/productcreate.html");
     }
 
     @GetMapping(path="login")   //http://localhost:8889/admin/login
@@ -35,7 +40,7 @@ public class AdminPageController {
         return new ModelAndView("/adminpage/register.html");
     }
 
-    @GetMapping(path="brands")   //http://localhost:8889/admin/products
+    @GetMapping(path="brands")   //http://localhost:8889/admin/brands
     public ModelAndView brands(){
         return new ModelAndView("/adminpage/brands.html");
     }
