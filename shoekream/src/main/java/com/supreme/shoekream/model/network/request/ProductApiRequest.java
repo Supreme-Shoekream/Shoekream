@@ -10,9 +10,14 @@ import lombok.NoArgsConstructor;
 @Data
 @Builder
 public class ProductApiRequest {
+    private String brand;
     private String name;
     private String nameKor;
     private String size;
+    private String img;
+    private String modelNum;
+    private String releaseDate;
     private String color;
     private String firstPrice;
+    private String category;
 }

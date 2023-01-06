@@ -9,10 +9,10 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("product") //http://localhost:8888/product
 public class ProductPageController {
 
-    @GetMapping(path="") //http://localhost:8888/product
-    public ModelAndView product(){
-        return new ModelAndView("/product");
-    }   //viewName: 페이지이름이랑 같아야함
+//    @GetMapping(path="") //http://localhost:8888/product/
+//    public ModelAndView product(){
+//        return new ModelAndView("/");
+//    }
 
 
 }

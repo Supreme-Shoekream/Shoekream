@@ -16,14 +16,12 @@ public class ProductApiResponse {
     private String name;
     private String nameKor;
     private String img;
-    private Long brandIdx;
+    private String brand;
     private String size;
-    private String categoryIdx;
+    private String category;
     private Long wishCount;
     private String modelNum;
     private String releaseDate;
     private String color;
-    private LocalDateTime createdAt;
-    private String createBy;
-
+    private String firstPrice;
 }

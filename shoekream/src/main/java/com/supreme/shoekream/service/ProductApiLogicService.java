@@ -18,15 +18,14 @@ public class ProductApiLogicService extends BaseService<ProductApiRequest, Produ
                 .name(product.getName())
                 .nameKor(product.getNameKor())
                 .img(product.getImg())
-                .brandIdx(product.getBrandIdx())
+                .brand(product.getBrand())
                 .size(product.getSize())
-                .categoryIdx(product.getCategoryIdx())
+                .category(product.getCategory())
                 .wishCount(product.getWishCount())
                 .modelNum(product.getModelNum())
                 .releaseDate(product.getReleaseDate())
                 .color(product.getColor())
-                .createdAt(product.getCreatedAt())
-                .createBy(product.getCreateBy())
+                .firstPrice(product.getFirstPrice())
                 .build();
         return productApiResponse;
     }
@@ -42,8 +41,9 @@ public class ProductApiLogicService extends BaseService<ProductApiRequest, Produ
                 .firstPrice("769,000원")
                 .build();
         Product newProduct = baseRepository.save(product);
-
-        return Header.OK(response(newProduct));
+//
+//        return Header.OK(response(newProduct));
+        return null;
     }
 
     @Override

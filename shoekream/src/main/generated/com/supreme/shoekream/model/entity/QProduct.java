@@ -19,18 +19,11 @@ public class QProduct extends EntityPathBase<Product> {
 
     public static final QProduct product = new QProduct("product");
 
-    public final com.supreme.shoekream.model.config.QBaseEntity _super = new com.supreme.shoekream.model.config.QBaseEntity(this);
+    public final StringPath brand = createString("brand");
 
-    public final NumberPath<Long> brandIdx = createNumber("brandIdx", Long.class);
-
-    public final StringPath categoryIdx = createString("categoryIdx");
+    public final StringPath category = createString("category");
 
     public final StringPath color = createString("color");
-
-    public final StringPath createBy = createString("createBy");
-
-    //inherited
-    public final DateTimePath<java.time.LocalDateTime> createdAt = _super.createdAt;
 
     public final StringPath firstPrice = createString("firstPrice");
 
@@ -40,9 +33,6 @@ public class QProduct extends EntityPathBase<Product> {
 
     public final StringPath modelNum = createString("modelNum");
 
-    //inherited
-    public final DateTimePath<java.time.LocalDateTime> modifiedAt = _super.modifiedAt;
-
     public final StringPath name = createString("name");
 
     public final StringPath nameKor = createString("nameKor");
@@ -50,8 +40,6 @@ public class QProduct extends EntityPathBase<Product> {
     public final StringPath releaseDate = createString("releaseDate");
 
     public final StringPath size = createString("size");
-
-    public final StringPath updateBy = createString("updateBy");
 
     public final NumberPath<Long> wishCount = createNumber("wishCount", Long.class);
 
