@@ -1,7 +1,11 @@
 <link rel="stylesheet" href="/src/styles/layer.css">
-<div class="layer_name layer lg">
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="admin_register" class="layer_user_view layer lg" style="display: none">
+<!--<div class="layer_name layer lg">-->
     <div class="layer_container">
-        <a href="#" class="btn_layer_close">
+        <a onclick="close_member_view()"  class="btn_layer_close">
             <div>
                 <img src="/img/close_white.png">
             </div>

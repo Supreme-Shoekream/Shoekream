@@ -1,78 +1,68 @@
-window.onload = function(){
-    const btn = document.querySelector('.btn_join');
+function pop_member_create(){
+
+    document.querySelector(".layer_user_create").style.display = "block";
+
+    const btn = document.querySelector('.btn_save');
     btn.addEventListener('click',sendit);
+}
+
+// function pop_member_view(){
+//
+//     document.querySelector(".layer_user_view").style.display = "block";
+//
+// }
+
+window.onload = function (){
+    const btn = document.getElementById("memberCreateBtn");
+    btn.addEventListener("click", sendit);
 }
 function sendit() {
     //request로 필요한 DOM 객체 선택
-    const email = document.getElementById('email_input');
     const memberPw = document.getElementById('password_input');
-    const shoeSize = document.getElementById('input_shoesize');
     const name = document.getElementById('name_input');
-    const birthDate = document.getElementById('ssn1_input');
-    const gender = document.getElementById('ssn2_input');
     const hp = document.getElementById('hp_input');
+    const email = document.getElementById('email_input');
+    const shoeSize = document.getElementById('shoeSize_input');
+    const gender = document.getElementById('gender_input');
+    const birthDate = document.getElementById('birthDate_input');
 
-    fetch('http://localhost:8889/api/member', {
+    fetch('http://localhost:8889/api/admin/users/create', {
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
             //우리가 만든데이터
-            "transaction_time": `${new Date()}`,
-            "resultCode": "ok",
-            "description": "정상",
-            "data": {
-                "email": `${email.value}`,
-                "memberPw": `${memberPw.value}`,
-                "shoeSize": `${memberPw.value}`,
-                "name": `${memberPw.value}`,
-                "birthDate": `${memberPw.value}`,
-                "gender": `${name.value}`,
-                "hp": `${hp.value}`
+            "transaction_time":`${new Date()}`,
+            "resultCode":"ok",
+            "description":"정상",
+            "data":{
+                "memberPw":`${memberPw.value}`,
+                "name":`${name.value}`,
+                "hp":`${hp.value}`,
+                "email":`${email.value}`,
+                "shoeSize":`${shoeSize.value}`,
+                "gender":`${gender.value}`,
+                "birthDate":`${birthDate.value}`
             }
         }),
     })
-
         .then((res) => {
-            location.href = '/member';
+            alert('등록성공')
+            location.href='http://localhost:8888/admin/users';
             return; //리턴을 걸어서 진행하는 것을 막는다!
         })
         .then((data) => {
             console.log(data);
             return;
         })
-        .catch((err) => {
+        .catch((err)=>{
             alert(err);
         })
 }
-
-// 사이즈 팝업창
-function size_layer(){
-    document.querySelector('.size_layer').style.display="block"
-}
-
-function closeLayer(){
-    document.querySelector('.size_layer').style.display="none"
-}
-
-// 사이즈 선택
-$(".size_item").click(function(){
-    $(".size_item").removeClass("active");
-    $(this).addClass("active");
-    $("#size_submit_btn").removeClass("disabled")
-    }); 
-
-// input_area에 사이즈 value 값으로 전달
-$(document).on('click', '#size_submit_btn', function(){
-    $(".size_layer").css('display', 'none'); // 팝업 닫고
-    $("#input_shoesize").val(document.querySelector('.size_item.active .btn').text.trim());
-});
-
-
 // input 타입 넘버에 maxlength 설정
 function maxLengthCheck(object){
     if (object.value.length > object.maxLength){
         object.value = object.value.slice(0, object.maxLength);
-    }    
+    }
 }
 
 // 디바운스
@@ -95,7 +85,7 @@ function validateEmail(strEmail){
     return true;
 }
 
-//비밀번호 정규 표현식
+// 비밀번호 정규 표현식
 function validatePassword(strPassword){
     const reg_password = /^.*(?=^.{8,16}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
     if(!reg_password.test(''+strPassword)){
@@ -114,28 +104,26 @@ function validateName(strName){
     return true;
 }
 
-// ssn1 정규 표현식
-function validateBirthdate1(strBirthdate1){
-    const reg_birthdate1 =  /^(?:[0-9]{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[1,2][0-9]|3[0,1]))$/;
-    if(!reg_birthdate1.test(''+strBirthdate1)){
-        return false;
-    }
-    return true;
-}
-
-// ssn2 정규 표현식
-function validateBirthdate(strBirthdate){
-    const reg_birthdate =  /^[1-4]{1}$/;
-    if(!reg_birthdate.test(''+strBirthdate)){
-        return false;
-    }
-    return true;
+// 휴대폰 번호 자동 하이픈(-) 정규식
+const autoHyphen = (target) => {
+    target.value = target.value
+        .replace(/[^0-9]/g, '')
+        .replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`);
 }
 
 // 휴대폰 번호 정규 표현식
 function validateHp(strHp){
-    const reg_hp = /^01(?:0|1|6|7|8|9)(?:\d{3}|\d{4})\d{4}$/;
+    const reg_hp = /^01(?:0|1|6|7|8|9)-(?:\d{3}|\d{4})-\d{4}$/;
     if(!reg_hp.test(''+strHp)){
+        return false;
+    }
+    return true;
+}
+
+// 생년월일 정규 표현식
+function validateBirthdate1(strBirthdate1){
+    const reg_birthdate1 =  /^(?:[0-9]{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[1,2][0-9]|3[0,1]))$/;
+    if(!reg_birthdate1.test(''+strBirthdate1)){
         return false;
     }
     return true;
@@ -203,40 +191,23 @@ document.querySelector('#hp_input').addEventListener('input', e=>{
     })
 });
 
+// 생년월일 유효성 검사
+document.querySelector('#birthdate_input').addEventListener('input', e=>{
+    debounce(e, strBirthdate=>{
+        let errorMsg='';
+        if(!validateBirthdate(strBirthdate)){
+            errorMsg='생년월일을 정확히 입력해주세요. (YYMMDD)';
+            document.querySelector('#birthdate_input_box').className='input_box has_error';
+            document.querySelector('#birthdate_input').setAttribute('validateresult',false);
+        } else {
+            document.querySelector('#birthdate_input_box').className='input_box fill';
+            document.querySelector('#birthdate_input').setAttribute('validateresult',true);
+        }
+        document.querySelector('#birthdate_input_error').innerHTML=errorMsg;
+    })
+});
+
 // 버튼 활성화
-// document.querySelectorAll('#email_input').forEach((item) =>{
-//     item.addEventListener('input', e=>{
-//     let strEmail=e.target.value;
-//     if(validateEmail(strEmail)){
-//         document.querySelectorAll('#password_input').forEach((item) =>{
-//             item.addEventListener('input', e=>{
-//             let strPassword=e.target.value;
-//         if(validatePassword(strPassword)){
-//             document.querySelectorAll('#name_input').forEach((item) =>{
-//                 item.addEventListener('input', e=>{
-//                 let strName=e.target.value;
-//             if(validateName(strName)){
-//                 document.querySelectorAll('#hp_input').forEach((item) =>{
-//                     item.addEventListener('input', e=>{
-//                     let strHp=e.target.value;
-//                 if(validateHp(strHp)){
-//                     $("#btn_submitSignIn").removeClass("active");
-//                     $(this).addClass("active");
-//                     $("#btn_submitSignIn").removeClass("disabled")
-//                 }
-//                     })
-//             })
-//         }
-//     })
-// })
-// }
-// })
-// })
-// }})});
-
-
-
-
 let strEmail
 let strPassword
 let strName
@@ -245,11 +216,11 @@ document.querySelectorAll('#email_input').forEach((item) =>{
     item.addEventListener('blur', e=>{
         strEmail=e.target.value;
         if((validateEmail(strEmail))&&(validatePassword(strPassword))&&(validateName(strName))&&(validateHp(strHp))){
-            $("#btn_submitSignIn").removeClass("active");
-            $("#btn_submitSignIn").removeClass("disabled")
+            $(".btn_save").removeClass("active");
+            $(".btn_save").removeClass("disabled")
         }else{
-            $("#btn_submitSignIn").addClass("active");
-            $("#btn_submitSignIn").addClass("disabled")
+            $(".btn_save").addClass("active");
+            $(".btn_save").addClass("disabled")
         }
     })
 })
@@ -258,11 +229,11 @@ document.querySelectorAll('#password_input').forEach((item) =>{
     item.addEventListener('blur', e=>{
         strPassword=e.target.value;
         if((validateEmail(strEmail))&&(validatePassword(strPassword))&&(validateName(strName))&&(validateHp(strHp))){
-            $("#btn_submitSignIn").removeClass("active");
-            $("#btn_submitSignIn").removeClass("disabled")
+            $(".btn_save").removeClass("active");
+            $(".btn_save").removeClass("disabled")
         }else{
-            $("#btn_submitSignIn").addClass("active");
-            $("#btn_submitSignIn").addClass("disabled")
+            $(".btn_save").addClass("active");
+            $(".btn_save").addClass("disabled")
         }
     })
 })
@@ -271,11 +242,11 @@ document.querySelectorAll('#name_input').forEach((item) =>{
     item.addEventListener('blur', e=>{
         strName=e.target.value;
         if((validateEmail(strEmail))&&(validatePassword(strPassword))&&(validateName(strName))&&(validateHp(strHp))){
-            $("#btn_submitSignIn").removeClass("active");
-            $("#btn_submitSignIn").removeClass("disabled")
+            $(".btn_save").removeClass("active");
+            $(".btn_save").removeClass("disabled")
         }else{
-            $("#btn_submitSignIn").addClass("active");
-            $("#btn_submitSignIn").addClass("disabled")
+            $(".btn_save").addClass("active");
+            $(".btn_save").addClass("disabled")
         }
     })
 })
@@ -284,11 +255,21 @@ document.querySelectorAll('#hp_input').forEach((item) =>{
     item.addEventListener('blur', e=>{
         strHp=e.target.value;
         if((validateEmail(strEmail))&&(validatePassword(strPassword))&&(validateName(strName))&&(validateHp(strHp))){
-            $("#btn_submitSignIn").removeClass("active");
-            $("#btn_submitSignIn").removeClass("disabled")
+            $(".btn_save").removeClass("active");
+            $(".btn_save").removeClass("disabled")
         }else{
-            $("#btn_submitSignIn").addClass("active");
-            $("#btn_submitSignIn").addClass("disabled")
+            $(".btn_save").addClass("active");
+            $(".btn_save").addClass("disabled")
         }
     })
 });
+
+// create 닫기 버튼
+function close_member_create(){
+    document.querySelector(".layer_user_create").style.display = "none";
+}
+
+// view 닫기 버튼
+function close_member_view(){
+    document.querySelector(".layer_user_view").style.display = "none";
+}
