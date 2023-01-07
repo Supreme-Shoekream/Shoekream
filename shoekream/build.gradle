@@ -44,7 +44,7 @@ dependencies {
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 	//security + thymeleaf 같이 검색했을때 나옴
 //	implementation 'org.springframework.boot:spring-boot-starter-security'
-//	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
 }
 
 tasks.named('test') {
