@@ -15,6 +15,10 @@
 <div th:replace="fragment/adminnavbar :: navbar"></div>
 <!-- left-side-bar 끝 -->
 
+<link rel="stylesheet" href="./src/styles/pop_delete.css">
+<link rel="stylesheet" href="/src/styles/style_view.css">
+
+
 <div class="main-container">
   <div class="pd-ltr-20 xs-pd-20-10">
     <div class="min-height-200px">
@@ -26,7 +30,7 @@
           <!--사진/userid/내용/태그된 상품/좋아요수/댓글수/날짜-->
         </div>
         <div class="card-box mb-30">
-          <table class="data-table table nowrap">
+          <table class="data-table table nowrap" id="social_admin_table">
             <thead>
             <tr>
               <th class="table-plus datatable-nosort">사진</th>
@@ -41,7 +45,7 @@
             </thead>
             <tbody>
             <tr>
-              <td class="table-plus">
+              <td class=" feed_img table-plus">
                 <img
                         src="https://kream-phinf.pstatic.net/MjAyMjEyMjBfMjk3/MDAxNjcxNTEzMDYxOTA2.Jp0OBsMQuTPS8uCyB0col6GJ31iep0y2Gw8rHrKPLqkg.oJmdcAciqE4-B8C_RTg8rbkgy5lGa_Ctdato4YQjejwg.JPEG/p_130feabb795f4f5ba08ac958570e8d8f.jpeg?type=m"
                         width="70"
@@ -49,18 +53,18 @@
                         alt=""
                 />
               </td>
-              <td>
+              <td class="feed_nickname">
                 <h5 class="font-16">sshw_calmfrog</h5>
                 kream_userid
               </td>
-              <td>3</td>
-              <td>100</td>
-              <td>13</td>
-              <td>
-                <script>
-                  date = new Date().toLocaleDateString();
-                  document.write(date);
-                </script>
+              <td class="feed_tags">3</td>
+              <td class="feed_likes">100</td>
+              <td class="feed_comments">13</td>
+              <td class="feed_date"><time></time>
+<!--                <script>-->
+<!--                  date = new Date().toLocaleDateString();-->
+<!--                  document.write(date);-->
+<!--                </script>-->
               </td>
               <!--              <td>3</td>-->
               <!--              <td>730,000원</td>-->
@@ -77,279 +81,282 @@
                   <div
                           class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
                   >
-                    <a class="dropdown-item" href="/social/admin"
+                    <a class="dropdown-item" onclick="pop_style_view()"
                     ><i class="dw dw-eye"></i> View</a
                     >
+
                     <!--                    <a class="dropdown-item" href="#"-->
                     <!--                    ><i class="dw dw-edit2"></i> Edit</a-->
                     <!--                    >-->
-                    <a class="dropdown-item" href="#"
+                    <a class="dropdown-item" href="pop_style_delete()"
                     ><i class="dw dw-delete-3"></i> Delete</a
                     >
+
                   </div>
                 </div>
               </td>
             </tr>
 
+            <div th:replace="/adminpage/admin_layer/pop_style_view :: pop_style_view"></div>
+            <div th:replace="/adminpage/admin_layer/pop_style_delete :: pop_style_delete"></div>
+<!--            <tr>-->
+<!--              <td class="table-plus">-->
+<!--                <img-->
+<!--                        src="https://kream-phinf.pstatic.net/MjAyMjEyMjBfMjk3/MDAxNjcxNTEzMDYxOTA2.Jp0OBsMQuTPS8uCyB0col6GJ31iep0y2Gw8rHrKPLqkg.oJmdcAciqE4-B8C_RTg8rbkgy5lGa_Ctdato4YQjejwg.JPEG/p_130feabb795f4f5ba08ac958570e8d8f.jpeg?type=m"-->
+<!--                        width="70"-->
+<!--                        height="70"-->
+<!--                        alt=""-->
+<!--                />-->
+<!--              </td>-->
+<!--              <td>-->
+<!--                <h5 class="font-16">sshw_calmfrog</h5>-->
+<!--                kream_userid-->
+<!--              </td>-->
+<!--              <td>3</td>-->
+<!--              <td>100</td>-->
+<!--              <td>13</td>-->
+<!--              <td>-->
+<!--                <script>-->
+<!--                  date = new Date().toLocaleDateString();-->
+<!--                  document.write(date);-->
+<!--                </script>-->
+<!--              </td>-->
+<!--              &lt;!&ndash;              <td>3</td>&ndash;&gt;-->
+<!--              &lt;!&ndash;              <td>730,000원</td>&ndash;&gt;-->
+<!--              <td>-->
+<!--                <div class="dropdown">-->
+<!--                  <a-->
+<!--                          class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"-->
+<!--                          href="#"-->
+<!--                          role="button"-->
+<!--                          data-toggle="dropdown"-->
+<!--                  >-->
+<!--                    <i class="dw dw-more"></i>-->
+<!--                  </a>-->
+<!--                  <div-->
+<!--                          class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"-->
+<!--                  >-->
+<!--                    <a class="dropdown-item" href="/social/admin"-->
+<!--                    ><i class="dw dw-eye"></i> View</a-->
+<!--                    >-->
+<!--                    &lt;!&ndash;                    <a class="dropdown-item" href="#"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                    ><i class="dw dw-edit2"></i> Edit</a&ndash;&gt;-->
+<!--                    &lt;!&ndash;                    >&ndash;&gt;-->
+<!--                    &lt;!&ndash;                    <a class="dropdown-item" href="#"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                    ><i class="dw dw-delete-3"></i> Delete</a&ndash;&gt;-->
+<!--                    &lt;!&ndash;                    >&ndash;&gt;-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </td>-->
+<!--            </tr>-->
 
-            <tr>
-              <td class="table-plus">
-                <img
-                        src="https://kream-phinf.pstatic.net/MjAyMjEyMjBfMjk3/MDAxNjcxNTEzMDYxOTA2.Jp0OBsMQuTPS8uCyB0col6GJ31iep0y2Gw8rHrKPLqkg.oJmdcAciqE4-B8C_RTg8rbkgy5lGa_Ctdato4YQjejwg.JPEG/p_130feabb795f4f5ba08ac958570e8d8f.jpeg?type=m"
-                        width="70"
-                        height="70"
-                        alt=""
-                />
-              </td>
-              <td>
-                <h5 class="font-16">sshw_calmfrog</h5>
-                kream_userid
-              </td>
-              <td>3</td>
-              <td>100</td>
-              <td>13</td>
-              <td>
-                <script>
-                  date = new Date().toLocaleDateString();
-                  document.write(date);
-                </script>
-              </td>
-              <!--              <td>3</td>-->
-              <!--              <td>730,000원</td>-->
-              <td>
-                <div class="dropdown">
-                  <a
-                          class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
-                          href="#"
-                          role="button"
-                          data-toggle="dropdown"
-                  >
-                    <i class="dw dw-more"></i>
-                  </a>
-                  <div
-                          class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
-                  >
-                    <a class="dropdown-item" href="/social/admin"
-                    ><i class="dw dw-eye"></i> View</a
-                    >
-                    <!--                    <a class="dropdown-item" href="#"-->
-                    <!--                    ><i class="dw dw-edit2"></i> Edit</a-->
-                    <!--                    >-->
-                    <!--                    <a class="dropdown-item" href="#"-->
-                    <!--                    ><i class="dw dw-delete-3"></i> Delete</a-->
-                    <!--                    >-->
-                  </div>
-                </div>
-              </td>
-            </tr>
+<!--            <tr>-->
+<!--              <td class="table-plus">-->
+<!--                <img-->
+<!--                        src="https://kream-phinf.pstatic.net/MjAyMjEyMjBfMjk3/MDAxNjcxNTEzMDYxOTA2.Jp0OBsMQuTPS8uCyB0col6GJ31iep0y2Gw8rHrKPLqkg.oJmdcAciqE4-B8C_RTg8rbkgy5lGa_Ctdato4YQjejwg.JPEG/p_130feabb795f4f5ba08ac958570e8d8f.jpeg?type=m"-->
+<!--                        width="70"-->
+<!--                        height="70"-->
+<!--                        alt=""-->
+<!--                />-->
+<!--              </td>-->
+<!--              <td>-->
+<!--                <h5 class="font-16">sshw_calmfrog</h5>-->
+<!--                kream_userid-->
+<!--              </td>-->
+<!--              <td>3</td>-->
+<!--              <td>100</td>-->
+<!--              <td>13</td>-->
+<!--              <td>-->
+<!--                <script>-->
+<!--                  date = new Date().toLocaleDateString();-->
+<!--                  document.write(date);-->
+<!--                </script>-->
+<!--              </td>-->
+<!--              &lt;!&ndash;              <td>3</td>&ndash;&gt;-->
+<!--              &lt;!&ndash;              <td>730,000원</td>&ndash;&gt;-->
+<!--              <td>-->
+<!--                <div class="dropdown">-->
+<!--                  <a-->
+<!--                          class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"-->
+<!--                          href="#"-->
+<!--                          role="button"-->
+<!--                          data-toggle="dropdown"-->
+<!--                  >-->
+<!--                    <i class="dw dw-more"></i>-->
+<!--                  </a>-->
+<!--                  <div-->
+<!--                          class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"-->
+<!--                  >-->
+<!--                    <a class="dropdown-item" href="/social/admin"-->
+<!--                    ><i class="dw dw-eye"></i> View</a-->
+<!--                    >-->
+<!--&lt;!&ndash;                    <a class="dropdown-item" href="#"&ndash;&gt;-->
+<!--&lt;!&ndash;                    ><i class="dw dw-edit2"></i> Edit</a&ndash;&gt;-->
+<!--&lt;!&ndash;                    >&ndash;&gt;-->
+<!--                    <a class="dropdown-item" href="#"-->
+<!--                    ><i class="dw dw-delete-3"></i> Delete</a-->
+<!--                    >-->
+<!--                    &lt;!&ndash;                    레이어창 (스타일 상세보기)&ndash;&gt;-->
+<!--                    <div>-->
 
-            <tr>
-              <td class="table-plus">
-                <img
-                        src="https://kream-phinf.pstatic.net/MjAyMjEyMjBfMjk3/MDAxNjcxNTEzMDYxOTA2.Jp0OBsMQuTPS8uCyB0col6GJ31iep0y2Gw8rHrKPLqkg.oJmdcAciqE4-B8C_RTg8rbkgy5lGa_Ctdato4YQjejwg.JPEG/p_130feabb795f4f5ba08ac958570e8d8f.jpeg?type=m"
-                        width="70"
-                        height="70"
-                        alt=""
-                />
-              </td>
-              <td>
-                <h5 class="font-16">sshw_calmfrog</h5>
-                kream_userid
-              </td>
-              <td>3</td>
-              <td>100</td>
-              <td>13</td>
-              <td>
-                <script>
-                  date = new Date().toLocaleDateString();
-                  document.write(date);
-                </script>
-              </td>
-              <!--              <td>3</td>-->
-              <!--              <td>730,000원</td>-->
-              <td>
-                <div class="dropdown">
-                  <a
-                          class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
-                          href="#"
-                          role="button"
-                          data-toggle="dropdown"
-                  >
-                    <i class="dw dw-more"></i>
-                  </a>
-                  <div
-                          class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
-                  >
-                    <a class="dropdown-item" href="/social/admin"
-                    ><i class="dw dw-eye"></i> View</a
-                    >
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </td>-->
+<!--            </tr>-->
+
+<!--            <tr>-->
+<!--              <td class="table-plus">-->
+<!--                <img-->
+<!--                        src="https://kream-phinf.pstatic.net/MjAyMjEyMjBfMjk3/MDAxNjcxNTEzMDYxOTA2.Jp0OBsMQuTPS8uCyB0col6GJ31iep0y2Gw8rHrKPLqkg.oJmdcAciqE4-B8C_RTg8rbkgy5lGa_Ctdato4YQjejwg.JPEG/p_130feabb795f4f5ba08ac958570e8d8f.jpeg?type=m"-->
+<!--                        width="70"-->
+<!--                        height="70"-->
+<!--                        alt=""-->
+<!--                />-->
+<!--              </td>-->
+<!--              <td>-->
+<!--                <h5 class="font-16">sshw_calmfrog</h5>-->
+<!--                kream_userid-->
+<!--              </td>-->
+<!--              <td>3</td>-->
+<!--              <td>100</td>-->
+<!--              <td>13</td>-->
+<!--              <td>-->
+<!--                <script>-->
+<!--                  date = new Date().toLocaleDateString();-->
+<!--                  document.write(date);-->
+<!--                </script>-->
+<!--              </td>-->
+<!--              &lt;!&ndash;              <td>3</td>&ndash;&gt;-->
+<!--              &lt;!&ndash;              <td>730,000원</td>&ndash;&gt;-->
+<!--              <td>-->
+<!--                <div class="dropdown">-->
+<!--                  <a-->
+<!--                          class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"-->
+<!--                          href="#"-->
+<!--                          role="button"-->
+<!--                          data-toggle="dropdown"-->
+<!--                  >-->
+<!--                    <i class="dw dw-more"></i>-->
+<!--                  </a>-->
+<!--                  <div-->
+<!--                          class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"-->
+<!--                  >-->
+<!--                    <a class="dropdown-item" href="#"-->
+<!--                    ><i class="dw dw-eye"></i> View</a-->
+<!--                    >-->
 <!--                    <a class="dropdown-item" href="#"-->
 <!--                    ><i class="dw dw-edit2"></i> Edit</a-->
 <!--                    >-->
-                    <a class="dropdown-item" href="#"
-                    ><i class="dw dw-delete-3"></i> Delete</a
-                    >
-                    <!--                    레이어창 (스타일 상세보기)-->
-                    <div>
+<!--                    <a class="dropdown-item" href="#"-->
+<!--                    ><i class="dw dw-delete-3"></i> Delete</a-->
+<!--                    >-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </td>-->
+<!--            </tr>-->
 
-                    </div>
-                  </div>
-                </div>
-              </td>
-            </tr>
+<!--            <tr>-->
+<!--              <td class="table-plus">-->
+<!--                <img-->
+<!--                        src="https://kream-phinf.pstatic.net/MjAyMjEyMjBfMjk3/MDAxNjcxNTEzMDYxOTA2.Jp0OBsMQuTPS8uCyB0col6GJ31iep0y2Gw8rHrKPLqkg.oJmdcAciqE4-B8C_RTg8rbkgy5lGa_Ctdato4YQjejwg.JPEG/p_130feabb795f4f5ba08ac958570e8d8f.jpeg?type=m"-->
+<!--                        width="70"-->
+<!--                        height="70"-->
+<!--                        alt=""-->
+<!--                />-->
+<!--              </td>-->
+<!--              <td>-->
+<!--                <h5 class="font-16">sshw_calmfrog</h5>-->
+<!--                kream_userid-->
+<!--              </td>-->
+<!--              <td>3</td>-->
+<!--              <td>100</td>-->
+<!--              <td>13</td>-->
+<!--              <td>-->
+<!--                <script>-->
+<!--                  date = new Date().toLocaleDateString();-->
+<!--                  document.write(date);-->
+<!--                </script>-->
+<!--              </td>-->
+<!--              &lt;!&ndash;              <td>3</td>&ndash;&gt;-->
+<!--              &lt;!&ndash;              <td>730,000원</td>&ndash;&gt;-->
+<!--              <td>-->
+<!--                <div class="dropdown">-->
+<!--                  <a-->
+<!--                          class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"-->
+<!--                          href="#"-->
+<!--                          role="button"-->
+<!--                          data-toggle="dropdown"-->
+<!--                  >-->
+<!--                    <i class="dw dw-more"></i>-->
+<!--                  </a>-->
+<!--                  <div-->
+<!--                          class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"-->
+<!--                  >-->
+<!--                    <a class="dropdown-item" href="#"-->
+<!--                    ><i class="dw dw-eye"></i> View</a-->
+<!--                    >-->
+<!--                    <a class="dropdown-item" href="#"-->
+<!--                    ><i class="dw dw-edit2"></i> Edit</a-->
+<!--                    >-->
+<!--                    <a class="dropdown-item" href="#"-->
+<!--                    ><i class="dw dw-delete-3"></i> Delete</a-->
+<!--                    >-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </td>-->
+<!--            </tr>-->
 
-            <tr>
-              <td class="table-plus">
-                <img
-                        src="https://kream-phinf.pstatic.net/MjAyMjEyMjBfMjk3/MDAxNjcxNTEzMDYxOTA2.Jp0OBsMQuTPS8uCyB0col6GJ31iep0y2Gw8rHrKPLqkg.oJmdcAciqE4-B8C_RTg8rbkgy5lGa_Ctdato4YQjejwg.JPEG/p_130feabb795f4f5ba08ac958570e8d8f.jpeg?type=m"
-                        width="70"
-                        height="70"
-                        alt=""
-                />
-              </td>
-              <td>
-                <h5 class="font-16">sshw_calmfrog</h5>
-                kream_userid
-              </td>
-              <td>3</td>
-              <td>100</td>
-              <td>13</td>
-              <td>
-                <script>
-                  date = new Date().toLocaleDateString();
-                  document.write(date);
-                </script>
-              </td>
-              <!--              <td>3</td>-->
-              <!--              <td>730,000원</td>-->
-              <td>
-                <div class="dropdown">
-                  <a
-                          class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
-                          href="#"
-                          role="button"
-                          data-toggle="dropdown"
-                  >
-                    <i class="dw dw-more"></i>
-                  </a>
-                  <div
-                          class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
-                  >
-                    <a class="dropdown-item" href="#"
-                    ><i class="dw dw-eye"></i> View</a
-                    >
-                    <a class="dropdown-item" href="#"
-                    ><i class="dw dw-edit2"></i> Edit</a
-                    >
-                    <a class="dropdown-item" href="#"
-                    ><i class="dw dw-delete-3"></i> Delete</a
-                    >
-                  </div>
-                </div>
-              </td>
-            </tr>
-
-            <tr>
-              <td class="table-plus">
-                <img
-                        src="https://kream-phinf.pstatic.net/MjAyMjEyMjBfMjk3/MDAxNjcxNTEzMDYxOTA2.Jp0OBsMQuTPS8uCyB0col6GJ31iep0y2Gw8rHrKPLqkg.oJmdcAciqE4-B8C_RTg8rbkgy5lGa_Ctdato4YQjejwg.JPEG/p_130feabb795f4f5ba08ac958570e8d8f.jpeg?type=m"
-                        width="70"
-                        height="70"
-                        alt=""
-                />
-              </td>
-              <td>
-                <h5 class="font-16">sshw_calmfrog</h5>
-                kream_userid
-              </td>
-              <td>3</td>
-              <td>100</td>
-              <td>13</td>
-              <td>
-                <script>
-                  date = new Date().toLocaleDateString();
-                  document.write(date);
-                </script>
-              </td>
-              <!--              <td>3</td>-->
-              <!--              <td>730,000원</td>-->
-              <td>
-                <div class="dropdown">
-                  <a
-                          class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
-                          href="#"
-                          role="button"
-                          data-toggle="dropdown"
-                  >
-                    <i class="dw dw-more"></i>
-                  </a>
-                  <div
-                          class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
-                  >
-                    <a class="dropdown-item" href="#"
-                    ><i class="dw dw-eye"></i> View</a
-                    >
-                    <a class="dropdown-item" href="#"
-                    ><i class="dw dw-edit2"></i> Edit</a
-                    >
-                    <a class="dropdown-item" href="#"
-                    ><i class="dw dw-delete-3"></i> Delete</a
-                    >
-                  </div>
-                </div>
-              </td>
-            </tr>
-
-            <tr>
-              <td class="table-plus">
-                <img
-                        src="https://kream-phinf.pstatic.net/MjAyMjEyMjBfMjk3/MDAxNjcxNTEzMDYxOTA2.Jp0OBsMQuTPS8uCyB0col6GJ31iep0y2Gw8rHrKPLqkg.oJmdcAciqE4-B8C_RTg8rbkgy5lGa_Ctdato4YQjejwg.JPEG/p_130feabb795f4f5ba08ac958570e8d8f.jpeg?type=m"
-                        width="70"
-                        height="70"
-                        alt=""
-                />
-              </td>
-              <td>
-                <h5 class="font-16">sshw_calmfrog</h5>
-                kream_userid
-              </td>
-              <td>3</td>
-              <td>100</td>
-              <td>13</td>
-              <td>
-                <script>
-                  date = new Date().toLocaleDateString();
-                  document.write(date);
-                </script>
-              </td>
-              <!--              <td>3</td>-->
-              <!--              <td>730,000원</td>-->
-              <td>
-                <div class="dropdown">
-                  <a
-                          class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
-                          href="#"
-                          role="button"
-                          data-toggle="dropdown"
-                  >
-                    <i class="dw dw-more"></i>
-                  </a>
-                  <div
-                          class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
-                  >
-                    <a class="dropdown-item" href="#"
-                    ><i class="dw dw-eye"></i> View</a
-                    >
-                    <a class="dropdown-item" href="#"
-                    ><i class="dw dw-edit2"></i> Edit</a
-                    >
-                    <a class="dropdown-item" href="#"
-                    ><i class="dw dw-delete-3"></i> Delete</a
-                    >
-                  </div>
-                </div>
-              </td>
-            </tr>
+<!--            <tr>-->
+<!--              <td class="table-plus">-->
+<!--                <img-->
+<!--                        src="https://kream-phinf.pstatic.net/MjAyMjEyMjBfMjk3/MDAxNjcxNTEzMDYxOTA2.Jp0OBsMQuTPS8uCyB0col6GJ31iep0y2Gw8rHrKPLqkg.oJmdcAciqE4-B8C_RTg8rbkgy5lGa_Ctdato4YQjejwg.JPEG/p_130feabb795f4f5ba08ac958570e8d8f.jpeg?type=m"-->
+<!--                        width="70"-->
+<!--                        height="70"-->
+<!--                        alt=""-->
+<!--                />-->
+<!--              </td>-->
+<!--              <td>-->
+<!--                <h5 class="font-16">sshw_calmfrog</h5>-->
+<!--                kream_userid-->
+<!--              </td>-->
+<!--              <td>3</td>-->
+<!--              <td>100</td>-->
+<!--              <td>13</td>-->
+<!--              <td>-->
+<!--                <script>-->
+<!--                  date = new Date().toLocaleDateString();-->
+<!--                  document.write(date);-->
+<!--                </script>-->
+<!--              </td>-->
+<!--              &lt;!&ndash;              <td>3</td>&ndash;&gt;-->
+<!--              &lt;!&ndash;              <td>730,000원</td>&ndash;&gt;-->
+<!--              <td>-->
+<!--                <div class="dropdown">-->
+<!--                  <a-->
+<!--                          class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"-->
+<!--                          href="#"-->
+<!--                          role="button"-->
+<!--                          data-toggle="dropdown"-->
+<!--                  >-->
+<!--                    <i class="dw dw-more"></i>-->
+<!--                  </a>-->
+<!--                  <div-->
+<!--                          class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"-->
+<!--                  >-->
+<!--                    <a class="dropdown-item" href="#"-->
+<!--                    ><i class="dw dw-eye"></i> View</a-->
+<!--                    >-->
+<!--                    <a class="dropdown-item" href="#"-->
+<!--                    ><i class="dw dw-edit2"></i> Edit</a-->
+<!--                    >-->
+<!--                    <a class="dropdown-item" href="#"-->
+<!--                    ><i class="dw dw-delete-3"></i> Delete</a-->
+<!--                    >-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </td>-->
+<!--            </tr>-->
 
             </tbody>
           </table>
@@ -364,10 +371,22 @@
 
 <!-- js -->
 <div th:replace="fragment/adminjs :: js"></div>
+<script src="/js/layer/pop_admin_style.js"></script>
+<script>
+
+</script>
 <!-- js -->
 
 <script>
+  function pop_style_view(){
+    // system.log(document.querySelector('.pop_style_view'));
+    document.querySelector('.pop_style_view').style.display="block";
+  }
 
+  function pop_style_delete(){
+    // console.log(document.querySelector('.pop_style_delete'));
+    document.querySelector('.pop_style_delete').style.display="block";
+  }
 </script>
 
 </body>

@@ -8,6 +8,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Data
@@ -23,9 +24,18 @@ public class Board extends BaseEntity implements Auditable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idx;
 
-    private Long memberIdx;     // ManyToOne
+//    private Long memberIdx;     // ManyToOne
     private String content;
     private String img;
 //    private LocalDateTime createdAt;
 //    private LocalDateTime modifiedAt;
+
+    @ManyToOne
+    private Member member;
+
+    @OneToMany
+    private List<Like> likes;
+
+    @OneToMany
+    private List<Reply> replies;
 }
