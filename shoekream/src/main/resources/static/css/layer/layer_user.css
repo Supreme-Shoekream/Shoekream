@@ -1,0 +1,34 @@
+.has_button .input_txt {
+    padding-right: 3rem;
+    height: 3.8rem;
+}
+
+.input_txt {
+    padding: .8rem 0;
+    width: 100%;
+    font-size: 1.5rem;
+    letter-spacing: -.015rem;
+    line-height: 2.2rem;
+    border-bottom: .1rem solid #ebebeb;
+}
+
+.has_error .input_title {
+    color: #f15746;
+}
+
+.has_error .input_txt {
+    border-bottom-color: #ef6253;
+}
+
+.has_error .input_txt:focus {
+    border-bottom-color: #ef6253;
+}
+
+.has_error .input_error {
+    display: block;
+    position: absolute;
+    line-height: 1.6rem;
+    font-size: 1.1rem;
+    color: #f15746;
+    margin-top: 0;
+}

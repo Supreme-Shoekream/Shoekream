@@ -24,6 +24,11 @@ public class AdminPageController {
         return new ModelAndView("/adminpage/users.html");
     }
 
+    @GetMapping(path="users/create")   //http://localhost:8889/admin/users/create
+    public ModelAndView usercreate(){
+        return new ModelAndView("/adminpage/admin_layer/layer_user_create.html");
+    }
+
     @GetMapping(path="products")   //http://localhost:8889/admin/products
     public ModelAndView products(){
         return new ModelAndView("adminpage/products.html");

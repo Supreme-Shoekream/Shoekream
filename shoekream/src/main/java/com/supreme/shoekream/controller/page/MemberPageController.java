@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/user")
 public class MemberPageController {
     @GetMapping(path="login")   //http://localhost:8889/login
     public ModelAndView login(){
@@ -45,4 +45,11 @@ public class MemberPageController {
     public ModelAndView notice(){
         return new ModelAndView("/notice/notice");
     }
+
+
+
+
+//    //관리자
+//    @GetMapping(path = "/admin")
+//    public ModelAndView admin(){ return new ModelAndView("adminpage/admin_layer/layer_user_view");}
 }

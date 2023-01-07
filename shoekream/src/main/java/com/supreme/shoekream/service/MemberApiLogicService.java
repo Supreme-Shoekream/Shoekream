@@ -2,14 +2,20 @@ package com.supreme.shoekream.service;
 
 import com.supreme.shoekream.model.config.BaseEntity;
 import com.supreme.shoekream.model.entity.Member;
+import com.supreme.shoekream.model.enumclass.Gender;
 import com.supreme.shoekream.model.network.Header;
+import com.supreme.shoekream.model.network.Pagination;
 import com.supreme.shoekream.model.network.request.MemberApiRequest;
 import com.supreme.shoekream.model.network.response.MemberApiResponse;
 import com.supreme.shoekream.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -35,73 +41,114 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
                 .build();
         return memberApiResponse;
     }
+//    @Override
+//    public Header<MemberApiResponse> create(Header<MemberApiRequest> request) {
+//        MemberApiRequest memberApiRequest = request.getData();
+////        int gender =memberApiRequest.getGender()
+////        switch (searchType){
+////            case 1 -> memberRepository.findByGenderContaining(searchKeyword).map(MemberDto::from);
+////            case 2 -> memberRepository.findByGenderContaining(searchKeyword).map(MemberDto::from);
+////            case 3 -> memberRepository.findByGenderContaining(searchKeyword).map(MemberDto::from);
+////            case 4 -> memberRepository.findByGenderContaining(searchKeyword).map(MemberDto::from);
+////                    sitch(gender){
+//
+//        Member member = Member.builder()
+//                .memberPw(memberApiRequest.getMemberPw())
+//                .name(memberApiRequest.getName())
+//                .hp(memberApiRequest.getHp())
+//                .email(memberApiRequest.getEmail())
+//                .shoeSize(memberApiRequest.getShoeSize())
+//                .birthDate(memberApiRequest.getBirthDate())
+//                .gender(Gender.valueOf(memberApiRequest.getGender()))
+//                .build();
+//        Member newMembers = baseRepository.save(member);
+//        return Header.OK(response(newMembers));
+//    }
+
     @Override
     public Header<MemberApiResponse> create(Header<MemberApiRequest> request) {
         MemberApiRequest memberApiRequest = request.getData();
-//        int gender =memberApiRequest.getGender()
-
         Member member = Member.builder()
-                .memberId(memberApiRequest.getMemberId())
                 .memberPw(memberApiRequest.getMemberPw())
                 .name(memberApiRequest.getName())
                 .hp(memberApiRequest.getHp())
                 .email(memberApiRequest.getEmail())
                 .shoeSize(memberApiRequest.getShoeSize())
+                .gender(Gender.valueOf(memberApiRequest.getGender()))
                 .birthDate(memberApiRequest.getBirthDate())
-//                .gender(memberApiRequest.getGender())
                 .build();
-        Member newMembers = baseRepository.save(member);
-        return Header.OK(response(newMembers));
+        Member newMember = baseRepository.save(member);
+
+        return Header.OK(response(newMember));
     }
 
     @Override
     public Header<MemberApiResponse> read(Long idx) {
-        return baseRepository.findById(idx).map(members -> response(members))
-                .map(Header::OK).orElseGet(()->Header.ERROR("데이터 없음"));
-    }
-    public Header<MemberApiResponse> read(String memberId, String memberPw) {
-        return memberRepository.findByMemberIdAndMemberPw(memberId,memberPw).map(
-                        member -> response(member)).map(Header::OK)
-                .orElseGet(()-> Header.ERROR("아이디 또는 비밀번호가 틀렸습니다.")
-                );
+//        return baseRepository.findById(idx).map(members -> response(members))
+//                .map(Header::OK).orElseGet(()->Header.ERROR("데이터 없음"));
+//    }
+//    public Header<MemberApiResponse> read(String memberId, String memberPw) {
+//        return memberRepository.findByMemberIdAndMemberPw(memberId,memberPw).map(
+//                        member -> response(member)).map(Header::OK)
+//                .orElseGet(()-> Header.ERROR("아이디 또는 비밀번호가 틀렸습니다.")
+//                );
+        return null;
     }
 
     @Override
     public Header<MemberApiResponse> update(Header<MemberApiRequest> request) {
-        MemberApiRequest memberApiRequest = request.getData();
-        Optional<Member> members = memberRepository.findByMemberId(memberApiRequest.getMemberId());
-        return members.map(
-                        member -> {
-                            member.setName(memberApiRequest.getName());
-                            member.setHp(memberApiRequest.getHp());
-                            return member;
-                        }).map(member -> memberRepository.save(member))
-                .map(member -> response(member))
-                .map(Header::OK)
-                .orElseGet(()->Header.ERROR("데이터 없음")
-                );
+//        MemberApiRequest memberApiRequest = request.getData();
+//        Optional<Member> members = memberRepository.findByMemberId(memberApiRequest.getMemberId());
+//        return members.map(
+//                        member -> {
+//                            member.setName(memberApiRequest.getName());
+//                            member.setHp(memberApiRequest.getHp());
+//                            return member;
+//                        }).map(member -> memberRepository.save(member))
+//                .map(member -> response(member))
+//                .map(Header::OK)
+//                .orElseGet(()->Header.ERROR("데이터 없음")
+//                );
+        return null;
     }
 
     @Override
     public Header delete(Long idx) {
-        Optional<Member> members = baseRepository.findById(idx);
-        return members.map(member->{
-            baseRepository.delete(member);
-            return Header.OK();
-        }).orElseGet(()->Header.ERROR("데이터 없음"));
+//        Optional<Member> members = baseRepository.findById(idx);
+//        return members.map(member->{
+//            baseRepository.delete(member);
+//            return Header.OK();
+//        }).orElseGet(()->Header.ERROR("데이터 없음"));
+
+        return null;
     }
 
     public Header<MemberApiResponse> login(Header<MemberApiRequest> request){
-        MemberApiRequest memberUserApiRequest = request.getData();
-        Optional<Member> memberUser =memberRepository.findByMemberIdAndMemberPw(
-                memberUserApiRequest.getMemberId(),memberUserApiRequest.getMemberPw()
-        );
-        if (!memberUser.isEmpty()){
-            return Header.OK();
-        }
-        return Header.ERROR("아이디 또는 비밀번호가 틀렸음!");
+//        MemberApiRequest memberUserApiRequest = request.getData();
+//        Optional<Member> memberUser =memberRepository.findByMemberIdAndMemberPw(
+//                memberUserApiRequest.getMemberId(),memberUserApiRequest.getMemberPw()
+//        );
+//        if (!memberUser.isEmpty()){
+//            return Header.OK();
+//        }
+//        return Header.ERROR("아이디 또는 비밀번호가 틀렸음!");
+        return null;
     }
 
+    public Header<List<MemberApiResponse>> search(Pageable pageable){
+        Page<Member> members = baseRepository.findAll(pageable);
+        List<MemberApiResponse> memberApiResponses = members.stream().map(
+                member -> response(member)).collect(Collectors.toList());
+        // collect: 특정 자료 구조 형태에 데이터를 담아달라는 뜻
+        // Collectors.toList(): 리스트형식
+        Pagination pagination = Pagination.builder()
+                .totalPages(members.getTotalPages())
+                .totalElements(members.getTotalElements())
+                .currentPage(members.getNumber())
+                .currentElements(members.getNumberOfElements())
+                .build();
+        return Header.OK(memberApiResponses, pagination);
+    }
 }
 
 
