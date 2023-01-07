@@ -374,7 +374,6 @@ function pop_admin_delete(idx){
     });
 }
 function admindelete(idx){
-    console.log("여기있어요!!");
     fetch('http://localhost:8889/api/admin/'+idx, {
         method: "DELETE",
 

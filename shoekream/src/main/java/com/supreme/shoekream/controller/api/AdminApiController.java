@@ -46,7 +46,7 @@ public class AdminApiController extends CrudController<AdminApiRequest, AdminApi
     }
     @Override
     @DeleteMapping("{idx}")  //http://localhost:8888/api/admin/{idx} (delete)
-    public Header<AdminApiResponse> delete(Long idx) {
+    public Header<AdminApiResponse> delete(@PathVariable(name="idx") Long idx) {
         return adminApiLogicService.delete(idx);
     }
 
@@ -54,4 +54,6 @@ public class AdminApiController extends CrudController<AdminApiRequest, AdminApi
     public Header<AdminApiResponse> login(@RequestBody Header<AdminApiRequest> request) {
         return adminApiLogicService.login(request);
     }
+
+
 }
