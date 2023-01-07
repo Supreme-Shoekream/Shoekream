@@ -49,16 +49,23 @@
                                     <input type="text" id="size" name="size" placeholder="사이즈">
                                 </div>
                             </div>
+                            <div class="input_box">
+                                <h4 class="input_title">사이즈</h4>
+                                <div class="input_item">
+                                    <input type="text" id="previewImg" name="previewImg"/>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                     <div class="user_bind img">
                         <div class="uploadImg">
-                            <div class="filebox">
-                                <input class="upload-name" value="선택된 파일 없음" disabled="disabled">
-                                <input type="file" id="file1"class="upload-hidden" name="file1">
-                                <label for="file1">이미지 첨부</label>
-                            </div>
-                            <img id="previewImg" onclick="popImage(this.src)">
+<!--                            <div class="filebox">-->
+<!--                                <input class="upload-name" value="선택된 파일 없음" disabled="disabled">-->
+<!--                                <input type="file" id="file1"class="upload-hidden" name="file1">-->
+<!--                                <label for="file1">이미지 첨부</label>-->
+<!--                            </div>-->
+<!--                            <img id="previewImg" onclick="popImage(this.src)">-->
                         </div>
                     </div>
                 </div>
@@ -150,7 +157,7 @@
                     </div>
                 </div>
                 <div class="layer_btn">
-                    <a href="/admin/products" id="productCreateBtn" class="btn btn_save solid medium">확인</a>
+                    <a id="productCreateBtn" class="btn btn_save solid medium">확인</a>
                 </div>
             </form>
         </div>
@@ -158,7 +165,7 @@
 </div>
 </body>
 </html>
-<script src="/static/js/product.js"></script>
+<script src="/js/admin/products.js"></script>
 <script>
     $(document).ready(function(){
         //파일첨부 이벤트

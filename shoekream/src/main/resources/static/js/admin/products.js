@@ -9,7 +9,7 @@ function sendit(){
     const name = document.getElementById("name"); // 상품명
     const nameKor = document.getElementById("nameKor"); // 상품명(kor)
     const size = document.getElementById("size"); // 사이즈
-    const img = document.getElementById("img"); // 상품사진
+    const img = document.getElementById("previewImg"); // 상품사진
     const modelNum = document.getElementById("modelNum"); // 모델번호
     const releaseDate = document.getElementById("releaseDate"); // 출시일
     const color = document.getElementById("color"); // 컬러
@@ -52,7 +52,7 @@ function sendit(){
         return false;
     }
 
-    fetch("http://localhost:8888/api/admin/products", {
+    fetch("http://localhost:8888/api/admin/products/create", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -75,7 +75,7 @@ function sendit(){
     })
         .then((res) => {
             alert("상품 등록 성공!")
-            location.href="/products";
+            location.href="http://localhost:8888/admin/products";
             return;
         })
         .then((data) => {
