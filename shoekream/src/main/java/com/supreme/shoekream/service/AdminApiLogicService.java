@@ -80,9 +80,9 @@ public class AdminApiLogicService extends BaseService<AdminApiRequest, AdminApiR
 
     @Override
     public Header delete(Long idx) {
-        Optional<Admin> admins = baseRepository.findById(idx);
+        Optional<Admin> admins = adminRepository.findById(idx);
         return admins.map(admin->{
-            baseRepository.delete(admin);
+            adminRepository.delete(admin);
             return Header.OK();
         }).orElseGet(()->Header.ERROR("데이터 없음"));
     }
@@ -100,7 +100,7 @@ public class AdminApiLogicService extends BaseService<AdminApiRequest, AdminApiR
 
     //참고 페이지네이션 리스트
     public Header<List<AdminApiResponse>> search(Pageable pageable){
-        Page<Admin> admins = baseRepository.findAll(pageable);
+        Page<Admin> admins = adminRepository.findAll(pageable);
 
         List<AdminApiResponse> adminApiResponses = admins.stream().map(
                 admin -> response(admin)).collect(Collectors.toList());
