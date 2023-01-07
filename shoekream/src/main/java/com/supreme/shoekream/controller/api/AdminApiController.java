@@ -34,7 +34,7 @@ public class AdminApiController extends CrudController<AdminApiRequest, AdminApi
     }
 
     @Override
-    @PutMapping("{idx}")     //http://localhost:8888/api/user/{idx}  (put)
+    @PutMapping("")     //http://localhost:8888/api/admin/ (put)
     public Header<AdminApiResponse> update(@RequestBody Header<AdminApiRequest> request) {
         return adminApiLogicService.update(request);
     }
@@ -46,8 +46,8 @@ public class AdminApiController extends CrudController<AdminApiRequest, AdminApi
     }
     @Override
     @DeleteMapping("{idx}")  //http://localhost:8888/api/admin/{idx} (delete)
-    public Header<AdminApiResponse> delete(Long id) {
-        return adminApiLogicService.delete(id);
+    public Header<AdminApiResponse> delete(Long idx) {
+        return adminApiLogicService.delete(idx);
     }
 
     @PostMapping("/login")  //api/admin/login

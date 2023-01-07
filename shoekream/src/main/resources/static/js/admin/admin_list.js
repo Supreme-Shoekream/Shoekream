@@ -1,61 +1,81 @@
-$(function(){
-
-    const { createApp } = Vue
-
-    let showPage = createApp({
-        data() {
-            return {
-                totalElements: {},
-                currentPage: {}
-            }
-        }
-    }).mount('#showPage');
-
-    let itemList = createApp({
-        data() {
-            return {
-                itemList: {}
-            }
-        }
-    }).mount('#itemList');
-
-    console.log("user.js 실행!");
+(async function() {
     searchStart(0);
 
-    function searchStart(index){
+    async function searchStart(index) {
         console.log("index : " + index);
-        $.get("/api/admin?page="+index, function(response){
+        try {
+            const response = await fetch(`/api/admin?page=${index}`);
+            const data = await response.json();
+            console.log(data);
 
-            console.log(response);
+            let pagination = data.pagination;
+            let totalPages = pagination.totalPages;
+            let currentPage = pagination.currentPage + 1;
+            let itemList = "";
+            data.data.forEach(dto => {
+                itemList += `
+          <tr class="bg-pink">
+            <td >${dto.idx}</td>
+            <td>${dto.adminid}</td>
+            <td>${dto.name}</td>
+            <td>${dto.hp}</td>
+            <td>
+              <div class="dropdown">
+                <a
+                  class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-toggle="dropdown"
+                >
+                  <i class="dw dw-more"></i>
+                </a>
+                <div
+                  class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
+                >
+                  <a class="dropdown-item view" href="#" onclick="pop_admin_view(${dto.idx})"
+                  ><i class="dw dw-eye"></i> View</a
+                  >
+                  <a class="dropdown-item edit" href="#" onclick="pop_admin_edit(${dto.idx})"
+                  ><i class="dw dw-edit2"></i> Edit</a
+                  >
+                  <a class="dropdown-item delete" href="#" onclick="pop_admin_delete(${dto.idx})"
+                  ><i class="dw dw-delete-3"></i> Delete</a
+                  >
+                </div>
+              </div>
+            </td>
+          </tr>
+        `;
+            });
+            document.querySelector("#itemList").innerHTML = itemList
 
-            let pagination = response.pagination;
-            showPage.totalPages = pagination.totalPages;    //Vue{} 데이터가 없으면 만든다
-            showPage.currentPage = pagination.currentPage + 1;
-
-            //response.data url에서 가져온 json의 데이터! 통째로
-            itemList.itemList = response.data;
-
-
-            let lastPage = response.pagination.totalPages;
+            let lastPage = data.pagination.totalPages;
 
             let pageStr = "";
-            if(lastPage != 0){
+            if (lastPage != 0) {
                 pageStr += "<<";
             }
-            for(let i = 0; i < lastPage; i++){
-                pageStr += "&nbsp;&nbsp; <span class='pages' id='" + i + "'>" + (i+1) + " </span> &nbsp;&nbsp;";
+            for (let i = 0; i < lastPage; i++) {
+                pageStr +=
+                    "&nbsp;&nbsp; <span class='pages' id='" +
+                    i +
+                    "'>" +
+                    (i + 1) +
+                    " </span> &nbsp;&nbsp;";
             }
-            if(lastPage != 0){
+            if (lastPage != 0) {
                 pageStr += ">>";
             }
-            $('#pageNum').html(pageStr);
-            // 선택자 안에 pagestr을 넣어줘라 innerHTML한거랑 같은효과
-        });
+            document.querySelector("#showPage").innerHTML = "총 "+ totalPages+" 페이지 중 " +currentPage+" 페이지"
+            document.querySelector("#pageNum").innerHTML = pageStr;
+        }catch (error){
+        console.log(error)
+        }
     }
-
-    $(document).on('click', '.pages', function(){
-        let pageId = this.id;
-        searchStart(pageId);
+    document.addEventListener("click", event => {
+        if (event.target.matches(".pages")) {
+            let pageId = event.target.id;
+            searchStart(pageId);
+        }
     });
-});
-
+})();

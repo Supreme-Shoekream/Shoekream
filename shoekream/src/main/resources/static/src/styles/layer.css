@@ -73,7 +73,7 @@ input, textarea {
     margin-bottom: 32px;
     /* height: calc(100% - 60px);
     width: 680px; */
-    /* max-height: 750px; */
+     /*max-height: 750px; */
     overflow-y: auto;
     overflow: hidden;
     position: absolute;
@@ -91,7 +91,6 @@ input, textarea {
 
 
 .btn {
-    display: -webkit-inline-box;
     display: inline-flex;
     cursor: pointer;
     -webkit-box-align: center;
