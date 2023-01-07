@@ -5,6 +5,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity     // JPA에서 정의된 필드들을 DB > Table 생성
 @NoArgsConstructor  //매개변수 없는 기본 생성자 생성
@@ -24,4 +25,5 @@ public class Brand {
     private LocalDateTime modifiedAt;  // 수정 날짜
     private String createdBy;           // 작성자
     private LocalDateTime createdAt;     // 등록날짜
+//    private List<Product> products;
 }

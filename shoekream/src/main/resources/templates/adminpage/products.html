@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--<html lang="en">-->
 <html xmlns:th="http://www.thymeleaf.org">
 <!--head 시작 -->
 <div th:replace="fragment/adminhead :: head"></div>
@@ -22,11 +22,11 @@
     <div class="min-height-200px">
       <!-- Simple Datatable start -->
       <div class="card-box mb-30" >
-        <div class="pd-20" >
+        <div class="pd-20" style="display: flex">
           <h4 class="text-blue h4">상품 리스트</h4>
           <a href="/admin/products/create"
-             style="width: 130px; height: 30px; background-color: #1b00ff; color: white;
-             border-radius: 10px; margin-left: 10px;
+             style="width: 100px; height: 25px; background-color: #1b00ff; color: white;
+             border-radius: 10px; margin-left: 22px;
               text-align: center; align-items: center;"
           >상품 추가</a>
 <!--          <div class="create_pop" th:replace="/adminpage/admin_layer/pop_create_product :: create_product"></div>-->
