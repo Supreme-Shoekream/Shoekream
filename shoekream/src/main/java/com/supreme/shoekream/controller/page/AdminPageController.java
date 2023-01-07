@@ -1,6 +1,9 @@
 package com.supreme.shoekream.controller.page;
 
+import com.supreme.shoekream.service.StyleLogicService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("admin")    //http://localhost:8889/admin
+@RequiredArgsConstructor
 public class AdminPageController {
 
     @GetMapping(path="")   //http://localhost:8889/admin
@@ -85,9 +89,12 @@ public class AdminPageController {
         return new ModelAndView("/adminpage/statusedit.html");
     }
 
+    private final StyleLogicService styleLogicService;
     @GetMapping(path="style")   //http://localhost:8889/admin/style
-    public ModelAndView style(){
-        return new ModelAndView("/adminpage/style.html");
+    public String style(ModelMap map){
+        map.addAttribute("feed", styleLogicService.list());
+        System.out.println(styleLogicService.list());
+        return "adminpage/style";
     }
 
     @GetMapping(path="admin")   //http://localhost:8889/admin/admin

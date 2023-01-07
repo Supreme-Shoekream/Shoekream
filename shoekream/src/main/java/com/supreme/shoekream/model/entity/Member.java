@@ -8,6 +8,7 @@ import lombok.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity             //DB에 만들 테이블임!
 @NoArgsConstructor  //매개변수 없는 기본 생성자 생성
