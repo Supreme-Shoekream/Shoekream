@@ -1,13 +1,13 @@
 <link rel="stylesheet" href="/src/styles/style_view.css">
 
 
-
-<div class="layer_name layer lg" style="padding: 50px;">
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="pop_style_view" class="pop_style_view layer_name layer lg" style="padding: 50px; display: none;">
     <div class="layer_container">
         <div class="modifier">
             <a href="#" class="btn_layer_close">
                 <div>
-                    <img src="/img/close_white.png">
+                    <img src="/img/close_white.png" onclick="pop_style_view_down()">
                 </div>
             </a>
     
@@ -171,4 +171,5 @@
             </div>
         </div>
     </div>
+    <script src="/js/layer/pop_admin_style.js"></script>
 </div>
