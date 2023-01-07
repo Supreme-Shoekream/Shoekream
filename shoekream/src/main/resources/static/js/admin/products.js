@@ -36,21 +36,21 @@ function sendit(){
         brand.focus();
         return false;
     }
-    if(size.value === ""){
-        alert("사이즈를 작성해주세요");
-        size.focus();
-        return false;
-    }
+    // if(size.value === ""){
+    //     alert("사이즈를 작성해주세요");
+    //     size.focus();
+    //     return false;
+    // }
     if(firstPrice.value === ""){
         alert("발매가를 작성해주세요");
         firstPrice.focus();
         return false;
     }
-    if(category.value === ""){
-        alert("카테고리를 선택해주세요");
-        category.focus();
-        return false;
-    }
+    // if(category.value === ""){
+    //     alert("카테고리를 선택해주세요");
+    //     category.focus();
+    //     return false;
+    // }
 
     fetch("http://localhost:8888/api/admin/products/create", {
         method: "POST",

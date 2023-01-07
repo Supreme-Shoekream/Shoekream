@@ -1,8 +1,9 @@
 <link rel="stylesheet" href="/src/styles/layer.css">
-<html xmlns:th="http://www.thymeleaf.org">
-<div th:fragment="product_view" style="display: none;" class="layer_name layer lg">
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+<div class="layer_name layer lg">
     <div class="layer_container">
-        <a href="#" class="btn_layer_close">
+        <a onclick="history.back()" class="btn_layer_close">
             <div>
                 <img src="/img/close_white.png">
             </div>
@@ -15,9 +16,15 @@
             <div class="user_bind">
                 <div class="user_input">
                     <div class="input_box ">
-                        <h4 class="input_title">상품코드</h4>
+                        <h4 class="input_title">상품 번호</h4>
                         <div class="input_item">
-                            <p>B10538</p>
+                            <p>1</p>
+                        </div>
+                    </div>
+                    <div class="input_box">
+                        <h4 class="input_title">브랜드명</h4>
+                        <div class="input_item">
+                            <p>IAB Studio</p>
                         </div>
                     </div>
                     <div class="input_box">
@@ -33,33 +40,6 @@
                         </div>
                     </div>
                     <div class="input_box">
-                        <h4 class="input_title">가격</h4>
-                        <div class="input_item">
-                            <p>300,000원</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="user_bind img">
-                <img src="/admin/src/images/admin_example_product.png">
-            </div>
-        </div>
-        <div class="center">
-            <div class="user_bind">
-                <div class="user_input">
-                    <div class="input_box">
-                        <h4 class="input_title">브랜드</h4>
-                        <div class="input_item">
-                            <p>IAB Studio</p>
-                        </div>
-                    </div>
-                    <div class="input_box">
-                        <h4 class="input_title">카테고리</h4>
-                        <div class="input_item">
-                            <p>의류</p>
-                        </div>
-                    </div>
-                    <div class="input_box">
                         <h4 class="input_title">사이즈</h4>
                         <div class="input_item">
                             <p>XL</p>
@@ -67,25 +47,58 @@
                     </div>
                 </div>
             </div>
+            <div class="user_bind img">
+                <img src="/src/images/admin_example_product.png">
+            </div>
+        </div>
+        <div class="center">
             <div class="user_bind">
                 <div class="user_input">
                     <div class="input_box">
-                        <h4 class="input_title">판매 상태</h4>
+                        <h4 class="input_title">모델번호</h4>
                         <div class="input_item">
-                            <p>판매중</p>
+                            <p>1924762/1924762M</p>
                         </div>
                     </div>
                     <div class="input_box">
-                        <h4 class="input_title">색상</h4>
+                        <h4 class="input_title">출시일</h4>
+                        <div class="input_item">
+                            <p>22/12/19</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="user_bind">
+                <div class="user_input">
+                    <div class="input_box">
+                        <h4 class="input_title">컬러</h4>
                         <div class="input_item">
                             <p>BLACK</p>
+                        </div>
+                    </div>
+                    <div class="input_box">
+                        <h4 class="input_title">발매가</h4>
+                        <div class="input_item">
+                            <p>154,000원</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="user_bind">
+                <div class="user_input">
+                    <div class="input_box">
+                        <h4 class="input_title">카테고리</h4>
+                        <div class="input_item">
+                            <p>스웨트셔츠</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="layer_btn">
-            <a href="#" class="btn btn_save solid medium">확인</a>
+            <a onclick="history.back()" class="btn btn_save solid medium">확인</a>
         </div>
         </div>
     </div>
