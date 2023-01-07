@@ -16,7 +16,10 @@ import javax.persistence.*;
 //@EqualsAndHashCode(callSuper = true)           // Generating equals/hashCode 에러 없애는 방법
 //@EntityListeners(AuditingEntityListener.class) // 이벤트리스너(crud되기전후에 이벤트 발생)
 public class Product {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) private Long idx; // 번호
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idx; // 번호
+
     private String name; // 상품명
     private String nameKor; // 상품명(한글)
     private String img; // 상품 이미지 주소
