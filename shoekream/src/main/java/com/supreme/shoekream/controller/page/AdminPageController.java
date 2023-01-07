@@ -39,6 +39,21 @@ public class AdminPageController {
         return new ModelAndView("/adminpage/productcreate.html");
     }
 
+    @GetMapping(path="products/view")   //http://localhost:8889/admin/products/view
+    public ModelAndView productview(){
+        return new ModelAndView("/adminpage/admin_layer/layer_product_view.html");
+    }
+
+    @GetMapping(path="products/edit")   //http://localhost:8889/admin/products/edit
+    public ModelAndView productedit(){
+        return new ModelAndView("/adminpage/admin_layer/layer_product_edit.html");
+    }
+
+    @GetMapping(path="products/delete")   //http://localhost:8889/admin/products/delete
+    public ModelAndView productdelete(){
+        return new ModelAndView("/adminpage/admin_layer/pop_product_delete.html");
+    }
+
     @GetMapping(path="login")   //http://localhost:8889/admin/login
     public ModelAndView loginadmin(){
         return new ModelAndView("/adminpage/login.html");
