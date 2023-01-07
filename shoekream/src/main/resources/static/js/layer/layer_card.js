@@ -1,11 +1,11 @@
 // 팝업창
-function layer_card(){
-    document.querySelector('.layer_card').style.display="block"
-}
-
-function closeLayer(){
-    document.querySelector('.layer_card').style.display="none"
-}
+// function layer_card(){
+//     document.querySelector('.layer_card').style.display="block"
+// }
+//
+// function closeLayer(){
+//     document.querySelector('.layer_card').style.display="none"
+// }
 
 // input 타입 넘버에 maxlength 설정
 function maxLengthCheck(object){

@@ -90,4 +90,6 @@ public class AdminPageController {
         return new ModelAndView("/adminpage/admin.html");
     }
 
+    @GetMapping(path="vue")
+    public ModelAndView vue() {return new ModelAndView("/adminpage/admin_layer/vuetest");}
 }
