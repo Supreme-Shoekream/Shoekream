@@ -26,6 +26,11 @@ public class Address extends BaseEntity implements Auditable {
     private String address1;
     private String address2;
     private String address3;
-    private Long memberIdx;
+//    private Long memberIdx;
+
+    @ManyToOne
+    @JoinColumn(name="member_idx")
+    private Member member;
+
     private boolean addressBasic;
 }
