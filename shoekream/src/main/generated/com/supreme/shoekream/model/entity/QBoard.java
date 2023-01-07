@@ -7,6 +7,7 @@ import com.querydsl.core.types.dsl.*;
 import com.querydsl.core.types.PathMetadata;
 import javax.annotation.processing.Generated;
 import com.querydsl.core.types.Path;
+import com.querydsl.core.types.dsl.PathInits;
 
 
 /**
@@ -30,10 +31,14 @@ public class QBoard extends EntityPathBase<Board> {
 
     public final StringPath img = createString("img");
 
+    public final ListPath<Lk, QLk> lks = this.<Lk, QLk>createList("lks", Lk.class, QLk.class, PathInits.DIRECT2);
+
     public final NumberPath<Long> memberIdx = createNumber("memberIdx", Long.class);
 
     //inherited
     public final DateTimePath<java.time.LocalDateTime> modifiedAt = _super.modifiedAt;
+
+    public final ListPath<Reply, QReply> replies = this.<Reply, QReply>createList("replies", Reply.class, QReply.class, PathInits.DIRECT2);
 
     public QBoard(String variable) {
         super(Board.class, forVariable(variable));
