@@ -1,7 +1,11 @@
-window.onload = function(){
+function pop_admin_register(){
+
+    document.querySelector(".layer_admin_register").style.display = "block";
+
     const btn = document.querySelector('.btn_save');
     btn.addEventListener('click',sendit);
 }
+
 function sendit() {
     //request로 필요한 DOM 객체 선택
     const adminid = document.getElementById('id_input');
@@ -203,3 +207,8 @@ document.querySelectorAll('#hp_input').forEach((item) =>{
         }
     })
 });
+function close_admin_register(){
+    document.querySelector(".layer_admin_register").style.display = "none";
+}
+
+
