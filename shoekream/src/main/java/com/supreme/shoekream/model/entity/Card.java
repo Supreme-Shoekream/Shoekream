@@ -24,7 +24,10 @@ public class Card extends BaseEntity implements Auditable {
     private String cardType;
     private LocalDateTime createdAt;
     private String cardNumber;
-    private int memberIdx;
+//    private int memberIdx;
+    @ManyToOne
+    @JoinColumn(name="member_idx")
+    private Member member;
     private String cardMm;
     private String cardYy;
     private String cardPw;

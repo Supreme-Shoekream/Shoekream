@@ -7,6 +7,7 @@ import com.querydsl.core.types.dsl.*;
 import com.querydsl.core.types.PathMetadata;
 import javax.annotation.processing.Generated;
 import com.querydsl.core.types.Path;
+import com.querydsl.core.types.dsl.PathInits;
 
 
 /**
@@ -16,6 +17,8 @@ import com.querydsl.core.types.Path;
 public class QCard extends EntityPathBase<Card> {
 
     private static final long serialVersionUID = -1849376923L;
+
+    private static final PathInits INITS = PathInits.DIRECT2;
 
     public static final QCard card = new QCard("card");
 
@@ -37,21 +40,30 @@ public class QCard extends EntityPathBase<Card> {
 
     public final NumberPath<Long> idx = createNumber("idx", Long.class);
 
-    public final NumberPath<Integer> memberIdx = createNumber("memberIdx", Integer.class);
+    public final QMember member;
 
     //inherited
     public final DateTimePath<java.time.LocalDateTime> modifiedAt = _super.modifiedAt;
 
     public QCard(String variable) {
-        super(Card.class, forVariable(variable));
+        this(Card.class, forVariable(variable), INITS);
     }
 
     public QCard(Path<? extends Card> path) {
-        super(path.getType(), path.getMetadata());
+        this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));
     }
 
     public QCard(PathMetadata metadata) {
-        super(Card.class, metadata);
+        this(metadata, PathInits.getFor(metadata, INITS));
+    }
+
+    public QCard(PathMetadata metadata, PathInits inits) {
+        this(Card.class, metadata, inits);
+    }
+
+    public QCard(Class<? extends Card> type, PathMetadata metadata, PathInits inits) {
+        super(type, metadata, inits);
+        this.member = inits.isInitialized("member") ? new QMember(forProperty("member")) : null;
     }
 
 }

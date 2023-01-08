@@ -7,6 +7,7 @@ import com.querydsl.core.types.dsl.*;
 import com.querydsl.core.types.PathMetadata;
 import javax.annotation.processing.Generated;
 import com.querydsl.core.types.Path;
+import com.querydsl.core.types.dsl.PathInits;
 
 
 /**
@@ -17,11 +18,15 @@ public class QSell extends EntityPathBase<Sell> {
 
     private static final long serialVersionUID = -1848896601L;
 
+    private static final PathInits INITS = PathInits.DIRECT2;
+
     public static final QSell sell = new QSell("sell");
 
     public final NumberPath<Long> accountIdx = createNumber("accountIdx", Long.class);
 
     public final NumberPath<Long> addressIdx = createNumber("addressIdx", Long.class);
+
+    public final QBuy buy;
 
     public final NumberPath<Long> card_idx = createNumber("card_idx", Long.class);
 
@@ -29,7 +34,7 @@ public class QSell extends EntityPathBase<Sell> {
 
     public final NumberPath<Long> idx = createNumber("idx", Long.class);
 
-    public final NumberPath<Long> memberIdx = createNumber("memberIdx", Long.class);
+    public final QMember member;
 
     public final EnumPath<com.supreme.shoekream.model.enumclass.Period> period = createEnum("period", com.supreme.shoekream.model.enumclass.Period.class);
 
@@ -44,15 +49,25 @@ public class QSell extends EntityPathBase<Sell> {
     public final EnumPath<com.supreme.shoekream.model.enumclass.Type> type = createEnum("type", com.supreme.shoekream.model.enumclass.Type.class);
 
     public QSell(String variable) {
-        super(Sell.class, forVariable(variable));
+        this(Sell.class, forVariable(variable), INITS);
     }
 
     public QSell(Path<? extends Sell> path) {
-        super(path.getType(), path.getMetadata());
+        this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));
     }
 
     public QSell(PathMetadata metadata) {
-        super(Sell.class, metadata);
+        this(metadata, PathInits.getFor(metadata, INITS));
+    }
+
+    public QSell(PathMetadata metadata, PathInits inits) {
+        this(Sell.class, metadata, inits);
+    }
+
+    public QSell(Class<? extends Sell> type, PathMetadata metadata, PathInits inits) {
+        super(type, metadata, inits);
+        this.buy = inits.isInitialized("buy") ? new QBuy(forProperty("buy"), inits.get("buy")) : null;
+        this.member = inits.isInitialized("member") ? new QMember(forProperty("member")) : null;
     }
 
 }

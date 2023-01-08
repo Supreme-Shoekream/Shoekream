@@ -17,7 +17,10 @@ public class Penalty {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idx;
     @Enumerated(EnumType.STRING) private Reason reason;
-    private Long memberIdx;
+    //    private Long memberIdx;
+    @ManyToOne
+    @JoinColumn(name="member_idx")
+    private Member member;
     private Long productIdx;
     private LocalDateTime createdAt;
 }
