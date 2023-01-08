@@ -25,11 +25,8 @@ public class Product {
     private String nameKor; // 상품명(한글)
     private String img; // 상품 이미지 주소
 
-//    private String brand; // 브랜드
+    private String brand; // 브랜드
 
-    @ManyToOne
-    @JoinColumn(name="brand_idx")
-    private Brand brand;
 
     private String size; // 사이즈
     private String category; // 카테고리
