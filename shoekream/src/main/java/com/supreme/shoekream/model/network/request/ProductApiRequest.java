@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @Data
 @Builder
 public class ProductApiRequest {
+    private Long Idx;
     private String brand;
     private String name;
     private String nameKor;

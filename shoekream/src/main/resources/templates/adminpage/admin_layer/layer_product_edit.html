@@ -1,9 +1,12 @@
-<link rel="stylesheet" href="/src/styles/layer.css">
-<script src="https://code.jquery.com/jquery-3.6.3.min.js"
-        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-<div class="layer_name layer lg">
+<!--<link rel="stylesheet" href="/src/styles/layer.css">-->
+<!--<script src="https://code.jquery.com/jquery-3.6.3.min.js"-->
+<!--        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>-->
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="product_edit" class="product_edit layer lg" style="display: none;" >
+<!--<div class="layer_name layer lg">-->
     <div class="layer_container">
-        <a onclick="history.back()" class="btn_layer_close">
+<!--        <a onclick="history.back()" class="btn_layer_close">-->
+        <a onclick="productedit_popdown()" class="btn_layer_close">
             <div>
                 <img src="/img/close_white.png">
             </div>
@@ -18,31 +21,31 @@
                     <div class="input_box">
                         <h4 class="input_title">상품 번호</h4>
                         <div class="input_item">
-                            <p>1</p>
+                            <p id="product_edit">1</p>
                         </div>
                     </div>
                     <div class="input_box">
                         <h4 class="input_title">브랜드명</h4>
                         <div class="input_item">
-                            <input type="text" name="brand_name" placeholder="브랜드명(ENG)">
+                            <input type="text" name="brand_name" id="edit_brand" placeholder="브랜드명(ENG)">
                         </div>
                     </div>
                     <div class="input_box">
                         <h4 class="input_title">상품명</h4>
                         <div class="input_item">
-                            <input type="text" name="product_name" placeholder="상품명">
+                            <input type="text" name="product_name" id="edit_name" placeholder="상품명">
                         </div>
                     </div>
                     <div class="input_box">
                         <h4 class="input_title">상품명(KOR)</h4>
                         <div class="input_item">
-                            <input type="text" name="product_name_kor" placeholder="상품명(KOR)">
+                            <input type="text" name="product_name_kor" id="edit_nameKor" placeholder="상품명(KOR)">
                         </div>
                     </div>
                     <div class="input_box">
                         <h4 class="input_title">사이즈</h4>
                         <div class="input_item">
-                            <input type="text" name="size" placeholder="사이즈">
+                            <input type="text" name="size" id="edit_size" placeholder="사이즈">
                         </div>
                     </div>
                 </div>
@@ -54,7 +57,7 @@
                         <input type="file" id="file1" class="upload-hidden" name="file1">
                         <label for="file1">이미지 첨부</label>
                     </div>
-                    <img id="previewImg" onclick="popImage(this.src)">
+                    <img id="previewImg" class="edit_img" onclick="popImage(this.src)">
                 </div>
             </div>
         </div>
@@ -64,13 +67,13 @@
                     <div class="input_box">
                         <h4 class="input_title">모델번호</h4>
                         <div class="input_item">
-                            <input type="text" name="model_num" placeholder="모델번호">
+                            <input type="text" name="model_num" id="edit_modelNum" placeholder="모델번호">
                         </div>
                     </div>
                     <div class="input_box">
                         <h4 class="input_title">출시일</h4>
                         <div class="input_item">
-                            <input type="text" name="release_date" placeholder="출시일">
+                            <input type="text" name="release_date" id="edit_releaseDate" placeholder="출시일">
                         </div>
                     </div>
                 </div>
@@ -80,13 +83,13 @@
                     <div class="input_box">
                         <h4 class="input_title">컬러</h4>
                         <div class="input_item">
-                            <input type="text" name="color" placeholder="컬러">
+                            <input type="text" name="color" id="edit_color" placeholder="컬러">
                         </div>
                     </div>
                     <div class="input_box">
                         <h4 class="input_title">발매가</h4>
                         <div class="input_item">
-                            <input type="text" name="first_price" placeholder="발매가">
+                            <input type="text" name="first_price" id="edit_firstPrice" placeholder="발매가">
                         </div>
                     </div>
                 </div>
@@ -98,7 +101,7 @@
                     <div class="input_box">
                         <h4 class="input_title">카테고리</h4>
                         <div class="input_item">
-                            <select name="category" class="input_item_selectbox">
+                            <select name="category" id="edit_category" class="input_item_selectbox">
                                 <option value="ship_status">- 카테고리를 선택하세요 -</option>
                                 <option value="스니커즈">스니커즈</option>
                                 <option value="부츠">부츠</option>
@@ -146,81 +149,9 @@
             </div>
         </div>
         <div class="layer_btn">
-            <a id="productCreateBtn" class="btn btn_save solid medium">수정</a>
+            <a id="productCreateBtn" class="btn btn_edit btn_save solid medium">수정</a>
         </div>
         </div>
     </div>
 </div>
-<script>
-    $(document).ready(function(){
-        //파일첨부 이벤트
-        $('.filebox .upload-hidden').on('change', function(){  			
-            if(window.FileReader){
-                var filename = $(this)[0].files[0].name;
-                if(!validFileType(filename)){
-                    alert("허용하지 않는 확장자 파일입니다.");
-                    return false;
-                }else{
-                    if(!validFileSize($(this)[0].files[0])){
-                        alert("파일 사이즈가 10MB를 초과합니다.");
-                        return false;
-                    }else{
-                        if(!validFileNameSize(filename)){
-                            alert("파일명이 30자를 초과합니다.");
-                            return false;
-                        }
-                    }
-                }
-            } else {
-                var filename = $(this).val().split('/').pop().split('\\').pop();
-            }
-            $(this).prev().val(filename); //input upload-name 에 파일명 설정해주기
-
-            readImage($(this)[0]); //미리보기
-        });
-    });
-
-    function validFileType(filename) {
-        const fileTypes = ["png", "jpg", "jpeg"];
-		return fileTypes.indexOf(filename.substring(filename.lastIndexOf(".")+1, filename.length).toLowerCase()) >= 0;
-	}
-    function validFileSize(file){
-        if(file.size > 10000000){ //10MB
-            return false;
-        }else{
-            return true;
-        }
-    }
-
-    function validFileNameSize(filename){
-        if(filename.length > 30){ //30자
-            return false;
-        }else{
-            return true;
-        }
-    }
-
-    //이미지 띄우기
-    function readImage(input) {
-	    if(input.files && input.files[0]) {
-	        const reader = new FileReader();
-	        reader.onload = function(e){
-	            const previewImage = document.getElementById("previewImg");
-	            previewImage.src = e.target.result;
-	        }
-	        // reader가 이미지 읽도록 하기
-	        reader.readAsDataURL(input.files[0]);
-	    }
-	}
-    //이미지 원본 팝업 띄우기
-    function popImage(url) {
-        var img = new Image();
-        img.src = url;
-        var img_width = img.width;
-        var win_width = img.width + 25;
-        var img_height = img.height;
-        var win = img.height + 30;
-        var popup = window.open('', '_blank', 'width=' + img_width + ', height=' + img_height + ', menubars=no, scrollbars=auto');
-        popup.document.write("<style>body{margin:0px;}</style><img src='"+url+"' width='"+win_width+"'>");
-    }
-</script>
+</html>

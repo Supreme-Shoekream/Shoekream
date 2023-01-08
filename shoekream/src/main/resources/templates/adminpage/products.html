@@ -36,12 +36,16 @@
       <div class="card-box mb-30" >
         <div class="pd-20" style="display: flex">
           <h4 class="text-blue h4">상품 리스트</h4>
-          <a href="/admin/products/create"
+<!--          <a href="/admin/products/create"-->
+<!--             style="width: 100px; height: 25px; background-color: #1b00ff; color: white;-->
+<!--             border-radius: 10px; margin-left: 22px;-->
+<!--              text-align: center; align-items: center;"-->
+<!--          >상품 추가</a>-->
+          <a onclick="productcreate_popup()"
              style="width: 100px; height: 25px; background-color: #1b00ff; color: white;
              border-radius: 10px; margin-left: 22px;
               text-align: center; align-items: center;"
           >상품 추가</a>
-<!--          <div class="create_pop" th:replace="/adminpage/admin_layer/pop_create_product :: create_product"></div>-->
           <!--제품사진/상품명/사이즈/브랜드/카테고리/최근거래가-->
         </div>
         <div class="card-box mb-30">
@@ -65,26 +69,26 @@
             </tr>
             </thead>
             <tbody id="itemList">
-              <tr v-for="dto in itemList">
+              <tr>
                 <td class="table-plus">
                   <img
-                          :src="dto.img"
+                          src="img"
                           width="70"
                           height="70"
                           alt=""
                   />
                 </td>
-                <td>{{dto.brand}}</td>
+                <td>brand</td>
                 <td>
-                  <h5 class="font-16">{{dto.name}}</h5>
-                  {{dto.nameKor}}
+                  <h5 class="font-16">name</h5>
+                  nameKor
                 </td>
 <!--                <td>{{dto.size}}</td>-->
 <!--                <td>{{dto.category}}</td>-->
-                <td>{{dto.modelNum}}</td>
-                <td>{{dto.releaseDate}}</td>
-                <td>{{dto.color}}</td>
-                <td>{{dto.firstPrice}}</td>
+                <td>modelNum</td>
+                <td>releaseDate</td>
+                <td>color</td>
+                <td>firstPrice</td>
                 <td>
                   <div class="dropdown">
                     <a
@@ -96,12 +100,13 @@
                       <i class="dw dw-more"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                      <a class="dropdown-item" href="/admin/products/view"><i class="dw dw-eye"></i>View</a>
-  <!--                    <div th:replace="/adminpage/admin_layer/layer_product_view :: product_view"></div>-->
-                      <a class="dropdown-item" href="/admin/products/edit"><i class="dw dw-edit2"></i>Edit</a>
-  <!--                    <div th:replace="/adminpage/admin_layer/layer_product_edit :: product_edit"></div>-->
-                      <a class="dropdown-item" href="/admin/products/delete"><i class="dw dw-delete-3"></i>Delete</a>
-  <!--                    <div th:replace="/adminpage/admin_layer/pop_product_delete :: product_delete"></div>-->
+<!--                      <a class="dropdown-item" href="/admin/products/view"><i class="dw dw-eye"></i>View</a>-->
+<!--                      <a class="dropdown-item" href="/admin/products/edit"><i class="dw dw-edit2"></i>Edit</a>-->
+<!--                      <a class="dropdown-item" href="/admin/products/delete"><i class="dw dw-delete-3"></i>Delete</a>-->
+<!--                        <a class="dropdown-item" id="product_view" v-on:onclick="productview_popup"><i class="dw dw-eye"></i>View</a>-->
+                        <a class="dropdown-item" onclick="productview_popup()"><i class="dw dw-eye"></i>View</a>
+                        <a class="dropdown-item" onclick="productedit_popup()"><i class="dw dw-edit2"></i>Edit</a>
+                        <a class="dropdown-item" onclick="productdelete_popup()"><i class="dw dw-delete-3"></i>Delete</a>
                     </div>
                   </div>
                 </td>
@@ -117,12 +122,16 @@
         </div>
         <!-- Simple Datatable End -->
       </div>
-
     </div>
   </div>
 </div>
+<div th:replace="adminpage/admin_layer/layer_product_create :: product_create"></div>
+<div th:replace="adminpage/admin_layer/layer_product_view :: product_view"></div>
+<div th:replace="adminpage/admin_layer/layer_product_edit :: product_edit"></div>
+<div th:replace="adminpage/admin_layer/pop_product_delete :: product_delete"></div>
 <!-- js -->
 <div th:replace="fragment/adminjs :: js"></div>
+<script src="/js/admin/products.js"></script>
 <script src="/js/admin/products_list.js"></script>
 <!--<script src="/js/admin/admin_pop.js"></script>-->
 <!--<block th:replace="js/admin/admin_pop :: admin_pop"></block>-->
