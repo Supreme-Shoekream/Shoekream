@@ -30,7 +30,7 @@ public class Member extends BaseEntity implements Auditable {
     @Enumerated(EnumType.STRING) private Status status;
     private String shoeSize;
     private Long point;
-//    private LocalDateTime createdAt;
+    //    private LocalDateTime createdAt;
 //    private LocalDateTime modifiedAt;
     @Enumerated(EnumType.STRING) private Gender gender;
     private String birthDate;

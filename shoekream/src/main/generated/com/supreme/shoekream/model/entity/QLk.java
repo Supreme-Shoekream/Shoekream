@@ -46,7 +46,7 @@ public class QLk extends EntityPathBase<Lk> {
 
     public QLk(Class<? extends Lk> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
-        this.board = inits.isInitialized("board") ? new QBoard(forProperty("board")) : null;
+        this.board = inits.isInitialized("board") ? new QBoard(forProperty("board"), inits.get("board")) : null;
     }
 
 }

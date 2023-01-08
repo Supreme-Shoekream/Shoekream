@@ -7,6 +7,7 @@ import com.querydsl.core.types.dsl.*;
 import com.querydsl.core.types.PathMetadata;
 import javax.annotation.processing.Generated;
 import com.querydsl.core.types.Path;
+import com.querydsl.core.types.dsl.PathInits;
 
 
 /**
@@ -17,26 +18,37 @@ public class QConclusion extends EntityPathBase<Conclusion> {
 
     private static final long serialVersionUID = -636222796L;
 
-    public static final QConclusion conclusion = new QConclusion("conclusion");
+    private static final PathInits INITS = PathInits.DIRECT2;
 
-    public final NumberPath<Long> buyIdx = createNumber("buyIdx", Long.class);
+    public static final QConclusion conclusion = new QConclusion("conclusion");
 
     public final DateTimePath<java.time.LocalDateTime> createdAt = createDateTime("createdAt", java.time.LocalDateTime.class);
 
     public final NumberPath<Long> idx = createNumber("idx", Long.class);
 
-    public final NumberPath<Long> sellIdx = createNumber("sellIdx", Long.class);
+    public final NumberPath<Long> price = createNumber("price", Long.class);
+
+    public final QProduct product;
 
     public QConclusion(String variable) {
-        super(Conclusion.class, forVariable(variable));
+        this(Conclusion.class, forVariable(variable), INITS);
     }
 
     public QConclusion(Path<? extends Conclusion> path) {
-        super(path.getType(), path.getMetadata());
+        this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));
     }
 
     public QConclusion(PathMetadata metadata) {
-        super(Conclusion.class, metadata);
+        this(metadata, PathInits.getFor(metadata, INITS));
+    }
+
+    public QConclusion(PathMetadata metadata, PathInits inits) {
+        this(Conclusion.class, metadata, inits);
+    }
+
+    public QConclusion(Class<? extends Conclusion> type, PathMetadata metadata, PathInits inits) {
+        super(type, metadata, inits);
+        this.product = inits.isInitialized("product") ? new QProduct(forProperty("product"), inits.get("product")) : null;
     }
 
 }

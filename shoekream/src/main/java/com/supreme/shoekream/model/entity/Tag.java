@@ -20,6 +20,13 @@ public class Tag extends BaseEntity implements Auditable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idx;
-    private Long boardIdx;      // ManyToMany
-    private Long productIdx;    // OneToOne
+    //    private Long boardIdx;      // ManyToOne
+    @ManyToOne
+    @JoinColumn(name = "board_idx")
+    private Board board;
+//    private Long productIdx;    // OneToOne
+
+    @OneToOne
+    @JoinColumn(name="product_idx")
+    private Product product;
 }

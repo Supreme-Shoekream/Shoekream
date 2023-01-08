@@ -23,18 +23,25 @@ public class Board extends BaseEntity implements Auditable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idx;
 
-    private Long memberIdx;     // ManyToOne
+    //    private Long memberIdx;     // ManyToOne
     private String content;
     private String img;
 //    private LocalDateTime createdAt;
 //    private LocalDateTime modifiedAt;
 
-//    @ManyToOne
-//    public Member member;
+    @ManyToOne
+    @JoinColumn(name="member_idx")
+    public Member member;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "board")
+    @ToString.Exclude
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "board", cascade = CascadeType.ALL)
     private List<Lk> lks;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "board")
+    @ToString.Exclude
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "board", cascade = CascadeType.ALL)
     private List<Reply> replies;
+
+    @ToString.Exclude
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "board", cascade = CascadeType.ALL)
+    private List<Tag> tags;
 }

@@ -22,7 +22,10 @@ public class Wish extends BaseEntity implements Auditable {
     private Long idx;
 
     private LocalDateTime createdAt;
-    private Long memberIdx;
+    //    private Long memberIdx;
+    @ManyToOne
+    @JoinColumn(name="member_idx")
+    private Member member;
     private String size;
     private Long productIdx;
 }

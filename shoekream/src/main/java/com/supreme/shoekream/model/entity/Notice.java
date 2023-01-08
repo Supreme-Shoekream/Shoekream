@@ -24,9 +24,16 @@ public class Notice extends BaseEntity implements Auditable {
     private Long idx;
     private String title;
     private String content;
-    private String createdBy;
+//    private String createdBy;
     private LocalDateTime createdAt;
-    private String modifiedBy;
+//    private String modifiedBy;
     private LocalDateTime modifiedAt;
 
+    @ManyToOne
+    @JoinColumn(name = "created_by")
+    private Member createdBy;
+
+    @ManyToOne
+    @JoinColumn(name="modified_by")
+    private  Member modifiedBy;
 }

@@ -26,4 +26,9 @@ public class Brand {
     private String createdBy;           // 작성자
     private LocalDateTime createdAt;     // 등록날짜
 //    private List<Product> products;
+
+    @ToString.Exclude
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "brand", cascade = CascadeType.ALL)
+    private List<Product> products;
+
 }

@@ -18,14 +18,12 @@ public class Lk {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idx;
 
-//    private Long boardIdx;   // 나중에 OneToOne 처리
+    //    private Long boardIdx;   // 나중에 OneToOne 처리
     private Long memberIdx;     // 나중에 ManyToONe 처리
 
 //    private LocalDateTime createdAt;
 
     @ManyToOne
+    @JoinColumn(name="board_idx")
     private Board board;
-
-   /* @ManyToMany
-    private Member member;*/
 }
