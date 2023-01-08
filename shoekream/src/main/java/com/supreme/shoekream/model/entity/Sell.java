@@ -22,19 +22,25 @@ import java.time.LocalDateTime;
 //@EntityListeners(AuditingEntityListener.class) // 이벤트리스너(crud되기전후에 이벤트 발생)
 public class Sell {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long idx; // 번호
-    private Long productIdx; // 판매 상품 번호
+    @ManyToOne
+    @JoinColumn(name="product_idx")
+    private Product product; // 판매 상품 번호
     //    private Long memberIdx; // 판매 회원 번호
     @ManyToOne
     @JoinColumn(name="member_idx")
     private Member member;
     @Enumerated(EnumType.STRING) private Type type; // 판매 방법(판매입찰/즉시판매)
     private Long price; // 판매 가격
-    @Enumerated(EnumType.STRING) private Period period; // 입찰 마감기한(1일/3일/7일/30일/60일)
-    private Long card_idx; // 카드 번호
-    private Long accountIdx; // 계좌 번호
-    private Long addressIdx; // 주소 번호
+//    @Enumerated(EnumType.STRING) private Period period; // 입찰 마감기한(1일/3일/7일/30일/60일)
+    private int period;
+    private String cardInfo; // 패널티 결재 정보
+    private String accountInfo; // 판매 정산 계좌 우리은행 *************
     private LocalDateTime createdAt; // 판매 날짜
 //    private Long buy_idx; // 체결 번호
+    private String sender;
+    private String senderHp;
+    private String senderAddress;
+    private String deliveryMemo;
 
     @Enumerated(EnumType.STRING) private Progress progress; // 진행 상황(발송완료/입고완료/검수합격/검수불합격(거래실패)/정산완료/취소완료)
     @Enumerated(EnumType.STRING) private SellBuyStatus status; // 구매 상태(입찰중/기한만료/진행중/종료)

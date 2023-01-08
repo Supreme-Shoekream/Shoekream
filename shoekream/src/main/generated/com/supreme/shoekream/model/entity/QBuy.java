@@ -22,29 +22,37 @@ public class QBuy extends EntityPathBase<Buy> {
 
     public static final QBuy buy = new QBuy("buy");
 
-    public final NumberPath<Long> cardIdx = createNumber("cardIdx", Long.class);
+    public final StringPath cardInfo = createString("cardInfo");
 
     public final DateTimePath<java.time.LocalDateTime> createdAt = createDateTime("createdAt", java.time.LocalDateTime.class);
+
+    public final StringPath delivery_memo = createString("delivery_memo");
 
     public final NumberPath<Long> idx = createNumber("idx", Long.class);
 
     public final QMember member;
 
-    public final EnumPath<com.supreme.shoekream.model.enumclass.Period> period = createEnum("period", com.supreme.shoekream.model.enumclass.Period.class);
-
-    public final NumberPath<Long> point = createNumber("point", Long.class);
+    public final NumberPath<Integer> period = createNumber("period", Integer.class);
 
     public final NumberPath<Long> price = createNumber("price", Long.class);
 
-    public final NumberPath<Long> productIdx = createNumber("productIdx", Long.class);
+    public final QProduct product;
 
     public final EnumPath<com.supreme.shoekream.model.enumclass.Progress> progress = createEnum("progress", com.supreme.shoekream.model.enumclass.Progress.class);
+
+    public final StringPath receiver = createString("receiver");
+
+    public final StringPath receiver_address = createString("receiver_address");
+
+    public final StringPath receiver_hp = createString("receiver_hp");
 
     public final QSell sell;
 
     public final EnumPath<com.supreme.shoekream.model.enumclass.SellBuyStatus> status = createEnum("status", com.supreme.shoekream.model.enumclass.SellBuyStatus.class);
 
     public final EnumPath<com.supreme.shoekream.model.enumclass.Type> type = createEnum("type", com.supreme.shoekream.model.enumclass.Type.class);
+
+    public final NumberPath<Long> usePoint = createNumber("usePoint", Long.class);
 
     public QBuy(String variable) {
         this(Buy.class, forVariable(variable), INITS);
@@ -65,6 +73,7 @@ public class QBuy extends EntityPathBase<Buy> {
     public QBuy(Class<? extends Buy> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
         this.member = inits.isInitialized("member") ? new QMember(forProperty("member")) : null;
+        this.product = inits.isInitialized("product") ? new QProduct(forProperty("product")) : null;
         this.sell = inits.isInitialized("sell") ? new QSell(forProperty("sell"), inits.get("sell")) : null;
     }
 

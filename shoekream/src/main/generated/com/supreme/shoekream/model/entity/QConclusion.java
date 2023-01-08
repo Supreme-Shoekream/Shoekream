@@ -48,7 +48,7 @@ public class QConclusion extends EntityPathBase<Conclusion> {
 
     public QConclusion(Class<? extends Conclusion> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
-        this.product = inits.isInitialized("product") ? new QProduct(forProperty("product"), inits.get("product")) : null;
+        this.product = inits.isInitialized("product") ? new QProduct(forProperty("product")) : null;
     }
 
 }
