@@ -8,11 +8,11 @@ function sendit() {
     const memberPw = document.getElementById('password_input');
     const shoeSize = document.getElementById('input_shoesize');
     const name = document.getElementById('name_input');
-    const birthDate = document.getElementById('ssn1_input');
-    const gender = document.getElementById('ssn2_input');
+    // const birthDate = document.getElementById('ssn1_input');
+    // const gender = document.getElementById('ssn2_input');
     const hp = document.getElementById('hp_input');
 
-    fetch('http://localhost:8889/api/member', {
+    fetch('http://localhost:9999/join', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -25,15 +25,15 @@ function sendit() {
                 "memberPw": `${memberPw.value}`,
                 "shoeSize": `${memberPw.value}`,
                 "name": `${memberPw.value}`,
-                "birthDate": `${memberPw.value}`,
-                "gender": `${name.value}`,
+                // "birthDate": `${memberPw.value}`,
+                // "gender": `${name.value}`,
                 "hp": `${hp.value}`
             }
         }),
     })
 
         .then((res) => {
-            location.href = '/member';
+            location.href = 'http://localhost:9999/join';
             return; //리턴을 걸어서 진행하는 것을 막는다!
         })
         .then((data) => {

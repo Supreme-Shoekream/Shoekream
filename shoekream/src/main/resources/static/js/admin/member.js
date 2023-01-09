@@ -18,9 +18,9 @@
 // }
 
 // view 닫기 버튼
-function close_member_view(){
-    document.querySelector(".layer_user_view").style.display = "none";
-}
+// function close_member_view(){
+//     document.querySelector(".layer_user_view").style.display = "none";
+// }
 // // input 타입 넘버에 maxlength 설정
 // function maxLengthCheck(object){
 //     if (object.value.length > object.maxLength){
