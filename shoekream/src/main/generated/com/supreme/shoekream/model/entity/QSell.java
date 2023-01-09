@@ -22,27 +22,33 @@ public class QSell extends EntityPathBase<Sell> {
 
     public static final QSell sell = new QSell("sell");
 
-    public final NumberPath<Long> accountIdx = createNumber("accountIdx", Long.class);
-
-    public final NumberPath<Long> addressIdx = createNumber("addressIdx", Long.class);
+    public final StringPath accountInfo = createString("accountInfo");
 
     public final QBuy buy;
 
-    public final NumberPath<Long> card_idx = createNumber("card_idx", Long.class);
+    public final StringPath cardInfo = createString("cardInfo");
 
     public final DateTimePath<java.time.LocalDateTime> createdAt = createDateTime("createdAt", java.time.LocalDateTime.class);
+
+    public final StringPath deliveryMemo = createString("deliveryMemo");
 
     public final NumberPath<Long> idx = createNumber("idx", Long.class);
 
     public final QMember member;
 
-    public final EnumPath<com.supreme.shoekream.model.enumclass.Period> period = createEnum("period", com.supreme.shoekream.model.enumclass.Period.class);
+    public final NumberPath<Integer> period = createNumber("period", Integer.class);
 
     public final NumberPath<Long> price = createNumber("price", Long.class);
 
-    public final NumberPath<Long> productIdx = createNumber("productIdx", Long.class);
+    public final QProduct product;
 
     public final EnumPath<com.supreme.shoekream.model.enumclass.Progress> progress = createEnum("progress", com.supreme.shoekream.model.enumclass.Progress.class);
+
+    public final StringPath sender = createString("sender");
+
+    public final StringPath senderAddress = createString("senderAddress");
+
+    public final StringPath senderHp = createString("senderHp");
 
     public final EnumPath<com.supreme.shoekream.model.enumclass.SellBuyStatus> status = createEnum("status", com.supreme.shoekream.model.enumclass.SellBuyStatus.class);
 
@@ -68,6 +74,7 @@ public class QSell extends EntityPathBase<Sell> {
         super(type, metadata, inits);
         this.buy = inits.isInitialized("buy") ? new QBuy(forProperty("buy"), inits.get("buy")) : null;
         this.member = inits.isInitialized("member") ? new QMember(forProperty("member")) : null;
+        this.product = inits.isInitialized("product") ? new QProduct(forProperty("product")) : null;
     }
 
 }

@@ -27,6 +27,7 @@ public class Product {
 
     private String brand; // 브랜드
 
+
     private String size; // 사이즈
     private String category; // 카테고리
     private Long wishCount; // 관심상품수

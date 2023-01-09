@@ -1,41 +1,68 @@
-
-$(function(){
-
-    const { createApp } = Vue
-
-    let showPage = createApp({
-        data() {
-            return {
-                totalElements: {},
-                currentPage: {}
-            }
-        }
-    }).mount('#showPage');
-
-    let itemList = createApp({
-        data() {
-            return {
-                itemList: {}
-            }
-        }
-    }).mount('#itemList');
-
-    console.log("products_list.js 실행!");
+(async function() {
     searchStart(0);
 
-    function searchStart(index){
+    async function searchStart(index) {
         console.log("index : " + index);
-        $.get("/api/admin/products?page="+index, function(response){
+        try {
+            const response = await fetch(`/api/admin/products?page=${index}`);
+            const data = await response.json();
+            console.log(data);
 
-            console.log(response);
+            let pagination = data.pagination;
+            let totalPages = pagination.totalPages;
+            let currentPage = pagination.currentPage + 1;
+            let itemList = "";
 
-            let pagination = response.pagination;
-            showPage.totalPages = pagination.totalPages;
-            showPage.currentPage = pagination.currentPage + 1;
+            data.data.forEach(dto => {
+                itemList +=
+                    `<tr>
+                        <td class="table-plus">
+                          <img
+                                  src="${dto.img}"
+                                  width="70"
+                                  height="70"
+                                  alt=""
+                          />
+                        </td>
+                        <td>${dto.brand}</td>
+                        <td>
+                          <h5 class="font-16">${dto.name}</h5>
+                          ${dto.nameKor}
+                        </td>
+        <!--                <td>{{dto.size}}</td>-->
+        <!--                <td>{{dto.category}}</td>-->
+                        <td>${dto.modelNum}</td>
+                        <td>${dto.releaseDate}</td>
+                        <td>${dto.color}</td>
+                        <td>${dto.firstPrice}</td>
+                        <td>
+                          <div class="dropdown">
+                            <a
+                                    class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
+                                    href="#"
+                                    role="button"
+                                    data-toggle="dropdown"
+                            >
+                              <i class="dw dw-more"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+        <!--                      <a class="dropdown-item" href="/admin/products/view"><i class="dw dw-eye"></i>View</a>-->
+        <!--                      <a class="dropdown-item" href="/admin/products/edit"><i class="dw dw-edit2"></i>Edit</a>-->
+        <!--                      <a class="dropdown-item" href="/admin/products/delete"><i class="dw dw-delete-3"></i>Delete</a>-->
+        <!--                        <a class="dropdown-item" id="product_view" v-on:onclick="productview_popup"><i class="dw dw-eye"></i>View</a>-->
+                                <a class="dropdown-item" onclick="productview_popup(${dto.idx})"><i class="dw dw-eye"></i>View</a>
+                                <a class="dropdown-item" onclick="productedit_popup(${dto.idx})"><i class="dw dw-edit2"></i>Edit</a>
+                                <a class="dropdown-item" onclick="productdelete_popup(${dto.idx})"><i class="dw dw-delete-3"></i>Delete</a>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    `;
+            });
 
-            itemList.itemList = response.data;
+            document.querySelector("#itemList").innerHTML = itemList
 
-            let lastPage = response.pagination.totalPages;
+            let lastPage = data.pagination.totalPages;
 
             let pageStr = "";
             if(lastPage != 0){
@@ -47,12 +74,16 @@ $(function(){
             if(lastPage != 0){
                 pageStr += ">>";
             }
-            $('#pageNum').html(pageStr);
-        });
+            document.querySelector("#showPage").innerHTML = "총 "+ totalPages+" 페이지 중 " +currentPage+" 페이지"
+            document.querySelector("#pageNum").innerHTML = pageStr;
+        }catch (error){
+            console.log(error)
+        }
     }
-
-    $(document).on('click', '.pages', function(){
-        let pageId = this.id;
-        searchStart(pageId);
+    document.addEventListener("click", event => {
+        if (event.target.matches(".pages")) {
+            let pageId = event.target.id;
+            searchStart(pageId);
+        }
     });
-});
+})();
