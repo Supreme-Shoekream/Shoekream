@@ -36,6 +36,8 @@ public class ProductApiLogicService extends BaseService<ProductApiRequest, Produ
                 .releaseDate(product.getReleaseDate())
                 .color(product.getColor())
                 .firstPrice(product.getFirstPrice())
+                .gender(product.getGender())
+                .collection(product.getCollection())
                 .build();
         return productApiResponse;
     }
@@ -54,6 +56,8 @@ public class ProductApiLogicService extends BaseService<ProductApiRequest, Produ
                 .releaseDate(productApiRequest.getReleaseDate())
                 .color(productApiRequest.getColor())
                 .firstPrice(productApiRequest.getFirstPrice())
+                .gender(productApiRequest.getGender())
+                .collection(productApiRequest.getCollection())
                 .build();
         Product newProduct = baseRepository.save(product);
         return Header.OK(response(newProduct));
@@ -81,6 +85,8 @@ public class ProductApiLogicService extends BaseService<ProductApiRequest, Produ
                             product.setFirstPrice(productApiRequest.getFirstPrice());
                             product.setColor(productApiRequest.getColor());
                             product.setCategory(productApiRequest.getCategory());
+                            product.setGender(productApiRequest.getGender());
+                            product.setCollection(productApiRequest.getCollection());
                             return product;
                         }).map(product -> productRepository.save(product))
                 .map(product -> response(product))

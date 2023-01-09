@@ -181,10 +181,16 @@ input, textarea {
     border: 1px solid black;
 }
 
-.pop .top .user_bind, .center .user_bind{
+/*.pop .top .user_bind, .center .user_bind{*/
+/*    width: 80%;*/
+/*    margin: 0 auto;*/
+/*}*/
+
+.pop .top .user_bind{
     width: 80%;
     margin: 0 auto;
 }
+
 .pop .top .user_bind img{
     width: 100%;
 }
