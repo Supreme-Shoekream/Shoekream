@@ -68,7 +68,7 @@
               </td>
               <!--              <td>3</td>-->
               <!--              <td>730,000원</td>-->
-              <td>
+              <td class="more">
                 <div class="dropdown">
                   <a
                           class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
@@ -81,22 +81,21 @@
                   <div
                           class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
                   >
-                    <a class="dropdown-item" onclick="pop_style_view()"
+                    <a class="dropdown-item" id="view_btn" onclick="pop_style_view()"
                     ><i class="dw dw-eye"></i> View</a
                     >
 
                     <!--                    <a class="dropdown-item" href="#"-->
                     <!--                    ><i class="dw dw-edit2"></i> Edit</a-->
                     <!--                    >-->
-                    <a class="dropdown-item" onclick="pop_style_delete()"
+                    <a class="dropdown-item" id="delete_btn" onclick="pop_style_delete()"
                     ><i class="dw dw-delete-3"></i> Delete</a
                     >
 
                   </div>
                 </div>
-                <div th:replace="/adminpage/admin_layer/pop_style_view :: pop_style_view"></div>
-                <div th:replace="/adminpage/admin_layer/pop_style_delete :: pop_style_delete"></div>
               </td>
+              <div th:replace="/adminpage/admin_layer/pop_style_delete :: pop_style_delete"></div>
             </tr>
 
 
@@ -104,7 +103,7 @@
 
             </tbody>
           </table>
-<!--          <div th:replace="/adminpage/admin_layer/pop_style_view :: pop_style_view"></div>-->
+          <div th:replace="/adminpage/admin_layer/pop_style_view :: pop_style_view"></div>
 <!--          <div th:replace="/adminpage/admin_layer/pop_style_delete :: pop_style_delete"></div>-->
         </div>
         <!-- Simple Datatable End -->
