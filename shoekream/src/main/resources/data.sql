@@ -123,9 +123,7 @@ insert into member (member_id, member_pw, name, hp, email, status, shoe_size, po
 
 
 
-#
-#
-#
+
 # insert into follow(follower_idx, following_idx) values(1,2);
 # insert into follow(follower_idx, following_idx) values(1,3);
 # insert into follow(follower_idx, following_idx) values(1,4);

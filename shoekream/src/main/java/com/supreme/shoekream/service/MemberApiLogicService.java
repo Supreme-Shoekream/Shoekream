@@ -88,10 +88,10 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
         return baseRepository.findById(idx).map(members -> response(members))
                 .map(Header::OK).orElseGet(()->Header.ERROR("데이터 없음"));
     }
-    public Header<MemberApiResponse> read(String memberId, String memberPw) {
-        return memberRepository.findByMemberIdAndMemberPw(memberId,memberPw).map(
+    public Header<MemberApiResponse> read(String email, String memberPw) {
+        return memberRepository.findByEmailAndMemberPw(email,memberPw).map(
                         member -> response(member)).map(Header::OK)
-                .orElseGet(()-> Header.ERROR("아이디 또는 비밀번호가 틀렸습니다.")
+                .orElseGet(()-> Header.ERROR("이메일 또는 비밀번호가 틀렸습니다.")
                 );
 //        return null;
     }
@@ -126,15 +126,15 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
     }
 
     public Header<MemberApiResponse> login(Header<MemberApiRequest> request){
-//        MemberApiRequest memberUserApiRequest = request.getData();
-//        Optional<Member> memberUser =memberRepository.findByMemberIdAndMemberPw(
-//                memberUserApiRequest.getMemberId(),memberUserApiRequest.getMemberPw()
-//        );
-//        if (!memberUser.isEmpty()){
-//            return Header.OK();
-//        }
-//        return Header.ERROR("아이디 또는 비밀번호가 틀렸음!");
-        return null;
+        MemberApiRequest memberApiRequest = request.getData();
+        Optional<Member> member =memberRepository.findByEmailAndMemberPw(
+                memberApiRequest.getEmail(),memberApiRequest.getMemberPw()
+        );
+        if (!member.isEmpty()){
+            return Header.OK();
+        }
+        return Header.ERROR("이메일 또는 비밀번호가 틀렸음!");
+//        return null;
     }
 
     public Header<List<MemberApiResponse>> search(Pageable pageable){

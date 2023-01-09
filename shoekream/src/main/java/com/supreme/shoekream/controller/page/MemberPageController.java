@@ -1,29 +1,99 @@
 package com.supreme.shoekream.controller.page;
 
+import com.supreme.shoekream.service.MemberApiLogicService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 @Controller
-@RequestMapping("/user")
+@RequestMapping("") // http://localhost:9999/
 public class MemberPageController {
-    @GetMapping(path="login")   //http://localhost:8889/login
+
+    @Autowired
+    private MemberApiLogicService memberApiLogicService;
+
+//    @GetMapping(path="login")   //http://localhost:9999/login
+//    public ModelAndView login(HttpServletRequest request){
+//        HttpSession session = request.getSession(false);
+//        String email=null;
+//        String memberPw = null;
+//
+//        if(session== null){
+//            System.out.println("세션이 없습니다");
+//            return new ModelAndView("/login/login");
+//        }else{
+//            email = (String) session.getAttribute("email");
+//            memberPw = (String) session.getAttribute("memberPw");
+//            System.out.println("세션이 있습니다");
+//            return new ModelAndView("/login/login")
+//                    .addObject("email",email)
+//                    .addObject("memberPw",memberPw);
+//        }
+////        return new ModelAndView("login");
+//    }
+
+    @GetMapping(path="login")   //http://localhost:9999/login
     public ModelAndView login(){
-        return new ModelAndView("/login/login");
+        return new ModelAndView("/login/login.html");
     }
 
-    @GetMapping(path="join")   //http://localhost:8889/join
+    @PostMapping(path="/loginOk")   //http://localhost:9999/loginOk
+    public String loginOk(HttpServletRequest request, String email, String memberPw){
+        if(memberApiLogicService.read(email, memberPw).getData() != null){
+            HttpSession session = request.getSession();
+            String name = memberApiLogicService.read(email, memberPw).getData().getName();
+            session.setAttribute("email", email);
+            session.setAttribute("memberPw", memberPw);
+            return "redirect:/index";
+        }else{
+            return "redirect:/login";
+
+        }
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpServletRequest request){
+        HttpSession session = request.getSession();
+        session.invalidate();
+        return "redirect:/login";
+    }
+
+//    @GetMapping(path="join")   //http://localhost:9999/join
+//    public ModelAndView join(HttpServletRequest request){
+//        HttpSession session = request.getSession(false);
+//        String id=null;
+//        String name = null;
+//
+//        if(session== null){
+//            System.out.println("세션이 없습니다");
+//            return new ModelAndView("/join");
+//        }else{
+//            id = (String) session.getAttribute("id");
+//            name = (String) session.getAttribute("name");
+//            System.out.println("세션이 있습니다");
+//            return new ModelAndView("/index")
+//                    .addObject("id",id)
+//                    .addObject("name",name);
+//        }
+////        return new ModelAndView("/login/join");
+//    }
+    @GetMapping(path="join")   //http://localhost:9999/join
     public ModelAndView join(){
-        return new ModelAndView("/login/join");
+    return new ModelAndView("/login/join");
     }
 
-    @GetMapping(path="find_email")   //http://localhost:8889/find_email
+    @GetMapping(path="find_email")   //http://localhost:9999/find_email
     public ModelAndView find_email(){
         return new ModelAndView("/login/find_email");
     }
 
-    @GetMapping(path="find_password")   //http://localhost:8889/find_password
+    @GetMapping(path="find_password")   //http://localhost:9999/find_password
     public ModelAndView find_password(){
         return new ModelAndView("/login/find_password");
     }
@@ -31,17 +101,17 @@ public class MemberPageController {
 
 
     // notice controller
-    @GetMapping(path="faq")   //http://localhost:8889/faq
+    @GetMapping(path="faq")   //http://localhost:9999/faq
     public ModelAndView faq(){
         return new ModelAndView("/notice/faq");
     }
 
-    @GetMapping(path="auth_policy")   //http://localhost:8889/auth_policy
+    @GetMapping(path="auth_policy")   //http://localhost:9999/auth_policy
     public ModelAndView auth_policy(){
         return new ModelAndView("/notice/auth_policy");
     }
 
-    @GetMapping(path="notice")   //http://localhost:8889/notice
+    @GetMapping(path="notice")   //http://localhost:9999/notice
     public ModelAndView notice(){
         return new ModelAndView("/notice/notice");
     }
