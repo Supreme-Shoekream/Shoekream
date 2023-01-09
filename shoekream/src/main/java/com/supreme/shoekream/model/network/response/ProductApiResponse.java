@@ -24,4 +24,6 @@ public class ProductApiResponse {
     private String releaseDate;
     private String color;
     private String firstPrice;
+    private String gender;
+    private String collection;
 }

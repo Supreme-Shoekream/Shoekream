@@ -19,7 +19,7 @@
         <div class="top" v-for="dto in itemList">
             <div class="user_bind">
                 <div class="user_input">
-                    <div class="input_box ">
+                    <div class="input_box">
                         <h4 class="input_title">상품 번호</h4>
                         <div class="input_item">
                             <p class="idx">{{dto.idx}}</p>
@@ -46,34 +46,40 @@
                     <div class="input_box">
                         <h4 class="input_title">사이즈</h4>
                         <div class="input_item">
-                            <p class="size">XL</p>
+                            <p class="size">{{dto.size}}</p>
                         </div>
                     </div>
-                    <div class="input_box">
-                        <h4 class="input_title">상품 사진 URL</h4>
-                        <div class="input_item">
-                            <p class="img">localhost:8888/admin/products/IAB~~~~</p>
-                        </div>
-                    </div>
+<!--                    <div class="input_box">-->
+<!--                        <h4 class="input_title">상품 사진 URL</h4>-->
+<!--                        <div class="input_item">-->
+<!--                            <p class="img">localhost:8888/admin/products/IAB~~~~</p>-->
+<!--                        </div>-->
+<!--                    </div>-->
                 </div>
             </div>
             <div class="user_bind img">
-                <img class="img" src="/src/images/admin_example_product.png">
+                <img class="img" id="previewImg" src="{{dto.img}}">
             </div>
         </div>
-        <div class="center">
+        <div class="center" style="border: none;">
             <div class="user_bind">
                 <div class="user_input">
                     <div class="input_box">
                         <h4 class="input_title">모델번호</h4>
                         <div class="input_item">
-                            <p class="modelNum">1924762/1924762M</p>
+                            <p class="modelNum">{{dto.modelNum}}</p>
                         </div>
                     </div>
                     <div class="input_box">
                         <h4 class="input_title">출시일</h4>
                         <div class="input_item">
-                            <p class="releaseDate">22/12/19</p>
+                            <p class="releaseDate">{{dto.releaseDate}}</p>
+                        </div>
+                    </div>
+                    <div class="input_box">
+                        <h4 class="input_title">성별</h4>
+                        <div class="input_item">
+                            <p class="gender">{{dto.gender}}</p>
                         </div>
                     </div>
                 </div>
@@ -83,13 +89,19 @@
                     <div class="input_box">
                         <h4 class="input_title">컬러</h4>
                         <div class="input_item">
-                            <p class="color">BLACK</p>
+                            <p class="color">{{dto.color}}</p>
                         </div>
                     </div>
                     <div class="input_box">
                         <h4 class="input_title">발매가</h4>
                         <div class="input_item">
-                            <p class="firstPrice">154,000원</p>
+                            <p class="firstPrice">{{dto.firstPrice}}</p>
+                        </div>
+                    </div>
+                    <div class="input_box">
+                        <h4 class="input_title">컬렉션</h4>
+                        <div class="input_item">
+                            <p class="collection">{{dto.collection}}</p>
                         </div>
                     </div>
                 </div>
@@ -101,7 +113,7 @@
                     <div class="input_box">
                         <h4 class="input_title">카테고리</h4>
                         <div class="input_item">
-                            <p class="category">스웨트셔츠</p>
+                            <p class="category">{{dto.category}}</p>
                         </div>
                     </div>
                 </div>
@@ -109,7 +121,7 @@
         </div>
         <div class="layer_btn">
 <!--            <a onclick="history.back()" class="btn btn_save solid medium">확인</a>-->
-            <a onclick="productview_popdown()" class="btn btn_save solid medium">확인</a>
+            <a onclick="productview_popdown()" class="btn btn_save solid medium" style="color: white">확인</a>
         </div>
         </div>
     </div>
