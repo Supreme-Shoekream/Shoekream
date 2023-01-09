@@ -1,6 +1,7 @@
 package com.supreme.shoekream.controller.page;
 
 import com.supreme.shoekream.model.entity.Board;
+import com.supreme.shoekream.model.entity.Follow;
 import com.supreme.shoekream.repository.BoardRepository;
 import com.supreme.shoekream.repository.FollowRepository;
 import com.supreme.shoekream.repository.MemberRepository;
@@ -12,22 +13,25 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 @RequestMapping("/social")
-//@RequiredArgsConstructor
+@RequiredArgsConstructor
 public class SocialPageController {
     private final BoardRepository boardRepository;
+
     private final MemberRepository memberRepository;
 
-    private FollowRepository followRepository;
+    private final FollowRepository followRepository;
 
-    public SocialPageController(BoardRepository boardRepository,
-                                MemberRepository memberRepository) {
-        this.boardRepository = boardRepository;
-        this.memberRepository = memberRepository;
-    }
+//    public SocialPageController(BoardRepository boardRepository,
+//                                MemberRepository memberRepository, FollowRepository followRepository) {
+//        this.boardRepository = boardRepository;
+//        this.memberRepository = memberRepository;
+//        this.followRepository = followRepository;
+//    }
 
     @GetMapping(path="")    // http://localhost:8889/social
     public ModelAndView trending(){
@@ -40,9 +44,16 @@ public class SocialPageController {
     @GetMapping(path = "/following")    // http://localhost:8889/social/following
     public String following( ModelMap map){
 //        ✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔ 세션 아이디로 수정 필요
-        List<Long> followings = followRepository.findAllByfollowerIdx(1L);
-//        List<Board> feed =  boardRepository.findAllByMemberIdx(1L);
-//        map.addAttribute("feed", feed);
+        List<Follow> followings = followRepository.findAllByfollowerIdx(1L);
+        List<Board> feed;
+        feed = new ArrayList<>();
+        for(int i=0; i<followings.size(); i++){
+            List<Board> sub = boardRepository.findAllByMemberIdx(followings.get(i).getFollowingIdx());
+            for(int j=0; j<sub.size();j++){
+                feed.add(sub.get(j));
+            }
+        }
+        map.addAttribute("feed", feed);
         return "social/following";
     }
 
