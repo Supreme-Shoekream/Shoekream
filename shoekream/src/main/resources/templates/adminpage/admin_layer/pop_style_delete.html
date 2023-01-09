@@ -2,7 +2,7 @@
 
 <html xmlns:th="http://www.thymeleaf.org">
 <div th:fragment="pop_style_delete" class="pop_style_delete layer_name layer lg" style="display: none;">
-    <div class="layer_container">
+    <div style="height: 400px;" class="pop layer_container">
         <a href="#" class="btn_layer_close">
             <div>
                 <img src="/img/close_white.png" onclick="pop_style_delete_down()">
@@ -31,8 +31,8 @@
         </div>
 
         <div class="layer_btn">
-            <a href="#" class="btn btn_save solid medium">확인</a>
-            <a href="#" class="btn btn_save solid medium "> 취소 </a>
+            <a id="delete_btn_selected" class="btn btn_save solid medium">확인</a>
+            <a onclick="pop_style_delete_down()" class="btn btn_save solid medium "> 취소 </a>
         </div>
         </div>
     </div>

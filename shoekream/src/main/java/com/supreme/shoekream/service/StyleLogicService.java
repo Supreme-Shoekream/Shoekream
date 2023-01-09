@@ -1,12 +1,15 @@
 package com.supreme.shoekream.service;
 
+import com.supreme.shoekream.model.entity.Admin;
 import com.supreme.shoekream.model.entity.Board;
+import com.supreme.shoekream.model.network.Header;
 import com.supreme.shoekream.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -19,6 +22,17 @@ public class StyleLogicService {
     public List<Board> list(){
         System.out.println(boardRepository.findAll());
         return boardRepository.findAll();
+    }
+
+    public Optional<Board> read(Long idx){
+        Optional<Board> board = boardRepository.findById(idx);
+        return board;
+    }
+
+//@Override
+    public void delete(Long idx){
+       boardRepository.deleteById(idx);
+       return;
     }
 
 }
