@@ -7,7 +7,6 @@ import com.querydsl.core.types.dsl.*;
 import com.querydsl.core.types.PathMetadata;
 import javax.annotation.processing.Generated;
 import com.querydsl.core.types.Path;
-import com.querydsl.core.types.dsl.PathInits;
 
 
 /**
@@ -24,11 +23,13 @@ public class QProduct extends EntityPathBase<Product> {
 
     public final StringPath category = createString("category");
 
+    public final StringPath collection = createString("collection");
+
     public final StringPath color = createString("color");
 
-    public final ListPath<Conclusion, QConclusion> conclusions = this.<Conclusion, QConclusion>createList("conclusions", Conclusion.class, QConclusion.class, PathInits.DIRECT2);
-
     public final StringPath firstPrice = createString("firstPrice");
+
+    public final StringPath gender = createString("gender");
 
     public final NumberPath<Long> idx = createNumber("idx", Long.class);
 
