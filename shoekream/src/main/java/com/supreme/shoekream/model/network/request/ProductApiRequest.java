@@ -21,4 +21,6 @@ public class ProductApiRequest {
     private String color;
     private String firstPrice;
     private String category;
+    private String gender;
+    private String collection;
 }

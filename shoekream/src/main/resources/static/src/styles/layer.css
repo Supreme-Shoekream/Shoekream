@@ -261,6 +261,16 @@ input, textarea {
     border-bottom: 1px solid #ebebeb;
 }
 
+.input_item_selectbox {
+    padding: 8px 0;
+    width: 100%;
+    font-size: 15px;
+    letter-spacing: -.15px;
+    line-height: 22px;
+    border: 0;
+    border-bottom: 1px solid #ebebeb;
+}
+
 .input_item input {
     padding: 8px 0;
     width: 100%;

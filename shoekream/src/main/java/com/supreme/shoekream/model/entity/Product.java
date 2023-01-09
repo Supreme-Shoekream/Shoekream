@@ -17,17 +17,11 @@ import java.util.List;
 //@EqualsAndHashCode(callSuper = true)           // Generating equals/hashCode 에러 없애는 방법
 //@EntityListeners(AuditingEntityListener.class) // 이벤트리스너(crud되기전후에 이벤트 발생)
 public class Product {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idx; // 번호
-
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) private Long idx; // 번호
     private String name; // 상품명
     private String nameKor; // 상품명(한글)
     private String img; // 상품 이미지 주소
-
     private String brand; // 브랜드
-
-
     private String size; // 사이즈
     private String category; // 카테고리
     private Long wishCount; // 관심상품수
@@ -40,9 +34,12 @@ public class Product {
 //    private LocalDateTime update_date; // 수정한 날짜
 //    private String updateBy; // 수정한 관리자
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "product", cascade = CascadeType.ALL)
-    @ToString.Exclude
-    private List<Conclusion> conclusions;
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "product", cascade = CascadeType.ALL)
+//    @ToString.Exclude
+//    private List<Conclusion> conclusions;
+
+    private String gender; // 성별(남자,여자)
+    private String collection; // 컬렉션(메인페이지)
 }
 
 

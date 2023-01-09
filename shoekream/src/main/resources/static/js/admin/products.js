@@ -17,6 +17,8 @@ function sendit(){
     const color = document.getElementById("color"); // 컬러
     const firstPrice = document.getElementById("firstPrice"); // 발매가
     const category = document.getElementById("category"); // 카테고리
+    const gender = document.getElementById("gender"); // 성별
+    const collection = document.getElementById("collection"); // 컬렉션
 
     if(img.value === ""){
         alert("상품 이미지를 넣어주세요");
@@ -54,7 +56,7 @@ function sendit(){
     //     return false;
     // }
 
-    // fetch("http://localhost:8888/api/admin/products/create", {
+    // fetch("http://localhost:8888/api/admin/products", {
     fetch("http://localhost:8888/api/admin/products", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -72,7 +74,9 @@ function sendit(){
                 "releaseDate":`${releaseDate.value}`,
                 "color":`${color.value}`,
                 "firstPrice":`${firstPrice.value}`,
-                "category":`${category.value}`
+                "category":`${category.value}`,
+                "gender":`${gender.value}`,
+                "collection":`${collection.value}`
             }
         }),
     })
@@ -117,6 +121,8 @@ function productview_popup(idx){
             document.querySelector(".color").innerHTML=data.data.color;
             document.querySelector(".firstPrice").innerHTML=data.data.firstPrice;
             document.querySelector(".category").innerHTML=data.data.category;
+            document.querySelector(".gender").innerHTML=data.data.gender;
+            document.querySelector(".collection").innerHTML=data.data.collection;
         })
 
     document.querySelector(".product_view").style.display = "block";
@@ -134,11 +140,13 @@ function productview_popdown() {
 function productedit_popup(idx){
     document.querySelector(".product_edit").style.display = "block";
 
-    const idx2 =document.getElementById('product_edit')
+    const idx2 =document.getElementById('product_edit');
+
     fetch('http://localhost:8888/api/admin/products/'+idx)
         .then((response) => response.json())
         .then((data) => {
             idx2.innerHTML=data.data.idx;
+
         })
     const btn_edit = document.querySelector(".btn_edit");
     btn_edit.addEventListener("click",()=>{
@@ -159,6 +167,8 @@ function sendedit(idx) {
     const color2 = document.getElementById('edit_color');
     const firstPrice2 = document.getElementById('edit_firstPrice');
     const category2 = document.getElementById('edit_category');
+    const gender2 = document.getElementById('edit_gender');
+    const collection2 = document.getElementById('edit_collection');
 
     fetch('http://localhost:8888/api/admin/products', {
         method: 'PUT',
@@ -179,7 +189,9 @@ function sendedit(idx) {
                 "releaseDate":`${releaseDate2.value}`,
                 "color":`${color2.value}`,
                 "firstPrice":`${firstPrice2.value}`,
-                "category":`${category2.value}`
+                "category":`${category2.value}`,
+                "gender":`${gender2.value}`,
+                "collection":`${collection2.value}`
             }
         }),
     })
@@ -258,7 +270,7 @@ function productdelete_popdown() {
                     return false;
                 }else{
                     if(!validFileNameSize(filename)){
-                        alert("파일명이 30자를 초과합니다.");
+                        alert("파일명이 100자를 초과합니다.");
                         return false;
                     }
                 }
@@ -285,7 +297,7 @@ function productdelete_popdown() {
 }
 
     function validFileNameSize(filename){
-    if(filename.length > 30){ //30자
+    if(filename.length > 100){ //100자
     return false;
 }else{
     return true;
