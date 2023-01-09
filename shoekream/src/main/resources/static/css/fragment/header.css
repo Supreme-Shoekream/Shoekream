@@ -227,6 +227,7 @@ li {
 
 .style_tab_list{
     /*display: -webkit-box;*/
+    padding-top: 10px;
     display: flex;
     -webkit-box-pack: center;
     justify-content: center;
