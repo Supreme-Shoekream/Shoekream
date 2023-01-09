@@ -4,6 +4,7 @@ import com.supreme.shoekream.controller.CrudController;
 import com.supreme.shoekream.model.entity.Member;
 import com.supreme.shoekream.model.network.Header;
 import com.supreme.shoekream.model.network.request.MemberApiRequest;
+import com.supreme.shoekream.model.network.response.AdminApiResponse;
 import com.supreme.shoekream.model.network.response.MemberApiResponse;
 import com.supreme.shoekream.service.MemberApiLogicService;
 import lombok.RequiredArgsConstructor;
@@ -24,6 +25,12 @@ public class MemberApiController extends CrudController<MemberApiRequest, Member
     @PostMapping("create")    // http://localhost:9999/api/admin/users/create (post)
     public Header<MemberApiResponse> create(@RequestBody Header<MemberApiRequest> request) {
         return memberApiLogicService.create(request);
+    }
+
+    @Override
+    @GetMapping("{idx}")     //http://localhost:9999/api/admin/users/{id} (get)
+    public Header<MemberApiResponse> read(@PathVariable(name="idx") Long id) {
+        return memberApiLogicService.read(id);
     }
 
     @GetMapping("") //
