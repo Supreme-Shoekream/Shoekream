@@ -419,6 +419,7 @@ img {
     -webkit-box-pack: center;
     justify-content: center;
     height: 100%;
+    padding-top: 10px;
 }
 
 #mini>.profile_img_box {

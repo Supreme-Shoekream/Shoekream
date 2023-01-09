@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <thlogic>
     <attr sel="#social_admin_table">
         <attr sel="tbody" th:remove="all-but-first">

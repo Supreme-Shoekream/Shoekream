@@ -28,6 +28,7 @@ public class Board extends BaseEntity implements Auditable {
     private String img;
 //    private LocalDateTime createdAt;
 //    private LocalDateTime modifiedAt;
+    private String hashtag;
 
     @ManyToOne
     @JoinColumn(name="member_idx")
