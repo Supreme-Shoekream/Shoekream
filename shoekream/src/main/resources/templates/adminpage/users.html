@@ -29,34 +29,34 @@
 <!--             border-radius: 10px; margin-left: 22px;-->
 <!--              text-align: center; align-items: center;"-->
 <!--            >사용자 등록</a>-->
-            <button type="button" class="btn btn-primary m-t-15 waves-effect" onclick="pop_member_create()">사용자 등록</button>
+<!--            <button type="button" class="btn btn-primary m-t-15 waves-effect" onclick="pop_member_create()">사용자 등록</button>-->
             <!--이름/아이디/전화번호/주소/회원상태/포인트-->
           </div>
-          <div class="card-box pb-20">
-            <div id="showPage" class="card-header">
-              <i class="fas fa-table me-1"></i>
-              총 {{totalPages}}페이지 중 {{currentPage}}페이지
-            </div>
+          <div class="pb-20">
+<!--            <div id="showPage" class="card-header">-->
+<!--              <i class="fas fa-table me-1"></i>-->
+<!--              총 {{totalPages}}페이지 중 {{currentPage}}페이지-->
+<!--            </div>-->
             <table class="data-table table stripe hover nowrap">
               <thead>
               <tr>
-                <th class="table-plus datatable-nosort">Name</th>
+                <th>Name</th>
                 <th>Email</th>
                 <th>Phone Number</th>
                 <th>Shoe Size</th>
-                <th>Gender</th>
-                <th>Birthdate</th>
+<!--                <th>Gender</th>-->
+<!--                <th>Birthdate</th>-->
                 <th class="datatable-nosort">Action</th>
               </tr>
               </thead>
               <tbody id="itemList">
-              <tr v-for="dto in itemList">
-                <td class="table-plus">{{dto.name}}</td>
-                <td>{{dto.email}}</td>
-                <td>{{dto.hp}}</td>
-                <td>{{dto.shoesize}}</td>
-                <td>{{dto.gender}}</td>
-                <td>{{dto.birthDate}}</td>
+              <tr class="bg-pink">
+                <td>name</td>
+                <td>email</td>
+                <td>hp</td>
+                <td>shoeSize</td>
+<!--                <td>{{dto.gender}}</td>-->
+<!--                <td>{{dto.birthDate}}</td>-->
                 <td>
                   <div class="dropdown">
                     <a
@@ -67,17 +67,18 @@
                     >
                       <i class="dw dw-more"></i>
                     </a>
-                    <div
-                            class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
-                    >
-                      <a class="dropdown-item" href="/member/admin"
+                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                      <a class="dropdown-item" href="#" onclick="pop_member_view()"
                       ><i class="dw dw-eye"></i> View</a>
+
                       <a class="dropdown-item" href="#"
-                      ><i class="dw dw-edit2"></i> Edit</a
-                      >
+                      ><i class="dw dw-edit2"></i> Point</a>
+
                       <a class="dropdown-item" href="#"
-                      ><i class="dw dw-delete-3"></i> Delete</a
-                      >
+                      ><i class="dw dw-delete-3"></i> Penalty</a>
+
+                      <a class="dropdown-item" href="#"
+                      ><i class="dw dw-delete-3"></i> Blacklist</a>
                     </div>
                   </div>
                 </td>
@@ -443,6 +444,8 @@
 <!--              </tr>-->
               </tbody>
             </table>
+            <div id="showPage" class="card-box">총 {{totalPages}}페이지 중 {{currentPage}}페이지</div>
+            <div id="pageNum" class="dataTables_info" role="status"></div>
           </div>
         </div>
         <!-- Simple Datatable End -->
@@ -450,14 +453,18 @@
 
     </div>
   </div>
-<div th:replace="adminpage/admin_layer/layer_user_create"></div>
-<!--<div th:replace="adminpage/admin_layer/layer_user_view"></div>-->
+
+<div th:replace="adminpage/admin_layer/layer_user_view :: member_view"></div>
 
 <!-- js -->
 <div th:replace="fragment/adminjs :: js"></div>
 <script src="/js/admin/member.js"></script>
 <script src="/js/admin/member_list.js"></script>
+<script src="/js/admin/member_crud.js"></script>
 <!--<script src="/js/admin/register.js"></script>-->
+
+<!--  <script src="/js/admin/admin_list.js"></script>-->
+<!--  <script src="/js/admin/admin_crud.js"></script>-->
 <!-- js -->
 
 </body>

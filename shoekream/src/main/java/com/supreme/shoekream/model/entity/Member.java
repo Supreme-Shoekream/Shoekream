@@ -2,7 +2,7 @@ package com.supreme.shoekream.model.entity;
 
 import com.supreme.shoekream.model.config.Auditable;
 import com.supreme.shoekream.model.config.BaseEntity;
-import com.supreme.shoekream.model.enumclass.Gender;
+//import com.supreme.shoekream.model.enumclass.Gender;
 import com.supreme.shoekream.model.enumclass.Status;
 import lombok.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -27,13 +27,14 @@ public class Member extends BaseEntity implements Auditable {
     private String name;
     private String hp;
     private String email;
-    @Enumerated(EnumType.STRING) private Status status;
+    @Enumerated(EnumType.ORDINAL) private Status status;
     private String shoeSize;
     private Long point;
     //    private LocalDateTime createdAt;
 //    private LocalDateTime modifiedAt;
-    @Enumerated(EnumType.STRING) private Gender gender;
-    private String birthDate;
+//    @Enumerated(EnumType.STRING) private Gender gender;
+//    private int gender;
+//    private String birthDate;
     private String profileMemo;
     private String imgUrl;
 }

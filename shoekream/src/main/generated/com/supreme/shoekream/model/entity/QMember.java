@@ -21,14 +21,10 @@ public class QMember extends EntityPathBase<Member> {
 
     public final com.supreme.shoekream.model.config.QBaseEntity _super = new com.supreme.shoekream.model.config.QBaseEntity(this);
 
-    public final StringPath birthDate = createString("birthDate");
-
     //inherited
     public final DateTimePath<java.time.LocalDateTime> createdAt = _super.createdAt;
 
     public final StringPath email = createString("email");
-
-    public final EnumPath<com.supreme.shoekream.model.enumclass.Gender> gender = createEnum("gender", com.supreme.shoekream.model.enumclass.Gender.class);
 
     public final StringPath hp = createString("hp");
 

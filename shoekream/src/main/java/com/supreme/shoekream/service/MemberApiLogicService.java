@@ -2,10 +2,11 @@ package com.supreme.shoekream.service;
 
 import com.supreme.shoekream.model.config.BaseEntity;
 import com.supreme.shoekream.model.entity.Member;
-import com.supreme.shoekream.model.enumclass.Gender;
+//import com.supreme.shoekream.model.enumclass.Gender;
 import com.supreme.shoekream.model.network.Header;
 import com.supreme.shoekream.model.network.Pagination;
 import com.supreme.shoekream.model.network.request.MemberApiRequest;
+import com.supreme.shoekream.model.network.response.AdminApiResponse;
 import com.supreme.shoekream.model.network.response.MemberApiResponse;
 import com.supreme.shoekream.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
@@ -34,8 +35,8 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
                 .point(member.getPoint())
                 .createdAt(member.getCreatedAt())
                 .modifiedAt(member.getModifiedAt())
-                .gender(member.getGender())
-                .birthDate(member.getBirthDate())
+//                .gender(member.getGender())
+//                .birthDate(member.getBirthDate())
                 .profileMemo(member.getProfileMemo())
                 .imgUrl(member.getImgUrl())
                 .build();
@@ -74,8 +75,8 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
                 .hp(memberApiRequest.getHp())
                 .email(memberApiRequest.getEmail())
                 .shoeSize(memberApiRequest.getShoeSize())
-                .gender(Gender.valueOf(memberApiRequest.getGender()))
-                .birthDate(memberApiRequest.getBirthDate())
+//                .gender(memberApiRequest.getGender())
+//                .birthDate(memberApiRequest.getBirthDate())
                 .build();
         Member newMember = baseRepository.save(member);
 
@@ -84,16 +85,17 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
 
     @Override
     public Header<MemberApiResponse> read(Long idx) {
-//        return baseRepository.findById(idx).map(members -> response(members))
-//                .map(Header::OK).orElseGet(()->Header.ERROR("데이터 없음"));
-//    }
-//    public Header<MemberApiResponse> read(String memberId, String memberPw) {
-//        return memberRepository.findByMemberIdAndMemberPw(memberId,memberPw).map(
-//                        member -> response(member)).map(Header::OK)
-//                .orElseGet(()-> Header.ERROR("아이디 또는 비밀번호가 틀렸습니다.")
-//                );
-        return null;
+        return baseRepository.findById(idx).map(members -> response(members))
+                .map(Header::OK).orElseGet(()->Header.ERROR("데이터 없음"));
     }
+    public Header<MemberApiResponse> read(String memberId, String memberPw) {
+        return memberRepository.findByMemberIdAndMemberPw(memberId,memberPw).map(
+                        member -> response(member)).map(Header::OK)
+                .orElseGet(()-> Header.ERROR("아이디 또는 비밀번호가 틀렸습니다.")
+                );
+//        return null;
+    }
+
 
     @Override
     public Header<MemberApiResponse> update(Header<MemberApiRequest> request) {
