@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<thlogic>
+    <attr sel=".feed">
+        <attr sel=".social_post_detail" th:each="detail : ${feed}">
+            <attr sel=".social_user_state">
+                <attr sel=".profile_img_box/img" th:src="${detail.member.imgUrl}"/>
+                <attr sel=".profile_info">
+                    <attr sel=".user_name" th:text="${detail.member.memberId}"/>
+                    <attr sel=".upload_time/time" th:datetime="${detail.createdAt}" th:text="${#temporals.format(detail.createdAt, 'yyyy-MM-dd')}"/>
+                </attr>
+            </attr>
+            <attr sel=".social_image_box">
+                <attr sel=".img_box/img" th:src="${detail.img}"/>
+            </attr>
+
+            <attr sel="#like_cnt" th:text="${detail.lks.size()}"/>
+            <attr sel=".social_text">
+                <attr sel=".text" th:text="${detail.content}"/>
+                <attr sel="a.hashtag" th:text="${detail.hashtag}"/>
+            </attr>
+
+            <attr sel=".social_comment">
+                <attr sel=".comment_count/strong" th:text="${detail.replies.size()}"/>
+            </attr>
+        </attr>
+    </attr>
+</thlogic>
