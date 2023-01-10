@@ -68,3 +68,27 @@ document.querySelector('#password_input').addEventListener('input', e=>{
         document.querySelector('#password_input_error').innerHTML=errorMsg;
     })
 });
+
+
+window.onload = function(){
+    const btn = document.getElementById('login_btn');
+    btn.addEventListener('click',sendit);
+}
+
+function sendit(){
+    const email = document.getElementById('email_input');
+    const memberPw = document.getElementById('password_input');
+
+    if(email.value==''){
+        alert('아이디를 입력하세요');
+        email.focus()
+        return false;
+    }
+
+    if(memberPw.value ==''){
+        alert('비밀번호 입력하세요');
+        memberPw.focus()
+        return false;
+    }
+    document.getElementById('frm').submit();
+}

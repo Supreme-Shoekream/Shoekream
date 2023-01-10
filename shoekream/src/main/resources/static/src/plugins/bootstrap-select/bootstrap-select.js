@@ -2664,7 +2664,7 @@
       if (typeof value !== 'undefined') {
         var prevValue = getSelectValues(element);
 
-        changedArguments = [null, null, prevValue];
+        changedArguments = [null, null, null, null, prevValue];
 
         this.$element
           .val(value)
@@ -2721,7 +2721,7 @@
 
       this.setOptionStatus();
 
-      changedArguments = [null, null, prevValue];
+      changedArguments = [null, null, null, null, prevValue];
 
       this.$element
         .triggerNative('change');

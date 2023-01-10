@@ -73,7 +73,8 @@ input, textarea {
     /*margin-bottom: 32px;*/
     /* height: calc(100% - 60px);
     width: 680px; */
-     /*max-height: 750px; */
+    width: 600px;
+    max-height: 750px;
     overflow-y: auto;
     overflow: hidden;
     position: absolute;
@@ -87,10 +88,7 @@ input, textarea {
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, .1);
     /*width: 40%;*/
     /*height: 90%;*/
-    width: 30%;
-    height: 70%;
 }
-
 
 .btn {
     display: inline-flex;
@@ -255,6 +253,16 @@ input, textarea {
 }
 
 .input_item .input_txt {
+    padding: 8px 0;
+    width: 100%;
+    font-size: 15px;
+    letter-spacing: -.15px;
+    line-height: 22px;
+    border: 0;
+    border-bottom: 1px solid #ebebeb;
+}
+
+.input_item_selectbox {
     padding: 8px 0;
     width: 100%;
     font-size: 15px;

@@ -16,6 +16,7 @@ public class MemberApiRequest {
     private String hp;
     private String email;
     private String shoeSize;
-    private String gender;
-    private String birthDate;
+//    private String gender;
+//    private int gender;
+//    private String birthDate;
 }
