@@ -24,9 +24,6 @@ public class MemberApiResponse {
     private Long point;
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
-//    private Gender gender;
-//    private int gender;
-//    private String birthDate;
     private String profileMemo;
     private String imgUrl;
 }

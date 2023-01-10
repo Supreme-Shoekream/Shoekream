@@ -6,22 +6,102 @@
                 <attr sel=".profile_img_box/img" th:src="${detail.member.imgUrl}"/>
                 <attr sel=".profile_info">
                     <attr sel=".user_name" th:text="${detail.member.memberId}"/>
-                    <attr sel=".upload_time/time" th:datetime="${detail.createdAt}" th:text="${#temporals.format(detail.createdAt, 'yyyy-MM-dd')}"/>
+                    <attr sel=".upload_time/time" th:datetime="${detail.createdAt}" th:text="${#temporals.format(detail.createdAt, 'yyyy년 MM월 dd일')}"/>
                 </attr>
             </attr>
             <attr sel=".social_image_box">
                 <attr sel=".img_box/img" th:src="${detail.img}"/>
             </attr>
 
-            <attr sel="#like_cnt" th:text="${detail.lks.size()}"/>
+            <attr sel="#like_cnt" th:text="${detail.lks.size()}" th:onclick="'javascript:pop_like('+ ${detail.idx} + ');'"/>
+
             <attr sel=".social_text">
-                <attr sel=".text" th:text="${detail.content}"/>
-                <attr sel="a.hashtag" th:text="${detail.hashtag}"/>
+                <attr sel=".text" th:text="${detail.content}">
+                    <attr sel="p" th:text="${detail.hashtag}"/>
+                </attr>
             </attr>
 
             <attr sel=".social_comment">
-                <attr sel=".comment_count/strong" th:text="${detail.replies.size()}"/>
+                <attr sel=".comment_area">
+                    <attr sel=".comment_count/strong" th:text="${detail.replies.size()}"/>
+                    <attr sel=".comment_list">
+                            <attr sel=".comment_unit" th:each="comment : ${detail.replies}">
+                                <attr sel=".comment_box">
+                                    <attr sel=".profile_link/img" th:src="${comment.member.imgUrl}"/>
+                                    <attr sel=".comment_detail">
+                                        <attr sel=".main">
+                                            <attr sel=".user_name" th:text="${comment.member.memberId}"/>
+                                            <attr sel=".comment_txt" th:text="${comment.content}"/>
+                                        </attr>
+                                        <attr sel=".sub">
+                                            <attr sel=".upload_time/time" th:datetime="${comment.createdAt}" th:text="${#temporals.format(comment.createdAt, 'yyyy년 MM월 dd일')}"/>
+                                        </attr>
+                                    </attr>
+                                </attr>
+                            </attr>
+                    </attr>
+                </attr>
             </attr>
+
+
+
+                <attr sel="#comment_more">
+                    <!--                글 내용 -->
+                    <attr sel=".comment_top">
+                        <attr sel=".profile_link/img" th:src="${detail.member.imgUrl}"/>
+                        <attr sel=".comment_detail">
+                            <attr sel=".main">
+                                <attr sel=".user_name" th:text="${detail.member.memberId}"/>
+                                <attr sel=".comment_txt" th:text="${detail.content}"/>
+                                <attr sel=".hashtag" th:text="${detail.hashtag}"/>
+                            </attr>
+                            <attr sel=".sub">
+                                <attr sel=".upload_time/time" th:datetime="${detail.createdAt}" th:text="${#temporals.format(detail.createdAt, 'yyyy년 MM월 dd일')}"/>
+                            </attr>
+                        </attr>
+                    </attr>
+                    <!--                글 내용 끝-->
+
+<!--                    댓글 작성 -->
+                    <attr sel="#reply_insert">
+                        <attr sel=".social_comment_input_box">
+                            <attr sel=".comment_input">
+                                <attr sel=".profile_link/img" th:src="${sessionUser.imgUrl}"/>
+                                <attr sel=".wrap_input">
+<!--                                    댓글 작성창 ✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔-->
+                                </attr>
+                            </attr>
+                        </attr>
+                    </attr>
+<!--                    댓글 작성 끝-->
+
+
+<!--                    댓글들 시작 -->
+                    <attr sel=".comment_group">
+                        <attr sel=".comment_unit" th:each="comment : ${detail.replies}">
+                            <attr sel=".comment_box">
+                                <attr sel=".profile_link/img" th:src="${comment.member.imgUrl}"/>
+                                <attr sel=".comment_detail">
+                                    <attr sel=".main">
+                                        <attr sel=".user_name" th:text="${comment.member.memberId}"/>
+                                        <attr sel=".comment_txt" th:text="${comment.content}"/>
+                                    </attr>
+                                    <attr sel=".sub">
+                                        <attr sel=".upload_time/time" th:datetime="${comment.createdAt}" th:text="${#temporals.format(comment.createdAt, 'yyyy년 MM월 dd일')}"/>
+                                    </attr>
+                                </attr>
+                            </attr>
+                        </attr>
+                    </attr>
+<!--                    댓글들 끝 -->
+
+
+                </attr>
+
+
+
+
+
         </attr>
     </attr>
 </thlogic>

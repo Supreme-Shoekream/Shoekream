@@ -18,26 +18,6 @@ public class MemberPageController {
     @Autowired
     private MemberApiLogicService memberApiLogicService;
 
-//    @GetMapping(path="login")   //http://localhost:9999/login
-//    public ModelAndView login(HttpServletRequest request){
-//        HttpSession session = request.getSession(false);
-//        String email=null;
-//        String memberPw = null;
-//
-//        if(session== null){
-//            System.out.println("세션이 없습니다");
-//            return new ModelAndView("/login/login");
-//        }else{
-//            email = (String) session.getAttribute("email");
-//            memberPw = (String) session.getAttribute("memberPw");
-//            System.out.println("세션이 있습니다");
-//            return new ModelAndView("/login/login")
-//                    .addObject("email",email)
-//                    .addObject("memberPw",memberPw);
-//        }
-////        return new ModelAndView("login");
-//    }
-
     @GetMapping(path="login")   //http://localhost:9999/login
     public ModelAndView login(){
         return new ModelAndView("/login/login.html");
@@ -47,13 +27,12 @@ public class MemberPageController {
     public String loginOk(HttpServletRequest request, String email, String memberPw){
         if(memberApiLogicService.read(email, memberPw).getData() != null){
             HttpSession session = request.getSession();
-            String name = memberApiLogicService.read(email, memberPw).getData().getName();
+            Long idx = memberApiLogicService.read(email, memberPw).getData().getIdx();
+            session.setAttribute("idx", idx);
             session.setAttribute("email", email);
-            session.setAttribute("memberPw", memberPw);
             return "redirect:/index";
         }else{
             return "redirect:/login";
-
         }
     }
 
@@ -64,28 +43,37 @@ public class MemberPageController {
         return "redirect:/login";
     }
 
-//    @GetMapping(path="join")   //http://localhost:9999/join
-//    public ModelAndView join(HttpServletRequest request){
-//        HttpSession session = request.getSession(false);
-//        String id=null;
-//        String name = null;
-//
-//        if(session== null){
-//            System.out.println("세션이 없습니다");
-//            return new ModelAndView("/join");
-//        }else{
-//            id = (String) session.getAttribute("id");
-//            name = (String) session.getAttribute("name");
-//            System.out.println("세션이 있습니다");
-//            return new ModelAndView("/index")
-//                    .addObject("id",id)
-//                    .addObject("name",name);
-//        }
-////        return new ModelAndView("/login/join");
-//    }
     @GetMapping(path="join")   //http://localhost:9999/join
     public ModelAndView join(){
-    return new ModelAndView("/login/join");
+        return new ModelAndView("/login/join");
+    }
+
+    @GetMapping(path="joinOk")   //http://localhost:9999/join
+    public ModelAndView joinOk(HttpServletRequest request){
+        HttpSession session = request.getSession(false);
+        String memberPw =null;
+        String name = null;
+        String hp = null;
+        String email = null;
+        String shoeSize = null;
+
+        if(session== null){
+            System.out.println("세션이 없습니다");
+            return new ModelAndView("/join");
+        }else{
+            memberPw = (String) session.getAttribute("memberPw");
+            name = (String) session.getAttribute("name");
+            hp = (String) session.getAttribute("hp");
+            email = (String) session.getAttribute("email");
+            shoeSize = (String) session.getAttribute("shoeSize");
+            System.out.println("세션이 있습니다");
+            return new ModelAndView("/index")
+                    .addObject("memberPw", memberPw)
+                    .addObject("name", name)
+                    .addObject("hp", hp)
+                    .addObject("email", email)
+                    .addObject("shoeSize", shoeSize);
+        }
     }
 
     @GetMapping(path="find_email")   //http://localhost:9999/find_email
@@ -97,8 +85,6 @@ public class MemberPageController {
     public ModelAndView find_password(){
         return new ModelAndView("/login/find_password");
     }
-
-
 
     // notice controller
     @GetMapping(path="faq")   //http://localhost:9999/faq
@@ -115,11 +101,4 @@ public class MemberPageController {
     public ModelAndView notice(){
         return new ModelAndView("/notice/notice");
     }
-
-
-
-
-//    //관리자
-//    @GetMapping(path = "/admin")
-//    public ModelAndView admin(){ return new ModelAndView("adminpage/admin_layer/layer_user_view");}
 }

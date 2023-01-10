@@ -1,50 +1,3 @@
-window.onload = function(){
-    const btn = document.querySelector('.btn_join');
-    btn.addEventListener('click',sendit);
-}
-function sendit() {
-    //request로 필요한 DOM 객체 선택
-    const email = document.getElementById('email_input');
-    const memberPw = document.getElementById('password_input');
-    const shoeSize = document.getElementById('input_shoesize');
-    const name = document.getElementById('name_input');
-    // const birthDate = document.getElementById('ssn1_input');
-    // const gender = document.getElementById('ssn2_input');
-    const hp = document.getElementById('hp_input');
-
-    fetch('http://localhost:9999/join', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
-            //우리가 만든데이터
-            "transaction_time": `${new Date()}`,
-            "resultCode": "ok",
-            "description": "정상",
-            "data": {
-                "email": `${email.value}`,
-                "memberPw": `${memberPw.value}`,
-                "shoeSize": `${memberPw.value}`,
-                "name": `${memberPw.value}`,
-                // "birthDate": `${memberPw.value}`,
-                // "gender": `${name.value}`,
-                "hp": `${hp.value}`
-            }
-        }),
-    })
-
-        .then((res) => {
-            location.href = 'http://localhost:9999/join';
-            return; //리턴을 걸어서 진행하는 것을 막는다!
-        })
-        .then((data) => {
-            console.log(data);
-            return;
-        })
-        .catch((err) => {
-            alert(err);
-        })
-}
-
 // 사이즈 팝업창
 function size_layer(){
     document.querySelector('.size_layer').style.display="block"
@@ -66,7 +19,6 @@ $(document).on('click', '#size_submit_btn', function(){
     $(".size_layer").css('display', 'none'); // 팝업 닫고
     $("#input_shoesize").val(document.querySelector('.size_item.active .btn').text.trim());
 });
-
 
 // input 타입 넘버에 maxlength 설정
 function maxLengthCheck(object){
@@ -109,24 +61,6 @@ function validateName(strName){
     // const reg_name =  /^[가-힣a-zA-Z]+$/;
     const reg_name = /^[가-힣]{2,6}$/;
     if(!reg_name.test(''+strName)){
-        return false;
-    }
-    return true;
-}
-
-// ssn1 정규 표현식
-function validateBirthdate1(strBirthdate1){
-    const reg_birthdate1 =  /^(?:[0-9]{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[1,2][0-9]|3[0,1]))$/;
-    if(!reg_birthdate1.test(''+strBirthdate1)){
-        return false;
-    }
-    return true;
-}
-
-// ssn2 정규 표현식
-function validateBirthdate(strBirthdate){
-    const reg_birthdate =  /^[1-4]{1}$/;
-    if(!reg_birthdate.test(''+strBirthdate)){
         return false;
     }
     return true;
@@ -204,39 +138,6 @@ document.querySelector('#hp_input').addEventListener('input', e=>{
 });
 
 // 버튼 활성화
-// document.querySelectorAll('#email_input').forEach((item) =>{
-//     item.addEventListener('input', e=>{
-//     let strEmail=e.target.value;
-//     if(validateEmail(strEmail)){
-//         document.querySelectorAll('#password_input').forEach((item) =>{
-//             item.addEventListener('input', e=>{
-//             let strPassword=e.target.value;
-//         if(validatePassword(strPassword)){
-//             document.querySelectorAll('#name_input').forEach((item) =>{
-//                 item.addEventListener('input', e=>{
-//                 let strName=e.target.value;
-//             if(validateName(strName)){
-//                 document.querySelectorAll('#hp_input').forEach((item) =>{
-//                     item.addEventListener('input', e=>{
-//                     let strHp=e.target.value;
-//                 if(validateHp(strHp)){
-//                     $("#btn_submitSignIn").removeClass("active");
-//                     $(this).addClass("active");
-//                     $("#btn_submitSignIn").removeClass("disabled")
-//                 }
-//                     })
-//             })
-//         }
-//     })
-// })
-// }
-// })
-// })
-// }})});
-
-
-
-
 let strEmail
 let strPassword
 let strName
@@ -292,3 +193,47 @@ document.querySelectorAll('#hp_input').forEach((item) =>{
         }
     })
 });
+
+window.onload = function(){
+    const btn = document.querySelector('.btn_join');
+    btn.addEventListener('click',sendit);
+}
+function sendit() {
+    //request로 필요한 DOM 객체 선택
+    const email = document.getElementById('email_input');
+    const memberPw = document.getElementById('password_input');
+    const shoeSize = document.getElementById('input_shoesize');
+    const name = document.getElementById('name_input');
+    const hp = document.getElementById('hp_input');
+
+    fetch('http://localhost:9999/join', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            //우리가 만든데이터
+            "transaction_time": `${new Date()}`,
+            "resultCode": "ok",
+            "description": "정상",
+            "data": {
+                "email": `${email.value}`,
+                "memberPw": `${memberPw.value}`,
+                "shoeSize": `${shoeSize.value}`,
+                "name": `${name.value}`,
+                "hp": `${hp.value}`
+            }
+        }),
+    })
+
+        .then((res) => {
+            alert('등록성공!')
+            location.href = 'http://localhost:9999/login';
+            return; //리턴을 걸어서 진행하는 것을 막는다!
+        })
+        .then((data) => {
+            console.log(data);
+            return;
+        })
+        .catch((err) => {
+            alert(err);
+        })
+}

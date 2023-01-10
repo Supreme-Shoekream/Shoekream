@@ -1,4 +1,4 @@
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 <!--<link rel="stylesheet" href="/src/styles/layer.css">-->
 <!--<script src="https://code.jquery.com/jquery-3.6.3.min.js"-->
 <!--        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>-->
@@ -16,37 +16,37 @@
             <h2 class="title"> 상품 상세 페이지 </h2>
         </div>
         <div class="layer_content" id="itemList">
-        <div class="top" v-for="dto in itemList">
+        <div class="top">
             <div class="user_bind">
                 <div class="user_input">
                     <div class="input_box">
                         <h4 class="input_title">상품 번호</h4>
                         <div class="input_item">
-                            <p class="idx">{{dto.idx}}</p>
+                            <p class="idx"></p>
                         </div>
                     </div>
                     <div class="input_box">
                         <h4 class="input_title">브랜드명</h4>
                         <div class="input_item">
-                            <p class="brand">{{dto.brand}}</p>
+                            <p class="brand"></p>
                         </div>
                     </div>
                     <div class="input_box">
                         <h4 class="input_title">상품명</h4>
                         <div class="input_item">
-                            <p class="name">{{dto.name}}</p>
+                            <p class="name"></p>
                         </div>
                     </div>
                     <div class="input_box">
                         <h4 class="input_title">상품명(KOR)</h4>
                         <div class="input_item">
-                            <p class="nameKor">{{dto.nameKor}}</p>
+                            <p class="nameKor"></p>
                         </div>
                     </div>
                     <div class="input_box">
                         <h4 class="input_title">사이즈</h4>
                         <div class="input_item">
-                            <p class="size">{{dto.size}}</p>
+                            <p class="size"></p>
                         </div>
                     </div>
 <!--                    <div class="input_box">-->
@@ -58,7 +58,7 @@
                 </div>
             </div>
             <div class="user_bind img">
-                <img class="img" id="previewImg" src="{{dto.img}}">
+                <img class="img" id="previewImg2" src="">
             </div>
         </div>
         <div class="center" style="border: none;">
@@ -67,19 +67,20 @@
                     <div class="input_box">
                         <h4 class="input_title">모델번호</h4>
                         <div class="input_item">
-                            <p class="modelNum">{{dto.modelNum}}</p>
+<!--                            <p class="modelNum">{{dto.modelNum}}</p>-->
+                            <p class="modelNum"></p>
                         </div>
                     </div>
                     <div class="input_box">
                         <h4 class="input_title">출시일</h4>
                         <div class="input_item">
-                            <p class="releaseDate">{{dto.releaseDate}}</p>
+                            <p class="releaseDate"></p>
                         </div>
                     </div>
                     <div class="input_box">
                         <h4 class="input_title">성별</h4>
                         <div class="input_item">
-                            <p class="gender">{{dto.gender}}</p>
+                            <p class="gender"></p>
                         </div>
                     </div>
                 </div>
@@ -89,19 +90,19 @@
                     <div class="input_box">
                         <h4 class="input_title">컬러</h4>
                         <div class="input_item">
-                            <p class="color">{{dto.color}}</p>
+                            <p class="color"></p>
                         </div>
                     </div>
                     <div class="input_box">
                         <h4 class="input_title">발매가</h4>
                         <div class="input_item">
-                            <p class="firstPrice">{{dto.firstPrice}}</p>
+                            <p class="firstPrice"></p>
                         </div>
                     </div>
                     <div class="input_box">
                         <h4 class="input_title">컬렉션</h4>
                         <div class="input_item">
-                            <p class="collection">{{dto.collection}}</p>
+                            <p class="collection"></p>
                         </div>
                     </div>
                 </div>
@@ -113,7 +114,7 @@
                     <div class="input_box">
                         <h4 class="input_title">카테고리</h4>
                         <div class="input_item">
-                            <p class="category">{{dto.category}}</p>
+                            <p class="category"></p>
                         </div>
                     </div>
                 </div>
