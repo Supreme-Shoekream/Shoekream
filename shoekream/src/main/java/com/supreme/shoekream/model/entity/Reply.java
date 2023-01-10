@@ -22,12 +22,15 @@ public class Reply extends BaseEntity implements Auditable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idx;
 
-    private Long memberIdx;     //ManyToOne
+//    private Long memberIdx;     //ManyToOne
+    @OneToOne
+    private Member member;
     private String content;
 //    private Long boardIdx;      // ManyToOne
 //    private LocalDateTime createdAt;
 
     @ManyToOne
+    @JoinColumn(name="board_idx")
     private Board board;
 
 //    @ManyToMany
