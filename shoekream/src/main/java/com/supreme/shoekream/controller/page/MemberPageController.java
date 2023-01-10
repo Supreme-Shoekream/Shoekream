@@ -18,26 +18,6 @@ public class MemberPageController {
     @Autowired
     private MemberApiLogicService memberApiLogicService;
 
-//    @GetMapping(path="login")   //http://localhost:9999/login
-//    public ModelAndView login(HttpServletRequest request){
-//        HttpSession session = request.getSession(false);
-//        String email=null;
-//        String memberPw = null;
-//
-//        if(session== null){
-//            System.out.println("세션이 없습니다");
-//            return new ModelAndView("/login/login");
-//        }else{
-//            email = (String) session.getAttribute("email");
-//            memberPw = (String) session.getAttribute("memberPw");
-//            System.out.println("세션이 있습니다");
-//            return new ModelAndView("/login/login")
-//                    .addObject("email",email)
-//                    .addObject("memberPw",memberPw);
-//        }
-////        return new ModelAndView("login");
-//    }
-
     @GetMapping(path="login")   //http://localhost:9999/login
     public ModelAndView login(){
         return new ModelAndView("/login/login.html");
@@ -47,13 +27,12 @@ public class MemberPageController {
     public String loginOk(HttpServletRequest request, String email, String memberPw){
         if(memberApiLogicService.read(email, memberPw).getData() != null){
             HttpSession session = request.getSession();
-            String name = memberApiLogicService.read(email, memberPw).getData().getName();
+            Long idx = memberApiLogicService.read(email, memberPw).getData().getIdx();
+            session.setAttribute("idx", idx);
             session.setAttribute("email", email);
-            session.setAttribute("memberPw", memberPw);
             return "redirect:/index";
         }else{
             return "redirect:/login";
-
         }
     }
 
@@ -98,8 +77,6 @@ public class MemberPageController {
         return new ModelAndView("/login/find_password");
     }
 
-
-
     // notice controller
     @GetMapping(path="faq")   //http://localhost:9999/faq
     public ModelAndView faq(){
@@ -115,11 +92,4 @@ public class MemberPageController {
     public ModelAndView notice(){
         return new ModelAndView("/notice/notice");
     }
-
-
-
-
-//    //관리자
-//    @GetMapping(path = "/admin")
-//    public ModelAndView admin(){ return new ModelAndView("adminpage/admin_layer/layer_user_view");}
 }
