@@ -79,16 +79,16 @@ function sendit(){
     const email = document.getElementById('email_input');
     const memberPw = document.getElementById('password_input');
 
-    if(email.value==''){
-        alert('아이디를 입력하세요');
-        email.focus()
-        return false;
-    }
-
-    if(memberPw.value ==''){
-        alert('비밀번호 입력하세요');
-        memberPw.focus()
-        return false;
-    }
+    // if(email.value==''){
+    //     alert('아이디를 입력하세요');
+    //     email.focus()
+    //     return false;
+    // }
+    //
+    // if(memberPw.value ==''){
+    //     alert('비밀번호 입력하세요');
+    //     memberPw.focus()
+    //     return false;
+    // }
     document.getElementById('frm').submit();
 }
