@@ -2584,7 +2584,7 @@
       if (typeof value !== 'undefined') {
         var prevValue = getSelectValues(this.$element[0]);
 
-        changedArguments = [null, null, prevValue];
+        changedArguments = [null, null, null, null, prevValue];
 
         this.$element
           .val(value)
@@ -2630,7 +2630,7 @@
 
       this.togglePlaceholder();
 
-      changedArguments = [null, null, prevValue];
+      changedArguments = [null, null, null, null, prevValue];
 
       this.$element
         .triggerNative('change');

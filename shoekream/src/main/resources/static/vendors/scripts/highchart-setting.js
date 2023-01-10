@@ -38,7 +38,7 @@ Highcharts.chart('chart1', {
 		data: [11744, 17722, 16005, 19771, 20185, 24377, 32147, 39387]
 	}, {
 		name: 'Project Development',
-		data: [null, null, 7988, 12169, 15112, 22452, 34400, 34227]
+		data: [null, null, null, null, 7988, 12169, 15112, 22452, 34400, 34227]
 	}, {
 		name: 'Other',
 		data: [12908, 5948, 8105, 11248, 8989, 11816, 18274, 18111]
@@ -167,7 +167,7 @@ Highcharts.chart('chart3', {
 	series: [{
 		name: 'USA',
 		data: [
-		null, null, null, null, null, 6, 11, 32, 110, 235,
+		null, null, null, null, null, null, null, null, null, 6, 11, 32, 110, 235,
 		369, 640, 1005, 1436, 2063, 3057, 4618, 6444, 9822, 15468,
 		20434, 24126, 27387, 29459, 31056, 31982, 32040, 31233, 29224, 27342,
 		26662, 26956, 27912, 28999, 28965, 27826, 25579, 25722, 24826, 24605,
@@ -178,7 +178,7 @@ Highcharts.chart('chart3', {
 		]
 	}, {
 		name: 'USSR/Russia',
-		data: [null, null, null, null, null, null, null, null, null, null,
+		data: [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,
 		5, 25, 50, 120, 150, 200, 426, 660, 869, 1060,
 		1605, 2471, 3322, 4238, 5221, 6129, 7089, 8339, 9399, 10538,
 		11643, 13092, 14478, 15915, 17385, 19055, 21205, 23044, 25393, 27935,

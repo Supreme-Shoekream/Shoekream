@@ -26,7 +26,7 @@ public class QLk extends EntityPathBase<Lk> {
 
     public final NumberPath<Long> idx = createNumber("idx", Long.class);
 
-    public final NumberPath<Long> memberIdx = createNumber("memberIdx", Long.class);
+    public final QMember member;
 
     public QLk(String variable) {
         this(Lk.class, forVariable(variable), INITS);
@@ -47,6 +47,7 @@ public class QLk extends EntityPathBase<Lk> {
     public QLk(Class<? extends Lk> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
         this.board = inits.isInitialized("board") ? new QBoard(forProperty("board"), inits.get("board")) : null;
+        this.member = inits.isInitialized("member") ? new QMember(forProperty("member")) : null;
     }
 
 }
