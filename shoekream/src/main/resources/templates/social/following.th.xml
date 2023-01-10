@@ -14,13 +14,20 @@
             </attr>
 
             <attr sel="#like_cnt" th:text="${detail.lks.size()}"/>
+
             <attr sel=".social_text">
-                <attr sel=".text" th:text="${detail.content}"/>
-                <attr sel="a.hashtag" th:text="${detail.hashtag}"/>
+                <attr sel=".text" th:text="${detail.content}">
+                    <attr sel="p" th:text="${detail.hashtag}"/>
+                </attr>
             </attr>
 
             <attr sel=".social_comment">
                 <attr sel=".comment_count/strong" th:text="${detail.replies.size()}"/>
+                <attr sel=".comment_list">
+                    <attr sel=".comment_unit" th:each="comment : ${detail.replies}">
+
+                    </attr>
+                </attr>
             </attr>
         </attr>
     </attr>

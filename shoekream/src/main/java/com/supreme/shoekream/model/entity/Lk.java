@@ -19,8 +19,10 @@ public class Lk {
     private Long idx;
 
     //    private Long boardIdx;   // 나중에 OneToOne 처리
-    private Long memberIdx;     // 나중에 ManyToONe 처리
+//    private Long memberIdx;     // 나중에 ManyToONe 처리
 
+    @OneToOne
+    private Member member;
 //    private LocalDateTime createdAt;
 
     @ManyToOne
