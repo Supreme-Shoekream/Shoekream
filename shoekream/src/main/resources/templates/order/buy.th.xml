@@ -6,6 +6,5 @@
         <attr sel=".model_title" th:text="*{name}"></attr>
         <attr sel=".model_ko" th:text="*{nameKor}"></attr>
         <attr sel=".size_txt" th:text="*{size}"></attr>
-        <attr sel="#next" th:href="@{'/buy/'+${product.data.idx}}"/>
     </attr>
 </thlogic>
