@@ -112,10 +112,12 @@ function productview_popup(idx){
             console.log(data);
             console.log(data.data.idx);
             document.querySelector(".idx").innerHTML=data.data.idx;
-            document.querySelector(".brand").innerHTML=data.data.brand;
             document.querySelector(".name").innerHTML=data.data.name;
             document.querySelector(".nameKor").innerHTML=data.data.nameKor;
+            document.getElementById("previewImg").src=data.data.img;
+            document.querySelector(".brand").innerHTML=data.data.brand;
             document.querySelector(".size").innerHTML=data.data.size;
+            document.querySelector(".category").innerHTML=data.data.category;
             document.querySelector(".modelNum").innerHTML=data.data.modelNum;
             document.querySelector(".releaseDate").innerHTML=data.data.releaseDate;
             document.querySelector(".color").innerHTML=data.data.color;
@@ -146,7 +148,6 @@ function productedit_popup(idx){
         .then((response) => response.json())
         .then((data) => {
             idx2.innerHTML=data.data.idx;
-
         })
     const btn_edit = document.querySelector(".btn_edit");
     btn_edit.addEventListener("click",()=>{
@@ -170,7 +171,7 @@ function sendedit(idx) {
     const gender2 = document.getElementById('edit_gender');
     const collection2 = document.getElementById('edit_collection');
 
-    fetch('http://localhost:8888/api/admin/products', {
+    fetch('http://localhost:8888/api/admin/products' + idx, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -309,8 +310,11 @@ function productdelete_popdown() {
     if(input.files && input.files[0]) {
     const reader = new FileReader();
     reader.onload = function(e){
-    const previewImage = document.getElementById("previewImg");
+    const previewImage = document.getElementById("previewImg"); // create img
     previewImage.src = e.target.result;
+
+    const previewImage2 = document.getElementsByClassName("edit_img"); // edit img
+    previewImage2.src = e.target.result;
 }
     // reader가 이미지 읽도록 하기
     reader.readAsDataURL(input.files[0]);

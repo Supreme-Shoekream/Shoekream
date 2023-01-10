@@ -2,6 +2,7 @@ package com.supreme.shoekream.service;
 
 import com.supreme.shoekream.model.entity.Admin;
 import com.supreme.shoekream.model.entity.Product;
+import com.supreme.shoekream.model.entity.ProductDTO;
 import com.supreme.shoekream.model.network.Header;
 import com.supreme.shoekream.model.network.Pagination;
 import com.supreme.shoekream.model.network.request.AdminApiRequest;
@@ -12,7 +13,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -116,5 +119,12 @@ public class ProductApiLogicService extends BaseService<ProductApiRequest, Produ
                 .build();
         return Header.OK(productApiResponses, pagination);
     }
+
+//    @Transactional(readOnly = true)
+//    public ProductDTO getProduct(Long idx){ // 검색(보기)
+//        return productRepository.findByIdx(idx)
+//                .map(ProductDTO::from)
+//                .orElseThrow(() -> new EntityNotFoundException("사이즈가 없습니다 - articleId: " + articleId));
+//    }
 
 }

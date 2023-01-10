@@ -10861,7 +10861,7 @@
                 return {
                     x: horiz ?
                         H.correctFloat(
-                            axis.translate(pos + tickmarkOffset, null, null, old) +
+                            axis.translate(pos + tickmarkOffset, null, null, null, null, old) +
                             axis.transB
                         ) :
                         (
@@ -10889,7 +10889,7 @@
                             (axis.opposite ? axis.height : 0)
                         ) : H.correctFloat(
                             cHeight -
-                            axis.translate(pos + tickmarkOffset, null, null, old) -
+                            axis.translate(pos + tickmarkOffset, null, null, null, null, old) -
                             axis.transB
                         )
                 };
@@ -13609,7 +13609,7 @@
 
                 translatedValue = pick(
                     translatedValue,
-                    axis.translate(value, null, null, old)
+                    axis.translate(value, null, null, null, null, old)
                 );
                 // Keep the translated value within sane bounds, and avoid Infinity to
                 // fail the isNumber test (#7709).
@@ -16711,8 +16711,8 @@
              *         The SVG path definition in array form.
              */
             getPlotBandPath: function(from, to) {
-                var toPath = this.getPlotLinePath(to, null, null, true),
-                    path = this.getPlotLinePath(from, null, null, true),
+                var toPath = this.getPlotLinePath(to, null, null, null, null, true),
+                    path = this.getPlotLinePath(from, null, null, null, null, true),
                     result = [],
                     i,
                     // #4964 check if chart is inverted or plotband is on yAxis 
@@ -28120,7 +28120,7 @@
                     // Create new label
                 } else {
                     this.label =
-                        chart.renderer.text(str, null, null, options.useHTML)
+                        chart.renderer.text(str, null, null, null, null, options.useHTML)
                         .css(options.style)
                         .attr({
                             align: this.textAlign,
@@ -31891,10 +31891,10 @@
              * 
              * @type {Array<String|Number>}
              * @sample {highcharts} highcharts/plotoptions/pie-center/ Centered at 100, 100
-             * @default [null, null]
+             * @default [null, null, null, null]
              * @product highcharts
              */
-            center: [null, null],
+            center: [null, null, null, null],
 
             clip: false,
 

@@ -1,4 +1,4 @@
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 <!--<link rel="stylesheet" href="/src/styles/layer.css">-->
 <!--<script src="https://code.jquery.com/jquery-3.6.3.min.js"-->
 <!--        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>-->
@@ -58,7 +58,7 @@
                 </div>
             </div>
             <div class="user_bind img">
-                <img class="img" id="previewImg" src="{{dto.img}}">
+                <img class="img" id="previewImg" :src="dto.img">
             </div>
         </div>
         <div class="center" style="border: none;">
