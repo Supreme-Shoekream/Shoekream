@@ -18,13 +18,13 @@ public class ProductPageController {
     private final ProductApiLogicService productApiLogicService;
 
     // 모든사이즈 상품 상세 보기
-    @GetMapping(path="") //http://localhost:8888/product
+    @GetMapping(path="") //http://localhost:8888/product/modelNum
     public ModelAndView product(){
-        return new ModelAndView("/product.html");
+        return new ModelAndView("product/product.html");
     }
 
     // 사이즈별 상품 상세 보기
-//    @GetMapping(path="/{idx}") //http://localhost:8888/product/{idx}
+//    @GetMapping(path="/{idx}") //http://localhost:8888/product/modelNum/{idx}
 //    public String productdetail(@PathVariable Long idx){
 //        ProductResponse productResponse = ProductResponse.from(productApiLogicService.getProduct(idx));
 //        return "product/detail";
