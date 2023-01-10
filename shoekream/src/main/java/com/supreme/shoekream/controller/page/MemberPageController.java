@@ -43,28 +43,37 @@ public class MemberPageController {
         return "redirect:/login";
     }
 
-//    @GetMapping(path="join")   //http://localhost:9999/join
-//    public ModelAndView join(HttpServletRequest request){
-//        HttpSession session = request.getSession(false);
-//        String id=null;
-//        String name = null;
-//
-//        if(session== null){
-//            System.out.println("세션이 없습니다");
-//            return new ModelAndView("/join");
-//        }else{
-//            id = (String) session.getAttribute("id");
-//            name = (String) session.getAttribute("name");
-//            System.out.println("세션이 있습니다");
-//            return new ModelAndView("/index")
-//                    .addObject("id",id)
-//                    .addObject("name",name);
-//        }
-////        return new ModelAndView("/login/join");
-//    }
     @GetMapping(path="join")   //http://localhost:9999/join
     public ModelAndView join(){
-    return new ModelAndView("/login/join");
+        return new ModelAndView("/login/join");
+    }
+
+    @GetMapping(path="joinOk")   //http://localhost:9999/join
+    public ModelAndView joinOk(HttpServletRequest request){
+        HttpSession session = request.getSession(false);
+        String memberPw =null;
+        String name = null;
+        String hp = null;
+        String email = null;
+        String shoeSize = null;
+
+        if(session== null){
+            System.out.println("세션이 없습니다");
+            return new ModelAndView("/join");
+        }else{
+            memberPw = (String) session.getAttribute("memberPw");
+            name = (String) session.getAttribute("name");
+            hp = (String) session.getAttribute("hp");
+            email = (String) session.getAttribute("email");
+            shoeSize = (String) session.getAttribute("shoeSize");
+            System.out.println("세션이 있습니다");
+            return new ModelAndView("/index")
+                    .addObject("memberPw", memberPw)
+                    .addObject("name", name)
+                    .addObject("hp", hp)
+                    .addObject("email", email)
+                    .addObject("shoeSize", shoeSize);
+        }
     }
 
     @GetMapping(path="find_email")   //http://localhost:9999/find_email

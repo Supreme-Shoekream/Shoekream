@@ -1,12 +1,9 @@
 package com.supreme.shoekream.service;
 
-import com.supreme.shoekream.model.config.BaseEntity;
 import com.supreme.shoekream.model.entity.Member;
-//import com.supreme.shoekream.model.enumclass.Gender;
 import com.supreme.shoekream.model.network.Header;
 import com.supreme.shoekream.model.network.Pagination;
 import com.supreme.shoekream.model.network.request.MemberApiRequest;
-import com.supreme.shoekream.model.network.response.AdminApiResponse;
 import com.supreme.shoekream.model.network.response.MemberApiResponse;
 import com.supreme.shoekream.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
@@ -35,36 +32,11 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
                 .point(member.getPoint())
                 .createdAt(member.getCreatedAt())
                 .modifiedAt(member.getModifiedAt())
-//                .gender(member.getGender())
-//                .birthDate(member.getBirthDate())
                 .profileMemo(member.getProfileMemo())
                 .imgUrl(member.getImgUrl())
                 .build();
         return memberApiResponse;
     }
-//    @Override
-//    public Header<MemberApiResponse> create(Header<MemberApiRequest> request) {
-//        MemberApiRequest memberApiRequest = request.getData();
-////        int gender =memberApiRequest.getGender()
-////        switch (searchType){
-////            case 1 -> memberRepository.findByGenderContaining(searchKeyword).map(MemberDto::from);
-////            case 2 -> memberRepository.findByGenderContaining(searchKeyword).map(MemberDto::from);
-////            case 3 -> memberRepository.findByGenderContaining(searchKeyword).map(MemberDto::from);
-////            case 4 -> memberRepository.findByGenderContaining(searchKeyword).map(MemberDto::from);
-////                    sitch(gender){
-//
-//        Member member = Member.builder()
-//                .memberPw(memberApiRequest.getMemberPw())
-//                .name(memberApiRequest.getName())
-//                .hp(memberApiRequest.getHp())
-//                .email(memberApiRequest.getEmail())
-//                .shoeSize(memberApiRequest.getShoeSize())
-//                .birthDate(memberApiRequest.getBirthDate())
-//                .gender(Gender.valueOf(memberApiRequest.getGender()))
-//                .build();
-//        Member newMembers = baseRepository.save(member);
-//        return Header.OK(response(newMembers));
-//    }
 
     @Override
     public Header<MemberApiResponse> create(Header<MemberApiRequest> request) {
@@ -75,11 +47,8 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
                 .hp(memberApiRequest.getHp())
                 .email(memberApiRequest.getEmail())
                 .shoeSize(memberApiRequest.getShoeSize())
-//                .gender(memberApiRequest.getGender())
-//                .birthDate(memberApiRequest.getBirthDate())
                 .build();
         Member newMember = baseRepository.save(member);
-
         return Header.OK(response(newMember));
     }
 
@@ -93,7 +62,6 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
                         member -> response(member)).map(Header::OK)
                 .orElseGet(()-> Header.ERROR("이메일 또는 비밀번호가 틀렸습니다.")
                 );
-//        return null;
     }
 
 
@@ -134,7 +102,6 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
             return Header.OK();
         }
         return Header.ERROR("이메일 또는 비밀번호가 틀렸음!");
-//        return null;
     }
 
     public Header<List<MemberApiResponse>> search(Pageable pageable){
