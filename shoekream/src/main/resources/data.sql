@@ -215,16 +215,16 @@ INSERT INTO product (idx, brand, category, color, first_price, img, model_num, n
 
 
 
--- 좋아요
-insert into follow(follower_idx, following_idx) values(1,2);
-insert into follow(follower_idx, following_idx) values(1,3);
-insert into follow(follower_idx, following_idx) values(1,4);
-insert into follow(follower_idx, following_idx) values(1,5);
-insert into follow(follower_idx, following_idx) values(1,6);
-insert into follow(follower_idx, following_idx) values(1,7);
-insert into follow(follower_idx, following_idx) values(1,8);
-insert into follow(follower_idx, following_idx) values(1,9);
-insert into follow(follower_idx, following_idx) values(1,10);
+-- 팔로우
+insert into follow(follower_idx, following_idx) values(5,2);
+insert into follow(follower_idx, following_idx) values(5,3);
+insert into follow(follower_idx, following_idx) values(5,4);
+insert into follow(follower_idx, following_idx) values(5,5);
+insert into follow(follower_idx, following_idx) values(5,6);
+insert into follow(follower_idx, following_idx) values(5,7);
+insert into follow(follower_idx, following_idx) values(5,8);
+insert into follow(follower_idx, following_idx) values(5,9);
+insert into follow(follower_idx, following_idx) values(5,10);
 
 
 
@@ -283,5 +283,5 @@ insert into board(member_idx, content, img, created_at) values(20, '#슈프림�
 
 -- # 댓글
 insert into reply(content, board_idx, member_idx, created_at) values('댓글1😎', 1, 1, now());
-insert into reply(content, board_idx, member_idx) values('댓글2😎', 1, 10);
+insert into reply(content, board_idx, member_idx) values('댓글2😎', 1, 6);
 insert into reply(content, board_idx, member_idx) values('댓글3😎', 2, 5);
