@@ -233,8 +233,8 @@ insert into follow(follower_idx, following_idx) values(1,10);
 
 
 -- 게시글
-insert into board(hashtag, member_idx, content, img, created_at) values('#아더에러자라', 2, '🇯🇵', 'https://kream-phinf.pstatic.net/MjAyMzAxMDdfMjYw/MDAxNjczMDU0MTc3Mjc4.tGBinGVZzKuNjAuTeVzYRnQE2wEF7cGfLouPQncuT3sg.nSPr4ZI3Dl28rjPT8ry1mFbOZ97y0Nni2MZD2ru0XoQg.JPEG/p_8d8b79b4eada48dbbe1edb58783acc7a.jpeg?type=m', now());
-insert into board(hashtag, member_idx, content, img, created_at) values('#아더에러자라',2, '쇼핑은 절거워~ #아더에러 #범고래', 'https://kream-phinf.pstatic.net/MjAyMzAxMDdfODgg/MDAxNjczMDY4MTk1Nzgw.lpGeg5M-THRFnvv-AjtsDMr1YBT3CQ36jpLcLT4NfaUg.saVvBksUbZKu607fG7dPfBBUQHqmJ9i6Gytx8-KOZNUg.JPEG/p_1c40fe86e8a74671a41a95d5d57ff1a2.jpeg?type=m', now());
+insert into board(hashtag, member_idx, content, img, created_at) values('아더에러자라', 2, '🇯🇵', 'https://kream-phinf.pstatic.net/MjAyMzAxMDdfMjYw/MDAxNjczMDU0MTc3Mjc4.tGBinGVZzKuNjAuTeVzYRnQE2wEF7cGfLouPQncuT3sg.nSPr4ZI3Dl28rjPT8ry1mFbOZ97y0Nni2MZD2ru0XoQg.JPEG/p_8d8b79b4eada48dbbe1edb58783acc7a.jpeg?type=m', now());
+insert into board(hashtag, member_idx, content, img, created_at) values('아더에러자라',2, '쇼핑은 절거워~ #아더에러 #범고래', 'https://kream-phinf.pstatic.net/MjAyMzAxMDdfODgg/MDAxNjczMDY4MTk1Nzgw.lpGeg5M-THRFnvv-AjtsDMr1YBT3CQ36jpLcLT4NfaUg.saVvBksUbZKu607fG7dPfBBUQHqmJ9i6Gytx8-KOZNUg.JPEG/p_1c40fe86e8a74671a41a95d5d57ff1a2.jpeg?type=m', now());
 insert into board(member_idx, content, img, created_at) values(3, '🤍 #데일리룩 #KREAM스타일','https://kream-phinf.pstatic.net/MjAyMzAxMDdfMjkx/MDAxNjczMDU2NjQ2MTc1.IRm8yHhuSxMOPSwr9Ff_xQBSxwnUbGXOgOGZ05xLVGEg.LjiQK3GtJiIAb31Wf4RiUdDN175wwT5dyumOAy1nbbog.JPEG/p_347c21c5f10b482b91046e176a4809e0.jpeg?type=m', now());
 insert into board(member_idx, content, img, created_at) values(4, '🐾
 .
@@ -282,6 +282,6 @@ insert into board(member_idx, content, img, created_at) values(20, '#슈프림�
 
 
 -- # 댓글
-insert into reply(content, board_idx, member_idx) values('댓글1😎', 2, 1);
-insert into reply(content, board_idx, member_idx) values('댓글2😎', 2, 10);
-insert into reply(content, board_idx, member_idx) values('댓글3😎', 3, 5);
+insert into reply(content, board_idx, member_idx, created_at) values('댓글1😎', 1, 1, now());
+insert into reply(content, board_idx, member_idx) values('댓글2😎', 1, 10);
+insert into reply(content, board_idx, member_idx) values('댓글3😎', 2, 5);
