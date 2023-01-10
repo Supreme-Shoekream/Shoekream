@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<thlogic>
+    <attr sel=".container.detail.lg" th:object ="${product.data}">
+<!--        <attr sel=".slide_content/img" th:src="${product.data.img}"/>-->
+        <attr sel=".main_title_box">
+            <attr sel=".brand" th:text="${product.data.brand}"/>
+            <attr sel=".name" th:text="*{name}"/>
+            <attr sel=".nameKor" th:text="*{nameKor}"/>
+        </attr>
+        <!-- 사이즈 -->
+        <!-- 가격 -->
+        <!-- 관심상품 -->
+<!--        <attr sel=".detail_product">-->
+<!--            <attr sel="dd.modelNum" th:text="*{modelNum}"/>-->
+<!--            <attr sel="dd.releaseDate" th:text="*{releaseDate}"/>-->
+<!--            <attr sel="dd.color" th:text="*{color}"/>-->
+<!--            <attr sel="dd.firstPrice" th:text="*{firstPrice}"/>-->
+<!--        </attr>-->
+    </attr>
+
+
+
+<!--    <attr sel=".product_img_start" th:object="${product.data}">-->
+<!--        <attr sel="product_img#previewImg2" th:src="*{img}"/>-->
+<!--    </attr>-->
+    <attr sel=".main_title_box"th:object="${product.data}">
+        <attr sel="a.brand" th:text="*{brand}"/>
+        <attr sel="p.name" th:text="*{name}"/>
+        <attr sel="p.nameKor" th:text="*{nameKor}"/>
+    </attr>
+</thlogic>
