@@ -29,5 +29,5 @@ public class Conclusion {
     @JoinColumn(name="product_idx")
     private Product product;
 
-    private Long price;
+    private String price;
 }

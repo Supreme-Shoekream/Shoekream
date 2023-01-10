@@ -285,3 +285,27 @@ insert into board(member_idx, content, img, created_at) values(20, '#슈프림�
 insert into reply(content, board_idx, member_idx, created_at) values('댓글1😎', 1, 1, now());
 insert into reply(content, board_idx, member_idx) values('댓글2😎', 1, 10);
 insert into reply(content, board_idx, member_idx) values('댓글3😎', 2, 5);
+
+
+-- 체결내역
+insert into conclusion (price, product_idx, created_at) values ('298,000원', 5, '2022/02/14');
+insert into conclusion (price, product_idx, created_at) values ('360,000원', 5, '2022/02/08');
+insert into conclusion (price, product_idx, created_at) values ('310,000원', 5, '2022/02/15');
+insert into conclusion (price, product_idx, created_at) values ('263,000원', 37, '2022/03/31');
+insert into conclusion (price, product_idx, created_at) values ('210,000원', 40, '2022/09/02');
+insert into conclusion (price, product_idx, created_at) values ('389,000원', 42, '2022/10/09');
+insert into conclusion (price, product_idx, created_at) values ('288,000원', 47, '2023/01/05');
+insert into conclusion (price, product_idx, created_at) values ('620,000원', 43, '2022/01/27');
+insert into conclusion (price, product_idx, created_at) values ('165,000원', 12, '2022/07/02');
+insert into conclusion (price, product_idx, created_at) values ('557,000원', 14, '2022/05/07');
+
+drop table conclusion;
+
+create table conclusion(
+    idx int auto_increment primary key,
+    price varchar(10) not null,
+    product_idx int not null,
+    created_at date
+);
+
+

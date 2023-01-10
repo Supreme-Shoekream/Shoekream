@@ -26,7 +26,7 @@ public class QConclusion extends EntityPathBase<Conclusion> {
 
     public final NumberPath<Long> idx = createNumber("idx", Long.class);
 
-    public final NumberPath<Long> price = createNumber("price", Long.class);
+    public final StringPath price = createString("price");
 
     public final QProduct product;
 
