@@ -3,19 +3,19 @@
     <attr sel=".container.detail.lg" th:object ="${product.data}">
 <!--        <attr sel=".slide_content/img" th:src="${product.data.img}"/>-->
         <attr sel=".main_title_box">
-            <attr sel=".brand" th:text="${product.data.brand}"/>
+            <attr sel=".brand" th:text="*{product.data.brand}"/>
             <attr sel=".name" th:text="*{name}"/>
             <attr sel=".nameKor" th:text="*{nameKor}"/>
         </attr>
         <!-- 사이즈 -->
         <!-- 가격 -->
         <!-- 관심상품 -->
-<!--        <attr sel=".detail_product">-->
-<!--            <attr sel="dd.modelNum" th:text="*{modelNum}"/>-->
-<!--            <attr sel="dd.releaseDate" th:text="*{releaseDate}"/>-->
-<!--            <attr sel="dd.color" th:text="*{color}"/>-->
-<!--            <attr sel="dd.firstPrice" th:text="*{firstPrice}"/>-->
-<!--        </attr>-->
+        <attr sel=".detail_product">
+            <attr sel="dd.modelNum" th:text="*{modelNum}"/>
+            <attr sel="dd.releaseDate" th:text="*{releaseDate}"/>
+            <attr sel="dd.color" th:text="*{color}"/>
+            <attr sel="dd.firstPrice" th:text="*{firstPrice}"/>
+        </attr>
     </attr>
 
 

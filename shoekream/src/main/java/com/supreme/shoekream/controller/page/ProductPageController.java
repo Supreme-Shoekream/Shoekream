@@ -40,6 +40,7 @@ public class ProductPageController {
         map.addAttribute("product",product);    //상품정보 넣어서
         System.out.println(map);
 
+
 //        HttpSession session = request.getSession(false);
 //        String id = null;
 //        String name = null;

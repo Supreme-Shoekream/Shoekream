@@ -299,13 +299,5 @@ insert into conclusion (price, product_idx, created_at) values ('620,000원', 43
 insert into conclusion (price, product_idx, created_at) values ('165,000원', 12, '2022/07/02');
 insert into conclusion (price, product_idx, created_at) values ('557,000원', 14, '2022/05/07');
 
-drop table conclusion;
-
-create table conclusion(
-    idx int auto_increment primary key,
-    price varchar(10) not null,
-    product_idx int not null,
-    created_at date
-);
 
 
