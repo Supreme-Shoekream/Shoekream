@@ -1,6 +1,5 @@
 package com.supreme.shoekream.model.network.response;
 
-import com.supreme.shoekream.model.enumclass.Gender;
 import com.supreme.shoekream.model.enumclass.Status;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,8 +24,9 @@ public class MemberApiResponse {
     private Long point;
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
-    private Gender gender;
-    private String birthDate;
+//    private Gender gender;
+//    private int gender;
+//    private String birthDate;
     private String profileMemo;
     private String imgUrl;
 }

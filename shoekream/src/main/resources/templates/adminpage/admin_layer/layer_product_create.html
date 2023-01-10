@@ -52,27 +52,28 @@
                                     <input type="text" id="size" name="size" placeholder="사이즈">
                                 </div>
                             </div>
-                            <div class="input_box">
-                                <h4 class="input_title">상품 사진 URL</h4>
-                                <div class="input_item">
-                                    <input type="text" id="previewImg" name="previewImg"/>
-                                </div>
-                            </div>
+<!--                            <div class="input_box">-->
+<!--                                <h4 class="input_title">상품 사진 URL</h4>-->
+<!--                                <div class="input_item">-->
+<!--                                    <input type="text" id="previewImg" name="previewImg"/>-->
+<!--                                </div>-->
+<!--                            </div>-->
                         </div>
                     </div>
                     <div class="user_bind img">
                         <div class="uploadImg">
                             <div class="filebox">
                                 <input class="upload-name" value="선택된 파일 없음" disabled="disabled">
-                                <input type="file" id="file1"class="upload-hidden" name="file1">
+                                <input type="file" id="file1" class="upload-hidden" name="file1">
                                 <label for="file1">이미지 첨부</label>
                             </div>
-                            <img id="previewImg2" onclick="popImage(this.src)">
+<!--                            <img id="previewImg2" onclick="popImage(this.src)">-->
+                            <img id="previewImg" onclick="popImage(this.src)">
                             <!-- 첨부파일 사용하려면 위 코드 id="previewImg"로 변경해야함 -->
                         </div>
                     </div>
                 </div>
-                <div class="center">
+                <div class="center" style="border: none;">
                     <div class="user_bind">
                         <div class="user_input">
                             <div class="input_box">
@@ -85,6 +86,17 @@
                                 <h4 class="input_title">출시일</h4>
                                 <div class="input_item">
                                     <input type="text" id="releaseDate" name="release_date" placeholder="출시일">
+                                </div>
+                            </div>
+                            <div class="input_box">
+                                <h4 class="input_title">성별</h4>
+                                <div class="input_item">
+                                    <select name="gender" id="gender" class="input_item_selectbox">
+                                        <option value="gender">- 성별을 선택하세요 -</option>
+                                        <option value="남여공용">남여공용</option>
+                                        <option value="남자">남자</option>
+                                        <option value="여자">여자</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -103,6 +115,27 @@
                                     <input type="text" id="firstPrice" name="first_price" placeholder="발매가">
                                 </div>
                             </div>
+                            <div class="input_box">
+                                <h4 class="input_title">컬렉션</h4>
+                                <div class="input_item">
+                                    <select name="collection" id="collection" class="input_item_selectbox">
+                                        <option value="collection">- 컬렉션을 선택하세요 -</option>
+                                        <option value="발매상품">Just Dropped(발매상품)</option>
+                                        <option value="인기 상품">Most Popular(인기 상품)</option>
+                                        <option value="신규등록상품">New In(신규등록상품)</option>
+                                        <option value="정가보다 저렴한 가격">Shopping Wisely(정가보다 저렴한 가격)</option>
+                                        <option value="브랜드관 베스트아이템">Brand MD's pick(브랜드관 베스트아이템)</option>
+                                        <option value="심플한 로고 플레이의 매력">Simple&Chic(심플한 로고 플레이의 매력)</option>
+                                        <option value="의류에도 불었던 콜라보 열품">BEST Apparel Collabs(의류에도 불었던 콜라보 열풍)</option>
+                                        <option value="새로운 즉시 구매가">New Lowest Asks(새로운 즉시 구매가)</option>
+                                        <option value="새로운 즉시판매가">New Highest Bids(새로운 즉시판매가)</option>
+                                        <option value="발매예정">Upcoming Release(발매예정)</option>
+                                        <option value="키덜트들 취향저격 200%">BEST Collectibles(키덜트들 취향저격 200%)</option>
+                                        <option value="올해를 빛내준 액세서리">BEST jewelry&Watches(올해를 빛내준 액세서리)</option>
+                                        <option value="캠핑의 매력에 빠진 한해">BEST Camping Gear(캠핑의 매력에 빠진 한해)</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -114,45 +147,11 @@
                                 <div class="input_item">
                                     <select name="category" id="category" class="input_item_selectbox">
                                         <option value="ship_status">- 카테고리를 선택하세요 -</option>
-                                        <option value="스니커즈">스니커즈</option>
-                                        <option value="부츠">부츠</option>
-                                        <option value="더비/레이스업">더비/레이스업</option>
-                                        <option value="로퍼/플랫">로퍼/플랫</option>
-                                        <option value="샌들/슬리퍼">샌들/슬리퍼</option>
-                                        <option value="패딩">패딩</option>
-                                        <option value="코트">코트</option>
-                                        <option value="니트웨어">니트웨어</option>
-                                        <option value="자켓">자켓</option>
-                                        <option value="후드">후드</option>
-                                        <option value="스웨트셔츠">스웨트셔츠</option>
-                                        <option value="긴팔 티셔츠">긴팔 티셔츠</option>
-                                        <option value="반팔 티셔츠">반팔 티셔츠</option>
-                                        <option value="셔츠">셔츠</option>
-                                        <option value="바지">바지</option>
-                                        <option value="반바지">반바지</option>
-                                        <option value="스커트">스커트</option>
-                                        <option value="스몰레더">스몰레더</option>
-                                        <option value="가방">가방</option>
-                                        <option value="시계">시계</option>
-                                        <option value="주얼리">주얼리</option>
-                                        <option value="모자">모자</option>
-                                        <option value="스카프">스카프</option>
-                                        <option value="아이웨어">아이웨어</option>
-                                        <option value="벨트">벨트</option>
-                                        <option value="레고">레고</option>
-                                        <option value="향수">향수</option>
-                                        <option value="아트토이/피규어">아트토이/피규어</option>
-                                        <option value="트레이딩 카드">트레이딩 카드</option>
-                                        <option value="LP/CD">LP/CD</option>
-                                        <option value="스마트폰">스마트폰</option>
-                                        <option value="스마트워치">스마트워치</option>
-                                        <option value="태블릿">태블릿</option>
-                                        <option value="음향기기">음향기기</option>
-                                        <option value="게임기">게임기</option>
-                                        <option value="그래픽카드">그래픽카드</option>
-                                        <option value="테크 액세서리">테크 액세서리</option>
-                                        <option value="리뉴드 테크">리뉴드 테크</option>
-                                        <option value="기타">기타</option>
+                                        <option value="신발">신발</option>
+                                        <option value="의류">의류</option>
+                                        <option value="패션잡화">패션잡화</option>
+                                        <option value="라이프">라이프</option>
+                                        <option value="테크">테크</option>
                                     </select>
                                 </div>
                             </div>
@@ -160,7 +159,7 @@
                     </div>
                 </div>
                 <div class="layer_btn">
-                    <a id="productCreateBtn" class="btn btn_save solid medium">확인</a>
+                    <a id="productCreateBtn" class="btn btn_save solid medium" style="color: white">확인</a>
                 </div>
             </form>
         </div>

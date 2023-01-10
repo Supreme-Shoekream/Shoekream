@@ -22,7 +22,7 @@ public class ProductApiController extends CrudController<ProductApiRequest, Prod
 
     // 생성
     @Override
-    @PostMapping("create") // http://localhost:8888/api/admin/products/create
+    @PostMapping("") // http://localhost:8888/api/admin/products
     public Header<ProductApiResponse> create(@RequestBody Header<ProductApiRequest> request) {
         return productApiLogicService.create(request);
     }
@@ -42,7 +42,7 @@ public class ProductApiController extends CrudController<ProductApiRequest, Prod
 
     // 수정
     @PutMapping("/{idx}") // http://localhost:8888/api/admin/products/{idx}
-    public Header<ProductApiResponse> update(Header<ProductApiRequest> request) {
+    public Header<ProductApiResponse> update(@RequestBody Header<ProductApiRequest> request) {
         return productApiLogicService.update(request);
     }
 

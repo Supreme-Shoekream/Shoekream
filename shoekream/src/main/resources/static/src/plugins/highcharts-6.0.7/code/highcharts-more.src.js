@@ -2575,7 +2575,7 @@
                         topWidth = dialOptions.topWidth || 1,
                         overshoot = options.overshoot,
                         rotation = yAxis.startAngleRad +
-                        yAxis.translate(point.y, null, null, null, true);
+                        yAxis.translate(point.y, null, null, null, null, null, true);
 
                     // Handle the wrap and overshoot options
                     if (isNumber(overshoot)) {

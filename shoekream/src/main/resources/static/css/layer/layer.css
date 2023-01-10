@@ -138,7 +138,7 @@ input, textarea {
 이거 아마 다른거!!있었던것같은데 ㅠㅠ
 .layer .layer_container {
     width: 440px;
-} 
+}
 */
 .layer_container {
     overflow: hidden;
@@ -148,7 +148,7 @@ input, textarea {
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     background-color: #fff;
-    width: 448px;
+    /*width: 448px;*/
     border-radius: 16px;
     -webkit-box-shadow: 0 4px 10px 0 rgb(0 0 0 / 10%);
     box-shadow: 0 4px 10px 0 rgb(0 0 0 / 10%);
