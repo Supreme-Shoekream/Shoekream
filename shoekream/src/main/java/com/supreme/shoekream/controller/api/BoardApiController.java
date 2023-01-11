@@ -17,8 +17,8 @@ public class BoardApiController {
     private final StyleLogicService styleLogicService;
     private final BoardRepository boardRepository;
 
-    @GetMapping("{idx}")    // http://localhost:8889/api/social (post)
-    public Optional<Board> read(@PathVariable(name="idx") Long idx){
+    @GetMapping("{idx}")    // http://localhost:8889/api/social (get)
+    public Board read(@PathVariable(name="idx") Long idx){
         return styleLogicService.read(idx);
     }
 

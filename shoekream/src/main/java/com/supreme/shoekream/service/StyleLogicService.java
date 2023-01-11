@@ -24,8 +24,8 @@ public class StyleLogicService {
         return boardRepository.findAll();
     }
 
-    public Optional<Board> read(Long idx){
-        Optional<Board> board = boardRepository.findById(idx);
+    public Board read(Long idx){
+        Board board = boardRepository.getOne(idx);
         return board;
     }
 
