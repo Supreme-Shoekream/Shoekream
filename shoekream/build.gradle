@@ -45,6 +45,8 @@ dependencies {
 	//security + thymeleaf 같이 검색했을때 나옴
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+	// crawling
+	implementation 'org.jsoup:jsoup:1.14.2'
 }
 
 tasks.named('test') {
