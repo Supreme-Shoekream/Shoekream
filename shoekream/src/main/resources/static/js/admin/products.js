@@ -25,11 +25,6 @@ function sendit(){
         brand.focus();
         return false;
     }
-    if(img.value === ""){
-        alert("상품 이미지를 넣어주세요");
-        img.focus();
-        return false;
-    }
     if(name.value === ""){
         alert("상품명을 작성해주세요");
         name.focus();
@@ -40,25 +35,24 @@ function sendit(){
         nameKor.focus();
         return false;
     }
-
-    // if(size.value === ""){
-    //     alert("사이즈를 작성해주세요");
-    //     size.focus();
-    //     return false;
-    // }
-    if(firstPrice.value === ""){
-        alert("발매가를 작성해주세요");
-        firstPrice.focus();
+    if(size.value === ""){
+        alert("사이즈를 작성해주세요");
+        size.focus();
         return false;
     }
-    // if(category.value === ""){
-    //     alert("카테고리를 선택해주세요");
-    //     category.focus();
-    //     return false;
-    // }
+    if(img.value === ""){
+        alert("상품 이미지를 넣어주세요");
+        img.focus();
+        return false;
+    }
+    if(category.value === ""){
+        alert("카테고리를 선택해주세요");
+        category.focus();
+        return false;
+    }
 
-    // fetch("http://localhost:8888/api/admin/products", {
-    fetch("http://localhost:8888/api/admin/products", {
+    // fetch("http://localhost:8889/api/admin/products", {
+    fetch("http://localhost:8889/api/admin/products", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -83,7 +77,7 @@ function sendit(){
     })
         .then((res) => {
             alert("상품 등록 성공!")
-            location.href="http://localhost:8888/admin/products";
+            location.href="/admin/products";
             return;
         })
         .then((data) => {
@@ -107,7 +101,7 @@ function productcreate_popdown(){
 // ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
 // view
 function productview_popup(idx){
-    fetch("http://localhost:8888/api/admin/products/" + idx)
+    fetch("http://localhost:8889/api/admin/products/" + idx)
         .then((response) => response.json())
         .then((data) => {
             // console.log(data);
@@ -116,6 +110,7 @@ function productview_popup(idx){
             document.querySelector(".name").innerHTML=data.data.name;
             document.querySelector(".nameKor").innerHTML=data.data.nameKor;
             document.getElementById("previewImg2").src=data.data.img;
+            console.log(data.data.img);
             // 상품 생성시 받아온 이미지 url을 layer_product_view의 img태그 class명을 찍어 src에 넣어줌
             document.querySelector(".brand").innerHTML=data.data.brand;
             document.querySelector(".size").innerHTML=data.data.size;
@@ -143,7 +138,7 @@ function productview_popdown() {
 // edit
 function productedit_popup(idx){
 
-    fetch('http://localhost:8888/api/admin/products/'+idx)
+    fetch('http://localhost:8889/api/admin/products/'+idx)
         .then((response) => response.json())
         .then((data) => {
             console.log(data);
@@ -187,7 +182,7 @@ function sendedit(idx) {
     const gender2 = document.getElementById('edit_gender').value;
     const collection2 = document.getElementById('edit_collection').value;
 
-    fetch('http://localhost:8888/api/admin/products' + idx, {
+    fetch('http://localhost:8889/api/admin/products' + idx, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -214,7 +209,7 @@ function sendedit(idx) {
     })
         .then((res) => {
             alert("상품 수정 성공!")
-            location.href="http://localhost:8888/admin/products";
+            location.href="/admin/products";
             return;
         })
         .then((data) => {
@@ -246,12 +241,10 @@ function productdelete_popup(idx){
 }
 
 function admindelete(idx){
-    console.log("111111");
-    fetch('http://localhost:8888/api/admin/products/'+idx, {
+    fetch('http://localhost:8889/api/admin/products/'+idx, {
         method: "DELETE"
     })
         .then((res) => {
-            console.log("222222");
             alert("상품 삭제 성공!")
             location.href="/admin/products";
             return;
@@ -349,31 +342,31 @@ function popImage(url) {
 }
 
 
-// edit 이미지 띄우기
-function readImage2(input) {
-    if(input.files && input.files[0]) {
-        const reader = new FileReader();
-        reader.onload = function(e){
-            // const previewImage = document.getElementById("previewImg"); // create img
-            // previewImage.src = e.target.result;
-
-            const previewImage2 = document.getElementsByClassName("edit_img"); // edit img
-            previewImage2.src = e.target.result;
-        }
-        // reader가 이미지 읽도록 하기
-        reader.readAsDataURL(input.files[0]);
-    }
-}
-// edit 이미지 원본 팝업 띄우기
-function popImage2(url) {
-    var img = new Image();
-    img.src = url;
-    var img_width = img.width;
-    var win_width = img.width + 25;
-    var img_height = img.height;
-    var win = img.height + 30;
-    var popup = window.open('', '_blank', 'width=' + img_width + ', height=' + img_height + ', menubars=no, scrollbars=auto');
-    popup.document.write("<style>body{margin:0px;}</style><img src='"+url+"' width='"+win_width+"'>");
-}
+// // edit 이미지 띄우기
+// function readImage2(input) {
+//     if(input.files && input.files[0]) {
+//         const reader = new FileReader();
+//         reader.onload = function(e){
+//             // const previewImage = document.getElementById("previewImg"); // create img
+//             // previewImage.src = e.target.result;
+//
+//             const previewImage2 = document.getElementsByClassName("edit_img"); // edit img
+//             previewImage2.src = e.target.result;
+//         }
+//         // reader가 이미지 읽도록 하기
+//         reader.readAsDataURL(input.files[0]);
+//     }
+// }
+// // edit 이미지 원본 팝업 띄우기
+// function popImage2(url) {
+//     var img = new Image();
+//     img.src = url;
+//     var img_width = img.width;
+//     var win_width = img.width + 25;
+//     var img_height = img.height;
+//     var win = img.height + 30;
+//     var popup = window.open('', '_blank', 'width=' + img_width + ', height=' + img_height + ', menubars=no, scrollbars=auto');
+//     popup.document.write("<style>body{margin:0px;}</style><img src='"+url+"' width='"+win_width+"'>");
+// }
 
 
