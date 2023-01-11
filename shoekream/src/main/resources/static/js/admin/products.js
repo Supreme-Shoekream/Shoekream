@@ -20,6 +20,11 @@ function sendit(){
     const gender = document.getElementById("gender"); // 성별
     const collection = document.getElementById("collection"); // 컬렉션
 
+    if(brand.value === ""){
+        alert("브랜드명을 작성해주세요");
+        brand.focus();
+        return false;
+    }
     if(img.value === ""){
         alert("상품 이미지를 넣어주세요");
         img.focus();
@@ -35,11 +40,7 @@ function sendit(){
         nameKor.focus();
         return false;
     }
-    if(brand.value === ""){
-        alert("브랜드명을 작성해주세요");
-        brand.focus();
-        return false;
-    }
+
     // if(size.value === ""){
     //     alert("사이즈를 작성해주세요");
     //     size.focus();
@@ -109,8 +110,8 @@ function productview_popup(idx){
     fetch("http://localhost:8888/api/admin/products/" + idx)
         .then((response) => response.json())
         .then((data) => {
-            console.log(data);
-            console.log(data.data.idx);
+            // console.log(data);
+            // console.log(data.data.idx);
             document.querySelector(".idx").innerHTML=data.data.idx;
             document.querySelector(".name").innerHTML=data.data.name;
             document.querySelector(".nameKor").innerHTML=data.data.nameKor;
