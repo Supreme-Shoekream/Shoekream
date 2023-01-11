@@ -215,16 +215,16 @@ INSERT INTO product (idx, brand, category, color, first_price, img, model_num, n
 
 
 
--- 좋아요
-insert into follow(follower_idx, following_idx) values(1,2);
-insert into follow(follower_idx, following_idx) values(1,3);
-insert into follow(follower_idx, following_idx) values(1,4);
-insert into follow(follower_idx, following_idx) values(1,5);
-insert into follow(follower_idx, following_idx) values(1,6);
-insert into follow(follower_idx, following_idx) values(1,7);
-insert into follow(follower_idx, following_idx) values(1,8);
-insert into follow(follower_idx, following_idx) values(1,9);
-insert into follow(follower_idx, following_idx) values(1,10);
+-- 팔로우
+insert into follow(follower_idx, following_idx) values(5,2);
+insert into follow(follower_idx, following_idx) values(5,3);
+insert into follow(follower_idx, following_idx) values(5,4);
+insert into follow(follower_idx, following_idx) values(5,5);
+insert into follow(follower_idx, following_idx) values(5,6);
+insert into follow(follower_idx, following_idx) values(5,7);
+insert into follow(follower_idx, following_idx) values(5,8);
+insert into follow(follower_idx, following_idx) values(5,9);
+insert into follow(follower_idx, following_idx) values(5,10);
 
 
 
@@ -233,8 +233,8 @@ insert into follow(follower_idx, following_idx) values(1,10);
 
 
 -- 게시글
-insert into board(hashtag, member_idx, content, img, created_at) values('아더에러자라', 2, '🇯🇵', 'https://kream-phinf.pstatic.net/MjAyMzAxMDdfMjYw/MDAxNjczMDU0MTc3Mjc4.tGBinGVZzKuNjAuTeVzYRnQE2wEF7cGfLouPQncuT3sg.nSPr4ZI3Dl28rjPT8ry1mFbOZ97y0Nni2MZD2ru0XoQg.JPEG/p_8d8b79b4eada48dbbe1edb58783acc7a.jpeg?type=m', now());
-insert into board(hashtag, member_idx, content, img, created_at) values('아더에러자라',2, '쇼핑은 절거워~ #아더에러 #범고래', 'https://kream-phinf.pstatic.net/MjAyMzAxMDdfODgg/MDAxNjczMDY4MTk1Nzgw.lpGeg5M-THRFnvv-AjtsDMr1YBT3CQ36jpLcLT4NfaUg.saVvBksUbZKu607fG7dPfBBUQHqmJ9i6Gytx8-KOZNUg.JPEG/p_1c40fe86e8a74671a41a95d5d57ff1a2.jpeg?type=m', now());
+# insert into board(hashtag, member_idx, content, img, created_at) values('아더에러자라', 2, '🇯🇵', 'https://kream-phinf.pstatic.net/MjAyMzAxMDdfMjYw/MDAxNjczMDU0MTc3Mjc4.tGBinGVZzKuNjAuTeVzYRnQE2wEF7cGfLouPQncuT3sg.nSPr4ZI3Dl28rjPT8ry1mFbOZ97y0Nni2MZD2ru0XoQg.JPEG/p_8d8b79b4eada48dbbe1edb58783acc7a.jpeg?type=m', now());
+# insert into board(hashtag, member_idx, content, img, created_at) values('아더에러자라',2, '쇼핑은 절거워~ #아더에러 #범고래', 'https://kream-phinf.pstatic.net/MjAyMzAxMDdfODgg/MDAxNjczMDY4MTk1Nzgw.lpGeg5M-THRFnvv-AjtsDMr1YBT3CQ36jpLcLT4NfaUg.saVvBksUbZKu607fG7dPfBBUQHqmJ9i6Gytx8-KOZNUg.JPEG/p_1c40fe86e8a74671a41a95d5d57ff1a2.jpeg?type=m', now());
 insert into board(member_idx, content, img, created_at) values(3, '🤍 #데일리룩 #KREAM스타일','https://kream-phinf.pstatic.net/MjAyMzAxMDdfMjkx/MDAxNjczMDU2NjQ2MTc1.IRm8yHhuSxMOPSwr9Ff_xQBSxwnUbGXOgOGZ05xLVGEg.LjiQK3GtJiIAb31Wf4RiUdDN175wwT5dyumOAy1nbbog.JPEG/p_347c21c5f10b482b91046e176a4809e0.jpeg?type=m', now());
 insert into board(member_idx, content, img, created_at) values(4, '🐾
 .
@@ -283,7 +283,7 @@ insert into board(member_idx, content, img, created_at) values(20, '#슈프림�
 
 -- # 댓글
 insert into reply(content, board_idx, member_idx, created_at) values('댓글1😎', 1, 1, now());
-insert into reply(content, board_idx, member_idx) values('댓글2😎', 1, 10);
+insert into reply(content, board_idx, member_idx) values('댓글2😎', 1, 6);
 insert into reply(content, board_idx, member_idx) values('댓글3😎', 2, 5);
 
 
@@ -490,3 +490,15 @@ insert into buy (product_idx, member_idx, type, period, use_point, price, card_i
 insert into buy (product_idx, member_idx, type, period, use_point, price, card_info, receiver, receiver_hp, receiver_address, delivery_memo, created_at, progress, status) values (78, 12, null, 5, 5000, 210000, '377305259596870', 'Ina', '881-275-3269', '15579 Warbler Plaza', 'Whale, southern right', '2022-06-09', null, null);
 insert into buy (product_idx, member_idx, type, period, use_point, price, card_info, receiver, receiver_hp, receiver_address, delivery_memo, created_at, progress, status) values (86, 75, null, 25, 3000, 248000, '373919249654567', 'Alverta', '484-121-3122', '43 2nd Hill', 'Springbok', '2022-11-14', null, null);
 insert into buy (product_idx, member_idx, type, period, use_point, price, card_info, receiver, receiver_hp, receiver_address, delivery_memo, created_at, progress, status) values (33, 65, null, 36, 5000, 233000, '372301507404723', 'Traver', '923-179-5457', '0419 Ohio Park', 'Crane, sarus', '2022-02-18', null, null);
+
+-- 체결내역
+insert into conclusion (price, product_idx, created_at) values ('298,000원', 5, '2022/02/14');
+insert into conclusion (price, product_idx, created_at) values ('360,000원', 5, '2022/02/08');
+insert into conclusion (price, product_idx, created_at) values ('310,000원', 5, '2022/02/15');
+insert into conclusion (price, product_idx, created_at) values ('263,000원', 37, '2022/03/31');
+insert into conclusion (price, product_idx, created_at) values ('210,000원', 40, '2022/09/02');
+insert into conclusion (price, product_idx, created_at) values ('389,000원', 42, '2022/10/09');
+insert into conclusion (price, product_idx, created_at) values ('288,000원', 47, '2023/01/05');
+insert into conclusion (price, product_idx, created_at) values ('620,000원', 43, '2022/01/27');
+insert into conclusion (price, product_idx, created_at) values ('165,000원', 12, '2022/07/02');
+insert into conclusion (price, product_idx, created_at) values ('557,000원', 14, '2022/05/07');

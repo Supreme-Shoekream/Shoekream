@@ -58,7 +58,7 @@ public class SocialPageController {
 //            userid = (String)session.getAttribute("id");
 //            Long sessionUserIdx = memberRepository.findByMemberId(userid).get().getIdx();
 //            List<Follow> followings = followRepository.findAllByfollowerIdx(sessionUserIdx);
-            List<Follow> followings = followRepository.findAllByfollowerIdx(1L);
+            List<Follow> followings = followRepository.findAllByfollowerIdx(5L);
             List<Board> feed;
             feed = new ArrayList<>();
             for(int i=0; i<followings.size(); i++){
@@ -67,7 +67,7 @@ public class SocialPageController {
                     feed.add(sub.get(j));
                 }
             }
-        Member sessionUser = memberRepository.getOne(1L);
+        Member sessionUser = memberRepository.getOne(5L);
             map.addAttribute("feed", feed);
             map.addAttribute("sessionUser",sessionUser);
             return "social/following";

@@ -127,4 +127,8 @@ public class ProductApiLogicService extends BaseService<ProductApiRequest, Produ
 //                .orElseThrow(() -> new EntityNotFoundException("사이즈가 없습니다 - articleId: " + articleId));
 //    }
 
+    public List<Product> selectProductList() throws Exception{
+        return productRepository.findByOrderByIdxDesc();
+    };
+
 }

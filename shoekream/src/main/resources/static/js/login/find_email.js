@@ -51,5 +51,5 @@ document.querySelectorAll('#hp_input').forEach((item) =>{
                 $(this).addClass("active");
                 $("#find_btn").removeClass("disabled")
             }
-                })
-            });
+        })
+    });
