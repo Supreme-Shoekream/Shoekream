@@ -18,10 +18,10 @@
                     `<tr>
                         <td class="table-plus">
                           <img
-                                  src="${dto.img}"
-                                  width="70"
-                                  height="70"
-                                  alt=""
+                              src="${dto.img}"
+                              width="70"
+                              height="70"
+                              alt=""
                           />
                         </td>
                         <td>${dto.brand}</td>
@@ -46,10 +46,6 @@
                               <i class="dw dw-more"></i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-        <!--                      <a class="dropdown-item" href="/admin/products/view"><i class="dw dw-eye"></i>View</a>-->
-        <!--                      <a class="dropdown-item" href="/admin/products/edit"><i class="dw dw-edit2"></i>Edit</a>-->
-        <!--                      <a class="dropdown-item" href="/admin/products/delete"><i class="dw dw-delete-3"></i>Delete</a>-->
-        <!--                        <a class="dropdown-item" id="product_view" v-on:onclick="productview_popup"><i class="dw dw-eye"></i>View</a>-->
                                 <a class="dropdown-item" onclick="productview_popup(${dto.idx})"><i class="dw dw-eye"></i>View</a>
                                 <a class="dropdown-item" onclick="productedit_popup(${dto.idx})"><i class="dw dw-edit2"></i>Edit</a>
                                 <a class="dropdown-item" onclick="productdelete_popup(${dto.idx})"><i class="dw dw-delete-3"></i>Delete</a>
