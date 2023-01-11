@@ -11,7 +11,9 @@ function pop_style_view(idx){
             }
             document.querySelector(".user_name").innerHTML=data.member.memberId;
             document.querySelector(".text_box").innerHTML=data.content;
+            console.log(data.lks.length);
             document.querySelector(".like_count").innerHTML=data.lks.length;
+
             document.querySelector(".comment_count").innerHTML=data.replies.length;
 
             // 상품태그 추가‼‼‼‼
