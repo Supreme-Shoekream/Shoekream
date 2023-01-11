@@ -1,7 +1,7 @@
 // ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
 // view
 
-    fetch("http://localhost:8888/product/" + idx)
+    fetch("http://localhost:8889/product/" + idx)
         .then((response) => response.json())
         .then((data) => {
             console.log(data);
