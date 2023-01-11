@@ -1,6 +1,7 @@
 package com.supreme.shoekream.model.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.supreme.shoekream.model.config.Auditable;
 import com.supreme.shoekream.model.config.BaseEntity;
 import lombok.*;
@@ -35,14 +36,16 @@ public class Board extends BaseEntity implements Auditable {
     public Member member;
 
     @ToString.Exclude
+//    @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "board", cascade = CascadeType.ALL)
     private List<Lk> lks;
 
     @ToString.Exclude
+//    @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "board", cascade = CascadeType.ALL)
     private List<Reply> replies;
 
-    @ToString.Exclude
+    @ToString.Exclude@JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "board", cascade = CascadeType.ALL)
     private List<Tag> tags;
 }
