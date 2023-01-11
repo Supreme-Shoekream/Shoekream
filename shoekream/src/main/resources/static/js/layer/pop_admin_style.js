@@ -1,5 +1,5 @@
 function pop_style_view(idx){
-    fetch("http://localhost:8888/api/social/" +idx)
+    fetch("http://localhost:8889/api/social/" +idx)
         .then((response) => response.json())
         .then((data) => {
             console.log(data)
