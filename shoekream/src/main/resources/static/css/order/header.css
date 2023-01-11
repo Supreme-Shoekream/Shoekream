@@ -78,11 +78,11 @@ h1 {
     max-width: 466px;
 }
 
-h2 {
-    display: block;
-    font-size: 1.5em;
-    font-weight: bold;
-}
+/*h2 {*/
+/*    display: block;*/
+/*    font-size: 1.5em;*/
+/*    font-weight: bold;*/
+/*}*/
 
 .right {
     min-width: 120px;
@@ -116,4 +116,9 @@ h2 {
     text-align: center;
     color: rgba(34,34,34,.8);
     background-color: #fff;
+}
+.title_txt{
+    font-size: 24px;
+    letter-spacing: -.48px;
+    font-weight: 700;
 }

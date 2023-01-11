@@ -55,7 +55,7 @@ public class ProductPageController {
 //            return "/product/product";
 //        }
 
-        return "/product/product";
+        return "product/product";
 
     }
 

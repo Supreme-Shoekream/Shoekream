@@ -38,7 +38,7 @@ public class QBuy extends EntityPathBase<Buy> {
 
     public final QProduct product;
 
-    public final EnumPath<com.supreme.shoekream.model.enumclass.Progress> progress = createEnum("progress", com.supreme.shoekream.model.enumclass.Progress.class);
+    public final StringPath progress = createString("progress");
 
     public final StringPath receiver = createString("receiver");
 
@@ -48,9 +48,9 @@ public class QBuy extends EntityPathBase<Buy> {
 
     public final QSell sell;
 
-    public final EnumPath<com.supreme.shoekream.model.enumclass.SellBuyStatus> status = createEnum("status", com.supreme.shoekream.model.enumclass.SellBuyStatus.class);
+    public final StringPath status = createString("status");
 
-    public final EnumPath<com.supreme.shoekream.model.enumclass.Type> type = createEnum("type", com.supreme.shoekream.model.enumclass.Type.class);
+    public final StringPath type = createString("type");
 
     public final NumberPath<Long> usePoint = createNumber("usePoint", Long.class);
 

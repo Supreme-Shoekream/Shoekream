@@ -1,6 +1,6 @@
 *{
-    margin:0; 
-    padding: 0; 
+    margin:0;
+    padding: 0;
     list-style: none;
 }
 *, :after, :before {
@@ -61,6 +61,11 @@ a{
 }
 .buy_before_check {
     background-color: #fff;
+}
+.title_txt{
+    font-size: 24px;
+    letter-spacing: -.48px;
+    font-weight: 700;
 }
 .title_area {
     display: -webkit-box;
@@ -126,7 +131,7 @@ a{
     flex: 1;
     padding-left: 16px;
 }
-.buy_before .model_info, 
+.buy_before .model_info,
 .layer_market_price .model_info{
     padding-top: 0;
 }
@@ -182,7 +187,7 @@ a{
     font-weight: 700;
     letter-spacing: 0;
 }
-.buy_before_check .check_list, 
+.buy_before_check .check_list,
 .sell_before_check .check_list{
     margin: 0 32px 8px;
     padding: 0;
@@ -233,14 +238,14 @@ a{
 
 /* 체크박스 꾸미기 */
 input[class="check"] + label {
-	display: inline-block;
-	width: 24px;
-	height: 24px;
-	border: 1px solid #bcbcbc;
-	cursor: pointer;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border: 1px solid #bcbcbc;
+    cursor: pointer;
 }
 input[class="check"]:checked + label {
-    background-image:url("..//img/check.png");
+    background-image:url("/img/check.png");
     background-size: 100%;
     border: 1px solid #fff;
 }
@@ -321,11 +326,7 @@ input[class="check"]:checked + label {
     letter-spacing: -.16px;
     width: 100%;
 }
-h2 {
-    display: block;
-    font-size: 1.5em;
-    font-weight: bold;
-}
+
 .icon{
     width: 24px;
     height: 24px;

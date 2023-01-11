@@ -33,7 +33,7 @@ public class Buy{
     @ManyToOne @JoinColumn(name="member_idx")
     private Member member; // 세션값을 저장할예정!
 
-    @Enumerated(EnumType.STRING) private Type type; // 구매 방법(구매입찰/즉시구매)
+    private String type; // 구매 방법(구매입찰/즉시구매)
     private Long price; // 구매 가격
 //    @Enumerated(EnumType.STRING) private Period period; // 입찰 마감기한(1일/3일/7일/30일/60일) 실제 출력: 30일 - 23/02/07까지
     private int period; // 숫자로 저장하고, 받아야지 계산하기가 편함. 마감날짜 등록날짜 + period
@@ -41,8 +41,8 @@ public class Buy{
     private String cardInfo; // 결재한 카드 idx을 하지 않고, 선택된 결재방법중 할지 카드번호 BC **** **** **** 0736로 출력됨
     private LocalDateTime createdAt; // 구매 날짜 : now()로 설정 - 거래일시
     //    private Long sell_idx; // 체결 번호 -- 없애고, 즉시구매가 될때 따로 등록
-    @Enumerated(EnumType.STRING) private Progress progress; // 진행 상황(발송완료/입고완료/검수합격/배송완료)
-    @Enumerated(EnumType.STRING) private SellBuyStatus status; // 구매 상태(입찰중/기한만료/진행중/종료)
+    private String progress; // 진행 상황(발송완료/입고완료/검수합격/배송완료)
+    private String status; // 구매 상태(입찰중/기한만료/진행중/종료)
     //배송주소랑 배송요청사항 필요 - 같이 업테이트 되는 것은 아님 사용자가 입력한 값을 보낼것임 연관관계 필요없음
     private String receiver;
     private String receiver_hp;
