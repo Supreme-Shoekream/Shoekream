@@ -11,7 +11,7 @@ public class BrandPageController {
 
     @GetMapping(path="") //http://localhost:8888/brand
     public ModelAndView brand(){
-        return new ModelAndView("/brand.html");
+        return new ModelAndView("/product/brand");
     }
 
 

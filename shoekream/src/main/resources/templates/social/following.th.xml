@@ -13,6 +13,8 @@
                 <attr sel=".img_box/img" th:src="${detail.img}"/>
             </attr>
 
+<!--            <attr sel=""-->
+
             <attr sel="#like_cnt" th:text="${detail.lks.size()}" th:onclick="'javascript:pop_like('+ ${detail.idx} + ');'"/>
 
             <attr sel=".social_text">

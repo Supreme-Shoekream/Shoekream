@@ -1,3 +1,47 @@
+window.onload = function(){
+    const btn = document.querySelector('.btn_join');
+    btn.addEventListener('click',sendit);
+}
+function sendit() {
+    //request로 필요한 DOM 객체 선택
+    const email = document.getElementById('email_input');
+    const memberPw = document.getElementById('password_input');
+    const shoeSize = document.getElementById('input_shoesize');
+    const name = document.getElementById('name_input');
+    const hp = document.getElementById('hp_input');
+
+    fetch('http://localhost:9999/join', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            //우리가 만든데이터
+            "transaction_time": `${new Date()}`,
+            "resultCode": "ok",
+            "description": "정상",
+            "data": {
+                "email": `${email.value}`,
+                "memberPw": `${memberPw.value}`,
+                "shoeSize": `${shoeSize.value}`,
+                "name": `${name.value}`,
+                "hp": `${hp.value}`
+            }
+        }),
+    })
+
+        .then((res) => {
+            alert('등록성공!')
+            location.href = 'http://localhost:9999/login';
+            return; //리턴을 걸어서 진행하는 것을 막는다!
+        })
+        .then((data) => {
+            console.log(data);
+            return;
+        })
+        .catch((err) => {
+            alert(err);
+        })
+}
+
 // 사이즈 팝업창
 function size_layer(){
     document.querySelector('.size_layer').style.display="block"
@@ -64,6 +108,13 @@ function validateName(strName){
         return false;
     }
     return true;
+}
+
+// 휴대폰 번호 자동 하이픈(-) 정규식
+const autoHyphen = (target) => {
+    target.value = target.value
+        .replace(/[^0-9]/g, '')
+        .replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`);
 }
 
 // 휴대폰 번호 정규 표현식
@@ -146,10 +197,10 @@ document.querySelectorAll('#email_input').forEach((item) =>{
     item.addEventListener('blur', e=>{
         strEmail=e.target.value;
         if((validateEmail(strEmail))&&(validatePassword(strPassword))&&(validateName(strName))&&(validateHp(strHp))){
-            $("#btn_submitSignIn").removeClass("active");
+            $("#btn_submitSignIn").addClass("active");
             $("#btn_submitSignIn").removeClass("disabled")
         }else{
-            $("#btn_submitSignIn").addClass("active");
+            $("#btn_submitSignIn").removeClass("active");
             $("#btn_submitSignIn").addClass("disabled")
         }
     })
@@ -159,10 +210,10 @@ document.querySelectorAll('#password_input').forEach((item) =>{
     item.addEventListener('blur', e=>{
         strPassword=e.target.value;
         if((validateEmail(strEmail))&&(validatePassword(strPassword))&&(validateName(strName))&&(validateHp(strHp))){
-            $("#btn_submitSignIn").removeClass("active");
+            $("#btn_submitSignIn").addClass("active");
             $("#btn_submitSignIn").removeClass("disabled")
         }else{
-            $("#btn_submitSignIn").addClass("active");
+            $("#btn_submitSignIn").removeClass("active");
             $("#btn_submitSignIn").addClass("disabled")
         }
     })
@@ -172,10 +223,10 @@ document.querySelectorAll('#name_input').forEach((item) =>{
     item.addEventListener('blur', e=>{
         strName=e.target.value;
         if((validateEmail(strEmail))&&(validatePassword(strPassword))&&(validateName(strName))&&(validateHp(strHp))){
-            $("#btn_submitSignIn").removeClass("active");
+            $("#btn_submitSignIn").addClass("active");
             $("#btn_submitSignIn").removeClass("disabled")
         }else{
-            $("#btn_submitSignIn").addClass("active");
+            $("#btn_submitSignIn").removeClass("active");
             $("#btn_submitSignIn").addClass("disabled")
         }
     })
@@ -185,55 +236,12 @@ document.querySelectorAll('#hp_input').forEach((item) =>{
     item.addEventListener('blur', e=>{
         strHp=e.target.value;
         if((validateEmail(strEmail))&&(validatePassword(strPassword))&&(validateName(strName))&&(validateHp(strHp))){
-            $("#btn_submitSignIn").removeClass("active");
+            $("#btn_submitSignIn").addClass("active");
             $("#btn_submitSignIn").removeClass("disabled")
         }else{
-            $("#btn_submitSignIn").addClass("active");
+            $("#btn_submitSignIn").removeClass("active");
             $("#btn_submitSignIn").addClass("disabled")
         }
     })
 });
 
-window.onload = function(){
-    const btn = document.querySelector('.btn_join');
-    btn.addEventListener('click',sendit);
-}
-function sendit() {
-    //request로 필요한 DOM 객체 선택
-    const email = document.getElementById('email_input');
-    const memberPw = document.getElementById('password_input');
-    const shoeSize = document.getElementById('input_shoesize');
-    const name = document.getElementById('name_input');
-    const hp = document.getElementById('hp_input');
-
-    fetch('http://localhost:9999/join', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
-            //우리가 만든데이터
-            "transaction_time": `${new Date()}`,
-            "resultCode": "ok",
-            "description": "정상",
-            "data": {
-                "email": `${email.value}`,
-                "memberPw": `${memberPw.value}`,
-                "shoeSize": `${shoeSize.value}`,
-                "name": `${name.value}`,
-                "hp": `${hp.value}`
-            }
-        }),
-    })
-
-        .then((res) => {
-            alert('등록성공!')
-            location.href = 'http://localhost:9999/login';
-            return; //리턴을 걸어서 진행하는 것을 막는다!
-        })
-        .then((data) => {
-            console.log(data);
-            return;
-        })
-        .catch((err) => {
-            alert(err);
-        })
-}

@@ -21,7 +21,7 @@ public class MemberApiController extends CrudController<MemberApiRequest, Member
     private final MemberApiLogicService memberApiLogicService;
 
 //    @Override
-//    @PostMapping("create")    // http://localhost:9999/api/admin/users/create (post)
+//    @PostMapping("join")    // http://localhost:9999/api/admin/users/create (post)
 //    public Header<MemberApiResponse> create(@RequestBody Header<MemberApiRequest> request) {
 //        return memberApiLogicService.create(request);
 //    }

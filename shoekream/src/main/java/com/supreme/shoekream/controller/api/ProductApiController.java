@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController // url 호출시 json 응답/요청 가능
+@RestController
 @RequestMapping("/api/admin/products") // http://localhost:8888/api/admin/products
 @RequiredArgsConstructor
 public class ProductApiController extends CrudController<ProductApiRequest, ProductApiResponse, Product> {
