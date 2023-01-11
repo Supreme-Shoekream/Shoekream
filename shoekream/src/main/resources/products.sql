@@ -4,6 +4,15 @@ delete from product;
 ALTER TABLE product ADD gender varchar(10);
 ALTER TABLE product ADD collection varchar(50);
 
+drop table conclusion;
+
+create table conclusion(
+                           idx int auto_increment primary key,
+                           price varchar(10) not null,
+                           product_idx int not null,
+                           created_at date
+);
+
 INSERT INTO product (idx, brand, category, color, first_price, img, model_num, name, name_kor, release_date, size, wish_count, gender, collection) VALUES (1, '아디다스', '스니커즈', '블랙', '150,000원', 'C:\\fakepath\\뽀로로.png', '3333', '슈퍼스타', '슈퍼스타', '2021-12-12', '240', null, null, null);
 INSERT INTO product (idx, brand, category, color, first_price, img, model_num, name, name_kor, release_date, size, wish_count, gender, collection) VALUES (2, 'nike', '부츠', 'WHITE', '139,000원', 'C:\\fakepath\\뽀로로.png', '2222', 'airforce', '에어포스', '', '240', null, null, null);
 INSERT INTO product (idx, brand, category, color, first_price, img, model_num, name, name_kor, release_date, size, wish_count, gender, collection) VALUES (3, 'newblance', '스니커즈', 'gray', '329,000원', 'C:\\fakepath\\뽀로로.png', '3333', '993', '993', '2022-01-07', '275', null, null, null);
