@@ -6,11 +6,11 @@ function getCheck() {
 
     if (cnt == 5) {
         $("#next").css("background-color", "black");
-        document.querySelector('.btn').disabled = false;
+        document.querySelector("#next").disabled = false;
 
     } else {
-        $("#next").css("background-color", "rgb(214,214,214)");
-        document.querySelector('.btn').disabled = true;
+        $("#next").css("background-color", "#ebebeb");
+        document.querySelector("#next").disabled = true;
     }
 }
 

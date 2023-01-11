@@ -29,7 +29,7 @@ public class Sell {
     @ManyToOne
     @JoinColumn(name="member_idx")
     private Member member;
-    @Enumerated(EnumType.STRING) private Type type; // 판매 방법(판매입찰/즉시판매)
+    private String type; // 판매 방법(판매입찰/즉시판매)
     private Long price; // 판매 가격
 //    @Enumerated(EnumType.STRING) private Period period; // 입찰 마감기한(1일/3일/7일/30일/60일)
     private int period;
@@ -42,8 +42,8 @@ public class Sell {
     private String senderAddress;
     private String deliveryMemo;
 
-    @Enumerated(EnumType.STRING) private Progress progress; // 진행 상황(발송완료/입고완료/검수합격/검수불합격(거래실패)/정산완료/취소완료)
-    @Enumerated(EnumType.STRING) private SellBuyStatus status; // 구매 상태(입찰중/기한만료/진행중/종료)
+    private String progress; // 진행 상황(발송완료/입고완료/검수합격/검수불합격(거래실패)/정산완료/취소완료)
+    private String status; // 구매 상태(입찰중/기한만료/진행중/종료)
 
     @OneToOne(mappedBy = "sell")
     private Buy buy;
