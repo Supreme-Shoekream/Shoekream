@@ -16,21 +16,23 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import static java.time.LocalDateTime.now;
+
 @Service
 @RequiredArgsConstructor
 public class AdminApiLogicService extends BaseService<AdminApiRequest, AdminApiResponse, Admin>{
 
     private final AdminRepository adminRepository;
 
-    private AdminApiResponse response(Admin users){
+    private AdminApiResponse response(Admin admin){
         AdminApiResponse adminUserApiResponse = AdminApiResponse.builder()
-                .idx(users.getIdx())
-                .adminid(users.getAdminid())
-                .adminpw(users.getAdminpw())
-                .name(users.getName())
-                .hp(users.getHp())
-                .createdAt(users.getCreatedAt())
-                .status(users.getStatus())
+                .idx(admin.getIdx())
+                .adminid(admin.getAdminid())
+                .adminpw(admin.getAdminpw())
+                .name(admin.getName())
+                .hp(admin.getHp())
+                .createdAt(now())
+                .status(admin.getStatus())
                 .build();
         return adminUserApiResponse;
     }
