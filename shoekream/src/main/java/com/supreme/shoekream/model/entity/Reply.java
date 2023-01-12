@@ -1,5 +1,6 @@
 package com.supreme.shoekream.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.supreme.shoekream.model.config.Auditable;
 import com.supreme.shoekream.model.config.BaseEntity;
 import lombok.*;
@@ -24,12 +25,14 @@ public class Reply extends BaseEntity implements Auditable {
 
 //    private Long memberIdx;     //ManyToOne
     @OneToOne
+    @JsonIgnore
     private Member member;
     private String content;
 //    private Long boardIdx;      // ManyToOne
 //    private LocalDateTime createdAt;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name="board_idx")
     private Board board;
 
