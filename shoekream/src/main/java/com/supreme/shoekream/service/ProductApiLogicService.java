@@ -120,12 +120,4 @@ public class ProductApiLogicService extends BaseService<ProductApiRequest, Produ
         return Header.OK(productApiResponses, pagination);
     }
 
-//    @Transactional(readOnly = true)
-//    public ProductDTO getProduct(Long idx){ // 검색(보기)
-//        return productRepository.findByIdx(idx)
-//                .map(ProductDTO::from)
-//                .orElseThrow(() -> new EntityNotFoundException("사이즈가 없습니다 - articleId: " + articleId));
-//    }
-
-
 }
