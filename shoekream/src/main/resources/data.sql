@@ -1,5 +1,5 @@
 
-insert into member (member_id, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('root', '{noop}1234', '박수성', '010-795-9985', 'clounds0@mlb.com', 0, 240, 100, 'Red', '/img/kream_empty_img.png');
+insert into member (member_id, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('root', '{noop}1234', '박수성', '010-795-9985', 'root', 0, 240, 100, 'Red', '/img/kream_empty_img.png');
 insert into member (member_id, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('hsd_09_', 'PtLR!@0aXZKp', '박서준', '010-877-1330', 'zkrochmann1@ft.com', 0, 240, 200, 'Goldenrod', '/img/styleImg/profile1.jpeg');
 insert into member (member_id, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('i.tohewa', 'YB6P!@BcWrzC', '신동열', '010-450-0814', 'smaffioni2@unicef.org', 0, 230, 300, 'Mauv', '/img/styleImg/profile2.jpeg');
 insert into member (member_id, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('this_is_me_dew', 'SMWl!@rG', '박준영', '010-272-0199', 'tconrard3@si.edu', 0, 270, 400, 'Aquamarine', '/img/styleImg/profile3.jpeg');
@@ -337,13 +337,13 @@ insert into follow(follower_idx, following_idx) values(5,10);
 
 
 -- 게시글
-insert into board(hashtag, member_idx, content, img, created_at) values('아더에러자라', 1, '🇯🇵', '/img/styleImg/feed1.jpeg', now());
-insert into board(hashtag, member_idx, content, img, created_at) values('아더에러자라',2, '쇼핑은 절거워~ #아더에러 #범고래', '/img/styleImg/feed2.jpeg', now());
-insert into board(member_idx, content, img, created_at) values(3, '🤍 #데일리룩 #KREAM스타일','/img/styleImg/feed3.jpeg', now());
-insert into board(member_idx, content, img, created_at) values(4, '🐾
-.
-.
-.
+# insert into board(hashtag, member_idx, content, img, created_at) values('아더에러자라', 1, '🇯🇵', '/img/styleImg/feed1.jpeg', now());
+# insert into board(hashtag, member_idx, content, img, created_at) values('아더에러자라',2, '쇼핑은 절거워~ #아더에러 #범고래', '/img/styleImg/feed2.jpeg', now());
+# insert into board(member_idx, content, img, created_at) values(3, '🤍 #데일리룩 #KREAM스타일','/img/styleImg/feed3.jpeg', now());
+# insert into board(member_idx, content, img, created_at) values(4, '🐾
+# .
+# .
+# .
  #KREAM스타일 #아웃핏 #데일리룩 #오오티디 #겨울코디 #학생코디 #여자코디 #스트릿 #캐주얼 #캐트릿 #무채색 #무채색코디 #streetwear #streetmood #outfit #dailylook #에어포스', '/img/styleImg/feed4.jpeg',now());
 insert into board(member_idx, content, img, created_at) values(5, '#KREAM #jordan1', '/img/styleImg/feed5.jpeg', now());
 insert into board(member_idx, content, img, created_at) values(6, '🖤 #결산템챌린지', '/img/styleImg/feed6.jpeg', now());

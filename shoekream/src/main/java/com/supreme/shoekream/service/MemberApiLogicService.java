@@ -95,7 +95,7 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
 
     public Header<MemberApiResponse> login(Header<MemberApiRequest> request){
         MemberApiRequest memberApiRequest = request.getData();
-        Optional<Member> member =memberRepository.findByEmailAndMemberPw(
+        Optional<Member> member = memberRepository.findByEmailAndMemberPw(
                 memberApiRequest.getEmail(),memberApiRequest.getMemberPw()
         );
         if (!member.isEmpty()){
