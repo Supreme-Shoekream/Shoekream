@@ -19,7 +19,7 @@ import java.util.Iterator;
 public class ShopCrawling {
     public static void main(String[] args) {
         int maximum = 50;
-        String kreamurl = "https://kream.co.kr/search?category_id=34&per_page=40";
+        String kreamurl = "https://kream.co.kr/search?category_id=11&per_page=40";
         String url = "";
         Document doc = null;
         Connection conn = null;
@@ -40,8 +40,7 @@ public class ShopCrawling {
         int size = elements3.size();
 
         for (Element element : elements3) {
-            int count = 1;
-            System.out.println(count + "🟡");
+            System.out.println("🟡");
             Elements imgs = element.getElementsByAttributeValue("class", "item_inner");
             Elements p_img = imgs.select("img.image");
 
@@ -78,7 +77,7 @@ public class ShopCrawling {
 
                     conn2 = (HttpURLConnection) imgUrl.openConnection();
                     conn2.setRequestProperty("Referer", "https://kream.co.kr/products/");
-                    System.out.println("Img URL : " + img_url);
+//                    System.out.println("Img URL : " + img_url);
 
                     BufferedImage buffImg = ImageIO.read(conn2.getInputStream());
                     FileOutputStream file = new FileOutputStream(path + filename + ".png");
@@ -105,7 +104,6 @@ public class ShopCrawling {
                     pstmt.setString(6,wish_count);
                     pstmt.setString(7,style_count);
                     x = pstmt.executeUpdate();
-                    count = count + 1;
                 }catch(Exception e) {
                     e.printStackTrace();
                 }
