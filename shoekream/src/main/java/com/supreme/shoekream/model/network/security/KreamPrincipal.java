@@ -27,7 +27,7 @@ public record KreamPrincipal(
                 idx,
                 memberId,
                 memberPw,
-                roleTypes.stream().map(RoleType::getIdx)
+                roleTypes.stream().map(RoleType::getEmail)
                         .map(SimpleGrantedAuthority::new)
                         .collect(Collectors.toUnmodifiableSet()),
                 name,
@@ -37,7 +37,7 @@ public record KreamPrincipal(
         );
     }
 
-    public static KreamPrincipal from(MemberApiResponse member){
+    public static KreamPrincipal from(Member member){
         return KreamPrincipal.of(
                 member.getIdx(),
                 member.getMemberId(),
@@ -86,9 +86,9 @@ public record KreamPrincipal(
 
     public enum RoleType {
         USER("ROLE_USER");
-        @Getter private final String idx;
-        RoleType(String idx){
-            this.idx = idx;
+        @Getter private final String email;
+        RoleType(String email){
+            this.email = email;
         }
     }
 }
