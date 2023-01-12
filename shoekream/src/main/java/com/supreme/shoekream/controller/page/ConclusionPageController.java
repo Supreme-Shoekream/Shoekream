@@ -25,6 +25,4 @@ public class ConclusionPageController {
         return "adminpage/conclusion";
     }
 
-
-
 }
