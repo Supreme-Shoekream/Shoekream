@@ -1,6 +1,5 @@
 package com.supreme.shoekream.controller.page;
 
-import com.supreme.shoekream.model.entity.Address;
 import com.supreme.shoekream.model.network.Header;
 import com.supreme.shoekream.model.network.response.MemberApiResponse;
 import com.supreme.shoekream.model.network.response.ProductApiResponse;
@@ -22,7 +21,7 @@ import javax.servlet.http.HttpSession;
 @Controller
 @RequestMapping("/")
 @RequiredArgsConstructor
-public class pageController {
+public class PageController {
 
     private final ProductApiLogicService productApiLogicService;
     private final MemberApiLogicService memberApiLogicService;
