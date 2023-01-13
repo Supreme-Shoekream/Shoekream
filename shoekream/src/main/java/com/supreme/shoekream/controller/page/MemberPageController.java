@@ -12,18 +12,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Controller
-@RequestMapping("") // http://localhost:9999/
+@RequestMapping("") // http://localhost:8889/
 public class MemberPageController {
 
     @Autowired
     private MemberApiLogicService memberApiLogicService;
 
-    @GetMapping(path="login")   //http://localhost:9999/login
+    @GetMapping(path="login")   // http://localhost:8889/login
     public ModelAndView login(){
         return new ModelAndView("/login/login.html");
     }
 
-    @PostMapping(path="/loginOk")   //http://localhost:9999/loginOk
+    @PostMapping(path="/loginOk")   // http://localhost:8889/loginOk
     public String loginOk(HttpServletRequest request, String email, String memberPw){
         if(memberApiLogicService.read(email, memberPw).getData() != null){
             HttpSession session = request.getSession();
@@ -43,12 +43,12 @@ public class MemberPageController {
         return "redirect:/login";
     }
 
-    @GetMapping(path="join")   //http://localhost:9999/join
+    @GetMapping(path="join")   //http://localhost:8889/join
     public ModelAndView join(){
         return new ModelAndView("/login/join");
     }
 
-    @GetMapping(path="joinOk")   //http://localhost:9999/join
+    @GetMapping(path="joinOk")   //http://localhost:8889/join
     public ModelAndView joinOk(HttpServletRequest request){
         HttpSession session = request.getSession(false);
         String memberPw =null;
@@ -76,7 +76,7 @@ public class MemberPageController {
         }
     }
 
-    @GetMapping(path="find_email")   //http://localhost:9999/find_email
+    @GetMapping(path="find_email")   //http://localhost:8889/find_email
     public ModelAndView find_email(){
         return new ModelAndView("/login/find_email");
     }

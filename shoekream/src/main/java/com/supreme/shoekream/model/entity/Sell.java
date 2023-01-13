@@ -1,13 +1,6 @@
 package com.supreme.shoekream.model.entity;
 
-import com.supreme.shoekream.model.config.Auditable;
-import com.supreme.shoekream.model.config.BaseEntity;
-import com.supreme.shoekream.model.enumclass.Period;
-import com.supreme.shoekream.model.enumclass.Progress;
-import com.supreme.shoekream.model.enumclass.SellBuyStatus;
-import com.supreme.shoekream.model.enumclass.Type;
 import lombok.*;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;

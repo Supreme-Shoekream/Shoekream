@@ -10,7 +10,7 @@ function sendit() {
     const name = document.getElementById('name_input');
     const hp = document.getElementById('hp_input');
 
-    fetch('http://localhost:9999/join', {
+    fetch('http://localhost:8889/join', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -30,7 +30,7 @@ function sendit() {
 
         .then((res) => {
             alert('등록성공!')
-            location.href = 'http://localhost:9999/login';
+            location.href = 'http://localhost:8889/login';
             return; //리턴을 걸어서 진행하는 것을 막는다!
         })
         .then((data) => {

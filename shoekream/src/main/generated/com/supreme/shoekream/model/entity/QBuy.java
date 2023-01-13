@@ -26,7 +26,7 @@ public class QBuy extends EntityPathBase<Buy> {
 
     public final DateTimePath<java.time.LocalDateTime> createdAt = createDateTime("createdAt", java.time.LocalDateTime.class);
 
-    public final StringPath delivery_memo = createString("delivery_memo");
+    public final StringPath deliveryMemo = createString("deliveryMemo");
 
     public final NumberPath<Long> idx = createNumber("idx", Long.class);
 
@@ -38,21 +38,21 @@ public class QBuy extends EntityPathBase<Buy> {
 
     public final QProduct product;
 
-    public final StringPath progress = createString("progress");
+    public final EnumPath<com.supreme.shoekream.model.enumclass.Progress> progress = createEnum("progress", com.supreme.shoekream.model.enumclass.Progress.class);
 
     public final StringPath receiver = createString("receiver");
 
-    public final StringPath receiver_address = createString("receiver_address");
+    public final StringPath receiverAddress = createString("receiverAddress");
 
-    public final StringPath receiver_hp = createString("receiver_hp");
+    public final StringPath receiverHp = createString("receiverHp");
 
     public final QSell sell;
 
-    public final StringPath status = createString("status");
+    public final EnumPath<com.supreme.shoekream.model.enumclass.OrderStatus> status = createEnum("status", com.supreme.shoekream.model.enumclass.OrderStatus.class);
 
-    public final StringPath type = createString("type");
+    public final EnumPath<com.supreme.shoekream.model.enumclass.Type> type = createEnum("type", com.supreme.shoekream.model.enumclass.Type.class);
 
-    public final NumberPath<Long> usePoint = createNumber("usePoint", Long.class);
+    public final NumberPath<Integer> usePoint = createNumber("usePoint", Integer.class);
 
     public QBuy(String variable) {
         this(Buy.class, forVariable(variable), INITS);
