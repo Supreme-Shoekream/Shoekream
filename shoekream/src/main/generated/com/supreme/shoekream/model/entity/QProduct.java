@@ -32,6 +32,8 @@ public class QProduct extends EntityPathBase<Product> {
 
     public final StringPath firstPrice = createString("firstPrice");
 
+    public final StringPath fluctuation = createString("fluctuation");
+
     public final StringPath gender = createString("gender");
 
     public final NumberPath<Long> idx = createNumber("idx", Long.class);
@@ -44,11 +46,17 @@ public class QProduct extends EntityPathBase<Product> {
 
     public final StringPath nameKor = createString("nameKor");
 
+    public final StringPath nowBuy = createString("nowBuy");
+
+    public final StringPath nowSell = createString("nowSell");
+
+    public final StringPath recentPrice = createString("recentPrice");
+
     public final StringPath releaseDate = createString("releaseDate");
 
     public final StringPath size = createString("size");
 
-    public final NumberPath<Long> wishCount = createNumber("wishCount", Long.class);
+    public final StringPath wishCount = createString("wishCount");
 
     public QProduct(String variable) {
         super(Product.class, forVariable(variable));
