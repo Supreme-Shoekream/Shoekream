@@ -823,3 +823,15 @@ insert into conclusion (price, product_idx, created_at) values ('557,000원', 14
 -- INSERT INTO shop_test (idx, img, brand, name, name_kor, now_price, wish_count, style_count) VALUES (200, '/img/shop/Dyson_Supersonic_Hair_Dryer_Vinca_Blue_Rose_(Korean_Ver.).png', 'Dyson', 'Dyson Supersonic Hair Dryer Vinca Blue Rose (Korean Ver.)', '다이슨 슈퍼소닉 헤어 드라이어 빈카 블루 로제 (국내 정식 발매 제품)', '590,000원', '121', '1');
 
 -- 상품 상세 사이즈
+
+insert into address (idx, name, hp, zipcode, address1, address2, address_basic) values (1, 'Barry', '822-912-7019', '461', '2616 East Center', '11394 Granby Hill', true);
+insert into address (idx, name, hp, zipcode, address1, address2, address_basic) values (2, 'Lesya', '229-106-1003', '92', '4 Hoffman Terrace', '6736 Corscot Avenue', true);
+insert into address (idx, name, hp, zipcode, address1, address2, address_basic) values (3, 'Ruthanne', '183-383-7720', '9309', '2303 Mendota Park', '88 Hansons Junction', true);
+insert into address (idx, name, hp, zipcode, address1, address2, address_basic) values (4, 'Kamila', '475-814-4506', '9415', '47145 Stone Corner Place', '7284 Florence Circle', false);
+insert into address (idx, name, hp, zipcode, address1, address2, address_basic) values (5, 'Fawnia', '116-861-8338', '746', '676 Columbus Road', '802 Browning Way', true);
+insert into address (idx, name, hp, zipcode, address1, address2, address_basic) values (6, 'Rowena', '309-489-1755', '711', '6561 Northland Way', '7 Banding Trail', true);
+insert into address (idx, name, hp, zipcode, address1, address2, address_basic) values (7, 'Brnaby', '100-500-8074', '85480', '452 American Drive', '09002 Dovetail Place', true);
+insert into address (idx, name, hp, zipcode, address1, address2, address_basic) values (8, 'Burgess', '200-479-3158', '75183', '27 Pepper Wood Way', '258 Melby Parkway', false);
+insert into address (idx, name, hp, zipcode, address1, address2, address_basic) values (9, 'Dane', '537-728-8330', '06', '5 Sutteridge Parkway', '7704 Sunbrook Terrace', true);
+insert into address (idx, name, hp, zipcode, address1, address2, address_basic) values (10, 'Jerrie', '532-243-4266', '012', '59662 Ridge Oak Center', '71952 Sommers Pass', true);
+

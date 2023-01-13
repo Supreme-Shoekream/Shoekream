@@ -1,0 +1,10 @@
+insert into address (idx, name, hp, zipcode, address1, address2, address3, addressBasic) values (1, 'Barry', '822-912-7019', '461', '2616 East Center', '11394 Granby Hill', '87 Chive Junction', true);
+insert into address (idx, name, hp, zipcode, address1, address2, address3, addressBasic) values (2, 'Lesya', '229-106-1003', '92', '4 Hoffman Terrace', '6736 Corscot Avenue', '96 Johnson Drive', true);
+insert into address (idx, name, hp, zipcode, address1, address2, address3, addressBasic) values (3, 'Ruthanne', '183-383-7720', '9309', '2303 Mendota Park', '88 Hansons Junction', '429 Del Sol Junction', true);
+insert into address (idx, name, hp, zipcode, address1, address2, address3, addressBasic) values (4, 'Kamila', '475-814-4506', '9415', '47145 Stone Corner Place', '7284 Florence Circle', '6319 Montana Circle', false);
+insert into address (idx, name, hp, zipcode, address1, address2, address3, addressBasic) values (5, 'Fawnia', '116-861-8338', '746', '676 Columbus Road', '802 Browning Way', '4470 Donald Drive', true);
+insert into address (idx, name, hp, zipcode, address1, address2, address3, addressBasic) values (6, 'Rowena', '309-489-1755', '711', '6561 Northland Way', '7 Banding Trail', '88384 Marquette Crossing', true);
+insert into address (idx, name, hp, zipcode, address1, address2, address3, addressBasic) values (7, 'Brnaby', '100-500-8074', '85480', '452 American Drive', '09002 Dovetail Place', '83 Lotheville Pass', true);
+insert into address (idx, name, hp, zipcode, address1, address2, address3, addressBasic) values (8, 'Burgess', '200-479-3158', '75183', '27 Pepper Wood Way', '258 Melby Parkway', '6930 Forest Dale Center', false);
+insert into address (idx, name, hp, zipcode, address1, address2, address3, addressBasic) values (9, 'Dane', '537-728-8330', '06', '5 Sutteridge Parkway', '7704 Sunbrook Terrace', '96 Portage Street', true);
+insert into address (idx, name, hp, zipcode, address1, address2, address3, addressBasic) values (10, 'Jerrie', '532-243-4266', '012', '59662 Ridge Oak Center', '71952 Sommers Pass', '2745 Graceland Lane', true);

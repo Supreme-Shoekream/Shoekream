@@ -6,6 +6,7 @@ import com.supreme.shoekream.model.entity.Member;
 import com.supreme.shoekream.repository.BoardRepository;
 import com.supreme.shoekream.repository.FollowRepository;
 import com.supreme.shoekream.repository.MemberRepository;
+import com.supreme.shoekream.service.StyleLogicService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,6 +30,7 @@ public class SocialPageController {
     private final MemberRepository memberRepository;
 
     private final FollowRepository followRepository;
+    private final StyleLogicService styleLogicService;
 
 //    public SocialPageController(BoardRepository boardRepository,
 //                                MemberRepository memberRepository, FollowRepository followRepository) {
@@ -47,7 +49,8 @@ public class SocialPageController {
 
     @GetMapping(path = "/following")    // http://localhost:8889/social/following
     public String following(HttpServletRequest request, ModelMap map){
-//        ✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔ 세션 아이디
+
+//        ✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔ 세션 아이디 시작
 //        HttpSession session = request.getSession(false);
 //        String userid = null;
 //
@@ -55,19 +58,13 @@ public class SocialPageController {
 //            System.out.println("세션이 없습니다.");
 //            return "/login";
 //        }else{//        ✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔ 세션 아이디
-//            userid = (String)session.getAttribute("id");
+//            String userid = (String)session.getAttribute("id");
 //            Long sessionUserIdx = memberRepository.findByMemberId(userid).get().getIdx();
 //            List<Follow> followings = followRepository.findAllByfollowerIdx(sessionUserIdx);
-            List<Follow> followings = followRepository.findAllByfollowerIdx(5L);
-            List<Board> feed;
-            feed = new ArrayList<>();
-            for(int i=0; i<followings.size(); i++){
-                List<Board> sub = boardRepository.findAllByMemberIdx(followings.get(i).getFollowingIdx());
-                for(int j=0; j<sub.size();j++){
-                    feed.add(sub.get(j));
-                }
-            }
-        Member sessionUser = memberRepository.getOne(5L);
+//        ✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔ 세션 아이디 끝
+
+            List<Board> feed = styleLogicService.getFollowingFeeds(5L);
+            Member sessionUser = styleLogicService.getMember(5L);
             map.addAttribute("feed", feed);
             map.addAttribute("sessionUser",sessionUser);
             return "social/following";
