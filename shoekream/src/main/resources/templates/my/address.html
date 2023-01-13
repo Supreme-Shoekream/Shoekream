@@ -2,13 +2,13 @@
 <html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/">
 
 <!-- footer_head.html -->
-<div th:replace="include/pjs_head :: head"></div>
+<!--<div th:replace="include/pjs_head :: head"></div>-->
 <!-- footer_head.html 끝-->
 <!-- <link rel="stylesheet" th:href="@{/lib/css/mypage_address.css}">-->
 
-<link rel="stylesheet" href="../../css/my/address.css">
-<link rel="stylesheet" href="../../css/layer/layer.css">
-<link rel="stylesheet" href="../../css/layer/layer_delivery.css">
+<link rel="stylesheet" href="/css/my/address.css">
+<link rel="stylesheet" href="/css/layer/layer.css">
+<link rel="stylesheet" href="/css/layer/layer_delivery.css">
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
 
@@ -61,7 +61,7 @@
                                     <span class="mark">기본 배송지</span>
                                 </div>
 
-                                <p class="phone">010<span class="hyphen"></span>6
+                                <p class="phone">010<span class="hyphen"></span>
                                     <span class="dot"></span>
                                     <span class="dot"></span>
                                     <span class="dot"></span>
@@ -79,7 +79,7 @@
                         <div class="btn_bind">
                             <!---->
                             <a href="#" class="btn outlinegrey small address_edit"> 수정 </a>
-                            <a href="#" class="btn outlinegrey small address_delete"> 삭제 </a>
+                            <a href="#" id="btn_delete" class="btn outlinegrey small address_delete"> 삭제 </a>
                         </div>
                     </div>
                 </div>
@@ -294,11 +294,7 @@
         addressLayer.style.display = "block"
         inputTxt.focus()
     })
-    addressLayer.addEventListener('click', (e) => {
-        if(e.target == e.currentTarget){
-            addressLayer.style.display = "none"
-        }
-    })
+
     // closeBtn.addEventListener('click', (e) => {
     //     addressLayer.style.display = "none"
     // })
@@ -316,6 +312,20 @@
     const addressDelBtn = document.querySelector('.address_delete')
     const addressDiv = document.querySelector('.is_active')
     addressDelBtn.addEventListener('click', () => {
+        const idx=11;
+        console.log('123')
+        fetch('http://localhost:8989/api/my/address/delete/'+idx, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                //우리가 만든데이터
+                "transaction_time":`${new Date()}`,
+                "resultCode":"ok",
+                "description":"정상",
+                "data":{
+                }
+            }),
+        })
         addressDiv.remove();
     })
     const addressEditBtn = document.querySelector('.address_edit')
@@ -324,12 +334,22 @@
         addressEdit.style.display="block"
         document.querySelector('#name_input2').focus()
     })
+    addressEditBtn.addEventListener('click', (e) => {
+        if(e.target == e.currentTarget){
+            addressLayer.style.display = "none"
+        }
+    })
     const addressEditDel = document.querySelectorAll('.btn_edit_delete')
     const editLayer = document.querySelector('.layer_edit')
     addressEditDel.forEach((e) => {
         e.addEventListener('click', () => {
             editLayer.style.display="none"
         })
+    })
+    addressEdit.addEventListener('click', (e) => {
+        if(e.target == e.currentTarget){
+            addressEdit.style.display="none";
+        }
     })
 
     // 이름 정규 표현식
@@ -437,6 +457,37 @@
             case false : btnSave.classList.add('disabled'); break;
         }
     }
+    btnSave.addEventListener('click', () => {
+        if(btnSave.classList.contains('disabled')){
+
+        }else {
+            const createName = document.querySelector('#name_input');
+            const createHp = document.querySelector('#hp_input');
+            const createZipcode = document.querySelector('#sample6_postcode');
+            const createAddress1 = document.querySelector('#sample6_address');
+            const createAddress2 = document.querySelector('#sample6_detailAddress')
+            const createAddressBasic = document.querySelector('#check1');
+            fetch('http://localhost:8989/api/my/address', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    //우리가 만든데이터
+                    "transaction_time":`${new Date()}`,
+                    "resultCode":"ok",
+                    "description":"정상",
+                    "data":{
+                        "name": `${createName.value}`,
+                        "hp": `${createHp.value}`,
+                        "zipcode": `${createZipcode.value}`,
+                        "address1": `${createAddress1.value}`,
+                        "address2": `${createAddress2.value}`,
+                        "addressBasic": true
+                    }
+                }),
+            })
+        }
+    })
+
 
     const nameForm2 = document.querySelector('#name_input2')
     const hpForm2 = document.querySelector('#hp_input2')
@@ -457,6 +508,39 @@
             case false : btnSave2.classList.add('disabled'); break;
         }
     }
+    btnSave2.addEventListener('click', () => {
+        if(btnSave2.classList.contains('disabled')){
+
+        }else {
+            const editName = document.querySelector('#name_input2');
+            const editHp = document.querySelector('#hp_input2');
+            const editZipcode = document.querySelector('#sample6_postcode2');
+            const editAddress1 = document.querySelector('#sample6_address2');
+            const editAddress2 = document.querySelector('#sample6_detailAddress2');
+            const editAddressBasic = document.querySelector('#check2');
+            fetch('http://localhost:8989/api/my/address', {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    //우리가 만든데이터
+                    "transaction_time":`${new Date()}`,
+                    "resultCode":"ok",
+                    "description":"정상",
+                    "data":{
+                        "name": `${editName.value}`,
+                        "hp": `${editHp.value}`,
+                        "zipcode": `${editZipcode.value}`,
+                        "address1": `${editAddress1.value}`,
+                        "address2": `${editAddress2.value}`,
+                        "addressBasic": true
+                    }
+                }),
+            })
+            addressDelBtn.addEventListener('click', () => {
+
+            })
+        }
+    })
 
 </script>
 
@@ -558,4 +642,5 @@
         }).open();
     }
 </script>
+
 </html>

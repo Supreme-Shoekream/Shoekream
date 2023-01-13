@@ -7,7 +7,6 @@ import com.querydsl.core.types.dsl.*;
 import com.querydsl.core.types.PathMetadata;
 import javax.annotation.processing.Generated;
 import com.querydsl.core.types.Path;
-import com.querydsl.core.types.dsl.PathInits;
 
 
 /**
@@ -18,8 +17,6 @@ public class QPoint extends EntityPathBase<Point> {
 
     private static final long serialVersionUID = -1483695141L;
 
-    private static final PathInits INITS = PathInits.DIRECT2;
-
     public static final QPoint point1 = new QPoint("point1");
 
     public final com.supreme.shoekream.model.config.QBaseEntity _super = new com.supreme.shoekream.model.config.QBaseEntity(this);
@@ -29,7 +26,7 @@ public class QPoint extends EntityPathBase<Point> {
 
     public final NumberPath<Long> idx = createNumber("idx", Long.class);
 
-    public final QMember member;
+    public final NumberPath<Long> memberIdx = createNumber("memberIdx", Long.class);
 
     //inherited
     public final DateTimePath<java.time.LocalDateTime> modifiedAt = _super.modifiedAt;
@@ -41,24 +38,15 @@ public class QPoint extends EntityPathBase<Point> {
     public final DateTimePath<java.time.LocalDateTime> regDate = createDateTime("regDate", java.time.LocalDateTime.class);
 
     public QPoint(String variable) {
-        this(Point.class, forVariable(variable), INITS);
+        super(Point.class, forVariable(variable));
     }
 
     public QPoint(Path<? extends Point> path) {
-        this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));
+        super(path.getType(), path.getMetadata());
     }
 
     public QPoint(PathMetadata metadata) {
-        this(metadata, PathInits.getFor(metadata, INITS));
-    }
-
-    public QPoint(PathMetadata metadata, PathInits inits) {
-        this(Point.class, metadata, inits);
-    }
-
-    public QPoint(Class<? extends Point> type, PathMetadata metadata, PathInits inits) {
-        super(type, metadata, inits);
-        this.member = inits.isInitialized("member") ? new QMember(forProperty("member")) : null;
+        super(Point.class, metadata);
     }
 
 }
