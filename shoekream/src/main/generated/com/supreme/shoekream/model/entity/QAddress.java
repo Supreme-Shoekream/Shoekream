@@ -7,7 +7,6 @@ import com.querydsl.core.types.dsl.*;
 import com.querydsl.core.types.PathMetadata;
 import javax.annotation.processing.Generated;
 import com.querydsl.core.types.Path;
-import com.querydsl.core.types.dsl.PathInits;
 
 
 /**
@@ -18,8 +17,6 @@ public class QAddress extends EntityPathBase<Address> {
 
     private static final long serialVersionUID = -648971393L;
 
-    private static final PathInits INITS = PathInits.DIRECT2;
-
     public static final QAddress address = new QAddress("address");
 
     public final com.supreme.shoekream.model.config.QBaseEntity _super = new com.supreme.shoekream.model.config.QBaseEntity(this);
@@ -27,8 +24,6 @@ public class QAddress extends EntityPathBase<Address> {
     public final StringPath address1 = createString("address1");
 
     public final StringPath address2 = createString("address2");
-
-    public final StringPath address3 = createString("address3");
 
     public final BooleanPath addressBasic = createBoolean("addressBasic");
 
@@ -39,7 +34,7 @@ public class QAddress extends EntityPathBase<Address> {
 
     public final NumberPath<Long> idx = createNumber("idx", Long.class);
 
-    public final QMember member;
+    public final NumberPath<Long> memberIdx = createNumber("memberIdx", Long.class);
 
     //inherited
     public final DateTimePath<java.time.LocalDateTime> modifiedAt = _super.modifiedAt;
@@ -49,24 +44,15 @@ public class QAddress extends EntityPathBase<Address> {
     public final StringPath zipcode = createString("zipcode");
 
     public QAddress(String variable) {
-        this(Address.class, forVariable(variable), INITS);
+        super(Address.class, forVariable(variable));
     }
 
     public QAddress(Path<? extends Address> path) {
-        this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));
+        super(path.getType(), path.getMetadata());
     }
 
     public QAddress(PathMetadata metadata) {
-        this(metadata, PathInits.getFor(metadata, INITS));
-    }
-
-    public QAddress(PathMetadata metadata, PathInits inits) {
-        this(Address.class, metadata, inits);
-    }
-
-    public QAddress(Class<? extends Address> type, PathMetadata metadata, PathInits inits) {
-        super(type, metadata, inits);
-        this.member = inits.isInitialized("member") ? new QMember(forProperty("member")) : null;
+        super(Address.class, metadata);
     }
 
 }

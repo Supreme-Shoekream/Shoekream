@@ -20,17 +20,17 @@ public class Address extends BaseEntity implements Auditable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idx;
 
-    private String name;
-    private String hp;
+    @Column(nullable = false) private String name;
+
+    @Column(nullable = false) private String hp;
     private String zipcode;
     private String address1;
     private String address2;
-    private String address3;
-//    private Long memberIdx;
 
-    @ManyToOne
-    @JoinColumn(name="member_idx")
-    private Member member;
+//    @ManyToOne
+//    @JoinColumn(name="member_idx")
+//    private Member member;
+    private Long memberIdx;
 
     private boolean addressBasic;
 }

@@ -1,12 +1,17 @@
 package com.supreme.shoekream.controller.page;
 
+import com.supreme.shoekream.service.AddressApiLogicService;
+import com.supreme.shoekream.service.PointApiLogicService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("my")
+@RequiredArgsConstructor
 public class MypageController {
 
 
@@ -30,10 +35,14 @@ public class MypageController {
     public ModelAndView profile(){
         return new ModelAndView("/my/profile");
     }
+
+    private final AddressApiLogicService addressApiLogicService;
     @GetMapping(path="address")
-    public ModelAndView address(){
-        return new ModelAndView("/my/address");
+    public String address(ModelMap map){
+        map.addAttribute("address", addressApiLogicService.list());
+        return "my/address";
     }
+
     @GetMapping(path="payment")
     public ModelAndView payment(){
         return new ModelAndView("/my/payment");
@@ -46,10 +55,14 @@ public class MypageController {
     public ModelAndView receipt(){
         return new ModelAndView("/my/receipt");
     }
+
+    private final PointApiLogicService pointApiLogicService;
     @GetMapping(path="point")
-    public ModelAndView point(){
-        return new ModelAndView("/my/point");
+    public String point(ModelMap map){
+        map.addAttribute("point", pointApiLogicService.list());
+        return "/my/point";
     }
+
     @GetMapping(path="withdrawal")
     public ModelAndView withdrawal(){
         return new ModelAndView("/my/withdrawal");

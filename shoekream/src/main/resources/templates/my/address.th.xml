@@ -1,0 +1,20 @@
+<thlogic>
+    <attr sel=".basic" th:each="address : ${address}">
+        <attr sel=".my_item">
+            <attr sel=".info_bind">
+                <attr sel=".address_info">
+                    <attr sel=".name_box">
+                        <attr sel=".name" th:text="${address.name}"/>
+                    </attr>
+                    <attr sel=".phone" th:text="${address.hp}"/>
+                    <attr sel=".address_box">
+                        <attr sel=".zipcode" th:text="'('+${address.zipcode}+')'"/>
+                        <attr sel=".address" th:text="${address.address1} + ${address.address2}"/>
+                    </attr>
+                        <attr sel=".mark" th:if="${address.addressBasic}" th:text="기본배송지"/>
+                </attr>
+            </attr>
+        </attr>
+    </attr>
+<!--    <attr sel="#address_delete" th:onclick="'javascript:pop_style_view('+ ${feed.idx} + ');'"/>-->
+</thlogic>
