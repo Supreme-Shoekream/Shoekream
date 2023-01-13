@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/admin/users")    // http://localhost:9999/api/admin/users
+@RequestMapping("/api")    // http://localhost:9999/api/admin/users
 @RequiredArgsConstructor
 public class MemberApiController extends CrudController<MemberApiRequest, MemberApiResponse, Member> {
     private final MemberApiLogicService memberApiLogicService;
@@ -27,16 +27,22 @@ public class MemberApiController extends CrudController<MemberApiRequest, Member
 //    }
 
     @Override
-    @GetMapping("{idx}")     //http://localhost:9999/api/admin/users/{id} (get)
+    @GetMapping("/admin/users/{idx}")     //http://localhost:9999/api/admin/users/{id} (get)
     public Header<MemberApiResponse> read(@PathVariable(name="idx") Long id) {
         return memberApiLogicService.read(id);
     }
 
-    @GetMapping("") //
+    @GetMapping("/admin/users") //
     public Header<List<MemberApiResponse>> findAll(@PageableDefault(sort = {"idx"}, direction = Sort.Direction.DESC) Pageable pageable){
         return memberApiLogicService.search(pageable);
     }
 
+
+    @Override
+    @PostMapping("/join")    // http://localhost:9999/api/join (post)
+    public Header<MemberApiResponse> create(@RequestBody Header<MemberApiRequest> request) {
+        return memberApiLogicService.create(request);
+    }
 //    @Override
 //    @GetMapping("{idx}") //http://localhost:9999/member/{idx} get호출 read하기
 //    public Header<MemberApiResponse> read(@PathVariable(name = "idx") Long idx) {

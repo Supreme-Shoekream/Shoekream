@@ -7,7 +7,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
 public record MemberDTO(
-        String memberId,
+        String nickname,
         String memberPw,
         String name,
         String hp,
@@ -18,14 +18,14 @@ public record MemberDTO(
         String profileMemo,
         String imgUrl
 ) {
-    public static MemberDTO of(String memberId, String memberPw, String name,
+    public static MemberDTO of(String nickname, String memberPw, String name,
                                String hp, String email, String shoeSize, String profileMemo, String imgUrl){
-        return new MemberDTO(memberId, memberPw, name, hp, email,null, shoeSize,null, profileMemo, imgUrl);
+        return new MemberDTO(nickname, memberPw, name, hp, email,null, shoeSize,null, profileMemo, imgUrl);
     }
 
     public static MemberDTO fromEntity(Member member){
         return new MemberDTO(
-                member.getMemberId(),
+                member.getNickname(),
                 member.getMemberPw(),
                 member.getName(),
                 member.getHp(),
@@ -39,7 +39,7 @@ public record MemberDTO(
     }
 
     public Member toEntity(){
-        return Member.of(memberId, memberPw, name, hp,
+        return Member.of(nickname, memberPw, name, hp,
                 email, shoeSize, profileMemo, imgUrl);
     }
 }

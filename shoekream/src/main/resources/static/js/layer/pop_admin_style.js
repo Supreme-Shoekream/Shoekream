@@ -9,7 +9,7 @@ function pop_style_view(idx){
             }else{
                 document.querySelector(".img_profile").src=data.member.imgUrl;
             }
-            document.querySelector(".user_name").innerHTML=data.member.memberId;
+            document.querySelector(".user_name").innerHTML=data.member.nickname;
             document.querySelector(".text_box").innerHTML=data.content;
             console.log(data.lks.length);
             document.querySelector(".like_count").innerHTML=data.lks.length;
@@ -17,7 +17,7 @@ function pop_style_view(idx){
             document.querySelector(".comment_count").innerHTML=data.replies.length;
 
             // 상품태그 추가‼‼‼‼
-            document.getElementById("info_info_id").innerHTML=data.member.memberId;
+            document.getElementById("info_info_id").innerHTML=data.member.nickname;
             document.getElementById("info_info_created").innerHTML=data.createdAt;
             document.getElementById("info_info_modified").innerHTML=data.modifiedAt;
         })

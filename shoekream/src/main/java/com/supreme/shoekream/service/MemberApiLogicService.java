@@ -22,7 +22,7 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
     private MemberApiResponse response(Member member){
         MemberApiResponse memberApiResponse = MemberApiResponse.builder()
                 .idx(member.getIdx())
-                .memberId(member.getMemberId())
+                .nickname(member.getNickname())
                 .memberPw(member.getMemberPw())
                 .name(member.getName())
                 .hp(member.getHp())
@@ -48,13 +48,13 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
                 .email(memberApiRequest.getEmail())
                 .shoeSize(memberApiRequest.getShoeSize())
                 .build();
-        Member newMember = baseRepository.save(member);
+        Member newMember = memberRepository.save(member);
         return Header.OK(response(newMember));
     }
 
     @Override
     public Header<MemberApiResponse> read(Long idx) {
-        return baseRepository.findById(idx).map(members -> response(members))
+        return memberRepository.findById(idx).map(members -> response(members))
                 .map(Header::OK).orElseGet(()->Header.ERROR("데이터 없음"));
     }
     public Header<MemberApiResponse> read(String email, String memberPw) {
@@ -68,7 +68,7 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
     @Override
     public Header<MemberApiResponse> update(Header<MemberApiRequest> request) {
 //        MemberApiRequest memberApiRequest = request.getData();
-//        Optional<Member> members = memberRepository.findByMemberId(memberApiRequest.getMemberId());
+//        Optional<Member> members = memberRepository.findByMemberId(memberApiRequest.getNickname());
 //        return members.map(
 //                        member -> {
 //                            member.setName(memberApiRequest.getName());
@@ -105,7 +105,7 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
     }
 
     public Header<List<MemberApiResponse>> search(Pageable pageable){
-        Page<Member> members = baseRepository.findAll(pageable);
+        Page<Member> members = memberRepository.findAll(pageable);
         List<MemberApiResponse> memberApiResponses = members.stream().map(
                 member -> response(member)).collect(Collectors.toList());
         // collect: 특정 자료 구조 형태에 데이터를 담아달라는 뜻

@@ -59,7 +59,7 @@ public class SocialPageController {
 //            return "/login";
 //        }else{//        ✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔ 세션 아이디
 //            String userid = (String)session.getAttribute("id");
-//            Long sessionUserIdx = memberRepository.findByMemberId(userid).get().getIdx();
+//            Long sessionUserIdx = memberRepository.findBynickname(userid).get().getIdx();
 //            List<Follow> followings = followRepository.findAllByfollowerIdx(sessionUserIdx);
 //        ✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔ 세션 아이디 끝
 

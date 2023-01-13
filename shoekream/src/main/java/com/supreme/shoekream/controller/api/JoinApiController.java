@@ -18,9 +18,5 @@ import org.springframework.web.bind.annotation.RestController;
 public class JoinApiController extends CrudController<MemberApiRequest, MemberApiResponse, Member> {
     private final MemberApiLogicService memberApiLogicService;
 
-    @Override
-    @PostMapping("join")    // http://localhost:9999/join (post)
-    public Header<MemberApiResponse> create(@RequestBody Header<MemberApiRequest> request) {
-        return memberApiLogicService.create(request);
-    }
+
 }

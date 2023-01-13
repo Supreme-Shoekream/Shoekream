@@ -6,10 +6,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
+@Data   //getter,setter,...
+@NoArgsConstructor  // Pagication(){}빈생성자
+@AllArgsConstructor // 생성자 다있는거
+@Builder    //빌더!
 public class Pagination {
     private Integer totalPages;
     private Long totalElements;

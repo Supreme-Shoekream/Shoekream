@@ -5,7 +5,7 @@
             <attr sel=".social_user_state">
                 <attr sel=".profile_img_box/img" th:src="${detail.member.imgUrl}"/>
                 <attr sel=".profile_info">
-                    <attr sel=".user_name" th:text="${detail.member.memberId}"/>
+                    <attr sel=".user_name" th:text="${detail.member.nickname}"/>
                     <attr sel=".upload_time/time" th:datetime="${detail.createdAt}" th:text="${#temporals.format(detail.createdAt, 'yyyy년 MM월 dd일')}"/>
                 </attr>
             </attr>
@@ -32,7 +32,7 @@
                                     <attr sel=".profile_link/img" th:src="${comment.member.imgUrl}"/>
                                     <attr sel=".comment_detail">
                                         <attr sel=".main">
-                                            <attr sel=".user_name" th:text="${comment.member.memberId}"/>
+                                            <attr sel=".user_name" th:text="${comment.member.nickname}"/>
                                             <attr sel=".comment_txt" th:text="${comment.content}"/>
                                         </attr>
                                         <attr sel=".sub">
@@ -53,7 +53,7 @@
 <!--                        <attr sel=".profile_link/img" th:src="${detail.member.imgUrl}"/>-->
 <!--                        <attr sel=".comment_detail">-->
 <!--                            <attr sel=".main">-->
-<!--                                <attr sel=".user_name" th:text="${detail.member.memberId}"/>-->
+<!--                                <attr sel=".user_name" th:text="${detail.member.nickname}"/>-->
 <!--                                <attr sel=".comment_txt" th:text="${detail.content}"/>-->
 <!--                                <attr sel=".hashtag" th:text="${detail.hashtag}"/>-->
 <!--                            </attr>-->
@@ -85,7 +85,7 @@
 <!--                                <attr sel=".profile_link/img" th:src="${comment.member.imgUrl}"/>-->
 <!--                                <attr sel=".comment_detail">-->
 <!--                                    <attr sel=".main">-->
-<!--                                        <attr sel=".user_name" th:text="${comment.member.memberId}"/>-->
+<!--                                        <attr sel=".user_name" th:text="${comment.member.nickname}"/>-->
 <!--                                        <attr sel=".comment_txt" th:text="${comment.content}"/>-->
 <!--                                    </attr>-->
 <!--                                    <attr sel=".sub">-->
