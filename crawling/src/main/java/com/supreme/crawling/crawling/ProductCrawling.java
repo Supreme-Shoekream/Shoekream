@@ -1,5 +1,6 @@
-package com.supreme.shoekream.crawling;
+package com.supreme.crawling.crawling;
 
+import com.supreme.crawling.db.Dbconn;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;

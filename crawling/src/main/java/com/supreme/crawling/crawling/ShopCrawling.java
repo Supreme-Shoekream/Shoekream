@@ -1,5 +1,6 @@
-package com.supreme.shoekream.crawling;
+package com.supreme.crawling.crawling;
 
+import com.supreme.crawling.db.Dbconn;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -14,7 +15,6 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.Iterator;
 
 public class ShopCrawling {
     public static void main(String[] args) {
