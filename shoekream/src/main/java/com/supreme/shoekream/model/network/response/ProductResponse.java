@@ -1,6 +1,6 @@
 package com.supreme.shoekream.model.network.response;
 
-import com.supreme.shoekream.model.entity.ProductDTO;
+import com.supreme.shoekream.model.dto.ProductDTO;
 
 public record ProductResponse(
         Long idx,

@@ -10,16 +10,13 @@
 <meta http-equiv="Cache-Control" content="no-cache">
 <!--페이지 로드시마다 페이지를 캐싱하지 않는다.(HTTP 1.1)-->
 <!---->
-<html lang="ko"
-      xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org/">
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/">
 <!--head 시작 -->
 <div th:replace="fragment/adminhead :: head"></div>
 <!--head 끝 -->
 <!--<link rel="stylesheet" href="/src/styles/layer.css">-->
 <!--<link rel="stylesheet" href="/src/styles/pop_delete.css">-->
 <body>
-
 <!-- header 시작 -->
 <div th:replace="fragment/adminheader :: header"></div>
 <!-- header 끝 -->
@@ -30,100 +27,89 @@
 <div th:replace="fragment/adminnavbar :: navbar"></div>
 <!-- left-side-bar 끝 -->
 <div class="main-container">
-  <div class="pd-ltr-20 xs-pd-20-10">
-    <div class="min-height-200px">
-      <!-- Simple Datatable start -->
-      <div class="card-box mb-30" >
-        <div class="pd-20" style="display: flex">
-          <h4 class="text-blue h4">상품 리스트</h4>
-<!--          <a href="/admin/products/create"-->
-<!--             style="width: 100px; height: 25px; background-color: #1b00ff; color: white;-->
-<!--             border-radius: 10px; margin-left: 22px;-->
-<!--              text-align: center; align-items: center;"-->
-<!--          >상품 추가</a>-->
-          <a onclick="productcreate_popup()"
-             style="width: 100px; height: 25px; background-color: #1b00ff; color: white;
+    <div class="pd-ltr-20 xs-pd-20-10">
+        <div class="min-height-200px">
+            <!-- Simple Datatable start -->
+            <div class="card-box mb-30" >
+                <div class="pd-20" style="display: flex">
+                    <h4 class="text-blue h4">상품 리스트</h4>
+                    <a onclick="productcreate_popup()" style="width: 100px; height: 25px; background-color: #1b00ff; color: white;
              border-radius: 10px; margin-left: 22px;
-              text-align: center; align-items: center;"
-          >상품 추가</a>
-          <!--제품사진/상품명/사이즈/브랜드/카테고리/최근거래가-->
-        </div>
-        <div class="card-box mb-30">
-          <div id="showPage" class="card-header">
-<!--            <i class="fas fa-table me-1"></i>-->
-            총 {{totalPages}}페이지 중 {{currentPage}}페이지
-          </div>
-          <table class="data-table table nowrap">
-            <thead>
-            <tr>
-              <th class="table-plus datatable-nosort">상품사진</th>
-              <th>브랜드</th>
-              <th>상품명</th>
-<!--              <th>사이즈</th>-->
-<!--              <th>카테고리</th>-->
-              <th>모델번호</th>
-              <th>출시일</th>
-              <th>컬러</th>
-              <th>발매가</th>
-              <th class="datatable-nosort">Action</th>
-            </tr>
-            </thead>
-            <tbody id="itemList">
-              <tr>
-                <td class="table-plus">
-                  <img
-                          src="img"
-                          width="70"
-                          height="70"
-                          alt=""
-                  />
-                </td>
-                <td>brand</td>
-                <td>
-                  <h5 class="font-16">name</h5>
-                  nameKor
-                </td>
-<!--                <td>{{dto.size}}</td>-->
-<!--                <td>{{dto.category}}</td>-->
-                <td>modelNum</td>
-                <td>releaseDate</td>
-                <td>color</td>
-                <td>firstPrice</td>
-                <td>
-                  <div class="dropdown">
-                    <a
-                            class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
-                            href="#"
-                            role="button"
-                            data-toggle="dropdown"
-                    >
-                      <i class="dw dw-more"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-<!--                      <a class="dropdown-item" href="/admin/products/view"><i class="dw dw-eye"></i>View</a>-->
-<!--                      <a class="dropdown-item" href="/admin/products/edit"><i class="dw dw-edit2"></i>Edit</a>-->
-<!--                      <a class="dropdown-item" href="/admin/products/delete"><i class="dw dw-delete-3"></i>Delete</a>-->
-<!--                        <a class="dropdown-item" id="product_view" v-on:onclick="productview_popup"><i class="dw dw-eye"></i>View</a>-->
-                        <a class="dropdown-item" onclick="productview_popup()"><i class="dw dw-eye"></i>View</a>
-                        <a class="dropdown-item" onclick="productedit_popup()"><i class="dw dw-edit2"></i>Edit</a>
-                        <a class="dropdown-item" onclick="productdelete_popup()"><i class="dw dw-delete-3"></i>Delete</a>
+              text-align: center; align-items: center;">상품 추가</a>
+                </div>
+                <div class="card-box mb-30">
+                    <div id="showPage" class="card-header">
+                        <!--            <i class="fas fa-table me-1"></i>-->
+                        총 {{totalPages}}페이지 중 {{currentPage}}페이지
                     </div>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="row">
-            <div class="col-sm-5" style="max-width: 100%; flex: auto;">
-              <div id="pageNum" class="dataTables_info" role="status">
-              </div>
+                    <table class="data-table table nowrap">
+                    <thead>
+                        <tr>
+                            <th class="table-plus datatable-nosort">번호</th>
+                            <th>상품사진</th>
+                            <th>브랜드</th>
+                            <th>상품명</th>
+                <!--              <th>사이즈</th>-->
+                <!--              <th>카테고리</th>-->
+                            <th>모델번호</th>
+                            <th>출시일</th>
+                            <th>컬러</th>
+                            <th>발매가</th>
+                            <th class="datatable-nosort">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="itemList">
+                        <tr>
+                            <td class="table-plus">idx</td>
+                            <td>
+                                <img
+                                    src="img"
+                                    width="80"
+                                    height="80"
+                                    alt=""
+                                />
+                            </td>
+                            <td>brand</td>
+                            <td>
+                                <h5 class="font-16">name</h5>
+                                nameKor
+                            </td>
+            <!--                <td>{{dto.size}}</td>-->
+            <!--                <td>{{dto.category}}</td>-->
+                            <td>modelNum</td>
+                            <td>releaseDate</td>
+                            <td>color</td>
+                            <td>firstPrice</td>
+                            <td>
+                                <div class="dropdown">
+                                    <a
+                                            class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
+                                            href="#"
+                                            role="button"
+                                            data-toggle="dropdown"
+                                    >
+                                        <i class="dw dw-more"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                                        <a class="dropdown-item" onclick="productview_popup()"><i class="dw dw-eye"></i>View</a>
+                                        <a class="dropdown-item" onclick="productedit_popup()"><i class="dw dw-edit2"></i>Edit</a>
+                                        <a class="dropdown-item" onclick="productdelete_popup()"><i class="dw dw-delete-3"></i>Delete</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    </table>
+                    <div class="row">
+                        <div class="col-sm-5" style="max-width: 100%; flex: auto;">
+                            <div id="pageNum" class="dataTables_info" role="status"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Simple Datatable End -->
             </div>
-          </div>
         </div>
-        <!-- Simple Datatable End -->
-      </div>
     </div>
-  </div>
 </div>
 <div th:replace="adminpage/admin_layer/layer_product_create :: product_create"></div>
 <div th:replace="adminpage/admin_layer/layer_product_view :: product_view"></div>
@@ -133,9 +119,5 @@
 <div th:replace="fragment/adminjs :: js"></div>
 <script src="/js/admin/products.js"></script>
 <script src="/js/admin/products_list.js"></script>
-<!--<script src="/js/admin/admin_pop.js"></script>-->
-<!--<block th:replace="js/admin/admin_pop :: admin_pop"></block>-->
-<!-- js -->
-
 </body>
 </html>
