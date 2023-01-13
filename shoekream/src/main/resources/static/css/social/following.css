@@ -833,3 +833,132 @@ h2 {
     margin-inline-end: 0px;
     /*font-weight: bold;*/
 }
+
+.layer_container {
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* -webkit-transform: translate(-50%,-50%); */
+    transform: translate(-50%,-50%);
+    background-color: #fff;
+    width: 448px;
+    border-radius: 16px;
+    /* -webkit-box-shadow: 0 4px 10px 0 rgb(0 0 0 / 10%); */
+    box-shadow: 0 4px 10px 0 rgb(0 0 0 / 10%);
+}
+
+.btn_layer_close {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    cursor: pointer;
+}
+
+[class*=ico-] {
+    width: 24px;
+    height: 24px;
+}
+
+.layer_header .title {
+    line-height: 22px;
+    padding: 18px 50px 20px;
+    min-height: 60px;
+    font-size: 18px;
+    /* letter-spacing: -.27px; */
+    font-weight: 700;
+    letter-spacing: -.15px;
+    color: #000;
+    text-align: center;
+    background-color: #fff;
+    display: block;
+    /* font-size: 1.5em; */
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    margin: 0;
+}
+
+.layer_social_user_list.lg .layer_content, .layer_social_user_list.md .layer_content {
+    max-height: 388px;
+    margin-bottom: 32px;
+}
+
+.user_list {
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 388px;
+    max-height: 388px;
+    padding: 0 32px;
+    margin: 0;
+}
+
+.user_item:first-child .user_box {
+    padding-top: 0;
+}
+
+.user_box {
+    /* display: -webkit-box; */
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 8px 0;
+}
+
+.user_link {
+    /* display: -webkit-box; */
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-right: 10px;
+    width: 100%;
+}
+
+#like_users .img_box {
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
+    margin-right: 12px;
+    width: 44px;
+    height: 44px;
+    border-radius: 100%;
+}
+
+.info_box {
+    /* display: -webkit-box; */
+    display: flex;
+    /* -webkit-box-orient: vertical; */
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    text-align: center;
+}
+
+.btn.btn_follow.solid, .btn.btn_follow {
+    line-height: 42px;
+}
+
+.btn.btn_follow {
+    margin-top: 16px;
+    padding: 0 52px;
+}
+
+.btn.btn_follow {
+    min-width: 140px;
+    margin-left: auto;
+    /* flex-shrink: 0; */
+    /* padding: 0 20px; */
+    height: 42px;
+}
+
+.small, .xsmall {
+    font-size: 12px;
+    letter-spacing: -.06px;
+    border-radius: 10px;
+}
+
+.solid {
+    font-weight: 700;
+    color: #fff;
+    background-color: #222;
+}

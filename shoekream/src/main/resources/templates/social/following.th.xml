@@ -47,58 +47,58 @@
 
 
 
-                <attr sel="#comment_more">
-                    <!--                글 내용 -->
-                    <attr sel=".comment_top">
-                        <attr sel=".profile_link/img" th:src="${detail.member.imgUrl}"/>
-                        <attr sel=".comment_detail">
-                            <attr sel=".main">
-                                <attr sel=".user_name" th:text="${detail.member.memberId}"/>
-                                <attr sel=".comment_txt" th:text="${detail.content}"/>
-                                <attr sel=".hashtag" th:text="${detail.hashtag}"/>
-                            </attr>
-                            <attr sel=".sub">
-                                <attr sel=".upload_time/time" th:datetime="${detail.createdAt}" th:text="${#temporals.format(detail.createdAt, 'yyyy년 MM월 dd일')}"/>
-                            </attr>
-                        </attr>
-                    </attr>
-                    <!--                글 내용 끝-->
+<!--                <attr sel="#comment_more">-->
+<!--                    &lt;!&ndash;                글 내용 &ndash;&gt;-->
+<!--                    <attr sel=".comment_top">-->
+<!--                        <attr sel=".profile_link/img" th:src="${detail.member.imgUrl}"/>-->
+<!--                        <attr sel=".comment_detail">-->
+<!--                            <attr sel=".main">-->
+<!--                                <attr sel=".user_name" th:text="${detail.member.memberId}"/>-->
+<!--                                <attr sel=".comment_txt" th:text="${detail.content}"/>-->
+<!--                                <attr sel=".hashtag" th:text="${detail.hashtag}"/>-->
+<!--                            </attr>-->
+<!--                            <attr sel=".sub">-->
+<!--                                <attr sel=".upload_time/time" th:datetime="${detail.createdAt}" th:text="${#temporals.format(detail.createdAt, 'yyyy년 MM월 dd일')}"/>-->
+<!--                            </attr>-->
+<!--                        </attr>-->
+<!--                    </attr>-->
+<!--                    &lt;!&ndash;                글 내용 끝&ndash;&gt;-->
 
-<!--                    댓글 작성 -->
-                    <attr sel="#reply_insert">
-                        <attr sel=".social_comment_input_box">
-                            <attr sel=".comment_input">
-                                <attr sel=".profile_link/img" th:src="${sessionUser.imgUrl}"/>
-                                <attr sel=".wrap_input">
-<!--                                    댓글 작성창 ✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔-->
-                                </attr>
-                            </attr>
-                        </attr>
-                    </attr>
-<!--                    댓글 작성 끝-->
-
-
-<!--                    댓글들 시작 -->
-                    <attr sel=".comment_group">
-                        <attr sel=".comment_unit" th:each="comment : ${detail.replies}">
-                            <attr sel=".comment_box">
-                                <attr sel=".profile_link/img" th:src="${comment.member.imgUrl}"/>
-                                <attr sel=".comment_detail">
-                                    <attr sel=".main">
-                                        <attr sel=".user_name" th:text="${comment.member.memberId}"/>
-                                        <attr sel=".comment_txt" th:text="${comment.content}"/>
-                                    </attr>
-                                    <attr sel=".sub">
-                                        <attr sel=".upload_time/time" th:datetime="${comment.createdAt}" th:text="${#temporals.format(comment.createdAt, 'yyyy년 MM월 dd일')}"/>
-                                    </attr>
-                                </attr>
-                            </attr>
-                        </attr>
-                    </attr>
-<!--                    댓글들 끝 -->
+<!--&lt;!&ndash;                    댓글 작성 &ndash;&gt;-->
+<!--                    <attr sel="#reply_insert">-->
+<!--                        <attr sel=".social_comment_input_box">-->
+<!--                            <attr sel=".comment_input">-->
+<!--                                <attr sel=".profile_link/img" th:src="${sessionUser.imgUrl}"/>-->
+<!--                                <attr sel=".wrap_input">-->
+<!--&lt;!&ndash;                                    댓글 작성창 ✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔&ndash;&gt;-->
+<!--                                </attr>-->
+<!--                            </attr>-->
+<!--                        </attr>-->
+<!--                    </attr>-->
+<!--&lt;!&ndash;                    댓글 작성 끝&ndash;&gt;-->
 
 
-                </attr>
+<!--&lt;!&ndash;                    댓글들 시작 &ndash;&gt;-->
+<!--                    <attr sel=".comment_group">-->
+<!--                        <attr sel=".comment_unit" th:each="comment : ${detail.replies}">-->
+<!--                            <attr sel=".comment_box">-->
+<!--                                <attr sel=".profile_link/img" th:src="${comment.member.imgUrl}"/>-->
+<!--                                <attr sel=".comment_detail">-->
+<!--                                    <attr sel=".main">-->
+<!--                                        <attr sel=".user_name" th:text="${comment.member.memberId}"/>-->
+<!--                                        <attr sel=".comment_txt" th:text="${comment.content}"/>-->
+<!--                                    </attr>-->
+<!--                                    <attr sel=".sub">-->
+<!--                                        <attr sel=".upload_time/time" th:datetime="${comment.createdAt}" th:text="${#temporals.format(comment.createdAt, 'yyyy년 MM월 dd일')}"/>-->
+<!--                                    </attr>-->
+<!--                                </attr>-->
+<!--                            </attr>-->
+<!--                        </attr>-->
+<!--                    </attr>-->
+<!--&lt;!&ndash;                    댓글들 끝 &ndash;&gt;-->
+
+
+<!--                </attr>-->
 
 
 
@@ -106,4 +106,11 @@
 
         </attr>
     </attr>
+
+<!--    좋아요 누른 사람 팝업창 시작-->
+    <attr sel="#like_users">
+
+    </attr>
+<!--    좋아요 누른 사람 팝업창 시작-->
+
 </thlogic>

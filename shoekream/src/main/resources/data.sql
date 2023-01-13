@@ -217,6 +217,7 @@ INSERT INTO product (idx, brand, category, color, first_price, img, model_num, n
 
 
 -- 팔로우
+insert into follow(follower_idx, following_idx) values(5,1);
 insert into follow(follower_idx, following_idx) values(5,2);
 insert into follow(follower_idx, following_idx) values(5,3);
 insert into follow(follower_idx, following_idx) values(5,4);
@@ -280,6 +281,9 @@ insert into board(member_idx, content, img, created_at) values(19, '우여곡절
 insert into board(member_idx, content, img, created_at) values(20,'포터는 개인적으로 카키색이,,,💚', '/img/styleImg/feed20.jpeg', now());
 
 
+# 좋아요
+insert into lk(board_idx, member_idx) values(1,2);
+insert into lk(board_idx, member_idx) values(1,3);
 
 
 -- # 댓글
