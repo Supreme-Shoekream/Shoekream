@@ -1,4 +1,4 @@
-package com.supreme.shoekream.model.entity;
+package com.supreme.shoekream.model.dto.socialDTO;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -8,8 +8,8 @@ public record BoardDTO(
 //        MemberDTO memberDTO,
         String img,
 
-//        List<lkDTO> lkDTOs,
-//        List<ReplyDTo> replyDTos,
+        List<LkDTO> lkDTOs,
+        List<ReplyDTO> replyDTOs,
         LocalDateTime createdAt,
         LocalDateTime modifiedAt
 ) {
