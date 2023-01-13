@@ -19,7 +19,7 @@ import java.sql.ResultSet;
 public class ShopCrawling {
     public static void main(String[] args) {
         int maximum = 50;
-        String kreamurl = "https://kream.co.kr/search?category_id=11&per_page=40";
+        String kreamurl = "https://kream.co.kr/search?category_id=44&per_page=40";
         String url = "";
         Document doc = null;
         Connection conn = null;
