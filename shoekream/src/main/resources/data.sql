@@ -817,3 +817,5 @@ insert into conclusion (price, product_idx, created_at) values ('557,000원', 14
 -- INSERT INTO shop_test (idx, img, brand, name, name_kor, now_price, wish_count, style_count) VALUES (198, '/img/shop/Apple_iPhone_14_Pro_Max_256GB_Deep_Purple_(Korean_Ver.).png', 'Apple', 'Apple iPhone 14 Pro Max 256GB Deep Purple (Korean Ver.)', '애플 아이폰 14 프로 맥스 256기가 딥 퍼플 (국내 정식 발매 제품)', '1,840,000원', '175', '12');
 -- INSERT INTO shop_test (idx, img, brand, name, name_kor, now_price, wish_count, style_count) VALUES (199, '/img/shop/Dyson_Supersonic_Hair_Dryer_Iron_Fuchsia_(Korean_Ver.).png', 'Dyson', 'Dyson Supersonic Hair Dryer Iron Fuchsia (Korean Ver.)', '다이슨 슈퍼소닉 헤어 드라이어 아이언 푸시아 (국내 정식 발매 제품)', '494,000원', '1,386', '2');
 -- INSERT INTO shop_test (idx, img, brand, name, name_kor, now_price, wish_count, style_count) VALUES (200, '/img/shop/Dyson_Supersonic_Hair_Dryer_Vinca_Blue_Rose_(Korean_Ver.).png', 'Dyson', 'Dyson Supersonic Hair Dryer Vinca Blue Rose (Korean Ver.)', '다이슨 슈퍼소닉 헤어 드라이어 빈카 블루 로제 (국내 정식 발매 제품)', '590,000원', '121', '1');
+
+-- 상품 상세 사이즈
