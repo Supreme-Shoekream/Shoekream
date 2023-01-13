@@ -1,4 +1,4 @@
-package com.supreme.shoekream.model.entity;
+package com.supreme.shoekream.model.dto;
 
 import com.supreme.shoekream.model.network.response.ProductResponse;
 
