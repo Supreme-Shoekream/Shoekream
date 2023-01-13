@@ -57,7 +57,6 @@
                                                                             <div class="product" style="background-color: rgb(235, 240, 245);">
                                                                                 <div class="product_img_start">
                                                                                     <picture class="picture product_img">
-    <!--                                                                                    <img alt="상품 이미지" src="https://kream-phinf.pstatic.net/MjAyMTA4MDZfMjY0/MDAxNjI4MjM5NTA1MjU1.9FfkTXbxZFWKxDMdPayVFlD0GIyNT-mFVIQ7zZW3SPcg.c03UoCFjKXtP4XtNMgBdrmTOIQlqxrePk4JScV4GUHEg.PNG/p_8001cbaf0db042bda09fea320ee328b4.png?type=l" loading="lazy" fetchpriority="high" class="image">-->
                                                                                         <img alt="상품 이미지" src="" loading="lazy" fetchpriority="high" class="image img" id="previewImg2">
                                                                                     </picture>
                                                                                 </div>
@@ -130,7 +129,8 @@
                                                     </div>
                                                     <div class="size">
                                                         <a class="btn_size" onclick="everysizePopup()">
-                                                            <span class="btn_text input_text it1">모든 사이즈</span>
+<!--                                                            <span class="btn_text input_text it1">모든 사이즈</span>-->
+                                                            <span class="btn_text input_text it1 size">270</span>
                                                             <img src="/img/select_icon.png" class="ico-arr-dir-down-circle icon sprite-icons">
                                                         </a>
                                                     </div>
@@ -141,11 +141,13 @@
                                                     </div>
                                                     <div class="price">
                                                         <div class="amount">
-                                                            <span class="num">229,000</span>
-                                                            <span class="won">원</span>
+<!--                                                            <span class="num">229,000</span>-->
+<!--                                                            <span class="won">원</span>-->
+                                                            <span class="num recentPrice">최근거래가</span>
                                                         </div>
-                                                        <div class="fluctuation decrease">
-                                                            <p style="margin: 0;">29,000원 (-11.2%)</p>
+                                                        <div class="fluctuation">
+<!--                                                            <p style="margin: 0;">29,000원 (-11.2%)</p>-->
+                                                            <p class="fluctuation" style="margin: 0;">가격변동</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -156,8 +158,9 @@
                                                         <strong class="title">구매</strong>
                                                         <div class="price">
                                                             <span class="amount">
-                                                                <em class="num">214,000</em>
-                                                                <span class="won">원</span>
+<!--                                                                <em class="num">214,000</em>-->
+<!--                                                                <span class="won">원</span>-->
+                                                                <em class="num nowBuy">즉시구매가</em>
                                                             </span>
                                                             <span class="desc">즉시 구매가</span>
                                                         </div>
@@ -166,8 +169,9 @@
                                                         <strong class="title">판매</strong>
                                                         <div class="price">
                                                             <span class="amount">
-                                                                <em class="num">303,000</em>
-                                                                <span class="won">원</span>
+<!--                                                                <em class="num">303,000</em>-->
+<!--                                                                <span class="won">원</span>-->
+                                                                <em class="num nowSell">즉시판매가</em>
                                                             </span>
                                                             <span class="desc">즉시 판매가</span>
                                                         </div>
@@ -175,8 +179,11 @@
                                                 </div>
                                                 <a class="btn full outlinegrey large btn_wish" onclick="wishPopup()" aria-label="관심상품">
                                                     <img src="/img/select_mark_off.PNG" class="icon sprite-icons wish-onoff">
-                                                    <span class="btn_text">관심상품</span>
-                                                    <span class="wish_count_num">1.7만</span>
+                                                    <span class="btn_text" style="padding-left: 5px;">관심상품</span>
+<!--                                                    <span class="wish_count_num">1.7만</span>-->
+                                                    <div class="wish_count" style="padding-left: 5px;">
+                                                        <span class="wish_count_num wishCount">1.7만</span>
+                                                    </div>
                                                 </a>
                                             </div>
                                         </div>
@@ -211,7 +218,7 @@
                                             <div class="delivery_way">
                                                 <div class="way_info">
                                                     <div class="way_status_thumb">
-                                                        <img src="https://kream-phinf.pstatic.net/MjAyMTExMjlfMTQ4/MDAxNjM4MTc4MjI5NTk3.2phJLPtRvFqViNfhZu06HzNRiUBlT4cmZR4_Ukqsyesg.ikrfWOrL7WXCVO0Rqy5kMvOn3B2YpjLUj6RuJqosPX0g.PNG/a_8b54cbca40e945f4abf1ee24bdd031f7.png" alt="3,000원" class="way_img">
+                                                        <img src="/img/delivery.png" alt="3,000원" class="way_img">
                                                     </div>
                                                     <div class="way_desc">
                                                         <p class="company">
@@ -1326,7 +1333,6 @@
                                                             </div>
                                                         </div>
                                                     </div>
-
                                                 </div>
                                             </div>
                                         </div>
@@ -1338,28 +1344,25 @@
                                                 <div class="product_area">
                                                     <div class="product_thumb" style="background-color: rgb(235, 240, 245);">
                                                         <picture class="picture product_img">
-                                                            <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMTA4MDZfMjY0/MDAxNjI4MjM5NTA1MjU1.9FfkTXbxZFWKxDMdPayVFlD0GIyNT-mFVIQ7zZW3SPcg.c03UoCFjKXtP4XtNMgBdrmTOIQlqxrePk4JScV4GUHEg.PNG/p_8001cbaf0db042bda09fea320ee328b4.png?type=m_webp">
-                                                            <source srcset="https://kream-phinf.pstatic.net/MjAyMTA4MDZfMjY0/MDAxNjI4MjM5NTA1MjU1.9FfkTXbxZFWKxDMdPayVFlD0GIyNT-mFVIQ7zZW3SPcg.c03UoCFjKXtP4XtNMgBdrmTOIQlqxrePk4JScV4GUHEg.PNG/p_8001cbaf0db042bda09fea320ee328b4.png?type=m">
-                                                            <img alt="상품 이미지" src="https://kream-phinf.pstatic.net/MjAyMTA4MDZfMjY0/MDAxNjI4MjM5NTA1MjU1.9FfkTXbxZFWKxDMdPayVFlD0GIyNT-mFVIQ7zZW3SPcg.c03UoCFjKXtP4XtNMgBdrmTOIQlqxrePk4JScV4GUHEg.PNG/p_8001cbaf0db042bda09fea320ee328b4.png?type=m" loading="lazy" class="image" style="width: 64px; height: 64px; margin-left: 40px; margin-bottom: 15px;">
+                                                            <img alt="상품 이미지" src="" loading="lazy" class="image img" id="previewImg3" style="width: 64px; height: 64px; margin-left: 40px; margin-bottom: 15px;">
                                                         </picture>
                                                     </div>
                                                     <div class="product_info">
-                                                        <p class="name">Nike Dunk Low SE Seoul</p>
-                                                        <p class="translated_name">나이키 덩크 로우 SE 서울</p>
+                                                        <p class="name">상품명</p>
+                                                        <p class="translated_name nameKor">상품명(kor)</p>
                                                     </div>
                                                 </div>
                                                 <div class="btn_area">
                                                     <a class="btn outlinegrey large btn_wish btn_wish_simple" aria-label="관심상품" onclick="wishPopup()">
-                                                        <img src="/img/select_mark_off.PNG" class="icon sprite-icons wish-onoff"></img>
-                                                        <span class="wish_count_num">1.7만</span>
+                                                        <img src="/img/select_mark_off.PNG" class="icon sprite-icons wish-onoff"/>
+                                                        <span class="wish_count_num wishCount" style="padding-left: 5px;">관심상품수</span>
                                                     </a>
                                                     <div class="division_btn_box lg">
                                                         <a class="btn_division buy">
                                                             <strong class="title">구매</strong>
                                                             <div class="price">
                                                                 <span class="amount">
-                                                                    <em class="num">210,000</em>
-                                                                    <span class="won">원</span>
+                                                                    <em class="num nowBuy">즉시구매가</em>
                                                                 </span>
                                                                 <span class="desc">즉시 구매가</span>
                                                             </div>
@@ -1368,8 +1371,7 @@
                                                             <strong class="title">판매</strong>
                                                             <div class="price">
                                                                 <span class="amount">
-                                                                    <em class="num">303,000</em>
-                                                                    <span class="won">원</span>
+                                                                    <em class="num nowSell">즉시판매가</em>
                                                                 </span>
                                                                 <span class="desc">즉시 판매가</span>
                                                             </div>
