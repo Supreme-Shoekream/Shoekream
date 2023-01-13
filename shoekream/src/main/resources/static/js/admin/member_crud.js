@@ -1,7 +1,7 @@
 //// view
 function pop_member_view(idx){
 
-    fetch('http://localhost:9999/api/admin/users/'+idx)
+    fetch('/api/admin/users/'+idx)
         .then((response) => response.json())
         .then((data) => {
             console.log(data)

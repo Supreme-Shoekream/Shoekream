@@ -10,7 +10,7 @@ function sendit() {
     const name = document.getElementById('name_input');
     const hp = document.getElementById('hp_input');
 
-    fetch('http://localhost:8889/join', {
+    fetch('/api/join', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({

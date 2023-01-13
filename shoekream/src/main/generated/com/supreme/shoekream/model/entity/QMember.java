@@ -32,14 +32,14 @@ public class QMember extends EntityPathBase<Member> {
 
     public final StringPath imgUrl = createString("imgUrl");
 
-    public final StringPath memberId = createString("memberId");
-
     public final StringPath memberPw = createString("memberPw");
 
     //inherited
     public final DateTimePath<java.time.LocalDateTime> modifiedAt = _super.modifiedAt;
 
     public final StringPath name = createString("name");
+
+    public final StringPath nickname = createString("nickname");
 
     public final NumberPath<Long> point = createNumber("point", Long.class);
 

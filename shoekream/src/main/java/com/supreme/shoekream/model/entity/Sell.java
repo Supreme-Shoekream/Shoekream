@@ -18,7 +18,7 @@ public class Sell {
     @ManyToOne
     @JoinColumn(name="product_idx")
     private Product product; // 판매 상품 번호
-    //    private Long memberIdx; // 판매 회원 번호
+    //    private Long nicknamex; // 판매 회원 번호
     @ManyToOne
     @JoinColumn(name="member_idx")
     private Member member;

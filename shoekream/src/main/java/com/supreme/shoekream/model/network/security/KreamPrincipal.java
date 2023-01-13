@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 public record KreamPrincipal(
         Long idx,
-        String memberId,
+        String nickname,
         String memberPw,
         Collection<? extends GrantedAuthority> authorities,
         String name,
@@ -21,11 +21,11 @@ public record KreamPrincipal(
         String hp,
         String shoeSize
 ) implements UserDetails {
-    public static KreamPrincipal of(Long idx, String memberId, String memberPw, String name, String email, String hp, String shoeSize){
+    public static KreamPrincipal of(Long idx, String nickname, String memberPw, String name, String email, String hp, String shoeSize){
         Set<RoleType> roleTypes = Set.of(RoleType.USER);
         return new KreamPrincipal(
                 idx,
-                memberId,
+                nickname,
                 memberPw,
                 roleTypes.stream().map(RoleType::getEmail)
                         .map(SimpleGrantedAuthority::new)
@@ -40,7 +40,7 @@ public record KreamPrincipal(
     public static KreamPrincipal from(Member member){
         return KreamPrincipal.of(
                 member.getIdx(),
-                member.getMemberId(),
+                member.getNickname(),
                 member.getMemberPw(),
                 member.getName(),
                 member.getEmail(),

@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @Builder
 public class MemberApiResponse {
     private Long idx;
-    private String memberId;
+    private String nickname;
     private String memberPw;
     private String name;
     private String hp;

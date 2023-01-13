@@ -20,19 +20,19 @@ public class Member extends BaseEntity implements Auditable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idx;
-    private String memberId;
-    private String memberPw;
+    private String nickname;
+    private String memberPw;        //로그인 PW
     private String name;
     private String hp;
-    private String email;
+    private String email;   //로그인ID
     @Enumerated(EnumType.ORDINAL) private Status status;
     private String shoeSize;
     private Long point;
     private String profileMemo;
     private String imgUrl;
 
-    public Member(String memberId, String memberPw, String name, String hp, String email, String shoeSize, String profileMemo, String imgUrl) {
-        this.memberId = memberId;
+    public Member(String nickname, String memberPw, String name, String hp, String email, String shoeSize, String profileMemo, String imgUrl) {
+        this.nickname = nickname;
         this.memberPw = memberPw;
         this.name = name;
         this.hp = hp;
@@ -42,8 +42,8 @@ public class Member extends BaseEntity implements Auditable {
         this.imgUrl = imgUrl;
     }
 
-    public static Member of(String memberId, String memberPw, String name, String hp, String email,
+    public static Member of(String nickname, String memberPw, String name, String hp, String email,
                             String shoeSize, String profileMemo, String imgUrl){
-        return new Member(memberId, memberPw, name, hp, email, shoeSize, profileMemo, imgUrl);
+        return new Member(nickname, memberPw, name, hp, email, shoeSize, profileMemo, imgUrl);
     }
 }
