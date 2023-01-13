@@ -30,4 +30,20 @@ public class Member extends BaseEntity implements Auditable {
     private Long point;
     private String profileMemo;
     private String imgUrl;
+
+    public Member(String memberId, String memberPw, String name, String hp, String email, String shoeSize, String profileMemo, String imgUrl) {
+        this.memberId = memberId;
+        this.memberPw = memberPw;
+        this.name = name;
+        this.hp = hp;
+        this.email = email;
+        this.shoeSize = shoeSize;
+        this.profileMemo = profileMemo;
+        this.imgUrl = imgUrl;
+    }
+
+    public static Member of(String memberId, String memberPw, String name, String hp, String email,
+                            String shoeSize, String profileMemo, String imgUrl){
+        return new Member(memberId, memberPw, name, hp, email, shoeSize, profileMemo, imgUrl);
+    }
 }
