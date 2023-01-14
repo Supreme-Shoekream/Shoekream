@@ -16,18 +16,19 @@
             data.data.forEach(dto => {
                 itemList +=
                     `<tr>
-                        <td class="table-plus">
-                          <img
-                              src="${dto.img}"
-                              width="70"
-                              height="70"
-                              alt=""
-                          />
+                        <td class="table-plus">${dto.idx}</td>
+                        <td>
+                            <img
+                                src="${dto.img}"
+                                width="80"
+                                height="80"
+                                alt=""
+                            />
                         </td>
                         <td>${dto.brand}</td>
                         <td>
-                          <h5 class="font-16">${dto.name}</h5>
-                          ${dto.nameKor}
+                            <h5 class="font-16">${dto.name}</h5>
+                            ${dto.nameKor}
                         </td>
         <!--                <td>{{dto.size}}</td>-->
         <!--                <td>{{dto.category}}</td>-->
@@ -36,24 +37,23 @@
                         <td>${dto.color}</td>
                         <td>${dto.firstPrice}</td>
                         <td>
-                          <div class="dropdown">
-                            <a
-                                    class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
-                                    href="#"
-                                    role="button"
-                                    data-toggle="dropdown"
-                            >
-                              <i class="dw dw-more"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                <a class="dropdown-item" onclick="productview_popup(${dto.idx})"><i class="dw dw-eye"></i>View</a>
-                                <a class="dropdown-item" onclick="productedit_popup(${dto.idx})"><i class="dw dw-edit2"></i>Edit</a>
-                                <a class="dropdown-item" onclick="productdelete_popup(${dto.idx})"><i class="dw dw-delete-3"></i>Delete</a>
+                            <div class="dropdown">
+                                <a
+                                        class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
+                                        href="#"
+                                        role="button"
+                                        data-toggle="dropdown"
+                                >
+                                <i class="dw dw-more"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                                    <a class="dropdown-item" onclick="productview_popup(${dto.idx})"><i class="dw dw-eye"></i>View</a>
+                                    <a class="dropdown-item" onclick="productedit_popup(${dto.idx})"><i class="dw dw-edit2"></i>Edit</a>
+                                    <a class="dropdown-item" onclick="productdelete_popup(${dto.idx})"><i class="dw dw-delete-3"></i>Delete</a>
+                                </div>
                             </div>
-                          </div>
                         </td>
-                      </tr>
-                    `;
+                    </tr>`;
             });
 
             document.querySelector("#itemList").innerHTML = itemList
