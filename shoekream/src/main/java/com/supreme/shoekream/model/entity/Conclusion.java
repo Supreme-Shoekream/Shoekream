@@ -19,9 +19,7 @@ import java.time.LocalDateTime;
 public class Conclusion {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY) private Long idx; // 번호
     //    private Long sellIdx; // 판매 번호
-//    private Long buyIdx; // 구매 번호
-    private LocalDateTime createdAt; // 체결 날짜
-
+    //    private Long buyIdx; // 구매 번호
     // 상품명(사이즈), 체결 가격, 체결 날짜 (그래프 뽑는 용인 정보)
     // 상품이랑 체결내역은 게시글과 댓글 관계와 유사
 
@@ -30,4 +28,6 @@ public class Conclusion {
     private Product product;
 
     private String price;
+
+    private LocalDateTime createdAt; // 체결 날짜
 }
