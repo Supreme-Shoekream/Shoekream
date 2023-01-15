@@ -13,19 +13,19 @@
         <attr sel="span.size" th:text="*{size}"/>
     </attr>
     <!-- 최근거래가 -->
-    <attr sel=".detail_price" th:object ="${product.data}">
-        <attr sel="span.recentPrice" th:text="*{recentPrice}"/>
-        <attr sel="p.fluctuation" th:text="*{fluctuation}"/>
-    </attr>
+<!--    <attr sel=".detail_price" th:object ="${product.data}">-->
+<!--        <attr sel="span.recentPrice" th:text="*{recentPrice}"/>-->
+<!--        <attr sel="p.fluctuation" th:text="*{fluctuation}"/>-->
+<!--    </attr>-->
     <!-- 즉시구매가, 즉시판매가 -->
-    <attr sel=".division_btn_box" th:object ="${product.data}">
-        <attr sel="em.nowBuy" th:text="*{nowBuy}"/>
-        <attr sel="em.nowSell" th:text="*{nowSell}"/>
-    </attr>
+<!--    <attr sel=".division_btn_box" th:object ="${product.data}">-->
+<!--        <attr sel="em.nowBuy" th:text="*{nowBuy}"/>-->
+<!--        <attr sel="em.nowSell" th:text="*{nowSell}"/>-->
+<!--    </attr>-->
     <!-- 관심상품 -->
-    <attr sel=".wish_count" th:object ="${product.data}">
-        <attr sel="span.wishCount" th:text="*{wishCount}"/>
-    </attr>
+<!--    <attr sel=".wish_count" th:object ="${product.data}">-->
+<!--        <attr sel="span.wishCount" th:text="*{wishCount}"/>-->
+<!--    </attr>-->
     <!-- 상품 정보 -->
     <attr sel=".detail_product" th:object ="${product.data}">
         <attr sel="dd.modelNum" th:text="*{modelNum}"/>
@@ -38,9 +38,9 @@
         <attr sel="img#previewImg3" th:src="*{img}"/>
         <attr sel="p.name" th:text="*{name}"/>
         <attr sel="p.nameKor" th:text="*{nameKor}"/>
-        <attr sel="span.wishCount" th:text="*{wishCount}"/>
-        <attr sel="em.nowBuy" th:text="*{nowBuy}"/>
-        <attr sel="em.nowSell" th:text="*{nowSell}"/>
+<!--        <attr sel="span.wishCount" th:text="*{wishCount}"/>-->
+<!--        <attr sel="em.nowBuy" th:text="*{nowBuy}"/>-->
+<!--        <attr sel="em.nowSell" th:text="*{nowSell}"/>-->
     </attr>
     <!-- 체결 내역 더보기 -->
     <attr sel=".layer_market_price" th:object ="${product.data}">

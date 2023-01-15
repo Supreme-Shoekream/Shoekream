@@ -7,7 +7,6 @@ import com.querydsl.core.types.dsl.*;
 import com.querydsl.core.types.PathMetadata;
 import javax.annotation.processing.Generated;
 import com.querydsl.core.types.Path;
-import com.querydsl.core.types.dsl.PathInits;
 
 
 /**
@@ -28,11 +27,7 @@ public class QProduct extends EntityPathBase<Product> {
 
     public final StringPath color = createString("color");
 
-    public final ListPath<Conclusion, QConclusion> conclusions = this.<Conclusion, QConclusion>createList("conclusions", Conclusion.class, QConclusion.class, PathInits.DIRECT2);
-
     public final StringPath firstPrice = createString("firstPrice");
-
-    public final StringPath fluctuation = createString("fluctuation");
 
     public final StringPath gender = createString("gender");
 
@@ -46,17 +41,9 @@ public class QProduct extends EntityPathBase<Product> {
 
     public final StringPath nameKor = createString("nameKor");
 
-    public final StringPath nowBuy = createString("nowBuy");
-
-    public final StringPath nowSell = createString("nowSell");
-
-    public final StringPath recentPrice = createString("recentPrice");
-
     public final StringPath releaseDate = createString("releaseDate");
 
     public final StringPath size = createString("size");
-
-    public final StringPath wishCount = createString("wishCount");
 
     public QProduct(String variable) {
         super(Product.class, forVariable(variable));

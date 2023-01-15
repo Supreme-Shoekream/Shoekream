@@ -32,11 +32,11 @@ public class ProductApiLogicService extends BaseService<ProductApiRequest, Produ
                 .name(product.getName())
                 .nameKor(product.getNameKor())
                 .size(product.getSize())
-                .recentPrice(product.getRecentPrice())
-                .fluctuation(product.getFluctuation())
-                .nowBuy(product.getNowBuy())
-                .nowSell(product.getNowSell())
-                .wishCount(product.getWishCount())
+//                .recentPrice(product.getRecentPrice())
+//                .fluctuation(product.getFluctuation())
+//                .nowBuy(product.getNowBuy())
+//                .nowSell(product.getNowSell())
+//                .wishCount(product.getWishCount())
                 .modelNum(product.getModelNum())
                 .releaseDate(product.getReleaseDate())
                 .color(product.getColor())
@@ -44,7 +44,7 @@ public class ProductApiLogicService extends BaseService<ProductApiRequest, Produ
                 .category(product.getCategory())
                 .gender(product.getGender())
                 .collection(product.getCollection())
-                .conclusions(product.getConclusions())
+//                .conclusions(product.getConclusions())
                 .build();
         return productApiResponse;
     }
