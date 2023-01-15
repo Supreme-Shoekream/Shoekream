@@ -1,9 +1,6 @@
 package com.supreme.shoekream.model.dto;
 
-import com.supreme.shoekream.model.entity.Buy;
-import com.supreme.shoekream.model.entity.Conclusion;
 import com.supreme.shoekream.model.entity.Product;
-import com.supreme.shoekream.model.network.response.ProductResponse;
 
 import java.util.List;
 

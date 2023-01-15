@@ -34,7 +34,8 @@ public class ProductPageController {
     private final ConclusionApiLogicService conclusionApiLogicService;
     private final ProductRepository productRepository;
     private final Logger logger = LoggerFactory.getLogger(ProductPageController.class.getName());
-    // 모든사이즈 상품 상세 보기
+
+
     @GetMapping(path="/{idx}") //http://localhost:8888/product/{idx}
     public String product(HttpServletRequest request, @PathVariable Long idx, Model model){
 
@@ -54,7 +55,6 @@ public class ProductPageController {
         model.addAttribute("product",product);
 //        System.out.println("❌❌❌❌❌❌❌❌"+map);
         logger.info("msg : {}", model);
-        logger.info("msg : {}", );
 
 
 

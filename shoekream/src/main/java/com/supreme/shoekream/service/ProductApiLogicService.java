@@ -44,7 +44,6 @@ public class ProductApiLogicService extends BaseService<ProductApiRequest, Produ
                 .category(product.getCategory())
                 .gender(product.getGender())
                 .collection(product.getCollection())
-                .conclusions(product.getConclusions())
 //                .conclusions(product.getConclusions())
                 .build();
         return productApiResponse;
