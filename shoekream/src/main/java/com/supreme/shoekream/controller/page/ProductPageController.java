@@ -4,11 +4,14 @@ import com.supreme.shoekream.model.entity.Product;
 import com.supreme.shoekream.model.network.Header;
 import com.supreme.shoekream.model.network.response.ProductApiResponse;
 import com.supreme.shoekream.model.network.response.ProductResponse;
+import com.supreme.shoekream.model.network.response.ProductWithConclusionApiResponse;
 import com.supreme.shoekream.repository.ProductRepository;
 import com.supreme.shoekream.service.ProductApiLogicService;
+import com.supreme.shoekream.service.ConclusionApiLogicService;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -20,6 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import static com.supreme.shoekream.model.entity.QConclusion.conclusion;
 import static com.supreme.shoekream.model.entity.QProduct.product;
 
 @Controller
@@ -27,6 +31,7 @@ import static com.supreme.shoekream.model.entity.QProduct.product;
 @RequiredArgsConstructor
 public class ProductPageController {
     private final ProductApiLogicService productApiLogicService;
+    private final ConclusionApiLogicService conclusionApiLogicService;
     private final ProductRepository productRepository;
     private final Logger logger = LoggerFactory.getLogger(ProductPageController.class.getName());
     // 모든사이즈 상품 상세 보기
@@ -38,6 +43,12 @@ public class ProductPageController {
 //        map.addAttribute("product", product);
 //        System.out.println(map);
 
+
+//        Header<ProductWithConclusionApiResponse> product = conclusionApiLogicService.read(idx);
+//        model.addAttribute("product", product);
+//        model.addAttribute("conclusion", conclusion);
+////        System.out.println("❌❌❌❌❌❌❌❌"+map);
+//        logger.info("msg : {}", model);
 
         Header<ProductApiResponse> product = productApiLogicService.read(idx);
         model.addAttribute("product",product);

@@ -1,5 +1,6 @@
 package com.supreme.shoekream.model.entity;
 
+import com.supreme.shoekream.model.dto.ProductDTO;
 import lombok.*;
 import javax.persistence.*;
 import java.util.List;
@@ -18,11 +19,11 @@ public class Product {
     private String name; // 상품명
     private String nameKor; // 상품명(한글)
     private String size; // 사이즈
-    private String recentPrice; // 최근거래가
-    private String fluctuation; // 가격변동
-    private String nowBuy; // 즉시구매가
-    private String nowSell; // 즉시판매가
-    private String wishCount; // 관심상품수
+//    private String recentPrice; // 최근거래가
+//    private String fluctuation; // 가격변동
+//    private String nowBuy; // 즉시구매가
+//    private String nowSell; // 즉시판매가
+//    private String wishCount; // 관심상품수
     private String modelNum; // 모델번호
     private String releaseDate; // 출시일
     private String color; // 컬러
@@ -36,10 +37,14 @@ public class Product {
 //    private LocalDateTime update_date; // 수정한 날짜
 //    private String updateBy; // 수정한 관리자
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "product", cascade = CascadeType.ALL)
-    @ToString.Exclude
-    private List<Conclusion> conclusions;
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "product", cascade = CascadeType.ALL)
+//    @ToString.Exclude
+//    private List<Conclusion> conclusions;
 
+
+    public static Product of(Long idx, String img, String brand, String name, String nameKor, String size, String modelNum, String releaseDate, String color, String firstPrice, String category, String gender, String collection ){
+        return new Product(idx, img, brand, name, nameKor, size, modelNum, releaseDate, color, firstPrice, category, gender, collection);
+    }
 
 }
 
