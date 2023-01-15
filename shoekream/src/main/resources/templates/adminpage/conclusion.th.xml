@@ -2,7 +2,6 @@
 <thlogic>
     <attr sel="#admin_conclusion">
         <attr sel="tbody" th:remove="all-but-first">
-
             <attr sel="tr[0]" th:each="list : ${list}">
                 <attr sel="td.con_idx" th:text="${list.idx}"/>
                 <attr sel="td.con_img/img" th:src="${list.product.img}"/>

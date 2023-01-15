@@ -7,7 +7,10 @@ import com.supreme.shoekream.model.network.response.ProductResponse;
 import com.supreme.shoekream.repository.ProductRepository;
 import com.supreme.shoekream.service.ProductApiLogicService;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,10 +28,10 @@ import static com.supreme.shoekream.model.entity.QProduct.product;
 public class ProductPageController {
     private final ProductApiLogicService productApiLogicService;
     private final ProductRepository productRepository;
-
+    private final Logger logger = LoggerFactory.getLogger(ProductPageController.class.getName());
     // 모든사이즈 상품 상세 보기
     @GetMapping(path="/{idx}") //http://localhost:8888/product/{idx}
-    public String product(HttpServletRequest request, @PathVariable Long idx, ModelMap map){
+    public String product(HttpServletRequest request, @PathVariable Long idx, Model model){
 
 
 //        Product product = productRepository.getOne(idx);
@@ -37,10 +40,16 @@ public class ProductPageController {
 
 
         Header<ProductApiResponse> product = productApiLogicService.read(idx);
-        map.addAttribute("product",product);    //상품정보 넣어서
-        System.out.println(map);
+        model.addAttribute("product",product);
+//        System.out.println("❌❌❌❌❌❌❌❌"+map);
+        logger.info("msg : {}", model);
+        logger.info("msg : {}", );
 
 
+
+//        Header<ProductApiResponse> con_product = productApiLogicService.con_read(idx);
+//        map.addAttribute("con_product",con_product);    //상품정보 넣어서
+//        System.out.println(map);
 //        HttpSession session = request.getSession(false);
 //        String id = null;
 //        String name = null;
