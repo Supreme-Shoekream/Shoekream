@@ -49,15 +49,15 @@
         <attr sel="p.nameKor" th:text="*{nameKor}"/>
     </attr>
     <!-- 체결 내역 더보기(사이즈, 거래가, 거래일) -->
-    <attr sel="#user_conclusion">
-        <attr sel=".con_price_body" th:remove="all-but-first">
-            <attr sel="div.body_list[0]" th:each="list : ${list}">
-                <attr sel="div.size" th:text="${list.product.size}"/>
-                <attr sel="div.price" th:src="${list.price}"/>
-                <attr sel="div.createdAt/time" th:datetime="${list.createdAt}"  th:text="${#temporals.format(list.createdAt, 'yy/MM/dd')}"/>
-            </attr>
-        </attr>
-    </attr>
+<!--    <attr sel="#user_conclusion">-->
+<!--        <attr sel=".con_price_body" th:remove="all-but-first">-->
+<!--            <attr sel="div.body_list[0]" th:each="con_product : ${product.data.conclusion}">-->
+<!--                <attr sel="div.size" th:text="${con_product.size}"/>-->
+<!--                <attr sel="div.price" th:src="${con_product.price}"/>-->
+<!--                <attr sel="div.createdAt/time" th:datetime="${con_product.createdAt}"  th:text="${#temporals.format(con_product.createdAt, 'yy/MM/dd')}"/>-->
+<!--            </attr>-->
+<!--        </attr>-->
+<!--    </attr>-->
     <!-- 관심 상품 추가 -->
     <attr sel=".layer_interest" th:object ="${product.data}">
         <attr sel="img#previewImg5" th:src="*{img}"/>

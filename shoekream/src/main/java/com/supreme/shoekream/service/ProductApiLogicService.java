@@ -1,15 +1,18 @@
 package com.supreme.shoekream.service;
 
+import com.supreme.shoekream.model.entity.Conclusion;
 import com.supreme.shoekream.model.entity.Product;
 import com.supreme.shoekream.model.network.Header;
 import com.supreme.shoekream.model.network.Pagination;
 import com.supreme.shoekream.model.network.request.ProductApiRequest;
 import com.supreme.shoekream.model.network.response.ProductApiResponse;
+import com.supreme.shoekream.repository.ConclusionRepository;
 import com.supreme.shoekream.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.ModelMap;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,6 +22,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class ProductApiLogicService extends BaseService<ProductApiRequest, ProductApiResponse, Product> {
     private final ProductRepository productRepository;
+    private final ConclusionRepository conclusionRepository;
 
     private ProductApiResponse response(Product product){
         ProductApiResponse productApiResponse = ProductApiResponse.builder()
@@ -40,6 +44,7 @@ public class ProductApiLogicService extends BaseService<ProductApiRequest, Produ
                 .category(product.getCategory())
                 .gender(product.getGender())
                 .collection(product.getCollection())
+                .conclusions(product.getConclusions())
                 .build();
         return productApiResponse;
     }
@@ -70,6 +75,18 @@ public class ProductApiLogicService extends BaseService<ProductApiRequest, Produ
         return productRepository.findByIdx(idx).map(product-> response(product))
                 .map(Header::OK).orElseGet(() -> Header.ERROR("상품 없음!"));
     }
+
+//    @Override
+//    public Header<ProductApiResponse> con_read(Long idx, ModelMap map) {
+//        List<Conclusion> list = conclusionRepository.findById(idx);
+//        map.addAttribute("list", list);
+//        System.out.println(list);
+//        return "adminpage/conclusion";
+//
+//        return conclusionRepository.findById(idx).map(con_product-> response(con_product))
+//                .map(Header::OK).orElseGet(() -> Header.ERROR("상품 없음!"));
+//    }
+
 
     @Override
     public Header<ProductApiResponse> update(Header<ProductApiRequest> request) {
