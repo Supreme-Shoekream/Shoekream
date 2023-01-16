@@ -328,6 +328,7 @@ INSERT INTO product (idx, img, brand, name, name_kor, size, model_num, release_d
 
 
 -- 팔로우
+insert into follow(follower_idx, following_idx) values(5,1);
 insert into follow(follower_idx, following_idx) values(5,2);
 insert into follow(follower_idx, following_idx) values(5,3);
 insert into follow(follower_idx, following_idx) values(5,4);
@@ -345,10 +346,10 @@ insert into follow(follower_idx, following_idx) values(5,10);
 
 
 -- 게시글
-# insert into board(hashtag, member_idx, content, img, created_at) values('아더에러자라', 1, '🇯🇵', '/img/styleImg/feed1.jpeg', now());
-# insert into board(hashtag, member_idx, content, img, created_at) values('아더에러자라',2, '쇼핑은 절거워~ #아더에러 #범고래', '/img/styleImg/feed2.jpeg', now());
-# insert into board(member_idx, content, img, created_at) values(3, '🤍 #데일리룩 #KREAM스타일','/img/styleImg/feed3.jpeg', now());
-# insert into board(member_idx, content, img, created_at) values(4, '🐾
+insert into board(hashtag, member_idx, content, img, created_at) values('아더에러자라', 1, '🇯🇵', '/img/styleImg/feed1.jpeg', now());
+insert into board(hashtag, member_idx, content, img, created_at) values('아더에러자라',2, '쇼핑은 절거워~ #아더에러 #범고래', '/img/styleImg/feed2.jpeg', now());
+insert into board(member_idx, content, img, created_at) values(3, '🤍 #데일리룩 #KREAM스타일','/img/styleImg/feed3.jpeg', now());
+insert into board(member_idx, content, img, created_at) values(4, '🐾
 # .
 # .
 # .

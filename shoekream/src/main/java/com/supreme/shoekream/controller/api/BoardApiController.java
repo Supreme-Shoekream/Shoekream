@@ -1,5 +1,6 @@
 package com.supreme.shoekream.controller.api;
 
+import com.supreme.shoekream.model.dto.socialDTO.BoardDTO;
 import com.supreme.shoekream.model.entity.Board;
 import com.supreme.shoekream.model.entity.Member;
 import com.supreme.shoekream.model.network.Header;
@@ -20,8 +21,8 @@ public class BoardApiController {
     private final BoardRepository boardRepository;
 
     @GetMapping("{idx}")    // http://localhost:8889/api/social (post)
-    public Optional<Board> read(@PathVariable(name="idx") Long idx){
-        return styleLogicService.read(idx);
+    public BoardDTO read(@PathVariable(name="idx") Long idx){
+        return BoardDTO.fromEntity(styleLogicService.read(idx));
     }
 
 

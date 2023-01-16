@@ -1,6 +1,6 @@
 package com.supreme.shoekream.service;
 
-import com.supreme.shoekream.model.entity.Admin;
+import com.supreme.shoekream.model.dto.socialDTO.BoardDTO;
 import com.supreme.shoekream.model.entity.Board;
 import com.supreme.shoekream.model.entity.Follow;
 import com.supreme.shoekream.model.entity.Member;
@@ -13,7 +13,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -29,19 +28,22 @@ public class StyleLogicService {
 
     private final LikeRepository likeRepository;
     @Transactional(readOnly=true)
-    public List<Board> list(){
-        System.out.println(boardRepository.findAll());
-        return boardRepository.findAll();
+    public List<BoardDTO> list(){
+//        System.out.println(boardRepository.findAll());
+        return BoardDTO.fromEntity(boardRepository.findAll());
     }
 
-    public Optional<Board> read(Long idx){
-        Optional<Board> board = boardRepository.findById(idx);
+    public Board read(Long idx){
+        Board board = boardRepository.findByIdx(idx);
         return board;
     }
 
-    public void delete(Long idx){
-       boardRepository.deleteById(idx);
-       return;
+    public Header delete(Long idx){
+        Optional<Board> board = boardRepository.findById(idx);
+        return board.map(bd ->{
+            boardRepository.delete(bd);
+            return Header.OK();
+        }).orElseGet(() -> Header.ERROR("데이터 없음"));
     }
 
     public List<Board> getFollowingFeeds(Long idx){

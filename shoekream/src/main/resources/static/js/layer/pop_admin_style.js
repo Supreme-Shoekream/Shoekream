@@ -4,22 +4,22 @@ function pop_style_view(idx){
         .then((data) => {
             console.log(data)
             document.querySelector(".social_img").src=data.img;
-            if(data.member.imgUrl == null){
+            if(data.memberDTO.imgUrl == null){
                 document.querySelector(".img_profile").src="/img/kream_empty_img.png";
             }else{
-                document.querySelector(".img_profile").src=data.member.imgUrl;
+                document.querySelector(".img_profile").src=data.memberDTO.imgUrl;
             }
-            document.querySelector(".user_name").innerHTML=data.member.nickname;
+            document.querySelector(".user_name").innerHTML=data.memberDTO.nickname;
             document.querySelector(".text_box").innerHTML=data.content;
-            console.log(data.lks.length);
             document.querySelector(".like_count").innerHTML=data.lks.length;
 
             document.querySelector(".comment_count").innerHTML=data.replies.length;
 
             // 상품태그 추가‼‼‼‼
-            document.getElementById("info_info_id").innerHTML=data.member.nickname;
+            document.getElementById("info_info_id").innerHTML=data.memberDTO.nickname;
+            document.getElementById("info_info_hashtag").innerHTML=data.hashtag;
             document.getElementById("info_info_created").innerHTML=data.createdAt;
-            document.getElementById("info_info_modified").innerHTML=data.modifiedAt;
+            // document.getElementById("info_info_modified").innerHTML=data.modifiedAt;
         })
 
 
@@ -45,8 +45,7 @@ function pop_style_delete_down(){
 function delete_board(idx){
     fetch("http://localhost:8889/api/social/" +idx, {
         method:"DELETE"
-    })
-        .then((res)=>{
+    }).then((res)=>{
             alert('삭제 완료');
             location.href='/admin/style';
             return;

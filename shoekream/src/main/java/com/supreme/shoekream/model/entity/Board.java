@@ -35,17 +35,15 @@ public class Board extends BaseEntity implements Auditable {
     @JoinColumn(name="member_idx")
     public Member member;
 
-    @ToString.Exclude
-//    @JsonIgnore
+//    @ToString.Exclude
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "board", cascade = CascadeType.ALL)
     private List<Lk> lks;
 
-    @ToString.Exclude
-//    @JsonIgnore
+//    @ToString.Exclude
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "board", cascade = CascadeType.ALL)
     private List<Reply> replies;
 
-    @ToString.Exclude@JsonIgnore
+//    @ToString.Exclude
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "board", cascade = CascadeType.ALL)
     private List<Tag> tags;
 }
