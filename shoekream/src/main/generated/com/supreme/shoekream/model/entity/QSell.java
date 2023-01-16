@@ -42,7 +42,7 @@ public class QSell extends EntityPathBase<Sell> {
 
     public final QProduct product;
 
-    public final StringPath progress = createString("progress");
+    public final EnumPath<com.supreme.shoekream.model.enumclass.SellProgress> progress = createEnum("progress", com.supreme.shoekream.model.enumclass.SellProgress.class);
 
     public final StringPath sender = createString("sender");
 
@@ -50,9 +50,9 @@ public class QSell extends EntityPathBase<Sell> {
 
     public final StringPath senderHp = createString("senderHp");
 
-    public final StringPath status = createString("status");
+    public final EnumPath<com.supreme.shoekream.model.enumclass.OrderStatus> status = createEnum("status", com.supreme.shoekream.model.enumclass.OrderStatus.class);
 
-    public final StringPath type = createString("type");
+    public final EnumPath<com.supreme.shoekream.model.enumclass.Type> type = createEnum("type", com.supreme.shoekream.model.enumclass.Type.class);
 
     public QSell(String variable) {
         this(Sell.class, forVariable(variable), INITS);
