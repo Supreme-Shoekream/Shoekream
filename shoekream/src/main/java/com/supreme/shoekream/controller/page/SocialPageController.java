@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -46,6 +47,7 @@ public class SocialPageController {
 
     @GetMapping(path = "/newest")   // http://localhost:8889/social/newest
     public ModelAndView newest(){ return new ModelAndView("social/newest"); }
+
 
     @GetMapping(path = "/following")    // http://localhost:8889/social/following
     public String following(HttpServletRequest request, ModelMap map){

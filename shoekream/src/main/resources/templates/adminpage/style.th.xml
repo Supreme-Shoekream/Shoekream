@@ -4,7 +4,7 @@
         <attr sel="tbody" th:remove="all-but-first">
             <attr sel="tr[0]" th:each="feed : ${feed}">
                 <attr sel="td.feed_img/img" th:src="${feed.img}"/>
-                <attr sel="td.feed_nickname/h5" th:text="${feed.member.nickname}"/>
+                <attr sel="td.feed_nickname/h5" th:text="${feed.memberDTO.nickname}"/>
                                 <attr sel="td.feed_tags" th:text="${feed.tags.size()}"/>
                                 <attr sel="td.feed_likes" th:text="${feed.lks.size()}"/>
                                 <attr sel="td.feed_comments" th:text="${feed.replies.size()}"/>
