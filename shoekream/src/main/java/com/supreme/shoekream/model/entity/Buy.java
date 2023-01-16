@@ -23,7 +23,7 @@ public class Buy{
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long idx; // 번호
     @ManyToOne @JoinColumn(name="product_idx") private Product product;
     @ManyToOne @JoinColumn(name="member_idx") private Member member; // 세션값을 저장할예정!
-    @Setter private Type type;      // 구매 방법(구매입찰/즉시구매)
+    @Setter private Type type;      // 구매 방법(구매입찰2/즉시구매3)
     private Long price;     // 구매 가격
     private int period;     // 숫자로 저장하고, 받아야지 계산하기가 편함. 마감날짜 등록날짜 + period
     private int usePoint;   // 구매시 사용한 포인트
@@ -44,7 +44,7 @@ public class Buy{
     //등록할때 필요한 정보들 - 내부는 private
     private Buy(Product product, Member member, Type type, Long price,
             int period, int usePoint, String cardInfo, String receiver,
-    String receiverHp, String receiverAddress, String deliveryMemo ){
+    String receiverHp, String receiverAddress, String deliveryMemo, LocalDateTime createdAt ){
         this.product=product;
         this.member=member;
         this.type=type;
@@ -56,26 +56,16 @@ public class Buy{
         this.receiverHp=receiverHp;
         this.receiverAddress=receiverAddress;
         this.deliveryMemo=deliveryMemo;
+        this.createdAt=createdAt;
     }
 
     //외부에서 사용할때 of로 사용하도록 // static 메서드:객체 생성없이 클래스를 통해 메서드를 직접 호출
     public static Buy of(Product product, Member member, Type type, Long price,
                          int period, int usePoint, String cardInfo, String receiver,
-                         String receiverHp, String receiverAddress, String deliveryMemo){
+                         String receiverHp, String receiverAddress, String deliveryMemo,
+                         LocalDateTime createdAt){
         return new Buy(product,member,type,price,period,usePoint,cardInfo,receiver,
-                receiverHp,receiverAddress,deliveryMemo);
+                receiverHp,receiverAddress,deliveryMemo, createdAt);
     }
 
-    //@EqualsAndHashCode 와 같은 효과
-    @Override
-    public int hashCode() {
-        return Objects.hash(idx);
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if(this == obj) return true;
-        if(!(obj instanceof Buy buy)) return false;
-        return idx != null && idx.equals(buy.idx);
-    }
 }
