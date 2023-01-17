@@ -8,10 +8,6 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Data
-@Builder
 public record BlacklistResponse(
         Long idx,
         String reason,
