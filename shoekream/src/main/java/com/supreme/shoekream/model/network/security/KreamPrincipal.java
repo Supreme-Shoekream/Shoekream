@@ -1,5 +1,6 @@
 package com.supreme.shoekream.model.network.security;
 
+import com.supreme.shoekream.model.dto.MemberDTO;
 import com.supreme.shoekream.model.entity.Member;
 import com.supreme.shoekream.model.network.response.MemberApiResponse;
 import lombok.Getter;
@@ -37,15 +38,27 @@ public record KreamPrincipal(
         );
     }
 
-    public static KreamPrincipal from(Member member){
+//    public static KreamPrincipal from(Member member){
+//        return KreamPrincipal.of(
+//                member.getIdx(),
+//                member.getNickname(),
+//                member.getMemberPw(),
+//                member.getName(),
+//                member.getEmail(),
+//                member.getHp(),
+//                member.getShoeSize()
+//        );
+//    }
+
+    public static KreamPrincipal from(MemberDTO dto){
         return KreamPrincipal.of(
-                member.getIdx(),
-                member.getNickname(),
-                member.getMemberPw(),
-                member.getName(),
-                member.getEmail(),
-                member.getHp(),
-                member.getShoeSize()
+                dto.idx(),
+                dto.nickname(),
+                dto.memberPw(),
+                dto.name(),
+                dto.email(),
+                dto.hp(),
+                dto.shoeSize()
         );
     }
 

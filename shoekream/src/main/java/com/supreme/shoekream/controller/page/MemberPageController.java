@@ -87,18 +87,18 @@ public class MemberPageController {
     }
 
     // notice controller
-    @GetMapping(path="faq")   //http://localhost:9999/faq
-    public ModelAndView faq(){
-        return new ModelAndView("/notice/faq");
-    }
-
-    @GetMapping(path="auth_policy")   //http://localhost:9999/auth_policy
-    public ModelAndView auth_policy(){
-        return new ModelAndView("/notice/auth_policy");
-    }
-
-    @GetMapping(path="notice")   //http://localhost:9999/notice
-    public ModelAndView notice(){
-        return new ModelAndView("/notice/notice");
-    }
+//    @GetMapping(path="faq")   //http://localhost:9999/faq
+//    public ModelAndView faq(){
+//        return new ModelAndView("/notice/faq");
+//    }
+//
+//    @GetMapping(path="auth_policy")   //http://localhost:9999/auth_policy
+//    public ModelAndView auth_policy(){
+//        return new ModelAndView("/notice/auth_policy");
+//    }
+//
+//    @GetMapping(path="notice")   //http://localhost:9999/notice
+//    public ModelAndView notice(){
+//        return new ModelAndView("/notice/notice");
+//    }
 }
