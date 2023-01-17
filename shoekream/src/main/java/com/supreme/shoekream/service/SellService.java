@@ -1,5 +1,6 @@
 package com.supreme.shoekream.service;
 
+import com.querydsl.core.types.Order;
 import com.supreme.shoekream.model.dto.BuyDTO;
 import com.supreme.shoekream.model.dto.SellDTO;
 import com.supreme.shoekream.model.entity.Member;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -68,4 +70,17 @@ public class SellService {
                 .getPrice();
     }
 
+
+    @Transactional(readOnly = true)
+    public List<Long> buyNowPrices(List<Product> products){
+        List<Long> prices=new ArrayList<Long>();
+        products.forEach(
+                product -> {
+                    Long price = sellRepository.findFirstByProductAndStatusOrderByPrice(product,OrderStatus.BIDDING).getPrice();
+                    prices.add(price);
+                }
+        );
+        System.out.println(prices);
+        return prices;
+    }
 }

@@ -27,7 +27,7 @@ class SellRepositoryTest extends ShoekreamApplicationTests {
         System.out.println(sellRepository.findByMemberAndStatus(member, OrderStatus.BIDDING));
         System.out.println("입찰중인거");
 
-        Product product = productRepository.findById(66L).get();
+        Product product = productRepository.findById(46L).get();
         System.out.println("즉시구매가");
         System.out.println(sellRepository.findFirstByProductOrderByPrice(product));
     }
