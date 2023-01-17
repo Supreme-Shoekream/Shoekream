@@ -1,36 +1,42 @@
 package com.supreme.shoekream.model.network.response;
 
 import com.supreme.shoekream.model.dto.BlacklistDTO;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+@Builder
 public record BlacklistResponse(
         Long idx,
         String reason,
         Long memberIdx,
+        String memberName,
+        String memberHp,
+        String memberEmail,
+        String memberStatus,
         LocalDateTime createdAt
 ) {
-    public static BlacklistResponse of(Long idx, String reason, Long memberIdx, LocalDateTime createdAt){
-        return new BlacklistResponse(idx, reason, memberIdx, createdAt);
+    public static BlacklistResponse of(Long idx, String reason, Long memberIdx, String memberName, String memberHp, String memberEmail,
+                                       String memberStatus, LocalDateTime createdAt){
+        return new BlacklistResponse(idx, reason, memberIdx, memberName, memberHp, memberEmail, memberStatus, createdAt);
     }
     public static BlacklistResponse from(BlacklistDTO dto){
-//
-//        LocalDateTime createdAt = dto.createdAt();
-//        int period = dto.period();
-//        LocalDateTime deadline = dto.createdAt();
-//        if(period == 0 ){
-//            deadline = createdAt;
-//        }else{
-//            deadline = createdAt.plusDays(period);
-//        }
-//        return new BlacklistResponse(
-//                dto.idx(),
-//                dto.blacklistDTO().idx(),
-//                dto.blacklistDTO().reason(),
-//                dto.blacklistDTO().memberIdx(),
-//                dto.createdAt(),
-//                deadline
-//        );
-//
-//    }
+
+        return new BlacklistResponse(
+                dto.idx(),
+                dto.reason().getDescription(),
+                dto.memberDTO().idx(),
+                dto.memberDTO().name(),
+                dto.memberDTO().hp(),
+                dto.memberDTO().email(),
+                dto.memberDTO().status().getDescription(),
+                dto.createdAt()
+        );
+    }
 }
