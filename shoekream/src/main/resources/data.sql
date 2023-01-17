@@ -821,6 +821,7 @@ insert into conclusion (product_idx, price, created_at) values (109, '309,000원
 
 
 
+
 -- shop 카테고리 신발
 
 -- shop 카테고리별 상품
