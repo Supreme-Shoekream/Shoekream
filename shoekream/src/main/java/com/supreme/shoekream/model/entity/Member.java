@@ -5,8 +5,13 @@ import com.supreme.shoekream.model.config.BaseEntity;
 import com.supreme.shoekream.model.enumclass.Status;
 import lombok.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import javax.persistence.*;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity             //DB에 만들 테이블임!
 @NoArgsConstructor  //매개변수 없는 기본 생성자 생성
@@ -31,7 +36,8 @@ public class Member extends BaseEntity implements Auditable {
     private String profileMemo;
     private String imgUrl;
 
-    public Member(String nickname, String memberPw, String name, String hp, String email, String shoeSize, String profileMemo, String imgUrl) {
+    public Member(Long idx, String nickname, String memberPw, String name, String hp, String email, String shoeSize, String profileMemo, String imgUrl) {
+        this.idx = idx;
         this.nickname = nickname;
         this.memberPw = memberPw;
         this.name = name;
@@ -42,8 +48,9 @@ public class Member extends BaseEntity implements Auditable {
         this.imgUrl = imgUrl;
     }
 
-    public static Member of(String nickname, String memberPw, String name, String hp, String email,
+    public static Member of(Long idx, String nickname, String memberPw, String name, String hp, String email,
                             String shoeSize, String profileMemo, String imgUrl){
-        return new Member(nickname, memberPw, name, hp, email, shoeSize, profileMemo, imgUrl);
+        return new Member(idx, nickname, memberPw, name, hp, email, shoeSize, profileMemo, imgUrl);
     }
+
 }
