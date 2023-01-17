@@ -13,16 +13,18 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Controller
-@RequestMapping("admin/conclusion")
+//@RequestMapping("admin/conclusion")
 public class ConclusionPageController {
 
-    private final ConclusionRepository conclusionRepository;
-    @GetMapping("")
-    public String conclusionList(ModelMap map) {
-        List<Conclusion> list = conclusionRepository.findAll();
-        map.addAttribute("list", list);
-        System.out.println(list);
-        return "adminpage/conclusion";
-    }
+//    private final ConclusionRepository conclusionRepository;
+//    @GetMapping("")
+//    public String conclusionList(ModelMap map) {
+//        List<Conclusion> list = conclusionRepository.findAll();
+//        map.addAttribute("list", list);
+//        System.out.println(list);
+//        return "adminpage/conclusion";
+//    }
+
+
 
 }
