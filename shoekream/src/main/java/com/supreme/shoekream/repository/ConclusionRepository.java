@@ -8,5 +8,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ConclusionRepository extends JpaRepository<Conclusion, Long> {
-    List<Conclusion> findByProduct(Product product);
+    List<Conclusion> findByProductIdx(Long idx);
+    List<Conclusion> findAllByProduct(Product product);
 }

@@ -22,20 +22,11 @@ public class QWish extends EntityPathBase<Wish> {
 
     public static final QWish wish = new QWish("wish");
 
-    public final com.supreme.shoekream.model.config.QBaseEntity _super = new com.supreme.shoekream.model.config.QBaseEntity(this);
-
-    public final DateTimePath<java.time.LocalDateTime> createdAt = createDateTime("createdAt", java.time.LocalDateTime.class);
-
     public final NumberPath<Long> idx = createNumber("idx", Long.class);
 
     public final QMember member;
 
-    //inherited
-    public final DateTimePath<java.time.LocalDateTime> modifiedAt = _super.modifiedAt;
-
     public final NumberPath<Long> productIdx = createNumber("productIdx", Long.class);
-
-    public final StringPath size = createString("size");
 
     public QWish(String variable) {
         this(Wish.class, forVariable(variable), INITS);

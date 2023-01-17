@@ -81,6 +81,7 @@ function sendit(){
             return;
         })
         .then((data) => {
+            console.log("111111111")
             console.log(data);
             return;
         })
@@ -247,7 +248,7 @@ function admindelete(idx){
         .then((res) => {
             alert("상품 삭제 성공!")
             location.href="/admin/products";
-            return;
+
         })
         .then((data) => {
             console.log(data);
@@ -270,6 +271,7 @@ $(document).ready(function(){
 //파일첨부 이벤트
 $('.filebox .upload-hidden').on('change', function(){
     if(window.FileReader){
+        // var filename = $(this)[0].files[0].name;
         var filename = $(this)[0].files[0].name;
         if(!validFileType(filename)){
             alert("허용하지 않는 확장자 파일입니다.");
@@ -342,31 +344,6 @@ function popImage(url) {
 }
 
 
-// // edit 이미지 띄우기
-// function readImage2(input) {
-//     if(input.files && input.files[0]) {
-//         const reader = new FileReader();
-//         reader.onload = function(e){
-//             // const previewImage = document.getElementById("previewImg"); // create img
-//             // previewImage.src = e.target.result;
-//
-//             const previewImage2 = document.getElementsByClassName("edit_img"); // edit img
-//             previewImage2.src = e.target.result;
-//         }
-//         // reader가 이미지 읽도록 하기
-//         reader.readAsDataURL(input.files[0]);
-//     }
-// }
-// // edit 이미지 원본 팝업 띄우기
-// function popImage2(url) {
-//     var img = new Image();
-//     img.src = url;
-//     var img_width = img.width;
-//     var win_width = img.width + 25;
-//     var img_height = img.height;
-//     var win = img.height + 30;
-//     var popup = window.open('', '_blank', 'width=' + img_width + ', height=' + img_height + ', menubars=no, scrollbars=auto');
-//     popup.document.write("<style>body{margin:0px;}</style><img src='"+url+"' width='"+win_width+"'>");
-// }
+
 
 
