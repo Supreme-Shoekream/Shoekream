@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
-
 public record PenaltyResponse(
         Long idx,
         String reason,

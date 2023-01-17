@@ -1,5 +1,6 @@
 package com.supreme.shoekream.config;
 
+import com.supreme.shoekream.model.dto.MemberDTO;
 import com.supreme.shoekream.model.network.security.KreamPrincipal;
 import com.supreme.shoekream.repository.MemberRepository;
 import org.springframework.context.annotation.Bean;
@@ -7,6 +8,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
@@ -37,14 +40,15 @@ public class SecurityConfig {
 //            .formLogin().and()
 //            .build();
 //        }
-//    @Bean
-//    public PasswordEncoder passwordEncoder(){
-//        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
-//    }
+    @Bean
+    public PasswordEncoder passwordEncoder(){
+        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
+    }
 
     @Bean
     public UserDetailsService userDetailsService(MemberRepository memberRepository){
         return email -> memberRepository.findByEmail(email)
+                .map(MemberDTO::fromEntity)
                 .map(KreamPrincipal::from)
                 .orElseThrow(() -> new UsernameNotFoundException("유저를 찾을 수 없습니다 - email" + email));
     }
