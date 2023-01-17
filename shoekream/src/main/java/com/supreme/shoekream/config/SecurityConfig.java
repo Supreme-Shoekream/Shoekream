@@ -13,7 +13,9 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        return http
+        return
+
+                http.csrf().disable()
                 .authorizeRequests(auth -> auth.anyRequest().permitAll())
                 .formLogin()
                 .loginPage("/login")            // 사용자 정의 로그인 페이지

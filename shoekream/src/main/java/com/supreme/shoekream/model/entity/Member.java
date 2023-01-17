@@ -5,8 +5,13 @@ import com.supreme.shoekream.model.config.BaseEntity;
 import com.supreme.shoekream.model.enumclass.Status;
 import lombok.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import javax.persistence.*;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity             //DB에 만들 테이블임!
 @NoArgsConstructor  //매개변수 없는 기본 생성자 생성
@@ -46,4 +51,5 @@ public class Member extends BaseEntity implements Auditable {
                             String shoeSize, String profileMemo, String imgUrl){
         return new Member(nickname, memberPw, name, hp, email, shoeSize, profileMemo, imgUrl);
     }
+
 }

@@ -21,5 +21,15 @@ public class Blacklist {
     private String reason;
     private Long memberIdx;
     private LocalDateTime createdAt;
-    private String period;
+
+    public Blacklist(Long idx, String reason, Long memberIdx, LocalDateTime createdAt, String period) {
+        this.idx = idx;
+        this.reason = reason;
+        this.memberIdx = memberIdx;
+        this.createdAt = createdAt;
+    }
+
+//    public static Blacklist of(Long idx, String reason, Long memberIdx, LocalDateTime createdAt, String period){
+//        return new Blacklist(idx, reason, memberIdx, createdAt, period);
+//    }
 }
