@@ -31,5 +31,5 @@ public class ProductApiResponse {
     private String category;
     private String gender;
     private String collection;
-    List<Conclusion> conclusions;
+//    List<Conclusion> conclusions;
 }

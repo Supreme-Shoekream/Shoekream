@@ -3,7 +3,9 @@ package com.supreme.shoekream.model.entity;
 import com.supreme.shoekream.model.dto.ProductDTO;
 import lombok.*;
 import javax.persistence.*;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 
 @Entity
@@ -40,6 +42,10 @@ public class Product {
 //    @OneToMany(fetch = FetchType.LAZY, mappedBy = "product", cascade = CascadeType.ALL)
 //    @ToString.Exclude
 //    private List<Conclusion> conclusions;
+
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "product", cascade = CascadeType.ALL)
+//    @ToString.Exclude
+//    private final Set<Conclusion> conclusions = new LinkedHashSet<>();
 
 
     public static Product of(Long idx, String img, String brand, String name, String nameKor, String size, String modelNum, String releaseDate, String color, String firstPrice, String category, String gender, String collection ){

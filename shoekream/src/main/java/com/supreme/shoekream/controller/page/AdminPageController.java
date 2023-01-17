@@ -1,6 +1,8 @@
 package com.supreme.shoekream.controller.page;
 
 
+import com.supreme.shoekream.model.entity.Conclusion;
+import com.supreme.shoekream.repository.ConclusionRepository;
 import com.supreme.shoekream.service.StyleLogicService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -36,26 +38,6 @@ public class AdminPageController {
         return new ModelAndView("adminpage/products.html");
     }
 
-//    @GetMapping(path="products/create")   //http://localhost:8889/admin/products/create
-//    public ModelAndView productcreate(){
-//        return new ModelAndView("/adminpage/productcreate.html");
-//    }
-//
-//    @GetMapping(path="products/view")   //http://localhost:8889/admin/products/view
-//    public ModelAndView productview(){
-//        return new ModelAndView("/adminpage/admin_layer/layer_product_view.html");
-//    }
-//
-//    @GetMapping(path="products/edit")   //http://localhost:8889/admin/products/edit
-//    public ModelAndView productedit(){
-//        return new ModelAndView("/adminpage/admin_layer/layer_product_edit.html");
-//    }
-//
-//    @GetMapping(path="products/delete")   //http://localhost:8889/admin/products/delete
-//    public ModelAndView productdelete(){
-//        return new ModelAndView("/adminpage/admin_layer/pop_product_delete.html");
-//    }
-
     @GetMapping(path="login")   //http://localhost:8889/admin/login
     public ModelAndView loginadmin(){
         return new ModelAndView("/adminpage/login.html");
@@ -81,10 +63,14 @@ public class AdminPageController {
         return new ModelAndView("/adminpage/sell.html");
     }
 
-//    @GetMapping(path="conclusion")   //http://localhost:8889/admin/conclusion
-//    public ModelAndView conclusion(){
-//        return new ModelAndView("/adminpage/conclusion.html");
-//    }
+    private final ConclusionRepository conclusionRepository;
+    @GetMapping(path="conclusion")   //http://localhost:8889/admin/conclusion
+    public ModelAndView conclusion(ModelMap modelMap){
+        List<Conclusion> list = conclusionRepository.findAll();
+        modelMap.addAttribute("list", list);
+//        System.out.println(list);
+        return new ModelAndView("/adminpage/conclusion.html");
+    }
 
     @GetMapping(path="notice")   //http://localhost:8889/admin/notice
     public ModelAndView notice(){
