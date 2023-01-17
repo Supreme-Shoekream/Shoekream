@@ -12,10 +12,10 @@ import javax.persistence.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString(callSuper = true)
-@EqualsAndHashCode(callSuper = true)
+@ToString
+//@EqualsAndHashCode
 @EntityListeners(AuditingEntityListener.class)
-public class Tag extends BaseEntity implements Auditable {
+public class Tag{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
