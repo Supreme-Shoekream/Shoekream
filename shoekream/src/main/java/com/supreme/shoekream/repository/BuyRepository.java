@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 public interface BuyRepository extends JpaRepository<Buy,Long> {
     // 한 사용자가 구입한 내역
