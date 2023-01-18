@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
  * @param productDTO : productDTO객체
  * @param memberDTO : 구매내역을 만든 사용자 DTO객체
  * @param type : 구매입찰/ 즉시구매
- * @param price : 구매희망가/ 구매가격
+ * @param price : 구매희망가/ 구매 가격
  * @param period : 입찰기간/ x
  * @param usePoint : 사용자가 사용한 포인트
  * @param cardInfo : 결재한 카드정보
