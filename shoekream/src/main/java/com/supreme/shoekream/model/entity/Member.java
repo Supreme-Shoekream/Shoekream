@@ -53,7 +53,11 @@ public class Member extends BaseEntity implements Auditable {
     }
 
     public static Member of(Long idx, String nickname, String memberPw, String name, String hp, String email,
+<<<<<<< HEAD
+                            String shoeSize, String profileMemo, String imgUrl,String bank, String accountNumber){
+=======
                             String shoeSize, String profileMemo, String imgUrl, String bank, String accountNumber){
+>>>>>>> 24b8aaa4effea2890eea3af44860f17ab88ae5ab
         return new Member(idx, nickname, memberPw, name, hp, email, shoeSize, profileMemo, imgUrl, bank, accountNumber);
     }
 
