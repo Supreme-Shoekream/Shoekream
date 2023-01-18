@@ -1,5 +1,6 @@
 package com.supreme.shoekream.service;
 
+import com.supreme.shoekream.model.dto.ProductDTO;
 import com.supreme.shoekream.model.entity.Product;
 import com.supreme.shoekream.model.enumclass.SearchType;
 import com.supreme.shoekream.model.network.Header;
@@ -120,18 +121,22 @@ public class ShopApiLogicService extends BaseService<ProductApiRequest, ProductA
     
     //카테고리 기능
     @Transactional(readOnly = true)// 데이터에 권한을 주지 않는다
-    public Page<Product> searchProduct(SearchType searchType, String searchKeyword, Pageable pageable){
+    public Page<ProductDTO> searchProduct(SearchType searchType, String searchKeyword, Pageable pageable){
         if (searchKeyword == null || searchKeyword.isBlank()){
-            return productRepository.findAll(pageable);
+            return productRepository.findAll(pageable).map(ProductDTO::fromEntity);
         }
         return switch (searchType){
-            case CATEGORY -> productRepository.findByCategoryContaining(searchKeyword, pageable);
-            case BRAND -> productRepository.findByBrandContaining(searchKeyword, pageable);
-            case COLLECTION -> productRepository.findByCollectionContaining(searchKeyword, pageable);
-            case GENDER -> productRepository.findByGender(searchKeyword, pageable);
-            case FIRSTPRICE -> productRepository.findByFirstPrice(searchKeyword, pageable);
+            case CATEGORY -> productRepository.findByCategoryContaining(searchKeyword, pageable).map(ProductDTO::fromEntity);
+            case BRAND -> productRepository.findByBrandContaining(searchKeyword, pageable).map(ProductDTO::fromEntity);
+            case COLLECTION -> productRepository.findByCollectionContaining(searchKeyword, pageable).map(ProductDTO::fromEntity);
+            case GENDER -> productRepository.findByGender(searchKeyword, pageable).map(ProductDTO::fromEntity);
+            case FIRSTPRICE -> productRepository.findByFirstPrice(searchKeyword, pageable).map(ProductDTO::fromEntity);
         };
     }
+
+//    public List<String> getBrand(){
+//        return productRepository.findAll
+//    }
 
 }
 

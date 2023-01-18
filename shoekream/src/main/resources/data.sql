@@ -102,7 +102,7 @@ insert into member (nickname, member_pw, name, hp, email, status, shoe_size, poi
 
 
 -- 제품
--- INSERT INTO product (idx, brand, category, color, first_price, img, model_num, name, name_kor, release_date, size, wish_count, gender, collection) VALUES (1, '아디다스', '스니커즈', '블랙', '150,000원', 'C:\\fakepath\\뽀로로.png', '3333', '슈퍼스타', '슈퍼스타', '2021-12-12', '240', null, null, null);
+-- INSERT INTO product (idx, brand, category, color, first_price, img, model_num, name, name_kor,  size, wish_count, gender, collection) VALUES (1, '아디다스', '스니커즈', '블랙', '150,000원', 'C:\\fakepath\\뽀로로.png', '3333', '슈퍼스타', '슈퍼스타', '2021-12-12', '240', null, null, null);
 -- INSERT INTO product (idx, brand, category, color, first_price, img, model_num, name, name_kor, release_date, size, wish_count, gender, collection) VALUES (2, 'nike', '부츠', 'WHITE', '139,000원', 'C:\\fakepath\\뽀로로.png', '2222', 'airforce', '에어포스', '', '240', null, null, null);
 -- INSERT INTO product (idx, brand, category, color, first_price, img, model_num, name, name_kor, release_date, size, wish_count, gender, collection) VALUES (3, 'newblance', '스니커즈', 'gray', '329,000원', 'C:\\fakepath\\뽀로로.png', '3333', '993', '993', '2022-01-07', '275', null, null, null);
 -- INSERT INTO product (idx, brand, category, color, first_price, img, model_num, name, name_kor, release_date, size, wish_count, gender, collection) VALUES (4, '김사과', '후드', 'red', '1000원', 'C:\\fakepath\\뽀로로.png', '1', 'apple', 'apple', '1', '1', null, null, null);
