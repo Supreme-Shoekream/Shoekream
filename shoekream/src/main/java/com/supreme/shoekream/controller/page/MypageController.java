@@ -43,12 +43,16 @@ public class MypageController {
     }
 
     private final AddressApiLogicService addressApiLogicService;
-//    @GetMapping(path="address")
-//    public String address(ModelMap map, @AuthenticationPrincipal KreamPrincipal kreamPrincipal
-//            , AddressApiRequest addressApiRequest){
-//        map.addAttribute("address", addressApiLogicService.list(addressApiRequest.));
-//        return "my/address";
-//    }
+    @GetMapping(path="address")
+    public String address(ModelMap map, HttpServletRequest request){
+        HttpSession session = request.getSession();
+        Long idx = (Long)session.getAttribute("id");
+        System.out.println(addressApiLogicService.list(idx));
+        map.addAttribute("address", addressApiLogicService.list(1L));
+        return "my/address";
+    }
+
+
 
     @GetMapping(path="payment")
     public ModelAndView payment(){

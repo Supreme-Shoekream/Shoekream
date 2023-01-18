@@ -18,10 +18,10 @@ import java.util.Optional;
 @Transactional
 public class AddressApiLogicService {
     private final AddressRepository addressRepository;
-//    @Transactional
-//    public List<Address> list(){
-//        return addressRepository.findAll(MemberDTO dto);
-//    }
+    @Transactional
+    public List<Address> list(Long idx){
+        return addressRepository.findByIdx(idx);
+    }
 
     @Transactional
     public Header<Address> create(Header<AddressDTO> request){
