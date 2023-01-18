@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<thlogic>
+    <attr sel=".sell_product" th:object ="${product.data}">
+        <attr sel=".product_img/img" th:src="*{img}"></attr>
+        <attr sel=".model_number/span" th:text="*{idx}"></attr>
+        <attr sel=".model_title" th:text="*{name}"></attr>
+        <attr sel=".model_ko" th:text="*{nameKor}"></attr>
+        <attr sel=".size_txt" th:text="*{size}"></attr>
+    </attr>
+</thlogic>
