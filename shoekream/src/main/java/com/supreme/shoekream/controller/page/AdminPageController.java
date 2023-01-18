@@ -55,7 +55,7 @@ public class AdminPageController {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     /* 첨부 파일 업로드 */
-    @PostMapping("/products") // 파일 1개 업로드 //http://localhost:8889/admin/products
+    @PostMapping("products") // 파일 1개 업로드 //http://localhost:8889/admin/products
     public String uploadAjaxActionPOST(MultipartFile uploadFile) {
 //        logger.info("⚠️uploadAjaxActionPOST..........");
 //        logger.info("⚠️파일 이름 : " + uploadFile.getOriginalFilename());
