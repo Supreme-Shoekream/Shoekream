@@ -26,4 +26,6 @@ public class MemberApiResponse {
     private LocalDateTime modifiedAt;
     private String profileMemo;
     private String imgUrl;
+    private String bank;
+    private String accountNumber;
 }
