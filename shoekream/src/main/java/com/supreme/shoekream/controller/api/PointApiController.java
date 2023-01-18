@@ -3,10 +3,10 @@ package com.supreme.shoekream.controller.api;
 import com.supreme.shoekream.model.entity.Point;
 import com.supreme.shoekream.service.PointApiLogicService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @RestController
 @RequiredArgsConstructor
@@ -17,6 +17,14 @@ public class PointApiController {
     @PostMapping("")
     public String create(@RequestBody Point point){
         pointApiLogicService.create(point);
+        return "";
+    }
+
+    @PutMapping("")
+    public String update(HttpServletRequest request){
+        HttpSession session = request.getSession();
+        Long userIdx = (Long)session.getAttribute("idx");
+        pointApiLogicService.update(userIdx);
         return "";
     }
 }

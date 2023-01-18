@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<thlogic>
+    <attr sel="#header" th:replace="header :: header"/>
+    <attr sel="#footer" th:replace="footer :: footer"/>
+
+    <attr sel=".search_result" th:object="${products}">
+        <attr sel=".item_inner" th:action="@{/products}" th:method="get"/>
+    </attr>
+
+    <attr sel=".search_result_list" th:remove="all-but-first">
+        <attr sel=".sec_img_box" th:each= "product : ${products}">
+            <attr sel=".item_inner" th:href="@{'/products/' + ${product.idx}}">
+                <attr sel=".product_img/img" th:src="${product.img}"/>
+                <attr sel=".product_info_area" >
+                    <attr sel=".product_info_brand" th:text="${product.brand}"/>
+                    <attr sel=".product_info_product_name/p[0]" th:text="${product.name}"/>
+                    <attr sel=".product_info_product_name/p[1]" th:text="${product.nameKor}"/>
+                </attr>
+                <attr sel=".product_info_area/p[0]" th:text="${product.firstPrice}"/>
+            </attr>
+        </attr>
+    </attr>
+</thlogic>
+
+
+
+<!--원본-->
+<!--<?xml version="1.0"?>-->
+<!--<thlogic>-->
+<!--<attr sel="#header" th:replace="header :: header"/>-->
+<!--<attr sel="#footer" th:replace="footer :: footer"/>-->
+
+<!--<attr sel=".search_result" th:object="${products}">-->
+<!--    <attr sel=".item_inner" th:action="@{/products}" th:method="get"/>-->
+<!--</attr>-->
+
+<!--<attr sel=".sec_flex_box" th:remove="all-but-first">-->
+<!--    <attr sel=".sec_img_box" th:each= "product : ${products}">-->
+<!--        <attr sel=".item_inner" th:href="@{'/products/' + ${product.idx}}">-->
+<!--            <attr sel=".product_img/img" th:src="${product.img}"/>-->
+<!--            <attr sel=".product_info_area" >-->
+<!--                <attr sel=".product_info_brand" th:text="*{product.brand}"/>-->
+<!--                <attr sel=".product_info_product_name/p[0]" th:text="*{product.name}"/>-->
+<!--                <attr sel=".product_info_product_name/p[1]" th:text="*{product.nameKor}"/>-->
+<!--            </attr>-->
+<!--            <attr sel=".product_info_area/p[0]" th:text="*{product.firstPrice}"/>-->
+<!--        </attr>-->
+<!--    </attr>-->
+<!--</attr>-->
+<!--</thlogic>-->

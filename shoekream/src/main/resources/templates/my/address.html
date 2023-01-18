@@ -311,23 +311,22 @@
 
     const addressDelBtn = document.querySelector('.address_delete')
     const addressDiv = document.querySelector('.is_active')
-    addressDelBtn.addEventListener('click', () => {
-        const idx=11;
-        console.log('123')
-        fetch('http://localhost:8989/api/my/address/delete/'+idx, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                //우리가 만든데이터
-                "transaction_time":`${new Date()}`,
-                "resultCode":"ok",
-                "description":"정상",
-                "data":{
-                }
-            }),
-        })
-        addressDiv.remove();
-    })
+    // addressDelBtn.addEventListener('click', () => {
+    //     const idx=11;
+    //     fetch('http://localhost:8989/api/my/address/delete/'+idx, {
+    //         method: 'POST',
+    //         headers: { 'Content-Type': 'application/json' },
+    //         body: JSON.stringify({
+    //             //우리가 만든데이터
+    //             "transaction_time":`${new Date()}`,
+    //             "resultCode":"ok",
+    //             "description":"정상",
+    //             "data":{
+    //             }
+    //         }),
+    //     })
+    //     addressDiv.remove();
+    // })
     const addressEditBtn = document.querySelector('.address_edit')
     const addressEdit = document.querySelector('.layer_edit')
     addressEditBtn.addEventListener('click', () => {
@@ -471,7 +470,6 @@
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    //우리가 만든데이터
                     "transaction_time":`${new Date()}`,
                     "resultCode":"ok",
                     "description":"정상",
@@ -484,6 +482,10 @@
                         "addressBasic": true
                     }
                 }),
+            }).then((res)=>{
+                alert('주소추가 완료');
+                location.href='/my/address';
+                return;
             })
         }
     })
@@ -640,6 +642,26 @@
                 document.getElementById("sample6_detailAddress2").focus();
             }
         }).open();
+    }
+    function delete_address(idx){
+        fetch('http://localhost:8989/api/my/address/delete/'+idx, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                "transaction_time":`${new Date()}`,
+                "resultCode":"ok",
+                "description":"정상",
+                "data":{
+                }
+            }),
+        }).then((res)=>{
+            alert('삭제 완료');
+            location.href='/my/address';
+            return;
+        })
+            .catch((err) => {
+                alert(err);
+            })
     }
 </script>
 

@@ -2,17 +2,27 @@ package com.supreme.shoekream.controller.page;
 
 
 import com.supreme.shoekream.model.entity.Conclusion;
+import com.supreme.shoekream.model.network.response.BuyResponse;
 import com.supreme.shoekream.repository.ConclusionRepository;
+import com.supreme.shoekream.service.BuyService;
 import com.supreme.shoekream.service.StyleLogicService;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.File;
@@ -86,9 +96,16 @@ public class AdminPageController {
         return new ModelAndView("/adminpage/brands.html");
     }
 
+
+    private final BuyService buyService;
     @GetMapping(path="buy")   //http://localhost:8889/admin/buy
-    public ModelAndView buy(){
-        return new ModelAndView("/adminpage/buy.html");
+    public String buy(@RequestParam(required = false) String searchKeyword,
+                      @PageableDefault(size = 10, sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
+                      ModelMap map){
+        Page<BuyResponse> buys = buyService.searchBuy(searchKeyword, pageable).map(BuyResponse::from);
+//        List<Integer> barNumbers =
+        map.addAttribute("buys",buys);
+        return("/adminpage/buy");
     }
 
     @GetMapping(path="sell")   //http://localhost:8889/admin/sell
