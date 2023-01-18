@@ -15,6 +15,7 @@
                 </attr>
             </attr>
         </attr>
+        <attr sel="#btn_delete" th:onclick="'javascript:delete_address('+ ${address.idx} + ');'"/>
     </attr>
-<!--    <attr sel="#address_delete" th:onclick="'javascript:pop_style_view('+ ${feed.idx} + ');'"/>-->
+
 </thlogic>

@@ -1,5 +1,7 @@
 package com.supreme.shoekream.service;
 
+import com.supreme.shoekream.model.dto.AddressDTO;
+import com.supreme.shoekream.model.dto.MemberDTO;
 import com.supreme.shoekream.model.entity.Address;
 import com.supreme.shoekream.model.network.Header;
 import com.supreme.shoekream.repository.AddressRepository;
@@ -16,21 +18,17 @@ import java.util.Optional;
 @Transactional
 public class AddressApiLogicService {
     private final AddressRepository addressRepository;
-    @Transactional
-    public List<Address> list(){
-        return addressRepository.findAll();
-    }
+//    @Transactional
+//    public List<Address> list(){
+//        return addressRepository.findAll(MemberDTO dto);
+//    }
 
     @Transactional
-    public Header<Address> create(Header<Address> request){
-        Long memberIdx = 11L; // 임시로 설정
-        Address addressRequest = request.getData();
-        Address address = Address.builder().name(addressRequest.getName()).hp(addressRequest.getHp())
-                .zipcode(addressRequest.getZipcode()).address1(addressRequest.getAddress1())
-                .address2(addressRequest.getAddress2())
-                .memberIdx(memberIdx).addressBasic(addressRequest.isAddressBasic()).build();
-        // Long memberIdx = session.getAttribute("idx")
-        Address newAddress =addressRepository.save(address);
+    public Header<Address> create(Header<AddressDTO> request){
+        System.out.println("@@@@@@@@@@@@@@@@@@@@%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+        AddressDTO dto = request.getData();
+        Address newAddress = addressRepository.save(dto.toEntity());
+
         return Header.OK(newAddress);
     }
 

@@ -33,4 +33,20 @@ public class Address extends BaseEntity implements Auditable {
     private Long memberIdx;
 
     private boolean addressBasic;
+
+    private Address(String name, String hp, String zipcode, String address1,
+                    String address2, boolean addressBasic, Long memberIdx) {
+        this.name=name;
+        this.hp=hp;
+        this.zipcode=zipcode;
+        this.address1=address1;
+        this.address2=address2;
+        this.addressBasic=addressBasic;
+        this.memberIdx=memberIdx;
+    }
+
+    public static Address of(String name, String hp, String zipcode, String address1
+    ,String address2, boolean addressBasic, Long memberIdx) {
+        return new Address(name, hp, zipcode, address1, address2, addressBasic, memberIdx);
+    }
 }
