@@ -5,6 +5,7 @@ import com.supreme.shoekream.model.dto.BuyDTO;
 import com.supreme.shoekream.model.dto.SellDTO;
 import com.supreme.shoekream.model.entity.Member;
 import com.supreme.shoekream.model.entity.Product;
+import com.supreme.shoekream.model.entity.Sell;
 import com.supreme.shoekream.model.enumclass.OrderStatus;
 import com.supreme.shoekream.repository.MemberRepository;
 import com.supreme.shoekream.repository.ProductRepository;
@@ -17,6 +18,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,10 +66,15 @@ public class SellService {
     }
 
     @Transactional(readOnly = true)
-    public Long buyNowPrice(Long productIdx){
+    public String buyNowPrice(Long productIdx){
         Product product = productRepository.findById(productIdx).get();
-        return sellRepository.findFirstByProductAndStatusOrderByPrice(product, OrderStatus.BIDDING)
-                .getPrice();
+        Sell price = sellRepository.findFirstByProductAndStatusOrderByPrice(product, OrderStatus.BIDDING);
+        if(price == null){
+            return " - ";
+        }else{
+            DecimalFormat format = new DecimalFormat("###,###");
+            return format.format(price.getPrice());
+        }
     }
 
 

@@ -7,4 +7,18 @@
         <attr sel=".model_ko" th:text="*{nameKor}"></attr>
         <attr sel=".size_txt" th:text="*{size}"></attr>
     </attr>
+    <attr sel=".price_list">
+        <attr sel="li[0]/span[0]" th:text="${buyNowPrice}"/>
+        <attr sel="li[1]/span[0]" th:text="${sellNowPrice}"/>
+    </attr>
+    <attr sel=".price_now_box">
+        <attr sel=".price/span[0]" th:text="${buyNowprice}"/>
+    </attr>
+
+    <attr sel=".info_point">
+        <attr sel=".value_current/span[0]" th:text="${point}"/>
+    </attr>
+    <attr sel=".layer_point">
+        <attr sel=".point_box/span[0]" th:text="${point}"/>
+    </attr>
 </thlogic>
