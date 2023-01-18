@@ -21,9 +21,9 @@ public class QAccount extends EntityPathBase<Account> {
 
     public final com.supreme.shoekream.model.config.QBaseEntity _super = new com.supreme.shoekream.model.config.QBaseEntity(this);
 
-    public final StringPath bank = createString("bank");
+    public final StringPath accountNumber = createString("accountNumber");
 
-    public final StringPath cardNumber = createString("cardNumber");
+    public final StringPath bank = createString("bank");
 
     public final DateTimePath<java.time.LocalDateTime> createdAt = createDateTime("createdAt", java.time.LocalDateTime.class);
 

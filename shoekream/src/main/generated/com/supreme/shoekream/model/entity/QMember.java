@@ -21,6 +21,10 @@ public class QMember extends EntityPathBase<Member> {
 
     public final com.supreme.shoekream.model.config.QBaseEntity _super = new com.supreme.shoekream.model.config.QBaseEntity(this);
 
+    public final StringPath accountNumber = createString("accountNumber");
+
+    public final StringPath bank = createString("bank");
+
     //inherited
     public final DateTimePath<java.time.LocalDateTime> createdAt = _super.createdAt;
 

@@ -17,11 +17,13 @@ public record MemberDTO(
         String shoeSize,
         Long point,
         String profileMemo,
-        String imgUrl
+        String imgUrl,
+        String bank,
+        String accountNumber
 ) {
     public static MemberDTO of(Long idx, String nickname, String memberPw, String name,
-                               String hp, String email, String shoeSize, String profileMemo, String imgUrl){
-        return new MemberDTO(idx, nickname, memberPw, name, hp, email,null, shoeSize,null, profileMemo, imgUrl);
+                               String hp, String email, String shoeSize, String profileMemo, String imgUrl, String bank, String accountNumber){
+        return new MemberDTO(idx, nickname, memberPw, name, hp, email,null, shoeSize,null, profileMemo, imgUrl, bank, accountNumber);
     }
 
     public static MemberDTO fromEntity(Member member){
@@ -36,12 +38,14 @@ public record MemberDTO(
                 member.getShoeSize(),
                 member.getPoint(),
                 member.getProfileMemo(),
-                member.getImgUrl()
+                member.getImgUrl(),
+                member.getBank(),
+                member.getAccountNumber()
         );
     }
 
     public Member toEntity(){
         return Member.of(idx, nickname, memberPw, name, hp,
-                email, shoeSize, profileMemo, imgUrl);
+                email, shoeSize, profileMemo, imgUrl, bank, accountNumber);
     }
 }

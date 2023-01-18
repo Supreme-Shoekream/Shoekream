@@ -22,7 +22,7 @@ public class Account extends BaseEntity implements Auditable {
     private Long idx;
 
     private String bank;
-    private String cardNumber;
+    private String accountNumber;
     private String name;
     private Long memberIdx;
     private LocalDateTime createdAt;
