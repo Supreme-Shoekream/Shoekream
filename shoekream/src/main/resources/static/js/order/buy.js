@@ -1,7 +1,7 @@
 // *** 구매 희망가 ***
 const pricebox = document.querySelector('.instant_group .price_now');
 const errormsg = document.querySelector('.price_warning')
-const price_now = 540000; //서버에서 가져옴(즉시구매가)
+let price_now =  Number(document.querySelector('#now_price').innerHTML.replaceAll(',',''));
 const bid_input =document.querySelector('#bid_input')
 let fees    //수수료
 // 입찰 선택시 가격에 따라 경고
@@ -135,7 +135,7 @@ function step2(){
     // console.log(document.querySelector('#now.on'))
     if(document.querySelector('#now.on')!=null){
         wish_price =  price_now;
-        console.log(price_now)
+        console.log("즉시구매가"+price_now)
         document.querySelector('.product_price').innerHTML = wish_price.toLocaleString('ko-KR') + "원"
     }else{
         wish_price = Number(bid_input.value.replaceAll(',', ''));

@@ -12,7 +12,7 @@
         <attr sel="li[1]/span[0]" th:text="${sellNowPrice}"/>
     </attr>
     <attr sel=".price_now_box">
-        <attr sel=".price/span[0]" th:text="${buyNowprice}"/>
+        <attr sel="#now_price" th:text="${buyNowPrice}"/>
     </attr>
 
     <attr sel=".info_point">
