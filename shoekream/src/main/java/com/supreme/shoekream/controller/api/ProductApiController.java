@@ -15,39 +15,39 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/admin/products") // http://localhost:8888/api/admin/products
+@RequestMapping("/api/admin/products") // http://localhost:8889/api/admin/products
 @RequiredArgsConstructor
 public class ProductApiController extends CrudController<ProductApiRequest, ProductApiResponse, Product> {
     private final ProductApiLogicService productApiLogicService;
 
     // 생성
     @Override
-    @PostMapping("") // http://localhost:8888/api/admin/products
+    @PostMapping("") // http://localhost:8889/api/admin/products
     public Header<ProductApiResponse> create(@RequestBody Header<ProductApiRequest> request) {
         return productApiLogicService.create(request);
     }
 
 
     // 리스트 출력
-    @GetMapping("") // http://localhost:8888/api/admin/products
+    @GetMapping("") // http://localhost:8889/api/admin/products
     public Header<List<ProductApiResponse>> findAll(@PageableDefault(sort = {"idx"}, direction = Sort.Direction.DESC)Pageable pageable){
         return productApiLogicService.search(pageable);
     }
 
-    // 보기
-    @GetMapping("/{idx}") // http://localhost:8888/api/admin/products/{idx}
+    // 상세 보기
+    @GetMapping("/{idx}") // http://localhost:8889/api/admin/products/{idx}
     public Header<ProductApiResponse> read(@PathVariable(name="idx") Long idx) {
         return productApiLogicService.read(idx);
     }
 
     // 수정
-    @PutMapping("/{idx}") // http://localhost:8888/api/admin/products/{idx}
+    @PutMapping("/{idx}") // http://localhost:8889/api/admin/products/{idx}
     public Header<ProductApiResponse> update(@RequestBody Header<ProductApiRequest> request) {
         return productApiLogicService.update(request);
     }
 
     // 삭제
-    @DeleteMapping("{idx}") // http://localhost:8888/api/admin/products/{idx}
+    @DeleteMapping("/{idx}") // http://localhost:8889/api/admin/products/{idx}
     public Header<ProductApiResponse> delete(@PathVariable(name="idx") Long idx) {
         return productApiLogicService.delete(idx);
     }
