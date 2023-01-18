@@ -13,7 +13,7 @@ import java.util.List;
 public interface BuyRepository extends JpaRepository<Buy,Long> {
     // 한 사용자가 구입한 내역
     List<Buy> findByMember(Member member);
-    List<Buy> findByMemberAndStatus(Member member, OrderStatus status); //입찰중/진행중/종료
+    List<Buy> findByMemberAndStatus(Member member, OrderStatus status); //입찰/진행중/종료
 
     // 한 제품에 한해서 즉시판매가에 들어갈 구매입찰로 올려놓은 가격중 가장 큰 제품 = 즉시판매가
     Buy findFirstByProductOrderByPriceDesc(Product product);
@@ -27,6 +27,8 @@ public interface BuyRepository extends JpaRepository<Buy,Long> {
     //test: data.sql에서 숫자로 두고, 가져올땐 Orderstatus.END이런식으로 가져옴
     List<Buy> findByStatus(OrderStatus orderStatus);
     List<Buy> findByCreatedAtAfter(LocalDateTime createdAt);
+
+
 
 
 
