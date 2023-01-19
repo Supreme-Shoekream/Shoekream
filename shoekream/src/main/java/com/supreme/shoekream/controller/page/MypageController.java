@@ -46,9 +46,10 @@ public class MypageController {
     @GetMapping(path="address")
     public String address(ModelMap map, HttpServletRequest request){
         HttpSession session = request.getSession();
-        Long idx = (Long)session.getAttribute("id");
-        System.out.println(addressApiLogicService.list(idx));
-        map.addAttribute("address", addressApiLogicService.list(1L));
+        Long idx = (Long)session.getAttribute("idx");
+        System.out.println(idx);
+        map.addAttribute("address", addressApiLogicService.list(1L, false));
+        map.addAttribute("basic", addressApiLogicService.list(idx, true));
         return "my/address";
     }
 
