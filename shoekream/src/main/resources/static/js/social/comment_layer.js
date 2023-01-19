@@ -91,7 +91,7 @@ function comment_submit(){
         })
     })
         .then((res) => {
-            alert("댓글 등록 성공!")
+            // alert("댓글 등록 성공!")
             location.reload();
             return;
         })

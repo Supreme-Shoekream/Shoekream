@@ -404,6 +404,34 @@ insert into lk(board_idx, member_idx) values(1, 2);
 insert into lk(board_idx, member_idx) values(1, 3);
 insert into lk(board_idx, member_idx) values(1, 4);
 insert into lk(board_idx, member_idx) values(1, 5);
+insert into lk(board_idx, member_idx) values(1, 6);
+insert into lk(board_idx, member_idx) values(1, 7);
+insert into lk(board_idx, member_idx) values(1, 8);
+insert into lk(board_idx, member_idx) values(1, 9);
+
+insert into lk(board_idx, member_idx) values(4, 1);
+insert into lk(board_idx, member_idx) values(4, 2);
+insert into lk(board_idx, member_idx) values(4, 3);
+insert into lk(board_idx, member_idx) values(4, 4);
+insert into lk(board_idx, member_idx) values(4, 5);
+insert into lk(board_idx, member_idx) values(4, 6);
+insert into lk(board_idx, member_idx) values(4, 7);
+
+insert into lk(board_idx, member_idx) values(10, 1);
+insert into lk(board_idx, member_idx) values(10, 2);
+insert into lk(board_idx, member_idx) values(10, 3);
+insert into lk(board_idx, member_idx) values(10, 4);
+insert into lk(board_idx, member_idx) values(10, 5);
+insert into lk(board_idx, member_idx) values(10, 6);
+
+insert into lk(board_idx, member_idx) values(15, 9);
+insert into lk(board_idx, member_idx) values(15, 10);
+insert into lk(board_idx, member_idx) values(15, 5);
+insert into lk(board_idx, member_idx) values(15, 20);
+insert into lk(board_idx, member_idx) values(15, 1);
+insert into lk(board_idx, member_idx) values(15, 2);
+insert into lk(board_idx, member_idx) values(15, 3);
+insert into lk(board_idx, member_idx) values(15, 6);
 
 
 
