@@ -19,12 +19,12 @@ public record MemberDTO(
         String profileMemo,
         String imgUrl,
         String bank,
-        String accountNumber
+        String accNumber
 ) {
     public static MemberDTO of(Long idx, String nickname, String memberPw, String name,
 //<<<<<<< HEAD
-                               String hp, String email,Status status, String shoeSize,Long point, String profileMemo, String imgUrl, String bank, String accountNumber){
-        return new MemberDTO(idx, nickname, memberPw, name, hp, email,status, shoeSize,point, profileMemo, imgUrl, bank, accountNumber);
+                               String hp, String email,Status status, String shoeSize,Long point, String profileMemo, String imgUrl, String bank, String accNumber){
+        return new MemberDTO(idx, nickname, memberPw, name, hp, email,status, shoeSize,point, profileMemo, imgUrl, bank, accNumber);
     }
     public static MemberDTO of(String nickname, String memberPw, String name,
                                String hp, String email,String shoeSize){
@@ -46,12 +46,12 @@ public record MemberDTO(
                 member.getProfileMemo(),
                 member.getImgUrl(),
                 member.getBank(),
-                member.getAccountNumber()
+                member.getAccNumber()
         );
     }
 
     public Member toEntity(){
         return Member.of(idx, nickname, memberPw, name, hp,
-                email, shoeSize, profileMemo, imgUrl, bank, accountNumber);
+                email, shoeSize, profileMemo, imgUrl, bank, accNumber);
     }
 }

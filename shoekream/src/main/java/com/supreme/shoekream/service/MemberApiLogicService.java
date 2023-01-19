@@ -38,7 +38,7 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
                 .profileMemo(member.getProfileMemo())
                 .imgUrl(member.getImgUrl())
                 .bank(member.getBank())
-                .accountNumber(member.getAccountNumber())
+                .accountNumber(member.getAccNumber())
                 .build();
         return memberApiResponse;
     }
