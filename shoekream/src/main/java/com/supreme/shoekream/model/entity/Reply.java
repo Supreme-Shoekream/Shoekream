@@ -29,7 +29,7 @@ public class Reply extends BaseEntity implements Auditable {
     private Member member;
     private String content;
 //    private Long boardIdx;      // ManyToOne
-//    private LocalDateTime createdAt;
+    private LocalDateTime createdAt;
 
     @ManyToOne
     @JsonIgnore
@@ -38,4 +38,16 @@ public class Reply extends BaseEntity implements Auditable {
 
 //    @ManyToMany
 //    private Member member;
+
+
+    private Reply(Member member, String content, Board board, LocalDateTime createdAt){
+        this.member = member;
+        this.content = content;
+        this.board = board;
+        this.createdAt = createdAt;
+    }
+
+public static Reply of(Member member, String content, Board board, LocalDateTime createdAt){
+    return new Reply(member, content, board, createdAt);
+}
 }
