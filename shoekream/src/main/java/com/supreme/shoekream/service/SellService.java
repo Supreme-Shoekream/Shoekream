@@ -2,6 +2,7 @@ package com.supreme.shoekream.service;
 
 import com.querydsl.core.types.Order;
 import com.supreme.shoekream.model.dto.BuyDTO;
+import com.supreme.shoekream.model.dto.ProductDTO;
 import com.supreme.shoekream.model.dto.SellDTO;
 import com.supreme.shoekream.model.entity.Member;
 import com.supreme.shoekream.model.entity.Product;
@@ -79,11 +80,19 @@ public class SellService {
 
 
     @Transactional(readOnly = true)
-    public List<Long> buyNowPrices(List<Product> products){
-        List<Long> prices=new ArrayList<Long>();
+    public List<String> buyNowPrices(List<Product> products){
+        List<String> prices = new ArrayList<String>();
+
         products.forEach(
                 product -> {
-                    Long price = sellRepository.findFirstByProductAndStatusOrderByPrice(product,OrderStatus.BIDDING).getPrice();
+                    String price = new String();
+                    Sell lowerPrice = sellRepository.findFirstByProductAndStatusOrderByPrice(product,OrderStatus.BIDDING);
+                    if(lowerPrice == null){
+                        price = " - ";
+                    }else{
+                        DecimalFormat format = new DecimalFormat("###,###");
+                        price = format.format(lowerPrice.getPrice());
+                    }
                     prices.add(price);
                 }
         );
