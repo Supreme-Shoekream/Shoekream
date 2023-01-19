@@ -80,20 +80,43 @@ public class StyleLogicService {
     }
 
     public Header<ReplyDTO> createReply(ReplyDTO replyDTO){
-        System.out.println("========서비스========="+replyDTO);  // ✔
+//        System.out.println("========서비스========="+replyDTO);  // ✔
         Member member = memberRepository.getReferenceById(replyDTO.memberDTO().idx());
         Board board = boardRepository.getReferenceById(replyDTO.boardIdx());
         Reply newR = replyRepository.save(replyDTO.toEntity(member, board));
-        System.out.println("저장 완료!!!!!!!!!!!!!!!!!");
+//        System.out.println("저장 완료!!!!!!!!!!!!!!!!!");
         ReplyDTO response = ReplyDTO.fromEntity(newR);
         return Header.OK(response);
-//        Reply newReply = replyRepository.save(reply);
-//        ReplyDTO response = ReplyDTO.fromEntity(newReply);
-//        System.out.println("====response====" + response );
-//        return Header.OK(response);
     }
 
-//    public List<BoardDTO> findTopSeven(){
-//        return boardRepository.
-//    }
+    public List<BoardDTO> findTopSevenStylePick(){
+        List<Board> bds = boardRepository.findAll();
+        List<BoardDTO> boards = BoardDTO.fromEntity(bds);
+        for (int i=0;i<boards.size()-1;i++){
+            for(int j=1;j<boards.size();j++){
+                if(boards.get(i).lks().size() > boards.get(j).lks().size()){
+                    BoardDTO temp = BoardDTO.of(
+                            boards.get(i).idx(),
+                            boards.get(i).memberDTO(),
+                            boards.get(i).content(),
+                            boards.get(i).hashtag(),
+                            boards.get(i).img(),
+                            boards.get(i).lks(),
+                            boards.get(i).replies(),
+                            boards.get(i).tags(),
+                            boards.get(i).createdAt(),
+                            boards.get(i).modifiedAt()
+                            );
+                    boards.set(i, boards.get(j));
+                    boards.set(j, temp);
+                }
+            }
+        }
+        List<BoardDTO> response = new ArrayList<>();
+        for(int i=0;i<7;i++){
+            response.add(boards.get(i));
+        }
+
+        return response;
+    }
 }

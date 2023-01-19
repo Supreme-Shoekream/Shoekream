@@ -14,7 +14,9 @@
             </attr>
 
             <attr sel="#comment_img" th:onclick="'javascript:comment_more(' + ${detail.idx} + ',' + ${sessionUser.idx} + ');'"/>
-            <attr sel="#like_cnt" th:text="${detail.lks.size()}" th:onclick="'javascript:pop_like('+ ${detail.idx} + ');'"/>
+            <attr sel=".social_count" th:onclick="'javascript:pop_like('+ ${detail.idx} + ');'">
+                <attr sel="#like_cnt" th:text="${detail.lks.size()}" th:onclick="'javascript:pop_like('+ ${detail.idx} + ');'"/>
+            </attr>
 
             <attr sel=".social_text">
                 <attr sel=".text" th:text="${detail.content}">
