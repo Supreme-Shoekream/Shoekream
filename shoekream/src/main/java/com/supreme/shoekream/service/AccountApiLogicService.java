@@ -24,7 +24,7 @@ public class AccountApiLogicService {
     public void update(MemberDTO dto){
         try {
             Member member = memberRepository.getReferenceByIdx(dto.idx());
-            if(dto.accountNumber() != null) {member.setAccountNumber(dto.accountNumber());}
+            if(dto.accNumber() != null) {member.setAccNumber(dto.accNumber());}
         } catch (EntityNotFoundException e){
 
         }
