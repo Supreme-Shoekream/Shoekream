@@ -96,12 +96,38 @@ public record KreamPrincipal(
 
     public MemberDTO toDto(){
         return MemberDTO.of(
+//                idx,
                 nickname,
                 memberPw,
                 name,
                 hp,
                 email,
+//                status,
                 shoeSize
+//                point,
+//                profileMemo,
+//                imgUrl,
+//                bank,
+//                accountNumber
+        );
+    }
+
+
+    public MemberDTO toFullDto(){
+        return MemberDTO.of(
+                idx,
+                nickname,
+                memberPw,
+                name,
+                hp,
+                email,
+                status,
+                shoeSize,
+                point,
+                profileMemo,
+                imgUrl,
+                bank,
+                accountNumber
         );
     }
 

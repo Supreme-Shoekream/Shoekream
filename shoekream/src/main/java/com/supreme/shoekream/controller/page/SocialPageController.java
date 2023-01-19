@@ -1,5 +1,6 @@
 package com.supreme.shoekream.controller.page;
 
+import com.supreme.shoekream.model.dto.MemberDTO;
 import com.supreme.shoekream.model.entity.Board;
 import com.supreme.shoekream.model.entity.Follow;
 import com.supreme.shoekream.model.entity.Member;
@@ -65,11 +66,11 @@ public class SocialPageController {
 //            List<Follow> followings = followRepository.findAllByfollowerIdx(sessionUserIdx);
 //        ✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔ 세션 아이디 끝
 
-            List<Board> feed = styleLogicService.getFollowingFeeds(5L);
-            Member sessionUser = styleLogicService.getMember(5L);
-            map.addAttribute("feed", feed);
-            map.addAttribute("sessionUser",sessionUser);
-            return "social/following";
+        List<Board> feed = styleLogicService.getFollowingFeeds(5L);
+        MemberDTO sessionUser = styleLogicService.getMember(5L);
+        map.addAttribute("feed", feed);
+        map.addAttribute("sessionUser",sessionUser);
+        return "social/following";
 //        }
 
     }
