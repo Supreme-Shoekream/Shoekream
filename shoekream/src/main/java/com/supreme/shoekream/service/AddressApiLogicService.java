@@ -18,12 +18,13 @@ import java.util.Optional;
 @Transactional
 public class AddressApiLogicService {
     private final AddressRepository addressRepository;
-    @Transactional
-    public List<Address> list(Long idx){
-//        return addressRepository.findByIdx(idx);
-        return null;
-    }
 
+    @Transactional
+    public List<Address> list(Long memberIdx, boolean isBasic){
+        List<Address> addressList = addressRepository.findByMemberIdxAndAddressBasic(memberIdx, isBasic);
+        return addressList;
+
+    }
 
     @Transactional
     public Header<Address> create(Header<AddressDTO> request){

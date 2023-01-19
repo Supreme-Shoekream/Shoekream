@@ -43,6 +43,10 @@ a:-webkit-any-link{
     align-items: center;
 }
 
+.like_count:hover{
+    cursor: pointer;
+}
+
 .profile_img_box {
     overflow: hidden;
     position: relative;

@@ -20,10 +20,25 @@ public class Account extends BaseEntity implements Auditable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idx;
-
     private String bank;
     private String accountNumber;
     private String name;
-    private Long memberIdx;
+    @OneToOne
+    @JoinColumn(name = "member_idx")
+    private Member member;
     private LocalDateTime createdAt;
+
+    public Account(Long idx, String bank, String accountNumber,
+                   String name, Member member){
+        this.idx=idx;
+        this.bank=bank;
+        this.accountNumber=accountNumber;
+        this.name=name;
+        this.member=member;
+    }
+
+    public static Account of(Long idx, String bank, String accountNumber,
+                             String name, Member member){
+        return new Account(idx, bank, accountNumber, name, member);
+    }
 }

@@ -6,6 +6,7 @@ import lombok.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @NoArgsConstructor
@@ -33,6 +34,8 @@ public class Address extends BaseEntity implements Auditable {
     private Long memberIdx;
 
     private boolean addressBasic;
+    private LocalDateTime createdAt;
+    private LocalDateTime modifiedAt;
 
     private Address(String name, String hp, String zipcode, String address1,
                     String address2, boolean addressBasic, Long memberIdx) {

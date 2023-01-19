@@ -1,5 +1,6 @@
 package com.supreme.shoekream.repository;
 
+import com.supreme.shoekream.model.dto.ProductDTO;
 import com.supreme.shoekream.model.entity.Admin;
 import com.supreme.shoekream.model.entity.Follow;
 import com.supreme.shoekream.model.entity.Product;
@@ -16,6 +17,7 @@ public interface ProductRepository extends JpaRepository<Product, Long>, Queryds
     Optional<Product> findByIdx(Long idx);
 
     List<Product> findByOrderByIdxDesc();
+    List<Product> findByCollection(String collection);
 
     Page<Product> findByCategoryContaining (String category, Pageable pageable);
     Page<Product> findByBrandContaining (String brand, Pageable pageable);
