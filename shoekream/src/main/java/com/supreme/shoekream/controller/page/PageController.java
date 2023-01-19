@@ -5,6 +5,8 @@ import com.supreme.shoekream.model.network.response.MemberApiResponse;
 import com.supreme.shoekream.model.network.response.ProductApiResponse;
 import com.supreme.shoekream.service.*;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -83,9 +85,12 @@ public class PageController {
 //            return  "/login";
             return "/order/buy";
         }else{
-            memberIdx = (String) session.getAttribute("idx");
-
+            memberIdx = (String) session.getAttribute("sessionId");
+            Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            UserDetails userDetails = (UserDetails)principal;
+            String email = ((UserDetails) principal).getUsername();
             System.out.println("세션이 있습니다");
+            System.out.println(email);
             return "/order/buy";
         }
     }   //viewName: 페이지이름이랑 같아야함
