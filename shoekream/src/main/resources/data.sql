@@ -399,6 +399,12 @@ insert into reply(content, board_idx, member_idx, created_at) values('댓글1�
 insert into reply(content, board_idx, member_idx) values('댓글2😎', 1, 6);
 insert into reply(content, board_idx, member_idx) values('댓글3😎', 2, 5);
 
+-- 좋아요
+insert into lk(board_idx, member_idx) values(1, 2);
+insert into lk(board_idx, member_idx) values(1, 3);
+insert into lk(board_idx, member_idx) values(1, 4);
+insert into lk(board_idx, member_idx) values(1, 5);
+
 
 
 -- # 판매내역

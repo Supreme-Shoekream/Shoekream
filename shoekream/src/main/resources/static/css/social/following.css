@@ -339,7 +339,7 @@ strong {
     display: inline;
 }
 
- .hashtag,  .reply_user_name {
+.hashtag,  .reply_user_name {
     color: #297dcb;
 }
 
@@ -671,7 +671,7 @@ strong {
     word-break: break-all;
 }
 
-.input_txt.dummy{
+.input_txt{
     background-color: #fafafa;
     border: 1px solid #ebebeb;
     color: #222;
@@ -688,10 +688,17 @@ strong {
     word-break: break-all;
 }
 
-.input_txt.dummy:empty:before {
+.input_txt:empty:before {
     content: attr(placeholder);
     display: block;
     color: rgba(34,34,34,.3);
+}
+.input_txt.origin {
+    background-color: transparent;
+    border: 1px solid transparent;
+    caret-color: #222;
+    /*color: transparent;*/
+    z-index: 9999;
 }
 
 .btn_regist {
