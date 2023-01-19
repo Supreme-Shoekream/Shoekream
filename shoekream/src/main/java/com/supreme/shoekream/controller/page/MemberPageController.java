@@ -25,6 +25,7 @@ public class MemberPageController {
 
     @PostMapping(path="/loginOk")   // http://localhost:8889/loginOk
     public String loginOk(HttpServletRequest request, String email, String memberPw){
+        System.out.println("fjfjfjfjfjfjfjfjfjfjfjfjfjfjfjfjfjfjfjfjfjfjfjfjfjfjfjfjfjfjfjfjfjfjfjfjfjfjfj");
         if(memberApiLogicService.read(email, memberPw).getData() != null){
             HttpSession session = request.getSession();
             Long idx = memberApiLogicService.read(email, memberPw).getData().getIdx();

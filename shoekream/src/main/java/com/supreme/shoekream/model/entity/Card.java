@@ -24,7 +24,6 @@ public class Card extends BaseEntity implements Auditable {
     private String cardType;
     private LocalDateTime createdAt;
     private String cardNumber;
-//    private int memberIdx;
     @ManyToOne
     @JoinColumn(name="member_idx")
     private Member member;
@@ -32,4 +31,21 @@ public class Card extends BaseEntity implements Auditable {
     private String cardYy;
     private String cardPw;
     private String birthDate;
+
+    private Card(Member member, String cardType, String cardNumber,
+                 String cardMm, String cardYy, String cardPw, String birthDate){
+        this.member = member;
+        this.cardType = cardType;
+        this.cardNumber = cardNumber;
+        this.cardMm = cardMm;
+        this.cardYy = cardYy;
+        this.cardPw = cardPw;
+        this.birthDate = birthDate;
+    }
+
+    public static Card of(Member member, String cardType, String cardNumber,
+                          String cardMm, String cardYy, String cardPw, String birthDate) {
+        return new Card(member,cardType,cardNumber,cardMm,cardYy,cardPw,birthDate);
+    }
 }
+
