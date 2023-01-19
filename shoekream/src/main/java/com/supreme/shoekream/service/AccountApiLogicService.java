@@ -1,10 +1,8 @@
 package com.supreme.shoekream.service;
 
-import com.supreme.shoekream.model.dto.AccountDTO;
-import com.supreme.shoekream.model.entity.Account;
+import com.supreme.shoekream.model.dto.MemberDTO;
 import com.supreme.shoekream.model.entity.Member;
-import com.supreme.shoekream.model.network.Header;
-import com.supreme.shoekream.repository.AccountRepository;
+import com.supreme.shoekream.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,31 +14,23 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @Transactional
 public class AccountApiLogicService {
-    private final AccountRepository accountRepository;
+    private final MemberRepository memberRepository;
     @Transactional
-    public Optional<Account> list(Long idx){
-        Optional<Account> account = accountRepository.findByIdx(idx);
-        return account;
+    public Optional<Member> list(Long idx){
+        Optional<Member> member = memberRepository.findByIdx(idx);
+        return member;
     }
     @Transactional
-    public Header<Account> create(Header<AccountDTO> request){
-        AccountDTO dto = request.getData();
-        accountRepository.save(dto.toEntity(dto.member()));
-        return Header.OK();
-    }
-    @Transactional
-    public void update(AccountDTO dto){
-        try{
-            Account account = accountRepository.getReferenceByIdx(dto.idx());
-            if(dto.bank() != null) {account.setBank(dto.bank());}
-            if(dto.accountNumber() != null) {account.setAccountNumber(dto.accountNumber());}
-            if(dto.name() != null) {account.setName(dto.name());}
+    public void update(MemberDTO dto){
+        try {
+            Member member = memberRepository.getReferenceByIdx(dto.idx());
+            if(dto.accountNumber() != null) {member.setAccountNumber(dto.accountNumber());}
         } catch (EntityNotFoundException e){
-            System.out.println("error~");
+
         }
     }
     @Transactional
     public void delete(Long idx){
-        accountRepository.deleteByIdx(idx);
+        memberRepository.deleteByIdx(idx);
     }
 }
