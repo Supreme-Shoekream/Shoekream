@@ -37,7 +37,6 @@ public class MemberApiController extends CrudController<MemberApiRequest, Member
         return memberApiLogicService.search(pageable);
     }
 
-
     @Override
     @PostMapping("/join")    // http://localhost:9999/api/join (post)
     public Header<MemberApiResponse> create(@RequestBody Header<MemberApiRequest> request) {

@@ -26,4 +26,7 @@ public class Point extends BaseEntity implements Auditable {
     @Enumerated(EnumType.STRING) private PointType reason;
     private LocalDateTime regDate;
     private Long memberIdx;
+//    @ManyToOne
+//    @JoinColumn(name = "member_idx")
+//    private Member member;
 }

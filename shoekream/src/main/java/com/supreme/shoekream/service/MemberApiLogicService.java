@@ -1,5 +1,6 @@
 package com.supreme.shoekream.service;
 
+import com.supreme.shoekream.model.dto.MemberDTO;
 import com.supreme.shoekream.model.entity.Member;
 import com.supreme.shoekream.model.network.Header;
 import com.supreme.shoekream.model.network.Pagination;
@@ -10,11 +11,13 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Transactional
 @Service
 @RequiredArgsConstructor
 public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberApiResponse, Member> {
@@ -34,6 +37,8 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
                 .modifiedAt(member.getModifiedAt())
                 .profileMemo(member.getProfileMemo())
                 .imgUrl(member.getImgUrl())
+                .bank(member.getBank())
+                .accountNumber(member.getAccountNumber())
                 .build();
         return memberApiResponse;
     }
@@ -63,7 +68,6 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
                 .orElseGet(()-> Header.ERROR("이메일 또는 비밀번호가 틀렸습니다.")
                 );
     }
-
 
     @Override
     public Header<MemberApiResponse> update(Header<MemberApiRequest> request) {
@@ -118,6 +122,9 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
                 .build();
         return Header.OK(memberApiResponses, pagination);
     }
+
+
+
 }
 
 

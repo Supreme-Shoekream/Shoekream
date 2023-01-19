@@ -3,11 +3,10 @@ package com.supreme.shoekream.controller.page;
 import com.supreme.shoekream.model.network.Header;
 import com.supreme.shoekream.model.network.response.MemberApiResponse;
 import com.supreme.shoekream.model.network.response.ProductApiResponse;
-import com.supreme.shoekream.service.AddressApiLogicService;
-import com.supreme.shoekream.service.CardApiLogicService;
-import com.supreme.shoekream.service.MemberApiLogicService;
-import com.supreme.shoekream.service.ProductApiLogicService;
+import com.supreme.shoekream.service.*;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +26,8 @@ public class PageController {
     private final MemberApiLogicService memberApiLogicService;
     private final AddressApiLogicService addressApiLogicService;
     private final CardApiLogicService cardApiLogicService;
+    private final BuyService buyService;
+    private final SellService sellService;
 
     //보류- 이유: 상세페이지에서 자동으로 사이즈가 선택이 되어있는 상태로 product_idx가 넘어온다
     @GetMapping(path="buyselect/{idx}")   //http://localhost:8889/buyselect
@@ -36,7 +37,6 @@ public class PageController {
         String name = null;
         if(session== null){
             System.out.println("세션이 없습니다");
-//            return new ModelAndView("/login");
             return new ModelAndView("/order/buySelect");
         }else{
             id = (String) session.getAttribute("id");
@@ -54,47 +54,43 @@ public class PageController {
                                  ModelMap map
     ){
         Header<ProductApiResponse> product = productApiLogicService.read(productIdx);
-        map.addAttribute("product",product);    //상품정보 넣어서
+        map.addAttribute("product",product);
         System.out.println(map);
-        //서비스로 데이터를 매개변수로 보낸다..?
-        HttpSession session = request.getSession(false);
-        String idx=null;
-        String email = null;
-        if(session== null){
-            System.out.println("세션이 없습니다");
-//            return  "/login";
-            return "/order/buycheck";
-        }else{
-            idx = (String) session.getAttribute("idx");
-            email = (String) session.getAttribute("email");
-            System.out.println("세션이 있습니다");
-            return "/order/buycheck";
-        }
+        return "/order/buycheck";
     }
 
     @GetMapping(path="buy/{productIdx}")   //http://localhost:8889/buy
     public String buy(HttpServletRequest request,
                             @PathVariable(name="productIdx",required = false) Long productIdx,
                             ModelMap map){
+        //가져와야하는 정보: 상품, 즉시구매가, 즉시판매가, 사용자기본배송지, 보유포인트, 사용자기본결재카드
         Header<ProductApiResponse> product = productApiLogicService.read(productIdx);
         map.addAttribute("product",product);    //상품정보 넣어서
         System.out.println(map);
-        //세션값을 가정
+
+        String buyNowPrice = sellService.buyNowPrice(productIdx);
+        map.addAttribute("buyNowPrice", buyNowPrice);
+        String sellNowPrice = buyService.sellNowPrice(productIdx);
+        map.addAttribute("sellNowPrice",sellNowPrice);
+        System.out.println(buyNowPrice +""+sellNowPrice);
+
         Header<MemberApiResponse> member = memberApiLogicService.read(1L);
-        map.addAttribute("member",member);
-        System.out.println(member);
+        map.addAttribute("point",member.getData().getPoint());
+
 //        Header<Address> address = addressApiLogicService.
         HttpSession session = request.getSession(false);
-        String idx=null;
-        String email = null;
+        String memberIdx=null;
         if(session== null){
             System.out.println("세션이 없습니다");
 //            return  "/login";
             return "/order/buy";
         }else{
-            idx = (String) session.getAttribute("idx");
-            email = (String) session.getAttribute("email");
+            memberIdx = (String) session.getAttribute("sessionId");
+            Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            UserDetails userDetails = (UserDetails)principal;
+            String email = ((UserDetails) principal).getUsername();
             System.out.println("세션이 있습니다");
+            System.out.println(email);
             return "/order/buy";
         }
     }   //viewName: 페이지이름이랑 같아야함
