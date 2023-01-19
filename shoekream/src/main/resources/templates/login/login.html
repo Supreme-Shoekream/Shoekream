@@ -42,8 +42,11 @@
             <div class="login_btn_container">
                 <input type="submit" disabled="disabled" class="btn full solid disabled" id="login_btn" value="로그인">
                 </input>
-                <a type="button" class="btn btn_login_katalk full solid">
-                    <div class="katalk"></div> 카카오톡으로 로그인
+<!--                <a type="button" class="btn btn_login_katalk full solid">-->
+<!--                    <div class="katalk"></div> 카카오톡으로 로그인-->
+<!--                </a>-->
+                <a class="p-2" href="https://kauth.kakao.com/oauth/authorize?client_id=f1150ee2b8d005d1fbe924103530ba9e&redirect_uri=http://localhost:8889/oauth/kakao&response_type=code">
+                    <img th:src="@{/img/kakao.png}"/>
                 </a>
             </div><!--.login_btn_container END-->
         </form>
