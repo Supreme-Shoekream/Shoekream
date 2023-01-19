@@ -112,6 +112,25 @@ public record KreamPrincipal(
         );
     }
 
+
+    public MemberDTO toFullDto(){
+        return MemberDTO.of(
+                idx,
+                nickname,
+                memberPw,
+                name,
+                hp,
+                email,
+                status,
+                shoeSize,
+                point,
+                profileMemo,
+                imgUrl,
+                bank,
+                accountNumber
+        );
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return authorities;

@@ -57,7 +57,7 @@ public class BoardApiController {
     public Header<ReplyDTO> create(@RequestBody Header<ReplyApiRequest> request, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
         System.out.println(request.getData());
         ReplyApiRequest replyApiRequest = request.getData();
-        ReplyDTO replyDTO = replyApiRequest.toDTO(kreamPrincipal.toDto());
+        ReplyDTO replyDTO = replyApiRequest.toDTO(kreamPrincipal.toFullDto());
         return styleLogicService.createReply(replyDTO);
     }
 }
