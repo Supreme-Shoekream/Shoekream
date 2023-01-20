@@ -1,9 +1,9 @@
 <html xmlns:th="http://www.thymeleaf.org">
-<div class="layer1 lg layer_search" style="display:none">
+<div class="layer1 lg layer_search" style="display:none" th:fragment="layer_search">
   <div
-          class="layer lg layer_search lg">
+          class="layer lg layer_search lg" >
     <div  class="layer_container"><a
-            href="#" class="btn_layer_close" th:fragment="layer_search" onclick="close_search()">
+            href="#" class="btn_layer_close" onclick="close_search()">
       <img class="delete_x" src="../img/close.png">
     </a>
       <div  class="layer_header"></div>
