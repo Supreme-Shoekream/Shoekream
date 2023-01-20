@@ -36,9 +36,9 @@ public class Member extends BaseEntity implements Auditable {
     private String profileMemo;
     private String imgUrl;
     private String bank;
-    private String accountNumber;
+    private String accNumber;
 
-    public Member(Long idx, String nickname, String memberPw, String name, String hp, String email, String shoeSize, String profileMemo, String imgUrl, String bank, String accountNumber) {
+    public Member(Long idx, String nickname, String memberPw, String name, String hp, String email, String shoeSize, String profileMemo, String imgUrl, String bank, String accNumber) {
         this.idx = idx;
         this.nickname = nickname;
         this.memberPw = memberPw;
@@ -49,12 +49,12 @@ public class Member extends BaseEntity implements Auditable {
         this.profileMemo = profileMemo;
         this.imgUrl = imgUrl;
         this.bank = bank;
-        this.accountNumber = accountNumber;
+        this.accNumber = accNumber;
     }
 
     public static Member of(Long idx, String nickname, String memberPw, String name, String hp, String email,
-                            String shoeSize, String profileMemo, String imgUrl,String bank, String accountNumber){
-        return new Member(idx, nickname, memberPw, name, hp, email, shoeSize, profileMemo, imgUrl, bank, accountNumber);
+                            String shoeSize, String profileMemo, String imgUrl,String bank, String accNumber){
+        return new Member(idx, nickname, memberPw, name, hp, email, shoeSize, profileMemo, imgUrl, bank, accNumber);
     }
 
 }
