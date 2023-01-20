@@ -16,6 +16,7 @@ public record ReplyApiRequest(
 
     public ReplyDTO toDTO(MemberDTO memberDTO){
         return ReplyDTO.of(
+
                 memberDTO,
                 boardIdx,
                 content,

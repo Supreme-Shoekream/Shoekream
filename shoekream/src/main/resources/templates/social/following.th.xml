@@ -12,7 +12,17 @@
             <attr sel=".social_image_box">
                 <attr sel=".img_box/img" th:src="${detail.img}"/>
             </attr>
+            <attr sel=".social_product">
+                <attr sel=".product_num_container">
+                    <attr sel=".product_title">
+                        <attr sel=".num" th:text="${detail.tags.size()}"/>
+                    </attr>
+                </attr>
+                <attr sel=".product_list_area">
 
+                </attr>
+
+            </attr>
             <attr sel="#comment_img" th:onclick="'javascript:comment_more(' + ${detail.idx} + ',' + ${sessionUser.idx} + ');'"/>
             <attr sel=".social_count" th:onclick="'javascript:pop_like('+ ${detail.idx} + ');'">
                 <attr sel="#like_cnt" th:text="${detail.lks.size()}" th:onclick="'javascript:pop_like('+ ${detail.idx} + ');'"/>

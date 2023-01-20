@@ -328,19 +328,20 @@ INSERT INTO product (idx, img, brand, name, name_kor, size, model_num, release_d
 
 
 -- 팔로우
-insert into follow(follower_idx, following_idx) values(5,1);
-insert into follow(follower_idx, following_idx) values(5,2);
-insert into follow(follower_idx, following_idx) values(5,3);
-insert into follow(follower_idx, following_idx) values(5,4);
-insert into follow(follower_idx, following_idx) values(5,5);
-insert into follow(follower_idx, following_idx) values(5,6);
-insert into follow(follower_idx, following_idx) values(5,7);
-insert into follow(follower_idx, following_idx) values(5,8);
-insert into follow(follower_idx, following_idx) values(5,9);
-insert into follow(follower_idx, following_idx) values(5,10);
+insert into follow(follower_idx, following_idx) values(1,1);
+insert into follow(follower_idx, following_idx) values(1,2);
+insert into follow(follower_idx, following_idx) values(1,3);
+insert into follow(follower_idx, following_idx) values(1,4);
+insert into follow(follower_idx, following_idx) values(1,5);
+insert into follow(follower_idx, following_idx) values(1,6);
+insert into follow(follower_idx, following_idx) values(1,7);
+insert into follow(follower_idx, following_idx) values(1,8);
+insert into follow(follower_idx, following_idx) values(1,9);
+insert into follow(follower_idx, following_idx) values(1,10);
 
 
-
+-- 팔로우
+insert into follow(follower_idx, following_idx) values(2,20);
 
 
 
@@ -433,6 +434,13 @@ insert into lk(board_idx, member_idx) values(15, 2);
 insert into lk(board_idx, member_idx) values(15, 3);
 insert into lk(board_idx, member_idx) values(15, 6);
 
+
+
+-- 게시글 상품 태그
+insert into tag(board_idx, product_idx) values(1, 104);
+insert into tag(board_idx, product_idx) values(1, 103);
+insert into tag(board_idx, product_idx) values(1, 102);
+insert into tag(board_idx, product_idx) values(2, 104);
 
 
 -- # 판매내역
