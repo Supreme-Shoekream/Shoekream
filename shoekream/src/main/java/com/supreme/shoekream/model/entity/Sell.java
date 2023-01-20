@@ -47,7 +47,8 @@ public class Sell {
     public Sell(Product product, Member member, Type type, Long price,
                        int period, String cardInfo, String accountInfo,
                        String sender, String senderHp, String senderAddress,
-                       String deliveryMemo, LocalDateTime createdAt){
+                       String deliveryMemo, LocalDateTime createdAt,
+                SellProgress progress, OrderStatus status, Buy buy){
         this.product=product;
         this.member=member;
         this.type=type;
@@ -60,13 +61,17 @@ public class Sell {
         this.senderAddress=senderAddress;
         this.deliveryMemo=deliveryMemo;
         this.createdAt=createdAt;
+        this.progress=progress;
+        this.status=status;
+        this.buy=buy;
     }
 
     public static Sell of(Product product, Member member, Type type, Long price,
                           int period, String cardInfo, String accountInfo,
                           String sender, String senderHp, String senderAddress,
-                          String deliveryMemo, LocalDateTime createdAt){
+                          String deliveryMemo, LocalDateTime createdAt,
+                          SellProgress progress, OrderStatus status, Buy buy){
         return new Sell(product,member,type,price,period,cardInfo,accountInfo,sender,senderHp
-        ,senderAddress,deliveryMemo,createdAt);
+        ,senderAddress,deliveryMemo,createdAt,progress,status,buy);
     }
 }

@@ -25,6 +25,9 @@ public interface BuyRepository extends JpaRepository<Buy,Long> {
     // 한 제품이름이같은 것에 한해서 즉시판매가에 들어가 구매입찰로 올려놓은 가격중 가장 큰 제품 = 사이즈별 즉시판매가
     // productname으로 찾은 product idx들 List로 저 쿼리메소드를 통해 구할 수 있음
 
+    // 누군가 즉시 판매시 가격과 상품으로 Buy를 찾는다.
+    Buy findFirstByProductAndPriceOrderByCreatedAtAsc(Product product, Long price);
+
     //test: data.sql에서 숫자로 두고, 가져올땐 Orderstatus.END이런식으로 가져옴
     List<Buy> findByStatus(OrderStatus orderStatus);
     List<Buy> findByCreatedAtAfter(LocalDateTime createdAt);

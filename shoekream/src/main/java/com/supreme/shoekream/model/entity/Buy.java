@@ -44,7 +44,8 @@ public class Buy{
     //등록할때 필요한 정보들 - 내부는 private
     private Buy(Product product, Member member, Type type, Long price,
             int period, int usePoint, String cardInfo, String receiver,
-    String receiverHp, String receiverAddress, String deliveryMemo, LocalDateTime createdAt ){
+                String receiverHp, String receiverAddress, String deliveryMemo,
+                LocalDateTime createdAt, Progress progress, OrderStatus status, Sell sell){
         this.product=product;
         this.member=member;
         this.type=type;
@@ -57,15 +58,19 @@ public class Buy{
         this.receiverAddress=receiverAddress;
         this.deliveryMemo=deliveryMemo;
         this.createdAt=createdAt;
+        this.progress=progress;
+        this.status=status;
+        this.sell=sell;
     }
 
     //외부에서 사용할때 of로 사용하도록 // static 메서드:객체 생성없이 클래스를 통해 메서드를 직접 호출
     public static Buy of(Product product, Member member, Type type, Long price,
                          int period, int usePoint, String cardInfo, String receiver,
                          String receiverHp, String receiverAddress, String deliveryMemo,
-                         LocalDateTime createdAt){
+                         LocalDateTime createdAt,  Progress progress, OrderStatus status, Sell sell){
         return new Buy(product,member,type,price,period,usePoint,cardInfo,receiver,
-                receiverHp,receiverAddress,deliveryMemo, createdAt);
+                receiverHp,receiverAddress,deliveryMemo, createdAt,progress,status,sell);
     }
+
 
 }
