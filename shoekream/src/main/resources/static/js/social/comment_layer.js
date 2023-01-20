@@ -12,10 +12,9 @@ function comment_more(idx, sessionUserIdx){
             dt = new Date(data.createdAt);
             document.getElementById('layer_board_time').innerText =
                 dt.getFullYear() + '년 ' + dt.getMonth()+1 + '월 ' + dt.getDate() + '일'
-            fetch("http://localhost:8889/api/social/comments_more/getSessionUser/" + idx)
+            fetch("http://localhost:8889/api/social/comments_more/getSessionUser")
                 .then((response2) => response2.json())
                 .then((user)=>{
-                    // console.log(user.imgUrl)
                     document.getElementById('layer_commment_create_profile').src = user.imgUrl;
                 })
             let commentList = "";
@@ -36,8 +35,13 @@ function comment_more(idx, sessionUserIdx){
                             </div>
                             <div class="sub">
                                 <span class="upload_time">${ymd}</span>
-                                <a href="#" class="delete">삭제</a>
-                            </div>
+                                `
+                    if(sessionUserIdx == data.replies[i].memberDTO.idx) {
+                        commentList +=
+                        `<a onclick="comment_delete(${data.replies[i].idx})" class="delete">삭제</a>`
+                    }
+                commentList +=
+                            `</div>
                         </div>
                     </div>
                 </div>
@@ -50,11 +54,6 @@ function comment_more(idx, sessionUserIdx){
     popup.style.display = "block";
     const body = document.querySelector('body');
     body.style.overflow = 'hidden';
-
-    // reply_input = document.querySelector('input_txt origin')
-    // reply_input.addEventListener('keypress', function (
-    //
-    // ))
 }
 
 function inputReply(input){
@@ -103,4 +102,16 @@ function comment_close(){
     popdown.style.display = "none"
     const body = document.querySelector('body');
     body.style.overflow = 'unset'
+}
+
+function comment_delete(replyIdx){
+    fetch('http://localhost:8889/api/social/comment_delete/' + replyIdx, {
+        method: "DELETE"
+    }).then((res) =>{
+            location.reload();
+            return;
+        })
+        .catch((err) => {
+            alert(err);
+        })
 }

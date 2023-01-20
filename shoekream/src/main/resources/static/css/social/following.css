@@ -43,6 +43,25 @@ a:-webkit-any-link{
     align-items: center;
 }
 
+.header .gnb_item.gnb_on .gnb_link {
+    font-weight: 700;
+}
+.header .gnb_link {
+    position: relative;
+    font-size: 15px;
+    letter-spacing: -.15px;
+}
+
+.header .gnb_item.gnb_on .gnb_link:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -3px;
+    background-color: #222;
+    height: 2px;
+}
+
 .like_count:hover{
     cursor: pointer;
 }
