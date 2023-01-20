@@ -2,23 +2,36 @@ package com.supreme.shoekream.controller.page;
 
 import com.supreme.shoekream.model.dto.ProductDTO;
 import com.supreme.shoekream.model.dto.socialDTO.BoardDTO;
+import com.supreme.shoekream.model.entity.Member;
 import com.supreme.shoekream.model.entity.Product;
+import com.supreme.shoekream.repository.MemberRepository;
+import com.supreme.shoekream.repository.SellRepository;
 import com.supreme.shoekream.service.MainService;
+import com.supreme.shoekream.service.SellService;
+import com.supreme.shoekream.service.StyleLogicService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("")    //http://localhost:8889
 @RequiredArgsConstructor
 public class MainPageController {
     final MainService mainService;
+    final StyleLogicService styleLogicService;
+    final MemberRepository memberRepository;
+    final SellService sellService;
     @GetMapping(path="")   //http://localhost:8889/
-    public String index(ModelMap map){
+    public String index(HttpServletRequest request, ModelMap map){
         List<ProductDTO> justDrop = mainService.collectionList("JUST_DROP");
         List<ProductDTO> mostPopular = mainService.collectionList("MOST_POPULAR");
         List<ProductDTO> newIn = mainService.collectionList("NEW_IN");
@@ -46,6 +59,49 @@ public class MainPageController {
         map.addAttribute("bestJewelryWatches",bestJewelryWatches);
         map.addAttribute("bestCampingGear",bestCampingGear);
 
+        List<BoardDTO> stylemost = styleLogicService.findTopSevenStylePick();
+        map.addAttribute("stylemost",stylemost);
+        List<String> justDroptbuynowPrices = sellService.buyNowPrices(justDrop.stream().map(ProductDTO::toEntity).toList());
+        map.addAttribute("justDroptbuynowPrices",justDroptbuynowPrices);
+        List<String> mostPopularbuynowPrices = sellService.buyNowPrices(mostPopular.stream().map(ProductDTO::toEntity).toList());
+        map.addAttribute("mostPopularbuynowPrices",mostPopularbuynowPrices);
+        List<String> newInbuynowPrices = sellService.buyNowPrices(newIn.stream().map(ProductDTO::toEntity).toList());
+        map.addAttribute("newInbuynowPrices",newInbuynowPrices);
+        List<String> shoppingWiselybuynowPrices = sellService.buyNowPrices(shoppingWisely.stream().map(ProductDTO::toEntity).toList());
+        map.addAttribute("shoppingWiselybuynowPrices",shoppingWiselybuynowPrices);
+        List<String> brandMdPicksbuynowPrices = sellService.buyNowPrices(brandMdPicks.stream().map(ProductDTO::toEntity).toList());
+        map.addAttribute("brandMdPicksbuynowPrices",brandMdPicksbuynowPrices);
+        List<String> simpleChicbuynowPrices = sellService.buyNowPrices(simpleChic.stream().map(ProductDTO::toEntity).toList());
+        map.addAttribute("simpleChicbuynowPrices",simpleChicbuynowPrices);
+        List<String> bestApprelCollabsbuynowPrices = sellService.buyNowPrices(bestApprelCollabs.stream().map(ProductDTO::toEntity).toList());
+        map.addAttribute("bestApprelCollabsbuynowPrices",bestApprelCollabsbuynowPrices);
+        List<String> newLowestAsksbuynowPrices = sellService.buyNowPrices(newLowestAsks.stream().map(ProductDTO::toEntity).toList());
+        map.addAttribute("newLowestAsksbuynowPrices",newLowestAsksbuynowPrices);
+        List<String> newHighestBidsbuynowPrices = sellService.buyNowPrices(newHighestBids.stream().map(ProductDTO::toEntity).toList());
+        map.addAttribute("newHighestBidsbuynowPrices",newHighestBidsbuynowPrices);
+        List<String> upcomingReleasebuynowPrices = sellService.buyNowPrices(upcomingRelease.stream().map(ProductDTO::toEntity).toList());
+        map.addAttribute("upcomingReleasebuynowPrices",upcomingReleasebuynowPrices);
+        List<String> bestCollectiblesbuynowPrices = sellService.buyNowPrices(bestCollectibles.stream().map(ProductDTO::toEntity).toList());
+        map.addAttribute("bestCollectiblesbuynowPrices",bestCollectiblesbuynowPrices);
+        List<String> bestJewelryWatchesbuynowPrices = sellService.buyNowPrices(bestJewelryWatches.stream().map(ProductDTO::toEntity).toList());
+        map.addAttribute("bestJewelryWatchesbuynowPrices",bestJewelryWatchesbuynowPrices);
+        List<String> bestCampingGearbuynowPrices = sellService.buyNowPrices(bestCampingGear.stream().map(ProductDTO::toEntity).toList());
+        map.addAttribute("bestCampingGearbuynowPrices",bestCampingGearbuynowPrices);
+
+        HttpSession session = request.getSession(false);
+        Long memberIdx=null;
+
+        if(session== null){
+            System.out.println("세션이 없습니다");
+        }else{
+            Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            String email = ((UserDetails) principal).getUsername();
+            memberIdx = memberRepository.findByEmail(email).get().getIdx();
+            session.setAttribute("memberIdx",memberIdx) ;
+            System.out.println("세션이 있습니다");
+            System.out.println(email);
+            System.out.println(memberIdx);
+        }
         return "index";
     }   //viewName: 페이지이름이랑 같아야함
 

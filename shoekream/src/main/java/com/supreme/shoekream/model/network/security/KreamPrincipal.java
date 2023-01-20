@@ -90,7 +90,7 @@ public record KreamPrincipal(
                 dto.profileMemo(),
                 dto.imgUrl(),
                 dto.bank(),
-                dto.accountNumber()
+                dto.accNumber()
         );
     }
 

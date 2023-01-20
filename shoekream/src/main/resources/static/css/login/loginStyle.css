@@ -522,3 +522,9 @@ input[type=number] {
     color: #f15746;
     margin-top: 0;
 }
+
+.p-2 img {
+    width: 400px;
+    height: 50px;
+    margin-top: 10px;
+}
