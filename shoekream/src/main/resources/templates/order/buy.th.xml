@@ -6,6 +6,7 @@
         <attr sel=".model_title" th:text="*{name}"></attr>
         <attr sel=".model_ko" th:text="*{nameKor}"></attr>
         <attr sel=".size_txt" th:text="*{size}"></attr>
+        <attr sel=".product_idx" th:text="*{idx}"></attr>
     </attr>
     <attr sel=".price_list">
         <attr sel="li[0]/span[0]" th:text="${buyNowPrice}"/>
@@ -16,7 +17,7 @@
     </attr>
 
     <attr sel=".info_point">
-        <attr sel=".value_current/span[0]" th:text="${point}"/>
+        <attr sel=".value_current/span[0]" th:text="${point}!=null ?: _"/>
     </attr>
     <attr sel=".layer_point">
         <attr sel=".point_box/span[0]" th:text="${point}"/>

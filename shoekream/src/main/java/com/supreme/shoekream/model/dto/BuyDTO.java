@@ -60,7 +60,13 @@ public record BuyDTO(
     }
 
     // create,update용 of
-
+    public static BuyDTO of(ProductDTO productDTO, MemberDTO memberDTO, Type type, Long price, int period,
+                            int usePoint, String cardInfo, String receiver, String receiverHp,
+                            String receiverAddress, String deliveryMemo, LocalDateTime createdAt,
+                            Progress progress, OrderStatus status, SellDTO sellDTO){
+        return new BuyDTO(null, productDTO, memberDTO, type, price, period, usePoint,cardInfo,receiver
+                ,receiverHp,receiverAddress,deliveryMemo,createdAt,progress,status,sellDTO);
+    }
 
     // from: 엔티티를 DTO로 만들어주는 과정
     public static BuyDTO fromEntity(Buy entity){
@@ -85,5 +91,8 @@ public record BuyDTO(
     }
 
     // create,update용 toEntity
-
+    public Buy toEntity(Product product, Member member, Sell sell){
+        return Buy.of(product,member,type,price,usePoint,period,cardInfo,receiver,
+                receiverHp,receiverAddress,deliveryMemo,createdAt,progress,status,sell);
+    }
 }

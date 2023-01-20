@@ -1,8 +1,28 @@
-// *** 구매 희망가 ***
-const pricebox = document.querySelector('.instant_group .price_now');
+/**
+ *서버에 보낼 데이터 선언
+ * productIdx
+ * type
+ * period
+ * usePoint
+ * cardInfo
+ * receiver
+ * receiverHp
+ * receiverAddress
+ */
+const price_box = document.querySelector('.instant_group .price_now');
 const errormsg = document.querySelector('.price_warning')
-let price_now =  Number(document.querySelector('#now_price').innerHTML.replaceAll(',',''));
 const bid_input =document.querySelector('#bid_input')
+let price_now;
+/**
+ * 즉시구매가가 없을 경우 : 구매입찰을 기본으로 설정하고, 즉시구매를 못누르도록 한다.
+ */
+if(document.querySelector('#now_price').innerHTML.trim() == '-'){
+    buy_bid();
+    const now = document.getElementById('now');
+    now.innerHTML =`<a onclick="#" class="item_link">즉시 구매</a></li>`
+}else{
+    price_now =  Number(document.querySelector('#now_price').innerHTML.replaceAll(',',''));
+}
 let fees    //수수료
 // 입찰 선택시 가격에 따라 경고
 bid_input.addEventListener('input', e=>{
@@ -13,12 +33,12 @@ bid_input.addEventListener('input', e=>{
     }
     // .price_now에 has_danger has_warning추가
     if(str_price < 30000 ){
-        pricebox.classList.add('has_warning')
-        pricebox.classList.add('has_danger')
+        price_box.classList.add('has_warning')
+        price_box.classList.add('has_danger')
         errormsg.style.display="block"
     } else {
-        pricebox.classList.remove('has_warning')
-        pricebox.classList.remove('has_danger')
+        price_box.classList.remove('has_warning')
+        price_box.classList.remove('has_danger')
         errormsg.style.display="none"
     }
 });
@@ -87,8 +107,8 @@ bid_input.addEventListener('blur', e=>{
         $(".step-1 .btn_confirm a").removeClass("disabled")
         $(".is_dark span").html("즉시 구매가")
         // 만약 에러메세지가 있을 때 없애기 위해
-        pricebox.classList.remove('has_warning')
-        pricebox.classList.remove('has_danger')
+        price_box.classList.remove('has_warning')
+        price_box.classList.remove('has_danger')
         errormsg.style.display="none"
     }
 console.log(document.querySelector('.is_dark span'))
