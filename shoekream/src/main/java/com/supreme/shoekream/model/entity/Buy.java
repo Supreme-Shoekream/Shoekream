@@ -4,6 +4,7 @@ import com.supreme.shoekream.model.enumclass.OrderStatus;
 import com.supreme.shoekream.model.enumclass.Progress;
 import com.supreme.shoekream.model.enumclass.Type;
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -32,7 +33,6 @@ public class Buy{
     private String receiverHp;
     private String receiverAddress;
     private String deliveryMemo;
-
     private LocalDateTime createdAt; // 구매 날짜 : now()로 설정 - 거래일시
     @Setter private Progress progress; // 진행 상황(발송완료/입고완료/검수합격/배송완료)
     @Setter private OrderStatus status; // 구매 상태(입찰중/기한만료/진행중/종료)
