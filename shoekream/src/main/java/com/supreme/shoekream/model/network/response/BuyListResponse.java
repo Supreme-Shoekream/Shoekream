@@ -1,13 +1,8 @@
 package com.supreme.shoekream.model.network.response;
 
-import com.supreme.shoekream.model.dto.BuyDTO;
 import com.supreme.shoekream.model.entity.Buy;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 import java.time.LocalDateTime;
-
 public record BuyListResponse(
         Long idx,
         Long productIdx,

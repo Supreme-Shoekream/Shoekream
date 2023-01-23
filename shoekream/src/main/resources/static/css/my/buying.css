@@ -773,14 +773,6 @@ li {
     -webkit-box-orient: vertical;
 }
 
-/*p {*/
-/*    display: block;*/
-/*    margin-block-start: 1em;*/
-/*    margin-block-end: 1em;*/
-/*    margin-inline-start: 0px;*/
-/*    margin-inline-end: 0px;*/
-/*}*/
-
 .list_item_column .column_secondary {
     margin-left: 50px;
 }
