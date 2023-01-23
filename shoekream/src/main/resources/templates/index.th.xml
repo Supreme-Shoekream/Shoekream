@@ -1,75 +1,76 @@
 <?xml version="1.0"?>
 <thlogic>
     <attr sel="#just_product" th:remove="all-but-first">
-        <attr sel=".just_product" th:each="justDrop : ${justDrop}">
+        <attr sel=".just_product" th:each="justDrop ,i: ${justDrop}">
             <attr sel="img.justDrop_img" th:src="${justDrop.img}"/>
             <attr sel="p.brand-text" th:text="${justDrop.brand}"/>
             <attr sel="p.name" th:text="${justDrop.name}"/>
-            <attr sel="em.num" th:text="${justDrop.firstPrice}"/>
+            <attr sel="em.num" th:text="${justDroptbuynowPrices[i.index]}"/>
         </attr>
     </attr>
+
     <attr sel="#pop_product" th:remove="all-but-first">
-        <attr sel=".pop_product" th:each="mostPopular : ${mostPopular}">
+        <attr sel=".pop_product" th:each="mostPopular ,i: ${mostPopular}">
             <attr sel="img.pop_img" th:src="${mostPopular.img}"/>
             <attr sel="p.brand-text" th:text="${mostPopular.brand}"/>
             <attr sel="p.name" th:text="${mostPopular.name}"/>
-            <attr sel="em.num" th:text="${mostPopular.firstPrice}"/>
+            <attr sel="em.num" th:text="${mostPopularbuynowPrices[i.index]}"/>
         </attr>
     </attr>
     <attr sel="#newin_product" th:remove="all-but-first">
-        <attr sel=".newin_product" th:each="newIn : ${newIn}">
+        <attr sel=".newin_product" th:each="newIn ,i: ${newIn}">
             <attr sel="img.newIn_img" th:src="${newIn.img}"/>
             <attr sel="p.brand-text" th:text="${newIn.brand}"/>
             <attr sel="p.name" th:text="${newIn.name}"/>
-            <attr sel="em.num" th:text="${newIn.firstPrice}"/>
+            <attr sel="em.num" th:text="${newInbuynowPrices[i.index]}"/>
         </attr>
     </attr>
     <attr sel="#wisely_product" th:remove="all-but-first">
-        <attr sel=".wisely_product" th:each="shoppingWisely : ${shoppingWisely}">
+        <attr sel=".wisely_product" th:each="shoppingWisely ,i: ${shoppingWisely}">
             <attr sel="img.shoppingWisely_img" th:src="${shoppingWisely.img}"/>
             <attr sel="p.brand-text" th:text="${shoppingWisely.brand}"/>
             <attr sel="p.name" th:text="${shoppingWisely.name}"/>
-            <attr sel="em.num" th:text="${shoppingWisely.firstPrice}"/>
+            <attr sel="em.num" th:text="${shoppingWiselybuynowPrices[i.index]}"/>
         </attr>
     </attr>
     <attr sel="#brandmd_product" th:remove="all-but-first">
-        <attr sel=".brandmd_product" th:each="brandMdPicks : ${brandMdPicks}">
+        <attr sel=".brandmd_product" th:each="brandMdPicks ,i: ${brandMdPicks}">
             <attr sel="img.brandMdPicks_img" th:src="${brandMdPicks.img}"/>
             <attr sel="p.brand-text" th:text="${brandMdPicks.brand}"/>
             <attr sel="p.name" th:text="${brandMdPicks.name}"/>
-            <attr sel="em.num" th:text="${brandMdPicks.firstPrice}"/>
+            <attr sel="em.num" th:text="${brandMdPicksbuynowPrices[i.index]}"/>
         </attr>
     </attr>
     <attr sel="#simple_product" th:remove="all-but-first">
-        <attr sel=".simple_product" th:each="simpleChic : ${simpleChic}">
+        <attr sel=".simple_product" th:each="simpleChic ,i: ${simpleChic}">
             <attr sel="img.simpleChic_img" th:src="${simpleChic.img}"/>
             <attr sel="p.brand-text" th:text="${simpleChic.brand}"/>
             <attr sel="p.name" th:text="${simpleChic.name}"/>
-            <attr sel="em.num" th:text="${simpleChic.firstPrice}"/>
+            <attr sel="em.num" th:text="${simpleChicbuynowPrices[i.index]}"/>
         </attr>
     </attr>
     <attr sel="#collabs_product" th:remove="all-but-first">
-        <attr sel=".collabs_product" th:each="bestApprelCollabs : ${bestApprelCollabs}">
+        <attr sel=".collabs_product" th:each="bestApprelCollabs ,i: ${bestApprelCollabs}">
             <attr sel="img.bestApprelCollabs_img" th:src="${bestApprelCollabs.img}"/>
             <attr sel="p.brand-text" th:text="${bestApprelCollabs.brand}"/>
             <attr sel="p.name" th:text="${bestApprelCollabs.name}"/>
-            <attr sel="em.num" th:text="${bestApprelCollabs.firstPrice}"/>
+            <attr sel="em.num" th:text="${bestApprelCollabsbuynowPrices[i.index]}"/>
         </attr>
     </attr>
     <attr sel="#newlowest_product" th:remove="all-but-first">
-        <attr sel=".newlowest_product" th:each="newLowestAsks : ${newLowestAsks}">
+        <attr sel=".newlowest_product" th:each="newLowestAsks ,i: ${newLowestAsks}">
             <attr sel="img.newLowestAsks_img" th:src="${newLowestAsks.img}"/>
             <attr sel="p.brand-text" th:text="${newLowestAsks.brand}"/>
             <attr sel="p.name" th:text="${newLowestAsks.name}"/>
-            <attr sel="em.num" th:text="${newLowestAsks.firstPrice}"/>
+            <attr sel="em.num" th:text="${newLowestAsksbuynowPrices[i.index]}"/>
         </attr>
     </attr>
     <attr sel="#newhighest_product" th:remove="all-but-first">
-        <attr sel=".newhighest_product" th:each="newHighestBids : ${newHighestBids}">
+        <attr sel=".newhighest_product" th:each="newHighestBids ,i: ${newHighestBids}">
             <attr sel="img.newHighestBids_img" th:src="${newHighestBids.img}"/>
             <attr sel="p.brand-text" th:text="${newHighestBids.brand}"/>
             <attr sel="p.name" th:text="${newHighestBids.name}"/>
-            <attr sel="em.num" th:text="${newHighestBids.firstPrice}"/>
+            <attr sel="em.num" th:text="${newHighestBidsbuynowPrices[i.index]}"/>
         </attr>
     </attr>
     <attr sel="#coming" th:remove="all-but-first">
@@ -80,27 +81,34 @@
         </attr>
     </attr>
     <attr sel="#bestcol_product" th:remove="all-but-first">
-        <attr sel=".bestcol_product" th:each="bestCollectibles : ${bestCollectibles}">
+        <attr sel=".bestcol_product" th:each="bestCollectibles ,i: ${bestCollectibles}">
             <attr sel="img.bestCollectibles_img" th:src="${bestCollectibles.img}"/>
             <attr sel="p.brand-text" th:text="${bestCollectibles.brand}"/>
             <attr sel="p.name" th:text="${bestCollectibles.name}"/>
-            <attr sel="em.num" th:text="${bestCollectibles.firstPrice}"/>
+            <attr sel="em.num" th:text="${bestCollectiblesbuynowPrices[i.index]}"/>
         </attr>
     </attr>
     <attr sel="#jew_product" th:remove="all-but-first">
-        <attr sel=".jew_product" th:each="bestJewelryWatches : ${bestJewelryWatches}">
+        <attr sel=".jew_product" th:each="bestJewelryWatches ,i: ${bestJewelryWatches}">
             <attr sel="img.bestJewelryWatches_img" th:src="${bestJewelryWatches.img}"/>
             <attr sel="p.brand-text" th:text="${bestJewelryWatches.brand}"/>
             <attr sel="p.name" th:text="${bestJewelryWatches.name}"/>
-            <attr sel="em.num" th:text="${bestJewelryWatches.firstPrice}"/>
+            <attr sel="em.num" th:text="${bestJewelryWatchesbuynowPrices[i.index]}"/>
         </attr>
     </attr>
     <attr sel="#camping_product" th:remove="all-but-first">
-        <attr sel=".camping_product" th:each="bestCampingGear : ${bestCampingGear}">
+        <attr sel=".camping_product" th:each="bestCampingGear ,i: ${bestCampingGear}">
             <attr sel="img.bestCampingGear_img" th:src="${bestCampingGear.img}"/>
             <attr sel="p.brand-text" th:text="${bestCampingGear.brand}"/>
             <attr sel="p.name" th:text="${bestCampingGear.name}"/>
-            <attr sel="em.num" th:text="${bestCampingGear.firstPrice}"/>
+            <attr sel="em.num" th:text="${bestCampingGearbuynowPrices[i.index]}"/>
+        </attr>
+    </attr>
+    <attr sel="#sc_slider_div" th:remove="all-but-first">
+        <attr sel=".style_banner" th:each="stylemost : ${stylemost}">
+            <attr sel="img.style_img" th:src="${stylemost.img}"/>
+            <attr sel="img.style_proimg" th:src="${stylemost.memberDTO.imgUrl}"/>
+            <attr sel="p.user_name" th:text="${stylemost.memberDTO.nickname}"/>
         </attr>
     </attr>
 </thlogic>

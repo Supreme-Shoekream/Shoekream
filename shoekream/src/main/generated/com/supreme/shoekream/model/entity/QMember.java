@@ -21,7 +21,11 @@ public class QMember extends EntityPathBase<Member> {
 
     public final com.supreme.shoekream.model.config.QBaseEntity _super = new com.supreme.shoekream.model.config.QBaseEntity(this);
 
+<<<<<<< HEAD
     public final StringPath accountNumber = createString("accountNumber");
+=======
+    public final StringPath accNumber = createString("accNumber");
+>>>>>>> 09188d5fc40b3329d2c1c3ddbd75a722b9f9be32
 
     public final StringPath bank = createString("bank");
 

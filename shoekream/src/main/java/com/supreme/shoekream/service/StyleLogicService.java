@@ -52,8 +52,17 @@ public class StyleLogicService {
         }).orElseGet(() -> Header.ERROR("데이터 없음"));
     }
 
+    public Header comment_delete(Long replyIdx){
+        Optional<Reply> reply = replyRepository.findById(replyIdx);
+        return reply.map(rp -> {
+            replyRepository.delete(rp);
+            return
+                     Header.OK();
+        }).orElseGet(() -> Header.ERROR("데이터 없음"));
+    }
+
     public List<Board> getFollowingFeeds(Long idx){
-        List<Follow> followings = followRepository.findAllByfollowerIdx(5L);
+        List<Follow> followings = followRepository.findAllByfollowerIdx(idx);
         List<Board> feed;
         feed = new ArrayList<>();
         for(int i=0; i<followings.size(); i++){
@@ -80,7 +89,7 @@ public class StyleLogicService {
     }
 
     public Header<ReplyDTO> createReply(ReplyDTO replyDTO){
-//        System.out.println("========서비스========="+replyDTO);  // ✔
+//        System.out.println("============서비스============"+replyDTO);  // ✔
         Member member = memberRepository.getReferenceById(replyDTO.memberDTO().idx());
         Board board = boardRepository.getReferenceById(replyDTO.boardIdx());
         Reply newR = replyRepository.save(replyDTO.toEntity(member, board));
@@ -119,4 +128,6 @@ public class StyleLogicService {
 
         return response;
     }
+
+
 }

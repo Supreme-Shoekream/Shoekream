@@ -208,6 +208,9 @@ body, button, dd, div, dl, dt, fieldset, figcaption, figure, form, h1, h2, h3, h
     font-weight: 700;
     background-color: #ef6253;
 }
+.tab_area .item.disabled {
+    cursor: default;
+}
 
 .price_now_box {
     display: flex;
