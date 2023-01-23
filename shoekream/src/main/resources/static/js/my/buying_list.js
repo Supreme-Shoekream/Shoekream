@@ -1,11 +1,12 @@
-
-
 window.onload = async function(){
     try {
         const response = await fetch(`/api/buying`);
         console.log(response);
         const data = await response.json();
         console.log(data);
+
+
+
 
         // let pagination = data.pagination;
         // let totalPages = pagination.totalPages;
@@ -17,8 +18,7 @@ window.onload = async function(){
                     <div class="purchase_list_display_item" style="background-color:#FFFFFF;">
                         <div class="purchase_list_product">
                             <div class="list_item_img_wrap">
-                                ${dto.productImg}
-                                <img alt="product_image" src="" class="list_item_img" style="background-color:#f4f4f4;">
+                                <img alt="product_image" src="${dto.productImg}" class="list_item_img" style="background-color:#f4f4f4;">
                             </div>
                             <div class="list_item_title_wrap">
                                 <p class="list_item_title">${dto.productName}</p>

@@ -190,7 +190,8 @@
                                                 <div class="purchase_list_display_item" v-for="dto in buyList" style="background-color:#FFFFFF;">
                                                     <div class="purchase_list_product">
                                                         <div class="list_item_img_wrap">
-                                                            <img alt="product_image" src="" class="list_item_img" style="background-color:#f4f4f4;">
+                                                            <img alt="product_image" src="" class="list_item_img" id="photo" style="background-color:#f4f4f4;">
+                                                            {{productDTO.img}}
                                                         </div>
                                                         <div class="list_item_title_wrap">
                                                             <p class="list_item_title">{{productDTO.name}}</p>
@@ -231,100 +232,100 @@
                                                 </div>
                                             </div> -->
                                             <!--상태 팝업 2 진행중-->
-                                            <div class="layer lg" style="display: none;" id="status2">
-                                                <div class="layer_container">
-                                                    <div class="layer_header">
-                                                        <h2 class="title">선택한 상태 보기</h2>
-                                                    </div>
-                                                    <div class="layer_content">
-                                                        <div class="select_status">
-                                                            <ul class="status_list">
-                                                                <li class="status_item item_on"><a class="status_link">전체</a></li>
-                                                                <li class="status_item"><a class="status_link">대기중</a></li>
-                                                                <li class="status_item"><a class="status_link">발송완료</a></li>
-                                                                <li class="status_item"><a class="status_link">입고대기</a></li>
-                                                                <li class="status_item"><a class="status_link">입고완료</a></li>
-                                                                <li class="status_item"><a class="status_link">검수중</a></li>
-                                                                <li class="status_item status_warning"><a class="status_link">검수보류</a></li>
-                                                                <li class="status_item"><a class="status_link">검수합격</a></li>
-                                                                <li class="status_item"><a class="status_link">배송중</a></li>
-                                                                <li class="status_item status_danger"><a class="status_link">거래실패</a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <a class="btn_layer_close">
-                                                        <img src="/lib/img/nav_close_icon.png" class="ico-close icon sprite-icons">
-                                                    </a>
-                                                </div>
-                                            </div>
+<!--                                            <div class="layer lg" style="display: none;" id="status2">-->
+<!--                                                <div class="layer_container">-->
+<!--                                                    <div class="layer_header">-->
+<!--                                                        <h2 class="title">선택한 상태 보기</h2>-->
+<!--                                                    </div>-->
+<!--                                                    <div class="layer_content">-->
+<!--                                                        <div class="select_status">-->
+<!--                                                            <ul class="status_list">-->
+<!--                                                                <li class="status_item item_on"><a class="status_link">전체</a></li>-->
+<!--                                                                <li class="status_item"><a class="status_link">대기중</a></li>-->
+<!--                                                                <li class="status_item"><a class="status_link">발송완료</a></li>-->
+<!--                                                                <li class="status_item"><a class="status_link">입고대기</a></li>-->
+<!--                                                                <li class="status_item"><a class="status_link">입고완료</a></li>-->
+<!--                                                                <li class="status_item"><a class="status_link">검수중</a></li>-->
+<!--                                                                <li class="status_item status_warning"><a class="status_link">검수보류</a></li>-->
+<!--                                                                <li class="status_item"><a class="status_link">검수합격</a></li>-->
+<!--                                                                <li class="status_item"><a class="status_link">배송중</a></li>-->
+<!--                                                                <li class="status_item status_danger"><a class="status_link">거래실패</a></li>-->
+<!--                                                            </ul>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                    <a class="btn_layer_close">-->
+<!--                                                        <img src="/lib/img/nav_close_icon.png" class="ico-close icon sprite-icons">-->
+<!--                                                    </a>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
                                             <!--상태 팝업 3 종료-->
                                             <!-- layer_status 넣을곳 -->
-                                            <div class="layer lg status_layer" style="display: none;">
-                                                <div class="layer_container">
-                                                    <div class="layer_header">
-                                                        <h2 class="title">선택한 상태 보기</h2>
-                                                    </div>
-                                                    <div class="layer_content">
-                                                        <div class="status_list_area">
-                                                            <div class="status_item status_on">
-                                                                <a type="button" class="btn outlinegrey medium">
-                                                                    <span class="info_txt">전체</span>
-                                                                </a>
-                                                            </div>
-                                                            <div class="status_item">
-                                                                <a type="button" class="btn outlinegrey medium">
-                                                                    <span class="info_txt">입찰 중</span>
-                                                                </a>
-                                                            </div>
-                                                            <div class="status_item">
-                                                                <a type="button" class="btn outlinegrey medium">
-                                                                    <span class="info_txt" id="expired">기한만료</span>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <a href="javascript:void(0);" class="btn_layer_close" onclick="closeLayer()">
-                                                        <img src="..//img/nav_close_icon.png" class="ico-close icon sprite-icons">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <!----><!----><!----><!---->
-                                        </div>
-                                    </div>
-                                    <div class="pagination">
-                                        <div class="pagination_box first last">
-                                            <div class="prev_btn_box">
-                                                <a href="https://kream.co.kr/my/buying#" class="btn_arr">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="arr-page-first icon sprite-icons">
-                                                        <use href="/_nuxt/91e1223d82ae15dcdada670ee3ffdaf6.svg#i-arr-page-first" xlink:href="/_nuxt/91e1223d82ae15dcdada670ee3ffdaf6.svg#i-arr-page-first"></use>
-                                                    </svg>
-                                                </a>
-                                                <a href="https://kream.co.kr/my/buying#" class="btn_arr">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="arr-page-prev icon sprite-icons">
-                                                        <use href="/_nuxt/91e1223d82ae15dcdada670ee3ffdaf6.svg#i-arr-page-prev" xlink:href="/_nuxt/91e1223d82ae15dcdada670ee3ffdaf6.svg#i-arr-page-prev"></use>
-                                                    </svg>
-                                                </a>
-                                            </div>
-                                            <div class="page_bind">
-                                                <a href="https://kream.co.kr/my/buying#" class="btn_page active"> 1 </a>
-                                            </div>
-                                            <div class="next_btn_box">
-                                                <a href="https://kream.co.kr/my/buying#" class="btn_arr">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="arr-page-next icon sprite-icons">
-                                                        <use href="/_nuxt/91e1223d82ae15dcdada670ee3ffdaf6.svg#i-arr-page-next" xlink:href="/_nuxt/91e1223d82ae15dcdada670ee3ffdaf6.svg#i-arr-page-next"></use>
-                                                    </svg>
-                                                </a>
-                                                <a href="https://kream.co.kr/my/buying#" class="btn_arr">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="arr-page-last icon sprite-icons">
-                                                        <use href="/_nuxt/91e1223d82ae15dcdada670ee3ffdaf6.svg#i-arr-page-last" xlink:href="/_nuxt/91e1223d82ae15dcdada670ee3ffdaf6.svg#i-arr-page-last"></use>
-                                                    </svg>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+<!--                                            <div class="layer lg status_layer" style="display: none;">-->
+<!--                                                <div class="layer_container">-->
+<!--                                                    <div class="layer_header">-->
+<!--                                                        <h2 class="title">선택한 상태 보기</h2>-->
+<!--                                                    </div>-->
+<!--                                                    <div class="layer_content">-->
+<!--                                                        <div class="status_list_area">-->
+<!--                                                            <div class="status_item status_on">-->
+<!--                                                                <a type="button" class="btn outlinegrey medium">-->
+<!--                                                                    <span class="info_txt">전체</span>-->
+<!--                                                                </a>-->
+<!--                                                            </div>-->
+<!--                                                            <div class="status_item">-->
+<!--                                                                <a type="button" class="btn outlinegrey medium">-->
+<!--                                                                    <span class="info_txt">입찰 중</span>-->
+<!--                                                                </a>-->
+<!--                                                            </div>-->
+<!--                                                            <div class="status_item">-->
+<!--                                                                <a type="button" class="btn outlinegrey medium">-->
+<!--                                                                    <span class="info_txt" id="expired">기한만료</span>-->
+<!--                                                                </a>-->
+<!--                                                            </div>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                    <a href="javascript:void(0);" class="btn_layer_close" onclick="closeLayer()">-->
+<!--                                                        <img src="..//img/nav_close_icon.png" class="ico-close icon sprite-icons">-->
+<!--                                                    </a>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                            &lt;!&ndash;&ndash;&gt;&lt;!&ndash;&ndash;&gt;&lt;!&ndash;&ndash;&gt;&lt;!&ndash;&ndash;&gt;-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="pagination">-->
+<!--                                        <div class="pagination_box first last">-->
+<!--                                            <div class="prev_btn_box">-->
+<!--                                                <a href="https://kream.co.kr/my/buying#" class="btn_arr">-->
+<!--                                                    <svg xmlns="http://www.w3.org/2000/svg" class="arr-page-first icon sprite-icons">-->
+<!--                                                        <use href="/_nuxt/91e1223d82ae15dcdada670ee3ffdaf6.svg#i-arr-page-first" xlink:href="/_nuxt/91e1223d82ae15dcdada670ee3ffdaf6.svg#i-arr-page-first"></use>-->
+<!--                                                    </svg>-->
+<!--                                                </a>-->
+<!--                                                <a href="https://kream.co.kr/my/buying#" class="btn_arr">-->
+<!--                                                    <svg xmlns="http://www.w3.org/2000/svg" class="arr-page-prev icon sprite-icons">-->
+<!--                                                        <use href="/_nuxt/91e1223d82ae15dcdada670ee3ffdaf6.svg#i-arr-page-prev" xlink:href="/_nuxt/91e1223d82ae15dcdada670ee3ffdaf6.svg#i-arr-page-prev"></use>-->
+<!--                                                    </svg>-->
+<!--                                                </a>-->
+<!--                                            </div>-->
+<!--                                            <div class="page_bind">-->
+<!--                                                <a href="https://kream.co.kr/my/buying#" class="btn_page active"> 1 </a>-->
+<!--                                            </div>-->
+<!--                                            <div class="next_btn_box">-->
+<!--                                                <a href="https://kream.co.kr/my/buying#" class="btn_arr">-->
+<!--                                                    <svg xmlns="http://www.w3.org/2000/svg" class="arr-page-next icon sprite-icons">-->
+<!--                                                        <use href="/_nuxt/91e1223d82ae15dcdada670ee3ffdaf6.svg#i-arr-page-next" xlink:href="/_nuxt/91e1223d82ae15dcdada670ee3ffdaf6.svg#i-arr-page-next"></use>-->
+<!--                                                    </svg>-->
+<!--                                                </a>-->
+<!--                                                <a href="https://kream.co.kr/my/buying#" class="btn_arr">-->
+<!--                                                    <svg xmlns="http://www.w3.org/2000/svg" class="arr-page-last icon sprite-icons">-->
+<!--                                                        <use href="/_nuxt/91e1223d82ae15dcdada670ee3ffdaf6.svg#i-arr-page-last" xlink:href="/_nuxt/91e1223d82ae15dcdada670ee3ffdaf6.svg#i-arr-page-last"></use>-->
+<!--                                                    </svg>-->
+<!--                                                </a>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
                         <!--footer-->
                         <footer th:replace="/fragment/footer :: footer"></footer>
                         <!--footer end--><!----><!----><!---->
