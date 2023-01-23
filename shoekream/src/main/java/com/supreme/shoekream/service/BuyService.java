@@ -8,6 +8,7 @@ import com.supreme.shoekream.model.enumclass.OrderStatus;
 import com.supreme.shoekream.model.enumclass.Progress;
 import com.supreme.shoekream.model.enumclass.SellProgress;
 import com.supreme.shoekream.model.network.Header;
+import com.supreme.shoekream.model.network.response.BuyListResponse;
 import com.supreme.shoekream.repository.*;
 
 import lombok.RequiredArgsConstructor;
