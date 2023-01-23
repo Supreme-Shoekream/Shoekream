@@ -107,21 +107,32 @@ public class SellService {
 
     public BuyDTO matching(Long productIdx, Long price){
         Product product = productRepository.findById(productIdx).get();
-        return BuyDTO.fromEntity(buyRepository.findFirstByProductAndPriceOrderByCreatedAtAsc(product,price));
+        Buy matchingBuy = buyRepository.findFirstByProductAndPriceOrderByCreatedAtAsc(product,price);
+        if(matchingBuy == null){
+            return null;
+        }else{
+            return BuyDTO.fromEntity(matchingBuy);
         }
+    }
 
     public Header<SellDTO> create(SellDTO sellDTO) {
         Product product = productRepository.findById(sellDTO.productDTO().idx()).get();
         Member member = memberRepository.findById(sellDTO.memberDTO().idx()).get();
-        Buy buy = buyRepository.findById(sellDTO.buyDTO().idx()).get();
-        Sell newSell = sellRepository.save(sellDTO.toEntity(product,member,buy));
-        SellDTO response = SellDTO.fromEntity(newSell);
-
-        // buy != null -> 구매자 status 진행중! + 채결내역 등록
-        if(buy != null){
+        SellDTO response;
+        // 즉시구매로 buy != null -> 구매자 status 진행중! + 채결내역 등록
+        if(sellDTO.buyIdx() == null){
+            Sell newSell = sellRepository.save(sellDTO.toEntity(product,member,null));
+            System.out.println("입찰💨💨"+newSell);
+            response = SellDTO.fromEntity(newSell);
+        }else{
+            Buy buy = buyRepository.findById(sellDTO.buyIdx()).get();
+            buy.setStatus(OrderStatus.PROGRESSING);
+            Sell newSell = sellRepository.save(sellDTO.toEntity(product,member,buy));
+            System.out.println("즉시💨💨"+newSell);
+            buy.setSell(newSell);
+            response = SellDTO.fromEntity(newSell);
 //            ConclusionDTO conclusionDTO = ConclusionDTO.of();
 //            conclusionRepository.save(conclusionDTO.toEntity());
-            buy.setStatus(OrderStatus.PROGRESSING);
         }
 
         return Header.OK(response);

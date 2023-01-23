@@ -84,7 +84,7 @@
                             <div class="model_desc">
                                 <p class="size_txt">M</p><!---->
                             </div>
-                            <p in="product_idx"></p>
+                            <p class="product_idx" style="display: none"></p>
                         </div>
                     </div>
                 </div>
@@ -194,15 +194,15 @@
                                     <dl class="info_list">
                                         <div class="info_box">
                                             <dt class="title">받는 분</dt>
-                                            <dd class="desc">김**</dd>
+                                            <dd class="desc" id="receiver">김**</dd>
                                         </div>
                                         <div class="info_box">
                                             <dt class="title">연락처</dt>
-                                            <dd class="desc">010-1***-*111</dd>
+                                            <dd class="desc" id="receiverHp">010-1***-*111</dd>
                                         </div>
                                         <div class="info_box">
                                             <dt class="title">배송 주소</dt>
-                                            <dd class="desc address_txt">경기 성남시 분당구 판교역로 235 (삼평동, 에이치스퀘어 엔동) 사과나무
+                                            <dd class="desc address_txt" id="receiverAddress">경기 성남시 분당구 판교역로 235 (삼평동, 에이치스퀘어 엔동) 사과나무
                                             </dd>
                                         </div>
                                     </dl>
@@ -333,7 +333,7 @@
                                                         class="dot"><span class="dot"></span></span><span
                                                         class="hyphen"></span><span class="dot"><span
                                                             class="dot"></span></span><span class="hyphen"></span>
-                                                    <div class="last_num_box"><span class="last_num">6795</span></div>
+                                                    <div class="last_num_box"><span class="last_num" id="cardInfo">6795</span></div>
                                                 </span><!----></div>
                                         </div><img src="/img/down.png">
                                     </div>
@@ -516,7 +516,7 @@
                                     <em>취소는 불가능합니다.</em>
                                 </p>
                             </div>
-                            <div class="layer_btn"><button type="button" class="btn solid buy full large" onclick="location.href='/buybidfinish'" > 바로
+                            <div class="layer_btn"><button type="button" class="btn solid buy full large" id="real_submit" > 바로
                                     결제하기 </button></div>
                         </div>
                     </div>
@@ -533,7 +533,6 @@
 
 </body>
 <script src="/js/order/buy.js"></script>
-<script src="/js/layer/layer_delivery.js"></script>
-<script src="/js/layer/layer_card.js"></script>
+
 
 </html>

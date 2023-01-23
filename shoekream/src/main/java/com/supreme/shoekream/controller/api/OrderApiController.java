@@ -27,25 +27,25 @@ public class OrderApiController {
 
     @PostMapping("/buy")
     public Header<BuyDTO> buy(@RequestBody Header<BuyRequest> request,
-                              @PathVariable Long productIdx,
                               @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
-        System.out.println(request +"💌"+productIdx+"👟"+kreamPrincipal+"👩");
+        System.out.println(request +"💌"+kreamPrincipal+"👩");
         BuyRequest buyRequest = request.getData();
-        ProductDTO productDTO = buyService.findProduct(productIdx);
-        SellDTO sellDTO = buyService.matching(productIdx, buyRequest.price());
-        BuyDTO buyDTO = buyRequest.toDto(productDTO,kreamPrincipal.toDto(),sellDTO);
+        ProductDTO productDTO = buyService.findProduct(buyRequest.productIdx());
+        SellDTO sellDTO = buyService.matching(buyRequest.productIdx(), buyRequest.price());
+        BuyDTO buyDTO = buyRequest.toDto(productDTO,kreamPrincipal.toFullDto(),sellDTO);
+        System.out.println("❤❤"+buyDTO);
         return buyService.create(buyDTO);
     }
 
     @PostMapping("/sell")
     public Header<SellDTO> sell(@RequestBody Header<SellRequest> request,
-                                @PathVariable Long productIdx,
                                 @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
-        System.out.println(request +"💌"+productIdx+"👟"+kreamPrincipal+"👩");
+        System.out.println(request +"💌"+kreamPrincipal+"👩");
         SellRequest sellRequest = request.getData();
-        ProductDTO productDTO = buyService.findProduct(productIdx);
-        BuyDTO buyDTO = sellService.matching(productIdx, sellRequest.price());
-        SellDTO sellDTO = sellRequest.toDto(productDTO,kreamPrincipal.toDto(),buyDTO);
+        ProductDTO productDTO = buyService.findProduct(sellRequest.productIdx());
+        BuyDTO buyDTO = sellService.matching(sellRequest.productIdx(), sellRequest.price());
+        SellDTO sellDTO = sellRequest.toDto(productDTO,kreamPrincipal.toFullDto(),buyDTO);
+        System.out.println("❤❤"+sellDTO);
         return sellService.create(sellDTO);
     }
 }

@@ -21,6 +21,7 @@ import javax.persistence.EntityNotFoundException;
 
 import java.text.DecimalFormat;
 import java.util.List;
+import java.util.Optional;
 
 import static java.time.LocalDateTime.now;
 
@@ -90,16 +91,35 @@ public class BuyService {
 
     public SellDTO matching(Long productIdx , Long price){
         Product product = productRepository.findById(productIdx).get();
-        return SellDTO.fromEntity(sellRepository.findFirstByProductAndPriceOrderByCreatedAtAsc(product, price));
+        Sell matchingSell = sellRepository.findFirstByProductAndPriceOrderByCreatedAtAsc(product, price);
+        if(matchingSell == null){
+            return null;
+        }else{
+            return SellDTO.fromEntity(matchingSell);
+        }
     }
 
 
     public Header<BuyDTO> create(BuyDTO buyDTO){
         Product product = productRepository.findById(buyDTO.productDTO().idx()).get();
         Member member = memberRepository.findById(buyDTO.memberDTO().idx()).get();
-        Sell sell = sellRepository.findById(buyDTO.sellDTO().idx()).get();
-        Buy newBuy = buyRepository.save(buyDTO.toEntity(product,member,sell));
-        BuyDTO response = BuyDTO.fromEntity(newBuy);
+        BuyDTO response;
+        // sell != null -> 판매자 progress null->0(발송요청), status 0->1(진행중) update + 채결내역 등록
+        if(buyDTO.sellIdx() == null){
+            Buy newBuy = buyRepository.save(buyDTO.toEntity(product,member,null));
+            System.out.println("입찰💨💨"+newBuy);
+            response = BuyDTO.fromEntity(newBuy);
+        }else{
+            Sell sell = sellRepository.findById(buyDTO.sellIdx()).get();
+            sell.setProgress(SellProgress.SHIPMENT_REQUEST);
+            sell.setStatus(OrderStatus.PROGRESSING);
+            Buy newBuy = buyRepository.save(buyDTO.toEntity(product,member,sell));
+            System.out.println("즉시💨💨"+newBuy);
+            sell.setBuy(newBuy);
+            response = BuyDTO.fromEntity(newBuy);
+//            ConclusionDTO conclusionDTO = ConclusionDTO.of();
+//            conclusionRepository.save(conclusionDTO.toEntity());
+        }
 
         // buyDTO.usepoint != 0 -> 포인트 테이블에 등록 + 사용자가 사용한 포인트 만큼 차감
         if(buyDTO.usePoint() != 0){
@@ -108,13 +128,7 @@ public class BuyService {
             member.setPoint(member.getPoint()- buyDTO.usePoint());
         }
 
-        // sell != null -> 판매자 progress null->0(발송요청), status 0->1(진행중) update + 채결내역 등록
-        if(sell != null){
-//            ConclusionDTO conclusionDTO = ConclusionDTO.of();
-//            conclusionRepository.save(conclusionDTO.toEntity());
-            sell.setProgress(SellProgress.SHIPMENT_REQUEST);
-            sell.setStatus(OrderStatus.PROGRESSING);
-        }
+
         return Header.OK(response);
     }
 }

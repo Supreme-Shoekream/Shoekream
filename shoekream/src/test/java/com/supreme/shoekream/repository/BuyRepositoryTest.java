@@ -38,6 +38,8 @@ class BuyRepositoryTest extends ShoekreamApplicationTests {
         //orderstatus test
         System.out.println("입찰중");
         System.out.println(buyRepository.findByStatus(OrderStatus.BIDDING));
+
+
     }
 
 

@@ -1,5 +1,5 @@
 
-insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('root', '{noop}root1234!', '박수성', '010-795-9985', 'root@root.com', 0, 240, 100, 'Red', '/img/kream_empty_img.png');
+insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url, bank, acc_number) values ('root', '{noop}root1234!', '박수성', '010-795-9985', 'root@root.com', 0, 240, 5100, 'Red', '/img/kream_empty_img.png', '하나은행' , '1238008829271');
 insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('hsd_09_', '{noop}PtLR!@0aXZKp', '박서준', '010-877-1330', 'zkrochmann1@ft.com', 0, 240, 200, 'Goldenrod', '/img/styleImg/profile1.jpeg');
 insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('i.tohewa', 'YB6P!@BcWrzC', '신동열', '010-450-0814', 'smaffioni2@unicef.org', 0, 230, 300, 'Mauv', '/img/styleImg/profile2.jpeg');
 insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('this_is_me_dew', 'SMWl!@rG', '박준영', '010-272-0199', 'tconrard3@si.edu', 0, 270, 400, 'Aquamarine', '/img/styleImg/profile3.jpeg');
