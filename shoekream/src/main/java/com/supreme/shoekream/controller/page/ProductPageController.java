@@ -1,6 +1,7 @@
 package com.supreme.shoekream.controller.page;
 
 import com.supreme.shoekream.model.dto.ConclusionDTO;
+import com.supreme.shoekream.model.dto.SellDTO;
 import com.supreme.shoekream.model.entity.Product;
 import com.supreme.shoekream.model.network.Header;
 import com.supreme.shoekream.model.network.response.ConclusionResponse;
@@ -8,8 +9,11 @@ import com.supreme.shoekream.model.network.response.ProductApiResponse;
 import com.supreme.shoekream.model.network.response.ProductResponse;
 import com.supreme.shoekream.model.network.response.ProductWithConclusionApiResponse;
 import com.supreme.shoekream.repository.ProductRepository;
+import com.supreme.shoekream.repository.SellRepository;
+import com.supreme.shoekream.service.BuyService;
 import com.supreme.shoekream.service.ProductApiLogicService;
 import com.supreme.shoekream.service.ConclusionApiLogicService;
+import com.supreme.shoekream.service.SellService;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,6 +39,8 @@ import static com.supreme.shoekream.model.entity.QProduct.product;
 public class ProductPageController {
     private final ProductApiLogicService productApiLogicService;
     private final ConclusionApiLogicService conclusionApiLogicService;
+    private final SellService sellService;
+    private final BuyService buyService;
     private final ProductRepository productRepository;
     // 로그찍어 볼때 필요
     private final Logger logger = LoggerFactory.getLogger(ProductPageController.class.getName());
@@ -45,11 +51,19 @@ public class ProductPageController {
 
         Header<ProductApiResponse> product = productApiLogicService.read(idx);
         modelmap.addAttribute("product",product); // "product" 이름의 modelmap 객체를 view에서 사용하기위해 저장함
-        System.out.println("🟡" + modelmap);
+//        System.out.println("🟡" + modelmap);
 
         List<ConclusionDTO> conclusion = conclusionApiLogicService.con_read(idx);
         modelmap.addAttribute("conclusion", conclusion); // "conclusion" 이름의 modelmap 객체를 view에서 사용하기위해 저장함
-        System.out.println("🟡" + conclusion);
+//        System.out.println("🟡" + conclusion);
+
+        String sell = sellService.buyNowPrice(idx);
+        modelmap.addAttribute("sell", sell);
+//        System.out.println("🟡" + sell);
+
+        String buy = buyService.sellNowPrice(idx);
+        modelmap.addAttribute("buy", buy);
+//        System.out.println("🟡" + buy);
 
         return "product/product";
 
