@@ -185,9 +185,31 @@
                                                 </div>
                                             </div>
                                             <!--상품 리스트-->
-                                            <div class="purchase_item_wrap">
-                                                <!--상품-->
+
+                                            <div id="buyList">
+                                                <div class="purchase_list_display_item" v-for="dto in buyList" style="background-color:#FFFFFF;">
+                                                    <div class="purchase_list_product">
+                                                        <div class="list_item_img_wrap">
+                                                            <img alt="product_image" src="" class="list_item_img" style="background-color:#f4f4f4;">
+                                                        </div>
+                                                        <div class="list_item_title_wrap">
+                                                            <p class="list_item_title">{{productDTO.name}}</p>
+                                                            <p class="list_item_description">{{buyDTO.productDTO.size}}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="list_item_status">
+                                                        <div class="list_item_column column_secondary">
+                                                            <p class="secondary_title display_paragraph" style="color:#222222;">{{dto.price}}</p>
+                                                        </div>
+                                                        <div class="list_item_column column_last">
+                                                            <p class="last_title display_paragraph" style="color:#222222;">
+                                                                {{dto.createdAt}}</p>
+                                                            <p class="last_description display_paragraph"></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
+
                                             <!--상태 팝업 1 입찰중-->
                                             <!-- <div class="layer lg" style="display: none;" id="status1">
                                                 <div class="layer_container">
@@ -488,4 +510,5 @@
 </body>
 
 <script src="/js/my/buying.js"></script>
+<script src="/js/my/buying_list.js"></script>
 </html>

@@ -8,11 +8,11 @@ function closeLayer(){
 }
 
 // 팝업창 상태 선택
-$(".status_item").click(function(){
-    $(".status_item").removeClass("active");
-    $(this).addClass("active");
-    $(".status_item").removeClass("status_on");
-    }); 
+// $(".status_item").click(function(){
+//     $(".status_item").removeClass("active");
+//     $(this).addClass("active");
+//     $(".status_item").removeClass("status_on");
+//     });
 
 // 진행중 상태일경우
 

@@ -6,6 +6,7 @@ import com.supreme.shoekream.model.entity.Buy;
 import com.supreme.shoekream.model.entity.Member;
 import com.supreme.shoekream.model.entity.Product;
 import com.supreme.shoekream.model.enumclass.OrderStatus;
+import com.supreme.shoekream.model.network.response.BuyListResponse;
 import com.supreme.shoekream.repository.BuyRepository;
 import com.supreme.shoekream.repository.MemberRepository;
 import com.supreme.shoekream.repository.ProductRepository;
@@ -53,10 +54,11 @@ public class BuyService {
 
     //사용자의 구매내역 리스트
     @Transactional(readOnly = true)
-    public List<BuyDTO> myBuyList(Long memberIdx){
+    public List<BuyListResponse> myBuyList(Long memberIdx){
         Member member = memberRepository.findById(memberIdx).get();
+        System.out.println(buyRepository.findByMember(member));
         return buyRepository.findByMember(member)
-                .stream().map(BuyDTO::fromEntity).toList();
+                .stream().map(BuyListResponse::from).toList();
     }
 
     //사용자의 구매내역 (입찰/진행중/종료)에 따라 리스트 출력 필요할 때
