@@ -32,7 +32,7 @@ class SellRepositoryTest extends ShoekreamApplicationTests {
         System.out.println(sellRepository.findByMemberAndStatus(member, OrderStatus.BIDDING));
         System.out.println("입찰중인거");
 
-        Product product = productRepository.findById(46L).get();
+        Product product = productRepository.findById(32L).get();
         System.out.println("즉시구매가");
         System.out.println(sellRepository.findFirstByProductOrderByPrice(product));
 
@@ -53,5 +53,8 @@ class SellRepositoryTest extends ShoekreamApplicationTests {
                 }
         );
         System.out.println(prices);
+
+        System.out.println( sellRepository.findFirstByProductAndPriceOrderByCreatedAtAsc(product, 109000L));
+
     }
 }

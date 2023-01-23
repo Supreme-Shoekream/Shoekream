@@ -17,9 +17,6 @@
     </attr>
 
     <attr sel=".info_point">
-        <attr sel=".value_current/span[0]" th:text="${point}!=null ?: _"/>
-    </attr>
-    <attr sel=".layer_point">
-        <attr sel=".point_box/span[0]" th:text="${point}"/>
+        <attr sel=".value_current/span[0]" th:text="${point}!=null ? ${#numbers.formatInteger(point, 0, 'COMMA')} : '0'"/>
     </attr>
 </thlogic>

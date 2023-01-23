@@ -71,7 +71,7 @@ public record BuyResponse(
                 dto.createdAt(),
                 dto.progress().getTitle(),
                 dto.status().getDescription(),
-                dto.sellDTO().idx(),
+                dto.sellIdx(),
                 deadline
         );
     }

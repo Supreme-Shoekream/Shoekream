@@ -39,7 +39,7 @@ public class Sell {
     @Setter private SellProgress progress; // 진행 상황(발송완료/입고완료/검수합격/검수불합격(거래실패)/정산완료/취소완료)
     @Setter private OrderStatus status; // 구매 상태(입찰중/기한만료/진행중/종료)
 
-    @OneToOne(mappedBy = "sell") private Buy buy;
+    @Setter @OneToOne(mappedBy = "sell") private Buy buy;
 
 
     protected Sell(){}
