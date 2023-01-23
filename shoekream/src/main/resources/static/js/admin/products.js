@@ -24,55 +24,55 @@ $("input[type='file']").on("change", function(e){
     }
     //alert("통과"); // 파일 타입, 크기 조건 둘 다 만족하면 뜸
 
-    formData.append("uploadFile", "fileObj");
+    formData.append("uploadFile", fileObj);
     // 첨부한 파일을 폼데이터에 업로드파일이라는 이름으로 추가해줌 (input name과 같아야함)
     // <input name="uploadFile" value="fileObj"> 와 같은 뜻
 
     // let resultData = "";
 
     // ajax를 사용하여 서버로 전송
-    // $.ajax({
-    //     url: '/admin/products', // 서버로 요청을 보낼 url
-    //     processData : false, // 서버로 전송할 데이터를 queryStirng 형태로 변환할지 여부
-    //     contentType : false, // 서버로 전송되는 데이터의 content-type
-    //     data : formData, // 서버로 전송할 데이터
-    //     type : 'POST', // 서버 요청 타입(GET, POST)
-    //     dataType : 'json' // 서버로부터 반환받을 데이터 타입
-    //     // async : false,
-    //     // success : function (data){
-    //     //     alert(data);
-    //     //     resultData = data;
-    //     //     alert(resultData);
-    //     // },
-    //     // error: function(e) {
-    //     //     alert("값을 가져오지 못했습니다.");
-    //     // }
-    // });
+    $.ajax({
+        url: '/admin/products', // 서버로 요청을 보낼 url
+        processData : false, // 서버로 전송할 데이터를 queryStirng 형태로 변환할지 여부
+        contentType : false, // 서버로 전송되는 데이터의 content-type
+        data : formData, // 서버로 전송할 데이터
+        type : 'POST', // 서버 요청 타입(GET, POST)
+        dataType : 'json' // 서버로부터 반환받을 데이터 타입
+        // async : false,
+        // success : function (data){
+        //     alert(data);
+        //     resultData = data;
+        //     alert(resultData);
+        // },
+        // error: function(e) {
+        //     alert("값을 가져오지 못했습니다.");
+        // }
+    });
 
-    fetch("http://localhost:8889/admin/products", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-            "transaction_time":`${new Date()}`,
-            "resultCode":"ok",
-            "description":"정상",
-            "data": formData
-        }),
-    })
-        .then((res) => {
-            alert("성공!")
-            res.json()
-            return;
-        })
-        .then((data) => {
-            console.log(data);
-            return;
-        })
-        .catch((err) => {
-            alert("에러! 에러! 실패!");
-            location.reload();
-            return;
-        })
+    // fetch("http://localhost:8889/admin/products", {
+    //     method: "POST",
+    //     headers: { "Content-Type": "multipart/form-data; boundary=something" },
+    //     body: JSON.stringify({
+    //         "transaction_time":`${new Date()}`,
+    //         "resultCode":"ok",
+    //         "description":"정상",
+    //         "data": formData
+    //     }),
+    // })
+    //     .then((res) => {
+    //         alert("성공!")
+    //         res.json()
+    //         return;
+    //     })
+    //     .then((data) => {
+    //         console.log(data);
+    //         return;
+    //     })
+    //     .catch((err) => {
+    //         alert("에러! 에러! 실패!");
+    //         location.reload();
+    //         return;
+    //     })
 
     // return resultData;
     // console.log(resultData);

@@ -2487,7 +2487,7 @@ svg:not(:root) {
 }
 
 .size {
-    display: block;
+    /*display: block;*/
     line-height: 17px;
     margin-top: -3px;
     font-size: 14px;

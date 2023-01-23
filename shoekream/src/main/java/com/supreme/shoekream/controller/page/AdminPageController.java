@@ -56,29 +56,29 @@ public class AdminPageController {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     /* 첨부 파일 업로드 */
     @PostMapping("products") // 파일 1개 업로드 //http://localhost:8889/admin/products
-    public String uploadAjaxActionPOST(MultipartFile uploadFile) {
-//        logger.info("⚠️uploadAjaxActionPOST..........");
-//        logger.info("⚠️파일 이름 : " + uploadFile.getOriginalFilename());
-//        logger.info("⚠️파일 타입 : " + uploadFile.getContentType());
-//        logger.info("⚠️파일 크기 : " + uploadFile.getSize());
+    public void uploadAjaxActionPOST(MultipartFile uploadFile) {
+        logger.info("⚠️uploadAjaxActionPOST..........");
+        logger.info("⚠️파일 이름 : " + uploadFile.getOriginalFilename());
+        logger.info("⚠️파일 타입 : " + uploadFile.getContentType());
+        logger.info("⚠️파일 크기 : " + uploadFile.getSize());
         // 저장 폴더 경로
         String uploadFolder = "/Users/oyun-yeong/Desktop/Shoekream/publising/Shoekream/shoekream/src/main/resources/static/img/product/";
-        // 폴더 생성
+//        // 폴더 생성
         File uploadPath = new File(uploadFolder);
         if(!uploadPath.exists()) {
             uploadPath.mkdirs();
         }
-//        logger.info("-----------------------------------------------");
+////        logger.info("-----------------------------------------------");
         String uploadFileName = uploadFile.getOriginalFilename(); // 파일 이름
-//        uploadFileName = uploadFileName.replace(" ", "_"); // 파일 이름에 띄어쓰기가 있으면 언더바로 변경하기
-//        System.out.println("🔵" + uploadFileName);
-        File saveFile = new File(uploadPath, uploadFileName); // 파일 위치, 파일 이름을 합친 File 객체
+////        uploadFileName = uploadFileName.replace(" ", "_"); // 파일 이름에 띄어쓰기가 있으면 언더바로 변경하기
+////        System.out.println("🔵" + uploadFileName);
+       File saveFile = new File(uploadPath, uploadFileName); // 파일 위치, 파일 이름을 합친 File 객체
         try { // 파일 저장
             uploadFile.transferTo(saveFile);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return uploadFileName;
+//        return uploadFileName;
     }
 
     @GetMapping(path="login")   //http://localhost:8889/admin/login
