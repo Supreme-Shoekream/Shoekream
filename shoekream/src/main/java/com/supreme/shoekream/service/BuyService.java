@@ -4,10 +4,12 @@ package com.supreme.shoekream.service;
 import com.supreme.shoekream.model.dto.*;
 import com.supreme.shoekream.model.entity.*;
 import com.supreme.shoekream.model.enumclass.OrderStatus;
+
 import com.supreme.shoekream.model.enumclass.Progress;
 import com.supreme.shoekream.model.enumclass.SellProgress;
 import com.supreme.shoekream.model.network.Header;
 import com.supreme.shoekream.repository.*;
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -56,10 +58,11 @@ public class BuyService {
 
     //사용자의 구매내역 리스트
     @Transactional(readOnly = true)
-    public List<BuyDTO> myBuyList(Long memberIdx){
+    public List<BuyListResponse> myBuyList(Long memberIdx){
         Member member = memberRepository.findById(memberIdx).get();
+        System.out.println(buyRepository.findByMember(member));
         return buyRepository.findByMember(member)
-                .stream().map(BuyDTO::fromEntity).toList();
+                .stream().map(BuyListResponse::from).toList();
     }
 
     //사용자의 구매내역 (입찰/진행중/종료)에 따라 리스트 출력 필요할 때
