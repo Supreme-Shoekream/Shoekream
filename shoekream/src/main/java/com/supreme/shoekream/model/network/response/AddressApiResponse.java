@@ -2,6 +2,7 @@ package com.supreme.shoekream.model.network.response;
 
 import com.supreme.shoekream.model.dto.AddressDTO;
 import com.supreme.shoekream.model.dto.MemberDTO;
+import com.supreme.shoekream.model.entity.Member;
 
 public record AddressApiResponse(
         Long idx,
@@ -23,17 +24,16 @@ public record AddressApiResponse(
     ){
         return new AddressApiResponse(idx,name, hp, zipcode, address1, address2, addressBasic);
     }
-    public AddressDTO toDTO(MemberDTO memberDTO){
+    public AddressDTO toDTO(Member member){
         return AddressDTO.of(
                 idx,
-                memberDTO,
                 name,
                 hp,
                 zipcode,
                 address1,
                 address2,
                 addressBasic,
-                memberDTO.idx()
+                MemberDTO.fromEntity(member)
         );
     }
 }
