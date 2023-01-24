@@ -3,9 +3,12 @@ package com.supreme.shoekream.service;
 import com.supreme.shoekream.model.dto.AddressDTO;
 import com.supreme.shoekream.model.dto.MemberDTO;
 import com.supreme.shoekream.model.entity.Address;
+import com.supreme.shoekream.model.entity.Member;
 import com.supreme.shoekream.model.network.Header;
+import com.supreme.shoekream.model.network.security.KreamPrincipal;
 import com.supreme.shoekream.repository.AddressRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,12 +30,11 @@ public class AddressApiLogicService {
     }
 
     @Transactional
-    public Header<Address> create(Header<AddressDTO> request){
-        System.out.println("@@@@@@@@@@@@@@@@@@@@%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
-        AddressDTO dto = request.getData();
-        Address newAddress = addressRepository.save(dto.toEntity());
-
-        return Header.OK(newAddress);
+    public Header<AddressDTO> create(AddressDTO request){
+        Member member = request.memberDTO().toEntity();
+        Address newAddress = addressRepository.save(request.toEntity(member));
+        AddressDTO addressDTO = AddressDTO.fromEntity(newAddress);
+        return Header.OK(addressDTO);
     }
 
     @Transactional

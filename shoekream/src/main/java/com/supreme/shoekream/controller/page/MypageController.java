@@ -1,6 +1,10 @@
 package com.supreme.shoekream.controller.page;
 
+import com.supreme.shoekream.model.dto.AddressDTO;
+import com.supreme.shoekream.model.dto.MemberDTO;
+import com.supreme.shoekream.model.entity.Member;
 import com.supreme.shoekream.model.network.request.AddressApiRequest;
+import com.supreme.shoekream.model.network.response.AddressApiResponse;
 import com.supreme.shoekream.model.network.security.KreamPrincipal;
 import com.supreme.shoekream.service.AddressApiLogicService;
 import com.supreme.shoekream.service.PointApiLogicService;
@@ -44,12 +48,10 @@ public class MypageController {
 
     private final AddressApiLogicService addressApiLogicService;
     @GetMapping(path="address")
-    public String address(ModelMap map, HttpServletRequest request){
-        HttpSession session = request.getSession();
-        Long idx = (Long)session.getAttribute("idx");
-        System.out.println(idx);
-        map.addAttribute("address", addressApiLogicService.list(1L, false));
-        map.addAttribute("basic", addressApiLogicService.list(idx, true));
+    public String address(ModelMap map, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        MemberDTO memberDTO = kreamPrincipal.toFullDto();
+        map.addAttribute("address", addressApiLogicService.list(memberDTO.idx(), false));
+        map.addAttribute("basic", addressApiLogicService.list(memberDTO.idx(), true));
         return "my/address";
     }
 
