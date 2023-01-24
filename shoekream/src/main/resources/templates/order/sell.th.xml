@@ -23,6 +23,8 @@
         <attr sel="div[1]/dd" th:text="${member.bank} !=null ? ${member.name} : '새 계좌번호를 추가해주세요!'" />
     </attr>
     <attr sel="#account_btn" th:text="${member.bank} !=null ? '변경' : '등록'"/>
-
+    <attr sel=".step-3">
+        <attr sel=".image" th:src="${product.data.img}"></attr>
+    </attr>
 
 </thlogic>

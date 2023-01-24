@@ -2,9 +2,11 @@ package com.supreme.shoekream.controller.page;
 
 
 import com.supreme.shoekream.model.entity.Conclusion;
+import com.supreme.shoekream.model.network.Pagination;
 import com.supreme.shoekream.model.network.response.BuyResponse;
 import com.supreme.shoekream.repository.ConclusionRepository;
 import com.supreme.shoekream.service.BuyService;
+import com.supreme.shoekream.service.PaginationService;
 import com.supreme.shoekream.service.StyleLogicService;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
@@ -32,6 +34,7 @@ import java.util.List;
 @RequestMapping("admin")    //http://localhost:8889/admin
 @RequiredArgsConstructor
 public class AdminPageController {
+    private final PaginationService paginationService;
 
     @GetMapping(path="")   //http://localhost:8889/admin
     public ModelAndView index(){
@@ -100,11 +103,12 @@ public class AdminPageController {
     private final BuyService buyService;
     @GetMapping(path="buy")   //http://localhost:8889/admin/buy
     public String buy(@RequestParam(required = false) String searchKeyword,
-                      @PageableDefault(size = 10, sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
+                      @PageableDefault(size = 10, sort = "idx", direction = Sort.Direction.DESC) Pageable pageable,
                       ModelMap map){
         Page<BuyResponse> buys = buyService.searchBuy(searchKeyword, pageable).map(BuyResponse::from);
-//        List<Integer> barNumbers =
+        List<Integer> barNumbers = paginationService.getPaginationBarNumbers(pageable.getPageNumber(),buys.getTotalPages());
         map.addAttribute("buys",buys);
+        map.addAttribute("barNumbers",barNumbers);
         return("/adminpage/buy");
     }
 

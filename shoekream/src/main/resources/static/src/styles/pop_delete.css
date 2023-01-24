@@ -27,7 +27,7 @@ li,  ol,  ul {
     list-style: none;
     padding: 0px;
 }
-table {
+.layer_delete table {
     border-collapse: collapse;
     border-spacing: 0;
     table-layout: fixed;
@@ -70,6 +70,7 @@ input, textarea {
 }
 
 .pop .layer_container {
+    width:450px;
     margin-bottom: 32px;
     max-height: 450px;
     overflow-y: auto;

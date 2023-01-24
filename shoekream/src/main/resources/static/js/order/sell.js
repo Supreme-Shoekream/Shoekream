@@ -27,6 +27,7 @@ let period = 0;
 let card_info= '';
 let delivery_memo ='';
 let fees = 0;    //수수료
+document.querySelector('.deadline_txt').innerHTML = calc_deadline(30)   //초기 deadline 세팅
 
 
 /**
@@ -79,6 +80,7 @@ function sell_bid() {
   $(".price_total .unit").html("");
   document.getElementById("bid_input").value = ""; // bid_input value 값 초기화
   is_now=false;
+  period=30;
 }
 /**
  * 🤍 기능2 즉시판매가가 없을 경우 : 판매입찰을 기본으로 설정하고, 즉시판매를 못누르도록 한다.
@@ -163,6 +165,14 @@ bid_input.addEventListener("blur", (e) => {
 /**
  * 🤍 기능4: 마감기한 버튼 클릭시 날짜 계산해서 출력
  */
+function calc_deadline(days){
+  const today = new Date();
+  let deadline = new Date(today);
+  days = Number(days)
+  deadline.setDate(today.getDate()+days);
+  let dmonth = deadline.getMonth()+1
+  return days + "일 ("+deadline.getFullYear()+"/"+dmonth+"/"+deadline.getDate()+" 마감)";
+}
 $(document).on("click", ".deadline_tab a", function () {
   if ($(".deadline_tab a").has(".is_active")) {
     // is_active 클래스가 존재하면 length 값은 1이상이 됨. -> true
@@ -170,15 +180,10 @@ $(document).on("click", ".deadline_tab a", function () {
   }
   this.className += " is_active";
   //🌈날짜 계산 후 반영 필요
-  const today = new Date();
-  let deadline = new Date(today);
-  let periodtxt = this.innerHTML.replace("일", "").trim();
-  periodtxt = Number(periodtxt); //숫자로 변환하지 않으면 잘못 계산함
-  period = periodtxt;
-  deadline.setDate(today.getDate() + periodtxt);
-  let dmonth = deadline.getMonth() + 1;
-  let deadline_txt = periodtxt + "일 (" + deadline.getFullYear() + "/" + dmonth + "/" + deadline.getDate() + " 마감)";
-  document.querySelector(".deadline_txt").innerHTML = deadline_txt;
+  let periodtxt =this.innerHTML.replace('일','').trim();
+  periodtxt = Number(periodtxt) //숫자로 변환하지 않으면 잘못 계산함
+  period = periodtxt; //서버에 보낼 데이터와 연결
+  document.querySelector(".deadline_txt").innerHTML = calc_deadline(period);
 });
 // 판매 입찰하기 입찰 마감기한 클릭시 버튼 활성화
 
@@ -634,7 +639,7 @@ function getCheck() {
  */
 function pop_order_price_confirm(){
   document.querySelector('.layer_order_price_confirm .price').innerHTML=
-      document.querySelector('.sell_total_confirm .price .amount').innerHTML + "원"
+      document.querySelector('.sell_check .sell_total_confirm .price .amount').innerHTML + "원"
   const btn_submit = document.getElementById('real_submit');
   btn_submit.addEventListener('click',sendit);
     document.querySelector('.layer_order_price_confirm').style.display="block"
@@ -674,8 +679,17 @@ function sendit() {
     }),
   })
       .then((res) => {
-        alert('등록성공')
-        location.href='/my';
+        document.querySelector('.step-2').style.display="none"
+        document.querySelector('.step-3').style.display="block"
+        document.querySelector('.step-3 .wish_price').innerHTML=wish_price.toLocaleString('ko-KR');
+        document.querySelector('.step-3 .final_fees').innerHTML=fees.toLocaleString('ko-KR');
+        document.querySelector('.step-3 .final_price').innerHTML = (wish_price + fees + 3000).toLocaleString('ko-KR');
+        if(is_now != true){
+          document.querySelector('.step-3 .deadline').innerHTML = calc_deadline(period);
+        }else{
+          document.querySelector('.step-3 .deadline_box').style.display= "none";
+        }
+        location.href="#" // 상단으로 올려준다.
         return; //리턴을 걸어서 진행하는 것을 막는다!
       })
       .then((data) => {

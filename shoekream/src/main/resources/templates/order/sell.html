@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/css/layer/layer_address.css">
     <link rel="stylesheet" href="/css/layer/layer_shipping_memo.css">
     <link rel="stylesheet" href="/css/layer/layer_card.css">
+    <link rel="stylesheet" href="/css/order/order_final.css">
     <link rel="stylesheet" href="/css/fragment/footer.css">
     <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://kream.co.kr/favicon.ico">
     <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" />
@@ -426,6 +427,73 @@
                 </div><!----><!----><!---->
             </div><!---->
         </div><!----><!---->
+    </div>
+    <div class="container sell lg step-3" style="display: none"><!---->
+        <div class="content"><!----><!---->
+            <div  class="sell_complete lg">
+                <div class="complete_box">
+                    <div class="complete_detail">
+                        <div class="complete_info">
+                            <div class="complete_title">
+                                <p class="main_title">판매 입찰이 완료되었습니다.</p>
+                                <p class="sub_title">결제는 거래가 성사되는 시점에<br>등록하신 결제 정보로 자동 처리 됩니다.</p>
+                            </div>
+                            <div class="product"
+                                 style="background-color: rgb(244, 244, 244);">
+                                <picture class="picture product_img">
+                                    <img alt="상품 이미지"
+                                         src=""
+                                         loading="lazy" class="image">
+                                </picture><!----><!----><!----><!---->
+                            </div>
+                            <div class="complete_btn_box"><a
+                                    href="/my/selling" class="btn outlinegrey medium"> 내역 상세보기 </a><a
+                                    href="/search" class="btn outlinegrey medium"> SHOP 바로가기 </a><!----></div>
+                            <p class="complete_desc"> ‘판매내역 &gt; 입찰 중’ 상태일 때는 입찰 지우기가 가능합니다. </p>
+                        </div>
+                        <div class="complete_price">
+                            <div class="price_total order_info">
+                                <dl class="price_box">
+                                    <dt class="price_title"> 정산 금액 </dt>
+                                    <dd class="price"><span
+                                            class="amount final_price">33,900</span><span class="unit">원</span></dd>
+                                </dl><span class="price_warning" style="display: none;"><em
+                            >주의! </em></span>
+                            </div>
+                            <div class="price_bind">
+                                <dl class="price_addition is_dark">
+                                    <dt class="price_title"><span >판매 희망가</span><!---->
+                                    </dt>
+                                    <dd class="price_text wish_price">30,000원</dd>
+                                </dl>
+                                <dl class="price_addition">
+                                    <dt class="price_title"><span >검수비</span><!---->
+                                    </dt>
+                                    <dd class="price_text">무료</dd>
+                                </dl>
+                                <dl class="price_addition">
+                                    <dt class="price_title"><span >수수료</span></dt>
+                                    <dd class="price_text final_fees" >900원</dd>
+                                </dl>
+                                <dl class="price_addition">
+                                    <dt class="price_title"><span >배송비</span><!---->
+                                    </dt>
+                                    <dd class="price_text">3,000원</dd>
+                                </dl>
+                            </div>
+                            <div class="price_bind deadline_box">
+                                <dl class="price_addition">
+                                    <dt class="price_title dark"><span >입찰 마감
+                                                기한</span><!----></dt>
+                                    <dd class="price_text deadline">30일 - 2023/02/07까지</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!----><!---->
+
     </div>
 <!--footer 시작-->
 <footer th:replace="/fragment/footer.html :: footer"></footer>

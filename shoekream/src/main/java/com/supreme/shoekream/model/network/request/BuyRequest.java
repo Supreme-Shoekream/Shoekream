@@ -20,13 +20,14 @@ public record BuyRequest(
         String receiver,
         String receiverHp,
         String receiverAddress,
-        String deliveryMemo
+        String deliveryMemo,
+        int progressNum
 ) {
     public static BuyRequest of( Long productIdx, boolean isNow, Long price, int period,
                                 int usePoint, String cardInfo, String receiver, String receiverHp,
-                                String receiverAddress, String deliveryMemo){
+                                String receiverAddress, String deliveryMemo, int progressNum){
         return new BuyRequest( productIdx, isNow, price, period, usePoint,cardInfo,receiver
-                ,receiverHp,receiverAddress,deliveryMemo);
+                ,receiverHp,receiverAddress,deliveryMemo, progressNum);
     }
 
     public BuyDTO toDto(ProductDTO productDTO, MemberDTO memberDTO, SellDTO sellDTO){

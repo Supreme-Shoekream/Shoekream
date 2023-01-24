@@ -19,4 +19,8 @@
     <attr sel=".info_point">
         <attr sel=".value_current/span[0]" th:text="${point}!=null ? ${#numbers.formatInteger(point, 0, 'COMMA')} : '0'"/>
     </attr>
+
+    <attr sel=".step-3">
+        <attr sel=".image" th:src="${product.data.img}"></attr>
+    </attr>
 </thlogic>
