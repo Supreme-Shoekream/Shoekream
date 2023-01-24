@@ -45,12 +45,12 @@ public record BuyResponse(
         ,createdAt,progress,status,sellIdx,deadline);
     }
     public static BuyResponse from(BuyDTO dto){
+        String progress = "-";
+        if(dto.progress() !=null ) progress = dto.progress().getTitle();
         LocalDateTime createdAt = dto.createdAt();
         int period = dto.period();
-        LocalDateTime deadline = null;
-        if(period == 0 ){
-            deadline = createdAt;
-        }else{
+        LocalDateTime deadline = createdAt;
+        if(period != 0 ){
             deadline = createdAt.plusDays(period);
         }
         return new BuyResponse(
@@ -69,7 +69,7 @@ public record BuyResponse(
                 dto.receiverAddress(),
                 dto.deliveryMemo(),
                 dto.createdAt(),
-                dto.progress().getTitle(),
+                progress,
                 dto.status().getDescription(),
                 dto.sellIdx(),
                 deadline

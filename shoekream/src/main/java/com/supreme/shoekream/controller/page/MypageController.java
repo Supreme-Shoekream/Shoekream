@@ -21,7 +21,7 @@ import javax.servlet.http.HttpSession;
 public class MypageController {
 
 
-    @GetMapping(path="mypage")    // http://localhost:8889/my/mypage
+    @GetMapping(path="")    // http://localhost:8889/my
     public ModelAndView mypage(){
         return new ModelAndView("/my/mypage");
     }

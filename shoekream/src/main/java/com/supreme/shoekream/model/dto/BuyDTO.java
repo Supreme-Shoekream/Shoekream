@@ -30,7 +30,7 @@ import java.time.LocalDateTime;
  * @param createdAt : 거래날짜
  * @param progress : 진행상황(채결됬을때 표시할 내용)
  * @param status : 상태(입찰중/진행중/종료)
- * @param sellDTO : 채결된 판매건 DTO
+ * @param sellIdx : 채결된 판매건 idx
  */
 public record BuyDTO(
          Long idx,
@@ -77,8 +77,8 @@ public record BuyDTO(
                     MemberDTO.fromEntity(entity.getMember()),
                     entity.getType(),
                     entity.getPrice(),
-                    entity.getUsePoint(),
                     entity.getPeriod(),
+                    entity.getUsePoint(),
                     entity.getCardInfo(),
                     entity.getReceiver(),
                     entity.getReceiverHp(),
@@ -96,8 +96,8 @@ public record BuyDTO(
                 MemberDTO.fromEntity(entity.getMember()),
                 entity.getType(),
                 entity.getPrice(),
-                entity.getUsePoint(),
                 entity.getPeriod(),
+                entity.getUsePoint(),
                 entity.getCardInfo(),
                 entity.getReceiver(),
                 entity.getReceiverHp(),

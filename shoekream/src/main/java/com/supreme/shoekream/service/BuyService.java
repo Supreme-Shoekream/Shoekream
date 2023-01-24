@@ -9,6 +9,7 @@ import com.supreme.shoekream.model.enumclass.Progress;
 import com.supreme.shoekream.model.enumclass.SellProgress;
 import com.supreme.shoekream.model.network.Header;
 import com.supreme.shoekream.model.network.response.BuyListResponse;
+import com.supreme.shoekream.model.network.response.BuyResponse;
 import com.supreme.shoekream.repository.*;
 
 import lombok.RequiredArgsConstructor;
@@ -46,7 +47,7 @@ public class BuyService {
             return buyRepository.findAll(pageable).map(BuyDTO::fromEntity);
         }
         //아직 검색구현 안함: 사용자 email or product 이름
-        return null;
+        return buyRepository.findByMember_EmailContaining(searchKeyword, pageable).map(BuyDTO::fromEntity);
     }
 
     //구매내역 상세페이지 or 관리자페이지 구매 상세 레이어창
@@ -128,8 +129,62 @@ public class BuyService {
 //            pointRepository.save(pointDTO.toEntity(member));
             member.setPoint(member.getPoint()- buyDTO.usePoint());
         }
-
-
         return Header.OK(response);
     }
+
+    public Header delete(Long idx){
+        Optional<Buy> buys = buyRepository.findById(idx);
+        return buys.map(buy ->{
+            buyRepository.delete(buy);
+            return Header.OK();
+        }).orElseGet(() -> Header.ERROR("데이터 없음"));
+    }
+
+    public Header<BuyDTO> update(Long idx, Progress progress){
+        Optional<Buy> buys = buyRepository.findById(idx);
+        if(progress == Progress.DELIVERY_COMPLETE){
+            return buys.map(
+                    buy -> {
+                        buy.setProgress(progress);
+                        buy.setStatus(OrderStatus.END);
+                        buy.getSell().setProgress(SellProgress.CALCULATE_COMPLETE);
+                        buy.getSell().setStatus(OrderStatus.END);
+                        return buy;
+                    }).map(buy -> buyRepository.save(buy))
+                    .map(buy -> BuyDTO.fromEntity(buy))
+                    .map(Header::OK)
+                    .orElseGet(()->Header.ERROR("데이터 없음"));
+        }else if(progress == Progress.EXAMINATION_PASS){
+            return buys.map(
+                            buy -> {
+                                buy.setProgress(progress);
+                                buy.getSell().setProgress(SellProgress.EXAMINATION_PASS);
+                                return buy;
+                            }).map(buy -> buyRepository.save(buy))
+                    .map(buy -> BuyDTO.fromEntity(buy))
+                    .map(Header::OK)
+                    .orElseGet(()->Header.ERROR("데이터 없음"));
+        }else if(progress == Progress.RECEIVING_COMPLETE){
+            return buys.map(
+                            buy -> {
+                                buy.setProgress(progress);
+                                buy.getSell().setProgress(SellProgress.RECEIVING_COMPLETE);
+                                return buy;
+                            }).map(buy -> buyRepository.save(buy))
+                    .map(buy -> BuyDTO.fromEntity(buy))
+                    .map(Header::OK)
+                    .orElseGet(()->Header.ERROR("데이터 없음"));
+        }else{
+            return buys.map(
+                            buy -> {
+                                buy.setProgress(progress);
+                                return buy;
+                            }).map(buy -> buyRepository.save(buy))
+                    .map(buy -> BuyDTO.fromEntity(buy))
+                    .map(Header::OK)
+                    .orElseGet(()->Header.ERROR("데이터 없음"));
+        }
+    }
+
+
 }

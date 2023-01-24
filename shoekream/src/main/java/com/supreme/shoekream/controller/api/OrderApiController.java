@@ -4,10 +4,13 @@ import com.supreme.shoekream.model.dto.BuyDTO;
 import com.supreme.shoekream.model.dto.ProductDTO;
 import com.supreme.shoekream.model.dto.SellDTO;
 import com.supreme.shoekream.model.entity.Buy;
+import com.supreme.shoekream.model.enumclass.Progress;
 import com.supreme.shoekream.model.network.Header;
 import com.supreme.shoekream.model.network.request.BuyRequest;
 import com.supreme.shoekream.model.network.request.SellRequest;
+import com.supreme.shoekream.model.network.response.BuyResponse;
 import com.supreme.shoekream.model.network.security.KreamPrincipal;
+import com.supreme.shoekream.repository.BuyRepository;
 import com.supreme.shoekream.repository.SellRepository;
 import com.supreme.shoekream.service.BuyService;
 import com.supreme.shoekream.service.ProductApiLogicService;
@@ -24,6 +27,7 @@ public class OrderApiController {
     private final SellService sellService;
     private final ProductApiLogicService productApiLogicService;
     private final SellRepository sellRepository;
+    private final BuyRepository buyRepository;
 
     @PostMapping("/buy")
     public Header<BuyDTO> buy(@RequestBody Header<BuyRequest> request,
@@ -48,4 +52,30 @@ public class OrderApiController {
         System.out.println("❤❤"+sellDTO);
         return sellService.create(sellDTO);
     }
+
+    @GetMapping("buy/{idx}")
+    public BuyResponse buyRead(@PathVariable(name="idx")Long idx){
+        BuyDTO buy = buyService.buyDetail(idx);
+        return BuyResponse.from(buy);
+    }
+
+    @DeleteMapping("buy/{idx}")
+    public Header<BuyDTO> buyDelete(@PathVariable(name="idx")Long idx){
+        return buyService.delete(idx);
+    }
+
+    @PutMapping("buy/{idx}")
+    public Header<BuyDTO> buyUpdate(@PathVariable(name="idx")Long idx
+            , @RequestBody Header<BuyRequest> request){
+        int progressNum = request.getData().progressNum();
+        Progress progress = null;
+        switch (progressNum){
+            case 0 -> progress=Progress.SHIPMENT_COMPLETE;
+            case 1 -> progress=Progress.RECEIVING_COMPLETE;
+            case 2 -> progress=Progress.EXAMINATION_PASS;
+            case 3 -> progress=Progress.DELIVERY_COMPLETE;
+        }
+        return buyService.update(idx, progress);
+    }
+
 }
