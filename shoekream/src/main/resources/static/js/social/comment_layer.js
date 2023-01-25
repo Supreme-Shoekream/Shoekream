@@ -11,7 +11,7 @@ function comment_more(idx, sessionUserIdx){
             <br><a><span class="hashtag" id="layer_board_hashtag">` + '#' + data.hashtag + `</span></a>`;
             dt = new Date(data.createdAt);
             document.getElementById('layer_board_time').innerText =
-                dt.getFullYear() + '년 ' + dt.getMonth()+1 + '월 ' + dt.getDate() + '일'
+                dt.getFullYear() + '년 ' + (dt.getMonth()+1) + '월 ' + dt.getDate() + '일'
             fetch("http://localhost:8889/api/social/comments_more/getSessionUser")
                 .then((response2) => response2.json())
                 .then((user)=>{

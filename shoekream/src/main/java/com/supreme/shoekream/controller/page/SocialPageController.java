@@ -1,6 +1,7 @@
 package com.supreme.shoekream.controller.page;
 
 import com.supreme.shoekream.model.dto.MemberDTO;
+import com.supreme.shoekream.model.dto.socialDTO.BoardDTO;
 import com.supreme.shoekream.model.entity.Board;
 import com.supreme.shoekream.model.entity.Follow;
 import com.supreme.shoekream.model.entity.Member;
@@ -38,30 +39,34 @@ public class SocialPageController {
 
 
     @GetMapping(path="/social")    // http://localhost:8889/social
-    public ModelAndView trending(){
+    public ModelAndView trending(ModelMap map){
+        map.addAttribute("trendHashtags", styleLogicService.trendHashtags());
         return new ModelAndView("social/trending");
     }
 
+//    @GetMapping(path="/social")    // http://localhost:8889/social
+//    public String trending(ModelMap map){
+//        map.addAttribute("trendHashtags", styleLogicService.trendHashtags());
+//        map.addAttribute("boards", styleLogicService.trendList());
+//        return "social/trending";
+//    }
+
     @GetMapping(path = "/social/newest")   // http://localhost:8889/social/newest
-    public ModelAndView newest(){ return new ModelAndView("social/newest"); }
+    public ModelAndView newest(ModelMap map){
+        map.addAttribute("trendHashtags", styleLogicService.trendHashtags());
+        return new ModelAndView("social/newest");
+    }
 
 
     @GetMapping(path = "/social/following")    // http://localhost:8889/social/following
     public String following(@AuthenticationPrincipal KreamPrincipal kreamPrincipal, ModelMap map){
-//        if(kreamPrincipal == null){
-//            System.out.println("==========================");
-//            this.login();
-//        }
         MemberDTO sessionMember = kreamPrincipal.toFullDto();
-        List<Board> feed = styleLogicService.getFollowingFeeds(sessionMember.idx());
+        List<BoardDTO> feed = BoardDTO.fromEntity(styleLogicService.getFollowingFeeds(sessionMember.idx()));
         map.addAttribute("feed", feed);
         map.addAttribute("sessionUser",sessionMember);
         return "social/following";
 
     }
-//    public ModelAndView login(){
-//        return new ModelAndView("/login");
-//    }
 
     @GetMapping(path = "/social/myprofile")        // http://localhost:8889/social/myprofile
     public ModelAndView myprofile(){ return new ModelAndView("social/myprofile"); }

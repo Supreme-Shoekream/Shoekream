@@ -43,7 +43,7 @@ public class Board extends BaseEntity implements Auditable {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "board", cascade = CascadeType.ALL)
     private List<Reply> replies;
 
-//    @ToString.Exclude
+    @ToString.Exclude
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "board", cascade = CascadeType.ALL)
     private List<Tag> tags;
 }
