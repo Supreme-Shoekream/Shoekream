@@ -19,7 +19,14 @@ public class QAddress extends EntityPathBase<Address> {
     private static final long serialVersionUID = -648971393L;
 
 
+
     private static final PathInits INITS = PathInits.DIRECT2;
+
+
+
+    private static final PathInits INITS = PathInits.DIRECT2;
+
+
 
     public static final QAddress address = new QAddress("address");
 

@@ -374,6 +374,7 @@ insert into board(hashtag, member_idx, content, img, created_at) values('SHOEKRE
 #supreme #supremenorthface #슈노 #슈프림 #슈프림노스페이스', '/img/styleImg/feed13.jpeg', '2022-02-19 07:21:41');
 insert into board(hashtag, member_idx, content, img, created_at) values('SHOEKREAM',14, '🏍️🏍️
 
+
 #KREAM #kreamchallenge #KREAM챌린지
 #KREAM스타일 #스타일챌린지 #스타일컬렉터
 #떠그클럽 #떠그팬츠 #나이키 #에어포스1
@@ -386,12 +387,14 @@ insert into board(hashtag, member_idx, content, img, created_at) values('나이�
 .
 .
 .
-#KREAM스타일 #KREAM #나이키 #cactus #뉴발란스530 #국민신발 #아크테릭스 #스투시 #또비온댜ㅑㅑ #일상코디 #시그니처장소 #공주', '/img/styleImg/feed16.jpeg', '2022-06-20 00:46:52');
-insert into board(member_idx, content, img, created_at) values(17, '', '/img/styleImg/feed17.jpeg', '2023-01-21 23:34:58');
-insert into board(member_idx, content, img, created_at) values(18, '', '/img/styleImg/feed18.jpeg', '2022-12-04 14:35:51');
-insert into board(member_idx, content, img, created_at) values(19, '우여곡절 많았던 내 슈노••
+
+#KREAM스타일', '/img/styleImg/feed16.jpeg', '2022-06-20 00:46:52');
+insert into board(hashtag, member_idx, content, img, created_at) values('SHOEKREAM',17, '', '/img/styleImg/feed17.jpeg', '2023-01-21 23:34:58');
+insert into board(hashtag, member_idx, content, img, created_at) values('SHOEKREAM',18, '', '/img/styleImg/feed18.jpeg', '2022-12-04 14:35:51');
+insert into board(hashtag, member_idx, content, img, created_at) values('데일리룩',19, '우여곡절 많았던 내 슈노••
 #슈프림 #슈프림패딩 #슈노 #슈프림노스페이스 #프스캇 #트레비스스캇 #스트릿', '/img/styleImg/feed19.jpeg', '2022-11-21 17:42:39');
-insert into board(member_idx, content, img, created_at) values(20,'포터는 개인적으로 카키색이,,,💚', '/img/styleImg/feed20.jpeg', '2022-03-11 10:20:14');
+insert into board(hashtag, member_idx, content, img, created_at) values('데일리룩',20,'포터는 개인적으로 카키색이,,,💚', '/img/styleImg/feed20.jpeg', '2022-03-11 10:20:14');
+
 
 
 
