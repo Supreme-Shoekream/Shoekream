@@ -179,3 +179,127 @@ table {
 .lg .point>.point_history_table .point_history_data:nth-of-type(2), .lg .point>.point_history_table .point_history_header:nth-of-type(2), .md .point>.point_history_table .point_history_data:nth-of-type(2), .md .point>.point_history_table .point_history_header:nth-of-type(2) {
     text-align: right;
 }
+
+/*적립 및 만료*/
+.lg .point>.point_history_table .point_history_data,
+.lg .point>.point_history_table .point_history_header,
+.md .point>.point_history_table .point_history_data,
+.md .point>.point_history_table .point_history_header {
+    border-bottom: 1px solid #f0f0f0;
+}
+.lg .point>.point_history_table .point_history_data,
+.md .point>.point_history_table .point_history_data {
+    padding: 20px 0;
+}
+.lg .point>.point_history_table .point_history_data:first-of-type,
+.lg .point>.point_history_table .point_history_header:first-of-type,
+.md .point>.point_history_table .point_history_data:first-of-type,
+.md .point>.point_history_table .point_history_header:first-of-type {
+    text-align: left;
+}
+.mo .point>.point_contents>.point_histories>.point_history>.point_history_detail,
+.point_detail,
+.sm .point>.point_contents>.point_histories>.point_history>.point_history_detail {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.point_detail{
+    min-width: 0;
+    -webkit-box-flex: 1;
+    flex: 1;
+}
+.point_detail>.status_stamp{
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 16px;
+    text-align: center;
+}
+.point_detail>.status_stamp.expired {
+    border: 1px solid rgba(34,34,34,.2);
+}
+.point_detail>.status_stamp>.text{
+    font-size: 13px;
+    letter-spacing: -.07px;
+    line-height: 48px;
+}
+.point_detail>.status_stamp.expired>.text {
+    color: rgba(34,34,34,.5);
+}
+.point_detail>.details {
+    min-width: 0;
+}
+.point_detail>.details>.created_date{
+    font-size: 13px;
+    letter-spacing: -.07px;
+    color: rgba(34,34,34,.5);
+    margin-bottom: 2px;
+}
+.point_detail>.details>.description,
+.point_detail>.details>.expired_date,
+.point_detail>.details>.title {
+    overflow: hidden;
+    white-space: nowrap;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+.point_detail>.details>.title {
+    font-size: 14px;
+    letter-spacing: -.21px;
+}
+.lg .point>.point_history_table .point_history_data:nth-of-type(2),
+.lg .point>.point_history_table .point_history_header:nth-of-type(2),
+.md .point>.point_history_table .point_history_data:nth-of-type(2),
+.md .point>.point_history_table .point_history_header:nth-of-type(2) {
+    text-align: right;
+}
+.point_amount>.amount {
+    font-size: 14px;
+    letter-spacing: -.21px;
+}
+.point_amount>.amount.deducted, .point_amount>.amount.expired {
+    color: #f15746;
+}
+
+.point_detail>.status_stamp.invalidated,
+.point_detail>.status_stamp.issued,
+.point_detail>.status_stamp.refunded {
+    background-color: #222;
+}
+.point_detail>.status_stamp.invalidated>.text,
+.point_detail>.status_stamp.issued>.text,
+.point_detail>.status_stamp.refunded>.text {
+    color: #fff;
+}
+
+.point_detail>.details>.description {
+    font-size: 12px;
+    letter-spacing: -.06px;
+    color: rgba(34,34,34,.8);
+    margin-top: 1px;
+}
+.point_detail>.details>.description {
+    font-size: 12px;
+    letter-spacing: -.06px;
+    color: rgba(34,34,34,.8);
+    margin-top: 1px;
+}
+.point_detail>.details>.description>.ic-arrow {
+    position: relative;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+}
+.point_detail>.details>.expired_date{
+    font-size: 12px;
+    letter-spacing: -.06px;
+    color: rgba(34,34,34,.5);
+    margin-top: 1px;
+}
+.point_amount>.amount.invalidated,
+.point_amount>.amount.issued,
+.point_amount>.amount.refunded {
+    font-weight: 700;
+}

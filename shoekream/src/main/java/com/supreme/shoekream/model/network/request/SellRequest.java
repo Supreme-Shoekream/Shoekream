@@ -20,7 +20,8 @@ public record SellRequest(
         String sender,
         String senderHp,
         String senderAddress,
-        String deliveryMemo
+        String deliveryMemo,
+        int progressNum
 ) {
     public static SellRequest of( Long productIdx, boolean isNow,
                                   Long price,
@@ -30,9 +31,10 @@ public record SellRequest(
                                   String sender,
                                   String senderHp,
                                   String senderAddress,
-                                  String deliveryMemo){
+                                  String deliveryMemo,
+                                  int progressNum){
         return new SellRequest(productIdx,isNow,price,period,cardInfo,accountInfo,
-                sender,senderHp,senderAddress,deliveryMemo);
+                sender,senderHp,senderAddress,deliveryMemo,progressNum);
     }
 
     public SellDTO toDto(ProductDTO productDTO, MemberDTO memberDTO, BuyDTO buyDTO){

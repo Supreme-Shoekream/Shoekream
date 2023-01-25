@@ -96,6 +96,7 @@ function sendedit(idx) {
     })
         .then((res) => {
             console.log(res);
+            location.reload();
             return;
         })
         .then((data) => {
@@ -140,5 +141,5 @@ function close_buy_delete(){
     document.querySelector(".buy_delete").style.display = "none";
 }
 /**
- * 🤍 기능 5: size 바궈보기
+ * 🤍 기능 5: 검색 size 바궈보기
  */
