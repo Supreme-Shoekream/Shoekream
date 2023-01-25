@@ -1,5 +1,5 @@
 
-insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('root', '{noop}root1234!', '박수성', '010-795-9985', 'root@root.com', 0, 240, 100, 'Red', '/img/kream_empty_img.png');
+insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url, bank, acc_number) values ('root', '{noop}root1234!', '박수성', '010-795-9985', 'root@root.com', 0, 240, 5100, 'Red', '/img/kream_empty_img.png', '하나은행' , '1238008829271');
 insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('hsd_09_', '{noop}PtLR!@0aXZKp', '박서준', '010-877-1330', 'zkrochmann1@ft.com', 0, 240, 200, 'Goldenrod', '/img/styleImg/profile1.jpeg');
 insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('i.tohewa', 'YB6P!@BcWrzC', '신동열', '010-450-0814', 'smaffioni2@unicef.org', 0, 230, 300, 'Mauv', '/img/styleImg/profile2.jpeg');
 insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('this_is_me_dew', 'SMWl!@rG', '박준영', '010-272-0199', 'tconrard3@si.edu', 0, 270, 400, 'Aquamarine', '/img/styleImg/profile3.jpeg');
@@ -373,6 +373,29 @@ insert into board(hashtag, member_idx, content, img, created_at) values('SHOEKRE
 insert into board(hashtag, member_idx, content, img, created_at) values('SHOEKREAM',13, '레드탭
 #supreme #supremenorthface #슈노 #슈프림 #슈프림노스페이스', '/img/styleImg/feed13.jpeg', '2022-02-19 07:21:41');
 insert into board(hashtag, member_idx, content, img, created_at) values('SHOEKREAM',14, '🏍️🏍️
+insert into board(member_idx, content, img, created_at) values(4, '🐾
+# .
+# .
+# .
+ #KREAM스타일 #아웃핏 #데일리룩 #오오티디 #겨울코디 #학생코디 #여자코디 #스트릿 #캐주얼 #캐트릿 #무채색 #무채색코디 #streetwear #streetmood #outfit #dailylook #에어포스', '/img/styleImg/feed4.jpeg', '2022-09-18 13:06:56');
+insert into board(member_idx, content, img, created_at) values(5, '#KREAM #jordan1', '/img/styleImg/feed5.jpeg', '2022-08-07 11:32:18');
+insert into board(member_idx, content, img, created_at) values(6, '🖤 #결산템챌린지', '/img/styleImg/feed6.jpeg', '2022-06-05 19:02:14');
+insert into board(member_idx, content, img, created_at) values(7, '#KREAM스타일 #결산템챌린지 #KREAM #스타일챌린지', '/img/styleImg/feed7.jpeg', '2022-11-30 21:49:52');
+insert into board(member_idx, content, img, created_at) values(8, '호카 진짜 너무 편해서 데일리 최애템 아니냐구여..
+.
+#최애템챌린지 #최애템 #호카오네오네본디7 #호카', '/img/styleImg/feed8.jpeg', '2022-10-12 15:39:18');
+insert into board(member_idx, content, img, created_at) values(9, '블랙에 카모✌🏻
+
+
+ #KREAM스타일', '/img/styleImg/feed9.jpeg','2022-11-05 06:10:57');
+insert into board(member_idx, content, img, created_at) values(10, '2022 마지막🫧
+#결산템챌린지 #KREAM챌린지 #KREAM스타일 #데일리룩', '/img/styleImg/feed10.jpeg', '2022-07-15 08:48:21');
+insert into board(member_idx, content, img, created_at) values(11, '발렌시아가 스테로이드 봄버 입으면 입을수록 좋다😙
+ #결산템챌린지 #발렌시아가 #르카골 #디펜더 #스테로이드봄버', '/img/styleImg/feed11.jpeg', '2022-02-22 10:55:27');
+insert into board(member_idx, content, img, created_at) values(12, '#위크에스 #KREAM #나이키 #사카이 #블레이저 #프리징챌린지', '/img/styleImg/feed12.jpeg', '2022-05-10 23:18:40');
+insert into board(member_idx, content, img, created_at) values(13, '레드탭
+#supreme #supremenorthface #슈노 #슈프림 #슈프림노스페이스', '/img/styleImg/feed13.jpeg', '2022-02-19 07:21:41');
+insert into board(member_idx, content, img, created_at) values(14, '🏍️🏍️
 
 #KREAM #kreamchallenge #KREAM챌린지
 #KREAM스타일 #스타일챌린지 #스타일컬렉터
@@ -380,6 +403,8 @@ insert into board(hashtag, member_idx, content, img, created_at) values('SHOEKRE
 #크림챌린지 #크림스타일챌린지', '/img/styleImg/feed14.jpeg', '2023-01-11 02:39:03');
 insert into board(hashtag, member_idx, content, img, created_at) values('나이키', 15, '#결산템챌린지 #ootd #데일리룩 #아웃핏 #KREAM스타일 #겨울여자코디 #보헤미안서울 #노스페이스눕시 #패딩추천 #스트릿룩 #무채색룩', '/img/styleImg/feed15.jpeg', '2022-01-26 00:40:23');
 insert into board(hashtag, member_idx, content, img, created_at) values('나이키', 16, '밖에 비온다 주륵주륵~♬♩♪
+insert into board(member_idx, content, img, created_at) values(15, '#결산템챌린지 #ootd #데일리룩 #아웃핏 #KREAM스타일 #겨울여자코디 #보헤미안서울 #노스페이스눕시 #패딩추천 #스트릿룩 #무채색룩', '/img/styleImg/feed15.jpeg', '2022-01-26 00:40:23');
+insert into board(member_idx, content, img, created_at) values(16, '밖에 비온다 주륵주륵~♬♩♪
 .
 .
 .
@@ -391,6 +416,12 @@ insert into board(hashtag, member_idx, content, img, created_at) values('SHOEKRE
 insert into board(hashtag, member_idx, content, img, created_at) values('데일리룩',19, '우여곡절 많았던 내 슈노••
 #슈프림 #슈프림패딩 #슈노 #슈프림노스페이스 #프스캇 #트레비스스캇 #스트릿', '/img/styleImg/feed19.jpeg', '2022-11-21 17:42:39');
 insert into board(hashtag, member_idx, content, img, created_at) values('데일리룩',20,'포터는 개인적으로 카키색이,,,💚', '/img/styleImg/feed20.jpeg', '2022-03-11 10:20:14');
+#KREAM스타일 #KREAM #나이키 #cactus #뉴발란스530 #국민신발 #아크테릭스 #스투시 #또비온댜ㅑㅑ #일상코디 #시그니처장소 #공주', '/img/styleImg/feed16.jpeg', '2022-06-20 00:46:52');
+insert into board(member_idx, content, img, created_at) values(17, '', '/img/styleImg/feed17.jpeg', '2023-01-21 23:34:58');
+insert into board(member_idx, content, img, created_at) values(18, '', '/img/styleImg/feed18.jpeg', '2022-12-04 14:35:51');
+insert into board(member_idx, content, img, created_at) values(19, '우여곡절 많았던 내 슈노••
+#슈프림 #슈프림패딩 #슈노 #슈프림노스페이스 #프스캇 #트레비스스캇 #스트릿', '/img/styleImg/feed19.jpeg', '2022-11-21 17:42:39');
+insert into board(member_idx, content, img, created_at) values(20,'포터는 개인적으로 카키색이,,,💚', '/img/styleImg/feed20.jpeg', '2022-03-11 10:20:14');
 
 
 
@@ -443,12 +474,12 @@ insert into tag(board_idx, product_idx) values(2, 104);
 
 
 -- # 판매내역
-insert into sell (product_idx, member_idx, type, period, account_info, price, card_info, sender, sender_hp, sender_address, delivery_memo, created_at, progress, status) values (69, 9, 0, 4, 8000, 403000, '374622135512894', 'Kippy', '416-166-1903', '94 Ohio Hill', 'Red sheep', '2023-01-02', null, 0);
-insert into sell (product_idx, member_idx, type, period, account_info, price, card_info, sender, sender_hp, sender_address, delivery_memo, created_at, progress, status) values (5, 48, 0, 9, 8000, 999000, '346518679771273', 'Jude', '642-259-8173', '28705 Red Cloud Center', 'Collared peccary', '2022-09-15', null, 0);
-insert into sell (product_idx, member_idx, type, period, account_info, price, card_info, sender, sender_hp, sender_address, delivery_memo, created_at, progress, status) values (32, 7, 0, 26, 7000, 109000, '374288926880377', 'Marcie', '715-272-5068', '567 North Drive', 'African ground squirrel (unidentified)', '2022-09-17', null, 0);
-insert into sell (product_idx, member_idx, type, period, account_info, price, card_info, sender, sender_hp, sender_address, delivery_memo, created_at, progress, status) values (19, 95, 0, 12, 8000, 862000, '347114189071419', 'Ema', '387-364-0989', '82597 Dottie Avenue', 'Azara''s zorro', '2022-08-25', null, 0);
-insert into sell (product_idx, member_idx, type, period, account_info, price, card_info, sender, sender_hp, sender_address, delivery_memo, created_at, progress, status) values (12, 58, 0, 31, 4000, 799000, '337941245418610', 'Jamie', '626-489-0649', '19 Waubesa Crossing', 'Pale-throated three-toed sloth', '2022-11-22', 3, 2);
-insert into sell (product_idx, member_idx, type, period, account_info, price, card_info, sender, sender_hp, sender_address, delivery_memo, created_at, progress, status) values (45, 79, 0, 17, 8000, 429000, '337941059999853', 'Dayle', '339-252-0928', '892 Starling Plaza', 'White-headed vulture', '2022-09-26', 3, 2);
+insert into sell (product_idx, member_idx, type, period, account_info, price, card_info, sender, sender_hp, sender_address, delivery_memo, created_at, progress, status) values (69, 1, 0, 4, 8000, 403000, '374622135512894', 'Kippy', '416-166-1903', '94 Ohio Hill', 'Red sheep', '2023-01-02', null, 0);
+insert into sell (product_idx, member_idx, type, period, account_info, price, card_info, sender, sender_hp, sender_address, delivery_memo, created_at, progress, status) values (5, 1, 0, 9, 8000, 999000, '346518679771273', 'Jude', '642-259-8173', '28705 Red Cloud Center', 'Collared peccary', '2022-09-15', null, 1);
+insert into sell (product_idx, member_idx, type, period, account_info, price, card_info, sender, sender_hp, sender_address, delivery_memo, created_at, progress, status) values (32, 1, 0, 26, 7000, 109000, '374288926880377', 'Marcie', '715-272-5068', '567 North Drive', 'African ground squirrel (unidentified)', '2022-09-17', 3, 2);
+insert into sell (product_idx, member_idx, type, period, account_info, price, card_info, sender, sender_hp, sender_address, delivery_memo, created_at, progress, status) values (19, 1, 0, 12, 8000, 862000, '347114189071419', 'Ema', '387-364-0989', '82597 Dottie Avenue', 'Azara''s zorro', '2022-08-25', 1, 1);
+insert into sell (product_idx, member_idx, type, period, account_info, price, card_info, sender, sender_hp, sender_address, delivery_memo, created_at, progress, status) values (12, 1, 0, 31, 4000, 799000, '337941245418610', 'Jamie', '626-489-0649', '19 Waubesa Crossing', 'Pale-throated three-toed sloth', '2022-11-22', 3, 2);
+insert into sell (product_idx, member_idx, type, period, account_info, price, card_info, sender, sender_hp, sender_address, delivery_memo, created_at, progress, status) values (45, 1, 0, 17, 8000, 429000, '337941059999853', 'Dayle', '339-252-0928', '892 Starling Plaza', 'White-headed vulture', '2022-09-26', 3, 2);
 insert into sell (product_idx, member_idx, type, period, account_info, price, card_info, sender, sender_hp, sender_address, delivery_memo, created_at, progress, status) values (6, 23, 0, 41, 6000, 592000, '374283868613738', 'Berni', '327-512-8110', '50944 Schiller Lane', 'Woodpecker, downy', '2022-04-10', 3, 2);
 insert into sell (product_idx, member_idx, type, period, account_info, price, card_info, sender, sender_hp, sender_address, delivery_memo, created_at, progress, status) values (52, 51, 0, 49, 7000, 278000, '372301491035079', 'Lazaro', '930-506-0637', '98 Scoville Alley', 'Nyala', '2022-12-29', 3, 2);
 insert into sell (product_idx, member_idx, type, period, account_info, price, card_info, sender, sender_hp, sender_address, delivery_memo, created_at, progress, status) values (39, 8, 0, 37, 6000, 714000, '370139246987059', 'Bernarr', '655-261-3153', '9403 Bonner Parkway', 'Western pygmy possum', '2022-04-29', 3, 2);
@@ -545,9 +576,9 @@ insert into sell (product_idx, member_idx, type, period, account_info, price, ca
 insert into sell (product_idx, member_idx, type, period, account_info, price, card_info, sender, sender_hp, sender_address, delivery_memo, created_at, progress, status) values (16, 92, 0, 17, 1000, 549000, '374283792491664', 'Karmen', '198-920-3392', '907 Magdeline Place', 'Roadrunner, greater', '2022-06-03', null, 0);
 
 -- # 구매내역
-insert into buy (product_idx, member_idx, type, period, use_point, price, card_info, receiver, receiver_hp, receiver_address, delivery_memo, created_at, progress, status) values (45, 71, 2, 13, 4000, 170000, '374283065329856', 'Mortimer', '254-547-0411', '02 Lillian Park', 'Greater flamingo', '2022-12-20', 0, 1);
-insert into buy (product_idx, member_idx, type, period, use_point, price, card_info, receiver, receiver_hp, receiver_address, delivery_memo, created_at, progress, status) values (86, 73, 2, 58, 1000, 110000, '344214469469078', 'Quintilla', '886-214-3847', '9 Alpine Trail', 'Cormorant, little', '2022-03-08', null, 0);
-insert into buy (product_idx, member_idx, type, period, use_point, price, card_info, receiver, receiver_hp, receiver_address, delivery_memo, created_at, progress, status) values (50, 4, 2, 17, 5000, 191000, '340206340867029', 'Dallon', '507-757-6189', '710 Havey Alley', 'Gazer, sun', '2022-08-25', 3, 2);
+insert into buy (product_idx, member_idx, type, period, use_point, price, card_info, receiver, receiver_hp, receiver_address, delivery_memo, created_at, progress, status) values (45, 1, 2, 13, 4000, 170000, '374283065329856', 'Mortimer', '254-547-0411', '02 Lillian Park', 'Greater flamingo', '2022-12-20', 1, 1);
+insert into buy (product_idx, member_idx, type, period, use_point, price, card_info, receiver, receiver_hp, receiver_address, delivery_memo, created_at, progress, status) values (86, 1, 2, 58, 1000, 110000, '344214469469078', 'Quintilla', '886-214-3847', '9 Alpine Trail', 'Cormorant, little', '2022-03-08', 1, 0);
+insert into buy (product_idx, member_idx, type, period, use_point, price, card_info, receiver, receiver_hp, receiver_address, delivery_memo, created_at, progress, status) values (50, 1, 2, 17, 5000, 191000, '340206340867029', 'Dallon', '507-757-6189', '710 Havey Alley', 'Gazer, sun', '2022-08-25', 1, 2);
 insert into buy (product_idx, member_idx, type, period, use_point, price, card_info, receiver, receiver_hp, receiver_address, delivery_memo, created_at, progress, status) values (94, 55, 2, 48, 7000, 433000, '337941818163841', 'Ginnifer', '706-678-2910', '7742 Evergreen Court', 'Anteater, australian spiny', '2022-11-15', null, 0);
 insert into buy (product_idx, member_idx, type, period, use_point, price, card_info, receiver, receiver_hp, receiver_address, delivery_memo, created_at, progress, status) values (33, 90, 2, 59, 3000, 696000, '337941994638129', 'Ariella', '258-506-8545', '110 Green Ridge Place', 'Wombat, southern hairy-nosed', '2022-07-02', null, 0);
 insert into buy (product_idx, member_idx, type, period, use_point, price, card_info, receiver, receiver_hp, receiver_address, delivery_memo, created_at, progress, status) values (21, 100, 2, 36, 2000, 418000, '372301033686280', 'Sallee', '642-103-6688', '834 Clyde Gallagher Hill', 'Gnu, brindled', '2022-02-19', null, 0);
@@ -593,7 +624,7 @@ insert into buy (product_idx, member_idx, type, period, use_point, price, card_i
 insert into buy (product_idx, member_idx, type, period, use_point, price, card_info, receiver, receiver_hp, receiver_address, delivery_memo, created_at, progress, status) values (73, 41, 2, 50, 6000, 877000, '374622174406131', 'Gladi', '195-770-7612', '3 Merry Road', 'Wombat, southern hairy-nosed', '2022-08-04', null, 0);
 insert into buy (product_idx, member_idx, type, period, use_point, price, card_info, receiver, receiver_hp, receiver_address, delivery_memo, created_at, progress, status) values (83, 43, 2, 27, 4000, 63000, '374288370336868', 'Ximenes', '113-897-9609', '2076 Vahlen Hill', 'White-browed sparrow weaver', '2022-04-09', null, 0);
 insert into buy (product_idx, member_idx, type, period, use_point, price, card_info, receiver, receiver_hp, receiver_address, delivery_memo, created_at, progress, status) values (45, 100, 2, 34, 2000, 570000, '374283887334282', 'Derrick', '332-949-3168', '619 Southridge Crossing', 'Iguana, common green', '2022-01-14', null, 0);
-insert into buy (product_idx, member_idx, type, period, use_point, price, card_info, receiver, receiver_hp, receiver_address, delivery_memo, created_at, progress, status) values (75, 1, 2, 59, 10000, 229000, '374283354947889', 'Phillis', '908-703-2780', '7 Anhalt Trail', 'Partridge, coqui', '2022-10-30', null, 0);
+insert into buy (product_idx, member_idx, type, period, use_point, price, card_info, receiver, receiver_hp, receiver_address, delivery_memo, created_at, progress, status) values (75, 1, 2, 59, 10000, 229000, '374283354947889', 'Phillis', '908-703-2780', '7 Anhalt Trail', 'Partridge, coqui', '2022-10-30', 1, 0);
 insert into buy (product_idx, member_idx, type, period, use_point, price, card_info, receiver, receiver_hp, receiver_address, delivery_memo, created_at, progress, status) values (88, 91, 2, 58, 8000, 443000, '374288697977568', 'Seline', '594-849-1410', '30110 Debra Road', 'Bandicoot, short-nosed', '2022-05-20', null, 0);
 insert into buy (product_idx, member_idx, type, period, use_point, price, card_info, receiver, receiver_hp, receiver_address, delivery_memo, created_at, progress, status) values (66, 43, 2, 24, 1000, 48000, '337941030819535', 'Gregorio', '777-193-2227', '9764 Iowa Park', 'Gull, dusky', '2022-05-23', null, 0);
 insert into buy (product_idx, member_idx, type, period, use_point, price, card_info, receiver, receiver_hp, receiver_address, delivery_memo, created_at, progress, status) values (77, 62, 2, 23, 10000, 372000, '373930558680614', 'Ammamaria', '523-630-0111', '7866 Michigan Parkway', 'Alpaca', '2022-06-07', null, 0);

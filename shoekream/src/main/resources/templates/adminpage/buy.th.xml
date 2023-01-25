@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<thlogic>
+    <attr sel="#buy_table" th:object="${buys}">
+        <attr sel="thead/tr">
+            <attr sel="th.idx/a" th:href="@{/admin/buy(page=${buys.number},sort='idx'+
+                (*{sort.getOrderFor('idx')} != null ? (*{sort.getOrderFor('idx').direction.name} != 'DESC' ? ',desc' : '') : ''),
+                searchKeyword=${param.searchValue}
+                )}"/>
+            <attr sel="th.product_name/a" th:href="@{/admin/buy(page=${buys.number},sort='product.name'+
+                (*{sort.getOrderFor('product.name')} != null ? (*{sort.getOrderFor('product.name').direction.name} != 'DESC' ? ',desc' : '') : ''),
+                searchKeyword=${param.searchValue}
+                )}"/>
+            <attr sel="th.member_email/a" th:href="@{/admin/buy(page=${buys.number},sort='member.email'+
+                (*{sort.getOrderFor('member.email')} != null ? (*{sort.getOrderFor('member.email').direction.name} != 'DESC' ? ',desc' : '') : ''),
+                searchKeyword=${param.searchValue}
+                )}"/>
+            <attr sel="th.price/a" th:href="@{/admin/buy(page=${buys.number},sort='price'+
+                (*{sort.getOrderFor('price')} != null ? (*{sort.getOrderFor('price').direction.name} != 'DESC' ? ',desc' : '') : ''),
+                searchKeyword=${param.searchValue}
+                )}"/>
+        </attr>
+        <attr sel="tbody" th:remove="all-but-first">
+            <attr sel="tr[0]" th:each="buy : ${buys}">
+                <attr sel="td.idx" th:text="${buy.idx}"/>
+                <attr sel="td.product_name" th:text="${buy.productName}"/>
+                <attr sel="td.product_size" th:text="${buy.productSize}"/>
+                <attr sel="td.member_email" th:text="${buy.memberEmail}"/>
+                <attr sel="td.price" th:text="${#numbers.formatInteger(buy.price, 0, 'COMMA')}"/>
+                <attr sel="td.deadline/time" th:datetime="${buy.deadline}" th:text="${#temporals.format(buy.deadline, 'yyyy-MM-dd')}"/>
+                <attr sel="td.status" th:text="${buy.status}"/>
+                <attr sel="td.progress_class" th:text="${buy.progress}"/>
+                <attr sel="td.more">
+                    <attr sel="#view_btn" th:onclick="'javascript:pop_buy_view('+ ${buy.idx} + ');'"/>
+                    <attr sel="#edit_btn" th:onclick="'javascript:pop_buy_edit('+ ${buy.idx} + ');'"/>
+                    <attr sel="#delete_btn" th:onclick="'javascript:pop_buy_delete(' + ${buy.idx} + ');'"/>
+                </attr>
+            </attr>
+        </attr>
+        <attr sel=".pagination">
+            <attr sel="li[0]/a" th:text="'◀'"
+                th:href="@{/admin/buy(page=${buys.number - 1}, searchKeyword=${param.searchKeyword})}"
+                th:class="'page-link'+(${buys.number}<=0 ? ' disabled' : '')"/>
+            <attr sel="li[1]" th:class="page-item" th:each="pageNumber : ${barNumbers}">
+                <attr sel="a" th:text="${pageNumber + 1}"
+                      th:href="@{/admin/buy(page=${pageNumber}, searchKeyword=${param.searchKeyword})}"
+                      th:class="'page-link'+(${pageNumber}==${buys.number} ? ' disabled' : '')"/>
+            </attr>
+            <attr sel="li[2]/a" th:text="'▶'"
+                  th:href="@{/admin/buy(page=${buys.number + 1}, searchKeyword=${param.searchKeyword})}"
+                  th:class="'page-link'+(${buys.number}>=${buys.totalPages -1} ? ' disabled' : '')"/>
+        </attr>
+    </attr>
+</thlogic>

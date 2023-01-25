@@ -4,6 +4,7 @@ import com.supreme.shoekream.model.enumclass.OrderStatus;
 import com.supreme.shoekream.model.enumclass.Progress;
 import com.supreme.shoekream.model.enumclass.Type;
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -32,7 +33,6 @@ public class Buy{
     private String receiverHp;
     private String receiverAddress;
     private String deliveryMemo;
-
     private LocalDateTime createdAt; // 구매 날짜 : now()로 설정 - 거래일시
     @Setter private Progress progress; // 진행 상황(발송완료/입고완료/검수합격/배송완료)
     @Setter private OrderStatus status; // 구매 상태(입찰중/기한만료/진행중/종료)
@@ -44,7 +44,8 @@ public class Buy{
     //등록할때 필요한 정보들 - 내부는 private
     private Buy(Product product, Member member, Type type, Long price,
             int period, int usePoint, String cardInfo, String receiver,
-    String receiverHp, String receiverAddress, String deliveryMemo, LocalDateTime createdAt ){
+                String receiverHp, String receiverAddress, String deliveryMemo,
+                LocalDateTime createdAt, Progress progress, OrderStatus status, Sell sell){
         this.product=product;
         this.member=member;
         this.type=type;
@@ -57,15 +58,19 @@ public class Buy{
         this.receiverAddress=receiverAddress;
         this.deliveryMemo=deliveryMemo;
         this.createdAt=createdAt;
+        this.progress=progress;
+        this.status=status;
+        this.sell=sell;
     }
 
     //외부에서 사용할때 of로 사용하도록 // static 메서드:객체 생성없이 클래스를 통해 메서드를 직접 호출
     public static Buy of(Product product, Member member, Type type, Long price,
                          int period, int usePoint, String cardInfo, String receiver,
                          String receiverHp, String receiverAddress, String deliveryMemo,
-                         LocalDateTime createdAt){
+                         LocalDateTime createdAt,  Progress progress, OrderStatus status, Sell sell){
         return new Buy(product,member,type,price,period,usePoint,cardInfo,receiver,
-                receiverHp,receiverAddress,deliveryMemo, createdAt);
+                receiverHp,receiverAddress,deliveryMemo, createdAt,progress,status,sell);
     }
+
 
 }

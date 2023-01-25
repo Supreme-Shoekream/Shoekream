@@ -18,10 +18,10 @@
 <!--        <attr sel="p.fluctuation" th:text="*{fluctuation}"/>-->
 <!--    </attr>-->
     <!-- 즉시구매가, 즉시판매가 -->
-<!--    <attr sel=".division_btn_box" th:object ="${product.data}">-->
-<!--        <attr sel="em.nowBuy" th:text="*{nowBuy}"/>-->
-<!--        <attr sel="em.nowSell" th:text="*{nowSell}"/>-->
-<!--    </attr>-->
+    <attr sel=".division_btn_box">
+        <attr sel="em.nowBuy" th:text="${sell}+'원'"/>
+        <attr sel="em.nowSell" th:text="${buy}+'원'"/>
+    </attr>
     <!-- 관심상품 -->
 <!--    <attr sel=".wish_count" th:object ="${product.data}">-->
 <!--        <attr sel="span.wishCount" th:text="*{wishCount}"/>-->
@@ -42,6 +42,16 @@
 <!--        <attr sel="em.nowBuy" th:text="*{nowBuy}"/>-->
 <!--        <attr sel="em.nowSell" th:text="*{nowSell}"/>-->
     </attr>
+    <!-- 체결 거래 -->
+    <attr sel=".panel1">
+        <attr sel=".panel1_tbody" th:remove="all-but-first">
+            <attr sel=".panel1_tr[0]" th:each="con_product,index : ${conclusion}" th:if="${index.index} < 5">
+                <attr sel="td.size" th:text="${con_product.productDTO.size}"/>
+                <attr sel="td.price" th:text="${con_product.price}"/>
+                <attr sel="td.createdAt/time" th:datetime="${con_product.createdAt}"  th:text="${#temporals.format(con_product.createdAt, 'yy/MM/dd')}"/>
+            </attr>
+        </attr>
+    </attr>
     <!-- 체결 내역 더보기 -->
     <attr sel=".layer_market_price" th:object ="${product.data}">
         <attr sel="img#previewImg4" th:src="*{img}"/>
@@ -49,7 +59,7 @@
         <attr sel="p.nameKor" th:text="*{nameKor}"/>
         <attr sel="span.size" th:text="*{size}"/>
     </attr>
-    <!-- 체결 내역 더보기(사이즈, 거래가, 거래일) -->
+    <!-- 체결 내역 더보기(레이어창) -->
     <attr sel="#user_conclusion">
         <attr sel=".con_price_body" th:remove="all-but-first">
             <attr sel="div.body_list[0]" th:each="con_product : ${conclusion}">

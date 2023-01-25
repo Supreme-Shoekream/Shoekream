@@ -8,6 +8,8 @@ import com.querydsl.core.types.PathMetadata;
 import javax.annotation.processing.Generated;
 import com.querydsl.core.types.Path;
 
+import com.querydsl.core.types.dsl.PathInits;
+
 
 /**
  * QAddress is a Querydsl query type for Address
@@ -16,6 +18,11 @@ import com.querydsl.core.types.Path;
 public class QAddress extends EntityPathBase<Address> {
 
     private static final long serialVersionUID = -648971393L;
+
+
+
+    private static final PathInits INITS = PathInits.DIRECT2;
+
 
     public static final QAddress address = new QAddress("address");
 
@@ -33,7 +40,11 @@ public class QAddress extends EntityPathBase<Address> {
 
     public final NumberPath<Long> idx = createNumber("idx", Long.class);
 
+
     public final NumberPath<Long> memberIdx = createNumber("memberIdx", Long.class);
+
+    public final QMember member;
+
 
     public final DateTimePath<java.time.LocalDateTime> modifiedAt = createDateTime("modifiedAt", java.time.LocalDateTime.class);
 
@@ -42,6 +53,7 @@ public class QAddress extends EntityPathBase<Address> {
     public final StringPath zipcode = createString("zipcode");
 
     public QAddress(String variable) {
+
         super(Address.class, forVariable(variable));
     }
 
@@ -51,6 +63,26 @@ public class QAddress extends EntityPathBase<Address> {
 
     public QAddress(PathMetadata metadata) {
         super(Address.class, metadata);
+
+        this(Address.class, forVariable(variable), INITS);
+    }
+
+    public QAddress(Path<? extends Address> path) {
+        this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));
+    }
+
+    public QAddress(PathMetadata metadata) {
+        this(metadata, PathInits.getFor(metadata, INITS));
+    }
+
+    public QAddress(PathMetadata metadata, PathInits inits) {
+        this(Address.class, metadata, inits);
+    }
+
+    public QAddress(Class<? extends Address> type, PathMetadata metadata, PathInits inits) {
+        super(type, metadata, inits);
+        this.member = inits.isInitialized("member") ? new QMember(forProperty("member")) : null;
+
     }
 
 }

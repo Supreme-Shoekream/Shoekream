@@ -112,35 +112,35 @@ dates.forEach((date)=>{
 // 기능5. 시세 - 그래프 띄우기
     // const a = document.querySelector('.tab_list .graph_month');
     // const b = document.getElementById(a.getAttribute('aria-controls'));
-const sales_panel1 = document.getElementById("graph1m").getContext("2d");
-const graph1m = new Chart(sales_panel1, {
-    type: "line",
-    data: {
-        labels: [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
-        datasets: [{
-            label: "시세",
-            data: [784000, 784000, 789000, 858000, 792000, 790000, 100000, 200000, 320000, 9000],
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-            borderColor: 'rgba(255, 99, 132, 1)',
-            borderWidth: 1
-        }]
-    },
-    options: {
-        responsive: false,
-        scales: {
-            y: {
-                beginAtZero: false,
-                position: 'right' // 축이 왼쪽에 표시될지, 오른쪽에 표시될지 정할 수 있습니다.
-            }
-        },
-        plugins: {
-            legend: {
-                display: false // 라벨 없애기(그래프제목)
-            }
-        }
-    },
-    
-});
+
+// const sales_panel1 = document.getElementById("graph1m").getContext("2d");
+// const graph1m = new Chart(sales_panel1, {
+//     type: "line",
+//     data: {
+//         labels: [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+//         datasets: [{
+//             label: "시세",
+//             data: ['784000', '784000', '789000', '858000', '792000', '790000', '100000', '200000', '320000', '9000'],
+//             backgroundColor: 'rgba(255, 99, 132, 0.2)',
+//             borderColor: 'rgba(255, 99, 132, 1)',
+//             borderWidth: 1
+//         }]
+//     },
+//     options: {
+//         responsive: false,
+//         scales: {
+//             y: {
+//                 beginAtZero: false,
+//                 position: 'right' // 축이 왼쪽에 표시될지, 오른쪽에 표시될지 정할 수 있습니다.
+//             }
+//         },
+//         plugins: {
+//             legend: {
+//                 display: false // 라벨 없애기(그래프제목)
+//             }
+//         }
+//     },
+// });
 
 
 // 기능6. 시세 - 체결내역
@@ -397,6 +397,10 @@ item.forEach((target) => {
     // })
     
 });
+
+
+
+
 
 
 

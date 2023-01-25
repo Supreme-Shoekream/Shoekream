@@ -35,6 +35,8 @@ public record SellResponse(
 ) {
 
     public static SellResponse from(SellDTO dto){
+        String progress = "-";
+        if(dto.progress() !=null ) progress = dto.progress().getTitle();
         LocalDateTime createdAt = dto.createdAt();
         int period = dto.period();
         LocalDateTime deadline = dto.createdAt();
@@ -60,9 +62,9 @@ public record SellResponse(
                 dto.senderAddress(),
                 dto.deliveryMemo(),
                 dto.createdAt(),
-                dto.progress().getTitle(),
+                progress,
                 dto.status().getDescription(),
-                dto.buyDTO().idx(),
+                dto.buyIdx(),
                 deadline
         );
     }

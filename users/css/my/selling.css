@@ -156,8 +156,8 @@ button {
     border-bottom: .2rem solid #222;
 }
 
-.purchase_list_tab.detail_tab .tab_on .count { 
-    color: #f15746; 
+.purchase_list_tab.detail_tab .tab_on .count {
+    color: #f15746;
 }
 
 /* ===== 수정중 ===== */
@@ -506,4 +506,85 @@ button {
     width: 16px;
     height: 24px;
     background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAxNiAyNCI+PHBhdGggZmlsbD0iI0QzRDNEMyIgZD0iTTEyIDEzbC00IDUtNC01aDh6bS04LTJsNC01IDQgNUg0eiIvPjwvc3ZnPg==) no-repeat;
+}
+/*상품 부분*/
+.purchase_list_display_item {
+    padding: 12px;
+    border-bottom: 1px solid #ebebeb;
+    -webkit-box-align: center;
+    align-items: center;
+    cursor: pointer;
+}
+.purchase_list_display_item, .purchase_list_product {
+    display: flex;
+}
+.purchase_list_product .list_item_img_wrap{
+    position: relative;
+}
+.purchase_list_product .list_item_img_wrap .list_item_img {
+    width: 80px;
+    height: 80px;
+    -o-object-fit: cover;
+    object-fit: cover;
+    border-radius: 12px;
+}
+.purchase_list_product .list_item_title_wrap {
+    width: 100%;
+    margin-left: 16px;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    align-self: center;
+}
+.purchase_list_product .list_item_title_wrap .list_item_title{
+    line-height: 17px;
+    font-size: 14px;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.purchase_list_product .list_item_title_wrap .list_item_description {
+    font-size: 14px;
+    letter-spacing: -.21px;
+    font-weight: 700;
+    letter-spacing: -.5px;
+    color: rgba(34,34,34,.5);
+    line-height: 19px;
+    margin-top: 4px;
+}
+.list_item_status{
+    display: flex;
+    margin-left: auto;
+    text-align: right;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.list_item_status .list_item_column{
+    margin-left: 10px;
+    width: 134px;
+}
+.list_item_status .column_secondary{
+    font-size: 13px;
+    letter-spacing: -.07px;
+}
+.list_item_status .column_last {
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    align-self: center;
+}
+.list_item_status .column_last .last_title {
+    font-size: 14px;
+    letter-spacing: -.21px;
+}
+.list_item_status .column_last .last_description{
+    font-size: 12px;
+    letter-spacing: -.06px;
+    word-break: keep-all;
+    overflow: hidden;
 }

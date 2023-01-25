@@ -1,7 +1,9 @@
 <link rel="stylesheet" href="./src/styles/pop_delete.css">
-<div class="layer_name layer lg">
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="buy_delete" class="buy_delete layer pop lg" style="display: none;" >
+
     <div class="layer_container">
-        <a href="#" class="btn_layer_close">
+        <a href="#" class="btn_layer_close" onclick="close_buy_delete()">
             <div>
                 <img src="/img/close_white.png">
             </div>
@@ -29,9 +31,11 @@
         </div>
 
         <div class="layer_btn">
-            <a href="#" class="btn btn_save solid medium">확인</a>
-            <a href="#" class="btn btn_save solid medium "> 취소 </a>
+            <a href="#" class="btn btn_delete solid medium">확인</a>
+            <a href="#" class="btn solid medium" onclick="close_buy_delete()"> 취소 </a>
         </div>
         </div>
     </div>
 </div>
+
+</html>
