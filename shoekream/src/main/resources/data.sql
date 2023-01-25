@@ -350,6 +350,29 @@ insert into follow(follower_idx, following_idx) values(2,20);
 insert into board(hashtag, member_idx, content, img, created_at) values('OOTD', 1, '🇯🇵', '/img/styleImg/feed1.jpeg', now());
 insert into board(hashtag, member_idx, content, img, created_at) values('OOTD',2, '쇼핑은 절거워~ #아더에러 #범고래', '/img/styleImg/feed2.jpeg', '2022-05-18 16:55:14');
 insert into board(hashtag, member_idx, content, img, created_at) values('데일리룩', 3, '🤍','/img/styleImg/feed3.jpeg', '2022-11-18 16:50:32');
+insert into board(hashtag, member_idx, content, img, created_at) values('SHOEKREAM', 4, '🐾
+# .
+# .
+# .
+ ', '/img/styleImg/feed4.jpeg', '2022-09-18 13:06:56');
+insert into board(hashtag, member_idx, content, img, created_at) values('outfit', 5, '#KREAM #jordan1', '/img/styleImg/feed5.jpeg', '2022-08-07 11:32:18');
+insert into board(hashtag, member_idx, content, img, created_at) values('outfit',6, '🖤 #결산템챌린지', '/img/styleImg/feed6.jpeg', '2022-06-05 19:02:14');
+insert into board(hashtag, member_idx, content, img, created_at) values('outfit',7, '#KREAM스타일 #결산템챌린지 #KREAM #스타일챌린지', '/img/styleImg/feed7.jpeg', '2022-11-30 21:49:52');
+insert into board(hashtag, member_idx, content, img, created_at) values('outfit',8, '호카 진짜 너무 편해서 데일리 최애템 아니냐구여..
+.
+#최애템챌린지 #최애템 #호카오네오네본디7 #호카', '/img/styleImg/feed8.jpeg', '2022-10-12 15:39:18');
+insert into board(hashtag, member_idx, content, img, created_at) values('outfit',9, '블랙에 카모✌🏻
+
+
+ #KREAM스타일', '/img/styleImg/feed9.jpeg','2022-11-05 06:10:57');
+insert into board(hashtag, member_idx, content, img, created_at) values('outfit',10, '2022 마지막🫧
+#결산템챌린지 #KREAM챌린지 #KREAM스타일 #데일리룩', '/img/styleImg/feed10.jpeg', '2022-07-15 08:48:21');
+insert into board(hashtag, member_idx, content, img, created_at) values('OOTD',11, '발렌시아가 스테로이드 봄버 입으면 입을수록 좋다😙
+ #결산템챌린지 #발렌시아가 #르카골 #디펜더 #스테로이드봄버', '/img/styleImg/feed11.jpeg', '2022-02-22 10:55:27');
+insert into board(hashtag, member_idx, content, img, created_at) values('SHOEKREAM', 12, '#위크에스 #나이키 #사카이 #블레이저 #프리징챌린지', '/img/styleImg/feed12.jpeg', '2022-05-10 23:18:40');
+insert into board(hashtag, member_idx, content, img, created_at) values('SHOEKREAM',13, '레드탭
+#supreme #supremenorthface #슈노 #슈프림 #슈프림노스페이스', '/img/styleImg/feed13.jpeg', '2022-02-19 07:21:41');
+insert into board(hashtag, member_idx, content, img, created_at) values('SHOEKREAM',14, '🏍️🏍️
 insert into board(member_idx, content, img, created_at) values(4, '🐾
 # .
 # .
@@ -378,6 +401,8 @@ insert into board(member_idx, content, img, created_at) values(14, '🏍️🏍�
 #KREAM스타일 #스타일챌린지 #스타일컬렉터
 #떠그클럽 #떠그팬츠 #나이키 #에어포스1
 #크림챌린지 #크림스타일챌린지', '/img/styleImg/feed14.jpeg', '2023-01-11 02:39:03');
+insert into board(hashtag, member_idx, content, img, created_at) values('나이키', 15, '#결산템챌린지 #ootd #데일리룩 #아웃핏 #KREAM스타일 #겨울여자코디 #보헤미안서울 #노스페이스눕시 #패딩추천 #스트릿룩 #무채색룩', '/img/styleImg/feed15.jpeg', '2022-01-26 00:40:23');
+insert into board(hashtag, member_idx, content, img, created_at) values('나이키', 16, '밖에 비온다 주륵주륵~♬♩♪
 insert into board(member_idx, content, img, created_at) values(15, '#결산템챌린지 #ootd #데일리룩 #아웃핏 #KREAM스타일 #겨울여자코디 #보헤미안서울 #노스페이스눕시 #패딩추천 #스트릿룩 #무채색룩', '/img/styleImg/feed15.jpeg', '2022-01-26 00:40:23');
 insert into board(member_idx, content, img, created_at) values(16, '밖에 비온다 주륵주륵~♬♩♪
 .
@@ -385,6 +410,12 @@ insert into board(member_idx, content, img, created_at) values(16, '밖에 비�
 .
 .
 .
+#KREAM스타일', '/img/styleImg/feed16.jpeg', '2022-06-20 00:46:52');
+insert into board(hashtag, member_idx, content, img, created_at) values('SHOEKREAM',17, '', '/img/styleImg/feed17.jpeg', '2023-01-21 23:34:58');
+insert into board(hashtag, member_idx, content, img, created_at) values('SHOEKREAM',18, '', '/img/styleImg/feed18.jpeg', '2022-12-04 14:35:51');
+insert into board(hashtag, member_idx, content, img, created_at) values('데일리룩',19, '우여곡절 많았던 내 슈노••
+#슈프림 #슈프림패딩 #슈노 #슈프림노스페이스 #프스캇 #트레비스스캇 #스트릿', '/img/styleImg/feed19.jpeg', '2022-11-21 17:42:39');
+insert into board(hashtag, member_idx, content, img, created_at) values('데일리룩',20,'포터는 개인적으로 카키색이,,,💚', '/img/styleImg/feed20.jpeg', '2022-03-11 10:20:14');
 #KREAM스타일 #KREAM #나이키 #cactus #뉴발란스530 #국민신발 #아크테릭스 #스투시 #또비온댜ㅑㅑ #일상코디 #시그니처장소 #공주', '/img/styleImg/feed16.jpeg', '2022-06-20 00:46:52');
 insert into board(member_idx, content, img, created_at) values(17, '', '/img/styleImg/feed17.jpeg', '2023-01-21 23:34:58');
 insert into board(member_idx, content, img, created_at) values(18, '', '/img/styleImg/feed18.jpeg', '2022-12-04 14:35:51');

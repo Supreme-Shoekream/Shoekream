@@ -67,4 +67,20 @@ public class BoardApiController {
         ReplyDTO replyDTO = replyApiRequest.toDTO(kreamPrincipal.toFullDto());
         return styleLogicService.createReply(replyDTO);
     }
+
+    @GetMapping("/trend")
+    public List<BoardDTO> trend(){
+        return styleLogicService.trendList();
+    }
+
+    @GetMapping("/newest")
+    public List<BoardDTO> newest(){
+        return styleLogicService.newest();
+    }
+
+    @GetMapping("/myprofile")
+    public MemberDTO myprofile(@AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        return kreamPrincipal.toFullDto();
+    }
+
 }
