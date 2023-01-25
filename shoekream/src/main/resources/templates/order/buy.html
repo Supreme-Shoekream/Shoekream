@@ -14,7 +14,9 @@
     <link rel="stylesheet" href="/css/layer/layer_shipping_memo.css">
     <link rel="stylesheet" href="/css/layer/layer_point.css">
     <link rel="stylesheet" href="/css/layer/layer_card.css">
+    <link rel="stylesheet" href="/css/order/order_final.css">
     <link rel="stylesheet" href="/css/fragment/footer.css">
+
     <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://kream.co.kr/favicon.ico">
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"
         integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
@@ -84,6 +86,7 @@
                             <div class="model_desc">
                                 <p class="size_txt">M</p><!---->
                             </div>
+                            <p class="product_idx" style="display: none"></p>
                         </div>
                     </div>
                 </div>
@@ -156,9 +159,6 @@
                 </div>
             </div><!----><!---->
         </div>
-        <!--footer 시작-->
-        <footer th:replace="/fragment/footer.html :: footer"></footer>
-        <!--footer 끝--><!----><!---->
     </div>
 
 
@@ -193,15 +193,15 @@
                                     <dl class="info_list">
                                         <div class="info_box">
                                             <dt class="title">받는 분</dt>
-                                            <dd class="desc">김**</dd>
+                                            <dd class="desc" id="receiver">김**</dd>
                                         </div>
                                         <div class="info_box">
                                             <dt class="title">연락처</dt>
-                                            <dd class="desc">010-1***-*111</dd>
+                                            <dd class="desc" id="receiverHp">010-1***-*111</dd>
                                         </div>
                                         <div class="info_box">
                                             <dt class="title">배송 주소</dt>
-                                            <dd class="desc address_txt">경기 성남시 분당구 판교역로 235 (삼평동, 에이치스퀘어 엔동) 사과나무
+                                            <dd class="desc address_txt" id="receiverAddress">경기 성남시 분당구 판교역로 235 (삼평동, 에이치스퀘어 엔동) 사과나무
                                             </dd>
                                         </div>
                                     </dl>
@@ -332,7 +332,7 @@
                                                         class="dot"><span class="dot"></span></span><span
                                                         class="hyphen"></span><span class="dot"><span
                                                             class="dot"></span></span><span class="hyphen"></span>
-                                                    <div class="last_num_box"><span class="last_num">6795</span></div>
+                                                    <div class="last_num_box"><span class="last_num" id="cardInfo">6795</span></div>
                                                 </span><!----></div>
                                         </div><img src="/img/down.png">
                                     </div>
@@ -515,24 +515,95 @@
                                     <em>취소는 불가능합니다.</em>
                                 </p>
                             </div>
-                            <div class="layer_btn"><button type="button" class="btn solid buy full large" onclick="location.href='/buybidfinish'" > 바로
+                            <div class="layer_btn"><button type="button" class="btn solid buy full large" id="real_submit" > 바로
                                     결제하기 </button></div>
                         </div>
                     </div>
                 </div><!----><!----><!---->
             </div><!---->
         </div><!----><!---->
-        <!--footer 시작-->
-        <footer th:replace="/fragment/footer.html :: footer"></footer>
-        <!--footer 끝-->
+
     </div>
 
+    <div class="container buy lg step-3" style="display: none"><!---->
+        <div class="content"><!----><!---->
+            <div  class="buy_complete lg">
+                <div class="complete_box">
+                    <div class="complete_detail">
+                        <div class="complete_info">
+                            <div class="complete_title">
+                                <p class="main_title">구매 입찰이 완료되었습니다.</p>
+                                <p class="sub_title">결제는 거래가 성사되는 시점에<br>등록하신 결제 정보로 자동 처리 됩니다.</p>
+                            </div>
+                            <div class="product"
+                                 style="background-color: rgb(244, 244, 244);">
+                                <picture class="picture product_img">
+                                    <img alt="상품 이미지"
+                                         src=""
+                                         loading="lazy" class="image">
+                                </picture><!----><!----><!----><!---->
+                            </div>
+                            <div class="complete_btn_box"><a
+                                    href="/my/buying" class="btn outlinegrey medium"> 내역 상세보기 </a><a
+                                    href="/search" class="btn outlinegrey medium"> SHOP 바로가기 </a><!----></div>
+                            <p class="complete_desc"> ‘구매내역 &gt; 입찰 중’ 상태일 때는 입찰 지우기가 가능합니다. </p>
+                        </div>
+                        <div class="complete_price">
+                            <div class="price_total order_info">
+                                <dl class="price_box">
+                                    <dt class="price_title"> 총 결제금액 </dt>
+                                    <dd class="price"><span
+                                            class="amount final_price">33,900</span><span class="unit">원</span></dd>
+                                </dl><span class="price_warning" style="display: none;"><em
+                            >주의! </em></span>
+                            </div>
+                            <div class="price_bind">
+                                <dl class="price_addition is_dark">
+                                    <dt class="price_title"><span >구매 희망가</span><!---->
+                                    </dt>
+                                    <dd class="price_text wish_price">30,000원</dd>
+                                </dl>
+                                <dl class="price_addition">
+                                    <dt class="price_title"><span >포인트</span><!---->
+                                    </dt>
+                                    <dd class="price_text use_point">0</dd>
+                                </dl>
+                                <dl class="price_addition">
+                                    <dt class="price_title"><span >검수비</span><!---->
+                                    </dt>
+                                    <dd class="price_text">무료</dd>
+                                </dl>
+                                <dl class="price_addition">
+                                    <dt class="price_title"><span >수수료</span></dt>
+                                    <dd class="price_text final_fees" >900원</dd>
+                                </dl>
+                                <dl class="price_addition">
+                                    <dt class="price_title"><span >배송비</span><!---->
+                                    </dt>
+                                    <dd class="price_text">3,000원</dd>
+                                </dl>
+                            </div>
+                            <div class="price_bind deadline_box">
+                                <dl class="price_addition">
+                                    <dt class="price_title dark"><span >입찰 마감
+                                            기한</span><!----></dt>
+                                    <dd class="price_text deadline">30일 - 2023/02/07까지</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!----><!---->
 
+    </div>
+<!--footer 시작-->
+<footer th:replace="/fragment/footer.html :: footer"></footer>
+<!--footer 끝-->
 
 
 </body>
 <script src="/js/order/buy.js"></script>
-<script src="/js/layer/layer_delivery.js"></script>
-<script src="/js/layer/layer_card.js"></script>
+
 
 </html>

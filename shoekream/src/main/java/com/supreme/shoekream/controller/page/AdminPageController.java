@@ -2,9 +2,11 @@ package com.supreme.shoekream.controller.page;
 
 
 import com.supreme.shoekream.model.entity.Conclusion;
+import com.supreme.shoekream.model.network.Pagination;
 import com.supreme.shoekream.model.network.response.BuyResponse;
 import com.supreme.shoekream.repository.ConclusionRepository;
 import com.supreme.shoekream.service.BuyService;
+import com.supreme.shoekream.service.PaginationService;
 import com.supreme.shoekream.service.StyleLogicService;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
@@ -32,6 +34,7 @@ import java.util.List;
 @RequestMapping("admin")    //http://localhost:8889/admin
 @RequiredArgsConstructor
 public class AdminPageController {
+    private final PaginationService paginationService;
 
     @GetMapping(path="")   //http://localhost:8889/admin
     public ModelAndView index(){
@@ -56,29 +59,29 @@ public class AdminPageController {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     /* 첨부 파일 업로드 */
     @PostMapping("products") // 파일 1개 업로드 //http://localhost:8889/admin/products
-    public String uploadAjaxActionPOST(MultipartFile uploadFile) {
-//        logger.info("⚠️uploadAjaxActionPOST..........");
-//        logger.info("⚠️파일 이름 : " + uploadFile.getOriginalFilename());
-//        logger.info("⚠️파일 타입 : " + uploadFile.getContentType());
-//        logger.info("⚠️파일 크기 : " + uploadFile.getSize());
+    public void uploadAjaxActionPOST(MultipartFile uploadFile) {
+        logger.info("⚠️uploadAjaxActionPOST..........");
+        logger.info("⚠️파일 이름 : " + uploadFile.getOriginalFilename());
+        logger.info("⚠️파일 타입 : " + uploadFile.getContentType());
+        logger.info("⚠️파일 크기 : " + uploadFile.getSize());
         // 저장 폴더 경로
         String uploadFolder = "/Users/oyun-yeong/Desktop/Shoekream/publising/Shoekream/shoekream/src/main/resources/static/img/product/";
-        // 폴더 생성
+//        // 폴더 생성
         File uploadPath = new File(uploadFolder);
         if(!uploadPath.exists()) {
             uploadPath.mkdirs();
         }
-//        logger.info("-----------------------------------------------");
+////        logger.info("-----------------------------------------------");
         String uploadFileName = uploadFile.getOriginalFilename(); // 파일 이름
-//        uploadFileName = uploadFileName.replace(" ", "_"); // 파일 이름에 띄어쓰기가 있으면 언더바로 변경하기
-//        System.out.println("🔵" + uploadFileName);
-        File saveFile = new File(uploadPath, uploadFileName); // 파일 위치, 파일 이름을 합친 File 객체
+////        uploadFileName = uploadFileName.replace(" ", "_"); // 파일 이름에 띄어쓰기가 있으면 언더바로 변경하기
+////        System.out.println("🔵" + uploadFileName);
+       File saveFile = new File(uploadPath, uploadFileName); // 파일 위치, 파일 이름을 합친 File 객체
         try { // 파일 저장
             uploadFile.transferTo(saveFile);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return uploadFileName;
+//        return uploadFileName;
     }
 
     @GetMapping(path="login")   //http://localhost:8889/admin/login
@@ -100,11 +103,12 @@ public class AdminPageController {
     private final BuyService buyService;
     @GetMapping(path="buy")   //http://localhost:8889/admin/buy
     public String buy(@RequestParam(required = false) String searchKeyword,
-                      @PageableDefault(size = 10, sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
+                      @PageableDefault(size = 10, sort = "idx", direction = Sort.Direction.DESC) Pageable pageable,
                       ModelMap map){
         Page<BuyResponse> buys = buyService.searchBuy(searchKeyword, pageable).map(BuyResponse::from);
-//        List<Integer> barNumbers =
+        List<Integer> barNumbers = paginationService.getPaginationBarNumbers(pageable.getPageNumber(),buys.getTotalPages());
         map.addAttribute("buys",buys);
+        map.addAttribute("barNumbers",barNumbers);
         return("/adminpage/buy");
     }
 

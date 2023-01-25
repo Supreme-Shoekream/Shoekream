@@ -19,5 +19,6 @@ public interface SellRepository extends JpaRepository<Sell,Long> {
     Sell findFirstByProductOrderByPrice(Product product);
     Sell findFirstByProductAndStatusOrderByPrice(Product product, OrderStatus status);
 
+    Sell findFirstByProductAndPriceOrderByCreatedAtAsc(Product product, Long price);
 
 }

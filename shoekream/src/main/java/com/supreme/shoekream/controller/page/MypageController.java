@@ -1,10 +1,19 @@
 package com.supreme.shoekream.controller.page;
 
+import com.supreme.shoekream.model.dto.AddressDTO;
+import com.supreme.shoekream.model.dto.MemberDTO;
+import com.supreme.shoekream.model.dto.SellDTO;
+import com.supreme.shoekream.model.entity.Member;
+import com.supreme.shoekream.model.enumclass.OrderStatus;
 import com.supreme.shoekream.model.network.request.AddressApiRequest;
+import com.supreme.shoekream.model.network.response.AddressApiResponse;
+import com.supreme.shoekream.model.network.response.SellResponse;
 import com.supreme.shoekream.model.network.security.KreamPrincipal;
 import com.supreme.shoekream.service.AddressApiLogicService;
 import com.supreme.shoekream.service.PointApiLogicService;
+import com.supreme.shoekream.service.SellService;
 import lombok.RequiredArgsConstructor;
+import org.aspectj.weaver.ast.Or;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -14,6 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 @RequestMapping("my")
@@ -21,7 +31,7 @@ import javax.servlet.http.HttpSession;
 public class MypageController {
 
 
-    @GetMapping(path="mypage")    // http://localhost:8889/my/mypage
+    @GetMapping(path="")    // http://localhost:8889/my
     public ModelAndView mypage(){
         return new ModelAndView("/my/mypage");
     }
@@ -29,9 +39,18 @@ public class MypageController {
     public ModelAndView buying(){
         return new ModelAndView("/my/buying");
     }
+    private final SellService sellService;
     @GetMapping(path = "selling")
-    public ModelAndView selling(){
-        return new ModelAndView("/my/selling");
+    public String selling(ModelMap map, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        MemberDTO memberDTO = kreamPrincipal.toFullDto();
+        List<SellResponse> biddings =sellService.mySellListByStatus(memberDTO.idx(), OrderStatus.BIDDING).stream().map(SellResponse::from).toList();
+        List<SellResponse> progressings =sellService.mySellListByStatus(memberDTO.idx(), OrderStatus.PROGRESSING).stream().map(SellResponse::from).toList();
+        List<SellResponse> ends =sellService.mySellListByStatus(memberDTO.idx(), OrderStatus.END).stream().map(SellResponse::from).toList();
+        map.addAttribute("bidding",biddings);
+        map.addAttribute("progressing",progressings);
+        map.addAttribute("end",ends);
+        System.out.println("입찰중"+biddings+"진행중"+progressings+"종료"+ends);
+        return ("/my/selling");
     }
     @GetMapping(path = "wish")
     public ModelAndView wish(){
@@ -44,12 +63,10 @@ public class MypageController {
 
     private final AddressApiLogicService addressApiLogicService;
     @GetMapping(path="address")
-    public String address(ModelMap map, HttpServletRequest request){
-        HttpSession session = request.getSession();
-        Long idx = (Long)session.getAttribute("idx");
-        System.out.println(idx);
-        map.addAttribute("address", addressApiLogicService.list(1L, false));
-        map.addAttribute("basic", addressApiLogicService.list(idx, true));
+    public String address(ModelMap map, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        MemberDTO memberDTO = kreamPrincipal.toFullDto();
+        map.addAttribute("address", addressApiLogicService.list(memberDTO.idx(), false));
+        map.addAttribute("basic", addressApiLogicService.list(memberDTO.idx(), true));
         return "my/address";
     }
 

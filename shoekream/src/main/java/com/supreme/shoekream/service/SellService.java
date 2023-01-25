@@ -4,10 +4,13 @@ import com.querydsl.core.types.Order;
 import com.supreme.shoekream.model.dto.BuyDTO;
 import com.supreme.shoekream.model.dto.ProductDTO;
 import com.supreme.shoekream.model.dto.SellDTO;
+import com.supreme.shoekream.model.entity.Buy;
 import com.supreme.shoekream.model.entity.Member;
 import com.supreme.shoekream.model.entity.Product;
 import com.supreme.shoekream.model.entity.Sell;
 import com.supreme.shoekream.model.enumclass.OrderStatus;
+import com.supreme.shoekream.model.network.Header;
+import com.supreme.shoekream.repository.BuyRepository;
 import com.supreme.shoekream.repository.MemberRepository;
 import com.supreme.shoekream.repository.ProductRepository;
 import com.supreme.shoekream.repository.SellRepository;
@@ -28,6 +31,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Service
 public class SellService {
+    private final BuyRepository buyRepository;
 
     private final SellRepository sellRepository;
     private final MemberRepository memberRepository;
@@ -99,4 +103,39 @@ public class SellService {
         System.out.println(prices);
         return prices;
     }
+
+
+    public BuyDTO matching(Long productIdx, Long price){
+        Product product = productRepository.findById(productIdx).get();
+        Buy matchingBuy = buyRepository.findFirstByProductAndPriceOrderByCreatedAtAsc(product,price);
+        if(matchingBuy == null){
+            return null;
+        }else{
+            return BuyDTO.fromEntity(matchingBuy);
+        }
+    }
+
+    public Header<SellDTO> create(SellDTO sellDTO) {
+        Product product = productRepository.findById(sellDTO.productDTO().idx()).get();
+        Member member = memberRepository.findById(sellDTO.memberDTO().idx()).get();
+        SellDTO response;
+        // 즉시구매로 buy != null -> 구매자 status 진행중! + 채결내역 등록
+        if(sellDTO.buyIdx() == null){
+            Sell newSell = sellRepository.save(sellDTO.toEntity(product,member,null));
+            System.out.println("입찰💨💨"+newSell);
+            response = SellDTO.fromEntity(newSell);
+        }else{
+            Buy buy = buyRepository.findById(sellDTO.buyIdx()).get();
+            buy.setStatus(OrderStatus.PROGRESSING);
+            Sell newSell = sellRepository.save(sellDTO.toEntity(product,member,buy));
+            System.out.println("즉시💨💨"+newSell);
+            buy.setSell(newSell);
+            response = SellDTO.fromEntity(newSell);
+//            ConclusionDTO conclusionDTO = ConclusionDTO.of();
+//            conclusionRepository.save(conclusionDTO.toEntity());
+        }
+
+        return Header.OK(response);
+    }
+
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:justify-content="http://www.w3.org/1999/xhtml">
 <!--head 시작 -->
 <div th:replace="fragment/adminhead :: head"></div>
 <!--head 끝 -->
@@ -22,35 +22,86 @@
 			<div class="card-box mb-30">
 				<div class="pd-20" sttle="display:flex; justify-content: space-between">
 					<h4 class="text-blue h4">구매 내역</h4>
-					<a href="#">작성하기</a>
 				</div>
-				<div class="pb-20">
+				<div class="pb-20" id="buy_table">
+					<div class="row">
+						<div class="col-sm-12 col-md-6">
+							<div class="dataTables_length" id="DataTables_Table_0_length">
+								<label style=" font-weight: normal; white-space: nowrap; text-align: left;">Show
+									<select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="custom-select custom-select-sm form-control form-control-sm">
+										<option value="10">10</option><option value="25">25</option><option value="50">50</option>
+									</select> entries
+								</label>
+							</div>
+						</div>
+						<div class="col-sm-12 col-md-6">
+							<div id="DataTables_Table_0_filter" class="dataTables_filter" style="text-align: right;padding-left: 15px; padding-right: 15px;">
+								<label style=" font-weight: normal; white-space: nowrap; text-align: left; display: flex; align-items: center; justify-content: flex-end;">email:
+									<input id="search_box" type="search" class="form-control form-control-sm" aria-controls="DataTables_Table_0" style="margin-left: 0.5em; width: auto;">
+								</label>
+							</div>
+						</div>
+					</div>
 					<table class="data-table table stripe hover nowrap">
 						<thead>
 						<tr>
-							<th class="table-plus datatable-nosort">상품코드</th>
-							<th>주문번호</th>
-							<th>상품명</th>
-							<th>상품사이즈</th>
-							<th>구매유형</th>
-							<th>가격</th>
-							<th>입찰 마감기한</th>
-							<th>구매상태</th>
-							<th>구매날짜</th>
+							<th class="idx"><a>주문번호</a></th>
+							<th class="product_name"><a>상품명</a></th>
+							<th >상품사이즈</th>
+							<th class="member_email"><a>구매자 이메일</a></th>
+							<th class="price"><a>가격</a></th>
+							<th >입찰마감기한</th>
+							<th >구매상태</th>
+							<th >배송현황</th>
 							<th class="datatable-nosort">Action</th>
 						</tr>
 						</thead>
 						<tbody>
 						<tr>
-							<td class="table-plus">B10548</td>
-							<td>56876-56454</td>
-							<td>나이키신발</td>
-							<td>270</td>
-							<td>즉시구매</td>
-							<td>300000</td>
-							<td>30일</td>
-							<td>발송완료</td>
-							<td>2022-12-14</td>
+							<td class="idx">56876-56454</td>
+							<td class="product_name">나이키신발</td>
+							<td class="product_size">270</td>
+							<td class="member_email">root@root.com</td>
+							<td class="price">300000</td>
+							<td class="deadline"><time>2023-01-24</time></td>
+							<td class="status">진행중</td>
+							<td class="progress_class">발송완료</td>
+							<td class="more">
+								<div class="dropdown">
+									<a
+											class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
+											href="#"
+											role="button"
+											data-toggle="dropdown"
+									>
+										<i class="dw dw-more"></i>
+									</a>
+									<div
+											class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
+									>
+										<a class="dropdown-item" id="view_btn" onclick="pop_buy_view()"
+										><i class="dw dw-eye"></i> View</a
+										>
+										<a class="dropdown-item" id="edit_btn" onclick="pop_buy_edit()"
+										><i class="dw dw-edit2"></i> Edit</a
+										>
+										<a class="dropdown-item" id="delete_btn" onclick="pop_buy_delete()"
+										><i class="dw dw-delete-3"></i> Delete</a
+										>
+									</div>
+								</div>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="idx">56876-56454</td>
+							<td class="product_name">나이키신발</td>
+							<td class="product_size">270</td>
+							<td class="member_email">root@root.com</td>
+							<td class="price">300000</td>
+							<td class="deadline">30일</td>
+							<td class="status">진행중</td>
+							<td class="progress_class">발송완료</td>
 							<td>
 								<div class="dropdown">
 									<a
@@ -78,15 +129,14 @@
 							</td>
 						</tr>
 						<tr>
-							<td class="table-plus">B10548</td>
-							<td>56876-56454</td>
-							<td>나이키신발</td>
-							<td>270</td>
-							<td>즉시구매</td>
-							<td>270000</td>
-							<td>30일</td>
-							<td>발송완료</td>
-							<td>2022-12-14</td>
+							<td class="idx">56876-56454</td>
+							<td class="product_name">나이키신발</td>
+							<td class="product_size">270</td>
+							<td class="member_email">root@root.com</td>
+							<td class="price">300000</td>
+							<td class="deadline">30일</td>
+							<td class="status">진행중</td>
+							<td class="progress">발송완료</td>
 							<td>
 								<div class="dropdown">
 									<a
@@ -114,484 +164,15 @@
 							</td>
 						</tr>
 						<tr>
-							<td class="table-plus">B10548</td>
-							<td>56876-56454</td>
-							<td>나이키신발</td>
-							<td>270</td>
-							<td>즉시구매</td>
-							<td>300000</td>
-							<td>30일</td>
-							<td>-</td>
-							<td>2022-12-14</td>
-							<td>
-								<div class="dropdown">
-									<a
-											class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
-											href="#"
-											role="button"
-											data-toggle="dropdown"
-									>
-										<i class="dw dw-more"></i>
-									</a>
-									<div
-											class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
-									>
-										<a class="dropdown-item" href="#"
-										><i class="dw dw-eye"></i> View</a
-										>
-										<a class="dropdown-item" href="#"
-										><i class="dw dw-edit2"></i> Edit</a
-										>
-										<a class="dropdown-item" href="#"
-										><i class="dw dw-delete-3"></i> Delete</a
-										>
-									</div>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td class="table-plus">B10548</td>
-							<td>56876-56454</td>
-							<td>나이키신발</td>
-							<td>270</td>
-							<td>즉시구매</td>
-							<td>300000</td>
-							<td>30일</td>
-							<td>발송완료</td>
-							<td>2022-12-14</td>
-							<td>
-								<div class="dropdown">
-									<a
-											class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
-											href="#"
-											role="button"
-											data-toggle="dropdown"
-									>
-										<i class="dw dw-more"></i>
-									</a>
-									<div
-											class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
-									>
-										<a class="dropdown-item" href="#"
-										><i class="dw dw-eye"></i> View</a
-										>
-										<a class="dropdown-item" href="#"
-										><i class="dw dw-edit2"></i> Edit</a
-										>
-										<a class="dropdown-item" href="#"
-										><i class="dw dw-delete-3"></i> Delete</a
-										>
-									</div>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td class="table-plus">B10548</td>
-							<td>56876-56454</td>
-							<td>나이키신발</td>
-							<td>270</td>
-							<td>즉시구매</td>
-							<td>300000</td>
-							<td>30일</td>
-							<td>발송완료</td>
-							<td>2022-12-14</td>
-							<td>
-								<div class="dropdown">
-									<a
-											class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
-											href="#"
-											role="button"
-											data-toggle="dropdown"
-									>
-										<i class="dw dw-more"></i>
-									</a>
-									<div
-											class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
-									>
-										<a class="dropdown-item" href="#"
-										><i class="dw dw-eye"></i> View</a
-										>
-										<a class="dropdown-item" href="#"
-										><i class="dw dw-edit2"></i> Edit</a
-										>
-										<a class="dropdown-item" href="#"
-										><i class="dw dw-delete-3"></i> Delete</a
-										>
-									</div>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td class="table-plus">B10548</td>
-							<td>56876-56454</td>
-							<td>나이키신발</td>
-							<td>270</td>
-							<td>즉시구매</td>
-							<td>300000</td>
-							<td>30일</td>
-							<td>발송완료</td>
-							<td>2022-12-14</td>
-							<td>
-								<div class="dropdown">
-									<a
-											class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
-											href="#"
-											role="button"
-											data-toggle="dropdown"
-									>
-										<i class="dw dw-more"></i>
-									</a>
-									<div
-											class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
-									>
-										<a class="dropdown-item" href="#"
-										><i class="dw dw-eye"></i> View</a
-										>
-										<a class="dropdown-item" href="#"
-										><i class="dw dw-edit2"></i> Edit</a
-										>
-										<a class="dropdown-item" href="#"
-										><i class="dw dw-delete-3"></i> Delete</a
-										>
-									</div>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td class="table-plus">B10548</td>
-							<td>56876-56454</td>
-							<td>나이키신발</td>
-							<td>270</td>
-							<td>즉시구매</td>
-							<td>300000</td>
-							<td>30일</td>
-							<td>발송완료</td>
-							<td>2022-12-14</td>
-							<td>
-								<div class="dropdown">
-									<a
-											class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
-											href="#"
-											role="button"
-											data-toggle="dropdown"
-									>
-										<i class="dw dw-more"></i>
-									</a>
-									<div
-											class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
-									>
-										<a class="dropdown-item" href="#"
-										><i class="dw dw-eye"></i> View</a
-										>
-										<a class="dropdown-item" href="#"
-										><i class="dw dw-edit2"></i> Edit</a
-										>
-										<a class="dropdown-item" href="#"
-										><i class="dw dw-delete-3"></i> Delete</a
-										>
-									</div>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td class="table-plus">B10548</td>
-							<td>56876-56454</td>
-							<td>나이키신발</td>
-							<td>270</td>
-							<td>즉시구매</td>
-							<td>300000</td>
-							<td>30일</td>
-							<td>발송완료</td>
-							<td>2022-12-14</td>
-							<td>
-								<div class="dropdown">
-									<a
-											class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
-											href="#"
-											role="button"
-											data-toggle="dropdown"
-									>
-										<i class="dw dw-more"></i>
-									</a>
-									<div
-											class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
-									>
-										<a class="dropdown-item" href="#"
-										><i class="dw dw-eye"></i> View</a
-										>
-										<a class="dropdown-item" href="#"
-										><i class="dw dw-edit2"></i> Edit</a
-										>
-										<a class="dropdown-item" href="#"
-										><i class="dw dw-delete-3"></i> Delete</a
-										>
-									</div>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td class="table-plus">B10548</td>
-							<td>56876-56454</td>
-							<td>나이키신발</td>
-							<td>270</td>
-							<td>즉시구매</td>
-							<td>300000</td>
-							<td>30일</td>
-							<td>발송완료</td>
-							<td>2022-12-14</td>
-							<td>
-								<div class="dropdown">
-									<a
-											class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
-											href="#"
-											role="button"
-											data-toggle="dropdown"
-									>
-										<i class="dw dw-more"></i>
-									</a>
-									<div
-											class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
-									>
-										<a class="dropdown-item" href="#"
-										><i class="dw dw-eye"></i> View</a
-										>
-										<a class="dropdown-item" href="#"
-										><i class="dw dw-edit2"></i> Edit</a
-										>
-										<a class="dropdown-item" href="#"
-										><i class="dw dw-delete-3"></i> Delete</a
-										>
-									</div>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td class="table-plus">B10548</td>
-							<td>56876-56454</td>
-							<td>나이키신발</td>
-							<td>270</td>
-							<td>즉시구매</td>
-							<td>300000</td>
-							<td>30일</td>
-							<td>발송완료</td>
-							<td>2022-12-14</td>
-							<td>
-								<div class="dropdown">
-									<a
-											class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
-											href="#"
-											role="button"
-											data-toggle="dropdown"
-									>
-										<i class="dw dw-more"></i>
-									</a>
-									<div
-											class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
-									>
-										<a class="dropdown-item" href="#"
-										><i class="dw dw-eye"></i> View</a
-										>
-										<a class="dropdown-item" href="#"
-										><i class="dw dw-edit2"></i> Edit</a
-										>
-										<a class="dropdown-item" href="#"
-										><i class="dw dw-delete-3"></i> Delete</a
-										>
-									</div>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td class="table-plus">B10548</td>
-							<td>56876-56454</td>
-							<td>나이키신발</td>
-							<td>270</td>
-							<td>즉시구매</td>
-							<td>300000</td>
-							<td>30일</td>
-							<td>발송완료</td>
-							<td>2022-12-14</td>
-							<td>
-								<div class="dropdown">
-									<a
-											class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
-											href="#"
-											role="button"
-											data-toggle="dropdown"
-									>
-										<i class="dw dw-more"></i>
-									</a>
-									<div
-											class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
-									>
-										<a class="dropdown-item" href="#"
-										><i class="dw dw-eye"></i> View</a
-										>
-										<a class="dropdown-item" href="#"
-										><i class="dw dw-edit2"></i> Edit</a
-										>
-										<a class="dropdown-item" href="#"
-										><i class="dw dw-delete-3"></i> Delete</a
-										>
-									</div>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td class="table-plus">B10548</td>
-							<td>56876-56454</td>
-							<td>나이키신발</td>
-							<td>270</td>
-							<td>즉시구매</td>
-							<td>300000</td>
-							<td>30일</td>
-							<td>발송완료</td>
-							<td>2022-12-14</td>
-							<td>
-								<div class="dropdown">
-									<a
-											class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
-											href="#"
-											role="button"
-											data-toggle="dropdown"
-									>
-										<i class="dw dw-more"></i>
-									</a>
-									<div
-											class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
-									>
-										<a class="dropdown-item" href="#"
-										><i class="dw dw-eye"></i> View</a
-										>
-										<a class="dropdown-item" href="#"
-										><i class="dw dw-edit2"></i> Edit</a
-										>
-										<a class="dropdown-item" href="#"
-										><i class="dw dw-delete-3"></i> Delete</a
-										>
-									</div>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td class="table-plus">B10548</td>
-							<td>56876-56454</td>
-							<td>나이키신발</td>
-							<td>270</td>
-							<td>즉시구매</td>
-							<td>300000</td>
-							<td>30일</td>
-							<td>발송완료</td>
-							<td>2022-12-14</td>
-							<td>
-								<div class="dropdown">
-									<a
-											class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
-											href="#"
-											role="button"
-											data-toggle="dropdown"
-									>
-										<i class="dw dw-more"></i>
-									</a>
-									<div
-											class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
-									>
-										<a class="dropdown-item" href="#"
-										><i class="dw dw-eye"></i> View</a
-										>
-										<a class="dropdown-item" href="#"
-										><i class="dw dw-edit2"></i> Edit</a
-										>
-										<a class="dropdown-item" href="#"
-										><i class="dw dw-delete-3"></i> Delete</a
-										>
-									</div>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td class="table-plus">B10548</td>
-							<td>56876-56454</td>
-							<td>나이키신발</td>
-							<td>270</td>
-							<td>즉시구매</td>
-							<td>300000</td>
-							<td>30일</td>
-							<td>발송완료</td>
-							<td>2022-12-14</td>
-							<td>
-								<div class="dropdown">
-									<a
-											class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
-											href="#"
-											role="button"
-											data-toggle="dropdown"
-									>
-										<i class="dw dw-more"></i>
-									</a>
-									<div
-											class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
-									>
-										<a class="dropdown-item" href="#"
-										><i class="dw dw-eye"></i> View</a
-										>
-										<a class="dropdown-item" href="#"
-										><i class="dw dw-edit2"></i> Edit</a
-										>
-										<a class="dropdown-item" href="#"
-										><i class="dw dw-delete-3"></i> Delete</a
-										>
-									</div>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td class="table-plus">B10548</td>
-							<td>56876-56454</td>
-							<td>나이키신발</td>
-							<td>270</td>
-							<td>즉시구매</td>
-							<td>300000</td>
-							<td>30일</td>
-							<td>발송완료</td>
-							<td>2022-12-14</td>
-							<td>
-								<div class="dropdown">
-									<a
-											class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
-											href="#"
-											role="button"
-											data-toggle="dropdown"
-									>
-										<i class="dw dw-more"></i>
-									</a>
-									<div
-											class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
-									>
-										<a class="dropdown-item" href="#"
-										><i class="dw dw-eye"></i> View</a
-										>
-										<a class="dropdown-item" href="#"
-										><i class="dw dw-edit2"></i> Edit</a
-										>
-										<a class="dropdown-item" href="#"
-										><i class="dw dw-delete-3"></i> Delete</a
-										>
-									</div>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td class="table-plus">B10548</td>
-							<td>56876-56454</td>
-							<td>나이키신발</td>
-							<td>270</td>
-							<td>즉시구매</td>
-							<td>300000</td>
-							<td>30일</td>
-							<td>발송완료</td>
-							<td>2022-12-14</td>
-							<td>
+							<td class="idx">56876-56454</td>
+							<td class="product_name">나이키신발</td>
+							<td class="product_size">270</td>
+							<td class="member_email">root@root.com</td>
+							<td class="price">300000</td>
+							<td class="deadline">30일</td>
+							<td class="status">진행중</td>
+							<td class="progress_class">발송완료</td>
+							<td class="more">
 								<div class="dropdown">
 									<a
 											class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
@@ -621,16 +202,43 @@
 
 						</tbody>
 					</table>
+					<div class="row">
+						<div class="col-sm-12 col-md-5"><div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite"></div></div>
+						<div class="col-sm-12 col-md-7">
+							<div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
+								<ul class="pagination">
+									<li class="paginate_button page-item previous disabled" id="DataTables_Table_0_previous">
+										<a href="#" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0" class="page-link">
+											<i class="ion-chevron-left"></i>
+										</a>
+									</li>
+									<li class="paginate_button page-item active">
+										<a href="#" aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0" class="page-link">1</a>
+									</li>
+									<li class="paginate_button page-item next disabled" id="DataTables_Table_0_next">
+										<a href="#" aria-controls="DataTables_Table_0" data-dt-idx="2" tabindex="0" class="page-link">
+											<i class="ion-chevron-right"></i>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
 				</div>
+
 			</div>
 			<!-- Simple Datatable End -->
 		</div>
 
 	</div>
 </div>
+<div th:replace="~{adminpage/admin_layer/layer_buy_view::buy_view}"></div>
+<div th:replace="~{adminpage/admin_layer/layer_buy_edit::buy_edit}"></div>
+<div th:replace="~{adminpage/admin_layer/pop_buy_delete::buy_delete}"></div>
 <!-- js -->
 <div th:replace="fragment/adminjs :: js"></div>
 <!-- js -->
+<script src="/js/admin/buy.js"></script>
 
 </body>
 </html>

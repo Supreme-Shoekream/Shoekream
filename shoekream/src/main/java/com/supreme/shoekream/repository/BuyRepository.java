@@ -5,6 +5,8 @@ import com.supreme.shoekream.model.entity.Member;
 import com.supreme.shoekream.model.entity.Product;
 import com.supreme.shoekream.model.enumclass.OrderStatus;
 import com.supreme.shoekream.model.enumclass.Type;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.time.LocalDateTime;
@@ -25,6 +27,11 @@ public interface BuyRepository extends JpaRepository<Buy,Long> {
     // 한 제품이름이같은 것에 한해서 즉시판매가에 들어가 구매입찰로 올려놓은 가격중 가장 큰 제품 = 사이즈별 즉시판매가
     // productname으로 찾은 product idx들 List로 저 쿼리메소드를 통해 구할 수 있음
 
+    // 누군가 즉시 판매시 가격과 상품으로 Buy를 찾는다.
+    Buy findFirstByProductAndPriceOrderByCreatedAtAsc(Product product, Long price);
+
+    // 관리자페이지 검색기능
+    Page<Buy> findByMember_EmailContaining(String email, Pageable pageable);
     //test: data.sql에서 숫자로 두고, 가져올땐 Orderstatus.END이런식으로 가져옴
     List<Buy> findByStatus(OrderStatus orderStatus);
     List<Buy> findByCreatedAtAfter(LocalDateTime createdAt);

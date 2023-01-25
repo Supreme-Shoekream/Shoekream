@@ -7,6 +7,7 @@ import com.supreme.shoekream.model.enumclass.OrderStatus;
 import net.minidev.json.JSONUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -33,11 +34,14 @@ class BuyRepositoryTest extends ShoekreamApplicationTests {
         Product product = productRepository.findById(66L).get();
         System.out.println("즉시 판매가");
         System.out.println(buyRepository.findFirstByProductOrderByPriceDesc(product));
-        System.out.println(buyRepository.findFirstByProductAndStatusOrderByPriceDesc(product,null).getPrice());
+        System.out.println(buyRepository.findFirstByProductAndStatusOrderByPriceDesc(product,null));
         //941000
         //orderstatus test
         System.out.println("입찰중");
         System.out.println(buyRepository.findByStatus(OrderStatus.BIDDING));
+
+        System.out.println("검색을 위한");
+        System.out.println(buyRepository.findByMember_EmailContaining("root", Pageable.unpaged()).get().toList());
     }
 
 
