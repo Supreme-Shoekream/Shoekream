@@ -7,7 +7,6 @@ import com.querydsl.core.types.dsl.*;
 import com.querydsl.core.types.PathMetadata;
 import javax.annotation.processing.Generated;
 import com.querydsl.core.types.Path;
-
 import com.querydsl.core.types.dsl.PathInits;
 
 
@@ -22,6 +21,11 @@ public class QAddress extends EntityPathBase<Address> {
 
 
     private static final PathInits INITS = PathInits.DIRECT2;
+
+
+
+    private static final PathInits INITS = PathInits.DIRECT2;
+
 
 
     public static final QAddress address = new QAddress("address");
