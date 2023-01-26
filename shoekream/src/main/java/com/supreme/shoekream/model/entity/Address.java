@@ -28,28 +28,26 @@ public class Address extends BaseEntity implements Auditable {
     private String address1;
     private String address2;
 
-//    @ManyToOne
-//    @JoinColumn(name="member_idx")
-//    private Member member;
-    private Long memberIdx;
-
+    @ManyToOne
+    @JoinColumn(name="member_idx")
+    private Member member;
     private boolean addressBasic;
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
 
     private Address(String name, String hp, String zipcode, String address1,
-                    String address2, boolean addressBasic, Long memberIdx) {
+                    String address2, boolean addressBasic, Member member) {
         this.name=name;
         this.hp=hp;
         this.zipcode=zipcode;
         this.address1=address1;
         this.address2=address2;
         this.addressBasic=addressBasic;
-        this.memberIdx=memberIdx;
+        this.member=member;
     }
 
     public static Address of(String name, String hp, String zipcode, String address1
-    ,String address2, boolean addressBasic, Long memberIdx) {
-        return new Address(name, hp, zipcode, address1, address2, addressBasic, memberIdx);
+    ,String address2, boolean addressBasic, Member member) {
+        return new Address(name, hp, zipcode, address1, address2, addressBasic, member);
     }
 }

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<thlogic>
+    <attr sel=".container">
+        <!--        해시태그 시작 -->
+        <attr sel=".keyword_bind" th:remove="all-but-first">
+            <attr sel=".trend_keyword" th:each="hashtag : ${trendHashtags}" th:text="'#'+${hashtag}"/>
+        </attr>
+
+    </attr>
+</thlogic>

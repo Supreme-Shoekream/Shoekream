@@ -13,6 +13,7 @@ import com.supreme.shoekream.model.network.request.ReplyApiRequest;
 import com.supreme.shoekream.model.network.security.KreamPrincipal;
 import com.supreme.shoekream.repository.*;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -39,6 +40,32 @@ public class StyleLogicService {
         return BoardDTO.fromEntity(boardRepository.findAll());
     }
 
+    @Transactional(readOnly = true)
+    public List<BoardDTO> trendList(){
+        List<BoardDTO> trend = BoardDTO.fromEntity(boardRepository.findAll());
+        for(int i=0;i<trend.size()-1;i++){
+            for (int j=i+1; j<trend.size();j++){
+                if(trend.get(i).lks().size() + trend.get(i).replies().size() < trend.get(j).lks().size() + trend.get(j).replies().size()){
+                    BoardDTO tmp = trend.get(i);
+                    trend.set(i, trend.get(j));
+                    trend.set(j, tmp);
+                }
+            }
+        }
+        return trend;
+    }
+
+
+    @Transactional(readOnly = true)
+    public List<BoardDTO> newest() {
+        List<BoardDTO> newest = BoardDTO.fromEntity(boardRepository.findAll(Sort.by(Sort.Direction.DESC, "createdAt")));
+        for(int i=0;i<newest.size();i++){
+
+            System.out.println("테스트!!!!!!!!!!!!!!!"+newest.get(i).createdAt());
+        }
+        return newest;
+    }
+
     public Board read(Long idx){
         Board board = boardRepository.findByIdx(idx);
         return board;
@@ -52,8 +79,17 @@ public class StyleLogicService {
         }).orElseGet(() -> Header.ERROR("데이터 없음"));
     }
 
+    public Header comment_delete(Long replyIdx){
+        Optional<Reply> reply = replyRepository.findById(replyIdx);
+        return reply.map(rp -> {
+            replyRepository.delete(rp);
+            return
+                     Header.OK();
+        }).orElseGet(() -> Header.ERROR("데이터 없음"));
+    }
+
     public List<Board> getFollowingFeeds(Long idx){
-        List<Follow> followings = followRepository.findAllByfollowerIdx(5L);
+        List<Follow> followings = followRepository.findAllByfollowerIdx(idx);
         List<Board> feed;
         feed = new ArrayList<>();
         for(int i=0; i<followings.size(); i++){
@@ -80,7 +116,7 @@ public class StyleLogicService {
     }
 
     public Header<ReplyDTO> createReply(ReplyDTO replyDTO){
-//        System.out.println("========서비스========="+replyDTO);  // ✔
+//        System.out.println("============서비스============"+replyDTO);  // ✔
         Member member = memberRepository.getReferenceById(replyDTO.memberDTO().idx());
         Board board = boardRepository.getReferenceById(replyDTO.boardIdx());
         Reply newR = replyRepository.save(replyDTO.toEntity(member, board));
@@ -119,4 +155,43 @@ public class StyleLogicService {
 
         return response;
     }
+
+    public List<String> trendHashtags(){
+        List<Board> boards = boardRepository.findAll();
+        List<Integer> hashCnt = new ArrayList<>();
+        List<String> hashtags = new ArrayList<>();
+        for(int i=0; i<boards.size(); i++){
+            hashtags.add(boards.get(i).getHashtag());
+            hashCnt.add(1);
+            for(int j=0;j<i;j++){
+                if(hashtags.get(i).equals(hashtags.get(j))){
+                    hashCnt.set(j, hashCnt.get(j)+1);
+                    hashCnt.set(i, 0);
+                    break;
+                }
+            }
+        }
+        System.out.println(hashtags);
+        System.out.println(hashCnt);
+
+        for(int i = 0; i < hashtags.size()-1; i++){
+            for(int j = i+1; j < hashtags.size(); j++){
+                if(hashCnt.get(i)<hashCnt.get(j)){
+                    String temp = hashtags.get(i);
+                    int tmp = hashCnt.get(i);
+                    hashtags.set(i, hashtags.get(j));
+                    hashtags.set(j, temp);
+
+                    hashCnt.set(i, hashCnt.get(j));
+                    hashCnt.set(j, tmp);
+                }
+            }
+        }
+        List<String> trends = new ArrayList<>();
+        for(int i=0;i<5;i++){
+            trends.add(hashtags.get(i));
+        }
+        return trends;
+    }
+
 }

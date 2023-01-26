@@ -162,6 +162,7 @@
                                                             <span class="amount">
 <!--                                                                <em class="num">214,000</em>-->
 <!--                                                                <span class="won">원</span>-->
+<!--                                                                <em class="num nowBuy">[[${sell}]]</em>-->
                                                                 <em class="num nowBuy">즉시구매가</em>
                                                             </span>
                                                             <span class="desc">즉시 구매가</span>
@@ -331,7 +332,7 @@
                                                                 <a class="item_link">구매 입찰</a>
                                                             </li>
                                                         </ul>
-                                                        <div id="panel1" role="tabpanel" span="sales" class="tab_content show">
+                                                        <div id="panel1 " role="tabpanel" span="sales" class="panel1 tab_content show">
                                                             <div class="table_wrap lg">
                                                                 <table>
                                                                     <caption>
@@ -349,11 +350,11 @@
                                                                             <th class="table_th align_right">거래일</th>
                                                                         </tr>
                                                                     </thead>
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td class="table_td">270</td>
-                                                                            <td class="table_td align_right">229,000원</td>
-                                                                            <td class="table_td align_right">22/12/22</td>
+                                                                    <tbody class="panel1_tbody">
+                                                                        <tr class="panel1_tr">
+                                                                            <td class="table_td size">270</td>
+                                                                            <td class="table_td align_right price">229,000원</td>
+                                                                            <td class="table_td align_right createdAt"><time>22/12/22</time></td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td class="table_td">250</td>
@@ -725,7 +726,7 @@
                                                                                     <div class="list_txt price">218,000원</div>
                                                                                     <div class="list_txt is_active createdAt"><time>22/12/31</time></div>
                                                                                 </div>
-                                                                        </div>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                     <!---->
@@ -1451,4 +1452,77 @@
         </div>
 </body>
     <script src="/js/product/product.js"></script>
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        let conclusion = [[${conclusion}]];
+        // console.log(conclusion);
+
+        // x축 (체결날짜)
+        let labels = [];
+        for(let key in conclusion) {
+            labels.push(conclusion[key].createdAt.replace("T00:00:00",""));
+        }
+        // console.log(labels);
+
+        // y축 (가격)
+        let data = [];
+        for(let key in conclusion) {
+            data.push(conclusion[key].price.replace(",","").replace("원",""));
+        }
+        // console.log(data);
+
+        let ctx = document.getElementById("graph1m").getContext("2d");
+        let myChart = new Chart(ctx, {
+            type: "line",
+            data: {
+                labels: labels, // x축
+                datasets: [{
+                    // label: "시세",
+                    data: data, // y축
+                    backgroundColor: 'rgb(206,39,35)', // 차트 배경 색
+                    borderColor: 'rgb(206,39,35)', // 라인 색
+                    borderWidth: 1, // 라인 넓이
+                    pointRadius: 0 // 포인터 없애기
+                }]
+            },
+            options: {
+                responsive: false,
+                // tooltips: {
+                //     callbacks: {
+                //         label: function(tooltipItem, data) {
+                //             let label = data.datasets[tooltipItem.datasetIndex].label;
+                //             label += (tooltipItem.yLabel) + "won";
+                //             return label;
+                //         }
+                //     }
+                // },
+                scales: {
+                    xAxes:{
+                        ticks: {
+                            display : false // x축 라벨 숨김
+                        },
+                        grid: {
+                            display: false // x축 눈금선 숨김
+                        }
+                    },
+                    yAxes: {
+                        beginAtZero: true, // y축 0부터 시작
+                        position: 'right', // 축 라벨이 왼쪽에 표시될지, 오른쪽에 표시될지 정함
+                        grid: {
+                            display: false // y축 눈금선 숨김
+                        }
+                    },
+                },
+                plugins: {
+                    datalabels: {
+                        display: false
+                    },
+                    legend: {
+                        display: false // 라벨 없애기(그래프제목)
+                    }
+                },
+            },
+        });
+        /*]]>*/
+    </script>
 </html>

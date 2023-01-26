@@ -3,9 +3,9 @@
     <attr sel=".feed">
         <attr sel=".social_post_detail" th:each="detail : ${feed}">
             <attr sel=".social_user_state">
-                <attr sel=".profile_img_box/img" th:src="${detail.member.imgUrl}"/>
+                <attr sel=".profile_img_box/img" th:src="${detail.memberDTO.imgUrl}"/>
                 <attr sel=".profile_info">
-                    <attr sel=".user_name" th:text="${detail.member.nickname}"/>
+                    <attr sel=".user_name" th:text="${detail.memberDTO.nickname}"/>
                     <attr sel=".upload_time/time" th:datetime="${detail.createdAt}" th:text="${#temporals.format(detail.createdAt, 'yyyy년 MM월 dd일')}"/>
                 </attr>
             </attr>
@@ -13,6 +13,30 @@
                 <attr sel=".img_box/img" th:src="${detail.img}"/>
             </attr>
 
+            <attr sel=".social_product">
+                <attr sel=".product_num_container">
+                    <attr sel=".product_title">
+                        <attr sel=".title_txt/strong" th:text="${detail.tags.size()}"/>
+                    </attr>
+                </attr>
+                <attr sel="ul.product_list">
+                    <attr sel="li.product_item" th:each="tag : ${detail.tags}">
+                        <attr sel="a.product_link">     <!-- !!!!!!!!!!!!!!!수정!!!!!!!!!!!!!!!-->
+                            <attr sel=".product">
+                                <attr sel="picture.product_img/img" th:src="${tag.productDTO.img}"/>
+                            </attr>
+                            <attr sel=".product_desc">
+                                <attr sel=".product_name" th:text="${tag.productDTO.name}"/>
+                                <attr sel=".price_box">
+                                    <attr sel=".amount" th:text="${tag.productDTO.firstPrice}"/><!-- !!!!!!!!!!!!!!!수정!!!!!!!!!!!!!!!-->
+                                </attr>
+                            </attr>
+                        </attr>
+                    </attr>
+
+                </attr>
+
+            </attr>
             <attr sel="#comment_img" th:onclick="'javascript:comment_more(' + ${detail.idx} + ',' + ${sessionUser.idx} + ');'"/>
             <attr sel=".social_count" th:onclick="'javascript:pop_like('+ ${detail.idx} + ');'">
                 <attr sel="#like_cnt" th:text="${detail.lks.size()}" th:onclick="'javascript:pop_like('+ ${detail.idx} + ');'"/>
@@ -20,8 +44,8 @@
 
             <attr sel=".social_text">
                 <attr sel=".text" th:text="${detail.content}">
-                    <attr sel="layer_board_hashtag" th:text="${detail.hashtag}"/>
                 </attr>
+                <attr sel=".hashtag/p" th:text="'#' + ${detail.hashtag}"/>
             </attr>
 
             <attr sel=".social_comment">
@@ -30,10 +54,10 @@
                     <attr sel=".comment_list">
                         <attr sel=".comment_unit" th:each="comment : ${detail.replies}">
                             <attr sel=".comment_box">
-                                <attr sel=".profile_link/img" th:src="${comment.member.imgUrl}"/>
+                                <attr sel=".profile_link/img" th:src="${comment.memberDTO.imgUrl}"/>
                                 <attr sel=".comment_detail">
                                     <attr sel=".main">
-                                        <attr sel=".user_name" th:text="${comment.member.nickname}"/>
+                                        <attr sel=".user_name" th:text="${comment.memberDTO.nickname}"/>
                                         <attr sel=".comment_txt" th:text="${comment.content}"/>
                                     </attr>
                                     <attr sel=".sub">

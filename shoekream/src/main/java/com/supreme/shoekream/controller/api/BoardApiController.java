@@ -36,9 +36,10 @@ public class BoardApiController {
         return board;
     }
 
-    @GetMapping("/comments_more/getSessionUser/{idx}")
-    public MemberDTO getSessionUser(@PathVariable(name="idx") Long idx){
-        MemberDTO sessionUser = styleLogicService.getMember(idx);
+//    @GetMapping("/comments_more/getSessionUser/{idx}")
+    @GetMapping("/comments_more/getSessionUser")
+    public MemberDTO getSessionUser(@AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        MemberDTO sessionUser = kreamPrincipal.toFullDto();
         return sessionUser;
     }
 
@@ -53,11 +54,33 @@ public class BoardApiController {
         styleLogicService.delete(idx);
     }
 
+    @DeleteMapping("/comment_delete/{replyIdx}")
+    public void comment_delete(@PathVariable(name = "replyIdx") Long replyIdx){
+        styleLogicService.comment_delete(replyIdx);
+    }
+
+
     @PostMapping("/comment_create")
     public Header<ReplyDTO> create(@RequestBody Header<ReplyApiRequest> request, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
-        System.out.println(request.getData());
+//        System.out.println(request.getData());
         ReplyApiRequest replyApiRequest = request.getData();
         ReplyDTO replyDTO = replyApiRequest.toDTO(kreamPrincipal.toFullDto());
         return styleLogicService.createReply(replyDTO);
     }
+
+    @GetMapping("/trend")
+    public List<BoardDTO> trend(){
+        return styleLogicService.trendList();
+    }
+
+    @GetMapping("/newest")
+    public List<BoardDTO> newest(){
+        return styleLogicService.newest();
+    }
+
+    @GetMapping("/myprofile")
+    public MemberDTO myprofile(@AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        return kreamPrincipal.toFullDto();
+    }
+
 }

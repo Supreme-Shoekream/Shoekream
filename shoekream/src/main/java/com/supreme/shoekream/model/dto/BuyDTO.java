@@ -30,7 +30,7 @@ import java.time.LocalDateTime;
  * @param createdAt : 거래날짜
  * @param progress : 진행상황(채결됬을때 표시할 내용)
  * @param status : 상태(입찰중/진행중/종료)
- * @param sellDTO : 채결된 판매건 DTO
+ * @param sellIdx : 채결된 판매건 idx
  */
 public record BuyDTO(
          Long idx,
@@ -48,30 +48,56 @@ public record BuyDTO(
          LocalDateTime createdAt,
          Progress progress,
          OrderStatus status,
-         SellDTO sellDTO
+         Long sellIdx
 ) {
     // 값 전달용
     public static BuyDTO of(Long idx, ProductDTO productDTO, MemberDTO memberDTO, Type type, Long price, int period,
                             int usePoint, String cardInfo, String receiver, String receiverHp,
                             String receiverAddress, String deliveryMemo, LocalDateTime createdAt,
-                            Progress progress, OrderStatus status, SellDTO sellDTO){
+                            Progress progress, OrderStatus status, Long sellIdx){
         return new BuyDTO(idx, productDTO, memberDTO, type, price, period, usePoint,cardInfo,receiver
-        ,receiverHp,receiverAddress,deliveryMemo,createdAt,progress,status,sellDTO);
+        ,receiverHp,receiverAddress,deliveryMemo,createdAt,progress,status,sellIdx);
     }
 
     // create,update용 of
-
+    public static BuyDTO of(ProductDTO productDTO, MemberDTO memberDTO, Type type, Long price, int period,
+                            int usePoint, String cardInfo, String receiver, String receiverHp,
+                            String receiverAddress, String deliveryMemo, LocalDateTime createdAt,
+                            Progress progress, OrderStatus status, Long sellIdx){
+        return new BuyDTO(null, productDTO, memberDTO, type, price, period, usePoint,cardInfo,receiver
+                ,receiverHp,receiverAddress,deliveryMemo,createdAt,progress,status,sellIdx);
+    }
 
     // from: 엔티티를 DTO로 만들어주는 과정
     public static BuyDTO fromEntity(Buy entity){
+        if(entity.getSell() == null){
+            return new BuyDTO(
+                    entity.getIdx(),
+                    ProductDTO.fromEntity(entity.getProduct()),
+                    MemberDTO.fromEntity(entity.getMember()),
+                    entity.getType(),
+                    entity.getPrice(),
+                    entity.getPeriod(),
+                    entity.getUsePoint(),
+                    entity.getCardInfo(),
+                    entity.getReceiver(),
+                    entity.getReceiverHp(),
+                    entity.getReceiverAddress(),
+                    entity.getDeliveryMemo(),
+                    entity.getCreatedAt(),
+                    entity.getProgress(),
+                    entity.getStatus(),
+                    null
+            );
+        }
         return new BuyDTO(
                 entity.getIdx(),
                 ProductDTO.fromEntity(entity.getProduct()),
                 MemberDTO.fromEntity(entity.getMember()),
                 entity.getType(),
                 entity.getPrice(),
-                entity.getUsePoint(),
                 entity.getPeriod(),
+                entity.getUsePoint(),
                 entity.getCardInfo(),
                 entity.getReceiver(),
                 entity.getReceiverHp(),
@@ -80,10 +106,13 @@ public record BuyDTO(
                 entity.getCreatedAt(),
                 entity.getProgress(),
                 entity.getStatus(),
-                SellDTO.fromEntity(entity.getSell())
+                entity.getSell().getIdx()
         );
     }
 
     // create,update용 toEntity
-
+    public Buy toEntity(Product product, Member member, Sell sell){
+        return Buy.of(product,member,type,price,usePoint,period,cardInfo,receiver,
+                receiverHp,receiverAddress,deliveryMemo,createdAt,progress,status,sell);
+    }
 }

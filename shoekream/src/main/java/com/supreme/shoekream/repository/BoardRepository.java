@@ -1,5 +1,6 @@
 package com.supreme.shoekream.repository;
 
+import com.supreme.shoekream.model.dto.socialDTO.BoardDTO;
 import com.supreme.shoekream.model.entity.Board;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
@@ -9,6 +10,6 @@ import java.util.Optional;
 public interface BoardRepository extends JpaRepository<Board, Long> {
     List<Board> findAllByMemberIdx(Long memberIdx);
     Board findByIdx(Long idx);
+//    List<Board> findAllOrderByCreatedAtAsc();
 
-//    List<Board> findTopByLk
 }

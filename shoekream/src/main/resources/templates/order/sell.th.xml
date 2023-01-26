@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<thlogic>
+    <attr sel=".sell_immediate" th:object ="${product.data}">
+        <attr sel=".product_img" th:src="*{img}"></attr>
+        <attr sel=".model_number" th:text="*{ModelNum}"></attr>
+        <attr sel=".model_title" th:text="*{name}"></attr>
+        <attr sel=".model_ko" th:text="*{nameKor}"></attr>
+        <attr sel=".size_txt" th:text="*{size}"></attr>
+        <attr sel=".product_idx" th:text="*{idx}"></attr>
+    </attr>
+    <attr sel=".price_list">
+        <attr sel="li[0]/span[0]" th:text="${buyNowPrice}"/>
+        <attr sel="li[1]/span[0]" th:text="${sellNowPrice}"/>
+    </attr>
+    <attr sel=".price_now_box">
+        <attr sel="#now_price" th:text="${sellNowPrice}"/>
+    </attr>
+
+    <attr sel=".account_info">
+        <attr sel="div[0]/dt" th:text="${member.bank} !=null ? '계좌' : ''"/>
+        <attr sel="div[0]/dd" th:text="${member.bank} !=null ? ${member.bank}+' '+${member.accountNumber} : '등록된 판매 정산 계좌가 없습니다.'" />
+        <attr sel="div[1]/dt" th:text="${member.bank} !=null ? '예금주' : ''"/>
+        <attr sel="div[1]/dd" th:text="${member.bank} !=null ? ${member.name} : '새 계좌번호를 추가해주세요!'" />
+    </attr>
+    <attr sel="#account_btn" th:text="${member.bank} !=null ? '변경' : '등록'"/>
+    <attr sel=".step-3">
+        <attr sel=".image" th:src="${product.data.img}"></attr>
+    </attr>
+
+</thlogic>

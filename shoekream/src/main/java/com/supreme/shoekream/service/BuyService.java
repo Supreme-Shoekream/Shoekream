@@ -1,14 +1,17 @@
 package com.supreme.shoekream.service;
 
 
-import com.supreme.shoekream.model.dto.BuyDTO;
-import com.supreme.shoekream.model.entity.Buy;
-import com.supreme.shoekream.model.entity.Member;
-import com.supreme.shoekream.model.entity.Product;
+import com.supreme.shoekream.model.dto.*;
+import com.supreme.shoekream.model.entity.*;
 import com.supreme.shoekream.model.enumclass.OrderStatus;
-import com.supreme.shoekream.repository.BuyRepository;
-import com.supreme.shoekream.repository.MemberRepository;
-import com.supreme.shoekream.repository.ProductRepository;
+
+import com.supreme.shoekream.model.enumclass.Progress;
+import com.supreme.shoekream.model.enumclass.SellProgress;
+import com.supreme.shoekream.model.network.Header;
+import com.supreme.shoekream.model.network.response.BuyListResponse;
+import com.supreme.shoekream.model.network.response.BuyResponse;
+import com.supreme.shoekream.repository.*;
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -20,6 +23,7 @@ import javax.persistence.EntityNotFoundException;
 
 import java.text.DecimalFormat;
 import java.util.List;
+import java.util.Optional;
 
 import static java.time.LocalDateTime.now;
 
@@ -28,10 +32,13 @@ import static java.time.LocalDateTime.now;
 @RequiredArgsConstructor
 @Service
 public class BuyService {
+    private final SellRepository sellRepository;
 
     private final BuyRepository buyRepository;
     private final MemberRepository memberRepository;
     private final ProductRepository productRepository;
+    private final PointRepository pointRepository;
+    private final ConclusionRepository conclusionRepository;
 
     //관리자페이지에서 구매내역 리스트
     @Transactional(readOnly = true)
@@ -40,7 +47,7 @@ public class BuyService {
             return buyRepository.findAll(pageable).map(BuyDTO::fromEntity);
         }
         //아직 검색구현 안함: 사용자 email or product 이름
-        return null;
+        return buyRepository.findByMember_EmailContaining(searchKeyword, pageable).map(BuyDTO::fromEntity);
     }
 
     //구매내역 상세페이지 or 관리자페이지 구매 상세 레이어창
@@ -53,10 +60,11 @@ public class BuyService {
 
     //사용자의 구매내역 리스트
     @Transactional(readOnly = true)
-    public List<BuyDTO> myBuyList(Long memberIdx){
+    public List<BuyListResponse> myBuyList(Long memberIdx){
         Member member = memberRepository.findById(memberIdx).get();
+        System.out.println(buyRepository.findByMember(member));
         return buyRepository.findByMember(member)
-                .stream().map(BuyDTO::fromEntity).toList();
+                .stream().map(BuyListResponse::from).toList();
     }
 
     //사용자의 구매내역 (입찰/진행중/종료)에 따라 리스트 출력 필요할 때
@@ -77,7 +85,105 @@ public class BuyService {
             DecimalFormat format = new DecimalFormat("###,###");
             return format.format(price.getPrice());
         }
+    }
 
+    public ProductDTO findProduct(Long productIdx){
+        return ProductDTO.fromEntity(productRepository.findById(productIdx).get());
+    }
+
+    public SellDTO matching(Long productIdx , Long price){
+        Product product = productRepository.findById(productIdx).get();
+        Sell matchingSell = sellRepository.findFirstByProductAndPriceOrderByCreatedAtAsc(product, price);
+        if(matchingSell == null){
+            return null;
+        }else{
+            return SellDTO.fromEntity(matchingSell);
+        }
+    }
+
+
+    public Header<BuyDTO> create(BuyDTO buyDTO){
+        Product product = productRepository.findById(buyDTO.productDTO().idx()).get();
+        Member member = memberRepository.findById(buyDTO.memberDTO().idx()).get();
+        BuyDTO response;
+        // sell != null -> 판매자 progress null->0(발송요청), status 0->1(진행중) update + 채결내역 등록
+        if(buyDTO.sellIdx() == null){
+            Buy newBuy = buyRepository.save(buyDTO.toEntity(product,member,null));
+            System.out.println("입찰💨💨"+newBuy);
+            response = BuyDTO.fromEntity(newBuy);
+        }else{
+            Sell sell = sellRepository.findById(buyDTO.sellIdx()).get();
+            sell.setProgress(SellProgress.SHIPMENT_REQUEST);
+            sell.setStatus(OrderStatus.PROGRESSING);
+            Buy newBuy = buyRepository.save(buyDTO.toEntity(product,member,sell));
+            System.out.println("즉시💨💨"+newBuy);
+            sell.setBuy(newBuy);
+            response = BuyDTO.fromEntity(newBuy);
+//            ConclusionDTO conclusionDTO = ConclusionDTO.of();
+//            conclusionRepository.save(conclusionDTO.toEntity());
+        }
+
+        // buyDTO.usepoint != 0 -> 포인트 테이블에 등록 + 사용자가 사용한 포인트 만큼 차감
+        if(buyDTO.usePoint() != 0){
+//            PointDTO pointDTO = PointDTO.of(...);
+//            pointRepository.save(pointDTO.toEntity(member));
+            member.setPoint(member.getPoint()- buyDTO.usePoint());
+        }
+        return Header.OK(response);
+    }
+
+    public Header delete(Long idx){
+        Optional<Buy> buys = buyRepository.findById(idx);
+        return buys.map(buy ->{
+            buyRepository.delete(buy);
+            return Header.OK();
+        }).orElseGet(() -> Header.ERROR("데이터 없음"));
+    }
+
+    public Header<BuyDTO> update(Long idx, Progress progress){
+        Optional<Buy> buys = buyRepository.findById(idx);
+        if(progress == Progress.DELIVERY_COMPLETE){
+            return buys.map(
+                    buy -> {
+                        buy.setProgress(progress);
+                        buy.setStatus(OrderStatus.END);
+                        buy.getSell().setProgress(SellProgress.CALCULATE_COMPLETE);
+                        buy.getSell().setStatus(OrderStatus.END);
+                        return buy;
+                    }).map(buy -> buyRepository.save(buy))
+                    .map(buy -> BuyDTO.fromEntity(buy))
+                    .map(Header::OK)
+                    .orElseGet(()->Header.ERROR("데이터 없음"));
+        }else if(progress == Progress.EXAMINATION_PASS){
+            return buys.map(
+                            buy -> {
+                                buy.setProgress(progress);
+                                buy.getSell().setProgress(SellProgress.EXAMINATION_PASS);
+                                return buy;
+                            }).map(buy -> buyRepository.save(buy))
+                    .map(buy -> BuyDTO.fromEntity(buy))
+                    .map(Header::OK)
+                    .orElseGet(()->Header.ERROR("데이터 없음"));
+        }else if(progress == Progress.RECEIVING_COMPLETE){
+            return buys.map(
+                            buy -> {
+                                buy.setProgress(progress);
+                                buy.getSell().setProgress(SellProgress.RECEIVING_COMPLETE);
+                                return buy;
+                            }).map(buy -> buyRepository.save(buy))
+                    .map(buy -> BuyDTO.fromEntity(buy))
+                    .map(Header::OK)
+                    .orElseGet(()->Header.ERROR("데이터 없음"));
+        }else{
+            return buys.map(
+                            buy -> {
+                                buy.setProgress(progress);
+                                return buy;
+                            }).map(buy -> buyRepository.save(buy))
+                    .map(buy -> BuyDTO.fromEntity(buy))
+                    .map(Header::OK)
+                    .orElseGet(()->Header.ERROR("데이터 없음"));
+        }
     }
 
 

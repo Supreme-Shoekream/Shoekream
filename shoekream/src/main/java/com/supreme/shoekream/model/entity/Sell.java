@@ -39,7 +39,7 @@ public class Sell {
     @Setter private SellProgress progress; // 진행 상황(발송완료/입고완료/검수합격/검수불합격(거래실패)/정산완료/취소완료)
     @Setter private OrderStatus status; // 구매 상태(입찰중/기한만료/진행중/종료)
 
-    @OneToOne(mappedBy = "sell") private Buy buy;
+    @Setter @OneToOne(mappedBy = "sell") private Buy buy;
 
 
     protected Sell(){}
@@ -47,7 +47,8 @@ public class Sell {
     public Sell(Product product, Member member, Type type, Long price,
                        int period, String cardInfo, String accountInfo,
                        String sender, String senderHp, String senderAddress,
-                       String deliveryMemo, LocalDateTime createdAt){
+                       String deliveryMemo, LocalDateTime createdAt,
+                SellProgress progress, OrderStatus status, Buy buy){
         this.product=product;
         this.member=member;
         this.type=type;
@@ -60,13 +61,17 @@ public class Sell {
         this.senderAddress=senderAddress;
         this.deliveryMemo=deliveryMemo;
         this.createdAt=createdAt;
+        this.progress=progress;
+        this.status=status;
+        this.buy=buy;
     }
 
     public static Sell of(Product product, Member member, Type type, Long price,
                           int period, String cardInfo, String accountInfo,
                           String sender, String senderHp, String senderAddress,
-                          String deliveryMemo, LocalDateTime createdAt){
+                          String deliveryMemo, LocalDateTime createdAt,
+                          SellProgress progress, OrderStatus status, Buy buy){
         return new Sell(product,member,type,price,period,cardInfo,accountInfo,sender,senderHp
-        ,senderAddress,deliveryMemo,createdAt);
+        ,senderAddress,deliveryMemo,createdAt,progress,status,buy);
     }
 }

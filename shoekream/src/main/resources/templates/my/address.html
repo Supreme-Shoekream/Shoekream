@@ -465,7 +465,7 @@
             const createZipcode = document.querySelector('#sample6_postcode');
             const createAddress1 = document.querySelector('#sample6_address');
             const createAddress2 = document.querySelector('#sample6_detailAddress')
-            const createAddressBasic = document.querySelector('#check1');
+            const createAddressBasic = document.querySelector('#check1').checked;
             fetch('http://localhost:8989/api/my/address', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -479,7 +479,7 @@
                         "zipcode": `${createZipcode.value}`,
                         "address1": `${createAddress1.value}`,
                         "address2": `${createAddress2.value}`,
-                        "addressBasic": true
+                        "addressBasic": `${createAddressBasic}`
                     }
                 }),
             }).then((res)=>{

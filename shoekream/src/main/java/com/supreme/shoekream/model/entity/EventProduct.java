@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 public class EventProduct {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) private Long idx;
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name="product_idx")
     private Product product;
     private String title;

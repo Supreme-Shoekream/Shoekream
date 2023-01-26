@@ -31,7 +31,7 @@
                 <div class="social_header">
                     <div id="mini" style="display: none;">
                         <div class="profile_img_box"><img src="/img/kream_empty_img.png" alt="8izhs1"
-                                class="profile_img"></div>
+                                class="profile_img" id="profile_img_mini"></div>
                         <p class="user_name_mini">8izhs1</p>
                     </div>
                 </div>
@@ -41,9 +41,9 @@
                     <div class="social_user_area">
                         <div class="user_top">
                             <div class="profile_img_box"><img src="/img/kream_empty_img.png" alt="KREAM 프로필 이미지"
-                                    class="profile_img"></div>
+                                    class="profile_img" id="profile_img_main"></div>
                             <div class="profile_info_box">
-                                <p class="user_name"> 8izhs1<!----></p><!---->
+                                <p class="user_name"> 8izhs1</p>
                             </div>
                         </div>
                         <div class="user_explain">
@@ -536,6 +536,7 @@
 
     <script src="/js/social/like.js"></script>
     <script src="/js/social/profile.js"></script>
+    <script src="/js/social/myprofile.js"></script>
 
     <script>
         console.log(scrollY);
@@ -556,13 +557,3 @@
 
 </html>
 
-<script>
-    window.onload = function(){
-        const items = document.querySelectorAll('gnb_item');
-        items.forEach((it) => {
-            it.classList.remove('gnb_on');
-        })
-        const item = document.getElementById('st_gnb');
-        item.classList.add('gnb_on');
-    }
-</script>
