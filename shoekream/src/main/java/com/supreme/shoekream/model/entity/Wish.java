@@ -18,17 +18,14 @@ public class Wish {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY) private Long idx;
 
-//    private LocalDateTime createdAt;
-
     @ManyToOne
     @JoinColumn(name="member_idx")
     private Member member;
 
-//    @ManyToOne
-//    @JoinColumn(name="product_idx")
-//    private Product product;
+    @ManyToOne
+    @JoinColumn(name="product_idx")
+    private Product product;
 
-    private Long productIdx;
 
-//    private String size;
+
 }

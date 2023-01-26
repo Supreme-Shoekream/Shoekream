@@ -26,7 +26,7 @@ public class QWish extends EntityPathBase<Wish> {
 
     public final QMember member;
 
-    public final NumberPath<Long> productIdx = createNumber("productIdx", Long.class);
+    public final QProduct product;
 
     public QWish(String variable) {
         this(Wish.class, forVariable(variable), INITS);
@@ -47,6 +47,7 @@ public class QWish extends EntityPathBase<Wish> {
     public QWish(Class<? extends Wish> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
         this.member = inits.isInitialized("member") ? new QMember(forProperty("member")) : null;
+        this.product = inits.isInitialized("product") ? new QProduct(forProperty("product")) : null;
     }
 
 }
