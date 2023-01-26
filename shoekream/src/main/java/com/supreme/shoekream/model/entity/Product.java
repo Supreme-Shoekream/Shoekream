@@ -33,6 +33,7 @@ public class Product {
     private String category; // 카테고리
     private String gender; // 성별(남자,여자)
     private String collection; // 컬렉션(메인페이지)
+    @OneToOne(mappedBy = "product") private EventProduct eventProduct;
 
 //    private LocalDateTime reg_date; // 등록한 날짜
 //    private String createBy; // 등록한 관리자
@@ -48,8 +49,8 @@ public class Product {
 //    private final Set<Conclusion> conclusions = new LinkedHashSet<>();
 
 
-    public static Product of(Long idx, String img, String brand, String name, String nameKor, String size, String modelNum, String releaseDate, String color, String firstPrice, String category, String gender, String collection ){
-        return new Product(idx, img, brand, name, nameKor, size, modelNum, releaseDate, color, firstPrice, category, gender, collection);
+    public static Product of(Long idx, String img, String brand, String name, String nameKor, String size, String modelNum, String releaseDate, String color, String firstPrice, String category, String gender, String collection, EventProduct eventProduct ){
+        return new Product(idx, img, brand, name, nameKor, size, modelNum, releaseDate, color, firstPrice, category, gender, collection, eventProduct);
     }
 
 }
