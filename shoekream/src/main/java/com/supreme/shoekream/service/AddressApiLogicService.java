@@ -7,11 +7,13 @@ import com.supreme.shoekream.model.entity.Member;
 import com.supreme.shoekream.model.network.Header;
 import com.supreme.shoekream.model.network.security.KreamPrincipal;
 import com.supreme.shoekream.repository.AddressRepository;
+import com.supreme.shoekream.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,7 +23,7 @@ import java.util.Optional;
 @Transactional
 public class AddressApiLogicService {
     private final AddressRepository addressRepository;
-
+    private final MemberRepository memberRepository;
     @Transactional
     public List<Address> list(Long memberIdx, boolean isBasic){
         List<Address> addressList = addressRepository.findByMemberIdxAndAddressBasic(memberIdx, isBasic);
@@ -38,30 +40,24 @@ public class AddressApiLogicService {
     }
 
     @Transactional
-    public Header<Address> update(Header<Address> request) {
-        Address addressRequest = request.getData();
-        Optional<Address> address = addressRepository.findByIdx(11L);
-        // 세션처리
-        return address.map(
-                        addr -> {
-                            addr.setName(addressRequest.getName());
-                            addr.setHp(addressRequest.getHp());
-                            addr.setZipcode(addressRequest.getZipcode());
-                            addr.setAddress1(addressRequest.getAddress1());
-                            addr.setAddress2(addressRequest.getAddress2());
-                            addr.setAddressBasic(addressRequest.isAddressBasic());
-                            return addr;
-                        }).map(addr -> addressRepository.save(addr))
-                .map(Header::OK)
-                .orElseGet(() -> Header.ERROR("데이터 없음")
-                );
+    public Header<AddressDTO> update(AddressDTO dto, Long idx) {
+        try{
+            Address address = addressRepository.findByIdx(idx);
+            if(dto.name() != null){address.setName(dto.name());}
+            if(dto.hp() != null){address.setHp(dto.hp());}
+            if(dto.zipcode() != null){address.setZipcode(dto.zipcode());}
+            if(dto.address1() != null){address.setAddress1(dto.address1());}
+            if(dto.address2() != null){address.setAddress2(dto.address2());}
+            address.setAddressBasic(dto.addressBasic());
+        }catch (EntityNotFoundException e){
+
+        }
+        return Header.OK();
     }
+
     @Transactional
-    public Header delete(Long idx) {
-        Optional<Address> address = addressRepository.findByIdx(idx);
-        return address.map(addr -> {
-            addressRepository.delete(addr);
-            return Header.OK();
-        }).orElseGet(() -> Header.ERROR("데이터 없음"));
+    public void delete(Long idx) {
+        Address address = addressRepository.findByIdx(idx);
+        addressRepository.delete(address);
     }
 }
