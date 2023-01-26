@@ -6,6 +6,8 @@
             <attr sel="p.brand-text" th:text="${justDrop.brand}"/>
             <attr sel="p.name" th:text="${justDrop.name}"/>
             <attr sel="em.num" th:text="${justDroptbuynowPrices[i.index]}"/>
+            <attr sel=".product_idx" th:value="${justDrop.idx}"/>
+
         </attr>
     </attr>
 
@@ -15,7 +17,10 @@
             <attr sel="p.brand-text" th:text="${mostPopular.brand}"/>
             <attr sel="p.name" th:text="${mostPopular.name}"/>
             <attr sel="em.num" th:text="${mostPopularbuynowPrices[i.index]}"/>
+            <attr sel=".product_idx" th:value="${mostPopular.idx}"/>
+
         </attr>
+
     </attr>
     <attr sel="#newin_product" th:remove="all-but-first">
         <attr sel=".newin_product" th:each="newIn ,i: ${newIn}">
@@ -23,6 +28,7 @@
             <attr sel="p.brand-text" th:text="${newIn.brand}"/>
             <attr sel="p.name" th:text="${newIn.name}"/>
             <attr sel="em.num" th:text="${newInbuynowPrices[i.index]}"/>
+            <attr sel=".product_idx" th:value="${newIn.idx}"/>
         </attr>
     </attr>
     <attr sel="#wisely_product" th:remove="all-but-first">
@@ -31,6 +37,7 @@
             <attr sel="p.brand-text" th:text="${shoppingWisely.brand}"/>
             <attr sel="p.name" th:text="${shoppingWisely.name}"/>
             <attr sel="em.num" th:text="${shoppingWiselybuynowPrices[i.index]}"/>
+            <attr sel=".product_idx" th:value="${shoppingWisely.idx}"/>
         </attr>
     </attr>
     <attr sel="#brandmd_product" th:remove="all-but-first">
@@ -39,6 +46,7 @@
             <attr sel="p.brand-text" th:text="${brandMdPicks.brand}"/>
             <attr sel="p.name" th:text="${brandMdPicks.name}"/>
             <attr sel="em.num" th:text="${brandMdPicksbuynowPrices[i.index]}"/>
+            <attr sel=".product_idx" th:value="${brandMdPicks.idx}"/>
         </attr>
     </attr>
     <attr sel="#simple_product" th:remove="all-but-first">
@@ -47,6 +55,7 @@
             <attr sel="p.brand-text" th:text="${simpleChic.brand}"/>
             <attr sel="p.name" th:text="${simpleChic.name}"/>
             <attr sel="em.num" th:text="${simpleChicbuynowPrices[i.index]}"/>
+            <attr sel=".product_idx" th:value="${simpleChic.idx}"/>
         </attr>
     </attr>
     <attr sel="#collabs_product" th:remove="all-but-first">
@@ -55,6 +64,7 @@
             <attr sel="p.brand-text" th:text="${bestApprelCollabs.brand}"/>
             <attr sel="p.name" th:text="${bestApprelCollabs.name}"/>
             <attr sel="em.num" th:text="${bestApprelCollabsbuynowPrices[i.index]}"/>
+            <attr sel=".product_idx" th:value="${bestApprelCollabs.idx}"/>
         </attr>
     </attr>
     <attr sel="#newlowest_product" th:remove="all-but-first">
@@ -63,6 +73,7 @@
             <attr sel="p.brand-text" th:text="${newLowestAsks.brand}"/>
             <attr sel="p.name" th:text="${newLowestAsks.name}"/>
             <attr sel="em.num" th:text="${newLowestAsksbuynowPrices[i.index]}"/>
+            <attr sel=".product_idx" th:value="${newLowestAsks.idx}"/>
         </attr>
     </attr>
     <attr sel="#newhighest_product" th:remove="all-but-first">
@@ -71,6 +82,7 @@
             <attr sel="p.brand-text" th:text="${newHighestBids.brand}"/>
             <attr sel="p.name" th:text="${newHighestBids.name}"/>
             <attr sel="em.num" th:text="${newHighestBidsbuynowPrices[i.index]}"/>
+            <attr sel=".product_idx" th:value="${newHighestBids.idx}"/>
         </attr>
     </attr>
     <attr sel="#coming" th:remove="all-but-first">
@@ -78,6 +90,7 @@
             <attr sel="img.upcomingRelease_img" th:src="${upcomingRelease.img}"/>
             <attr sel="p.brand-text" th:text="${upcomingRelease.brand}"/>
             <attr sel="p.name" th:text="${upcomingRelease.name}"/>
+            <attr sel=".product_idx" th:value="${upcomingRelease.idx}"/>
         </attr>
     </attr>
     <attr sel="#bestcol_product" th:remove="all-but-first">
@@ -86,6 +99,7 @@
             <attr sel="p.brand-text" th:text="${bestCollectibles.brand}"/>
             <attr sel="p.name" th:text="${bestCollectibles.name}"/>
             <attr sel="em.num" th:text="${bestCollectiblesbuynowPrices[i.index]}"/>
+            <attr sel=".product_idx" th:value="${bestCollectibles.idx}"/>
         </attr>
     </attr>
     <attr sel="#jew_product" th:remove="all-but-first">
@@ -94,6 +108,7 @@
             <attr sel="p.brand-text" th:text="${bestJewelryWatches.brand}"/>
             <attr sel="p.name" th:text="${bestJewelryWatches.name}"/>
             <attr sel="em.num" th:text="${bestJewelryWatchesbuynowPrices[i.index]}"/>
+            <attr sel=".product_idx" th:value="${bestJewelryWatches.idx}"/>
         </attr>
     </attr>
     <attr sel="#camping_product" th:remove="all-but-first">
@@ -102,6 +117,7 @@
             <attr sel="p.brand-text" th:text="${bestCampingGear.brand}"/>
             <attr sel="p.name" th:text="${bestCampingGear.name}"/>
             <attr sel="em.num" th:text="${bestCampingGearbuynowPrices[i.index]}"/>
+            <attr sel=".product_idx" th:value="${bestCampingGear.idx}"/>
         </attr>
     </attr>
     <attr sel="#sc_slider_div" th:remove="all-but-first">

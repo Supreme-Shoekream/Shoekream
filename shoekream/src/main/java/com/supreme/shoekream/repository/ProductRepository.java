@@ -18,7 +18,6 @@ public interface ProductRepository extends JpaRepository<Product, Long>, Queryds
 
     List<Product> findByOrderByIdxDesc();
     List<Product> findByCollection(String collection);
-
     Page<Product> findByCategoryContaining (String category, Pageable pageable);
     Page<Product> findByBrandContaining (String brand, Pageable pageable);
     Page<Product> findByCollectionContaining (String collection, Pageable pageable);

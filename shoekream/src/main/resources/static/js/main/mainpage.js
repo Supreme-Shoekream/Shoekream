@@ -225,3 +225,10 @@ function bannerResize(){
     $(".btn_bottom").click(function() {
     $('html').animate({scrollTop : ($('.notice_area').offset().top)}, 10);
 });
+
+
+$(".product_item").click(function() {
+    var idx =  $(this).find(".product_idx").val();
+    location.href = "/product/"+idx
+});
+
