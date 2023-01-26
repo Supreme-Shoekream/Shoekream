@@ -465,38 +465,57 @@
     </script>
 <script>
     // 이벤트종료시점 기록
-    var countDownDate = new Date("January 1, 2023 22:18:00").getTime();
-    
+    var countDownDate = new Date("January 24, 2023 11:48:00").getTime();
+    var countNewDate = new Date("January 24, 2023 12:15:00").getTime(); // 이벤트 시작시간
     var x = setInterval(function() {
-    
-      var now = new Date().getTime();
-      var distance = countDownDate - now;
-        
-      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-  
-  
-      if ( hours < 10 ){hours = "0" + hours; } 
-      else if ( hours > 9 ){ hours = hours; } 
-  
-      if ( minutes < 10 ){minutes = "0" + minutes; } 
-      else if ( minutes > 9 ){ minutes = minutes; } 
-  
-      if ( seconds < 10 ){seconds = "0" + seconds; } 
-      else if ( seconds > 9 ){ seconds = seconds; }  
-      
-      
-  // 타임이벤트 진행 타이머    
-      document.getElementById("timesale").innerHTML = days + "<span class='time_span'>일</span> " + hours + "<span class='time_span'>시간</span> "
-      + minutes + "<span class='time_span'>분</span> " + seconds + "<span class='time_span'>초</span>";
-  // 이벤트 마감시 보여질 문구    
-      if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("timesale").innerHTML = "<div class='endtxt'>CLOSED.</div>";
-      }
+
+        var now = new Date().getTime(); // 현재시간
+
+        var distance1 = countNewDate - now // 시작시간 - 현재시간  >>> 0보다크면 준비중
+        var distance = countDownDate - now; //종료시간 - 현재시간
+
+        // 이벤트 마감시 보여질 문구
+        if(distance1>0){
+            setTimesale(1,"준비중.");
+        }
+        else if (distance < 0) {
+            clearInterval(x);
+            setTimesale(1,"CLOSED.");
+        }
+        else{
+            setTimesale(2,distance);
+        }
     }, 1000);
-    </script>
+
+
+    // cd: 1 param 표기, 2 현재시간 비교
+    function setTimesale(cd, param){
+
+        if(cd = 1){
+            document.getElementById("timesale").innerHTML = "<div class='endtxt'>"+param+"</div>";
+
+        }else if (cd = 2){
+
+            var days = Math.floor(param / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((param % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((param % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((param % (1000 * 60)) / 1000);
+
+
+            if ( hours < 10 ){hours = "0" + hours; }
+            else if ( hours > 9 ){ hours = hours; }
+
+            if ( minutes < 10 ){minutes = "0" + minutes; }
+            else if ( minutes > 9 ){ minutes = minutes; }
+
+            if ( seconds < 10 ){seconds = "0" + seconds; }
+            else if ( seconds > 9 ){ seconds = seconds; }
+
+            // 타임이벤트 진행 타이머
+            document.getElementById("timesale").innerHTML = days + "<span class='time_span'>일</span> " + hours + "<span class='time_span'>시간</span> "
+                + minutes + "<span class='time_span'>분</span> " + seconds + "<span class='time_span'>초</span>";
+        }
+    }
+</script>
 
 </html>
