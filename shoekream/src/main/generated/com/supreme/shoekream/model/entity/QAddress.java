@@ -18,15 +18,7 @@ public class QAddress extends EntityPathBase<Address> {
 
     private static final long serialVersionUID = -648971393L;
 
-
-
     private static final PathInits INITS = PathInits.DIRECT2;
-
-
-
-    private static final PathInits INITS = PathInits.DIRECT2;
-
-
 
     public static final QAddress address = new QAddress("address");
 
@@ -44,11 +36,7 @@ public class QAddress extends EntityPathBase<Address> {
 
     public final NumberPath<Long> idx = createNumber("idx", Long.class);
 
-
-    public final NumberPath<Long> memberIdx = createNumber("memberIdx", Long.class);
-
     public final QMember member;
-
 
     public final DateTimePath<java.time.LocalDateTime> modifiedAt = createDateTime("modifiedAt", java.time.LocalDateTime.class);
 
@@ -57,17 +45,6 @@ public class QAddress extends EntityPathBase<Address> {
     public final StringPath zipcode = createString("zipcode");
 
     public QAddress(String variable) {
-
-        super(Address.class, forVariable(variable));
-    }
-
-    public QAddress(Path<? extends Address> path) {
-        super(path.getType(), path.getMetadata());
-    }
-
-    public QAddress(PathMetadata metadata) {
-        super(Address.class, metadata);
-
         this(Address.class, forVariable(variable), INITS);
     }
 
@@ -86,7 +63,6 @@ public class QAddress extends EntityPathBase<Address> {
     public QAddress(Class<? extends Address> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
         this.member = inits.isInitialized("member") ? new QMember(forProperty("member")) : null;
-
     }
 
 }

@@ -25,9 +25,11 @@ public class AddressApiController {
     }
 
 
-    @PutMapping("")
-    public Header<Address> update(@RequestBody Header<Address> request) {
-        return addressApiLogicService.update(request);
+    @PutMapping("/{idx}")
+    public Header<AddressDTO> update(@RequestBody Header<AddressApiRequest> request, @AuthenticationPrincipal KreamPrincipal kreamPrincipal, @PathVariable(name = "idx")Long idx) {
+        AddressApiRequest addressApiRequest = request.getData();
+        AddressDTO addressDTO = addressApiRequest.toDTO(kreamPrincipal.toFullDto());
+        return addressApiLogicService.update(addressDTO, idx);
     }
 
 

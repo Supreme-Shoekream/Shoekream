@@ -1,21 +1,42 @@
 <thlogic>
-    <attr sel=".basic" th:each="address : ${address}">
-        <attr sel=".my_item">
-            <attr sel=".info_bind">
-                <attr sel=".address_info">
-                    <attr sel=".name_box">
-                        <attr sel=".name" th:text="${address.name}"/>
+    <attr sel="#basic" th:each="basic : ${basic}">
+        <attr sel="#my_item">
+            <attr sel="#info_bind">
+                <attr sel="#address_info">
+                    <attr sel="#name_box">
+                        <attr sel="#name" th:text="${basic.name}"/>
                     </attr>
-                    <attr sel=".phone" th:text="${address.hp}"/>
-                    <attr sel=".address_box">
-                        <attr sel=".zipcode" th:text="'('+${address.zipcode}+')'"/>
-                        <attr sel=".address" th:text="${address.address1} + ${address.address2}"/>
+                    <attr sel="#phone" th:text="${basic.hp}"/>
+                    <attr sel="#address_box">
+                        <attr sel="#zipcode" th:text="'('+${basic.zipcode}+')'"/>
+                        <attr sel="#address" th:text="${basic.address1} + ${basic.address2}"/>
                     </attr>
-                        <attr sel=".mark" th:if="${address.addressBasic}" th:text="기본배송지"/>
+
+                        <attr sel="#mark" th:if="${basic.addressBasic}" th:text="기본배송지"/>
                 </attr>
             </attr>
         </attr>
-        <attr sel="#btn_delete" th:onclick="'javascript:delete_address('+ ${address.idx} + ');'"/>
+        <attr sel="#btn_update" th:onclick="'javascript:openEdit('+ ${basic.idx} + ');'"/>
+        <attr sel="#btn_delete" th:onclick="'javascript:delete_address('+ ${basic.idx} + ');'"/>
+    </attr>
+    <attr sel="#not_basic" th:each="address : ${address}">
+        <attr sel="#my_item2">
+            <attr sel="#info_bind2">
+                <attr sel="#address_info2">
+                    <attr sel="#name_box2">
+                        <attr sel="#name2" th:text="${address.name}"/>
+                    </attr>
+                    <attr sel="#phone2" th:text="${address.hp}"/>
+                    <attr sel="#address_box2">
+                        <attr sel="#zipcode2" th:text="'('+${address.zipcode}+')'"/>
+                        <attr sel="#address2" th:text="${address.address1} + ${address.address2}"/>
+                    </attr>
+                    <attr sel="#mark2" th:if="${address.addressBasic}" th:text="기본배송지"/>
+                </attr>
+            </attr>
+        </attr>
+        <attr sel="#btn_update2" th:onclick="'javascript:openEdit('+ ${address.idx} + ');'"/>
+        <attr sel="#btn_delete2" th:onclick="'javascript:delete_address('+ ${address.idx} + ');'"/>
     </attr>
 </thlogic>
 <!--        add.attribute(memeber,1)/ add.(member,0)-->
