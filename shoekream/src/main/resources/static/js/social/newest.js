@@ -40,7 +40,7 @@ window.onload = function(){
                                                             loading="auto" class="image">
                                                     </picture>
                                                     <p class="user_name">${data[i].memberDTO.nickname}</p><span aria-label="좋아요"
-                                                        role="button" class="btn like">
+                                                        role="button" class="btn like" >
                                                         <img id="like_icon" src="../../img/styleImg/like_icon.png" alt="좋아요 이미지"
                                                             class="icon sprite-icons social-like-gray-sm">
                                                         <span class="like_count">${data[i].lks.length}</span></span>

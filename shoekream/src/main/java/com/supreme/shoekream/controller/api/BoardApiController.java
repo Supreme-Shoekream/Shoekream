@@ -7,6 +7,7 @@ import com.supreme.shoekream.model.entity.Board;
 import com.supreme.shoekream.model.entity.Member;
 import com.supreme.shoekream.model.network.Header;
 import com.supreme.shoekream.model.network.request.ReplyApiRequest;
+import com.supreme.shoekream.model.network.response.BoardWithLikeListResponse;
 import com.supreme.shoekream.model.network.security.KreamPrincipal;
 import com.supreme.shoekream.repository.BoardRepository;
 import com.supreme.shoekream.service.StyleLogicService;
@@ -69,8 +70,9 @@ public class BoardApiController {
     }
 
     @GetMapping("/trend")
-    public List<BoardDTO> trend(){
-        return styleLogicService.trendList();
+    public List<BoardWithLikeListResponse> trend(@AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        MemberDTO member = kreamPrincipal.toFullDto();
+        return styleLogicService.trendList(member);
     }
 
     @GetMapping("/newest")
@@ -83,4 +85,18 @@ public class BoardApiController {
         return kreamPrincipal.toFullDto();
     }
 
+    @GetMapping("/isBoardExist/{memberIdx}")
+    public List<BoardDTO> isBoardExist(@PathVariable(name = "memberIdx") Long memberIdx){
+        return styleLogicService.isBoardExist(memberIdx);
+    }
+
+    @GetMapping("/like/{boardIdx}")
+    public void like(@PathVariable(name = "boardIdx") Long boardIdx, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        styleLogicService.like(boardIdx, kreamPrincipal);
+    }
+
+    @GetMapping("/unlike/{boardIdx}")
+    public void unlike(@PathVariable(name = "boardIdx") Long boardIdx, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        styleLogicService.unlike(boardIdx, kreamPrincipal);
+    }
 }
