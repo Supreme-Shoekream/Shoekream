@@ -96,7 +96,7 @@ insert into member (nickname, member_pw, name, hp, email, status, shoe_size, poi
 insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('pandric2m', 'spYvZt?@a', '김윤지', '018-739-7943', 'ccapel2m@last.fm', 0, 255, 100, 'Yellow', null);
 insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('elathwood2n', 'GtQN?@sO', '아유미', '018-593-6365', 'mquincee2n@hugedomains.com', 0, 295, 1400, 'Yellow', '/img/kream_empty_img.png');
 insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('otrett2o', 'AXKH9J5CP?@Q1', '이유미', '018-373-5104', 'ebodley2o@parallels.com', 1, 270, 1400, 'Aquamarine', '/img/kream_empty_img.png');
-insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('mbunning2p', 'uci8vs?@C6dc2', '차춘환', '018-493-0560', 'rclempton2p@360.cn', 1, 225, 100, 'Fuscia', '/img/kream_empty_img.png');
+insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('mbunning2p', '{noop}uci8vs?@C6dc2', '차춘환', '018-493-0560', 'rclempton2p@360.cn', 1, 225, 100, 'Fuscia', '/img/kream_empty_img.png');
 insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('lmaciaszczyk2q', '96z?@AQm', '차태현', '018-611-4312', 'bveneur2q@yale.edu', 1, 240, 2200, 'Crimson', '/img/kream_empty_img.png');
 insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('jlimpertz2r', 'ZyIVMV?@CSGGG', '김범수', '019-369-5837', 'edahle2r@salon.com', 0, 225, 2200, 'Puce', '/img/kream_empty_img.png');
 
