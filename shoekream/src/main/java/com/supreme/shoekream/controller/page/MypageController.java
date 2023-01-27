@@ -1,18 +1,12 @@
 package com.supreme.shoekream.controller.page;
 
-import com.supreme.shoekream.model.dto.AddressDTO;
+
 import com.supreme.shoekream.model.dto.MemberDTO;
 
-import com.supreme.shoekream.model.dto.ProductDTO;
 import com.supreme.shoekream.model.entity.Product;
-import com.supreme.shoekream.model.entity.Wish;
 
-import com.supreme.shoekream.model.dto.SellDTO;
-import com.supreme.shoekream.model.entity.Member;
 import com.supreme.shoekream.model.enumclass.OrderStatus;
 
-import com.supreme.shoekream.model.network.request.AddressApiRequest;
-import com.supreme.shoekream.model.network.response.AddressApiResponse;
 import com.supreme.shoekream.model.network.response.SellResponse;
 import com.supreme.shoekream.model.network.security.KreamPrincipal;
 import com.supreme.shoekream.service.AddressApiLogicService;
@@ -22,7 +16,6 @@ import com.supreme.shoekream.service.SellService;
 import com.supreme.shoekream.service.WishApiLogicService;
 
 import lombok.RequiredArgsConstructor;
-import org.aspectj.weaver.ast.Or;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -43,6 +36,8 @@ import java.util.List;
 @RequestMapping("my")
 @RequiredArgsConstructor
 public class MypageController {
+    private final AddressApiLogicService addressApiLogicService;
+
 
     @GetMapping(path="")    // http://localhost:8889/my
     public ModelAndView mypage(){
@@ -81,21 +76,17 @@ public class MypageController {
         List<String> wish_productPrice = sellService.buyNowPrices(wish_productList);
         modelmap.addAttribute("wish_productPrice", wish_productPrice);
         return "my/wish";
-
-   
-
-
 //    @GetMapping(path = "wish")
 //    public ModelAndView wish(){
 //        return new ModelAndView("my/wish");
-//    }
+    }
 
     @GetMapping(path="profile")
     public ModelAndView profile(){
         return new ModelAndView("/my/profile");
     }
 
-    private final AddressApiLogicService addressApiLogicService;
+
     @GetMapping(path="address")
     public String address(ModelMap map, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
         MemberDTO memberDTO = kreamPrincipal.toFullDto();

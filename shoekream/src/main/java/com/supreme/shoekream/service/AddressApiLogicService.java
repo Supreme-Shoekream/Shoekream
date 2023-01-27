@@ -28,31 +28,52 @@ public class AddressApiLogicService {
     public List<Address> list(Long memberIdx, boolean isBasic){
         List<Address> addressList = addressRepository.findByMemberIdxAndAddressBasic(memberIdx, isBasic);
         return addressList;
+    }
 
+    @Transactional
+    public Header<AddressDTO> read(Long idx){
+        Address address = addressRepository.findByIdx(idx);
+        AddressDTO addressDTO = AddressDTO.fromEntity(address);
+        return Header.OK(addressDTO);
     }
 
     @Transactional
     public Header<AddressDTO> create(AddressDTO request){
         Member member = request.memberDTO().toEntity();
+        if(request.addressBasic()==true){
+            // 기본 배송지 설정!
+            List<Address> addresses = addressRepository.findByMemberIdx(member.getIdx());
+            addresses.forEach(
+                    address ->  {address.setAddressBasic(false);});
+        }
         Address newAddress = addressRepository.save(request.toEntity(member));
         AddressDTO addressDTO = AddressDTO.fromEntity(newAddress);
         return Header.OK(addressDTO);
+
     }
 
     @Transactional
     public Header<AddressDTO> update(AddressDTO dto, Long idx) {
-        try{
-            Address address = addressRepository.findByIdx(idx);
-            if(dto.name() != null){address.setName(dto.name());}
-            if(dto.hp() != null){address.setHp(dto.hp());}
-            if(dto.zipcode() != null){address.setZipcode(dto.zipcode());}
-            if(dto.address1() != null){address.setAddress1(dto.address1());}
-            if(dto.address2() != null){address.setAddress2(dto.address2());}
-            address.setAddressBasic(dto.addressBasic());
-        }catch (EntityNotFoundException e){
-
+        if(dto.addressBasic() == true){
+            List<Address> addresses = addressRepository.findByMemberIdx(dto.memberDTO().idx());
+            addresses.forEach(
+                    address -> {address.setAddressBasic(false);}
+            );
         }
-        return Header.OK();
+        Optional<Address> address = addressRepository.findById(idx);
+        return address.map(
+                addressMap -> {
+                    addressMap.setName(dto.name());
+                    addressMap.setHp(dto.hp());
+                    addressMap.setZipcode(dto.zipcode());
+                    addressMap.setAddress1(dto.address1());
+                    addressMap.setAddress2(dto.address2());
+                    addressMap.setAddressBasic(dto.addressBasic());
+                    return addressMap;
+                }).map(addressMap -> addressRepository.save(addressMap))
+                .map(addressMap -> AddressDTO.fromEntity(addressMap))
+                .map(Header::OK)
+                .orElseGet(()->Header.ERROR("데이터없음"));
     }
 
     @Transactional
