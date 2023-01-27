@@ -2,6 +2,7 @@ package com.supreme.shoekream.controller.api;
 
 
 import com.supreme.shoekream.model.dto.AddressDTO;
+import com.supreme.shoekream.model.dto.MemberDTO;
 import com.supreme.shoekream.model.entity.Address;
 import com.supreme.shoekream.model.network.Header;
 import com.supreme.shoekream.model.network.request.AddressApiRequest;
@@ -9,6 +10,7 @@ import com.supreme.shoekream.model.network.security.KreamPrincipal;
 import com.supreme.shoekream.service.AddressApiLogicService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -24,6 +26,10 @@ public class AddressApiController {
         return addressApiLogicService.create(addressDTO);
     }
 
+    @GetMapping("/{idx}")
+    public Header<AddressDTO> read(@PathVariable(name = "idx") Long idx){
+        return addressApiLogicService.read(idx);
+    }
 
     @PutMapping("/{idx}")
     public Header<AddressDTO> update(@RequestBody Header<AddressApiRequest> request, @AuthenticationPrincipal KreamPrincipal kreamPrincipal, @PathVariable(name = "idx")Long idx) {
