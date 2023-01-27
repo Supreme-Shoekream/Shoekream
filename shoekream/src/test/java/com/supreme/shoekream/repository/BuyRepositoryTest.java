@@ -29,7 +29,7 @@ class BuyRepositoryTest extends ShoekreamApplicationTests {
         Member member = memberRepository.findById(1L).get();
         System.out.println("한 사람이 구매한 상품들");
         System.out.println(buyRepository.findByMember(member));
-        System.out.println(buyRepository.findByMemberAndStatus(member, OrderStatus.BIDDING));
+//        System.out.println(buyRepository.findByMemberAndStatus(member, OrderStatus.BIDDING));
 
         Product product = productRepository.findById(66L).get();
         System.out.println("즉시 판매가");

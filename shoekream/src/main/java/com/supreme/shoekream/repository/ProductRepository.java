@@ -22,8 +22,12 @@ public interface ProductRepository extends JpaRepository<Product, Long>, Queryds
     Page<Product> findByGender (String gender, Pageable pageable);
     Page<Product> findByFirstPrice (String firstPrice, Pageable pageable);
     Page<Product> findByCategoryIn(List<String> catetory, Pageable pageable);
-    Page<Product> findByBrandIn(List<String> catetory, Pageable pageable);
-    Page<Product> findByCollectionIn(List<String> catetory, Pageable pageable);
+    Page<Product> findByBrandIn(List<String> brand, Pageable pageable);
+    Page<Product> findByCollectionIn(List<String> collection, Pageable pageable);
+    Page<Product> findBySizeContainingAndBrandContainingAndCategoryContainingAndCollectionContainingAndGenderContainingAndNameContaining(String size, String brand,
+                                                                                       String category, String collection,
+                                                                                       String gender, String keyword, Pageable pageable);
+    Page<Product> findBySize(String size, Pageable pageable);
 }
 
 
