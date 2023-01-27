@@ -74,7 +74,7 @@ public class MypageController {
 
     private final WishApiLogicService wishApiLogicService;
     @GetMapping(path = "wish/{idx}")
-    public String wish(@PathVariable Long idx, ModelMap modelmap, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+    public String wish(@PathVariable Long idx, ModelMap modelmap, @AuthenticationPrincipal KreamPrincipal kreamPrincipal) {
         // 🔴 idx 말고 로그인한 세션값을 넣어줘야함 -> 크림프린시펄 사용?
         List<Product> wish_productList = wishApiLogicService.productList(idx);
         modelmap.addAttribute("wish_productList", wish_productList);
@@ -82,13 +82,13 @@ public class MypageController {
         modelmap.addAttribute("wish_productPrice", wish_productPrice);
         return "my/wish";
 
-   
 
+    }
 
-//    @GetMapping(path = "wish")
-//    public ModelAndView wish(){
-//        return new ModelAndView("my/wish");
-//    }
+    @GetMapping(path = "wish")
+    public ModelAndView wish(){
+        return new ModelAndView("my/wish");
+    }
 
     @GetMapping(path="profile")
     public ModelAndView profile(){
