@@ -82,6 +82,9 @@ public class MypageController {
         modelmap.addAttribute("wish_productPrice", wish_productPrice);
         return "my/wish";
 
+    }
+   
+
 
     }
 
