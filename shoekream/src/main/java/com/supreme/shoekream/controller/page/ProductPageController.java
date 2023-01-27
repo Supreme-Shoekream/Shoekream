@@ -1,15 +1,9 @@
 package com.supreme.shoekream.controller.page;
 
 import com.supreme.shoekream.model.dto.ConclusionDTO;
-import com.supreme.shoekream.model.dto.SellDTO;
-import com.supreme.shoekream.model.entity.Product;
 import com.supreme.shoekream.model.network.Header;
-import com.supreme.shoekream.model.network.response.ConclusionResponse;
 import com.supreme.shoekream.model.network.response.ProductApiResponse;
-import com.supreme.shoekream.model.network.response.ProductResponse;
-import com.supreme.shoekream.model.network.response.ProductWithConclusionApiResponse;
 import com.supreme.shoekream.repository.ProductRepository;
-import com.supreme.shoekream.repository.SellRepository;
 import com.supreme.shoekream.service.BuyService;
 import com.supreme.shoekream.service.ProductApiLogicService;
 import com.supreme.shoekream.service.ConclusionApiLogicService;
@@ -17,22 +11,15 @@ import com.supreme.shoekream.service.SellService;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import java.util.List;
-
-import static com.supreme.shoekream.model.entity.QConclusion.conclusion;
-import static com.supreme.shoekream.model.entity.QProduct.product;
 
 @Controller
 @RequestMapping("product") //http://localhost:8889/product
