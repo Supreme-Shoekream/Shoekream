@@ -50,18 +50,17 @@
                 </div>
 
             </div>
-
             <div class="my_list">
-                <div class="basic">
-                    <div class="my_item is_active" default-mark="기본 배송지" >
-                        <div class="info_bind"><!---->
-                            <div class="address_info">
-                                <div class="name_box">
-                                    <span class="name">김**</span>
-                                    <span class="mark">기본 배송지</span>
+                <div class="basic" id="basic">
+                    <div class="my_item is_active" id="my_item" default-mark="기본 배송지" >
+                        <div class="info_bind" id="info_bind"><!---->
+                            <div class="address_info" id="address_info">
+                                <div class="name_box" id="name_box">
+                                    <span class="name" id="name">김**</span>
+                                    <span class="mark" id="mark">기본 배송지</span>
                                 </div>
 
-                                <p class="phone">010<span class="hyphen"></span>
+                                <p class="phone" id="phone">010<span class="hyphen"></span>
                                     <span class="dot"></span>
                                     <span class="dot"></span>
                                     <span class="dot"></span>
@@ -69,16 +68,16 @@
                                     <span class="dot"></span>822
                                 </p>
 
-                                <div class="address_box">
-                                    <span class="zipcode">(12345)</span>
-                                    <span class="address">서울 서울구 서울동 서울집</span>
+                                <div class="address_box" id="address_box">
+                                    <span class="zipcode" id="zipcode">(12345)</span>
+                                    <span class="address" id="address">서울 서울구 서울동 서울집</span>
                                 </div>
                             </div>
                         </div>
 
                         <div class="btn_bind">
                             <!---->
-                            <a href="#" class="btn outlinegrey small address_edit"> 수정 </a>
+                            <a href="#" id="btn_update" class="btn outlinegrey small address_edit"> 수정 </a>
                             <a href="#" id="btn_delete" class="btn outlinegrey small address_delete"> 삭제 </a>
                         </div>
                     </div>
@@ -87,9 +86,46 @@
                     <div class="other_list"></div>
                 </div>
             </div>
+
+            <div class="my_list">
+                <div class="basic" id="not_basic">
+                    <div class="my_item is_active" id="my_item2" default-mark="기본 배송지" >
+                        <div class="info_bind" id="info_bind2"><!---->
+                            <div class="address_info" id="address_info2">
+                                <div class="name_box" id="name_box2">
+                                    <span class="name" id="name2">김**</span>
+                                    <span class="mark" id="mark2">기본 배송지</span>
+                                </div>
+
+                                <p class="phone" id="phone2">010<span class="hyphen"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="hyphen"></span>
+                                    <span class="dot"></span>822
+                                </p>
+
+                                <div class="address_box" id="address_box2">
+                                    <span class="zipcode" id="zipcode2">(12345)</span>
+                                    <span class="address" id="address2">서울 서울구 서울동 서울집</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="btn_bind">
+                            <!---->
+                            <a href="#" id="btn_update2" class="btn outlinegrey small address_edit"> 수정 </a>
+                            <a href="#" id="btn_delete2" class="btn outlinegrey small address_delete"> 삭제 </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="other">
+                    <div class="other_list"></div>
+                </div>
+            </div>
             <!--새 주소 추가 레이어창 시작-->
-            <div class="layer_delivery layer lg" style="display: none;">
-                <div class="layer_container"><a href="#" class="btn_layer_close">
+            <div class="layer_delivery layer lg" id="layer_delivery_add" style="display: none;">
+                <div class="layer_container"><a href="#" onclick="closeLayer()" class="btn_layer_close">
                     <div><img src="/img/close.png"></div>
                     <!---->
                 </a>
@@ -222,7 +258,7 @@
     </div>
 </div>
 <div class="layer_delivery layer_edit layer lg" style="display: none;">
-    <div class="layer_container"><a href="#" class="btn_layer_close btn_edit_delete">
+    <div class="layer_container"><a href="#" class="btn_layer_close btn_edit_delete" onclick="closeEdit()">
         <div><img src="/img/close.png"></div>
         <!---->
     </a>
@@ -268,8 +304,8 @@
                     </label></div>
                 </div>
             </div>
-            <div class="layer_btn"><a href="#" class="btn btn_edit outlinegrey medium"> 취소 </a><a id="btn_save2"
-                                                                                                  href="#" class="btn btn_edit solid medium disabled" onclick="closeLayer()"> 저장하기 </a></div>
+            <div class="layer_btn"><a href="#" id="edit_cancel" class="btn btn_edit outlinegrey medium" onclick="closeEdit()"> 취소 </a>
+                <a id="btn_save2" href="#" class="btn btn_edit solid medium disabled" > 저장하기 </a></div>
         </div>
     </div>
 </div>
@@ -285,72 +321,41 @@
     // document.querySelector("#address").className += ' menu_on';
 
     const addBtn = document.querySelector('.btn_box')
-    const addressLayer = document.querySelector('.layer_delivery')
-    const closeBtn = document.querySelector('.btn_layer_close')
+    const addressLayer = document.querySelector('#layer_delivery_add')
     const cancelBtn = document.querySelector('.btn_delete')
-    const saveBtn = document.querySelector('.btn_save')
     const inputTxt = document.querySelector('.input_txt')
+    const editCancel = document.querySelector('#edit_cancel')
     addBtn.addEventListener('click', (e) => {
         addressLayer.style.display = "block"
         inputTxt.focus()
     })
-
-    // closeBtn.addEventListener('click', (e) => {
-    //     addressLayer.style.display = "none"
-    // })
-    function closeLayer(){
-        if(saveBtn.classList.contains('disabled')){
-
-        }else{
+    addressLayer.addEventListener('click', e => {
+        if(e.target == e.currentTarget){
             addressLayer.style.display = "none"
         }
+    })
+
+    function closeLayer(){
+            addressLayer.style.display = "none"
     }
+
+
     cancelBtn.addEventListener('click', (e) => {
         addressLayer.style.display = "none"
     })
 
-    const addressDelBtn = document.querySelector('.address_delete')
-    const addressDiv = document.querySelector('.is_active')
-    // addressDelBtn.addEventListener('click', () => {
-    //     const idx=11;
-    //     fetch('http://localhost:8989/api/my/address/delete/'+idx, {
-    //         method: 'POST',
-    //         headers: { 'Content-Type': 'application/json' },
-    //         body: JSON.stringify({
-    //             //우리가 만든데이터
-    //             "transaction_time":`${new Date()}`,
-    //             "resultCode":"ok",
-    //             "description":"정상",
-    //             "data":{
-    //             }
-    //         }),
-    //     })
-    //     addressDiv.remove();
-    // })
-    const addressEditBtn = document.querySelector('.address_edit')
     const addressEdit = document.querySelector('.layer_edit')
-    addressEditBtn.addEventListener('click', () => {
-        addressEdit.style.display="block"
-        document.querySelector('#name_input2').focus()
-    })
-    addressEditBtn.addEventListener('click', (e) => {
-        if(e.target == e.currentTarget){
-            addressLayer.style.display = "none"
-        }
-    })
-    const addressEditDel = document.querySelectorAll('.btn_edit_delete')
-    const editLayer = document.querySelector('.layer_edit')
-    addressEditDel.forEach((e) => {
-        e.addEventListener('click', () => {
-            editLayer.style.display="none"
-        })
-    })
-    addressEdit.addEventListener('click', (e) => {
-        if(e.target == e.currentTarget){
-            addressEdit.style.display="none";
-        }
-    })
-
+    function closeEdit(){
+        addressEdit.style.display="none"
+    }
+    // addressEdit.addEventListener('click', (e) => {
+    //     if(e.target == e.currentTarget){
+    //         addressEdit.style.display="none";
+    //     }
+    // })
+    // editCancel.addEventListener('click', e => {
+    //     addressEdit.style.display="none";
+    // })
     // 이름 정규 표현식
     function validateName(strName){
         // const reg_name =  /^[가-힣a-zA-Z]+$/;
@@ -456,61 +461,79 @@
             case false : btnSave.classList.add('disabled'); break;
         }
     }
-    btnSave.addEventListener('click', () => {
-        if(btnSave.classList.contains('disabled')){
-
-        }else {
-            const createName = document.querySelector('#name_input');
-            const createHp = document.querySelector('#hp_input');
-            const createZipcode = document.querySelector('#sample6_postcode');
-            const createAddress1 = document.querySelector('#sample6_address');
-            const createAddress2 = document.querySelector('#sample6_detailAddress')
-            const createAddressBasic = document.querySelector('#check1').checked;
-            fetch('http://localhost:8989/api/my/address', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    "transaction_time":`${new Date()}`,
-                    "resultCode":"ok",
-                    "description":"정상",
-                    "data":{
-                        "name": `${createName.value}`,
-                        "hp": `${createHp.value}`,
-                        "zipcode": `${createZipcode.value}`,
-                        "address1": `${createAddress1.value}`,
-                        "address2": `${createAddress2.value}`,
-                        "addressBasic": `${createAddressBasic}`
-                    }
-                }),
-            }).then((res)=>{
-                alert('주소추가 완료');
-                location.href='/my/address';
-                return;
-            })
-        }
-    })
-
-
-    const nameForm2 = document.querySelector('#name_input2')
-    const hpForm2 = document.querySelector('#hp_input2')
-    const postForm2 = document.querySelector('#sample6_postcode2')
-    const addrForm2 = document.querySelector('#sample6_address2')
-    const detailForm2 = document.querySelector('#sample6_detailAddress2')
-    const checkForm2 = document.querySelector('#check2')
-    const btnSave2 = document.querySelector('#btn_save2')
-
-    nameForm2.addEventListener('keyup', activeEvent2);
-    hpForm2.addEventListener('keyup', activeEvent2);
-    postForm2.addEventListener('keyup', activeEvent2);
-    addrForm2.addEventListener('keyup', activeEvent2);
-    detailForm2.addEventListener('keyup', activeEvent2);
-    function activeEvent2() {
-        switch(validateHp(strHp) && validateName(strName) && nameForm2.value != '' && hpForm2.value !='' && postForm2.value !='' && addrForm2.value !='' && detailForm2.value != ''){
-            case true : btnSave2.classList.remove('disabled'); break;
-            case false : btnSave2.classList.add('disabled'); break;
-        }
+    btnSave.addEventListener('click', sendit)
+    function openEdit(idx){
+            addressEdit.style.display="block"
+            document.querySelector('#name_input2').focus()
+            document.querySelector('#btn_save2').addEventListener('click',sendEdit)
     }
-    btnSave2.addEventListener('click', () => {
+    function sendEdit(idx){
+        const editName = document.querySelector('#name_input2');
+        const editHp = document.querySelector('#hp_input2');
+        const editZipcode = document.querySelector('#sample6_postcode2');
+        const editAddress1 = document.querySelector('#sample6_address2');
+        const editAddress2 = document.querySelector('#sample6_detailAddress2')
+        const editAddressBasic = document.querySelector('#check2').checked;
+        fetch('http://localhost:8989/api/my/address'+idx, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                "transaction_time":`${new Date()}`,
+                "resultCode":"ok",
+                "description":"정상",
+                "data":{
+                    "idx": idx,
+                    "name": `${editName.value}`,
+                    "hp": `${editHp.value}`,
+                    "zipcode": `${editZipcode.value}`,
+                    "address1": `${editAddress1.value}`,
+                    "address2": `${editAddress2.value}`,
+                    "addressBasic": `${editAddressBasic}`
+                }
+            }),
+        }).then((res)=>{
+            alert('주소추가 완료');
+            location.href='/my/address';
+            return;
+        })
+    }
+    function sendit(){
+
+    if(btnSave.classList.contains('disabled')){
+
+    }else {
+        const createName = document.querySelector('#name_input');
+        const createHp = document.querySelector('#hp_input');
+        const createZipcode = document.querySelector('#sample6_postcode');
+        const createAddress1 = document.querySelector('#sample6_address');
+        const createAddress2 = document.querySelector('#sample6_detailAddress')
+        const createAddressBasic = document.querySelector('#check1').checked;
+        fetch('http://localhost:8989/api/my/address', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                "transaction_time":`${new Date()}`,
+                "resultCode":"ok",
+                "description":"정상",
+                "data":{
+                    "name": `${createName.value}`,
+                    "hp": `${createHp.value}`,
+                    "zipcode": `${createZipcode.value}`,
+                    "address1": `${createAddress1.value}`,
+                    "address2": `${createAddress2.value}`,
+                    "addressBasic": `${createAddressBasic}`
+                }
+            }),
+        }).then((res)=>{
+            alert('주소추가 완료');
+            location.href='/my/address';
+            return;
+        })
+    }
+
+}
+
+    function update_address(){
         if(btnSave2.classList.contains('disabled')){
 
         }else {
@@ -534,15 +557,34 @@
                         "zipcode": `${editZipcode.value}`,
                         "address1": `${editAddress1.value}`,
                         "address2": `${editAddress2.value}`,
-                        "addressBasic": true
+                        "addressBasic": `${editAddressBasic}`
                     }
                 }),
             })
-            addressDelBtn.addEventListener('click', () => {
-
-            })
+            addressEdit.style.display="none"
+            alert('수정 완료')
         }
-    })
+    }
+
+    const nameForm2 = document.querySelector('#name_input2')
+    const hpForm2 = document.querySelector('#hp_input2')
+    const postForm2 = document.querySelector('#sample6_postcode2')
+    const addrForm2 = document.querySelector('#sample6_address2')
+    const detailForm2 = document.querySelector('#sample6_detailAddress2')
+    const btnSave2 = document.querySelector('#btn_save2')
+
+    nameForm2.addEventListener('keyup', activeEvent2);
+    hpForm2.addEventListener('keyup', activeEvent2);
+    postForm2.addEventListener('keyup', activeEvent2);
+    addrForm2.addEventListener('keyup', activeEvent2);
+    detailForm2.addEventListener('keyup', activeEvent2);
+    function activeEvent2() {
+        switch(validateHp(strHp) && validateName(strName) && nameForm2.value != '' && hpForm2.value !='' && postForm2.value !='' && addrForm2.value !='' && detailForm2.value != ''){
+            case true : btnSave2.classList.remove('disabled'); break;
+            case false : btnSave2.classList.add('disabled'); break;
+        }
+    }
+
 
 </script>
 
@@ -643,6 +685,10 @@
             }
         }).open();
     }
+    // 수정 버튼
+
+
+    // 삭제 버튼
     function delete_address(idx){
         fetch('http://localhost:8989/api/my/address/delete/'+idx, {
             method: 'POST',

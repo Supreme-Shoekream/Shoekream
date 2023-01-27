@@ -2,17 +2,27 @@ package com.supreme.shoekream.controller.page;
 
 import com.supreme.shoekream.model.dto.AddressDTO;
 import com.supreme.shoekream.model.dto.MemberDTO;
+
 import com.supreme.shoekream.model.dto.ProductDTO;
 import com.supreme.shoekream.model.entity.Product;
 import com.supreme.shoekream.model.entity.Wish;
+
+import com.supreme.shoekream.model.dto.SellDTO;
+import com.supreme.shoekream.model.entity.Member;
+import com.supreme.shoekream.model.enumclass.OrderStatus;
+
 import com.supreme.shoekream.model.network.request.AddressApiRequest;
 import com.supreme.shoekream.model.network.response.AddressApiResponse;
+import com.supreme.shoekream.model.network.response.SellResponse;
 import com.supreme.shoekream.model.network.security.KreamPrincipal;
 import com.supreme.shoekream.service.AddressApiLogicService;
 import com.supreme.shoekream.service.PointApiLogicService;
 import com.supreme.shoekream.service.SellService;
+
 import com.supreme.shoekream.service.WishApiLogicService;
+
 import lombok.RequiredArgsConstructor;
+import org.aspectj.weaver.ast.Or;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -38,9 +48,18 @@ public class MypageController {
     public ModelAndView buying(){
         return new ModelAndView("/my/buying");
     }
+    private final SellService sellService;
     @GetMapping(path = "selling")
-    public ModelAndView selling(){
-        return new ModelAndView("/my/selling");
+    public String selling(ModelMap map, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        MemberDTO memberDTO = kreamPrincipal.toFullDto();
+        List<SellResponse> biddings =sellService.mySellListByStatus(memberDTO.idx(), OrderStatus.BIDDING).stream().map(SellResponse::from).toList();
+        List<SellResponse> progressings =sellService.mySellListByStatus(memberDTO.idx(), OrderStatus.PROGRESSING).stream().map(SellResponse::from).toList();
+        List<SellResponse> ends =sellService.mySellListByStatus(memberDTO.idx(), OrderStatus.END).stream().map(SellResponse::from).toList();
+        map.addAttribute("bidding",biddings);
+        map.addAttribute("progressing",progressings);
+        map.addAttribute("end",ends);
+        System.out.println("입찰중"+biddings+"진행중"+progressings+"종료"+ends);
+        return ("/my/selling");
     }
 
 

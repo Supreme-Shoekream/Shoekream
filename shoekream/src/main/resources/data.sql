@@ -96,7 +96,7 @@ insert into member (nickname, member_pw, name, hp, email, status, shoe_size, poi
 insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('pandric2m', 'spYvZt?@a', '김윤지', '018-739-7943', 'ccapel2m@last.fm', 0, 255, 100, 'Yellow', null);
 insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('elathwood2n', 'GtQN?@sO', '아유미', '018-593-6365', 'mquincee2n@hugedomains.com', 0, 295, 1400, 'Yellow', '/img/kream_empty_img.png');
 insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('otrett2o', 'AXKH9J5CP?@Q1', '이유미', '018-373-5104', 'ebodley2o@parallels.com', 1, 270, 1400, 'Aquamarine', '/img/kream_empty_img.png');
-insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('mbunning2p', 'uci8vs?@C6dc2', '차춘환', '018-493-0560', 'rclempton2p@360.cn', 1, 225, 100, 'Fuscia', '/img/kream_empty_img.png');
+insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('mbunning2p', '{noop}uci8vs?@C6dc2', '차춘환', '018-493-0560', 'rclempton2p@360.cn', 1, 225, 100, 'Fuscia', '/img/kream_empty_img.png');
 insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('lmaciaszczyk2q', '96z?@AQm', '차태현', '018-611-4312', 'bveneur2q@yale.edu', 1, 240, 2200, 'Crimson', '/img/kream_empty_img.png');
 insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('jlimpertz2r', 'ZyIVMV?@CSGGG', '김범수', '019-369-5837', 'edahle2r@salon.com', 0, 225, 2200, 'Puce', '/img/kream_empty_img.png');
 
@@ -212,13 +212,13 @@ insert into member (nickname, member_pw, name, hp, email, status, shoe_size, poi
 -- INSERT INTO product (idx, brand, category, color, first_price, img, model_num, name, name_kor, release_date, size, wish_count, gender, collection) VALUES (108, 'Apple', null, 'WHITE', '359,000원', '/img/product/airpodspro2.png', 'MQD83KH/A', 'Apple AirPods Pro 2nd Gen (Korean Ver.)', '애플 에어팟 프로 2세대 (국내 정식 발매 제품)', '22/10/21', 'ONE SIZE', null, null, null);
 
 -- 상품
-INSERT INTO product (idx, img, brand, name, name_kor, size, model_num, release_date, color, first_price, category, gender, collection) VALUES (1, '/img/product/Supreme_x_The_North_Face_Trans_Antarctica_Expedition_Pullover_Jacket_Red_-_17SS.png', 'Supreme', 'Supreme x The North Face Trans Antarctica Expedition Pullover Jacket Red - 17SS', '슈프림 x 노스페이스 트랜스 안타티카 익스페디션 풀오버 자켓 레드 - 17SS', '모든 사이즈', 'NF0A37KB682', '-', 'RED', '-', null, null, 'JUST_DROP');
+INSERT INTO product (idx, img, brand, name, name_kor, size, model_num, release_date, color, first_price, category, gender, collection) VALUES (1, '/img/product/Supreme_x_The_North_Face_Trans_Antarctica_Expedition_Pullover_Jacket_Red_-_17SS.png', 'Supreme', 'Supreme x The North Face Trans Antarctica Expedition Pullover Jacket Red - 17SS', '슈프림 x 노스페이스 트랜스 안타티카 익스페디션 풀오버 자켓 레드 - 17SS', '모든 사이즈', 'NF0A37KB682', '-', 'RED', '-', null, 'MAN', 'JUST_DROP');
 INSERT INTO product (idx, img, brand, name, name_kor, size, model_num, release_date, color, first_price, category, gender, collection) VALUES (2, '/img/product/Asics_Gel-Lyte_V_Black_Blue.png', 'Asics', 'Asics Gel-Lyte V Black Blue', '아식스 젤 라이트 5 블랙 블루', '모든 사이즈', 'H805L-9046', '18/01/31', 'BLACK/BLUE/SURF WHITE', '$130 (약 161,500원)', null, null, 'JUST_DROP');
-INSERT INTO product (idx, img, brand, name, name_kor, size, model_num, release_date, color, first_price, category, gender, collection) VALUES (3, '/img/product/Supreme_x_The_North_Face_Leather_Nuptse_Jacket_Black_-_17FW.png', 'Supreme', 'Supreme x The North Face Leather Nuptse Jacket Black - 17FW', '슈프림 x 노스페이스 레더 눕시 자켓 블랙 - 17FW', '모든 사이즈', 'NF0A3CADJK3', '17/10/19', 'BLACK', '$1,098 (약 1,364,000원)', null, null, 'JUST_DROP');
-INSERT INTO product (idx, img, brand, name, name_kor, size, model_num, release_date, color, first_price, category, gender, collection) VALUES (4, '/img/product/Supreme_x_The_North_Face_Leather_Nuptse_Jacket_Red_-_17FW.png', 'Supreme', 'Supreme x The North Face Leather Nuptse Jacket Red - 17FW', '슈프림 x 노스페이스 레더 눕시 자켓 레드 - 17FW', '모든 사이즈', 'NF0A3CAD682', '17/10/19', 'RED', '$1,098 (약 1,364,000원)', null, null, 'JUST_DROP');
-INSERT INTO product (idx, img, brand, name, name_kor, size, model_num, release_date, color, first_price, category, gender, collection) VALUES (5, '/img/product/Supreme_x_The_North_Face_Leather_Nuptse_Jacket_Yellow_-_17FW.png', 'Supreme', 'Supreme x The North Face Leather Nuptse Jacket Yellow - 17FW', '슈프림 x 노스페이스 레더 눕시 자켓 옐로우 - 17FW', '모든 사이즈', 'NF0A3CAD736', '17/10/19', 'YELLOW', '$1,098 (약 1,364,000원)', null, null, 'JUST_DROP');
-INSERT INTO product (idx, img, brand, name, name_kor, size, model_num, release_date, color, first_price, category, gender, collection) VALUES (6, '/img/product/Supreme_x_The_North_Face_Mountain_Parka_Blue_White_-_17FW.png', 'Supreme', 'Supreme x The North Face Mountain Parka Blue White - 17FW', '슈프림 x 노스페이스 마운틴 파카 블루 화이트 - 17FW', '모든 사이즈', 'NF0A3CAFEMX', '17/11/30', 'BLUE/WHITE', '$398 (약 494,400원)', null, null, 'MOST_POPULAR');
-INSERT INTO product (idx, img, brand, name, name_kor, size, model_num, release_date, color, first_price, category, gender, collection) VALUES (7, '/img/product/Supreme_x_The_North_Face_Mountain_Baltoro_Jacket_Blue_White_-_17FW.png', 'Supreme', 'Supreme x The North Face Mountain Baltoro Jacket Blue White - 17FW', '슈프림 x 노스페이스 마운틴 발토로 자켓 블루 화이트 - 17FW', '모든 사이즈', 'NF0A3LHQEMX', '17/11/30', 'BLUE/WHITE', '$498 (약 618,600원)', null, null, 'MOST_POPULAR');
+INSERT INTO product (idx, img, brand, name, name_kor, size, model_num, release_date, color, first_price, category, gender, collection) VALUES (3, '/img/product/Supreme_x_The_North_Face_Leather_Nuptse_Jacket_Black_-_17FW.png', 'Supreme', 'Supreme x The North Face Leather Nuptse Jacket Black - 17FW', '슈프림 x 노스페이스 레더 눕시 자켓 블랙 - 17FW', '모든 사이즈', 'NF0A3CADJK3', '17/10/19', 'BLACK', '$1,098 (약 1,364,000원)', null, 'MAN', 'JUST_DROP');
+INSERT INTO product (idx, img, brand, name, name_kor, size, model_num, release_date, color, first_price, category, gender, collection) VALUES (4, '/img/product/Supreme_x_The_North_Face_Leather_Nuptse_Jacket_Red_-_17FW.png', 'Supreme', 'Supreme x The North Face Leather Nuptse Jacket Red - 17FW', '슈프림 x 노스페이스 레더 눕시 자켓 레드 - 17FW', '모든 사이즈', 'NF0A3CAD682', '17/10/19', 'RED', '$1,098 (약 1,364,000원)', null, 'MAN', 'JUST_DROP');
+INSERT INTO product (idx, img, brand, name, name_kor, size, model_num, release_date, color, first_price, category, gender, collection) VALUES (5, '/img/product/Supreme_x_The_North_Face_Leather_Nuptse_Jacket_Yellow_-_17FW.png', 'Supreme', 'Supreme x The North Face Leather Nuptse Jacket Yellow - 17FW', '슈프림 x 노스페이스 레더 눕시 자켓 옐로우 - 17FW', '모든 사이즈', 'NF0A3CAD736', '17/10/19', 'YELLOW', '$1,098 (약 1,364,000원)', null, 'MAN', 'JUST_DROP');
+INSERT INTO product (idx, img, brand, name, name_kor, size, model_num, release_date, color, first_price, category, gender, collection) VALUES (6, '/img/product/Supreme_x_The_North_Face_Mountain_Parka_Blue_White_-_17FW.png', 'Supreme', 'Supreme x The North Face Mountain Parka Blue White - 17FW', '슈프림 x 노스페이스 마운틴 파카 블루 화이트 - 17FW', '모든 사이즈', 'NF0A3CAFEMX', '17/11/30', 'BLUE/WHITE', '$398 (약 494,400원)', null, 'MAN', 'MOST_POPULAR');
+INSERT INTO product (idx, img, brand, name, name_kor, size, model_num, release_date, color, first_price, category, gender, collection) VALUES (7, '/img/product/Supreme_x_The_North_Face_Mountain_Baltoro_Jacket_Blue_White_-_17FW.png', 'Supreme', 'Supreme x The North Face Mountain Baltoro Jacket Blue White - 17FW', '슈프림 x 노스페이스 마운틴 발토로 자켓 블루 화이트 - 17FW', '모든 사이즈', 'NF0A3LHQEMX', '17/11/30', 'BLUE/WHITE', '$498 (약 618,600원)', null, 'MAN', 'MOST_POPULAR');
 INSERT INTO product (idx, img, brand, name, name_kor, size, model_num, release_date, color, first_price, category, gender, collection) VALUES (8, '/img/product/Supreme_x_The_North_Face_Metallic_Mountain_Parka_Gold_-_18SS.png', 'Supreme', 'Supreme x The North Face Metallic Mountain Parka Gold - 18SS', '슈프림 x 노스페이스 메탈릭 마운틴 파카 골드 - 18SS', '모든 사이즈', 'NF0A3LI68XB', '18/04/05', 'GOLD', '$388 (약 482,000원)', null, null, 'MOST_POPULAR');
 INSERT INTO product (idx, img, brand, name, name_kor, size, model_num, release_date, color, first_price, category, gender, collection) VALUES (9, '/img/product/Supreme_x_The_North_Face_Metallic_Mountain_Parka_Rose_Gold_-_18SS.png', 'Supreme', 'Supreme x The North Face Metallic Mountain Parka Rose Gold - 18SS', '슈프림 x 노스페이스 메탈릭 마운틴 파카 로즈 골드 - 18SS', '모든 사이즈', 'NF0A3LI68XA', '18/04/05', 'ROSE GOLD', '$388 (약 482,000원)', null, null, 'MOST_POPULAR');
 INSERT INTO product (idx, img, brand, name, name_kor, size, model_num, release_date, color, first_price, category, gender, collection) VALUES (10, '/img/product/Supreme_x_The_North_Face_Metallic_Mountain_Parka_Silver_-_18SS.png', 'Supreme', 'Supreme x The North Face Metallic Mountain Parka Silver - 18SS', '슈프림 x 노스페이스 메탈릭 마운틴 파카 실버 - 18SS', '모든 사이즈', 'NF0A3LI6R4P', '18/04/05', 'SILVER', '$388 (약 482,000원)', null, null, 'NEW_IN');
@@ -350,47 +350,51 @@ insert into follow(follower_idx, following_idx) values(2,20);
 insert into board(hashtag, member_idx, content, img, created_at) values('OOTD', 1, '🇯🇵', '/img/styleImg/feed1.jpeg', now());
 insert into board(hashtag, member_idx, content, img, created_at) values('OOTD',2, '쇼핑은 절거워~ #아더에러 #범고래', '/img/styleImg/feed2.jpeg', '2022-05-18 16:55:14');
 insert into board(hashtag, member_idx, content, img, created_at) values('데일리룩', 3, '🤍','/img/styleImg/feed3.jpeg', '2022-11-18 16:50:32');
-insert into board(member_idx, content, img, created_at) values(4, '🐾
+insert into board(hashtag, member_idx, content, img, created_at) values('SHOEKREAM', 4, '🐾
 # .
 # .
 # .
- #KREAM스타일 #아웃핏 #데일리룩 #오오티디 #겨울코디 #학생코디 #여자코디 #스트릿 #캐주얼 #캐트릿 #무채색 #무채색코디 #streetwear #streetmood #outfit #dailylook #에어포스', '/img/styleImg/feed4.jpeg', '2022-09-18 13:06:56');
-insert into board(member_idx, content, img, created_at) values(5, '#KREAM #jordan1', '/img/styleImg/feed5.jpeg', '2022-08-07 11:32:18');
-insert into board(member_idx, content, img, created_at) values(6, '🖤 #결산템챌린지', '/img/styleImg/feed6.jpeg', '2022-06-05 19:02:14');
-insert into board(member_idx, content, img, created_at) values(7, '#KREAM스타일 #결산템챌린지 #KREAM #스타일챌린지', '/img/styleImg/feed7.jpeg', '2022-11-30 21:49:52');
-insert into board(member_idx, content, img, created_at) values(8, '호카 진짜 너무 편해서 데일리 최애템 아니냐구여..
+ ', '/img/styleImg/feed4.jpeg', '2022-09-18 13:06:56');
+insert into board(hashtag, member_idx, content, img, created_at) values('outfit', 5, '#KREAM #jordan1', '/img/styleImg/feed5.jpeg', '2022-08-07 11:32:18');
+insert into board(hashtag, member_idx, content, img, created_at) values('outfit',6, '🖤 #결산템챌린지', '/img/styleImg/feed6.jpeg', '2022-06-05 19:02:14');
+insert into board(hashtag, member_idx, content, img, created_at) values('outfit',7, '#KREAM스타일 #결산템챌린지 #KREAM #스타일챌린지', '/img/styleImg/feed7.jpeg', '2022-11-30 21:49:52');
+insert into board(hashtag, member_idx, content, img, created_at) values('outfit',8, '호카 진짜 너무 편해서 데일리 최애템 아니냐구여..
 .
 #최애템챌린지 #최애템 #호카오네오네본디7 #호카', '/img/styleImg/feed8.jpeg', '2022-10-12 15:39:18');
-insert into board(member_idx, content, img, created_at) values(9, '블랙에 카모✌🏻
+insert into board(hashtag, member_idx, content, img, created_at) values('outfit',9, '블랙에 카모✌🏻
 
 
  #KREAM스타일', '/img/styleImg/feed9.jpeg','2022-11-05 06:10:57');
-insert into board(member_idx, content, img, created_at) values(10, '2022 마지막🫧
+insert into board(hashtag, member_idx, content, img, created_at) values('outfit',10, '2022 마지막🫧
 #결산템챌린지 #KREAM챌린지 #KREAM스타일 #데일리룩', '/img/styleImg/feed10.jpeg', '2022-07-15 08:48:21');
-insert into board(member_idx, content, img, created_at) values(11, '발렌시아가 스테로이드 봄버 입으면 입을수록 좋다😙
+insert into board(hashtag, member_idx, content, img, created_at) values('OOTD',11, '발렌시아가 스테로이드 봄버 입으면 입을수록 좋다😙
  #결산템챌린지 #발렌시아가 #르카골 #디펜더 #스테로이드봄버', '/img/styleImg/feed11.jpeg', '2022-02-22 10:55:27');
-insert into board(member_idx, content, img, created_at) values(12, '#위크에스 #KREAM #나이키 #사카이 #블레이저 #프리징챌린지', '/img/styleImg/feed12.jpeg', '2022-05-10 23:18:40');
-insert into board(member_idx, content, img, created_at) values(13, '레드탭
+insert into board(hashtag, member_idx, content, img, created_at) values('SHOEKREAM', 12, '#위크에스 #나이키 #사카이 #블레이저 #프리징챌린지', '/img/styleImg/feed12.jpeg', '2022-05-10 23:18:40');
+insert into board(hashtag, member_idx, content, img, created_at) values('SHOEKREAM',13, '레드탭
 #supreme #supremenorthface #슈노 #슈프림 #슈프림노스페이스', '/img/styleImg/feed13.jpeg', '2022-02-19 07:21:41');
-insert into board(member_idx, content, img, created_at) values(14, '🏍️🏍️
+insert into board(hashtag, member_idx, content, img, created_at) values('SHOEKREAM',14, '🏍️🏍️
+
 
 #KREAM #kreamchallenge #KREAM챌린지
 #KREAM스타일 #스타일챌린지 #스타일컬렉터
 #떠그클럽 #떠그팬츠 #나이키 #에어포스1
 #크림챌린지 #크림스타일챌린지', '/img/styleImg/feed14.jpeg', '2023-01-11 02:39:03');
-insert into board(member_idx, content, img, created_at) values(15, '#결산템챌린지 #ootd #데일리룩 #아웃핏 #KREAM스타일 #겨울여자코디 #보헤미안서울 #노스페이스눕시 #패딩추천 #스트릿룩 #무채색룩', '/img/styleImg/feed15.jpeg', '2022-01-26 00:40:23');
-insert into board(member_idx, content, img, created_at) values(16, '밖에 비온다 주륵주륵~♬♩♪
+insert into board(hashtag, member_idx, content, img, created_at) values('나이키', 15, '#결산템챌린지 #ootd #데일리룩 #아웃핏 #KREAM스타일 #겨울여자코디 #보헤미안서울 #노스페이스눕시 #패딩추천 #스트릿룩 #무채색룩', '/img/styleImg/feed15.jpeg', '2022-01-26 00:40:23');
+insert into board(hashtag, member_idx, content, img, created_at) values('나이키', 16, '밖에 비온다 주륵주륵~♬♩♪
+
 .
 .
 .
 .
 .
-#KREAM스타일 #KREAM #나이키 #cactus #뉴발란스530 #국민신발 #아크테릭스 #스투시 #또비온댜ㅑㅑ #일상코디 #시그니처장소 #공주', '/img/styleImg/feed16.jpeg', '2022-06-20 00:46:52');
-insert into board(member_idx, content, img, created_at) values(17, '', '/img/styleImg/feed17.jpeg', '2023-01-21 23:34:58');
-insert into board(member_idx, content, img, created_at) values(18, '', '/img/styleImg/feed18.jpeg', '2022-12-04 14:35:51');
-insert into board(member_idx, content, img, created_at) values(19, '우여곡절 많았던 내 슈노••
+
+#KREAM스타일', '/img/styleImg/feed16.jpeg', '2022-06-20 00:46:52');
+insert into board(hashtag, member_idx, content, img, created_at) values('SHOEKREAM',17, '', '/img/styleImg/feed17.jpeg', '2023-01-21 23:34:58');
+insert into board(hashtag, member_idx, content, img, created_at) values('SHOEKREAM',18, '', '/img/styleImg/feed18.jpeg', '2022-12-04 14:35:51');
+insert into board(hashtag, member_idx, content, img, created_at) values('데일리룩',19, '우여곡절 많았던 내 슈노••
 #슈프림 #슈프림패딩 #슈노 #슈프림노스페이스 #프스캇 #트레비스스캇 #스트릿', '/img/styleImg/feed19.jpeg', '2022-11-21 17:42:39');
-insert into board(member_idx, content, img, created_at) values(20,'포터는 개인적으로 카키색이,,,💚', '/img/styleImg/feed20.jpeg', '2022-03-11 10:20:14');
+insert into board(hashtag, member_idx, content, img, created_at) values('데일리룩',20,'포터는 개인적으로 카키색이,,,💚', '/img/styleImg/feed20.jpeg', '2022-03-11 10:20:14');
+
 
 
 
@@ -443,12 +447,12 @@ insert into tag(board_idx, product_idx) values(2, 104);
 
 
 -- # 판매내역
-insert into sell (product_idx, member_idx, type, period, account_info, price, card_info, sender, sender_hp, sender_address, delivery_memo, created_at, progress, status) values (69, 9, 0, 4, 8000, 403000, '374622135512894', 'Kippy', '416-166-1903', '94 Ohio Hill', 'Red sheep', '2023-01-02', null, 0);
-insert into sell (product_idx, member_idx, type, period, account_info, price, card_info, sender, sender_hp, sender_address, delivery_memo, created_at, progress, status) values (5, 48, 0, 9, 8000, 999000, '346518679771273', 'Jude', '642-259-8173', '28705 Red Cloud Center', 'Collared peccary', '2022-09-15', null, 0);
-insert into sell (product_idx, member_idx, type, period, account_info, price, card_info, sender, sender_hp, sender_address, delivery_memo, created_at, progress, status) values (32, 7, 0, 26, 7000, 109000, '374288926880377', 'Marcie', '715-272-5068', '567 North Drive', 'African ground squirrel (unidentified)', '2022-09-17', null, 0);
-insert into sell (product_idx, member_idx, type, period, account_info, price, card_info, sender, sender_hp, sender_address, delivery_memo, created_at, progress, status) values (19, 95, 0, 12, 8000, 862000, '347114189071419', 'Ema', '387-364-0989', '82597 Dottie Avenue', 'Azara''s zorro', '2022-08-25', null, 0);
-insert into sell (product_idx, member_idx, type, period, account_info, price, card_info, sender, sender_hp, sender_address, delivery_memo, created_at, progress, status) values (12, 58, 0, 31, 4000, 799000, '337941245418610', 'Jamie', '626-489-0649', '19 Waubesa Crossing', 'Pale-throated three-toed sloth', '2022-11-22', 3, 2);
-insert into sell (product_idx, member_idx, type, period, account_info, price, card_info, sender, sender_hp, sender_address, delivery_memo, created_at, progress, status) values (45, 79, 0, 17, 8000, 429000, '337941059999853', 'Dayle', '339-252-0928', '892 Starling Plaza', 'White-headed vulture', '2022-09-26', 3, 2);
+insert into sell (product_idx, member_idx, type, period, account_info, price, card_info, sender, sender_hp, sender_address, delivery_memo, created_at, progress, status) values (69, 1, 0, 4, 8000, 403000, '374622135512894', 'Kippy', '416-166-1903', '94 Ohio Hill', 'Red sheep', '2023-01-02', null, 0);
+insert into sell (product_idx, member_idx, type, period, account_info, price, card_info, sender, sender_hp, sender_address, delivery_memo, created_at, progress, status) values (5, 1, 0, 9, 8000, 999000, '346518679771273', 'Jude', '642-259-8173', '28705 Red Cloud Center', 'Collared peccary', '2022-09-15', null, 1);
+insert into sell (product_idx, member_idx, type, period, account_info, price, card_info, sender, sender_hp, sender_address, delivery_memo, created_at, progress, status) values (32, 1, 0, 26, 7000, 109000, '374288926880377', 'Marcie', '715-272-5068', '567 North Drive', 'African ground squirrel (unidentified)', '2022-09-17', 3, 2);
+insert into sell (product_idx, member_idx, type, period, account_info, price, card_info, sender, sender_hp, sender_address, delivery_memo, created_at, progress, status) values (19, 1, 0, 12, 8000, 862000, '347114189071419', 'Ema', '387-364-0989', '82597 Dottie Avenue', 'Azara''s zorro', '2022-08-25', 1, 1);
+insert into sell (product_idx, member_idx, type, period, account_info, price, card_info, sender, sender_hp, sender_address, delivery_memo, created_at, progress, status) values (12, 1, 0, 31, 4000, 799000, '337941245418610', 'Jamie', '626-489-0649', '19 Waubesa Crossing', 'Pale-throated three-toed sloth', '2022-11-22', 3, 2);
+insert into sell (product_idx, member_idx, type, period, account_info, price, card_info, sender, sender_hp, sender_address, delivery_memo, created_at, progress, status) values (45, 1, 0, 17, 8000, 429000, '337941059999853', 'Dayle', '339-252-0928', '892 Starling Plaza', 'White-headed vulture', '2022-09-26', 3, 2);
 insert into sell (product_idx, member_idx, type, period, account_info, price, card_info, sender, sender_hp, sender_address, delivery_memo, created_at, progress, status) values (6, 23, 0, 41, 6000, 592000, '374283868613738', 'Berni', '327-512-8110', '50944 Schiller Lane', 'Woodpecker, downy', '2022-04-10', 3, 2);
 insert into sell (product_idx, member_idx, type, period, account_info, price, card_info, sender, sender_hp, sender_address, delivery_memo, created_at, progress, status) values (52, 51, 0, 49, 7000, 278000, '372301491035079', 'Lazaro', '930-506-0637', '98 Scoville Alley', 'Nyala', '2022-12-29', 3, 2);
 insert into sell (product_idx, member_idx, type, period, account_info, price, card_info, sender, sender_hp, sender_address, delivery_memo, created_at, progress, status) values (39, 8, 0, 37, 6000, 714000, '370139246987059', 'Bernarr', '655-261-3153', '9403 Bonner Parkway', 'Western pygmy possum', '2022-04-29', 3, 2);

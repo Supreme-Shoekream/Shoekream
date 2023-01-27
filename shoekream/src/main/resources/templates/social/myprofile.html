@@ -31,8 +31,8 @@
                 <div class="social_header">
                     <div id="mini" style="display: none;">
                         <div class="profile_img_box"><img src="/img/kream_empty_img.png" alt="8izhs1"
-                                class="profile_img"></div>
-                        <p class="user_name_mini">8izhs1</p>
+                                class="profile_img" id="profile_img_mini"></div>
+                        <p class="user_name_mini" id="user_name_mini">8izhs1</p>
                     </div>
                 </div>
             </div><!---->
@@ -41,9 +41,9 @@
                     <div class="social_user_area">
                         <div class="user_top">
                             <div class="profile_img_box"><img src="/img/kream_empty_img.png" alt="KREAM 프로필 이미지"
-                                    class="profile_img"></div>
+                                    class="profile_img" id="profile_img_main"></div>
                             <div class="profile_info_box">
-                                <p class="user_name"> 8izhs1<!----></p><!---->
+                                <p class="user_name" id="user_name_main"> 8izhs1</p>
                             </div>
                         </div>
                         <div class="user_explain">
@@ -69,7 +69,7 @@
                         </ul>
                     </div>
                     <!-- 빈 화면 -->
-                    <div class="social_feeds_empty top_line">
+                    <div class="social_feeds_empty top_line" style="display: none">
                         <div class="empty_box">
                             <img src="/img/camera_icon.png" alt="게시물 없음">
                             <strong class="empty_title">게시물 없음</strong>
@@ -79,7 +79,7 @@
                     <!-- 빈 화면 끝 -->
 
                     <!-- 피드 시작 -->
-                    <div class="social_feeds">
+                    <div class="social_feeds" style="display:none;">
                         <div transition-duration="0" item-selector=".item" gutter=".gutter_item"
                             horizontal-order="true" class="masonry_posts"
                             style="position: relative; height: 4956px;">
@@ -95,11 +95,11 @@
                                         <div class="social_img_box vertical">
                                             <picture class="picture social_img">
                                                 <source type="image/webp"
-                                                    srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjhfMTc4/MDAxNjcyMTk0MjY2Njk3.ID4oXLjphKCSG17vPHX7Ku_DC93mQrR7M2-c9TgWXvwg.75cNsQCfe4XQZ9LwxxrRRQce7sJbNxiiYTGdKSesTxIg.JPEG/p_bee3aabc37b04e80875a1a1f558b8421.jpeg?type=m_webp">
+                                                    srcset="">
                                                 <source
-                                                    srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjhfMTc4/MDAxNjcyMTk0MjY2Njk3.ID4oXLjphKCSG17vPHX7Ku_DC93mQrR7M2-c9TgWXvwg.75cNsQCfe4XQZ9LwxxrRRQce7sJbNxiiYTGdKSesTxIg.JPEG/p_bee3aabc37b04e80875a1a1f558b8421.jpeg?type=m">
+                                                    srcset="">
                                                 <img alt="소셜이미지"
-                                                    src="https://kream-phinf.pstatic.net/MjAyMjEyMjhfMTc4/MDAxNjcyMTk0MjY2Njk3.ID4oXLjphKCSG17vPHX7Ku_DC93mQrR7M2-c9TgWXvwg.75cNsQCfe4XQZ9LwxxrRRQce7sJbNxiiYTGdKSesTxIg.JPEG/p_bee3aabc37b04e80875a1a1f558b8421.jpeg?type=m"
+                                                    src=""
                                                     loading="auto" class="image">
                                             </picture>
                                         </div>
@@ -107,11 +107,11 @@
                                             <div class="user_box">
                                                 <picture class="picture img_profile">
                                                     <source type="image/webp"
-                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjExMTJfNSAg/MDAxNjY4MTc4OTg2ODMz.BNaaOXTTh0anVngGqQBR3e2i0O-PklBR9zSXOTGuuzYg.DT3Btnyhy3npuiZd3GnFfFE9_XMyXUAEi4g6MUuuPSIg.JPEG/p_36e41b8f822542428ec96e83ac46c44d.jpeg?type=s_webp">
+                                                        srcset="">
                                                     <source
-                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjExMTJfNSAg/MDAxNjY4MTc4OTg2ODMz.BNaaOXTTh0anVngGqQBR3e2i0O-PklBR9zSXOTGuuzYg.DT3Btnyhy3npuiZd3GnFfFE9_XMyXUAEi4g6MUuuPSIg.JPEG/p_36e41b8f822542428ec96e83ac46c44d.jpeg?type=s">
+                                                        srcset="">
                                                     <img alt="사용자 프로필 이미지"
-                                                        src="https://kream-phinf.pstatic.net/MjAyMjExMTJfNSAg/MDAxNjY4MTc4OTg2ODMz.BNaaOXTTh0anVngGqQBR3e2i0O-PklBR9zSXOTGuuzYg.DT3Btnyhy3npuiZd3GnFfFE9_XMyXUAEi4g6MUuuPSIg.JPEG/p_36e41b8f822542428ec96e83ac46c44d.jpeg?type=s"
+                                                        src=""
                                                         loading="auto" class="image">
                                                 </picture>
                                                 <p class="feed_user_name">yeni_day</p>
@@ -136,11 +136,11 @@
                                         <div class="social_img_box square">
                                             <picture class="picture social_img">
                                                 <source type="image/webp"
-                                                    srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjdfMTg3/MDAxNjcyMTI1MTAzNDM3.k4-GuKPlN7yPFbDhezSPkCyPGUkqeyWOKNUACRAvXksg.aX5bxgr33o2Rxb3pPeFzkU681m7YCdHqKQE4FPYscrwg.JPEG/p_3f888b1afc044690beb8b746402bf037.jpeg?type=m_webp">
+                                                    srcset="">
                                                 <source
-                                                    srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjdfMTg3/MDAxNjcyMTI1MTAzNDM3.k4-GuKPlN7yPFbDhezSPkCyPGUkqeyWOKNUACRAvXksg.aX5bxgr33o2Rxb3pPeFzkU681m7YCdHqKQE4FPYscrwg.JPEG/p_3f888b1afc044690beb8b746402bf037.jpeg?type=m">
+                                                    srcset="">
                                                 <img alt="소셜이미지"
-                                                    src="https://kream-phinf.pstatic.net/MjAyMjEyMjdfMTg3/MDAxNjcyMTI1MTAzNDM3.k4-GuKPlN7yPFbDhezSPkCyPGUkqeyWOKNUACRAvXksg.aX5bxgr33o2Rxb3pPeFzkU681m7YCdHqKQE4FPYscrwg.JPEG/p_3f888b1afc044690beb8b746402bf037.jpeg?type=m"
+                                                    src=""
                                                     loading="auto" class="image">
                                             </picture>
                                         </div>
@@ -148,11 +148,11 @@
                                             <div class="user_box">
                                                 <picture class="picture img_profile">
                                                     <source type="image/webp"
-                                                        srcset="https://kream-phinf.pstatic.net/MjAyMDEyMjZfMjgg/MDAxNjA4OTkxNjM5Mzky.FjHvHgSPG1zzCMtJGGzCjGTVS3ADJ8NR5vSEqTEZatog.4H9rmr3DfGPbwAALCCHZtwUtirQffLQQjFqSX9_dfIYg.JPEG/p_0f7418b98d9842159f23073ab3263993.jpg?type=s_webp">
+                                                        srcset="">
                                                     <source
-                                                        srcset="https://kream-phinf.pstatic.net/MjAyMDEyMjZfMjgg/MDAxNjA4OTkxNjM5Mzky.FjHvHgSPG1zzCMtJGGzCjGTVS3ADJ8NR5vSEqTEZatog.4H9rmr3DfGPbwAALCCHZtwUtirQffLQQjFqSX9_dfIYg.JPEG/p_0f7418b98d9842159f23073ab3263993.jpg?type=s">
+                                                        srcset="">
                                                     <img alt="사용자 프로필 이미지"
-                                                        src="https://kream-phinf.pstatic.net/MjAyMDEyMjZfMjgg/MDAxNjA4OTkxNjM5Mzky.FjHvHgSPG1zzCMtJGGzCjGTVS3ADJ8NR5vSEqTEZatog.4H9rmr3DfGPbwAALCCHZtwUtirQffLQQjFqSX9_dfIYg.JPEG/p_0f7418b98d9842159f23073ab3263993.jpg?type=s"
+                                                        src=""
                                                         loading="auto" class="image">
                                                 </picture>
                                                 <p class="feed_user_name">93.e.su</p>
@@ -176,11 +176,11 @@
                                         <div class="social_img_box vertical">
                                             <picture class="picture social_img">
                                                 <source type="image/webp"
-                                                    srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjhfMTc4/MDAxNjcyMTk0MjY2Njk3.ID4oXLjphKCSG17vPHX7Ku_DC93mQrR7M2-c9TgWXvwg.75cNsQCfe4XQZ9LwxxrRRQce7sJbNxiiYTGdKSesTxIg.JPEG/p_bee3aabc37b04e80875a1a1f558b8421.jpeg?type=m_webp">
+                                                    srcset="">
                                                 <source
-                                                    srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjhfMTc4/MDAxNjcyMTk0MjY2Njk3.ID4oXLjphKCSG17vPHX7Ku_DC93mQrR7M2-c9TgWXvwg.75cNsQCfe4XQZ9LwxxrRRQce7sJbNxiiYTGdKSesTxIg.JPEG/p_bee3aabc37b04e80875a1a1f558b8421.jpeg?type=m">
+                                                    srcset="">
                                                 <img alt="소셜이미지"
-                                                    src="https://kream-phinf.pstatic.net/MjAyMjEyMjhfMTc4/MDAxNjcyMTk0MjY2Njk3.ID4oXLjphKCSG17vPHX7Ku_DC93mQrR7M2-c9TgWXvwg.75cNsQCfe4XQZ9LwxxrRRQce7sJbNxiiYTGdKSesTxIg.JPEG/p_bee3aabc37b04e80875a1a1f558b8421.jpeg?type=m"
+                                                    src=""
                                                     loading="auto" class="image">
                                             </picture>
                                         </div>
@@ -188,11 +188,11 @@
                                             <div class="user_box">
                                                 <picture class="picture img_profile">
                                                     <source type="image/webp"
-                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjExMTJfNSAg/MDAxNjY4MTc4OTg2ODMz.BNaaOXTTh0anVngGqQBR3e2i0O-PklBR9zSXOTGuuzYg.DT3Btnyhy3npuiZd3GnFfFE9_XMyXUAEi4g6MUuuPSIg.JPEG/p_36e41b8f822542428ec96e83ac46c44d.jpeg?type=s_webp">
+                                                        srcset="">
                                                     <source
-                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjExMTJfNSAg/MDAxNjY4MTc4OTg2ODMz.BNaaOXTTh0anVngGqQBR3e2i0O-PklBR9zSXOTGuuzYg.DT3Btnyhy3npuiZd3GnFfFE9_XMyXUAEi4g6MUuuPSIg.JPEG/p_36e41b8f822542428ec96e83ac46c44d.jpeg?type=s">
+                                                        srcset="">
                                                     <img alt="사용자 프로필 이미지"
-                                                        src="https://kream-phinf.pstatic.net/MjAyMjExMTJfNSAg/MDAxNjY4MTc4OTg2ODMz.BNaaOXTTh0anVngGqQBR3e2i0O-PklBR9zSXOTGuuzYg.DT3Btnyhy3npuiZd3GnFfFE9_XMyXUAEi4g6MUuuPSIg.JPEG/p_36e41b8f822542428ec96e83ac46c44d.jpeg?type=s"
+                                                        src=""
                                                         loading="auto" class="image">
                                                 </picture>
                                                 <p class="feed_user_name">yeni_day</p><span aria-label="좋아요"
@@ -216,11 +216,11 @@
                                         <div class="social_img_box square">
                                             <picture class="picture social_img">
                                                 <source type="image/webp"
-                                                    srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjdfMTg3/MDAxNjcyMTI1MTAzNDM3.k4-GuKPlN7yPFbDhezSPkCyPGUkqeyWOKNUACRAvXksg.aX5bxgr33o2Rxb3pPeFzkU681m7YCdHqKQE4FPYscrwg.JPEG/p_3f888b1afc044690beb8b746402bf037.jpeg?type=m_webp">
+                                                    srcset="">
                                                 <source
-                                                    srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjdfMTg3/MDAxNjcyMTI1MTAzNDM3.k4-GuKPlN7yPFbDhezSPkCyPGUkqeyWOKNUACRAvXksg.aX5bxgr33o2Rxb3pPeFzkU681m7YCdHqKQE4FPYscrwg.JPEG/p_3f888b1afc044690beb8b746402bf037.jpeg?type=m">
+                                                    srcset="">
                                                 <img alt="소셜이미지"
-                                                    src="https://kream-phinf.pstatic.net/MjAyMjEyMjdfMTg3/MDAxNjcyMTI1MTAzNDM3.k4-GuKPlN7yPFbDhezSPkCyPGUkqeyWOKNUACRAvXksg.aX5bxgr33o2Rxb3pPeFzkU681m7YCdHqKQE4FPYscrwg.JPEG/p_3f888b1afc044690beb8b746402bf037.jpeg?type=m"
+                                                    src=""
                                                     loading="auto" class="image">
                                             </picture>
                                         </div>
@@ -228,11 +228,11 @@
                                             <div class="user_box">
                                                 <picture class="picture img_profile">
                                                     <source type="image/webp"
-                                                        srcset="https://kream-phinf.pstatic.net/MjAyMDEyMjZfMjgg/MDAxNjA4OTkxNjM5Mzky.FjHvHgSPG1zzCMtJGGzCjGTVS3ADJ8NR5vSEqTEZatog.4H9rmr3DfGPbwAALCCHZtwUtirQffLQQjFqSX9_dfIYg.JPEG/p_0f7418b98d9842159f23073ab3263993.jpg?type=s_webp">
+                                                        srcset="">
                                                     <source
-                                                        srcset="https://kream-phinf.pstatic.net/MjAyMDEyMjZfMjgg/MDAxNjA4OTkxNjM5Mzky.FjHvHgSPG1zzCMtJGGzCjGTVS3ADJ8NR5vSEqTEZatog.4H9rmr3DfGPbwAALCCHZtwUtirQffLQQjFqSX9_dfIYg.JPEG/p_0f7418b98d9842159f23073ab3263993.jpg?type=s">
+                                                        srcset="">
                                                     <img alt="사용자 프로필 이미지"
-                                                        src="https://kream-phinf.pstatic.net/MjAyMDEyMjZfMjgg/MDAxNjA4OTkxNjM5Mzky.FjHvHgSPG1zzCMtJGGzCjGTVS3ADJ8NR5vSEqTEZatog.4H9rmr3DfGPbwAALCCHZtwUtirQffLQQjFqSX9_dfIYg.JPEG/p_0f7418b98d9842159f23073ab3263993.jpg?type=s"
+                                                        src=""
                                                         loading="auto" class="image">
                                                 </picture>
                                                 <p class="feed_user_name">93.e.su</p>
@@ -260,11 +260,11 @@
                                         <div class="social_img_box square">
                                             <picture class="picture social_img">
                                                 <source type="image/webp"
-                                                    srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjdfMTg3/MDAxNjcyMTI1MTAzNDM3.k4-GuKPlN7yPFbDhezSPkCyPGUkqeyWOKNUACRAvXksg.aX5bxgr33o2Rxb3pPeFzkU681m7YCdHqKQE4FPYscrwg.JPEG/p_3f888b1afc044690beb8b746402bf037.jpeg?type=m_webp">
+                                                    srcset="">
                                                 <source
-                                                    srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjdfMTg3/MDAxNjcyMTI1MTAzNDM3.k4-GuKPlN7yPFbDhezSPkCyPGUkqeyWOKNUACRAvXksg.aX5bxgr33o2Rxb3pPeFzkU681m7YCdHqKQE4FPYscrwg.JPEG/p_3f888b1afc044690beb8b746402bf037.jpeg?type=m">
+                                                    srcset="">
                                                 <img alt="소셜이미지"
-                                                    src="https://kream-phinf.pstatic.net/MjAyMjEyMjdfMTg3/MDAxNjcyMTI1MTAzNDM3.k4-GuKPlN7yPFbDhezSPkCyPGUkqeyWOKNUACRAvXksg.aX5bxgr33o2Rxb3pPeFzkU681m7YCdHqKQE4FPYscrwg.JPEG/p_3f888b1afc044690beb8b746402bf037.jpeg?type=m"
+                                                    src=""
                                                     loading="auto" class="image">
                                             </picture>
                                         </div>
@@ -272,11 +272,11 @@
                                             <div class="user_box">
                                                 <picture class="picture img_profile">
                                                     <source type="image/webp"
-                                                        srcset="https://kream-phinf.pstatic.net/MjAyMDEyMjZfMjgg/MDAxNjA4OTkxNjM5Mzky.FjHvHgSPG1zzCMtJGGzCjGTVS3ADJ8NR5vSEqTEZatog.4H9rmr3DfGPbwAALCCHZtwUtirQffLQQjFqSX9_dfIYg.JPEG/p_0f7418b98d9842159f23073ab3263993.jpg?type=s_webp">
+                                                        srcset="">
                                                     <source
-                                                        srcset="https://kream-phinf.pstatic.net/MjAyMDEyMjZfMjgg/MDAxNjA4OTkxNjM5Mzky.FjHvHgSPG1zzCMtJGGzCjGTVS3ADJ8NR5vSEqTEZatog.4H9rmr3DfGPbwAALCCHZtwUtirQffLQQjFqSX9_dfIYg.JPEG/p_0f7418b98d9842159f23073ab3263993.jpg?type=s">
+                                                        srcset="">
                                                     <img alt="사용자 프로필 이미지"
-                                                        src="https://kream-phinf.pstatic.net/MjAyMDEyMjZfMjgg/MDAxNjA4OTkxNjM5Mzky.FjHvHgSPG1zzCMtJGGzCjGTVS3ADJ8NR5vSEqTEZatog.4H9rmr3DfGPbwAALCCHZtwUtirQffLQQjFqSX9_dfIYg.JPEG/p_0f7418b98d9842159f23073ab3263993.jpg?type=s"
+                                                        src=""
                                                         loading="auto" class="image">
                                                 </picture>
                                                 <p class="feed_user_name">93.e.su</p>
@@ -300,11 +300,11 @@
                                         <div class="social_img_box vertical">
                                             <picture class="picture social_img">
                                                 <source type="image/webp"
-                                                    srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjhfMTc4/MDAxNjcyMTk0MjY2Njk3.ID4oXLjphKCSG17vPHX7Ku_DC93mQrR7M2-c9TgWXvwg.75cNsQCfe4XQZ9LwxxrRRQce7sJbNxiiYTGdKSesTxIg.JPEG/p_bee3aabc37b04e80875a1a1f558b8421.jpeg?type=m_webp">
+                                                    srcset="">
                                                 <source
-                                                    srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjhfMTc4/MDAxNjcyMTk0MjY2Njk3.ID4oXLjphKCSG17vPHX7Ku_DC93mQrR7M2-c9TgWXvwg.75cNsQCfe4XQZ9LwxxrRRQce7sJbNxiiYTGdKSesTxIg.JPEG/p_bee3aabc37b04e80875a1a1f558b8421.jpeg?type=m">
+                                                    srcset="">
                                                 <img alt="소셜이미지"
-                                                    src="https://kream-phinf.pstatic.net/MjAyMjEyMjhfMTc4/MDAxNjcyMTk0MjY2Njk3.ID4oXLjphKCSG17vPHX7Ku_DC93mQrR7M2-c9TgWXvwg.75cNsQCfe4XQZ9LwxxrRRQce7sJbNxiiYTGdKSesTxIg.JPEG/p_bee3aabc37b04e80875a1a1f558b8421.jpeg?type=m"
+                                                    src=""
                                                     loading="auto" class="image">
                                             </picture>
                                         </div>
@@ -312,11 +312,11 @@
                                             <div class="user_box">
                                                 <picture class="picture img_profile">
                                                     <source type="image/webp"
-                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjExMTJfNSAg/MDAxNjY4MTc4OTg2ODMz.BNaaOXTTh0anVngGqQBR3e2i0O-PklBR9zSXOTGuuzYg.DT3Btnyhy3npuiZd3GnFfFE9_XMyXUAEi4g6MUuuPSIg.JPEG/p_36e41b8f822542428ec96e83ac46c44d.jpeg?type=s_webp">
+                                                        srcset="">
                                                     <source
-                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjExMTJfNSAg/MDAxNjY4MTc4OTg2ODMz.BNaaOXTTh0anVngGqQBR3e2i0O-PklBR9zSXOTGuuzYg.DT3Btnyhy3npuiZd3GnFfFE9_XMyXUAEi4g6MUuuPSIg.JPEG/p_36e41b8f822542428ec96e83ac46c44d.jpeg?type=s">
+                                                        srcset="">
                                                     <img alt="사용자 프로필 이미지"
-                                                        src="https://kream-phinf.pstatic.net/MjAyMjExMTJfNSAg/MDAxNjY4MTc4OTg2ODMz.BNaaOXTTh0anVngGqQBR3e2i0O-PklBR9zSXOTGuuzYg.DT3Btnyhy3npuiZd3GnFfFE9_XMyXUAEi4g6MUuuPSIg.JPEG/p_36e41b8f822542428ec96e83ac46c44d.jpeg?type=s"
+                                                        src=""
                                                         loading="auto" class="image">
                                                 </picture>
                                                 <p class="feed_user_name">yeni_day</p><span aria-label="좋아요"
@@ -340,11 +340,11 @@
                                         <div class="social_img_box vertical">
                                             <picture class="picture social_img">
                                                 <source type="image/webp"
-                                                    srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjhfMTc4/MDAxNjcyMTk0MjY2Njk3.ID4oXLjphKCSG17vPHX7Ku_DC93mQrR7M2-c9TgWXvwg.75cNsQCfe4XQZ9LwxxrRRQce7sJbNxiiYTGdKSesTxIg.JPEG/p_bee3aabc37b04e80875a1a1f558b8421.jpeg?type=m_webp">
+                                                    srcset="">
                                                 <source
-                                                    srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjhfMTc4/MDAxNjcyMTk0MjY2Njk3.ID4oXLjphKCSG17vPHX7Ku_DC93mQrR7M2-c9TgWXvwg.75cNsQCfe4XQZ9LwxxrRRQce7sJbNxiiYTGdKSesTxIg.JPEG/p_bee3aabc37b04e80875a1a1f558b8421.jpeg?type=m">
+                                                    srcset="">
                                                 <img alt="소셜이미지"
-                                                    src="https://kream-phinf.pstatic.net/MjAyMjEyMjhfMTc4/MDAxNjcyMTk0MjY2Njk3.ID4oXLjphKCSG17vPHX7Ku_DC93mQrR7M2-c9TgWXvwg.75cNsQCfe4XQZ9LwxxrRRQce7sJbNxiiYTGdKSesTxIg.JPEG/p_bee3aabc37b04e80875a1a1f558b8421.jpeg?type=m"
+                                                    src=""
                                                     loading="auto" class="image">
                                             </picture>
                                         </div>
@@ -352,11 +352,11 @@
                                             <div class="user_box">
                                                 <picture class="picture img_profile">
                                                     <source type="image/webp"
-                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjExMTJfNSAg/MDAxNjY4MTc4OTg2ODMz.BNaaOXTTh0anVngGqQBR3e2i0O-PklBR9zSXOTGuuzYg.DT3Btnyhy3npuiZd3GnFfFE9_XMyXUAEi4g6MUuuPSIg.JPEG/p_36e41b8f822542428ec96e83ac46c44d.jpeg?type=s_webp">
+                                                        srcset="">
                                                     <source
-                                                        srcset="https://kream-phinf.pstatic.net/MjAyMjExMTJfNSAg/MDAxNjY4MTc4OTg2ODMz.BNaaOXTTh0anVngGqQBR3e2i0O-PklBR9zSXOTGuuzYg.DT3Btnyhy3npuiZd3GnFfFE9_XMyXUAEi4g6MUuuPSIg.JPEG/p_36e41b8f822542428ec96e83ac46c44d.jpeg?type=s">
+                                                        srcset="">
                                                     <img alt="사용자 프로필 이미지"
-                                                        src="https://kream-phinf.pstatic.net/MjAyMjExMTJfNSAg/MDAxNjY4MTc4OTg2ODMz.BNaaOXTTh0anVngGqQBR3e2i0O-PklBR9zSXOTGuuzYg.DT3Btnyhy3npuiZd3GnFfFE9_XMyXUAEi4g6MUuuPSIg.JPEG/p_36e41b8f822542428ec96e83ac46c44d.jpeg?type=s"
+                                                        src=""
                                                         loading="auto" class="image">
                                                 </picture>
                                                 <p class="feed_user_name">yeni_day</p><span aria-label="좋아요"
@@ -380,11 +380,11 @@
                                         <div class="social_img_box square">
                                             <picture class="picture social_img">
                                                 <source type="image/webp"
-                                                    srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjdfMTg3/MDAxNjcyMTI1MTAzNDM3.k4-GuKPlN7yPFbDhezSPkCyPGUkqeyWOKNUACRAvXksg.aX5bxgr33o2Rxb3pPeFzkU681m7YCdHqKQE4FPYscrwg.JPEG/p_3f888b1afc044690beb8b746402bf037.jpeg?type=m_webp">
+                                                    srcset="">
                                                 <source
-                                                    srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjdfMTg3/MDAxNjcyMTI1MTAzNDM3.k4-GuKPlN7yPFbDhezSPkCyPGUkqeyWOKNUACRAvXksg.aX5bxgr33o2Rxb3pPeFzkU681m7YCdHqKQE4FPYscrwg.JPEG/p_3f888b1afc044690beb8b746402bf037.jpeg?type=m">
+                                                    srcset="">
                                                 <img alt="소셜이미지"
-                                                    src="https://kream-phinf.pstatic.net/MjAyMjEyMjdfMTg3/MDAxNjcyMTI1MTAzNDM3.k4-GuKPlN7yPFbDhezSPkCyPGUkqeyWOKNUACRAvXksg.aX5bxgr33o2Rxb3pPeFzkU681m7YCdHqKQE4FPYscrwg.JPEG/p_3f888b1afc044690beb8b746402bf037.jpeg?type=m"
+                                                    src=""
                                                     loading="auto" class="image">
                                             </picture>
                                         </div>
@@ -392,11 +392,11 @@
                                             <div class="user_box">
                                                 <picture class="picture img_profile">
                                                     <source type="image/webp"
-                                                        srcset="https://kream-phinf.pstatic.net/MjAyMDEyMjZfMjgg/MDAxNjA4OTkxNjM5Mzky.FjHvHgSPG1zzCMtJGGzCjGTVS3ADJ8NR5vSEqTEZatog.4H9rmr3DfGPbwAALCCHZtwUtirQffLQQjFqSX9_dfIYg.JPEG/p_0f7418b98d9842159f23073ab3263993.jpg?type=s_webp">
+                                                        srcset="">
                                                     <source
-                                                        srcset="https://kream-phinf.pstatic.net/MjAyMDEyMjZfMjgg/MDAxNjA4OTkxNjM5Mzky.FjHvHgSPG1zzCMtJGGzCjGTVS3ADJ8NR5vSEqTEZatog.4H9rmr3DfGPbwAALCCHZtwUtirQffLQQjFqSX9_dfIYg.JPEG/p_0f7418b98d9842159f23073ab3263993.jpg?type=s">
+                                                        srcset="">
                                                     <img alt="사용자 프로필 이미지"
-                                                        src="https://kream-phinf.pstatic.net/MjAyMDEyMjZfMjgg/MDAxNjA4OTkxNjM5Mzky.FjHvHgSPG1zzCMtJGGzCjGTVS3ADJ8NR5vSEqTEZatog.4H9rmr3DfGPbwAALCCHZtwUtirQffLQQjFqSX9_dfIYg.JPEG/p_0f7418b98d9842159f23073ab3263993.jpg?type=s"
+                                                        src=""
                                                         loading="auto" class="image">
                                                 </picture>
                                                 <p class="feed_user_name">93.e.su</p>
@@ -519,9 +519,7 @@
                                         <!--                        팝업 (팔로잉) 끝-->
 
                 </div>
-                 <!-- 푸터 시작-->
-                <footer th:replace="/fragment/footer :: footer"></footer>
-                <!-- 푸터 끝 -->
+
             </div>
         </div>
     </div>
@@ -530,18 +528,18 @@
 
     <!-- 본문 끝 -->
 
-    
+    <!-- 푸터 시작-->
+    <footer th:replace="/fragment/footer :: footer"></footer>
+    <!-- 푸터 끝 -->
 
 
 
     <script src="/js/social/like.js"></script>
     <script src="/js/social/profile.js"></script>
+    <script src="/js/social/myprofile.js"></script>
 
     <script>
-        console.log(scrollY);
-    
         addEventListener("scroll", e => {
-            console.log(window.scrollY);
             const mini = document.getElementById('mini');
             if(window.scrollY>0){
                 mini.setAttribute('style', 'display: flex;');
@@ -556,13 +554,3 @@
 
 </html>
 
-<script>
-    window.onload = function(){
-        const items = document.querySelectorAll('gnb_item');
-        items.forEach((it) => {
-            it.classList.remove('gnb_on');
-        })
-        const item = document.getElementById('st_gnb');
-        item.classList.add('gnb_on');
-    }
-</script>

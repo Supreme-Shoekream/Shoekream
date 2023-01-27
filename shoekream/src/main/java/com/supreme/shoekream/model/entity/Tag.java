@@ -26,7 +26,7 @@ public class Tag{
     private Board board;
 //    private Long productIdx;    // OneToOne
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name="product_idx")
     private Product product;
 }
