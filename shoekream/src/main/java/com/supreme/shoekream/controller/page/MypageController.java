@@ -81,14 +81,17 @@ public class MypageController {
         List<String> wish_productPrice = sellService.buyNowPrices(wish_productList);
         modelmap.addAttribute("wish_productPrice", wish_productPrice);
         return "my/wish";
+
     }
    
 
 
-//    @GetMapping(path = "wish")
-//    public ModelAndView wish(){
-//        return new ModelAndView("my/wish");
-//    }
+    }
+
+    @GetMapping(path = "wish")
+    public ModelAndView wish(){
+        return new ModelAndView("my/wish");
+    }
 
     @GetMapping(path="profile")
     public ModelAndView profile(){
