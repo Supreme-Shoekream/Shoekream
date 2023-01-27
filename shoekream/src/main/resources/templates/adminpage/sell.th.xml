@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<thlogic>
+
+<!--  오름차순/내림차순 정의  -->
+    <attr sel="data-table" th:object="${sells}">
+        <attr sel="thead/tr">
+            <attr sel="th.idx/a" th:href="@{/admin/sell(page=${sells.number},sort='idx'+
+                (*{sort.getOrderFor('idx')} != null ? (*{sort.getOrderFor('idx').direction.name} != 'DESC' ? ',desc' : '') : ''),
+                searchKeyword=${param.searchValue}
+                )}"/>
+
+        </attr>
+    </attr>
+
+    <attr sel="tbody" th:remove="all-but-first">
+        <attr sel="tr[0]" th:each="sell : ${sells}">
+            <attr sel="td.product_code" th:text="${sell.idx}"/>
+            <attr sel="td.order_num" th:text="${sell.productName}"/>
+            <attr sel="td.name" th:text="${sell.productSize}"/>
+            <attr sel="td.size" th:text="${sell.memberEmail}"/>
+            <attr sel="td.progress_status" th:text="${#numbers.formatInteger(sell.price, 0, 'COMMA')}"/>
+            <attr sel="td.price" th:datetime="${sell.deadline}" th:text="${#temporals.format(sell.deadline, 'yyyy-MM-dd')}"/>
+            <attr sel="td.period" th:text="${sell.status}"/>
+            <attr sel="td.deposit" th:text="${sell.progress}"/>
+            <attr sel="td.status" th:text="${sell.progress}"/>
+            <attr sel="td.reg_data" th:text="${sell.progress}"/>
+            <attr sel="td.more">
+                <attr sel="#view_btn" th:onclick="'javascript:pop_sell_view('+ ${sell.idx} + ');'"/>
+                <attr sel="#delete_btn" th:onclick="'javascript:pop_sell_delete(' + ${sell.idx} + ');'"/>
+            </attr>
+        </attr>
+    </attr>
+
+
+
+</thlogic>
