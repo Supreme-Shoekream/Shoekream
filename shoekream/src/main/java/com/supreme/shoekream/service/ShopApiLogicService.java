@@ -137,5 +137,21 @@ public class ShopApiLogicService extends BaseService<ProductApiRequest, ProductA
         };
     }
 
+    @Transactional(readOnly = true)
+    public Page<ProductDTO> searchsProduct(String size, String brand, String category, String collection,
+                                           String gender, String keyword, Pageable pageable){
+        if (size==null && brand==null && category==null && collection==null && gender==null && keyword==null ){
+            return productRepository.findBySize("230", pageable).map(ProductDTO::fromEntity);
+        }
+        if (size == null) size="";
+        if (brand == null) size="";
+        if (category == null) size="";
+        if (collection == null) size="";
+        if (gender == null) size="";
+        if (keyword == null) size="";
+        return productRepository.findBySizeContainingAndBrandContainingAndCategoryContainingAndCollectionContainingAndGenderContainingAndNameContaining(
+                size,brand,category,collection,gender,keyword,pageable).map(ProductDTO::fromEntity);
+    }
+
 }
 
