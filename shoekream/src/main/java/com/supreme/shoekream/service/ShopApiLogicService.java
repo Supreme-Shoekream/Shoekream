@@ -118,6 +118,9 @@ public class ShopApiLogicService extends BaseService<ProductApiRequest, ProductA
         return Header.OK(productApiResponses, pagination);
     }
 
+    public List<ProductDTO> categoryList(String category){
+        return productRepository.findByCategory(category).stream().map(ProductDTO::fromEntity).toList();
+    }
 
     //카테고리 기능
     @Transactional(readOnly = true)// 데이터에 권한을 주지 않는다

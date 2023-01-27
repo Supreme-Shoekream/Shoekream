@@ -213,6 +213,7 @@ insert into member (nickname, member_pw, name, hp, email, status, shoe_size, poi
 
 -- 상품
 
+
 INSERT INTO product (img, brand, name, name_kor, size, model_num, release_date, color, first_price, category, gender, collection) VALUES ( '/img/product/Supreme_x_The_North_Face_Trans_Antarctica_Expedition_Pullover_Jacket_Red_-_17SS.png', 'Supreme', 'Supreme x The North Face Trans Antarctica Expedition Pullover Jacket Red - 17SS', '슈프림 x 노스페이스 트랜스 안타티카 익스페디션 풀오버 자켓 레드 - 17SS', '230', 'NF0A37KB682', '-', 'RED', '-', '의류', '', 'JUST_DROP');
 INSERT INTO product (img, brand, name, name_kor, size, model_num, release_date, color, first_price, category, gender, collection) VALUES ( '/img/product/Asics_Gel-Lyte_V_Black_Blue.png', 'Asics', 'Asics Gel-Lyte V Black Blue', '아식스 젤 라이트 5 블랙 블루', '230', 'H805L-9046', '18/01/31', 'BLACK/BLUE/SURF WHITE', '$130 (약 161,500원)', '신발', 'MAN', 'JUST_DROP');
 INSERT INTO product (img, brand, name, name_kor, size, model_num, release_date, color, first_price, category, gender, collection) VALUES ( '/img/product/Supreme_x_The_North_Face_Leather_Nuptse_Jacket_Black_-_17FW.png', 'Supreme', 'Supreme x The North Face Leather Nuptse Jacket Black - 17FW', '슈프림 x 노스페이스 레더 눕시 자켓 블랙 - 17FW', '230', 'NF0A3CADJK3', '17/10/19', 'BLACK', '$1,098 (약 1,364,000원)', null, 'MAN', 'JUST_DROP');
@@ -322,6 +323,7 @@ INSERT INTO product (img, brand, name, name_kor, size, model_num, release_date, 
 INSERT INTO product (img, brand, name, name_kor, size, model_num, release_date, color, first_price, category, gender, collection) VALUES ( '/img/product/Nike_x_Supreme_Air_Force_1_Low_White.png', 'Nike', 'Nike x Supreme Air Force 1 Low White', '나이키 x 슈프림 에어포스 1 로우 화이트', '260', 'CU9225-100', '20/03/05', 'WHITE/WHITE-WHITE', '$118 (약 146,200원)', null, null, null);
 INSERT INTO product (img, brand, name, name_kor, size, model_num, release_date, color, first_price, category, gender, collection) VALUES ( '/img/product/Nike_x_Supreme_Air_Force_1_Low_White.png', 'Nike', 'Nike x Supreme Air Force 1 Low White', '나이키 x 슈프림 에어포스 1 로우 화이트', '270', 'CU9225-100', '20/03/05', 'WHITE/WHITE-WHITE', '$118 (약 146,200원)', null, null, null);
 INSERT INTO product (img, brand, name, name_kor, size, model_num, release_date, color, first_price, category, gender, collection) VALUES ( '/img/product/Nike_x_Supreme_Air_Force_1_Low_White.png', 'Nike', 'Nike x Supreme Air Force 1 Low White', '나이키 x 슈프림 에어포스 1 로우 화이트', '280', 'CU9225-100', '20/03/05', 'WHITE/WHITE-WHITE', '$118 (약 146,200원)', 'null', 'null', 'null');
+
 
 
 
@@ -1075,16 +1077,16 @@ insert into conclusion (product_idx, price, created_at) values (109, '309,000원
 -- INSERT INTO shop_test (idx, img, brand, name, name_kor, now_price, wish_count, style_count) VALUES (200, '/img/shop/Dyson_Supersonic_Hair_Dryer_Vinca_Blue_Rose_(Korean_Ver.).png', 'Dyson', 'Dyson Supersonic Hair Dryer Vinca Blue Rose (Korean Ver.)', '다이슨 슈퍼소닉 헤어 드라이어 빈카 블루 로제 (국내 정식 발매 제품)', '590,000원', '121', '1');
 
 
-insert into address (idx, name, hp, zipcode, address1, address2, address_basic) values (1, 'Barry', '822-912-7019', '461', '2616 East Center', '11394 Granby Hill', true);
-insert into address (idx, name, hp, zipcode, address1, address2, address_basic) values (2, 'Lesya', '229-106-1003', '92', '4 Hoffman Terrace', '6736 Corscot Avenue', true);
-insert into address (idx, name, hp, zipcode, address1, address2, address_basic) values (3, 'Ruthanne', '183-383-7720', '9309', '2303 Mendota Park', '88 Hansons Junction', true);
-insert into address (idx, name, hp, zipcode, address1, address2, address_basic) values (4, 'Kamila', '475-814-4506', '9415', '47145 Stone Corner Place', '7284 Florence Circle', false);
-insert into address (idx, name, hp, zipcode, address1, address2, address_basic) values (5, 'Fawnia', '116-861-8338', '746', '676 Columbus Road', '802 Browning Way', true);
-insert into address (idx, name, hp, zipcode, address1, address2, address_basic) values (6, 'Rowena', '309-489-1755', '711', '6561 Northland Way', '7 Banding Trail', true);
-insert into address (idx, name, hp, zipcode, address1, address2, address_basic) values (7, 'Brnaby', '100-500-8074', '85480', '452 American Drive', '09002 Dovetail Place', true);
-insert into address (idx, name, hp, zipcode, address1, address2, address_basic) values (8, 'Burgess', '200-479-3158', '75183', '27 Pepper Wood Way', '258 Melby Parkway', false);
-insert into address (idx, name, hp, zipcode, address1, address2, address_basic) values (9, 'Dane', '537-728-8330', '06', '5 Sutteridge Parkway', '7704 Sunbrook Terrace', true);
-insert into address (idx, name, hp, zipcode, address1, address2, address_basic) values (10, 'Jerrie', '532-243-4266', '012', '59662 Ridge Oak Center', '71952 Sommers Pass', true);
+insert into address (idx, name, hp, zipcode, address1, address2, address_basic, member_idx) values (1, '오렌지', '010-3333-3333', '33333', '서울시', '강남구', true,1);
+insert into address (idx, name, hp, zipcode, address1, address2, address_basic, member_idx) values (2, 'Lesya', '229-106-1003', '92', '4 Hoffman Terrace', '6736 Corscot Avenue', true,2);
+insert into address (idx, name, hp, zipcode, address1, address2, address_basic, member_idx) values (3, 'Ruthanne', '183-383-7720', '9309', '2303 Mendota Park', '88 Hansons Junction', true,2);
+insert into address (idx, name, hp, zipcode, address1, address2, address_basic, member_idx) values (4, '김사과', '010-1111-1111', '11111', '서울시', '강남구', false,1);
+insert into address (idx, name, hp, zipcode, address1, address2, address_basic, member_idx) values (5, 'Fawnia', '116-861-8338', '746', '676 Columbus Road', '802 Browning Way', true,2);
+insert into address (idx, name, hp, zipcode, address1, address2, address_basic, member_idx) values (6, 'Rowena', '309-489-1755', '711', '6561 Northland Way', '7 Banding Trail', true,2);
+insert into address (idx, name, hp, zipcode, address1, address2, address_basic, member_idx) values (7, 'Brnaby', '100-500-8074', '85480', '452 American Drive', '09002 Dovetail Place', true,2);
+insert into address (idx, name, hp, zipcode, address1, address2, address_basic, member_idx) values (8, '반하나', '010-2222-2222', '22222', '서울시', '강남구', false,1);
+insert into address (idx, name, hp, zipcode, address1, address2, address_basic, member_idx) values (9, 'Dane', '537-728-8330', '06', '5 Sutteridge Parkway', '7704 Sunbrook Terrace', true,2);
+insert into address (idx, name, hp, zipcode, address1, address2, address_basic, member_idx) values (10, 'Jerrie', '532-243-4266', '012', '59662 Ridge Oak Center', '71952 Sommers Pass', true,2);
 
 -- wish
 insert into wish (idx, member_idx, product_idx) values (1, 1, 1);
