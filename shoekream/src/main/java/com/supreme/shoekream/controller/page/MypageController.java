@@ -64,7 +64,6 @@ public class MypageController {
 
 
     private final WishApiLogicService wishApiLogicService;
-    private final SellService sellService;
     @GetMapping(path = "wish/{idx}")
     public String wish(@PathVariable Long idx, ModelMap modelmap, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
         // 🔴 idx 말고 로그인한 세션값을 넣어줘야함 -> 크림프린시펄 사용?
