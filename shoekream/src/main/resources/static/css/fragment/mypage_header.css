@@ -103,11 +103,7 @@ nav {
 .header .nav_btn_box {
     display: none;
 }
-.header .logo {
-    display: flex;
-    width: 120px;
-    height: 24px;
-}
+
 .header .gnb_link, .header .search_btn_box {
     display: flex;
 }

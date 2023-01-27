@@ -14,10 +14,15 @@ import com.supreme.shoekream.service.PointApiLogicService;
 import com.supreme.shoekream.service.SellService;
 import lombok.RequiredArgsConstructor;
 import org.aspectj.weaver.ast.Or;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -41,16 +46,21 @@ public class MypageController {
     }
     private final SellService sellService;
     @GetMapping(path = "selling")
-    public String selling(ModelMap map, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+    public String selling(ModelMap map, @PageableDefault(size = 10, sort = "createdAt", direction = Sort.Direction.DESC) Pageable pageable
+            , @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
         MemberDTO memberDTO = kreamPrincipal.toFullDto();
-        List<SellResponse> biddings =sellService.mySellListByStatus(memberDTO.idx(), OrderStatus.BIDDING).stream().map(SellResponse::from).toList();
-        List<SellResponse> progressings =sellService.mySellListByStatus(memberDTO.idx(), OrderStatus.PROGRESSING).stream().map(SellResponse::from).toList();
-        List<SellResponse> ends =sellService.mySellListByStatus(memberDTO.idx(), OrderStatus.END).stream().map(SellResponse::from).toList();
-        map.addAttribute("bidding",biddings);
-        map.addAttribute("progressing",progressings);
-        map.addAttribute("end",ends);
+        Page<SellResponse> biddings =sellService.mySellListByStatus(memberDTO.idx(), OrderStatus.BIDDING, pageable).map(SellResponse::from);
+        Page<SellResponse> progressings =sellService.mySellListByStatus(memberDTO.idx(), OrderStatus.PROGRESSING, pageable).map(SellResponse::from);
+        Page<SellResponse> ends =sellService.mySellListByStatus(memberDTO.idx(), OrderStatus.END, pageable).map(SellResponse::from);
+        map.addAttribute("biddings",biddings);
+        map.addAttribute("progressings",progressings);
+        map.addAttribute("ends",ends);
         System.out.println("입찰중"+biddings+"진행중"+progressings+"종료"+ends);
         return ("/my/selling");
+    }
+    @GetMapping(path = "selling/{sellIdx}")
+    public String sellingDetail(ModelMap map, @PathVariable(name="sellIdx") Long sellIdx, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        return("/my/selling_detail");
     }
     @GetMapping(path = "wish")
     public ModelAndView wish(){
