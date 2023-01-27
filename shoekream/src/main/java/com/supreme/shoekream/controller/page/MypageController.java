@@ -95,17 +95,28 @@ public class MypageController {
         return "my/wish";
     }
 
-
-
-//    @GetMapping(path = "wish")
-//    public ModelAndView wish(){
-//        return new ModelAndView("my/wish");
-//    }
+    @GetMapping(path = "wish")
+    public ModelAndView wish(){
+        return new ModelAndView("my/wish");
+    }
 
     @GetMapping(path="profile")
     public ModelAndView profile(){
         return new ModelAndView("/my/profile");
     }
+    @GetMapping(path="buying_detail")
+    public ModelAndView buying_detail(){
+        return new ModelAndView("/my/buying_detail");
+    }
+    @GetMapping(path="buying_end")
+    public ModelAndView buying_end(){
+        return new ModelAndView("/my/buying_end");
+    }
+    @GetMapping(path="selling_detail")
+    public ModelAndView selling_detail(){
+        return new ModelAndView("/my/selling_detail");
+    }
+
 
     private final AddressApiLogicService addressApiLogicService;
     @GetMapping(path="address")
