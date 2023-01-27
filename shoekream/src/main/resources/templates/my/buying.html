@@ -6,13 +6,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <head th:replace="/fragment/footer_head :: head"></head>
-    <title>구매 내역</title>
-
+    <title>SHOEKREAM | 한정판 거래의 FLEX</title>
     <link rel="stylesheet" href="/css/my/buying.css">
     <link rel="stylesheet" href="/css/fragment/footer.css">
     <link rel="stylesheet" href="/css/fragment/mypage_navbar.css">
-
+    <script defer src="/js/fragment/mypage_navbar.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"
     integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 </head>
@@ -31,7 +29,6 @@
                         <div class="container my lg">
                             <div>
                                 <!--snb_area start-->
-<!--                                <div th:replace="include/pjs_mypage_snb_mo :: mypage_snb_mo"></div>-->
                                 <nav th:replace="/fragment/mypage_navbar::nav"></nav>
                                 <!--snb_area end-->
                             </div>
@@ -46,15 +43,15 @@
                                         <!---->
                                     </div>
                                     <div class="purchase_list_tab detail_tab">
-                                        <!-- <div class="tab_item total">
+                                        <div class="tab_item total">
                                             <a href="#" class="tab_link">
                                                 <dl class="tab_box">
                                                     <dt class="title">전체</dt>
                                                     <dd class="count">0</dd>
                                                 </dl>
                                             </a>
-                                        </div> -->
-                                        <div class="tab_item buy">
+                                        </div>
+                                        <div class="tab_item buy active">
                                             <a class="tab_link">
                                                 <dl class="tab_box">
                                                     <dt class="title">구매입찰</dt>
@@ -150,36 +147,35 @@
                                         <!-- purchase_list -->
                                         <div class="purchase_list finished bid">
                                             <div class="purchase_head">
-                                                <div class="head_product" onclick="status_layer()">
-                                                    <!-- <a href="#" class="btn_filter"> -->
-                                                        <!-- <span class="status">전체</span> -->
-                                                        <!-- <input type="text" placeholder="전체" disabled="disabled" autocomplete="off" value="" class="status">
-                                                        <img src="/users/img/select_icon.png" class="ico-arr-dir-down-circle icon sprite-icons"></img>
-                                                    </a> -->
+                                                <div class="head_product">
+                                                    <a href="#" class="btn_filter">
+                                                        <span>전체</span>
+                                                        <img src="/img/select_icon.png" class="ico-arr-dir-down-circle icon sprite-icons"></img>
+                                                    </a>
                                                 </div>
                                                 <div class="head_status">
                                                     <div class="status_box field_price">
-                                                        <a href="https://kream.co.kr/my/buying#" class="status_link">
+                                                        <a class="status_link">
                                                             <span class="status_txt">구매 희망가</span>
                                                         </a>
                                                     </div>
                                                     <div class="status_box field_date_purchased" style="display: none">
-                                                        <a href="https://kream.co.kr/my/buying#" class="status_link">
+                                                        <a class="status_link">
                                                             <span class="status_txt">구매일</span>
                                                         </a>
                                                     </div>
                                                     <div class="status_box field_date_paid" style="display: none">
-                                                        <a href="https://kream.co.kr/my/buying#" class="status_link">
+                                                        <a class="status_link">
                                                             <span class="status_txt">정산일</span>
                                                         </a>
                                                     </div>
                                                     <div class="status_box field_expires_at">
-                                                        <a href="https://kream.co.kr/my/buying#" class="status_link">
+                                                        <a class="status_link">
                                                             <span class="status_txt">만료일</span>
                                                         </a>
                                                     </div>
                                                     <div class="status_box field_status" style="display: none">
-                                                        <a href="https://kream.co.kr/my/buying#" class="status_link">
+                                                        <a class="status_link">
                                                             <span class="status_txt">상태</span>
                                                         </a>
                                                     </div>
@@ -187,28 +183,95 @@
                                             </div>
                                             <!--상품 리스트-->
 
-                                            <div id="buyList">
-                                                <div class="purchase_list_display_item" v-for="dto in buyList" style="background-color:#FFFFFF;">
+                                            <div id="bidding">
+                                                <div class="purchase_list_display_item" style="background-color:#FFFFFF;">
                                                     <div class="purchase_list_product">
                                                         <div class="list_item_img_wrap">
-                                                            <img alt="product_image" src="" class="list_item_img" id="photo" style="background-color:#f4f4f4;">
-                                                            {{productDTO.img}}
+                                                            <img
+                                                                    alt="product_image"
+                                                                    src="/img/nav_close_icon.png"
+                                                                    class="list_item_img"
+                                                                    style="background-color: rgb(244, 244, 244);"><!---->
                                                         </div>
                                                         <div class="list_item_title_wrap">
-                                                            <p class="list_item_title">{{productDTO.name}}</p>
-                                                            <p class="list_item_description">{{buyDTO.productDTO.size}}</p>
+                                                            <p class="list_item_title">Maison Margiela High Top Security Sock Runners Black</p>
+                                                            <p class="list_item_description">ONE SIZE</p>
                                                         </div>
                                                     </div>
                                                     <div class="list_item_status">
                                                         <div class="list_item_column column_secondary">
-                                                            <p class="secondary_title display_paragraph" style="color:#222222;">{{dto.price}}</p>
+                                                            <p class="secondary_title display_paragraph" style="color:#222222;">50,000원/p>
                                                         </div>
                                                         <div class="list_item_column column_last">
-                                                            <p class="last_title display_paragraph" style="color:#222222;">
-                                                                {{dto.createdAt}}</p>
+                                                            <p class="last_title display_paragraph" style="color:#222222;"><time>기한만료</time></p>
                                                             <p class="last_description display_paragraph"></p>
                                                         </div>
-
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="progressing" style="display: none">
+                                                <div class="purchase_list_display_item"
+                                                     style="background-color: rgb(255, 255, 255);">
+                                                    <div class="purchase_list_product">
+                                                        <div class="list_item_img_wrap">
+                                                            <img
+                                                                    alt="product_image"
+                                                                    src="/img/nav_close_icon.png"
+                                                                    class="list_item_img"
+                                                                    style="background-color: rgb(244, 244, 244);"><!---->
+                                                        </div>
+                                                        <div class="list_item_title_wrap"><!---->
+                                                            <p class="list_item_title">Maison Margiela High Top Security Sock Runners Black</p>
+                                                            <p class="list_item_description">ONE SIZE
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="list_item_status">
+                                                        <div
+                                                                class="list_item_column column_secondary">
+                                                            <p class="secondary_title display_paragraph"
+                                                               style="color: rgb(34, 34, 34);">50,000원</p>
+                                                        </div>
+                                                        <div class="list_item_column column_last">
+                                                            <p class="last_title display_paragraph"
+                                                               style="color: rgb(241, 87, 70);">발송완료</p>
+                                                            <p class="last_description display_paragraph"></p>
+                                                        </div>
+                                                    </div>
+                                                </div><!---->
+                                            </div>
+                                            <div id="ends"  style="display: none">
+                                                <div class="purchase_list_display_item"
+                                                     style="background-color: rgb(255, 255, 255);">
+                                                    <div class="purchase_list_product">
+                                                        <div class="list_item_img_wrap">
+                                                            <img
+                                                                    alt="product_image"
+                                                                    src="/img/nav_close_icon.png"
+                                                                    class="list_item_img"
+                                                                    style="background-color: rgb(244, 244, 244);"><!---->
+                                                        </div>
+                                                        <div class="list_item_title_wrap"><!---->
+                                                            <p class="list_item_title">Maison Margiela High Top Security Sock Runners Black</p>
+                                                            <p class="list_item_description">ONE SIZE
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="list_item_status">
+                                                        <div
+                                                                class="list_item_column column_secondary">
+                                                            <p class="secondary_title display_paragraph"
+                                                               style="color: rgb(34, 34, 34);">50,000원</p>
+                                                        </div>
+                                                        <div class="list_item_column column_last">
+                                                            <p class="last_title display_paragraph"
+                                                               style="color: rgb(241, 87, 70);">배송완료</p>
+                                                            <p class="last_description display_paragraph"></p>
+                                                        </div>
+                                                    </div>
+                                                </div><!---->
+                                            </div>
+                                        </div>
 
 <!--                                            상태 팝업 1 입찰중-->
                                             <div class="layer lg" style="display: none;" id="status1">
@@ -258,7 +321,7 @@
                                                 </div>
                                             </div>
                                             <!--상태 팝업 3 종료-->
-                                             layer_status 넣을곳
+                                            <!--layer_status 넣을곳-->
                                             <div class="layer lg status_layer" style="display: none;">
                                                 <div class="layer_container">
                                                     <div class="layer_header">
@@ -284,59 +347,52 @@
                                                         </div>
                                                     </div>
                                                     <a href="javascript:void(0);" class="btn_layer_close" onclick="closeLayer()">
-                                                        <img src="..//img/nav_close_icon.png" class="ico-close icon sprite-icons">
+                                                        <img src="/img/nav_close_icon.png" class="ico-close icon sprite-icons">
                                                     </a>
                                                 </div>
                                             </div>
                                             <!----><!----><!----><!---->
                                         </div>
                                     </div>
-                                    <div class="pagination">
-                                        <div class="pagination_box first last">
-                                            <div class="prev_btn_box">
-                                                <a href="https://kream.co.kr/my/buying#" class="btn_arr">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="arr-page-first icon sprite-icons">
-                                                        <use href="/_nuxt/91e1223d82ae15dcdada670ee3ffdaf6.svg#i-arr-page-first" xlink:href="/_nuxt/91e1223d82ae15dcdada670ee3ffdaf6.svg#i-arr-page-first"></use>
-                                                    </svg>
-                                                </a>
-                                                <a href="https://kream.co.kr/my/buying#" class="btn_arr">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="arr-page-prev icon sprite-icons">
-                                                        <use href="/_nuxt/91e1223d82ae15dcdada670ee3ffdaf6.svg#i-arr-page-prev" xlink:href="/_nuxt/91e1223d82ae15dcdada670ee3ffdaf6.svg#i-arr-page-prev"></use>
-                                                    </svg>
-                                                </a>
-                                            </div>
-                                            <div class="page_bind">
-                                                <a href="https://kream.co.kr/my/buying#" class="btn_page active"> 1 </a>
-                                            </div>
-                                            <div class="next_btn_box">
-                                                <a href="https://kream.co.kr/my/buying#" class="btn_arr">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="arr-page-next icon sprite-icons">
-                                                        <use href="/_nuxt/91e1223d82ae15dcdada670ee3ffdaf6.svg#i-arr-page-next" xlink:href="/_nuxt/91e1223d82ae15dcdada670ee3ffdaf6.svg#i-arr-page-next"></use>
-                                                    </svg>
-                                                </a>
-                                                <a href="https://kream.co.kr/my/buying#" class="btn_arr">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="arr-page-last icon sprite-icons">
-                                                        <use href="/_nuxt/91e1223d82ae15dcdada670ee3ffdaf6.svg#i-arr-page-last" xlink:href="/_nuxt/91e1223d82ae15dcdada670ee3ffdaf6.svg#i-arr-page-last"></use>
-                                                    </svg>
-                                                </a>
+                                                <div class="pagination">
+                                                    <div class="pagination_box first last">
+                                                        <div class="prev_btn_box">
+                                                            <a class="btn_arr">
+
+                                                            </a>
+                                                            <a class="btn_arr">
+
+                                                            </a>
+                                                        </div>
+                                                        <div class="page_bind">
+                                                            <a class="btn_page active"> 1 </a>
+                                                        </div>
+                                                        <div class="next_btn_box">
+                                                            <a class="btn_arr">
+
+                                                            </a>
+                                                            <a class="btn_arr">
+
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
-                        </div>
-                                </div>
+                                <!---->
                             </div>
-                                </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!--footer-->
-
-        <footer th:replace="/fragment/footer :: footer"></footer>
-        <!--footer end--><!----><!----><!---->
+                    <!--footer-->
+                    <div th:replace="fragment/footer :: footer"></div>
+                    <!--footer end--><!----><!----><!---->
 </body>
 </html>
 
@@ -513,9 +569,6 @@
                 });
             }
         </script>
-</body>
-
 <script src="/js/my/buying.js"></script>
-<script src="/js/my/buying_list.js"></script>
+<!--<script src="/js/my/buying_list.js"></script>-->
 <!--<script src="/js/fragment/mypage_navbar.js"></script>-->
-</html>

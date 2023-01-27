@@ -24,14 +24,14 @@ import java.util.List;
 @RequestMapping("/api/buying")
 @RequiredArgsConstructor
 public class MypageApiController extends CrudController<MemberApiRequest, MemberApiResponse, Member> {
-    private final MemberApiLogicService memberApiLogicService;
-    private final BuyService buyService;
+//    private final MemberApiLogicService memberApiLogicService;
+//    private final BuyService buyService;
 
-    @GetMapping ("")
-    public List<BuyListResponse> read(@AuthenticationPrincipal KreamPrincipal kreamPrincipal){
-        MemberDTO memberDTO = kreamPrincipal.toFullDto();
-        List<BuyListResponse> dto = buyService.myBuyList(memberDTO.idx());
-        System.out.println(dto);
-        return dto;
-    }
+//    @GetMapping ("")
+//    public List<BuyListResponse> read(@AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+//        MemberDTO memberDTO = kreamPrincipal.toFullDto();
+//        List<BuyListResponse> dto = buyService.myBuyList(memberDTO.idx());
+//        System.out.println(dto);
+//        return dto;
+//    }
 }
