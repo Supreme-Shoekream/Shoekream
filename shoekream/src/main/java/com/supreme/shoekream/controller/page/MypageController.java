@@ -7,13 +7,10 @@ import com.supreme.shoekream.model.entity.Product;
 
 import com.supreme.shoekream.model.enumclass.OrderStatus;
 
+
 import com.supreme.shoekream.model.network.response.SellResponse;
 import com.supreme.shoekream.model.network.security.KreamPrincipal;
-import com.supreme.shoekream.service.AddressApiLogicService;
-import com.supreme.shoekream.service.PointApiLogicService;
-import com.supreme.shoekream.service.SellService;
-
-import com.supreme.shoekream.service.WishApiLogicService;
+import com.supreme.shoekream.service.*;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -43,10 +40,25 @@ public class MypageController {
     public ModelAndView mypage(){
         return new ModelAndView("/my/mypage");
     }
+
+    private final BuyService buyService;
     @GetMapping(path = "buying")
-    public ModelAndView buying(){
-        return new ModelAndView("/my/buying");
+    public String buying(ModelMap map, @PageableDefault(size = 10, sort = "createdAt", direction = Sort.Direction.DESC) Pageable pageable
+            , @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        MemberDTO memberDTO = kreamPrincipal.toFullDto();
+        Page<BuyResponse> biddings = buyService.myBuyListByStatus(memberDTO.idx(), OrderStatus.BIDDING, pageable).map(BuyResponse::from);
+        Page<BuyResponse> progressings = buyService.myBuyListByStatus(memberDTO.idx(), OrderStatus.PROGRESSING, pageable).map(BuyResponse::from);
+        Page<BuyResponse> ends = buyService.myBuyListByStatus(memberDTO.idx(), OrderStatus.END, pageable).map(BuyResponse::from);
+        map.addAttribute("biddings", biddings);
+        map.addAttribute("progressings", progressings);
+        map.addAttribute("ends", ends);
+        return ("/my/buying");
     }
+
+//    @GetMapping(path = "buying")
+//    public ModelAndView buying(){
+//        return new ModelAndView("/my/buying");
+//    }
     private final SellService sellService;
     @GetMapping(path = "selling")
     public String selling(ModelMap map, @PageableDefault(size = 10, sort = "createdAt", direction = Sort.Direction.DESC) Pageable pageable
@@ -69,22 +81,32 @@ public class MypageController {
 
     private final WishApiLogicService wishApiLogicService;
     @GetMapping(path = "wish/{idx}")
-    public String wish(@PathVariable Long idx, ModelMap modelmap, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+    public String wish(@PathVariable Long idx, ModelMap modelmap, @AuthenticationPrincipal KreamPrincipal kreamPrincipal) {
         // 🔴 idx 말고 로그인한 세션값을 넣어줘야함 -> 크림프린시펄 사용?
         List<Product> wish_productList = wishApiLogicService.productList(idx);
         modelmap.addAttribute("wish_productList", wish_productList);
         List<String> wish_productPrice = sellService.buyNowPrices(wish_productList);
         modelmap.addAttribute("wish_productPrice", wish_productPrice);
         return "my/wish";
-//    @GetMapping(path = "wish")
-//    public ModelAndView wish(){
-//        return new ModelAndView("my/wish");
     }
 
     @GetMapping(path="profile")
     public ModelAndView profile(){
         return new ModelAndView("/my/profile");
     }
+    @GetMapping(path="buying_detail")
+    public ModelAndView buying_detail(){
+        return new ModelAndView("/my/buying_detail");
+    }
+    @GetMapping(path="buying_end")
+    public ModelAndView buying_end(){
+        return new ModelAndView("/my/buying_end");
+    }
+    @GetMapping(path="selling_detail")
+    public ModelAndView selling_detail(){
+        return new ModelAndView("/my/selling_detail");
+    }
+
 
 
     @GetMapping(path="address")

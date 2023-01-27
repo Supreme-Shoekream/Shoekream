@@ -4,9 +4,11 @@ package com.supreme.shoekream.controller.page;
 import com.supreme.shoekream.model.entity.Conclusion;
 import com.supreme.shoekream.model.network.Pagination;
 import com.supreme.shoekream.model.network.response.BuyResponse;
+import com.supreme.shoekream.model.network.response.SellResponse;
 import com.supreme.shoekream.repository.ConclusionRepository;
 import com.supreme.shoekream.service.BuyService;
 import com.supreme.shoekream.service.PaginationService;
+import com.supreme.shoekream.service.SellService;
 import com.supreme.shoekream.service.StyleLogicService;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
@@ -112,10 +114,20 @@ public class AdminPageController {
         return("/adminpage/buy");
     }
 
+    private final SellService sellService;
     @GetMapping(path="sell")   //http://localhost:8889/admin/sell
-    public ModelAndView sell(){
-        return new ModelAndView("/adminpage/sell.html");
+    public String sell(
+            @RequestParam(required = false) String searchKeyword,
+            @PageableDefault(size = 10, sort = "idx", direction = Sort.Direction.DESC) Pageable pageable, ModelMap map
+    ){
+        Page<SellResponse> sells = sellService.searchSell(searchKeyword, pageable).map(SellResponse::from);
+        List<Integer> barNumbers = paginationService.getPaginationBarNumbers(pageable.getPageNumber(),sells.getTotalPages());
+        map.addAttribute("sells", sells);
+        map.addAttribute("barNumbers",barNumbers);
+        return("adminpage/sell");
     }
+
+//    public ModelAndView sell(){return new ModelAndView("/adminpage/sell.html");}
 
     private final ConclusionRepository conclusionRepository;
     @GetMapping(path="conclusion")   //http://localhost:8889/admin/conclusion
