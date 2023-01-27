@@ -227,7 +227,7 @@ button {
 
 .month_item.hide_item { display: none; }
 
-.period_calendar_wrapper { display: -webkit-box; display: -ms-flexbox; display: flex; }
+.period_calendar_wrapper { display: -webkit-box; display: -ms-flexbox; display: flex;    align-items: center; }
 
 .period_calendar { position: relative; }
 
