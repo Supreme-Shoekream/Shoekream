@@ -116,7 +116,7 @@ button {
 
 .purchase_list_tab.detail_tab .tab_item.total { display: none; }
 
-.purchase_list_tab.detail_tab .tab_link { padding-top: 1.2rem; height: 6.8rem; border-bottom: .1rem solid #d3d3d3; }
+.purchase_list_tab.detail_tab .tab_link { padding-top: 1.2rem; height: 6.8rem; }
 
 .purchase_list_tab.detail_tab .tab_box {
     display: -webkit-box;

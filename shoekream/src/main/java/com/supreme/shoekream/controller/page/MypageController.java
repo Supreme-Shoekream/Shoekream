@@ -13,13 +13,10 @@ import com.supreme.shoekream.model.enumclass.OrderStatus;
 
 import com.supreme.shoekream.model.network.request.AddressApiRequest;
 import com.supreme.shoekream.model.network.response.AddressApiResponse;
+import com.supreme.shoekream.model.network.response.BuyResponse;
 import com.supreme.shoekream.model.network.response.SellResponse;
 import com.supreme.shoekream.model.network.security.KreamPrincipal;
-import com.supreme.shoekream.service.AddressApiLogicService;
-import com.supreme.shoekream.service.PointApiLogicService;
-import com.supreme.shoekream.service.SellService;
-
-import com.supreme.shoekream.service.WishApiLogicService;
+import com.supreme.shoekream.service.*;
 
 import lombok.RequiredArgsConstructor;
 import org.aspectj.weaver.ast.Or;
@@ -48,10 +45,25 @@ public class MypageController {
     public ModelAndView mypage(){
         return new ModelAndView("/my/mypage");
     }
+
+    private final BuyService buyService;
     @GetMapping(path = "buying")
-    public ModelAndView buying(){
-        return new ModelAndView("/my/buying");
+    public String buying(ModelMap map, @PageableDefault(size = 10, sort = "createdAt", direction = Sort.Direction.DESC) Pageable pageable
+            , @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        MemberDTO memberDTO = kreamPrincipal.toFullDto();
+        Page<BuyResponse> biddings = buyService.myBuyListByStatus(memberDTO.idx(), OrderStatus.BIDDING, pageable).map(BuyResponse::from);
+        Page<BuyResponse> progressings = buyService.myBuyListByStatus(memberDTO.idx(), OrderStatus.PROGRESSING, pageable).map(BuyResponse::from);
+        Page<BuyResponse> ends = buyService.myBuyListByStatus(memberDTO.idx(), OrderStatus.END, pageable).map(BuyResponse::from);
+        map.addAttribute("biddings", biddings);
+        map.addAttribute("progressings", progressings);
+        map.addAttribute("ends", ends);
+        return ("/my/buying");
     }
+
+//    @GetMapping(path = "buying")
+//    public ModelAndView buying(){
+//        return new ModelAndView("/my/buying");
+//    }
     private final SellService sellService;
     @GetMapping(path = "selling")
     public String selling(ModelMap map, @PageableDefault(size = 10, sort = "createdAt", direction = Sort.Direction.DESC) Pageable pageable
@@ -81,11 +93,6 @@ public class MypageController {
         List<String> wish_productPrice = sellService.buyNowPrices(wish_productList);
         modelmap.addAttribute("wish_productPrice", wish_productPrice);
         return "my/wish";
-
-    }
-   
-
-
     }
 
     @GetMapping(path = "wish")
