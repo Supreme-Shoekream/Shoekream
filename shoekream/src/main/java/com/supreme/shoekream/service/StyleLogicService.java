@@ -4,12 +4,10 @@ import com.supreme.shoekream.model.dto.MemberDTO;
 import com.supreme.shoekream.model.dto.socialDTO.BoardDTO;
 import com.supreme.shoekream.model.dto.socialDTO.LkDTO;
 import com.supreme.shoekream.model.dto.socialDTO.ReplyDTO;
-import com.supreme.shoekream.model.entity.Board;
-import com.supreme.shoekream.model.entity.Follow;
-import com.supreme.shoekream.model.entity.Member;
-import com.supreme.shoekream.model.entity.Reply;
+import com.supreme.shoekream.model.entity.*;
 import com.supreme.shoekream.model.network.Header;
 import com.supreme.shoekream.model.network.request.ReplyApiRequest;
+import com.supreme.shoekream.model.network.response.BoardWithLikeListResponse;
 import com.supreme.shoekream.model.network.security.KreamPrincipal;
 import com.supreme.shoekream.repository.*;
 import lombok.RequiredArgsConstructor;
@@ -41,14 +39,30 @@ public class StyleLogicService {
     }
 
     @Transactional(readOnly = true)
-    public List<BoardDTO> trendList(){
-        List<BoardDTO> trend = BoardDTO.fromEntity(boardRepository.findAll());
+    public List<BoardWithLikeListResponse> trendList(MemberDTO memberDTO){
+        List<BoardWithLikeListResponse> trend = BoardWithLikeListResponse.fromEntity(boardRepository.findAll());
         for(int i=0;i<trend.size()-1;i++){
             for (int j=i+1; j<trend.size();j++){
                 if(trend.get(i).lks().size() + trend.get(i).replies().size() < trend.get(j).lks().size() + trend.get(j).replies().size()){
-                    BoardDTO tmp = trend.get(i);
+                    BoardWithLikeListResponse tmp = trend.get(i);
                     trend.set(i, trend.get(j));
                     trend.set(j, tmp);
+                }
+            }
+        }
+
+        List<Lk> lks = likeRepository.findAllByMember(memberDTO.toEntity());
+        for(int i=0;i<trend.size();i++){
+            for(int j=0;j<lks.size();j++){
+                if(lks.get(j).getBoard().getIdx() == trend.get(i).idx()){
+                    trend.set(i,
+                            BoardWithLikeListResponse.of(trend.get(i).idx(),
+                                    trend.get(i).memberDTO(),
+                                    trend.get(i).content(),
+                                    trend.get(i).img(), trend.get(i).hashtag(),trend.get(i).lks(), trend.get(i).replies(),
+                                    trend.get(i).tags(), trend.get(i).createdAt(), trend.get(i).modifiedAt(), true)
+                    );
+
                 }
             }
         }
@@ -194,4 +208,24 @@ public class StyleLogicService {
         return trends;
     }
 
+    public List<BoardDTO> isBoardExist(Long memberIdx){
+        System.out.println("테스트"+boardRepository.countAllByMemberIdx(memberIdx));
+        if(boardRepository.countAllByMemberIdx(memberIdx) > 0){
+            return BoardDTO.fromEntity(boardRepository.findAllByMemberIdx(memberIdx));
+        }else{
+            return null;
+        }
+    }
+
+    public void like(Long boardIdx, KreamPrincipal kreamPrincipal){
+        Lk like = new Lk();
+        like.setBoard(boardRepository.findByIdx(boardIdx));
+        like.setMember(kreamPrincipal.toFullDto().toEntity());
+        likeRepository.save(like);
+    }
+
+    public void unlike(Long boardIdx, KreamPrincipal kreamPrincipal){
+        Lk lk = likeRepository.findByBoardAndMember(boardRepository.findById(boardIdx).get(), kreamPrincipal.toFullDto().toEntity());
+        likeRepository.delete(lk);
+    }
 }

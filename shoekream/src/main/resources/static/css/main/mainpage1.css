@@ -856,7 +856,11 @@ img {
     -webkit-column-gap: 16px;
     -moz-column-gap: 16px;
     column-gap: 16px;
+
 }
+
+
+
 .shortcut_items_wrap{
     margin: 0 auto;
     padding-left: 16px;
@@ -870,12 +874,25 @@ img {
     -webkit-column-gap: 8px;
     -moz-column-gap: 8px;
     column-gap: 8px;
+
+
 }
+
+.shortcut_main{
+    justify-content: center;
+    display: flex;
+}
+
+.shortcut_main > .shortcut_item {
+    width: 23%;
+}
+
 
 .shortcut_item {
     text-align: center;
     display: inline-block;
     cursor: pointer;
+
 }
 .lg .shortcut_item_img_wrap:after, .md .shortcut_item_img_wrap, .md .shortcut_item_img_wrap:after {
     border-radius: 10px;

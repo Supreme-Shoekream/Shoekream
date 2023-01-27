@@ -64,10 +64,10 @@ public class SellService {
     }
 
     @Transactional(readOnly = true)
-    public List<SellDTO> mySellListByStatus(Long memberIdx, OrderStatus orderStatus){
+    public Page<SellDTO> mySellListByStatus(Long memberIdx, OrderStatus orderStatus, Pageable pageable){
         Member member = memberRepository.findById(memberIdx).get();
-        return sellRepository.findByMemberAndStatus(member, orderStatus)
-                .stream().map(SellDTO::fromEntity).toList();
+        return sellRepository.findByMemberAndStatus(member, orderStatus, pageable)
+                .map(SellDTO::fromEntity);
     }
 
     @Transactional(readOnly = true)

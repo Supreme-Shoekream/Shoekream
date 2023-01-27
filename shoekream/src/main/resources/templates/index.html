@@ -31,10 +31,8 @@
                 <div>
                     <header th:replace="/fragment/header :: header"></header>
                 </div>
-                <div>
-<!--                    <div th:replace="/layer/layer_search :: layer_search"></div>-->
 
-                </div>
+
                 <div class="container">
                     <div class="home lg">
                         <div class="download_banner lg" style="display: none;">
@@ -76,7 +74,7 @@
                         <div class="home_card_list">
                             <div container-index="1" class="shortcut_collection">
                                 <!---->
-                                <div class="shortcut_items_wrap">
+                                <div class="shortcut_items_wrap shortcut_main">
                                     <div class="shortcut_item">
                                         <div class="shortcut_item_img_wrap">
                                             <picture class="picture shortcut_item_img_bg"
@@ -117,16 +115,16 @@
                                         </div>
                                         <p class="shortcut_item_title">셀럽픽</p>
                                     </div>
-                                    <div class="shortcut_item">
-                                        <div class="shortcut_item_img_wrap">
-                                            <picture class="picture shortcut_item_img_bg"
-                                                style="background-color:#222222;">
-                                                <img src="/img/main/weekbrand.jpg"
-                                                    loading="lazy" class="image">
-                                            </picture>
-                                        </div>
-                                        <p class="shortcut_item_title">이번주 브랜드관</p>
-                                    </div>
+<!--                                    <div class="shortcut_item">-->
+<!--                                        <div class="shortcut_item_img_wrap">-->
+<!--                                            <picture class="picture shortcut_item_img_bg"-->
+<!--                                                style="background-color:#222222;">-->
+<!--                                                <img src="/img/main/weekbrand.jpg"-->
+<!--                                                    loading="lazy" class="image">-->
+<!--                                            </picture>-->
+<!--                                        </div>-->
+<!--                                        <p class="shortcut_item_title">이번주 브랜드관</p>-->
+<!--                                    </div>-->
 <!--                                    <div class="shortcut_item">-->
 <!--                                        <div class="shortcut_item_img_wrap">-->
 <!--                                            <picture class="picture shortcut_item_img_bg"-->
@@ -187,6 +185,7 @@
                                 <div class="product_list_wrap lg">
                                     <div class="product_list list_first" id="just_product">
                                         <div class="product_item just_product" style="display: none;"><a href="/products/91394" class="item_inner">
+                                                <input type ="hidden" class="product_idx" value="">
                                                 <div class="thumb_box">
                                                     <div class="product" style="background-color:#ebf0f5;">
                                                         <picture class="picture product_img">
@@ -400,6 +399,7 @@
                                 <div class="product_list_wrap lg">
                                     <div class="product_list list_first" id="pop_product">
                                         <div class="product_item pop_product" style="display: none;"><a href="/products/51930" class="item_inner">
+                                            <input type ="hidden" class="product_idx" value="">
                                                 <div class="thumb_box">
                                                     <div class="product" style="background-color:#f4f4f4;">
                                                         <picture class="picture product_img">
@@ -591,7 +591,8 @@
                                 <div class="product_list_wrap lg">
                                     <div class="product_list list_first" id="newin_product">
                                         <div class="product_item newin_product" style="display: none;"><a href="/products/91332" class="item_inner">
-                                                <div class="thumb_box">
+                                            <input type ="hidden" class="product_idx" value="">
+                                            <div class="thumb_box">
                                                     <div class="product" style="background-color:#f4f4f4;">
                                                         <picture class="picture product_img">
                                                             <img src="" loading="lazy" class="image newIn_img">
@@ -646,7 +647,8 @@
                                 <div class="product_list_wrap lg">
                                     <div class="product_list list_first" id="wisely_product">
                                         <div class="product_item wisely_product" style="display: none;"><a href="/products/83201" class="item_inner">
-                                                <div class="thumb_box">
+                                            <input type ="hidden" class="product_idx" value="">
+                                            <div class="thumb_box">
                                                     <div class="product" style="background-color:#f4f4f4;">
                                                         <picture class="picture product_img">
                                                             <img src="" loading="lazy" class="image shoppingWisely_img">
@@ -699,7 +701,8 @@
                                 <div class="product_list_wrap lg">
                                     <div class="product_list list_first" id="brandmd_product">
                                         <div class="product_item brandmd_product" style="display: none;"><a href="/products/82490" class="item_inner">
-                                                <div class="thumb_box">
+                                            <input type ="hidden" class="product_idx" value="">
+                                            <div class="thumb_box">
                                                     <div class="product" style="background-color:#f4f4f4;">
                                                         <picture class="picture product_img">
                                                             <img src="" loading="lazy" class="image brandMdPicks_img">
@@ -754,7 +757,8 @@
                                 <div class="product_list_wrap lg">
                                     <div class="product_list list_first" id="simple_product">
                                         <div class="product_item simple_product" style="display: none;"><a href="/products/87310" class="item_inner">
-                                                <div class="thumb_box">
+                                            <input type ="hidden" class="product_idx" value="">
+                                            <div class="thumb_box">
                                                     <div class="product" style="background-color:#f4f4f4;">
                                                         <picture class="picture product_img">
                                                             <img src="" loading="lazy" class="image simpleChic_img">
@@ -811,7 +815,8 @@
                                 <div class="product_list_wrap lg">
                                     <div class="product_list list_first" id="collabs_product">
                                         <div class="product_item collabs_product" style="display: none;"><a href="/products/65385" class="item_inner">
-                                                <div class="thumb_box">
+                                            <input type ="hidden" class="product_idx" value="">
+                                            <div class="thumb_box">
                                                     <div class="product" style="background-color:#f4f4f4;">
                                                         <picture class="picture product_img">
                                                             <img src="" loading="lazy" class="image bestApprelCollabs_img">
@@ -857,7 +862,8 @@
                                 <div class="product_list_wrap lg">
                                     <div class="product_list list_first" id="newlowest_product">
                                         <div class="product_item newlowest_product" style="display: none;"><a href="/products/88020" class="item_inner">
-                                                <div class="thumb_box">
+                                            <input type ="hidden" class="product_idx" value="">
+                                            <div class="thumb_box">
                                                     <div class="product" style="background-color:#f4f4f4;">
                                                         <picture class="picture product_img">
                                                             <img src="" loading="lazy" class="image newLowestAsks_img">
@@ -902,7 +908,8 @@
                                 <div class="product_list_wrap lg">
                                     <div class="product_list list_first" id="newhighest_product">
                                         <div class="product_item newhighest_product" style="display: none;"><a href="/products/50812" class="item_inner">
-                                                <div class="thumb_box">
+                                            <input type ="hidden" class="product_idx" value="">
+                                            <div class="thumb_box">
                                                     <div class="product" style="background-color: rgb(244, 244, 244);">
                                                         <picture class="picture product_img">
                                                             <img src="" loading="lazy" class="image newHighestBids_img">
@@ -954,7 +961,8 @@
                                 <div class="product_list_wrap lg">
                                     <div class="product_list list_first" id="coming">
                                         <div class="product_item coming" style="display: none;"><a href="/products/91562" class="item_inner">
-                                                <div class="thumb_box">
+                                            <input type ="hidden" class="product_idx" value="">
+                                            <div class="thumb_box">
                                                     <div class="product" style="background-color: rgb(244, 244, 244);">
                                                         <picture class="picture product_img">
                                                             <img src="" loading="lazy" class="image upcomingRelease_img">
@@ -1002,7 +1010,8 @@
                                 <div class="product_list_wrap lg">
                                     <div class="product_list list_first" id="bestcol_product">
                                         <div class="product_item bestcol_product" style="display: none;"><a href="/products/39823" class="item_inner">
-                                                <div class="thumb_box">
+                                            <input type ="hidden" class="product_idx" value="">
+                                            <div class="thumb_box">
                                                     <div class="product" style="background-color: rgb(244, 244, 244);">
                                                         <picture class="picture product_img">
                                                             <img src="" loading="lazy" class="image bestCollectibles_img">
@@ -1052,7 +1061,8 @@
                                 <div class="product_list_wrap lg">
                                     <div class="product_list list_first" id="jew_product">
                                         <div class="product_item jew_product" style="display: none;"><a href="/products/43350" class="item_inner">
-                                                <div class="thumb_box">
+                                            <input type ="hidden" class="product_idx" value="">
+                                            <div class="thumb_box">
                                                     <div class="product" style="background-color: rgb(244, 244, 244);">
                                                         <picture class="picture product_img">
                                                             <img src="" loading="lazy" class="image bestJewelryWatches_img">
@@ -1104,7 +1114,8 @@
                                 <div class="product_list_wrap lg">
                                     <div class="product_list list_first" id="camping_product">
                                         <div class="product_item camping_product" style="display: none;"><a href="/products/51404" class="item_inner">
-                                                <div class="thumb_box">
+                                            <input type ="hidden" class="product_idx" value="">
+                                            <div class="thumb_box">
                                                     <div class="product" style="background-color: rgb(244, 244, 244);">
                                                         <picture class="picture product_img">
                                                             <img src="" loading="lazy" class="image bestCampingGear_img">

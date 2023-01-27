@@ -48,7 +48,7 @@ public class Product {
 //    private final Set<Conclusion> conclusions = new LinkedHashSet<>();
 
 
-    public static Product of(Long idx, String img, String brand, String name, String nameKor, String size, String modelNum, String releaseDate, String color, String firstPrice, String category, String gender, String collection ){
+    public static Product of(Long idx, String img, String brand, String name, String nameKor, String size, String modelNum, String releaseDate, String color, String firstPrice, String category, String gender, String collection){
         return new Product(idx, img, brand, name, nameKor, size, modelNum, releaseDate, color, firstPrice, category, gender, collection);
     }
 

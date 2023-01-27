@@ -10,6 +10,6 @@ import java.util.Optional;
 public interface BoardRepository extends JpaRepository<Board, Long> {
     List<Board> findAllByMemberIdx(Long memberIdx);
     Board findByIdx(Long idx);
-//    List<Board> findAllOrderByCreatedAtAsc();
 
+    int countAllByMemberIdx(Long memberIdx);
 }
