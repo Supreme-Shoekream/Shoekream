@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>판매 내역</title>
+    <title>SHOEKREAM | 한정판 거래의 FLEX</title>
     <link rel="stylesheet" href="/css/my/buying.css">
     <link rel="stylesheet" href="/css/fragment/footer.css">
     <link rel="stylesheet" href="/css/fragment/mypage_navbar.css">
@@ -23,7 +23,7 @@
                     <!---->
                     <div class="wrap_inner">
                         <!-- header_title start -->
-                        <div th:replace="fragment/mypage_header :: header"></div>
+                        <div th:replace="fragment/header :: header"></div>
                         <!--header_title end-->
                         <!--container-->
                         <div class="container my lg">
@@ -51,7 +51,7 @@
                                                     </dl>
                                                 </a>
                                             </div>
-                                            <div class="tab_item tab_on buy">
+                                            <div class="tab_item buy active">
                                                 <a class="tab_link">
                                                     <dl class="tab_box">
                                                         <dt class="title">판매입찰</dt>
@@ -89,7 +89,7 @@
                                                 <div class="period_option">
                                                     <div class="selected_txt">
                                                         <span>기간 선택</span>
-                                                        <img src="/lib/img/select_down_arrow_icon.png" class="ico-arr-down-gray icon sprite-icons">
+                                                        <img src="/img/select_down_arrow_icon.png" class="ico-arr-down-gray icon sprite-icons">
                                                     </div>
                                                     <label>
                                                         <select id="period_select">
@@ -150,7 +150,7 @@
                                                     <div class="head_product">
                                                         <a href="#" class="btn_filter">
                                                             <span>전체</span>
-                                                            <img src="/lib/img/select_icon.png" class="ico-arr-dir-down-circle icon sprite-icons"></img>
+                                                            <img src="/img/select_icon.png" class="ico-arr-dir-down-circle icon sprite-icons"></img>
                                                         </a>
                                                     </div>
                                                     <div class="head_status">
@@ -166,7 +166,7 @@
                                                         </div>
                                                         <div class="status_box field_date_paid" style="display: none">
                                                             <a class="status_link">
-                                                                <span class="status_txt">정산일</span>
+                                                                <span class="status_txt">판매 가격</span>
                                                             </a>
                                                         </div>
                                                         <div class="status_box field_expires_at">
@@ -183,7 +183,7 @@
                                                 </div>
                                                 <!--상품 리스트-->
                                                 <div>
-                                                    <div class="bidding">
+                                                    <div id="bidding">
                                                         <div class="purchase_list_display_item"
                                                              style="background-color: rgb(255, 255, 255);">
                                                             <div class="purchase_list_product">
@@ -209,13 +209,13 @@
                                                                 </div>
                                                                 <div class="list_item_column column_last">
                                                                     <p class="last_title display_paragraph"
-                                                                       style="color: rgb(241, 87, 70);">기한만료</p>
+                                                                       style="color: rgb(241, 87, 70);"><time>기한만료</time></p>
                                                                     <p class="last_description display_paragraph"></p>
                                                                 </div>
                                                             </div>
                                                         </div><!---->
                                                     </div>
-                                                    <div class="progressing">
+                                                    <div id="progressing" style="display: none">
                                                         <div class="purchase_list_display_item"
                                                              style="background-color: rgb(255, 255, 255);">
                                                             <div class="purchase_list_product">
@@ -241,13 +241,13 @@
                                                                 </div>
                                                                 <div class="list_item_column column_last">
                                                                     <p class="last_title display_paragraph"
-                                                                       style="color: rgb(241, 87, 70);">기한만료</p>
+                                                                       style="color: rgb(241, 87, 70);">발송요청</p>
                                                                     <p class="last_description display_paragraph"></p>
                                                                 </div>
                                                             </div>
                                                         </div><!---->
                                                     </div>
-                                                    <div class="ends">
+                                                    <div id="ends"  style="display: none">
                                                         <div class="purchase_list_display_item"
                                                              style="background-color: rgb(255, 255, 255);">
                                                             <div class="purchase_list_product">
@@ -273,7 +273,7 @@
                                                                 </div>
                                                                 <div class="list_item_column column_last">
                                                                     <p class="last_title display_paragraph"
-                                                                       style="color: rgb(241, 87, 70);">기한만료</p>
+                                                                       style="color: rgb(241, 87, 70);">정산완료</p>
                                                                     <p class="last_description display_paragraph"></p>
                                                                 </div>
                                                             </div>
@@ -297,7 +297,7 @@
                                                             </div>
                                                         </div>
                                                         <a class="btn_layer_close">
-                                                            <img src="/lib/img/nav_close_icon.png" class="ico-close icon sprite-icons">
+                                                            <img src="/img/nav_close_icon.png" class="ico-close icon sprite-icons">
                                                         </a>
                                                     </div>
                                                 </div>
@@ -324,7 +324,7 @@
                                                             </div>
                                                         </div>
                                                         <a class="btn_layer_close">
-                                                            <img src="/lib/img/nav_close_icon.png" class="ico-close icon sprite-icons">
+                                                            <img src="/img/nav_close_icon.png" class="ico-close icon sprite-icons">
                                                         </a>
                                                     </div>
                                                 </div>
@@ -344,7 +344,7 @@
                                                             </div>
                                                         </div>
                                                         <a class="btn_layer_close">
-                                                            <img src="/lib/img/nav_close_icon.png" class="ico-close icon sprite-icons">
+                                                            <img src="/img/nav_close_icon.png" class="ico-close icon sprite-icons">
                                                         </a>
                                                     </div>
                                                 </div>
@@ -355,14 +355,10 @@
                                             <div class="pagination_box first last">
                                                 <div class="prev_btn_box">
                                                     <a class="btn_arr">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class="arr-page-first icon sprite-icons">
-                                                            <use href="/_nuxt/91e1223d82ae15dcdada670ee3ffdaf6.svg#i-arr-page-first" xlink:href="/_nuxt/91e1223d82ae15dcdada670ee3ffdaf6.svg#i-arr-page-first"></use>
-                                                        </svg>
+
                                                     </a>
                                                     <a class="btn_arr">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class="arr-page-prev icon sprite-icons">
-                                                            <use href="/_nuxt/91e1223d82ae15dcdada670ee3ffdaf6.svg#i-arr-page-prev" xlink:href="/_nuxt/91e1223d82ae15dcdada670ee3ffdaf6.svg#i-arr-page-prev"></use>
-                                                        </svg>
+
                                                     </a>
                                                 </div>
                                                 <div class="page_bind">
@@ -370,14 +366,10 @@
                                                 </div>
                                                 <div class="next_btn_box">
                                                     <a class="btn_arr">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class="arr-page-next icon sprite-icons">
-                                                            <use href="/_nuxt/91e1223d82ae15dcdada670ee3ffdaf6.svg#i-arr-page-next" xlink:href="/_nuxt/91e1223d82ae15dcdada670ee3ffdaf6.svg#i-arr-page-next"></use>
-                                                        </svg>
+
                                                     </a>
                                                     <a class="btn_arr">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class="arr-page-last icon sprite-icons">
-                                                            <use href="/_nuxt/91e1223d82ae15dcdada670ee3ffdaf6.svg#i-arr-page-last" xlink:href="/_nuxt/91e1223d82ae15dcdada670ee3ffdaf6.svg#i-arr-page-last"></use>
-                                                        </svg>
+
                                                     </a>
                                                 </div>
                                             </div>
@@ -385,15 +377,16 @@
                                     </div>
                                 </div>
                             </div>
-                        <!--footer-->
-<!--                        <div th:replace="include/pjs_footer :: footer"></div>-->
-                        <div th:replace="fragment/footer :: footer"></div>
-                        <!--footer end--><!----><!----><!---->
+
                     </div>
                 </div>
                 <!---->
             </div>
         </div>
+        </div>
+            <!--footer-->
+            <div th:replace="fragment/footer :: footer"></div>
+            <!--footer end--><!----><!----><!---->
 </body>
 <script src="/js/my/selling.js"></script>
 </html>

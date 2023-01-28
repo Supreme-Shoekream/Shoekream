@@ -23,7 +23,6 @@ $('span.like').click(function(e){
 //         })
 //     })
 
-
 function like_clicked(boardIdx, size, lk){
         console.log(boardIdx)
 
@@ -49,6 +48,7 @@ function like_clicked(boardIdx, size, lk){
                         ch[2].innerHTML= Number(size);
                     })
             }
+
 
 }
 

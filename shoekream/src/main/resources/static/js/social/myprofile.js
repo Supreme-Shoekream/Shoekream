@@ -18,6 +18,7 @@ window.onload = function(){
                 document.getElementById('profile_img_main').src ='/img/kream_empty_img.png';
                 document.getElementById('profile_img_mini').src ='/img/kream_empty_img.png';
             }
+
             document.getElementById('user_name_mini').innerHTML = profile.nickname;
             document.getElementById('user_name_main').innerHTML = profile.nickname;
 

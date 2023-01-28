@@ -1,4 +1,4 @@
 package com.supreme.shoekream.model.network.response;
 
-public class WishApiResponse {
+public record WishApiResponse() {
 }

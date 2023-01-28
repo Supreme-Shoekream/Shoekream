@@ -60,19 +60,19 @@ public class BuyService {
 
     //사용자의 구매내역 리스트
     @Transactional(readOnly = true)
-    public List<BuyListResponse> myBuyList(Long memberIdx){
+    public List<BuyDTO> myBuyList(Long memberIdx){
         Member member = memberRepository.findById(memberIdx).get();
-        System.out.println(buyRepository.findByMember(member));
+//        System.out.println(buyRepository.findByMember(member));
         return buyRepository.findByMember(member)
-                .stream().map(BuyListResponse::from).toList();
+                .stream().map(BuyDTO::fromEntity).toList();
     }
 
     //사용자의 구매내역 (입찰/진행중/종료)에 따라 리스트 출력 필요할 때
     @Transactional(readOnly = true)
-    public List<BuyDTO> myBuyListByStatus(Long memberIdx, OrderStatus orderStatus){
+    public Page<BuyDTO> myBuyListByStatus(Long memberIdx, OrderStatus orderStatus, Pageable pageable){
         Member member = memberRepository.findById(memberIdx).get();
-        return buyRepository.findByMemberAndStatus(member, orderStatus)
-                .stream().map(BuyDTO::fromEntity).toList();
+        return buyRepository.findByMemberAndStatus(member, orderStatus, pageable)
+                .map(BuyDTO::fromEntity);
     }
 
     @Transactional(readOnly = true)

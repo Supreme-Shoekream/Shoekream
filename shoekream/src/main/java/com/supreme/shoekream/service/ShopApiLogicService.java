@@ -118,25 +118,40 @@ public class ShopApiLogicService extends BaseService<ProductApiRequest, ProductA
         return Header.OK(productApiResponses, pagination);
     }
 
-    
+    public List<ProductDTO> categoryList(String category){
+        return productRepository.findByCategory(category).stream().map(ProductDTO::fromEntity).toList();
+    }
+
     //카테고리 기능
     @Transactional(readOnly = true)// 데이터에 권한을 주지 않는다
-    public Page<ProductDTO> searchProduct(SearchType searchType, String searchKeyword, Pageable pageable){
-        if (searchKeyword == null || searchKeyword.isBlank()){
+    public Page<ProductDTO> searchProduct(SearchType searchType, List<String> searchKeyword, Pageable pageable){
+        if (searchKeyword == null || searchKeyword.isEmpty()){
             return productRepository.findAll(pageable).map(ProductDTO::fromEntity);
         }
         return switch (searchType){
-            case CATEGORY -> productRepository.findByCategoryContaining(searchKeyword, pageable).map(ProductDTO::fromEntity);
-            case BRAND -> productRepository.findByBrandContaining(searchKeyword, pageable).map(ProductDTO::fromEntity);
-            case COLLECTION -> productRepository.findByCollectionContaining(searchKeyword, pageable).map(ProductDTO::fromEntity);
-            case GENDER -> productRepository.findByGender(searchKeyword, pageable).map(ProductDTO::fromEntity);
-            case FIRSTPRICE -> productRepository.findByFirstPrice(searchKeyword, pageable).map(ProductDTO::fromEntity);
+            case CATEGORY -> productRepository.findByCategoryIn(searchKeyword, pageable).map(ProductDTO::fromEntity);
+            case BRAND -> productRepository.findByBrandIn(searchKeyword, pageable).map(ProductDTO::fromEntity);
+            case COLLECTION -> productRepository.findByCollectionIn(searchKeyword, pageable).map(ProductDTO::fromEntity);
+            case GENDER -> productRepository.findByGender(searchKeyword.toString(), pageable).map(ProductDTO::fromEntity);
+            case FIRSTPRICE -> productRepository.findByFirstPrice(searchKeyword.toString(), pageable).map(ProductDTO::fromEntity);
         };
     }
 
-//    public List<String> getBrand(){
-//        return productRepository.findAll
-//    }
+    @Transactional(readOnly = true)
+    public Page<ProductDTO> searchsProduct(String size, String brand, String category, String collection,
+                                           String gender, String keyword, Pageable pageable){
+        if (size==null && brand==null && category==null && collection==null && gender==null && keyword==null ){
+            return productRepository.findBySize("230", pageable).map(ProductDTO::fromEntity);
+        }
+        if (size == null) size="";
+        if (brand == null) size="";
+        if (category == null) size="";
+        if (collection == null) size="";
+        if (gender == null) size="";
+        if (keyword == null) size="";
+        return productRepository.findBySizeContainingAndBrandContainingAndCategoryContainingAndCollectionContainingAndGenderContainingAndNameContaining(
+                size,brand,category,collection,gender,keyword,pageable).map(ProductDTO::fromEntity);
+    }
 
 }
 

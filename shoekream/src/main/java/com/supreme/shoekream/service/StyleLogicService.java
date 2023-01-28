@@ -40,6 +40,7 @@ public class StyleLogicService {
     }
 
     @Transactional(readOnly = true)
+
     public List<BoardWithLikeListResponse> unlog_trend(){
         List<BoardWithLikeListResponse> trend = BoardWithLikeListResponse.fromEntity(boardRepository.findAll());
         for(int i=0;i<trend.size()-1;i++){
@@ -48,6 +49,22 @@ public class StyleLogicService {
                     BoardWithLikeListResponse tmp = trend.get(i);
                     trend.set(i, trend.get(j));
                     trend.set(j, tmp);
+                }
+            }
+        }
+
+        List<Lk> lks = likeRepository.findAllByMember(memberDTO.toEntity());
+        for(int i=0;i<trend.size();i++){
+            for(int j=0;j<lks.size();j++){
+                if(lks.get(j).getBoard().getIdx() == trend.get(i).idx()){
+                    trend.set(i,
+                            BoardWithLikeListResponse.of(trend.get(i).idx(),
+                                    trend.get(i).memberDTO(),
+                                    trend.get(i).content(),
+                                    trend.get(i).img(), trend.get(i).hashtag(),trend.get(i).lks(), trend.get(i).replies(),
+                                    trend.get(i).tags(), trend.get(i).createdAt(), trend.get(i).modifiedAt(), true)
+                    );
+
                 }
             }
         }
@@ -278,7 +295,7 @@ public class StyleLogicService {
         likeRepository.delete(lk);
     }
 
-    public List<FollowDTO> countFollowers(KreamPrincipal kreamPrincipal){//내가 팔로우하고 있는 사람들 뽑기
+public List<FollowDTO> countFollowers(KreamPrincipal kreamPrincipal){//내가 팔로우하고 있는 사람들 뽑기
          List<Follow> follows = followRepository.findAllByFollowingIdx(kreamPrincipal.idx());
          List<FollowDTO> followDTOS = new ArrayList<>();
          for(int i=0;i<follows.size();i++){

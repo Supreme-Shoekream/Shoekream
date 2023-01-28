@@ -267,7 +267,7 @@
         </div>
         <div class="layer_content">
             <div class="delivery_bind">
-                <div class="delivery_input">
+                <div class="delivery_input" id="delivery_input">
                     <div class="input_box" id="name_input_box2">
                         <h4 class="input_title">이름</h4>
                         <div class="input_item"><input id="name_input2" type="text" placeholder="김**" autocomplete="off"
@@ -299,7 +299,7 @@
                 </div>
                 <div class="delivery_check">
                     <div class="checkbox_item"><input id="check2" type="checkbox" name="" class="check"><label
-                            for="check1" class="check_label"><span class="label_txt">기본 배송지로 설정</span>
+                            for="check2" class="check_label"><span class="label_txt">기본 배송지로 설정</span>
                         <!---->
                     </label></div>
                 </div>
@@ -463,9 +463,26 @@
     }
     btnSave.addEventListener('click', sendit)
     function openEdit(idx){
+        fetch('http://localhost:8989/api/my/address/'+idx)
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data.data)
+                let matching_idx = data.data.idx;
+                if(matching_idx == null) matching_idx = "x"
+                document.querySelector('#name_input2').placeholder=data.data.name;
+                document.querySelector('#hp_input2').placeholder=data.data.hp;
+                document.querySelector('#sample6_postcode2').placeholder=data.data.zipcode;
+                document.querySelector('#sample6_address2').placeholder=data.data.address1;
+                document.querySelector('#sample6_detailAddress2').placeholder=data.data.address2;
+                document.querySelector('#check2').checked=data.data.addressBasic;
+                })
             addressEdit.style.display="block"
             document.querySelector('#name_input2').focus()
-            document.querySelector('#btn_save2').addEventListener('click',sendEdit)
+            btnSave2.addEventListener('click',()=>{
+                if(btnSave2.classList.contains('disabled')){
+                }else {
+                sendEdit(idx)}
+            })
     }
     function sendEdit(idx){
         const editName = document.querySelector('#name_input2');
@@ -474,7 +491,7 @@
         const editAddress1 = document.querySelector('#sample6_address2');
         const editAddress2 = document.querySelector('#sample6_detailAddress2')
         const editAddressBasic = document.querySelector('#check2').checked;
-        fetch('http://localhost:8989/api/my/address'+idx, {
+        fetch('http://localhost:8989/api/my/address/'+idx, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -492,7 +509,7 @@
                 }
             }),
         }).then((res)=>{
-            alert('주소추가 완료');
+            alert('주소수정 완료');
             location.href='/my/address';
             return;
         })
@@ -508,6 +525,8 @@
         const createAddress1 = document.querySelector('#sample6_address');
         const createAddress2 = document.querySelector('#sample6_detailAddress')
         const createAddressBasic = document.querySelector('#check1').checked;
+        console.log(createAddressBasic)
+        let isBasic = createAddressBasic;
         fetch('http://localhost:8989/api/my/address', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },

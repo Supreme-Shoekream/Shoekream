@@ -23,16 +23,16 @@ public record SellRequest(
         String deliveryMemo,
         int progressNum
 ) {
-    public static SellRequest of( Long productIdx, boolean isNow,
-                                  Long price,
-                                  int period,
-                                  String cardInfo,
-                                  String accountInfo,
-                                  String sender,
-                                  String senderHp,
-                                  String senderAddress,
-                                  String deliveryMemo,
-                                  int progressNum){
+    public static SellRequest of( Long productIdx, boolean isNow,   // 판매 상품 번호
+                                  Long price,                       // 판매 가격
+                                  int period,                       // 입찰 마감기한
+                                  String cardInfo,                  // 카드 번호
+                                  String accountInfo,               // 계좌 번호
+                                  String sender,                    // 판매자
+                                  String senderHp,                  // 판매자 핸드폰번호
+                                  String senderAddress,             // 판매자 주소
+                                  String deliveryMemo,              // 요청사항
+                                  int progressNum){                 // 진행상황
         return new SellRequest(productIdx,isNow,price,period,cardInfo,accountInfo,
                 sender,senderHp,senderAddress,deliveryMemo,progressNum);
     }
