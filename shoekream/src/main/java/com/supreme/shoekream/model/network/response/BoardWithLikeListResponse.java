@@ -25,7 +25,7 @@ public record BoardWithLikeListResponse(
         List<TagDTO> tags,
         LocalDateTime createdAt,
         LocalDateTime modifiedAt,
-        @Setter boolean islike
+        boolean islike
 ) {
     public static BoardWithLikeListResponse of(Long idx,MemberDTO memberDTO,
                                                String content, String img, String hashtag, List<LkDTO> lks,

@@ -1,11 +1,15 @@
-window.onload = function(){
+window.onload = function (){
+    $('span.like').click(function(e){
+        e.preventDefault();
+    });
+
     const items = document.querySelectorAll('gnb_item');
     items.forEach((it) => {
         it.classList.remove('gnb_on');
     })
     const item = document.getElementById('st_gnb');
     item.classList.add('gnb_on');
-
+    // console.log("in")
     fetch("http://localhost:8889/api/social/newest/")
         .then((response) => response.json())
         .then((data) => {
@@ -40,19 +44,27 @@ window.onload = function(){
                                                             loading="auto" class="image">
                                                     </picture>
                                                     <p class="user_name">${data[i].memberDTO.nickname}</p><span aria-label="좋아요"
-                                                        role="button" class="btn like" >
-                                                        <img id="like_icon" src="../../img/styleImg/like_icon.png" alt="좋아요 이미지"
-                                                            class="icon sprite-icons social-like-gray-sm">
-                                                        <span class="like_count">${data[i].lks.length}</span></span>
+                                        if(data[i].islike == false){
+                                            feedList += `<img id="like_icon" src="/img/styleImg/like_icon.png" alt="좋아요 이미지"
+                                                                                    class="icon sprite-icons social-like-gray-sm">`
+                                        }else{
+                                            feedList += `<img id="like_icon" src="/img/styleImg/like_after_icon.png" alt="좋아요 이미지"
+                                                                                    class="icon sprite-icons social-like-gray-sm">`
+                                        }
+                                        feedList +=  `<span class="like_count">${data[i].lks.length}</span></span>
                                                 </div>
-                                                <p class="text_box">${data[i].content}` + ` #` + `${data[i].hashtag}</p>
+                                                <p class="text_box">${data[i].content}` + ` #` +  `${data[i].hashtag}</p>
                                             </div>
                                         </div>
                                     </a>
                                 </div>
                     `
             }
+
             feedList = `<div class="gutter_item"></div>` + feedList;
             document.getElementById('masonry_posts').innerHTML = feedList;
+        })
+        .catch((err) => {
+            console.log(err)
         })
 }

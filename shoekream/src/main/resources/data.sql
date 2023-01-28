@@ -345,6 +345,9 @@ insert into follow(follower_idx, following_idx) values(1,10);
 
 -- 팔로우
 insert into follow(follower_idx, following_idx) values(2,20);
+insert into follow(follower_idx, following_idx) values(2,1);
+insert into follow(follower_idx, following_idx) values(3,1);
+insert into follow(follower_idx, following_idx) values(20,1);
 
 
 

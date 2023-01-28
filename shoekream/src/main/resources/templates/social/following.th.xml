@@ -37,9 +37,14 @@
                 </attr>
 
             </attr>
+            <attr sel="#button_like" th:onclick="'javascript:like_clicked_follow(' + ${detail.idx} + ', ' + ${detail.lks.size()} + ', ' + this + ');'">
+                <attr sel=".like_class"  th:src="${detail.islike} ? '/img/styleImg/like_after_icon.png' : '/img/styleImg/like_icon.png'"/>
+<!--                <attr sel=".like_class"  th:src="'/img/styleImg/like_icon.png'"/>-->
+            </attr>
+<!--            <attr sel=".like_class" th:id="'like_img' + ${detail.idx}" th:src="/img/styleImg/like_icon.png"/>-->
             <attr sel="#comment_img" th:onclick="'javascript:comment_more(' + ${detail.idx} + ',' + ${sessionUser.idx} + ');'"/>
             <attr sel=".social_count" th:onclick="'javascript:pop_like('+ ${detail.idx} + ');'">
-                <attr sel="#like_cnt" th:text="${detail.lks.size()}" th:onclick="'javascript:pop_like('+ ${detail.idx} + ');'"/>
+                <attr sel="#like_cnt" th:id="'likeid_' + ${detail.idx}" th:text="${detail.lks.size()}" th:onclick="'javascript:pop_like('+ ${detail.idx} + ');'"/>
             </attr>
 
             <attr sel=".social_text">
