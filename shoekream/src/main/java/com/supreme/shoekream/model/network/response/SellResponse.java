@@ -12,10 +12,10 @@ import java.time.LocalDateTime;
  * @param deadline : 입찰이라면, 판매날짜+입찰기간
  */
 public record SellResponse(
-        Long idx,
-        Long productIdx,
-        String productImg,
-        String productName,
+        Long idx,           // 번호
+        Long productIdx,    // 판매 상품 번호
+        String productImg,  // 제품 사진
+        String productName, //
         String productSize,
         String memberEmail,
         String type,
