@@ -11,11 +11,7 @@ public record ProductDTO(
         String name,
         String nameKor,
         String size,
-//    private String recentPrice;
-//    private String fluctuation;
-//    private String nowBuy;
-//    private String nowSell;
-//    private String wishCount;
+        String wishCount,
         String modelNum,
         String releaseDate,
         String color,
@@ -25,8 +21,8 @@ public record ProductDTO(
         String collection
 ) {
 
-    public static ProductDTO of(Long idx, String img, String brand, String name, String nameKor, String size, String modelNum, String releaseDate, String color, String firstPrice, String category, String gender, String collection ){
-        return new ProductDTO(idx, img, brand, name, nameKor, size, modelNum, releaseDate, color, firstPrice, category, gender, collection);
+    public static ProductDTO of(Long idx, String img, String brand, String name, String nameKor, String size, String wishCount, String modelNum, String releaseDate, String color, String firstPrice, String category, String gender, String collection ){
+        return new ProductDTO(idx, img, brand, name, nameKor, size, wishCount, modelNum, releaseDate, color, firstPrice, category, gender, collection);
     }
 
 
@@ -39,6 +35,7 @@ public record ProductDTO(
                 entity.getName(),
                 entity.getNameKor(),
                 entity.getSize(),
+                entity.getWishCount(),
                 entity.getModelNum(),
                 entity.getReleaseDate(),
                 entity.getColor(),
@@ -51,6 +48,6 @@ public record ProductDTO(
 
     // dto -> entity 저장 또는 업데이트시
     public Product toEntity(){
-        return Product.of(idx, img, brand, name, nameKor, size, modelNum, releaseDate, color, firstPrice, category, gender, collection);
+        return Product.of(idx, img, brand, name, nameKor, size, wishCount, modelNum, releaseDate, color, firstPrice, category, gender, collection);
     }
 }
