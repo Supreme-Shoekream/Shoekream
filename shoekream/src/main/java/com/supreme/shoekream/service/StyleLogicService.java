@@ -2,6 +2,7 @@ package com.supreme.shoekream.service;
 
 import com.supreme.shoekream.model.dto.MemberDTO;
 import com.supreme.shoekream.model.dto.socialDTO.BoardDTO;
+import com.supreme.shoekream.model.dto.socialDTO.FollowDTO;
 import com.supreme.shoekream.model.dto.socialDTO.LkDTO;
 import com.supreme.shoekream.model.dto.socialDTO.ReplyDTO;
 import com.supreme.shoekream.model.entity.*;
@@ -39,6 +40,26 @@ public class StyleLogicService {
     }
 
     @Transactional(readOnly = true)
+    public List<BoardWithLikeListResponse> unlog_trend(){
+        List<BoardWithLikeListResponse> trend = BoardWithLikeListResponse.fromEntity(boardRepository.findAll());
+        for(int i=0;i<trend.size()-1;i++){
+            for (int j=i+1; j<trend.size();j++){
+                if(trend.get(i).lks().size() + trend.get(i).replies().size() < trend.get(j).lks().size() + trend.get(j).replies().size()){
+                    BoardWithLikeListResponse tmp = trend.get(i);
+                    trend.set(i, trend.get(j));
+                    trend.set(j, tmp);
+                }
+            }
+        }
+        return trend;
+    }
+
+    @Transactional(readOnly = true)
+    public List<BoardWithLikeListResponse> unlog_newest(){
+        List<BoardWithLikeListResponse> newest = BoardWithLikeListResponse.fromEntity(boardRepository.findAll(Sort.by(Sort.Direction.DESC, "createdAt")));
+        return newest;
+    }
+    @Transactional(readOnly = true)
     public List<BoardWithLikeListResponse> trendList(MemberDTO memberDTO){
         List<BoardWithLikeListResponse> trend = BoardWithLikeListResponse.fromEntity(boardRepository.findAll());
         for(int i=0;i<trend.size()-1;i++){
@@ -71,12 +92,24 @@ public class StyleLogicService {
 
 
     @Transactional(readOnly = true)
-    public List<BoardDTO> newest() {
-        List<BoardDTO> newest = BoardDTO.fromEntity(boardRepository.findAll(Sort.by(Sort.Direction.DESC, "createdAt")));
+    public List<BoardWithLikeListResponse> newest(MemberDTO memberDTO) {
+        List<BoardWithLikeListResponse> newest = BoardWithLikeListResponse.fromEntity(boardRepository.findAll(Sort.by(Sort.Direction.DESC, "createdAt")));
+        List<Lk> lks = likeRepository.findAllByMember(memberDTO.toEntity());
         for(int i=0;i<newest.size();i++){
+            for(int j=0;j<lks.size();j++){
+                if(lks.get(j).getBoard().getIdx() == newest.get(i).idx()){
+                    newest.set(i,
+                            BoardWithLikeListResponse.of(newest.get(i).idx(),
+                                    newest.get(i).memberDTO(),
+                                    newest.get(i).content(),
+                                    newest.get(i).img(), newest.get(i).hashtag(),newest.get(i).lks(), newest.get(i).replies(),
+                                    newest.get(i).tags(), newest.get(i).createdAt(), newest.get(i).modifiedAt(), true)
+                    );
 
-            System.out.println("테스트!!!!!!!!!!!!!!!"+newest.get(i).createdAt());
+                }
+            }
         }
+        System.out.println("테스트   " + newest);
         return newest;
     }
 
@@ -102,14 +135,30 @@ public class StyleLogicService {
         }).orElseGet(() -> Header.ERROR("데이터 없음"));
     }
 
-    public List<Board> getFollowingFeeds(Long idx){
-        List<Follow> followings = followRepository.findAllByfollowerIdx(idx);
-        List<Board> feed;
+    public List<BoardWithLikeListResponse> getFollowingFeeds(Long idx){
+        List<Follow> followings = followRepository.findAllByFollowerIdx(idx);
+        List<BoardWithLikeListResponse> feed;
         feed = new ArrayList<>();
         for(int i=0; i<followings.size(); i++){
-            List<Board> sub = boardRepository.findAllByMemberIdx(followings.get(i).getFollowingIdx());
+            List<BoardWithLikeListResponse> sub =BoardWithLikeListResponse.fromEntity( boardRepository.findAllByMemberIdx(followings.get(i).getFollowingIdx()));
             for(int j=0; j<sub.size();j++){
                 feed.add(sub.get(j));
+            }
+        }
+        Member member = memberRepository.getReferenceById(idx);
+        List<Lk> lks = likeRepository.findAllByMember(member);
+        for(int i=0;i<feed.size();i++){
+            for(int j=0;j<lks.size();j++){
+                if(lks.get(j).getBoard().getIdx() == feed.get(i).idx()){
+                    feed.set(i,
+                            BoardWithLikeListResponse.of(feed.get(i).idx(),
+                                    feed.get(i).memberDTO(),
+                                    feed.get(i).content(),
+                                    feed.get(i).img(), feed.get(i).hashtag(),feed.get(i).lks(), feed.get(i).replies(),
+                                    feed.get(i).tags(), feed.get(i).createdAt(), feed.get(i).modifiedAt(), true)
+                    );
+
+                }
             }
         }
         return feed;
@@ -227,5 +276,27 @@ public class StyleLogicService {
     public void unlike(Long boardIdx, KreamPrincipal kreamPrincipal){
         Lk lk = likeRepository.findByBoardAndMember(boardRepository.findById(boardIdx).get(), kreamPrincipal.toFullDto().toEntity());
         likeRepository.delete(lk);
+    }
+
+    public List<FollowDTO> countFollowers(KreamPrincipal kreamPrincipal){//내가 팔로우하고 있는 사람들 뽑기
+         List<Follow> follows = followRepository.findAllByFollowingIdx(kreamPrincipal.idx());
+         List<FollowDTO> followDTOS = new ArrayList<>();
+         for(int i=0;i<follows.size();i++){
+             followDTOS.add(FollowDTO.fromEntity(follows.get(i),
+                     MemberDTO.fromEntity(memberRepository.getReferenceById(follows.get(i).getFollowerIdx())),
+                     MemberDTO.fromEntity(memberRepository.getReferenceById(follows.get(i).getFollowingIdx()))));
+         }
+         return followDTOS;
+    }
+
+    public List<FollowDTO> countFollowing(KreamPrincipal kreamPrincipal){//나를 팔로우하고 있는 사람들 뽑기
+        List<Follow> followers = followRepository.findAllByFollowerIdx(kreamPrincipal.idx());
+        List<FollowDTO> followerDTOS = new ArrayList<>();
+        for(int i=0;i<followers.size();i++){
+            followerDTOS.add(FollowDTO.fromEntity(followers.get(i),
+                    MemberDTO.fromEntity(memberRepository.getReferenceById(followers.get(i).getFollowerIdx())),
+                    MemberDTO.fromEntity(memberRepository.getReferenceById(followers.get(i).getFollowingIdx()))));
+        }
+        return followerDTOS;
     }
 }

@@ -71,13 +71,21 @@ public class BoardApiController {
 
     @GetMapping("/trend")
     public List<BoardWithLikeListResponse> trend(@AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        if(kreamPrincipal == null){
+            return styleLogicService.unlog_trend();
+        }
         MemberDTO member = kreamPrincipal.toFullDto();
         return styleLogicService.trendList(member);
     }
 
     @GetMapping("/newest")
-    public List<BoardDTO> newest(){
-        return styleLogicService.newest();
+    public List<BoardWithLikeListResponse> newest(@AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        if(kreamPrincipal == null){
+            return styleLogicService.unlog_newest();
+        }
+        MemberDTO member = kreamPrincipal.toFullDto();
+        System.out.println(member + "테스트");
+        return styleLogicService.newest(member);
     }
 
     @GetMapping("/myprofile")

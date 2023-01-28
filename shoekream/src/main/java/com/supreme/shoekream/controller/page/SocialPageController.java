@@ -2,6 +2,7 @@ package com.supreme.shoekream.controller.page;
 
 import com.supreme.shoekream.model.dto.MemberDTO;
 import com.supreme.shoekream.model.dto.socialDTO.BoardDTO;
+import com.supreme.shoekream.model.dto.socialDTO.FollowDTO;
 import com.supreme.shoekream.model.entity.Board;
 import com.supreme.shoekream.model.entity.Follow;
 import com.supreme.shoekream.model.entity.Member;
@@ -61,15 +62,24 @@ public class SocialPageController {
     @GetMapping(path = "/social/following")    // http://localhost:8889/social/following
     public String following(@AuthenticationPrincipal KreamPrincipal kreamPrincipal, ModelMap map){
         MemberDTO sessionMember = kreamPrincipal.toFullDto();
-        List<BoardDTO> feed = BoardDTO.fromEntity(styleLogicService.getFollowingFeeds(sessionMember.idx()));
-        map.addAttribute("feed", feed);
+//        List<BoardDTO> feed = BoardDTO.fromEntity(styleLogicService.getFollowingFeeds(sessionMember.idx()));
+        map.addAttribute("feed", styleLogicService.getFollowingFeeds(sessionMember.idx()));
         map.addAttribute("sessionUser",sessionMember);
         return "social/following";
 
     }
 
     @GetMapping(path = "/social/myprofile")        // http://localhost:8889/social/myprofile
-    public ModelAndView myprofile(){ return new ModelAndView("social/myprofile"); }
+    public ModelAndView myprofile(ModelMap map, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        List<FollowDTO> followings = styleLogicService.countFollowing(kreamPrincipal);
+        List<FollowDTO> followers = styleLogicService.countFollowers(kreamPrincipal);
+
+        System.out.println(followings + "테스트 !!!!!!!!!!!!!!!!!!!!!!!");
+        System.out.println(followers);
+        map.addAttribute("followings", followings);
+        map.addAttribute("followers", followers);
+        return new ModelAndView("social/myprofile");
+    }
 
     @GetMapping(path = "/social/style_profile_edit")   // http://localhost:8889/social/style_profile_edit
     public ModelAndView style_profile_edit(){ return new ModelAndView("social/style_profile_edit"); }

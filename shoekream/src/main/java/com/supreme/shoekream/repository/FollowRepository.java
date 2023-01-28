@@ -1,10 +1,12 @@
 package com.supreme.shoekream.repository;
 
 import com.supreme.shoekream.model.entity.Follow;
+import com.supreme.shoekream.model.entity.Lk;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
 public interface FollowRepository extends JpaRepository<Follow, Long> {
-    List<Follow> findAllByfollowerIdx(Long followerIdx);
+    List<Follow> findAllByFollowingIdx(Long idx);
+    List<Follow> findAllByFollowerIdx(Long idx);
 }

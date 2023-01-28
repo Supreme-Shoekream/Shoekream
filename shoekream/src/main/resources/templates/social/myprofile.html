@@ -60,12 +60,12 @@
 
                     <div class="social_tab">
                         <ul class="tab_list">
-                            <li class="tab_item"><a href="#" class="tab_link"><span class="tab_menu">게시물</span><span
-                                        class="menu_count">0</span></a></li>
-                            <li class="tab_item"><a href="#" class="tab_link"  onclick="follower_up()"><span class="tab_menu">팔로워</span><span
-                                        class="menu_count">0</span></a></li>
-                            <li class="tab_item"><a href="#" class="tab_link"  onclick="following_up()"><span class="tab_menu">팔로잉</span><span
-                                        class="menu_count">3</span></a></li>
+                            <li class="tab_item"><a class="tab_link"><span class="tab_menu">게시물</span><span
+                                        class="menu_count" id="count_boards">0</span></a></li>
+                            <li class="tab_item"><a class="tab_link"  onclick="follower_up()"><span class="tab_menu">팔로워</span><span
+                                        class="menu_count"id="count_followers">0</span></a></li>
+                            <li class="tab_item"><a class="tab_link"  onclick="following_up()"><span class="tab_menu">팔로잉</span><span
+                                        class="menu_count"id="count_followings">3</span></a></li>
                         </ul>
                     </div>
                     <!-- 빈 화면 -->
@@ -81,8 +81,8 @@
                     <!-- 피드 시작 -->
                     <div class="social_feeds" style="display:none;">
                         <div transition-duration="0" item-selector=".item" gutter=".gutter_item"
-                            horizontal-order="true" class="masonry_posts"
-                            style="position: relative; height: 4956px;">
+                            horizontal-order="true" class="masonry_posts" id="masonry_posts"
+                            style="position: relative; height: 600px;">
                             <div class="gutter_item"></div>
 
 
@@ -429,7 +429,7 @@
                                                 <div class="layer_header">
                                                     <h2 class="title">
                                                         팔로워
-                                                        <span class="cnt">237</span>
+                                                        <span class="cnt" id="pop_follower_cnt">237</span>
                                                     </h2>
                                                 </div>
                                                 <div class="layer_content">
@@ -478,7 +478,7 @@
                                                 <div class="layer_header">
                                                     <h2 class="title">
                                                         팔로잉
-                                                        <span class="cnt">237</span>
+                                                        <span class="cnt" id="pop_following_cnt">237</span>
                                                     </h2>
                                                 </div>
                                                 <div class="layer_content">
@@ -520,6 +520,9 @@
 
                 </div>
 
+                <!-- 푸터 시작-->
+                <footer th:replace="/fragment/footer :: footer"></footer>
+                <!-- 푸터 끝 -->
             </div>
         </div>
     </div>
@@ -528,9 +531,6 @@
 
     <!-- 본문 끝 -->
 
-    <!-- 푸터 시작-->
-    <footer th:replace="/fragment/footer :: footer"></footer>
-    <!-- 푸터 끝 -->
 
 
 

@@ -42,11 +42,6 @@ function like_clicked(boardIdx, size, lk){
                         ch[1].setAttribute('src','/img/styleImg/like_after_icon.png');
                         ch[2].innerHTML= Number(size) + 1;
                     })
-
-
-
-
-
             }else{
                 fetch("http://localhost:8889/api/social/unlike/" + boardIdx)
                     .then(()=>{
@@ -54,5 +49,35 @@ function like_clicked(boardIdx, size, lk){
                         ch[2].innerHTML= Number(size);
                     })
             }
+
+}
+
+function like_clicked_follow(boardIdx, size, lk){
+    console.log(lk)
+
+    const items = document.querySelectorAll(".like");
+    $('span.like').click(function(e){
+        e.preventDefault();
+    });
+    const ch=lk.childNodes;
+    console.log(lk)
+    console.log(ch)
+    console.log(size)
+
+    if(ch[1].getAttribute('src')=='/img/styleImg/like_icon.png'){
+        fetch("http://localhost:8889/api/social/like/" + boardIdx)
+            .then(()=>{
+                ch[1].setAttribute('src','/img/styleImg/like_after_icon.png');
+                // ch[2].innerHTML= Number(size) + 1;
+                document.getElementById('likeid_'+boardIdx).innerHTML = Number(size) + 1;
+            })
+    }else{
+        fetch("http://localhost:8889/api/social/unlike/" + boardIdx)
+            .then(()=>{
+                ch[1].setAttribute('src','/img/styleImg/like_icon.png');
+                // ch[2].innerHTML= Number(size);
+                document.getElementById('likeid_'+boardIdx).innerHTML = Number(size);
+        })
+    }
 
 }
