@@ -44,14 +44,16 @@ window.onload = function (){
                                                             loading="auto" class="image">
                                                     </picture>
                                                     <p class="user_name">${data[i].memberDTO.nickname}</p><span aria-label="좋아요"
-                                        if(data[i].islike == false){
-                                            feedList += `<img id="like_icon" src="/img/styleImg/like_icon.png" alt="좋아요 이미지"
-                                                                                    class="icon sprite-icons social-like-gray-sm">`
-                                        }else{
-                                            feedList += `<img id="like_icon" src="/img/styleImg/like_after_icon.png" alt="좋아요 이미지"
-                                                                                    class="icon sprite-icons social-like-gray-sm">`
-                                        }
-                                        feedList +=  `<span class="like_count">${data[i].lks.length}</span></span>
+                                                        role="button" class="btn like" onclick="like_clicked(${data[i].idx}, ${data[i].lks.length}, this)">`
+
+                if(data[i].islike == false){
+                    feedList += `<img id="like_icon" src="/img/styleImg/like_icon.png" alt="좋아요 이미지"
+                                                            class="icon sprite-icons social-like-gray-sm">`
+                }else{
+                    feedList += `<img id="like_icon" src="/img/styleImg/like_after_icon.png" alt="좋아요 이미지"
+                                                            class="icon sprite-icons social-like-gray-sm">`
+                }
+                feedList +=  `<span class="like_count">${data[i].lks.length}</span></span>
                                                 </div>
                                                 <p class="text_box">${data[i].content}` + ` #` +  `${data[i].hashtag}</p>
                                             </div>

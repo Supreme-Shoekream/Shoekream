@@ -52,22 +52,6 @@ public class StyleLogicService {
                 }
             }
         }
-
-        List<Lk> lks = likeRepository.findAllByMember(memberDTO.toEntity());
-        for(int i=0;i<trend.size();i++){
-            for(int j=0;j<lks.size();j++){
-                if(lks.get(j).getBoard().getIdx() == trend.get(i).idx()){
-                    trend.set(i,
-                            BoardWithLikeListResponse.of(trend.get(i).idx(),
-                                    trend.get(i).memberDTO(),
-                                    trend.get(i).content(),
-                                    trend.get(i).img(), trend.get(i).hashtag(),trend.get(i).lks(), trend.get(i).replies(),
-                                    trend.get(i).tags(), trend.get(i).createdAt(), trend.get(i).modifiedAt(), true)
-                    );
-
-                }
-            }
-        }
         return trend;
     }
 
@@ -126,7 +110,6 @@ public class StyleLogicService {
                 }
             }
         }
-        System.out.println("테스트   " + newest);
         return newest;
     }
 

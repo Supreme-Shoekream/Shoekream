@@ -84,7 +84,6 @@ public class BoardApiController {
             return styleLogicService.unlog_newest();
         }
         MemberDTO member = kreamPrincipal.toFullDto();
-        System.out.println(member + "테스트");
         return styleLogicService.newest(member);
     }
 
