@@ -11,5 +11,4 @@ public interface CardRepository extends JpaRepository<Card, Long> {
     List<Card> findByMemberIdx(Long idx);
     Optional<Card> getReferenceByIdx(Long idx);
     List<Card> findByMemberIdxAndCardBasic(Long idx, boolean isBasic);
-    Card deleteByIdx(Long idx);
 }

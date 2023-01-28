@@ -552,38 +552,38 @@
 
 }
 
-    function update_address(){
-        if(btnSave2.classList.contains('disabled')){
-
-        }else {
-            const editName = document.querySelector('#name_input2');
-            const editHp = document.querySelector('#hp_input2');
-            const editZipcode = document.querySelector('#sample6_postcode2');
-            const editAddress1 = document.querySelector('#sample6_address2');
-            const editAddress2 = document.querySelector('#sample6_detailAddress2');
-            const editAddressBasic = document.querySelector('#check2');
-            fetch('http://localhost:8989/api/my/address', {
-                method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    //우리가 만든데이터
-                    "transaction_time":`${new Date()}`,
-                    "resultCode":"ok",
-                    "description":"정상",
-                    "data":{
-                        "name": `${editName.value}`,
-                        "hp": `${editHp.value}`,
-                        "zipcode": `${editZipcode.value}`,
-                        "address1": `${editAddress1.value}`,
-                        "address2": `${editAddress2.value}`,
-                        "addressBasic": `${editAddressBasic}`
-                    }
-                }),
-            })
-            addressEdit.style.display="none"
-            alert('수정 완료')
-        }
-    }
+    // function update_address(){
+    //     if(btnSave2.classList.contains('disabled')){
+    //
+    //     }else {
+    //         const editName = document.querySelector('#name_input2');
+    //         const editHp = document.querySelector('#hp_input2');
+    //         const editZipcode = document.querySelector('#sample6_postcode2');
+    //         const editAddress1 = document.querySelector('#sample6_address2');
+    //         const editAddress2 = document.querySelector('#sample6_detailAddress2');
+    //         const editAddressBasic = document.querySelector('#check2');
+    //         fetch('http://localhost:8989/api/my/address', {
+    //             method: 'PUT',
+    //             headers: { 'Content-Type': 'application/json' },
+    //             body: JSON.stringify({
+    //                 //우리가 만든데이터
+    //                 "transaction_time":`${new Date()}`,
+    //                 "resultCode":"ok",
+    //                 "description":"정상",
+    //                 "data":{
+    //                     "name": `${editName.value}`,
+    //                     "hp": `${editHp.value}`,
+    //                     "zipcode": `${editZipcode.value}`,
+    //                     "address1": `${editAddress1.value}`,
+    //                     "address2": `${editAddress2.value}`,
+    //                     "addressBasic": `${editAddressBasic}`
+    //                 }
+    //             }),
+    //         })
+    //         addressEdit.style.display="none"
+    //         alert('수정 완료')
+    //     }
+    // }
 
     const nameForm2 = document.querySelector('#name_input2')
     const hpForm2 = document.querySelector('#hp_input2')

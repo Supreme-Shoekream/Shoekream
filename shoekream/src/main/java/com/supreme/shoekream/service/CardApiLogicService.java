@@ -35,21 +35,20 @@ public class CardApiLogicService {
     }
 
     @Transactional
-    public void update(CardDTO dto){
-        try{
-            Card card = cardRepository.findByIdx(dto.idx());
-            if(dto.cardType() != null) {card.setCardType(dto.cardType());}
-            if(dto.cardNumber() != null) {card.setCardNumber(dto.cardNumber());}
-            if(dto.cardYy() != null) {card.setCardYy(dto.cardYy());}
-            if(dto.cardMm() != null) {card.setCardMm(dto.cardMm());}
-            if(dto.cardPw() != null) {card.setCardPw(dto.cardPw());}
-        }catch (EntityNotFoundException e){
-            System.out.println("제발;");
-        }
+    public void update(Long idx, MemberDTO memberDTO){
+        List<Card> cards = cardRepository.findByMemberIdx(memberDTO.idx());
+        cards.forEach(
+                card -> {
+                    card.setCardBasic(false);
+                }
+        );
+        Card card = cardRepository.findByIdx(idx);
+        card.setCardBasic(true);
     }
 
     @Transactional
     public void delete(Long idx){
-        cardRepository.deleteByIdx(idx);
+        Card card = cardRepository.findByIdx(idx);
+        cardRepository.delete(card);
     }
 }
