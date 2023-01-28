@@ -32,7 +32,7 @@ function like_clicked(boardIdx, size, lk){
     });
             const ch=lk.childNodes;
             // console.log(lk)
-            // console.log(ch)
+            console.log(ch)
             // console.log(size)
 
             if(ch[1].getAttribute('src')=='/img/styleImg/like_icon.png'){

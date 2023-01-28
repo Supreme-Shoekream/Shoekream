@@ -44,7 +44,8 @@ window.onload = function (){
                                                             loading="auto" class="image">
                                                     </picture>
                                                     <p class="user_name">${data[i].memberDTO.nickname}</p><span aria-label="좋아요"
-                                                        role="button" class="btn like" onclick="like_clicked(${data[i].idx}, ${data[i].lks.length}, this)">`
+                                                        role="button" class="btn like" onclick="like_clicked(${data[i].idx}, ${data[i].lks.length}, this)">
+`
 
                 if(data[i].islike == false){
                     feedList += `<img id="like_icon" src="/img/styleImg/like_icon.png" alt="좋아요 이미지"
