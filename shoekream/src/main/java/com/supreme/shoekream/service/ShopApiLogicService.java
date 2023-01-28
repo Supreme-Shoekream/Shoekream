@@ -144,11 +144,11 @@ public class ShopApiLogicService extends BaseService<ProductApiRequest, ProductA
             return productRepository.findBySize("230", pageable).map(ProductDTO::fromEntity);
         }
         if (size == null) size="";
-        if (brand == null) size="";
-        if (category == null) size="";
-        if (collection == null) size="";
-        if (gender == null) size="";
-        if (keyword == null) size="";
+        if (brand == null) brand="";
+        if (category == null) category="";
+        if (collection == null) collection="";
+        if (gender == null) gender="";
+        if (keyword == null) keyword="";
         return productRepository.findBySizeContainingAndBrandContainingAndCategoryContainingAndCollectionContainingAndGenderContainingAndNameContaining(
                 size,brand,category,collection,gender,keyword,pageable).map(ProductDTO::fromEntity);
     }
