@@ -6,6 +6,7 @@ import com.supreme.shoekream.model.entity.Card;
 import com.supreme.shoekream.model.entity.Member;
 import com.supreme.shoekream.model.network.Header;
 import com.supreme.shoekream.model.network.request.CardApiRequest;
+import com.supreme.shoekream.model.network.response.CardApiResponse;
 import com.supreme.shoekream.repository.CardRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -22,14 +23,13 @@ public class CardApiLogicService {
     private final CardRepository cardRepository;
 
     @Transactional
-    public List<Card> list(Long memberIdx){
-        List<Card> card = cardRepository.findByMemberIdx(memberIdx);
+    public List<Card> list(Long memberIdx, boolean isBasic){
+        List<Card> card = cardRepository.findByMemberIdxAndCardBasic(memberIdx, isBasic);
         return card;
     }
 
     @Transactional
-    public Header<Card> create(Header<CardDTO> request){
-        CardDTO dto = request.getData();
+    public Header<CardApiResponse> create(CardDTO dto){
         cardRepository.save(dto.toEntity(dto.memberDTO().toEntity()));
         return Header.OK();
     }
@@ -37,12 +37,12 @@ public class CardApiLogicService {
     @Transactional
     public void update(CardDTO dto){
         try{
-        Card card = cardRepository.findByIdx(dto.idx());
-        if(dto.cardType() != null) {card.setCardType(dto.cardType());}
-        if(dto.cardNumber() != null) {card.setCardNumber(dto.cardNumber());}
-        if(dto.cardYy() != null) {card.setCardYy(dto.cardYy());}
-        if(dto.cardMm() != null) {card.setCardMm(dto.cardMm());}
-        if(dto.cardPw() != null) {card.setCardPw(dto.cardPw());}
+            Card card = cardRepository.findByIdx(dto.idx());
+            if(dto.cardType() != null) {card.setCardType(dto.cardType());}
+            if(dto.cardNumber() != null) {card.setCardNumber(dto.cardNumber());}
+            if(dto.cardYy() != null) {card.setCardYy(dto.cardYy());}
+            if(dto.cardMm() != null) {card.setCardMm(dto.cardMm());}
+            if(dto.cardPw() != null) {card.setCardPw(dto.cardPw());}
         }catch (EntityNotFoundException e){
             System.out.println("제발;");
         }

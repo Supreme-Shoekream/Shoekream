@@ -26,6 +26,8 @@ public class QCard extends EntityPathBase<Card> {
 
     public final StringPath birthDate = createString("birthDate");
 
+    public final BooleanPath cardBasic = createBoolean("cardBasic");
+
     public final StringPath cardMm = createString("cardMm");
 
     public final StringPath cardNumber = createString("cardNumber");

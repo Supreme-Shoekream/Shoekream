@@ -1,5 +1,6 @@
 package com.supreme.shoekream.model.network.request;
 
+import com.supreme.shoekream.model.dto.AddressDTO;
 import com.supreme.shoekream.model.dto.CardDTO;
 import com.supreme.shoekream.model.dto.MemberDTO;
 
@@ -11,7 +12,8 @@ public record CardApiRequest(
         String cardMm,
         String cardYy,
         String cardPw,
-        String birthDate
+        String birthDate,
+        boolean cardBasic
 ) {
     public static CardApiRequest of(
             Long idx,
@@ -21,8 +23,22 @@ public record CardApiRequest(
             String cardMm,
             String cardYy,
             String cardPw,
-            String birthDate
+            String birthDate,
+            boolean cardBasic
     ){
-        return new CardApiRequest(idx,cardType,cardNumber,memberDTO,cardMm,cardYy,cardPw,birthDate);
+        return new CardApiRequest(idx,cardType,cardNumber,memberDTO,cardMm,cardYy,cardPw,birthDate, cardBasic);
+    }
+    public CardDTO toDTO(MemberDTO memberDTO){
+        return CardDTO.of(
+                idx,
+                cardType,
+                cardNumber,
+                memberDTO,
+                cardMm,
+                cardYy,
+                cardPw,
+                birthDate,
+                cardBasic
+        );
     }
 }

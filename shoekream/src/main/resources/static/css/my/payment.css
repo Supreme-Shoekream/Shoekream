@@ -51,7 +51,6 @@ a, a:active, a:focus, a:hover {
     padding-bottom: 22px;
 }
 .content_title.border {
-    padding-bottom: 16px;
     border-bottom: 3px solid #222;
 }
 .content_title {
@@ -121,4 +120,138 @@ a, a:active, a:focus, a:hover {
 }
 .my_payment .empty_area {
     padding: 160px 0!important;
+}
+.my_payment .my_list .basic {
+    padding: 22px 0 29px;
+}
+.basic {
+    padding: 30px 0 29px;
+    border-bottom: 2px solid #222;
+}
+.my_item {
+    position: relative;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.my_item .info_bind {
+    margin-right: 24px;
+}
+.my_payment .basic .card_info {
+    padding: 13px 0 1px;
+}
+.card_info {
+    padding: 16px 50px 17px 21px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.my_list .card_name, .other_card .card_name {
+    display: inline-block;
+    padding: 9px;
+    min-width: 52px;
+    border-radius: 8px;
+    border: 1px solid #ebebeb;
+    background-color: #fff;
+    text-align: center;
+}
+.card_name {
+    font-size: 15px;
+    letter-spacing: -.15px;
+}
+.card_num {
+    margin-left: 17px;
+    font-size: 14px;
+}
+.card_num .num_bind {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.my_list .mark {
+    margin-top: 7px;
+}
+.mark {
+    padding: 0 6px;
+    display: inline-block;
+    height: 18px;
+    line-height: 18px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    border-radius: 10px;
+    background-color: #bbb;
+    vertical-align: top;
+}
+.my_payment .basic .btn_bind {
+    margin-top: 30px;
+}
+.btn_bind {
+    margin-left: auto;
+}
+.btn_bind .btn {
+    padding-left: 11px;
+    padding-right: 12px;
+}
+.outlinegrey {
+    border: 1px solid #d3d3d3;
+    color: rgba(34,34,34,.8);
+}
+.small, .xsmall {
+    font-size: 12px;
+    letter-spacing: -.06px;
+}
+.small {
+    padding: 0 14px;
+    height: 34px;
+    border-radius: 10px;
+}
+.btn {
+    display: inline-flex;
+    cursor: pointer;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    vertical-align: middle;
+    text-align: center;
+    background-color: #fff;
+}
+.other .my_item {
+    padding: 17px 0 16px;
+    border-bottom: 1px solid #ebebeb;
+}
+.my_item {
+    position: relative;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.my_payment .other .card_info {
+    padding: 4px 0;
+}
+.card_num .dot {
+    white-space: nowrap;
+}
+.card_num .dot:after, .card_num .dot:before {
+    content: "";
+    margin-left: 2px;
+    display: inline-flex;
+    width: 5px;
+    height: 5px;
+    background-color: #222;
+    border-radius: 100%;
+}
+.btn_bind .btn+.btn {
+    margin-left: 8px;
+}
+.card_num .num_bind {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    flex-wrap: wrap;
 }

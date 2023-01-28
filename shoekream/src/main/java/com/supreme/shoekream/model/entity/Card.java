@@ -31,9 +31,10 @@ public class Card extends BaseEntity implements Auditable {
     private String cardYy;
     private String cardPw;
     private String birthDate;
+    private boolean cardBasic;
 
     private Card(Member member, String cardType, String cardNumber,
-                 String cardMm, String cardYy, String cardPw, String birthDate){
+                 String cardMm, String cardYy, String cardPw, String birthDate, boolean cardBasic){
         this.member = member;
         this.cardType = cardType;
         this.cardNumber = cardNumber;
@@ -41,11 +42,12 @@ public class Card extends BaseEntity implements Auditable {
         this.cardYy = cardYy;
         this.cardPw = cardPw;
         this.birthDate = birthDate;
+        this.cardBasic = cardBasic;
     }
 
     public static Card of(Member member, String cardType, String cardNumber,
-                          String cardMm, String cardYy, String cardPw, String birthDate) {
-        return new Card(member,cardType,cardNumber,cardMm,cardYy,cardPw,birthDate);
+                          String cardMm, String cardYy, String cardPw, String birthDate, boolean cardBasic) {
+        return new Card(member,cardType,cardNumber,cardMm,cardYy,cardPw,birthDate, cardBasic);
     }
 }
 

@@ -35,12 +35,13 @@ import java.util.List;
 @RequestMapping("my") // http://localhost:8889/my
 @RequiredArgsConstructor
 public class MypageController {
-    @Autowired AddressApiLogicService addressApiLogicService;
+
+    private final AddressApiLogicService addressApiLogicService;
+    private final CardApiLogicService cardApiLogicService;
     @Autowired BuyService buyService;
     @Autowired SellService sellService;
     @Autowired WishApiLogicService wishApiLogicService;
     @Autowired PointApiLogicService pointApiLogicService;
-
 
     @GetMapping(path="")
     public ModelAndView mypage(){
@@ -124,7 +125,10 @@ public class MypageController {
     }
 
     @GetMapping(path="payment")
-    public ModelAndView payment(){
+    public ModelAndView payment(ModelMap map, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        MemberDTO memberDTO = kreamPrincipal.toFullDto();
+        map.addAttribute("basic", cardApiLogicService.list(memberDTO.idx(), true));
+        map.addAttribute("other", cardApiLogicService.list(memberDTO.idx(), false));
         return new ModelAndView("/my/payment");
     }
 

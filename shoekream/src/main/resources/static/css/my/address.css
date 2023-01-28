@@ -445,4 +445,6 @@ button {
     border-bottom: 2px solid black;
     width: 100%;
 }
-
+#basic{
+    border-bottom: 2px solid black;
+}

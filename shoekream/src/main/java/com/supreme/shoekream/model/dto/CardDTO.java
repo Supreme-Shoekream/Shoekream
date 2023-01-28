@@ -13,7 +13,8 @@ public record CardDTO(
         String cardMm,
         String cardYy,
         String cardPw,
-        String birthDate
+        String birthDate,
+        boolean cardBasic
 ) {
     public static CardDTO of(Long idx,
                String cardType,
@@ -22,9 +23,11 @@ public record CardDTO(
                String cardMm,
                String cardYy,
                String cardPw,
-               String birthDate){
+               String birthDate,
+               boolean cardBasic
+    ){
         return new CardDTO(idx,cardType,cardNumber,memberDTO
-        ,cardMm,cardYy,cardPw,birthDate);
+        ,cardMm,cardYy,cardPw,birthDate,cardBasic);
     }
 
     public static CardDTO from(Card entity){
@@ -36,7 +39,8 @@ public record CardDTO(
                 entity.getCardMm(),
                 entity.getCardYy(),
                 entity.getCardPw(),
-                entity.getBirthDate()
+                entity.getBirthDate(),
+                entity.isCardBasic()
         );
     }
 
@@ -48,6 +52,8 @@ public record CardDTO(
                 cardMm,
                 cardYy,
                 cardPw,
-                birthDate);
+                birthDate,
+                cardBasic
+        );
     }
 }
