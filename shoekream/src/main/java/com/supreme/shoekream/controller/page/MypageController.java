@@ -75,21 +75,25 @@ public class MypageController {
         return ("/my/selling");
     }
 
-     @GetMapping(path = "selling/{sellIdx}")
+    @GetMapping(path = "selling/{sellIdx}")
     public String sellingDetail(ModelMap map, @PathVariable(name="sellIdx") Long sellIdx, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
         return("/my/selling_detail");
     }
 
     private final WishApiLogicService wishApiLogicService;
-    @GetMapping(path = "wish/{idx}")
-    public String wish(@PathVariable Long idx, ModelMap modelmap, @AuthenticationPrincipal KreamPrincipal kreamPrincipal) {
-        // 🔴 idx 말고 로그인한 세션값을 넣어줘야함 -> 크림프린시펄 사용?
-        List<Product> wish_productList = wishApiLogicService.productList(idx);
+    @GetMapping(path = "wish")
+    public String wish(ModelMap modelmap, @AuthenticationPrincipal KreamPrincipal kreamPrincipal, HttpServletRequest request){
+        HttpSession session = request.getSession();
+        if(session.getAttribute("memberIdx") == null){
+            return "login/login";
+        }
+        List<Product> wish_productList = wishApiLogicService.productList(kreamPrincipal.idx());
         modelmap.addAttribute("wish_productList", wish_productList);
         List<String> wish_productPrice = sellService.buyNowPrices(wish_productList);
         modelmap.addAttribute("wish_productPrice", wish_productPrice);
         return "my/wish";
     }
+
 
     @GetMapping(path="profile")
     public ModelAndView profile(){
