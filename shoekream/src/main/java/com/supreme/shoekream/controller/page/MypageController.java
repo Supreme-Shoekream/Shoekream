@@ -35,6 +35,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MypageController {
     private final AddressApiLogicService addressApiLogicService;
+    private final CardApiLogicService cardApiLogicService;
 
 
     @GetMapping(path="")    // http://localhost:8889/my
@@ -121,7 +122,10 @@ public class MypageController {
 
 
     @GetMapping(path="payment")
-    public ModelAndView payment(){
+    public ModelAndView payment(ModelMap map, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        MemberDTO memberDTO = kreamPrincipal.toFullDto();
+        map.addAttribute("basic", cardApiLogicService.list(memberDTO.idx(), true));
+        map.addAttribute("other", cardApiLogicService.list(memberDTO.idx(), false));
         return new ModelAndView("/my/payment");
     }
     @GetMapping(path="account")

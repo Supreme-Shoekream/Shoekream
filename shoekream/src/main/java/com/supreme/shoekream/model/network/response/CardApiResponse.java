@@ -11,7 +11,8 @@ public record CardApiResponse(
         String cardMm,
         String cardYy,
         String cardPw,
-        String birthDate
+        String birthDate,
+        boolean cardBasic
 ) {
     public static CardApiResponse of(
             Long idx,
@@ -21,9 +22,10 @@ public record CardApiResponse(
             String cardMm,
             String cardYy,
             String cardPw,
-            String birthDate
+            String birthDate,
+            boolean cardBasic
     ){
-        return new CardApiResponse(idx,cardType,cardNumber,memberDTO,cardMm,cardYy,cardPw,birthDate);
+        return new CardApiResponse(idx,cardType,cardNumber,memberDTO,cardMm,cardYy,cardPw,birthDate,cardBasic);
     }
     public CardDTO toDTO(MemberDTO memberDTO){
         return CardDTO.of(
@@ -34,7 +36,8 @@ public record CardApiResponse(
                 cardMm,
                 cardYy,
                 cardPw,
-                birthDate
+                birthDate,
+                cardBasic
         );
     }
 }

@@ -1079,7 +1079,7 @@ insert into conclusion (product_idx, price, created_at) values (109, '309,000원
 -- INSERT INTO shop_test (idx, img, brand, name, name_kor, now_price, wish_count, style_count) VALUES (199, '/img/shop/Dyson_Supersonic_Hair_Dryer_Iron_Fuchsia_(Korean_Ver.).png', 'Dyson', 'Dyson Supersonic Hair Dryer Iron Fuchsia (Korean Ver.)', '다이슨 슈퍼소닉 헤어 드라이어 아이언 푸시아 (국내 정식 발매 제품)', '494,000원', '1,386', '2');
 -- INSERT INTO shop_test (idx, img, brand, name, name_kor, now_price, wish_count, style_count) VALUES (200, '/img/shop/Dyson_Supersonic_Hair_Dryer_Vinca_Blue_Rose_(Korean_Ver.).png', 'Dyson', 'Dyson Supersonic Hair Dryer Vinca Blue Rose (Korean Ver.)', '다이슨 슈퍼소닉 헤어 드라이어 빈카 블루 로제 (국내 정식 발매 제품)', '590,000원', '121', '1');
 
-
+-- address
 insert into address (idx, name, hp, zipcode, address1, address2, address_basic, member_idx) values (1, '오렌지', '010-3333-3333', '33333', '서울시', '강남구', true,1);
 insert into address (idx, name, hp, zipcode, address1, address2, address_basic, member_idx) values (2, 'Lesya', '229-106-1003', '92', '4 Hoffman Terrace', '6736 Corscot Avenue', true,2);
 insert into address (idx, name, hp, zipcode, address1, address2, address_basic, member_idx) values (3, 'Ruthanne', '183-383-7720', '9309', '2303 Mendota Park', '88 Hansons Junction', true,2);
@@ -1090,6 +1090,8 @@ insert into address (idx, name, hp, zipcode, address1, address2, address_basic, 
 insert into address (idx, name, hp, zipcode, address1, address2, address_basic, member_idx) values (8, '반하나', '010-2222-2222', '22222', '서울시', '강남구', false,1);
 insert into address (idx, name, hp, zipcode, address1, address2, address_basic, member_idx) values (9, 'Dane', '537-728-8330', '06', '5 Sutteridge Parkway', '7704 Sunbrook Terrace', true,2);
 insert into address (idx, name, hp, zipcode, address1, address2, address_basic, member_idx) values (10, 'Jerrie', '532-243-4266', '012', '59662 Ridge Oak Center', '71952 Sommers Pass', true,2);
+
+-- card
 
 -- wish
 insert into wish (idx, member_idx, product_idx) values (1, 1, 1);

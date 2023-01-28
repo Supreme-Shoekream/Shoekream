@@ -1,0 +1,8 @@
+<thlogic>
+    <attr sel=".basic" th:each="basic : ${basic}">
+        <attr sel=".num_bind" th:text="'●●●●-●●●●-●●●●-'+${#strings.substring(basic.cardNumber,12, 16)}" />
+    </attr>
+    <attr sel=".other" th:each="other : ${other}">
+        <attr sel=".num_bind" th:text="'●●●●-●●●●-●●●●-'+${#strings.substring(other.cardNumber,12, 16)}" />
+    </attr>
+</thlogic>
