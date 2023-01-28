@@ -88,20 +88,6 @@ public class MainPageController {
         List<String> bestCampingGearbuynowPrices = sellService.buyNowPrices(bestCampingGear.stream().map(ProductDTO::toEntity).toList());
         map.addAttribute("bestCampingGearbuynowPrices",bestCampingGearbuynowPrices);
 
-        HttpSession session = request.getSession(false);
-        Long memberIdx=null;
-
-        if(session== null){
-            System.out.println("세션이 없습니다");
-        }else{
-            Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            String email = ((UserDetails) principal).getUsername();
-            memberIdx = memberRepository.findByEmail(email).get().getIdx();
-            session.setAttribute("memberIdx",memberIdx) ;
-            System.out.println("세션이 있습니다");
-            System.out.println(email);
-            System.out.println(memberIdx);
-        }
         return "index";
     }   //viewName: 페이지이름이랑 같아야함
 
