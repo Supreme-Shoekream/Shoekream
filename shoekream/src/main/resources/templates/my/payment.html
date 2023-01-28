@@ -54,7 +54,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="btn_bind"><!----><!----><a href="#" class="btn outlinegrey small"> 삭제 </a>
+                        <div class="btn_bind"><!----><!---->
+                            <a  id="deleteCard" href="#" class="btn outlinegrey small"> 삭제 </a>
                         </div>
                     </div>
                 </div>
@@ -69,8 +70,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="btn_bind"><a href="#" class="btn outlinegrey small"> 기본 결제 </a><!----><a
-                                href="#" class="btn outlinegrey small"> 삭제 </a>
+                        <div class="btn_bind">
+                            <a id="basicCard2" href="#" class="btn outlinegrey small"> 기본 결제 </a><!---->
+                            <a id="deleteCard2" href="#" class="btn outlinegrey small"> 삭제 </a>
                         </div>
                     </div>
                 </div>
@@ -252,6 +254,36 @@
                 return;
             })
         }
+    }
+    // 기본 카드 수정
+    function basicCard(idx){
+        fetch('http://localhost:8989/api/my/payment/'+idx,
+            {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+            }).then((res)=>{
+            alert('기본배송지 수정 완료');
+            location.href='/my/payment';
+            return;
+        })
+            .catch((err) => {
+                alert(err);
+            })
+    }
+    // 카드 삭제
+    function deleteCard(idx){
+        fetch('http://localhost:8989/api/my/payment/'+idx,
+            {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+            }).then((res)=>{
+            alert('배송지 삭제 완료');
+            location.href='/my/payment';
+            return;
+        })
+            .catch((err) => {
+                alert(err);
+            })
     }
 </script>
 </body>

@@ -1095,7 +1095,9 @@ insert into address (idx, name, hp, zipcode, address1, address2, address_basic, 
 insert into address (idx, name, hp, zipcode, address1, address2, address_basic, member_idx) values (10, 'Jerrie', '532-243-4266', '012', '59662 Ridge Oak Center', '71952 Sommers Pass', true,2);
 
 -- card
-
+insert into card(idx, card_type, card_number, card_mm, card_yy, card_pw, birth_date, card_basic, member_idx) values (1, "BC", "1111111111111111", "01", "2023", "01", "010101", true, 1);
+insert into card(idx, card_type, card_number, card_mm, card_yy, card_pw, birth_date, card_basic, member_idx) values (2, "BC", "2222222222222222", "02", "2024", "02", "010101", false, 1);
+insert into card(idx, card_type, card_number, card_mm, card_yy, card_pw, birth_date, card_basic, member_idx) values (3, "BC", "3333333333333333", "02", "2025", "03", "010101", false, 1);
 -- wish
 insert into wish (idx, member_idx, product_idx) values (1, 1, 1);
 insert into wish (idx, member_idx, product_idx) values (2, 1, 2);
