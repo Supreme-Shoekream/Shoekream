@@ -14,6 +14,7 @@ import com.supreme.shoekream.model.network.security.KreamPrincipal;
 import com.supreme.shoekream.service.*;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -31,18 +32,21 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
-@RequestMapping("my")
+@RequestMapping("my") // http://localhost:8889/my
 @RequiredArgsConstructor
 public class MypageController {
-    private final AddressApiLogicService addressApiLogicService;
+    @Autowired AddressApiLogicService addressApiLogicService;
+    @Autowired BuyService buyService;
+    @Autowired SellService sellService;
+    @Autowired WishApiLogicService wishApiLogicService;
+    @Autowired PointApiLogicService pointApiLogicService;
 
 
-    @GetMapping(path="")    // http://localhost:8889/my
+    @GetMapping(path="")
     public ModelAndView mypage(){
         return new ModelAndView("/my/mypage");
     }
 
-    private final BuyService buyService;
     @GetMapping(path = "buying")
     public String buying(ModelMap map, @PageableDefault(size = 10, sort = "createdAt", direction = Sort.Direction.DESC) Pageable pageable
             , @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
@@ -60,7 +64,6 @@ public class MypageController {
 //    public ModelAndView buying(){
 //        return new ModelAndView("/my/buying");
 //    }
-    private final SellService sellService;
     @GetMapping(path = "selling")
     public String selling(ModelMap map, @PageableDefault(size = 10, sort = "createdAt", direction = Sort.Direction.DESC) Pageable pageable
             , @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
@@ -80,11 +83,9 @@ public class MypageController {
         return("/my/selling_detail");
     }
 
-    private final WishApiLogicService wishApiLogicService;
     @GetMapping(path = "wish")
-    public String wish(ModelMap modelmap, @AuthenticationPrincipal KreamPrincipal kreamPrincipal, HttpServletRequest request){
-        HttpSession session = request.getSession();
-        if(session.getAttribute("memberIdx") == null){
+    public String wish(ModelMap modelmap, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        if(kreamPrincipal == null){
             return "login/login";
         }
         List<Product> wish_productList = wishApiLogicService.productList(kreamPrincipal.idx());
@@ -94,25 +95,25 @@ public class MypageController {
         return "my/wish";
     }
 
-
     @GetMapping(path="profile")
     public ModelAndView profile(){
         return new ModelAndView("/my/profile");
     }
+
     @GetMapping(path="buying_detail")
     public ModelAndView buying_detail(){
         return new ModelAndView("/my/buying_detail");
     }
+
     @GetMapping(path="buying_end")
     public ModelAndView buying_end(){
         return new ModelAndView("/my/buying_end");
     }
+
     @GetMapping(path="selling_detail")
     public ModelAndView selling_detail(){
         return new ModelAndView("/my/selling_detail");
     }
-
-
 
     @GetMapping(path="address")
     public String address(ModelMap map, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
@@ -122,22 +123,20 @@ public class MypageController {
         return "my/address";
     }
 
-
-
     @GetMapping(path="payment")
     public ModelAndView payment(){
         return new ModelAndView("/my/payment");
     }
+
     @GetMapping(path="account")
     public ModelAndView account(){
         return new ModelAndView("/my/account");
     }
+
     @GetMapping(path="receipt")
     public ModelAndView receipt(){
         return new ModelAndView("/my/receipt");
     }
-
-    private final PointApiLogicService pointApiLogicService;
 
     @GetMapping(path="point")
     public String point(ModelMap map, HttpServletRequest request){
