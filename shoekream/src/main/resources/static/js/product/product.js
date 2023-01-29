@@ -58,23 +58,23 @@ function everysizePopdown() {
 
 
 // 기능3. 관심 상품 클릭시 팝업 레이어창 
-function wishPopup() {
-    const layer = document.querySelector('.layer_interest.lg');
-    layer.classList.add('layer');
-    
-    const body = document.querySelector('body');
-    body.style.overflow = 'hidden';
-
-    layer.style.visibility ='visible';
-}
-function wishPopdown() {
-    const layer = document.querySelector('.layer_interest.lg');
-    layer.classList.remove('layer');
-    layer.style.visibility ='hidden';
-    
-    const body = document.querySelector('body');
-    body.style.overflow = "";
-}
+// function wishPopup() {
+//     const layer = document.querySelector('.layer_interest.lg');
+//     layer.classList.add('layer');
+//
+//     const body = document.querySelector('body');
+//     body.style.overflow = 'hidden';
+//
+//     layer.style.visibility ='visible';
+// }
+// function wishPopdown() {
+//     const layer = document.querySelector('.layer_interest.lg');
+//     layer.classList.remove('layer');
+//     layer.style.visibility ='hidden';
+//
+//     const body = document.querySelector('body');
+//     body.style.overflow = "";
+// }
 
 
 
@@ -288,51 +288,51 @@ size_select_wrap.addEventListener("click", () => {
 
 
 // 기능14. 관심상품 클릭시 버튼 활성화
-const wishes = document.querySelectorAll(".interest_btn_box .btn_interest");
-    wishes.forEach((wish) => {
-        wish.addEventListener("click", () => {
+// const wishes = document.querySelectorAll(".interest_btn_box .btn_interest");
+//     wishes.forEach((wish) => {
+//         wish.addEventListener("click", () => {
+//
+//             const ch = wish.childNodes;
+//             // console.log(ch);
+//
+//             if(ch[3].getAttribute("src") == "/img/select_mark_off.PNG"){
+//                 ch[3].setAttribute("src","/img/select_mark_on.png");
+//             }else{
+//                 ch[3].setAttribute("src","/img/select_mark_off.PNG");
+//             }
+//         })
+//     });
 
-            const ch = wish.childNodes;
-            // console.log(ch);
-
-            if(ch[3].getAttribute("src") == "/img/select_mark_off.PNG"){
-                ch[3].setAttribute("src","/img/select_mark_on.png");
-            }else{
-                ch[3].setAttribute("src","/img/select_mark_off.PNG");
-            } 
-        })
-    });
-
-const boxes = document.querySelectorAll(".interest_btn_box");
-const wish_onoff = document.querySelector(".wish-onoff"); // 메인 관심상품
-const wish_onoff2 = document.querySelector(".btn_wish_simple .wish-onoff"); // 상단 고정 배너 관심상품
-let count = 0;
-
-    boxes.forEach((box) => {
-        box.addEventListener("click", () => {
-
-            const ch = box.childNodes;
-            // console.log(ch);
-            
-            if(ch[1].getAttribute("class") == "btn outlinegrey medium btn_interest"){
-                ch[1].classList.add("wish_on");
-                count++;
-                // console.log("+:" + count);
-            }else{
-                ch[1].classList.remove("wish_on");
-                count--;
-                // console.log("-:" + count);
-            }
-
-            if(count > 0) {
-                wish_onoff.setAttribute("src","/img/select_mark_on.png");
-                wish_onoff2.setAttribute("src","/img/select_mark_on.png");
-            }else{
-                wish_onoff.setAttribute("src","/img/select_mark_off.PNG");
-                wish_onoff2.setAttribute("src","/img/select_mark_off.png");
-            }
-        })
-    });
+// const boxes = document.querySelectorAll(".interest_btn_box");
+// const wish_onoff = document.querySelector(".wish-onoff"); // 메인 관심상품
+// const wish_onoff2 = document.querySelector(".btn_wish_simple .wish-onoff"); // 상단 고정 배너 관심상품
+// let count = 0;
+//
+//     boxes.forEach((box) => {
+//         box.addEventListener("click", () => {
+//
+//             const ch = box.childNodes;
+//             // console.log(ch);
+//
+//             if(ch[1].getAttribute("class") == "btn outlinegrey medium btn_interest"){
+//                 ch[1].classList.add("wish_on");
+//                 count++;
+//                 // console.log("+:" + count);
+//             }else{
+//                 ch[1].classList.remove("wish_on");
+//                 count--;
+//                 // console.log("-:" + count);
+//             }
+//
+//             if(count > 0) {
+//                 wish_onoff.setAttribute("src","/img/select_mark_on.png");
+//                 wish_onoff2.setAttribute("src","/img/select_mark_on.png");
+//             }else{
+//                 wish_onoff.setAttribute("src","/img/select_mark_off.PNG");
+//                 wish_onoff2.setAttribute("src","/img/select_mark_off.PNG");
+//             }
+//         })
+//     });
 
 
 // 사이즈 선택시 체크 표시
@@ -378,25 +378,67 @@ item.forEach((target) => {
 
 
     })
-
-    // item.forEach((e) => {
-    //     // console.log("e:" + e.childNodes[0]);
-    //     // console.log(target.childNodes[0]);
-    //     let ev = e.childNodes[0];
-
-    //     let tv = target.childNodes[0];
-        
-    //     // if(e.childNodes[0].nodeValue == target.childNodes[0].nodeValue){
-    //     if(ev == tv){
-    //         console.log("=======")
-    //         e.classList.add("item_on");
-    //         e.childNodes[1].style.display = "block";
-    //         // target.classList.add("item_on");
-    //         // target.childNodes[1].style.display = "block";
-    //     }
-    // })
     
 });
+
+
+// 관심상품 클릭시 버튼 활성화
+const wishes = document.querySelectorAll(".btn_wish");
+const wish_onoff = document.querySelector(".wish-onoff"); // 메인 관심상품
+const wish_onoff2 = document.querySelector(".btn_wish_simple .wish-onoff"); // 상단 고정 배너 관심상품
+wishes.forEach((wish) => {
+    wish.addEventListener("click", () => {
+
+        const ch = wish.childNodes;
+        console.log(ch);
+
+        if(ch[1].getAttribute("src") == "/img/select_mark_off.PNG"){
+            wish_onoff.setAttribute("src","/img/select_mark_on.png");
+            wish_onoff2.setAttribute("src","/img/select_mark_on.png");
+            // ch[1].setAttribute("src","/img/select_mark_on.png");
+        }else{
+            wish_onoff.setAttribute("src","/img/select_mark_off.PNG");
+            wish_onoff2.setAttribute("src","/img/select_mark_off.PNG");
+            // ch[1].setAttribute("src","/img/select_mark_off.PNG");
+        }
+    })
+});
+
+// ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+// create
+// function wishcreate(){
+//     const btn_save = document.querySelector('.wish_save');
+//     btn_save.addEventListener("click",sendit);
+// }
+
+function wishcreate(){
+    const proIdx =document.getElementById("wish_proIdx").getAttribute("value"); // 상품 정보(idx)
+    console.log(proIdx);
+
+    // fetch("http://localhost:8889/api/product", {
+    fetch("http://localhost:8889/api/product", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+                "productIdx": proIdx
+        }),
+    })
+        .then((res) => {
+            alert("관심상품 등록 성공!")
+            // location.href="/admin/products";
+            return;
+        })
+        .then((data) => {
+            console.log(data);
+            return;
+        })
+        .catch((err) => {
+            alert("에러! 에러! 관심상품 등록 실패!");
+            location.reload();
+            return;
+        })
+}
+
 
 
 

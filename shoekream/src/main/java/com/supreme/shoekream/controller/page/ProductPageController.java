@@ -41,6 +41,9 @@ public class ProductPageController {
         modelmap.addAttribute("product",product); // "product" 이름의 modelmap 객체를 view에서 사용하기위해 저장함
 //        System.out.println("🟡" + modelmap);
 
+        Long proIdx = product.getData().getIdx();
+        modelmap.addAttribute("proIdx", proIdx);
+
         List<ConclusionDTO> conclusion = conclusionApiLogicService.con_read(idx);
         modelmap.addAttribute("conclusion", conclusion); // "conclusion" 이름의 modelmap 객체를 view에서 사용하기위해 저장함
 //        System.out.println("🟡" + conclusion);

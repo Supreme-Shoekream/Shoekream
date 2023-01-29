@@ -26,6 +26,14 @@ public class Wish {
     @JoinColumn(name="product_idx")
     private Product product;
 
+    private Wish(Member member, Product product){
+        this.member = member;
+        this.product = product;
+    }
+    public static Wish of(Member member, Product product){
+        return new Wish(member, product);
+    }
+
 
 
 }

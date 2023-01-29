@@ -19,11 +19,7 @@ public class ProductApiResponse {
     private String name;
     private String nameKor;
     private String size;
-//    private String recentPrice;
-//    private String fluctuation;
-//    private String nowBuy;
-//    private String nowSell;
-//    private String wishCount;
+    private Long wishCount;
     private String modelNum;
     private String releaseDate;
     private String color;
@@ -31,5 +27,4 @@ public class ProductApiResponse {
     private String category;
     private String gender;
     private String collection;
-//    List<Conclusion> conclusions;
 }

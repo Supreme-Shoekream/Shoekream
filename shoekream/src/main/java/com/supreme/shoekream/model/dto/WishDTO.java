@@ -1,22 +1,30 @@
 package com.supreme.shoekream.model.dto;
 
-import com.supreme.shoekream.model.entity.Member;
-import com.supreme.shoekream.model.entity.Wish;
+import com.supreme.shoekream.model.entity.*;
+import lombok.Builder;
 
+@Builder
 public record WishDTO(
         Long idx,
-        Member member,
-        ProductDTO productDTO
+        Long memberIdx,
+        Long productIdx
 ) {
-    public static WishDTO of(Long idx, Member member, ProductDTO productDTO){
-        return new WishDTO(idx, member, productDTO);
+    public static WishDTO of(Long idx, Long memberIdx, Long productIdx){
+        return new WishDTO(idx, memberIdx, productIdx);
     }
 
     public static WishDTO fromEntity(Wish entity) {
         return new WishDTO(
             entity.getIdx(),
-            entity.getMember(),
-            ProductDTO.fromEntity(entity.getProduct())
+            entity.getMember().getIdx(),
+            entity.getProduct().getIdx()
         );
     }
+
+//    public Wish toEntity(Long member, Long product){
+//        return Wish.of(
+//                member,
+//                product
+//        );
+//    }
 }
