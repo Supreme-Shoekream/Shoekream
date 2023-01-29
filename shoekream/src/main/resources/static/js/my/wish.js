@@ -1,14 +1,5 @@
 // ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
 // delete
-// function productdelete_popup(idx){
-//     document.querySelector(".product_delete").style.display = "block";
-//     const btn_delete = document.querySelector(".btn_delete");
-//     btn_delete.addEventListener("click",()=>{
-//         admindelete(idx)
-//     });
-// }
-
-
 function wishDelete(idx){
     // let idx = document.getElementById("wish_proIdx").getAttribute("value");
         fetch('http://localhost:8889/api/product/'+idx, {
