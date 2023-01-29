@@ -63,7 +63,7 @@ public class WishApiLogicService {
 
     // 관심상품 삭제
     public Header delete(Long idx) {
-        Optional<Wish> wishes = wishRepository.findById(idx);
+        Optional<Wish> wishes = wishRepository.findByProductIdx(idx);
         return wishes.map(wish->{
             wishRepository.delete(wish);
             return Header.OK();
