@@ -1,0 +1,120 @@
+
+button {
+    padding: 0;
+    border: 0;
+    outline: none;
+    background: none;
+    background-color: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0;
+}
+.wrap.win_os .search_top{
+    padding: 40px 40px 0;
+}
+.wrap .search_top {
+    padding: 20px 40px 0;
+    background-color: #fff;
+    z-index: 100;
+}
+.top_box {
+    margin: 0 auto;
+    max-width: 1200px;
+}
+.search_title{
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    padding: 0 10% 24px;
+    position: relative;
+}
+.search{
+    width: 500px;
+    -webkit-box-flex: 0;
+    flex: none;
+    -webkit-box-ordinal-group: 1;
+    order: 0;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    margin: 0 8px;
+    padding-bottom: 16px;
+    border-bottom: 3px solid #000;
+}
+.search .input_search {
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 24px;
+    font-weight: 700;
+    color: #000;
+    line-height: 29px;
+    padding: 0 13px 0 1px;
+    width: 468px;
+    letter-spacing: -.015em;
+}
+.search .btn_search_delete {
+    float: right;
+    width: 24px;
+    height: 24px;
+    margin-top: 3px;
+    margin-right: 3px;
+}
+.quick_filter {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 16px;
+    white-space: nowrap;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.quick_filter_box{
+    margin-right: 8px;
+    display: inline-block;
+    vertical-align: top;
+}
+.quick_filter_box .btn_quick_filter{
+    padding: 10px;
+}
+.btn_quick_filter{
+    display: inline-block;
+    padding: 10px 12px;
+    height: 38px;
+    background-color: #f4f4f4;
+    border-radius: 12px;
+    font-size: 15px;
+    letter-spacing: -.15px;
+    vertical-align: top;
+}
+.quick_filter_items {
+    display: inline-block;
+}
+.btn_quick_filter {
+    display: inline-block;
+    padding: 10px 12px;
+    height: 38px;
+    background-color: #f4f4f4;
+    border-radius: 12px;
+    font-size: 15px;
+    letter-spacing: -.15px;
+    vertical-align: top;
+}
+.divider_quick_filter {
+    position: relative;
+    margin: 0 8px;
+}
+.divider_quick_filter:after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    right: 0;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 1px;
+    height: 32px;
+    background-color: #ebebeb;
+}

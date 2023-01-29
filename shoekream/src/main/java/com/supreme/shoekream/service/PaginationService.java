@@ -7,7 +7,7 @@ import java.util.stream.IntStream;
 
 @Service
 public class PaginationService {
-    private static final int BAR_LENGTH = 5;    // 표시할 길이
+    private static final int BAR_LENGTH = 10;    // 표시할 길이
 
     public List<Integer> getPaginationBarNumbers(int currentPageNumber, int totalPages) {    // 현재 페이지 넘버를 받는다
         int startNumber = Math.max(currentPageNumber - (BAR_LENGTH / 2), 0);    // 페이지기능은 0부터 시작이므로 startNumber를 0으로 줌

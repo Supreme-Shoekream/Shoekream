@@ -67,14 +67,16 @@ public class ShopController {
             @RequestParam(required = false) String collection,
             @RequestParam(required = false) String gender,
             @RequestParam(required = false) String keyword,
-            @PageableDefault(size = 40, sort = "idx", direction = Sort.Direction.DESC) Pageable pageable,
+            @PageableDefault(size = 20, sort = "idx", direction = Sort.Direction.DESC) Pageable pageable,
             ModelMap map
     ){
         Page<ProductDTO> products = shopApiLogicService.searchsProduct(size,brand,category,collection,gender, keyword, pageable);
         List<String> prices = sellService.buyNowPrices(products.stream().map(ProductDTO::toEntity).toList());
+        List<Integer> barNumbers = paginationService.getPaginationBarNumbers(pageable.getPageNumber(), products.getTotalPages());
         map.addAttribute("products",products);
         map.addAttribute("prices",prices);
-        System.out.println("🤍🤍"+products+"❤❤"+prices);
+        map.addAttribute("barNumbers",barNumbers);
+        System.out.println("🤍🤍"+products+"❤❤"+prices+"🤍🤍"+barNumbers);
         return "shop/shop_searchs";
     }
 }
