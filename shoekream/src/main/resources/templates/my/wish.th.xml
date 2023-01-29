@@ -8,6 +8,7 @@
                 <attr sel="p.wish_pro_name" th:text="${wishProduct.name}"/>
                 <attr sel="span.wish_pro_size" th:text="${wishProduct.size}"/>
                 <attr sel="em.wish_pro_buy" th:text="${wish_productPrice[i.index]}"/>
+                <attr sel="a#wish_proIdx" th:value="${wishProduct.idx}"/>
             </attr>
         </attr>
     </attr>

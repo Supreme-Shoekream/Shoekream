@@ -50,68 +50,10 @@ public class ProductApiLogicService {
         return productApiResponse;
     }
 
-    private WishApiResponse wResponse(Wish wish){
-        WishApiResponse wishApiResponse = WishApiResponse.builder()
-                .idx(wish.getIdx())
-                .proIdx(wish.getProduct().getIdx())
-                .memIdx(wish.getMember().getIdx())
-                .build();
-        return wishApiResponse;
-    }
-
-//    public Boolean create(Member memIdx, Product proIdx) {
-//        Wish wish = Wish.builder()
-//                .member(memIdx)
-//                .product(proIdx)
-//                .build();
-//        Wish newWish = wishRepository.save(wish);
-//        return Boolean.TRUE;
-//    }
-
-//    public Header<WishApiResponse> create(Header<WishApiRequest> request) {
-//        WishApiRequest wishApiRequest = request.getData();
-//
-//        Wish wish = Wish.builder()
-//                .product(wishApiRequest.getProIdx())
-//                .member(wishApiRequest.getMemIdx())
-//                .build();
-//        Wish newWish = wishRepository.save(wish);
-//        return Header.OK(wResponse(newWish));
-//    }
-
-    public Boolean create(WishDTO request, KreamPrincipal kreamPrincipal) {
-        //ProductApiRequest productApiRequest = request.getData();
-        Product product =new Product();
-        product.setIdx(request.productIdx());
-        Member member =new Member();
-        member.setIdx(kreamPrincipal.idx());
-
-        Wish wish = new Wish();
-
-        wish.setProduct(product);
-        wish.setMember(member);
-//        wish.builder()
-//                .member(member)
-//                .product(product)
-//                .build();
-        Wish newWish = wishRepository.save(wish);
-
-        return true;
-    }
-
     public Header<ProductApiResponse> read(Long idx) {
         return productRepository.findByIdx(idx)
                 .map(product-> response(product))
                 .map(Header::OK).orElseGet(() -> Header.ERROR("상품 없음!"));
-    }
-
-
-    public Header delete(Long idx) {
-        Optional<Product> products = productRepository.findByIdx(idx);
-        return products.map(product->{
-            productRepository.delete(product);
-            return Header.OK();
-        }).orElseGet(()->Header.ERROR("데이터 없음"));
     }
 
 
