@@ -10,8 +10,9 @@ window.onload = function (){
     const item = document.getElementById('st_gnb');
     item.classList.add('gnb_on');
 
-
-    fetch("http://localhost:8889/api/social/trend/")
+    const hashtag = document.querySelector('.hashtag_text').innerHTML.trim().substring(1);
+    console.log(hashtag);
+    fetch("http://localhost:8889/api/social/hashtag/"+hashtag)
         .then((response) => response.json())
         .then((data) => {
             console.log(data)
@@ -20,10 +21,9 @@ window.onload = function (){
                 feedList +=
                     `
                     <div class="feed_card item vertical" style="padding-top: 10px; position: absolute; left: ${(i%4)*307}px; top: ${Math.floor(i/4)*465}px">
-                                    <a class="feed_each">
+                                    <a href="#" class="feed_each">
                                         <div class="card_box">
                                             <div class="social_img_box vertical">
-                                                <a href="/social/details#${data[i].idx}" >
                                                 <picture class="picture social_img">
                                                     <source type="image/webp"
                                                         srcset="">
@@ -33,10 +33,9 @@ window.onload = function (){
                                                         src="${data[i].img}"
                                                         loading="auto" class="image">
                                                 </picture>
-                                                </a>
                                             </div>
                                             <div class="card_detail">
-                                                <div class="user_box">
+                                                <div class="user_box" onclick="open_profile('${data[i].memberDTO.email}', ${data[i].memberDTO.idx})">
                                                     <picture class="picture img_profile">
                                                         <source type="image/webp"
                                                             srcset="">
@@ -44,9 +43,9 @@ window.onload = function (){
                                                             srcset="">
                                                         <img alt="사용자 프로필 이미지"
                                                             src="${data[i].memberDTO.imgUrl}"
-                                                            loading="auto" class="image" onclick="open_profile('${data[i].memberDTO.email}', ${data[i].memberDTO.idx})">
+                                                            loading="auto" class="image">
                                                     </picture>
-                                                    <p class="user_name" onclick="open_profile('${data[i].memberDTO.email}', ${data[i].memberDTO.idx})">${data[i].memberDTO.nickname}</p><span aria-label="좋아요"
+                                                    <p class="user_name">${data[i].memberDTO.nickname}</p><span aria-label="좋아요"
                                                         role="button" class="btn like" onclick="like_clicked(${data[i].idx}, ${data[i].lks.length}, this)">
                                                         `
                         if(data[i].islike == false){

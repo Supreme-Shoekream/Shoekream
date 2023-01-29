@@ -12,4 +12,6 @@ public interface BoardRepository extends JpaRepository<Board, Long> {
     Board findByIdx(Long idx);
 
     int countAllByMemberIdx(Long memberIdx);
+
+    List<Board> findAllByHashtag(String hashtag);
 }

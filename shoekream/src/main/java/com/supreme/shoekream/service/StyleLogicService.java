@@ -165,7 +165,13 @@ public class StyleLogicService {
     }
 
     public MemberDTO getMember(Long idx){
-        MemberDTO sessionUser = MemberDTO.fromEntity(memberRepository.getReferenceById(5L));
+        MemberDTO sessionUser = MemberDTO.fromEntity(memberRepository.getReferenceById(idx));
+        return sessionUser;
+    }
+
+    public MemberDTO getMember(String memberEmail){
+        System.out.println("이메일"+memberEmail);
+        MemberDTO sessionUser = MemberDTO.fromEntity(memberRepository.findByEmail(memberEmail).get());
         return sessionUser;
     }
 
@@ -278,8 +284,8 @@ public class StyleLogicService {
         likeRepository.delete(lk);
     }
 
-public List<FollowDTO> countFollowers(KreamPrincipal kreamPrincipal){//내가 팔로우하고 있는 사람들 뽑기
-         List<Follow> follows = followRepository.findAllByFollowingIdx(kreamPrincipal.idx());
+public List<FollowDTO> countFollowers(Long memberIdx){//내가 팔로우하고 있는 사람들 뽑기
+         List<Follow> follows = followRepository.findAllByFollowingIdx(memberIdx);
          List<FollowDTO> followDTOS = new ArrayList<>();
          for(int i=0;i<follows.size();i++){
              followDTOS.add(FollowDTO.fromEntity(follows.get(i),
@@ -289,8 +295,8 @@ public List<FollowDTO> countFollowers(KreamPrincipal kreamPrincipal){//내가 �
          return followDTOS;
     }
 
-    public List<FollowDTO> countFollowing(KreamPrincipal kreamPrincipal){//나를 팔로우하고 있는 사람들 뽑기
-        List<Follow> followers = followRepository.findAllByFollowerIdx(kreamPrincipal.idx());
+    public List<FollowDTO> countFollowing(Long memberIdx){//나를 팔로우하고 있는 사람들 뽑기
+        List<Follow> followers = followRepository.findAllByFollowerIdx(memberIdx);
         List<FollowDTO> followerDTOS = new ArrayList<>();
         for(int i=0;i<followers.size();i++){
             followerDTOS.add(FollowDTO.fromEntity(followers.get(i),
@@ -298,5 +304,33 @@ public List<FollowDTO> countFollowers(KreamPrincipal kreamPrincipal){//내가 �
                     MemberDTO.fromEntity(memberRepository.getReferenceById(followers.get(i).getFollowingIdx()))));
         }
         return followerDTOS;
+    }
+
+    public List<BoardWithLikeListResponse> getHashtagFeed(String hashtag, MemberDTO memberDTO){
+        List<BoardWithLikeListResponse> feed = BoardWithLikeListResponse.fromEntity(boardRepository.findAllByHashtag(hashtag));
+        System.out.println("해시태그"+feed);
+
+        List<Lk> lks = likeRepository.findAllByMember(memberDTO.toEntity());
+        for(int i=0;i<feed.size();i++){
+            for(int j=0;j<lks.size();j++){
+                if(lks.get(j).getBoard().getIdx() == feed.get(i).idx()){
+                    feed.set(i,
+                            BoardWithLikeListResponse.of(feed.get(i).idx(),
+                                    feed.get(i).memberDTO(),
+                                    feed.get(i).content(),
+                                    feed.get(i).img(), feed.get(i).hashtag(),feed.get(i).lks(), feed.get(i).replies(),
+                                    feed.get(i).tags(), feed.get(i).createdAt(), feed.get(i).modifiedAt(), true)
+                    );
+
+                }
+            }
+        }
+        return feed;
+    }
+
+    public List<BoardWithLikeListResponse> getHashtagFeed_unlog(String hashtag){
+        List<BoardWithLikeListResponse> feed = BoardWithLikeListResponse.fromEntity(boardRepository.findAllByHashtag(hashtag));
+        System.out.println("해시태그"+feed);
+        return feed;
     }
 }

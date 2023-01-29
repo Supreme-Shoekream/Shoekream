@@ -81,3 +81,31 @@ function like_clicked_follow(boardIdx, size, lk){
     }
 
 }
+
+function open_profile(memberEmail, memberIdx){
+    console.log(memberEmail)
+    console.log(document.getElementById('username').innerHTML.trim())
+    console.log(document.getElementById('username').innerHTML.trim() == memberEmail.trim())
+
+    if(document.getElementById('username').innerHTML.trim() == memberEmail.trim()){
+        location.href = '/social/myprofile'
+    }else{
+        location.href = '/social/profile/'+memberIdx
+    }
+}
+
+function profileCheck(memberIdx){
+    fetch("http://localhost:8889/api/social/profileCheck/"+memberIdx)
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data);
+            console.log(data.goToProfile);
+            location.href= data.goToProfile;
+        })
+}
+
+function hashtag(hashtag){
+    const hash = hashtag.innerHTML.trim().substring(1);
+    console.log(hash)
+    location.href='/social/hashtag/'+hash;
+}

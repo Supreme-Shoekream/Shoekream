@@ -34,8 +34,8 @@
                 <div class="social_header">
                     <div class="style_tab_list">
                         <a href="/social" class="tab_item"> 인기 </a>
-                        <a href="/social/newest" class="tab_item"> 최신 </a>
-                        <a href="/social/following" class="tab_item tab_on"> 팔로잉 </a>
+                        <a href="/social/newest" class="tab_item tab_on"> 최신 </a>
+                        <a href="/social/following" class="tab_item"> 팔로잉 </a>
                         <a href="/social/myprofile" class="tab_item"> 내스타일 </a>
                     </div>
                 </div>
@@ -47,12 +47,12 @@
                         <!--                            게시글 하나 시작-->
                         <div id="p650880" class="social_post_detail">
                             <div class="social_user_state">
-                                <a  class="user_state_box"
+                                <a href="/social/users" class="user_state_box"
                                 ><div class="profile_img_box" >
                                     <img src="" alt="KREAM 프로필 이미지" class="profile_img" >
                                 </div>
                                     <div class="profile_info" >
-                                        <p class="user_name" >sungmongmong</p>
+                                        <p href="/social/users" class="user_name" >sungmongmong</p>
                                         <p class="upload_time" ><time>2022년 12월 14일</time></p>
                                     </div>
                                     <!---->
@@ -327,16 +327,16 @@
 
 
 </html>
-<script>
-    window.onload = function(){
-        const items = document.querySelectorAll('gnb_item');
-        items.forEach((it) => {
-            it.classList.remove('gnb_on');
-        })
-        const item = document.getElementById('st_gnb');
-        item.classList.add('gnb_on');
-    }
+<!--<script>-->
+<!--    window.onload = function(){-->
+<!--        const items = document.querySelectorAll('gnb_item');-->
+<!--        items.forEach((it) => {-->
+<!--            it.classList.remove('gnb_on');-->
+<!--        })-->
+<!--        const item = document.getElementById('st_gnb');-->
+<!--        item.classList.add('gnb_on');-->
+<!--    }-->
 
-</script>
+<!--</script>-->
 
 

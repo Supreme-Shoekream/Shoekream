@@ -6,6 +6,7 @@ import com.supreme.shoekream.model.dto.socialDTO.FollowDTO;
 import com.supreme.shoekream.model.entity.Board;
 import com.supreme.shoekream.model.entity.Follow;
 import com.supreme.shoekream.model.entity.Member;
+import com.supreme.shoekream.model.network.response.BoardWithLikeListResponse;
 import com.supreme.shoekream.model.network.security.KreamPrincipal;
 import com.supreme.shoekream.repository.BoardRepository;
 import com.supreme.shoekream.repository.FollowRepository;
@@ -18,6 +19,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -71,11 +73,9 @@ public class SocialPageController {
 
     @GetMapping(path = "/social/myprofile")        // http://localhost:8889/social/myprofile
     public ModelAndView myprofile(ModelMap map, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
-        List<FollowDTO> followings = styleLogicService.countFollowing(kreamPrincipal);
-        List<FollowDTO> followers = styleLogicService.countFollowers(kreamPrincipal);
+        List<FollowDTO> followings = styleLogicService.countFollowing(kreamPrincipal.idx());
+        List<FollowDTO> followers = styleLogicService.countFollowers(kreamPrincipal.idx());
 
-        System.out.println(followings + "테스트 !!!!!!!!!!!!!!!!!!!!!!!");
-        System.out.println(followers);
         map.addAttribute("followings", followings);
         map.addAttribute("followers", followers);
         return new ModelAndView("social/myprofile");
@@ -92,5 +92,34 @@ public class SocialPageController {
 
     @GetMapping(path = "/social/upload")
     public ModelAndView upload(){ return new ModelAndView("social/upload"); }
+
+    @GetMapping(path = "/social/profile/{memberIdx}")
+    public String profile(@PathVariable(name = "memberIdx") Long memberIdx, ModelMap map){
+        List<FollowDTO> followings = styleLogicService.countFollowing(memberIdx);
+        List<FollowDTO> followers = styleLogicService.countFollowers(memberIdx);
+
+        map.addAttribute("member", styleLogicService.getMember(memberIdx));
+        map.addAttribute("followings", followings);
+        map.addAttribute("followers", followers);
+        return "social/profile";
+    }
+
+    @GetMapping(path = "/social/hashtag/{hash}")
+    public String hashtag(@PathVariable(name = "hash") String hashtag, @AuthenticationPrincipal KreamPrincipal kreamPrincipal, ModelMap map){
+        map.addAttribute("hashtag", hashtag);
+        return "social/hashtag";
+    }
+
+    @GetMapping(path = "/social/details")
+    public String details(ModelMap map, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        if(kreamPrincipal == null){
+            map.addAttribute("feed", styleLogicService.unlog_newest());
+            map.addAttribute("sessionUser", memberRepository.getReferenceById(1L));
+        }else{
+            map.addAttribute("feed", styleLogicService.newest(kreamPrincipal.toFullDto()));
+            map.addAttribute("sessionUser",kreamPrincipal.toFullDto());
+        }
+        return "social/details";
+    }
 
 }

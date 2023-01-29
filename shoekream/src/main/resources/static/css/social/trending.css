@@ -7,6 +7,10 @@ html {
     font-size: 62.5%;
 }
 
+.picture:hover, .user_name:hover{
+    cursor: pointer;
+}
+
 .wrap {
     position: relative;
     padding-top: 100px;
