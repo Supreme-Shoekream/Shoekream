@@ -406,12 +406,7 @@ wishes.forEach((wish) => {
 
 // ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
 // create
-// function wishcreate(){
-//     const btn_save = document.querySelector('.wish_save');
-//     btn_save.addEventListener("click",sendit);
-// }
-
-function wishcreate(){
+function wishCreate(){
     const proIdx =document.getElementById("wish_proIdx").getAttribute("value"); // 상품 정보(idx)
     console.log(proIdx);
 
@@ -438,6 +433,7 @@ function wishcreate(){
             return;
         })
 }
+
 
 
 
