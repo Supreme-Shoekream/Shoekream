@@ -53,14 +53,14 @@ body{
     width: 100%;
     height: 6.4rem;
 }
-header{
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    background: white;
-    position: fixed;
-    z-index: 9977;
-}
+/*header{*/
+/*    width: 100%;*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    background: white;*/
+/*    position: fixed;*/
+/*    z-index: 9977;*/
+/*}*/
 header #header_top{
     width: 100%;
     border-bottom: 1px solid lightgray;
@@ -145,7 +145,7 @@ header css 끝
     z-index: 9999;
     background: white;
     padding: 0.9rem 0 1.7rem 0;
-
+    margin-top: 80px;
 }
 
 .quick_filter .filter_box{
@@ -188,7 +188,7 @@ header css 끝
     position: fixed;
     z-index: 9999;
     background-color: #FFFFFF;
-    margin-top: -1rem;
+    margin-top: 80px;
     border-bottom : 1px solid #ebebeb;
 }
 .hb_fixed_box .search_title .title_txt{
@@ -204,6 +204,7 @@ a { text-decoration:none }
     width: 118rem;
     height: auto;
     margin: 0 auto;
+    margin-top: 100px;
 }
 
 .content{
@@ -1001,28 +1002,33 @@ li, ol, ul {
 
 /* 체크박스 꾸미기 - 활성화 x */
 input[class="check"] + label {
-	display: inline-block;
-	width: 18px;
-	height: 18px;
-	border: 1px solid #bcbcbc;
-	cursor: pointer;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #bcbcbc;
+    cursor: pointer;
 }
-
-/* 체크박스 꾸미기 - 활성화 */
-input[class="check"]:checked + label {
-    background-image:url("/img/check.png");
-    background-size: 100%;
-    border: 1px solid #fff;
-}
-
-/* input 안보이게 */
-
 .check{
     position: absolute;
     clip: rect(0 0 0 0);
     width: 1px;
     height: 1px;
     overflow: hidden;
+}
+/* 체크박스 꾸미기 - 활성화 */
+input[class="check"]:checked + label {
+    background-image:url("/img/check.png");
+    background-size: 100%;
+    border: 1px solid #fff;
+}
+.checkbox_item .label_txt {
+    padding-left: 30px;
+    display: inline-block;
+    line-height: 24px;
+    font-size: 13px;
+    letter-spacing: -.07px;
+    vertical-align: top;
+    width: 150px;
 }
 /* ================================ */
 .link_txt {
@@ -3331,4 +3337,57 @@ input:focus{
 }
 
 /*============= 모바일 버전 끝 =============*/
+/* page 처리 */
+.pagination {
+    padding: 28px 0;
+}
+.pagination_box{
+    position: relative;
+    font-size: 0;
+    text-align: center;
+}
 
+.pagination{
+    padding: 28px 0;
+}
+.next_btn_box, .prev_btn_box{
+    display: inline-block;
+    vertical-align: top;
+}
+.next_btn_box .btn_arr, .prev_btn_box .btn_arr {
+    padding: 3px;
+    width: 24px;
+    height: 24px;
+}
+.btn_arr img{
+    width: 18px;
+    height: 22px;
+}
+.page_bind {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.btn_page{
+    display: inline-block;
+    padding: 0 8px;
+    font-size: 16px;
+    color: rgba(34,34,34,.5);
+}
+.btn_page+.btn_page{
+    margin-left: 12px;
+}
+.btn_page.active{
+    font-weight: 700;
+    color: #222;
+}
+.menu_item.active {
+    font-weight: 700;
+    color: #222;
+}
+.menu_item:not(.active) {
+    border-color: #ebebeb;
+}
+.filter_list.selected .placeholder {
+    color: #222;
+}
