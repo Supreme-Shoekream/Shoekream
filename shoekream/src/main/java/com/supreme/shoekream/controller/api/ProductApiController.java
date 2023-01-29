@@ -31,7 +31,8 @@ public class ProductApiController {
     @Autowired ProductApiLogicService productApiLogicService;
     @Autowired WishApiLogicService wishApiLogicService;
 
-    // 생성
+
+    // 관심상품 생성
     @PostMapping("") // http://localhost:8889/api/product
     public Boolean create(@RequestBody WishDTO request, @AuthenticationPrincipal KreamPrincipal kreamPrincipal) {
 //        Long idx = request.idx();
@@ -41,7 +42,7 @@ public class ProductApiController {
         return save;
     }
 
-    // 삭제
+    // 관심상품 삭제
     @DeleteMapping("/{idx}") // http://localhost:8889/api/product/{idx}
     public Header<ProductApiResponse> delete(@PathVariable Long idx) {
         return wishApiLogicService.delete(idx);
