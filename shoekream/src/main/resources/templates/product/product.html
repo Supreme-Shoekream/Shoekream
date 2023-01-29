@@ -180,9 +180,9 @@
                                                         </div>
                                                     </a>
                                                 </div>
-                                                <a class="btn full outlinegrey large btn_wish" onclick="wishPopup()" aria-label="관심상품">
+                                                <a class="btn full outlinegrey large btn_wish wish_save" onclick="wishcreate()" aria-label="관심상품">
                                                     <img src="/img/select_mark_off.PNG" class="icon sprite-icons wish-onoff">
-                                                    <span class="btn_text" style="padding-left: 5px;">관심상품</span>
+                                                    <span class="btn_text" id="wish_proIdx" style="padding-left: 5px;" th:value="${proIdx}">관심상품</span>
 <!--                                                    <span class="wish_count_num">1.7만</span>-->
                                                     <div class="wish_count" style="padding-left: 5px;">
                                                         <span class="wish_count_num wishCount">관심상품수</span>
@@ -1373,76 +1373,76 @@
                     <!---->
                     <!---->
                     <!-- 관심 상품 클릭시 팝업 레이어창 시작 -->
-                    <div class="layer_interest lg">
-                        <div class="layer_container">
-                            <a class="btn_layer_close">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="ico-close icon sprite-icons">
-                                    <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-close" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-close"></use>
-                                </svg>
-                            </a>
-                            <div class="layer_header">
-                                <h2 class="title">관심 상품 추가</h2>
-                            </div>
-                            <div class="layer_content">
-                                <div class="suggest_list lg">
-                                    <div class="suggest_item">
-                                        <div class="suggest_link">
-                                            <div class="suggest_thumb">
-                                                <picture class="picture thumb_img">
-                                                    <img alt="상품 이미지" src="" loading="lazy" class="image img" id="previewImg5">
-                                                </picture>
-                                            </div>
-                                            <div class="suggest_info">
-                                                <p class="model_title name">상품명</p>
-                                                <p class="model_sub_info nameKor">상품명(kor)</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="lg interest_list">
-                                    <div class="interest_btn_box">
-                                        <a class="btn outlinegrey medium btn_interest">
-                                            <p class="info_txt">230</p>
-                                            <img src="/img/select_mark_off.PNG" class="icon sprite-icons wish-onoff"/>
-                                        </a>
-                                    </div>
-                                    <div class="interest_btn_box">
-                                        <a class="btn outlinegrey medium btn_interest">
-                                            <p class="info_txt">240</p>
-                                            <img src="/img/select_mark_off.PNG" class="icon sprite-icons wish-onoff"/>
-                                        </a>
-                                    </div>
-                                    <div class="interest_btn_box">
-                                        <a class="btn outlinegrey medium btn_interest">
-                                            <p class="info_txt">250</p>
-                                            <img src="/img/select_mark_off.PNG" class="icon sprite-icons wish-onoff"/>
-                                        </a>
-                                    </div>
-                                    <div class="interest_btn_box">
-                                        <a class="btn outlinegrey medium btn_interest">
-                                            <p class="info_txt">260</p>
-                                            <img src="/img/select_mark_off.PNG" class="icon sprite-icons wish-onoff"/>
-                                        </a>
-                                    </div>
-                                    <div class="interest_btn_box">
-                                        <a class="btn outlinegrey medium btn_interest">
-                                            <p class="info_txt">270</p>
-                                            <img src="/img/select_mark_off.PNG" class="icon sprite-icons wish-onoff"/>
-                                        </a>
-                                    </div>
-                                    <div class="interest_btn_box">
-                                        <a class="btn outlinegrey medium btn_interest">
-                                            <p class="info_txt">280</p>
-                                            <img src="/img/select_mark_off.PNG" class="icon sprite-icons wish-onoff"/>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="layer_btn">
-                                    <a class="btn outline medium" onclick="wishPopdown()">확인</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<!--                    <div class="layer_interest lg">-->
+<!--                        <div class="layer_container">-->
+<!--                            <a class="btn_layer_close">-->
+<!--                                <svg xmlns="http://www.w3.org/2000/svg" class="ico-close icon sprite-icons">-->
+<!--                                    <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-close" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-close"></use>-->
+<!--                                </svg>-->
+<!--                            </a>-->
+<!--                            <div class="layer_header">-->
+<!--                                <h2 class="title">관심 상품 추가</h2>-->
+<!--                            </div>-->
+<!--                            <div class="layer_content">-->
+<!--                                <div class="suggest_list lg">-->
+<!--                                    <div class="suggest_item">-->
+<!--                                        <div class="suggest_link">-->
+<!--                                            <div class="suggest_thumb">-->
+<!--                                                <picture class="picture thumb_img">-->
+<!--                                                    <img alt="상품 이미지" src="" loading="lazy" class="image img" id="previewImg5">-->
+<!--                                                </picture>-->
+<!--                                            </div>-->
+<!--                                            <div class="suggest_info">-->
+<!--                                                <p class="model_title name">상품명</p>-->
+<!--                                                <p class="model_sub_info nameKor">상품명(kor)</p>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="lg interest_list">-->
+<!--                                    <div class="interest_btn_box">-->
+<!--                                        <a class="btn outlinegrey medium btn_interest">-->
+<!--                                            <p class="info_txt">230</p>-->
+<!--                                            <img src="/img/select_mark_off.PNG" class="icon sprite-icons wish-onoff"/>-->
+<!--                                        </a>-->
+<!--                                    </div>-->
+<!--                                    <div class="interest_btn_box">-->
+<!--                                        <a class="btn outlinegrey medium btn_interest">-->
+<!--                                            <p class="info_txt">240</p>-->
+<!--                                            <img src="/img/select_mark_off.PNG" class="icon sprite-icons wish-onoff"/>-->
+<!--                                        </a>-->
+<!--                                    </div>-->
+<!--                                    <div class="interest_btn_box">-->
+<!--                                        <a class="btn outlinegrey medium btn_interest">-->
+<!--                                            <p class="info_txt">250</p>-->
+<!--                                            <img src="/img/select_mark_off.PNG" class="icon sprite-icons wish-onoff"/>-->
+<!--                                        </a>-->
+<!--                                    </div>-->
+<!--                                    <div class="interest_btn_box">-->
+<!--                                        <a class="btn outlinegrey medium btn_interest">-->
+<!--                                            <p class="info_txt">260</p>-->
+<!--                                            <img src="/img/select_mark_off.PNG" class="icon sprite-icons wish-onoff"/>-->
+<!--                                        </a>-->
+<!--                                    </div>-->
+<!--                                    <div class="interest_btn_box">-->
+<!--                                        <a class="btn outlinegrey medium btn_interest">-->
+<!--                                            <p class="info_txt">270</p>-->
+<!--                                            <img src="/img/select_mark_off.PNG" class="icon sprite-icons wish-onoff"/>-->
+<!--                                        </a>-->
+<!--                                    </div>-->
+<!--                                    <div class="interest_btn_box">-->
+<!--                                        <a class="btn outlinegrey medium btn_interest">-->
+<!--                                            <p class="info_txt">280</p>-->
+<!--                                            <img src="/img/select_mark_off.PNG" class="icon sprite-icons wish-onoff"/>-->
+<!--                                        </a>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="layer_btn">-->
+<!--                                    <a class="btn outline medium" onclick="wishPopdown()">확인</a>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
                 
                     <!-- 푸터 -->
                     <footer th:replace="/fragment/footer.html :: footer"></footer>

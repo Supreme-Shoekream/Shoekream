@@ -17,7 +17,7 @@ public class Product {
     private String name; // 상품명
     private String nameKor; // 상품명(한글)
     private String size; // 사이즈
-    private String wishCount; // 관심상품수
+    private Long wishCount; // 관심상품수
     private String modelNum; // 모델번호
     private String releaseDate; // 출시일
     private String color; // 컬러
@@ -27,7 +27,7 @@ public class Product {
     private String collection; // 컬렉션(메인페이지)
 
 
-    public static Product of(Long idx, String img, String brand, String name, String nameKor, String size, String wishCount, String modelNum, String releaseDate, String color, String firstPrice, String category, String gender, String collection){
+    public static Product of(Long idx, String img, String brand, String name, String nameKor, String size, Long wishCount, String modelNum, String releaseDate, String color, String firstPrice, String category, String gender, String collection){
         return new Product(idx, img, brand, name, nameKor, size, wishCount, modelNum, releaseDate, color, firstPrice, category, gender, collection);
     }
 
