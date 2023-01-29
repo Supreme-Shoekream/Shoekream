@@ -1,5 +1,6 @@
 package com.supreme.shoekream.controller.api;
 
+import com.supreme.shoekream.controller.page.SocialPageController;
 import com.supreme.shoekream.model.dto.MemberDTO;
 import com.supreme.shoekream.model.dto.socialDTO.BoardDTO;
 import com.supreme.shoekream.model.dto.socialDTO.ReplyDTO;
@@ -8,11 +9,14 @@ import com.supreme.shoekream.model.entity.Member;
 import com.supreme.shoekream.model.network.Header;
 import com.supreme.shoekream.model.network.request.ReplyApiRequest;
 import com.supreme.shoekream.model.network.response.BoardWithLikeListResponse;
+import com.supreme.shoekream.model.network.response.ProfileLinkResponse;
 import com.supreme.shoekream.model.network.security.KreamPrincipal;
 import com.supreme.shoekream.repository.BoardRepository;
 import com.supreme.shoekream.service.StyleLogicService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.parameters.P;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -92,6 +96,21 @@ public class BoardApiController {
         return kreamPrincipal.toFullDto();
     }
 
+    @GetMapping("/profile/{memberIdx}")
+    public MemberDTO profile(@PathVariable(name = "memberIdx") Long memberIdx){
+        return styleLogicService.getMember(memberIdx);
+    }
+
+    @GetMapping("/profileCheck/{memberIdx}")
+    public ProfileLinkResponse profileCheck(@PathVariable(name = "memberIdx") Long memberIdx, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        System.out.println("로그인"+kreamPrincipal.idx()+memberIdx+ (kreamPrincipal.idx().equals( memberIdx)) );
+        if(kreamPrincipal != null  && kreamPrincipal.idx().equals(memberIdx)){
+            return ProfileLinkResponse.of("/social/myprofile");
+        }else{
+            return ProfileLinkResponse.of("/social/profile/"+memberIdx);
+        }
+    }
+
     @GetMapping("/isBoardExist/{memberIdx}")
     public List<BoardDTO> isBoardExist(@PathVariable(name = "memberIdx") Long memberIdx){
         return styleLogicService.isBoardExist(memberIdx);
@@ -106,4 +125,16 @@ public class BoardApiController {
     public void unlike(@PathVariable(name = "boardIdx") Long boardIdx, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
         styleLogicService.unlike(boardIdx, kreamPrincipal);
     }
+
+    @GetMapping("/hashtag/{hashtag}")
+    public List<BoardWithLikeListResponse> hashtag(@PathVariable(name = "hashtag") String hashtag, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        if(kreamPrincipal == null){
+            List<BoardWithLikeListResponse> feed = styleLogicService.getHashtagFeed_unlog(hashtag);
+            return feed;
+        }else{
+            List<BoardWithLikeListResponse> feed = styleLogicService.getHashtagFeed(hashtag, kreamPrincipal.toFullDto());
+            return feed;
+        }
+    }
+
 }

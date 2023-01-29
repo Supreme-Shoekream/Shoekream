@@ -20,6 +20,37 @@
     <link rel="stylesheet" href="/css/social/trending.css">
     <head th:replace="/fragment/footer_head :: head"></head>
 <!--    <link rel="stylesheet" href="/css/fragment/footer.css">-->
+    <style>
+        .title{
+            text-align: center;
+            font-size: 24px;
+            letter-spacing: -.12px;
+            overflow: hidden;
+            -o-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        h2 {
+            display: block;
+            font-size: 1.5em;
+            margin-block-start: 0.83em;
+            margin-block-end: 0.83em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            font-weight: bold;
+        }
+
+        #hashtag_container{
+            position: fixed;
+            text-align: center;
+            width: 100%;
+            /* left: 50%; */
+            background: white;
+            padding: 20px;
+            z-index: 999;
+        }
+    </style>
 </head>
 
 
@@ -30,32 +61,15 @@
                 <!-- 헤더 시작 -->
                 <div>
                     <header th:replace="/fragment/header :: header"></header>
-                    <div class="social_header">
-                        <div class="style_tab_list">
-                            <a class="tab_item tab_on"> 인기 </a>
-                            <a href="/social/newest" class="tab_item"> 최신 </a>
-                            <a href="/social/following" class="tab_item"> 팔로잉 </a>
-                            <a href="/social/myprofile" class="tab_item"> 내스타일 </a>
-                        </div>
-                    </div>
+                    <h2 class="title" id="hashtag_container">
+                        <span class="hashtag_text"># 오늘뭐신지</span>
+                    </h2>
                 </div>
                 <!--  헤더 끝-->
 
                 <!-- 컨테이너 -->
                 <div class="container social lg">
                     <div class="content">
-                        <!-- 해시태그 시작 -->
-                        <div class="keyword_bind">
-                            <a href="#" class="trend_keyword"> # 셋업코디 </a>
-                            <a href="#" class="trend_keyword"> # 베이프 </a>
-                            <a href="#" class="trend_keyword"> # 오뭐신 </a>
-                            <a href="#" class="trend_keyword"> # 클락스 </a>
-                            <a href="#" class="trend_keyword"> # 레이어드룩 </a>
-                            <a href="#" class="trend_keyword"> # 나투시 </a>
-                            <a href="#" class="trend_keyword"> # 스트릿 </a>
-                            <a href="#" class="trend_keyword"> # 미리메리챌린지 </a>
-                        </div>
-                        <!-- 해시태그 끝 -->
 
                         <!-- 피드 시작 -->
                         <div class="social_feeds">
@@ -105,8 +119,6 @@
                                         </div>
                                     </a>
                                 </div>
-                                <!-- 게시물 끝 -->
-
 
 
                             </div>
@@ -127,7 +139,7 @@
     </div>
 
     <script src="/js/social/like.js"></script>
-    <script src="/js/social/trend.js"></script>
+    <script src="/js/social/hashtag.js"></script>
 
 </body>
 

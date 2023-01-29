@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<thlogic>
+    <attr sel=".title">
+        <attr sel=".hashtag_text" th:text="'#' + ${hashtag}"/>
+    </attr>
+</thlogic>

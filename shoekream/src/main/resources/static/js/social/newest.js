@@ -18,10 +18,11 @@ window.onload = function (){
             for(let i=0;i <data.length;i++){
                 feedList +=
                     `
-                    <div class="feed_card item vertical" style="padding-top: 10px; position: absolute; left: ${Math.floor(i/5)*307}px; top: ${(i%5)*465}px">
-                                    <a href="#" class="feed_each">
+                    <div class="feed_card item vertical"" style="padding-top: 10px; position: absolute;  left: ${(i%4)*307}px; top: ${Math.floor(i/4)*465}px">
+                                    <a href="/social/details#${data[i].idx}" class="feed_each">
                                         <div class="card_box">
                                             <div class="social_img_box vertical">
+                                                <a href="/social/details#${data[i].idx}" >
                                                 <picture class="picture social_img">
                                                     <source type="image/webp"
                                                         srcset="">
@@ -31,6 +32,7 @@ window.onload = function (){
                                                         src="${data[i].img}"
                                                         loading="auto" class="image">
                                                 </picture>
+                                                </a>
                                             </div>
                                             <div class="card_detail">
                                                 <div class="user_box">
@@ -41,9 +43,9 @@ window.onload = function (){
                                                             srcset="">
                                                         <img alt="사용자 프로필 이미지"
                                                             src="${data[i].memberDTO.imgUrl}"
-                                                            loading="auto" class="image">
+                                                            loading="auto" class="image" onclick="open_profile('${data[i].memberDTO.email}', ${data[i].memberDTO.idx})">
                                                     </picture>
-                                                    <p class="user_name">${data[i].memberDTO.nickname}</p><span aria-label="좋아요"
+                                                    <p class="user_name" onclick="open_profile('${data[i].memberDTO.email}', ${data[i].memberDTO.idx})">${data[i].memberDTO.nickname}</p><span aria-label="좋아요"
                                                         role="button" class="btn like" onclick="like_clicked(${data[i].idx}, ${data[i].lks.length}, this)">
 `
 
