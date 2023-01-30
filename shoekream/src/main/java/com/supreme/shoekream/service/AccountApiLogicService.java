@@ -2,6 +2,7 @@ package com.supreme.shoekream.service;
 
 import com.supreme.shoekream.model.dto.MemberDTO;
 import com.supreme.shoekream.model.entity.Member;
+import com.supreme.shoekream.model.network.Header;
 import com.supreme.shoekream.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -16,9 +17,10 @@ import java.util.Optional;
 public class AccountApiLogicService {
     private final MemberRepository memberRepository;
     @Transactional
-    public Optional<Member> list(Long idx){
-        Optional<Member> member = memberRepository.findByIdx(idx);
-        return member;
+    public MemberDTO list(Long idx){
+        Member member = memberRepository.findByIdx(idx);
+        MemberDTO memberDTO = MemberDTO.fromEntity(member);
+        return memberDTO;
     }
     @Transactional
     public void update(MemberDTO dto){

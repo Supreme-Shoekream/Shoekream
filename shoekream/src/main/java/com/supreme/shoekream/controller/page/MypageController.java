@@ -41,6 +41,7 @@ public class MypageController {
 
     private final AddressApiLogicService addressApiLogicService;
     private final CardApiLogicService cardApiLogicService;
+    private final AccountApiLogicService accountApiLogicService;
     @Autowired BuyService buyService;
     @Autowired SellService sellService;
     @Autowired WishApiLogicService wishApiLogicService;
@@ -121,6 +122,9 @@ public class MypageController {
 
     @GetMapping(path="address")
     public String address(ModelMap map, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        if(kreamPrincipal == null){
+            return "login/login";
+        }
         MemberDTO memberDTO = kreamPrincipal.toFullDto();
         map.addAttribute("address", addressApiLogicService.list(memberDTO.idx(), false));
         map.addAttribute("basic", addressApiLogicService.list(memberDTO.idx(), true));
@@ -128,29 +132,42 @@ public class MypageController {
     }
 
     @GetMapping(path="payment")
-    public ModelAndView payment(ModelMap map, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+    public String payment(ModelMap map, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        if(kreamPrincipal == null){
+            return "login/login";
+        }
         MemberDTO memberDTO = kreamPrincipal.toFullDto();
         map.addAttribute("basic", cardApiLogicService.list(memberDTO.idx(), true));
         map.addAttribute("other", cardApiLogicService.list(memberDTO.idx(), false));
-        return new ModelAndView("/my/payment");
+        return "/my/payment";
     }
 
     @GetMapping(path="account")
-    public ModelAndView account(){
-        return new ModelAndView("/my/account");
+    public String account(ModelMap modelmap, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        if(kreamPrincipal == null){
+            return "login/login";
+        }
+        MemberDTO memberDTO = kreamPrincipal.toFullDto();
+        modelmap.addAttribute("account", accountApiLogicService.list(memberDTO.idx()));
+        return "/my/account";
     }
 
     @GetMapping(path="receipt")
-    public ModelAndView receipt(){
-        return new ModelAndView("/my/receipt");
+    public String receipt(ModelMap map, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        if(kreamPrincipal == null){
+            return "login/login";
+        }
+        return "/my/receipt";
     }
 
     @GetMapping(path="point")
-    public String point(ModelMap map, HttpServletRequest request){
-        HttpSession session = request.getSession();
-        Long userIdx = (Long)session.getAttribute("idx");
-        map.addAttribute("point", pointApiLogicService.list(userIdx));
-        return "/my/point";
+    public String point(ModelMap map, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        if(kreamPrincipal == null){
+            return "login/login";
+        }
+        MemberDTO memberDTO = kreamPrincipal.toFullDto();
+        map.addAttribute("point", pointApiLogicService.list(memberDTO.idx()));
+        return "my/point";
     }
 
     @GetMapping(path="withdrawal")

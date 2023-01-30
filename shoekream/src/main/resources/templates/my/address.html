@@ -336,7 +336,7 @@
     })
 
     function closeLayer(){
-            addressLayer.style.display = "none"
+        addressLayer.style.display = "none"
     }
 
 
@@ -348,6 +348,11 @@
     function closeEdit(){
         addressEdit.style.display="none"
     }
+    addressEdit.addEventListener('click', e => {
+        if(e.target == e.currentTarget){
+            addressEdit.style.display = "none"
+        }
+    })
     // addressEdit.addEventListener('click', (e) => {
     //     if(e.target == e.currentTarget){
     //         addressEdit.style.display="none";
@@ -360,10 +365,10 @@
     function validateName(strName){
         // const reg_name =  /^[가-힣a-zA-Z]+$/;
         const reg_name = /^[가-힣]{2,50}$/;
-        if(!reg_name.test(''+strName)){
-            return false;
+        if(reg_name.test(''+strName)){
+            return true;
         }
-        return true;
+        return false;
     }
     let strName;
     let strHp
@@ -386,10 +391,10 @@
     // 휴대폰 번호 정규 표현식
     function validateHp(strHp){
         const reg_hp = /^01(?:0|1|6|7|8|9)(?:\d{3}|\d{4})\d{4}$/;
-        if(!reg_hp.test(''+strHp)){
-            return false;
+        if(reg_hp.test(''+strHp)){
+            return true;
         }
-        return true;
+        return false;
     }
 
 
@@ -410,7 +415,7 @@
 
     });
     // 이름 유효성 검사2
-    document.querySelector('#name_input2').addEventListener('input', e=>{
+    document.querySelector('#name_input2').addEventListener('keyup', e=>{
         strName=e.target.value;
         let errorMsg='';
         if(!validateName(strName)){
@@ -426,7 +431,7 @@
     });
 
     // 휴대폰 번호 유효성 검사2
-    document.querySelector('#hp_input2').addEventListener('input', e=>{
+    document.querySelector('#hp_input2').addEventListener('keyup', e=>{
         strHp=e.target.value
         let errorMsg='';
         if(!validateHp(strHp)){
@@ -461,28 +466,55 @@
             case false : btnSave.classList.add('disabled'); break;
         }
     }
+    const nameForm2 = document.querySelector('#name_input2')
+    const hpForm2 = document.querySelector('#hp_input2')
+    const postForm2 = document.querySelector('#sample6_postcode2')
+    const addrForm2 = document.querySelector('#sample6_address2')
+    const detailForm2 = document.querySelector('#sample6_detailAddress2')
+    const btnSave2 = document.querySelector('#btn_save2')
+
+
+    function activeEvent2() {
+        switch(validateHp(strHp) && validateName(strName) && nameForm2.value != '' && hpForm2.value !='' && postForm2.value !='' && detailForm2.value != ''){
+            case true : btnSave2.classList.remove('disabled'); console.log('성'); break;
+            case false : btnSave2.classList.add('disabled'); console.log('실'); break;
+        }
+    }
     btnSave.addEventListener('click', sendit)
     function openEdit(idx){
+        btnSave2.classList.remove('disabled')
+        nameForm2.addEventListener('keyup', activeEvent2);
+        hpForm2.addEventListener('keyup', activeEvent2);
+        postForm2.addEventListener('keyup', activeEvent2);
+        addrForm2.addEventListener('keyup', activeEvent2);
+        detailForm2.addEventListener('keyup', activeEvent2);
         fetch('http://localhost:8989/api/my/address/'+idx)
             .then((response) => response.json())
             .then((data) => {
                 console.log(data.data)
                 let matching_idx = data.data.idx;
                 if(matching_idx == null) matching_idx = "x"
+                document.querySelector('#name_input2').value=data.data.name;
                 document.querySelector('#name_input2').placeholder=data.data.name;
+                strName = data.data.name;
+                document.querySelector('#hp_input2').value=data.data.hp;
                 document.querySelector('#hp_input2').placeholder=data.data.hp;
+                strHp = data.data.hp;
+                document.querySelector('#sample6_postcode2').value=data.data.zipcode;
                 document.querySelector('#sample6_postcode2').placeholder=data.data.zipcode;
+                document.querySelector('#sample6_address2').value=data.data.address1;
                 document.querySelector('#sample6_address2').placeholder=data.data.address1;
+                document.querySelector('#sample6_detailAddress2').value=data.data.address2;
                 document.querySelector('#sample6_detailAddress2').placeholder=data.data.address2;
                 document.querySelector('#check2').checked=data.data.addressBasic;
-                })
-            addressEdit.style.display="block"
-            document.querySelector('#name_input2').focus()
-            btnSave2.addEventListener('click',()=>{
-                if(btnSave2.classList.contains('disabled')){
-                }else {
-                sendEdit(idx)}
             })
+        addressEdit.style.display="block"
+        document.querySelector('#name_input2').focus()
+        btnSave2.addEventListener('click',()=>{
+            if(btnSave2.classList.contains('disabled')){
+            }else {
+                sendEdit(idx)}
+        })
     }
     function sendEdit(idx){
         const editName = document.querySelector('#name_input2');
@@ -516,41 +548,39 @@
     }
     function sendit(){
 
-    if(btnSave.classList.contains('disabled')){
+        if(btnSave.classList.contains('disabled')){
 
-    }else {
-        const createName = document.querySelector('#name_input');
-        const createHp = document.querySelector('#hp_input');
-        const createZipcode = document.querySelector('#sample6_postcode');
-        const createAddress1 = document.querySelector('#sample6_address');
-        const createAddress2 = document.querySelector('#sample6_detailAddress')
-        const createAddressBasic = document.querySelector('#check1').checked;
-        console.log(createAddressBasic)
-        let isBasic = createAddressBasic;
-        fetch('http://localhost:8989/api/my/address', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                "transaction_time":`${new Date()}`,
-                "resultCode":"ok",
-                "description":"정상",
-                "data":{
-                    "name": `${createName.value}`,
-                    "hp": `${createHp.value}`,
-                    "zipcode": `${createZipcode.value}`,
-                    "address1": `${createAddress1.value}`,
-                    "address2": `${createAddress2.value}`,
-                    "addressBasic": `${createAddressBasic}`
-                }
-            }),
-        }).then((res)=>{
-            alert('주소추가 완료');
-            location.href='/my/address';
-            return;
-        })
+        }else {
+            const createName = document.querySelector('#name_input');
+            const createHp = document.querySelector('#hp_input');
+            const createZipcode = document.querySelector('#sample6_postcode');
+            const createAddress1 = document.querySelector('#sample6_address');
+            const createAddress2 = document.querySelector('#sample6_detailAddress')
+            const createAddressBasic = document.querySelector('#check1').checked;
+            fetch('http://localhost:8989/api/my/address', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    "transaction_time":`${new Date()}`,
+                    "resultCode":"ok",
+                    "description":"정상",
+                    "data":{
+                        "name": `${createName.value}`,
+                        "hp": `${createHp.value}`,
+                        "zipcode": `${createZipcode.value}`,
+                        "address1": `${createAddress1.value}`,
+                        "address2": `${createAddress2.value}`,
+                        "addressBasic": `${createAddressBasic}`
+                    }
+                }),
+            }).then((res)=>{
+                alert('주소추가 완료');
+                location.href='/my/address';
+                return;
+            })
+        }
+
     }
-
-}
 
     // function update_address(){
     //     if(btnSave2.classList.contains('disabled')){
@@ -585,24 +615,7 @@
     //     }
     // }
 
-    const nameForm2 = document.querySelector('#name_input2')
-    const hpForm2 = document.querySelector('#hp_input2')
-    const postForm2 = document.querySelector('#sample6_postcode2')
-    const addrForm2 = document.querySelector('#sample6_address2')
-    const detailForm2 = document.querySelector('#sample6_detailAddress2')
-    const btnSave2 = document.querySelector('#btn_save2')
 
-    nameForm2.addEventListener('keyup', activeEvent2);
-    hpForm2.addEventListener('keyup', activeEvent2);
-    postForm2.addEventListener('keyup', activeEvent2);
-    addrForm2.addEventListener('keyup', activeEvent2);
-    detailForm2.addEventListener('keyup', activeEvent2);
-    function activeEvent2() {
-        switch(validateHp(strHp) && validateName(strName) && nameForm2.value != '' && hpForm2.value !='' && postForm2.value !='' && addrForm2.value !='' && detailForm2.value != ''){
-            case true : btnSave2.classList.remove('disabled'); break;
-            case false : btnSave2.classList.add('disabled'); break;
-        }
-    }
 
 
 </script>

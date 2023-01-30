@@ -15,75 +15,77 @@
 <!-- left-side-bar 시작 -->
 <div th:replace="fragment/adminnavbar :: navbar"></div>
 <!-- left-side-bar 끝 -->
-  <div class="main-container">
-    <div class="pd-ltr-20 xs-pd-20-10">
-      <div class="min-height-200px">
+<div class="main-container">
+  <div class="pd-ltr-20 xs-pd-20-10">
+    <div class="min-height-200px">
 
-        <!-- Simple Datatable start -->
-        <div class="card-box mb-30">
-          <div class="pd-20" id="top">
-            <h4 class="text-blue h4">사용자 리스트</h4>
-          </div>
-          <div class="pb-20">
-            <table class="data-table table stripe hover nowrap">
-              <thead>
-              <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone Number</th>
-                <th>Shoe Size</th>
-                <th class="datatable-nosort">Action</th>
-              </tr>
-              </thead>
-              <tbody id="itemList">
-              <tr class="bg-pink">
-                <td>name</td>
-                <td>email</td>
-                <td>hp</td>
-                <td>shoeSize</td>
-                <td>
-                  <div class="dropdown">
-                    <a
-                            class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
-                            href="#"
-                            role="button"
-                            data-toggle="dropdown"
-                    >
-                      <i class="dw dw-more"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                      <a class="dropdown-item" href="#" onclick="pop_member_view()"
-                      ><i class="dw dw-eye"></i> View</a>
-
-                      <a class="dropdown-item" href="#"
-                      ><i class="bi bi-hand-thumbs-up"></i> Point</a>
-
-                      <a class="dropdown-item" href="#"
-                      ><i class="bi bi-x-octagon-fill"></i> Penalty</a>
-
-                      <a class="dropdown-item" href="#"
-                      ><i class="bi bi-people-fill"></i> Blacklist</a>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              </tbody>
-            </table>
-            <div id="showPage" class="card-box">총 {{totalPages}}페이지 중 {{currentPage}}페이지</div>
-            <div id="pageNum" class="dataTables_info" role="status"></div>
-          </div>
+      <!-- Simple Datatable start -->
+      <div class="card-box mb-30">
+        <div class="pd-20" id="top">
+          <h4 class="text-blue h4">사용자 리스트</h4>
         </div>
-        <!-- Simple Datatable End -->
+        <div class="pb-20">
+          <table class="data-table table stripe hover nowrap">
+            <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone Number</th>
+              <th>Shoe Size</th>
+              <th class="datatable-nosort">Action</th>
+            </tr>
+            </thead>
+            <tbody id="itemList">
+            <tr class="bg-pink">
+              <td>name</td>
+              <td>email</td>
+              <td>hp</td>
+              <td>shoeSize</td>
+              <td>
+                <div class="dropdown">
+                  <a
+                          class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
+                          href="#"
+                          role="button"
+                          data-toggle="dropdown"
+                  >
+                    <i class="dw dw-more"></i>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                    <a class="dropdown-item" href="#" onclick="pop_member_view()"
+                    ><i class="dw dw-eye"></i> View</a>
+
+                    <a class="dropdown-item" href="#"
+                    ><i class="bi bi-hand-thumbs-up"></i> Point</a>
+
+                    <a class="dropdown-item" href="#"
+                    ><i class="bi bi-x-octagon-fill"></i> Penalty</a>
+
+                    <a class="dropdown-item" href="#"
+                    ><i class="bi bi-people-fill"></i> Blacklist</a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+          <div id="showPage" class="card-box">총 {{totalPages}}페이지 중 {{currentPage}}페이지</div>
+          <div id="pageNum" class="dataTables_info" role="status"></div>
+        </div>
       </div>
+      <!-- Simple Datatable End -->
     </div>
   </div>
-
+</div>
+<div th:replace="adminpage/admin_layer/pop_point :: point"></div>
 <div th:replace="adminpage/admin_layer/layer_user_view :: member_view"></div>
 
 <!-- js -->
 <div th:replace="fragment/adminjs :: js"></div>
 <script src="/js/admin/member_list.js"></script>
+<script src="/js/admin/point.js"></script>
 <script src="/js/admin/member_crud.js"></script>
+
 <!-- js -->
 
 </body>
