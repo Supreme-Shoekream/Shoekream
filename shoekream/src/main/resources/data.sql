@@ -1083,21 +1083,25 @@ INSERT INTO product (img, brand, name, name_kor, size, model_num, release_date, 
 INSERT INTO product (img, brand, name, name_kor, size, model_num, release_date, color, first_price, category, gender, collection) VALUES ( '/img/shop/Dyson_Supersonic_Hair_Dryer_Vinca_Blue_Rose_(Korean_Ver.).png', 'Dyson', 'Dyson Supersonic Hair Dryer Vinca Blue Rose (Korean Ver.)', '다이슨 슈퍼소닉 헤어 드라이어 빈카 블루 로제 (국내 정식 발매 제품)', '230', '-', '-', '-','590,000원', '테크', 'M W', '-');
 
 -- address
-insert into address (idx, name, hp, zipcode, address1, address2, address_basic, member_idx) values (1, '오렌지', '010-3333-3333', '33333', '서울시', '강남구', true,1);
-insert into address (idx, name, hp, zipcode, address1, address2, address_basic, member_idx) values (2, 'Lesya', '229-106-1003', '92', '4 Hoffman Terrace', '6736 Corscot Avenue', true,2);
-insert into address (idx, name, hp, zipcode, address1, address2, address_basic, member_idx) values (3, 'Ruthanne', '183-383-7720', '9309', '2303 Mendota Park', '88 Hansons Junction', true,2);
-insert into address (idx, name, hp, zipcode, address1, address2, address_basic, member_idx) values (4, '김사과', '010-1111-1111', '11111', '서울시', '강남구', false,1);
-insert into address (idx, name, hp, zipcode, address1, address2, address_basic, member_idx) values (5, 'Fawnia', '116-861-8338', '746', '676 Columbus Road', '802 Browning Way', true,2);
-insert into address (idx, name, hp, zipcode, address1, address2, address_basic, member_idx) values (6, 'Rowena', '309-489-1755', '711', '6561 Northland Way', '7 Banding Trail', true,2);
-insert into address (idx, name, hp, zipcode, address1, address2, address_basic, member_idx) values (7, 'Brnaby', '100-500-8074', '85480', '452 American Drive', '09002 Dovetail Place', true,2);
-insert into address (idx, name, hp, zipcode, address1, address2, address_basic, member_idx) values (8, '반하나', '010-2222-2222', '22222', '서울시', '강남구', false,1);
-insert into address (idx, name, hp, zipcode, address1, address2, address_basic, member_idx) values (9, 'Dane', '537-728-8330', '06', '5 Sutteridge Parkway', '7704 Sunbrook Terrace', true,2);
-insert into address (idx, name, hp, zipcode, address1, address2, address_basic, member_idx) values (10, 'Jerrie', '532-243-4266', '012', '59662 Ridge Oak Center', '71952 Sommers Pass', true,2);
+insert into address (idx, name, hp, zipcode, address1, address2, address_basic, member_idx) values (1, '오렌지', '01033333333', '33333', '서울시', '강남구', true,1);
+insert into address (idx, name, hp, zipcode, address1, address2, address_basic, member_idx) values (2, 'Lesya', '2291061003', '92', '4 Hoffman Terrace', '6736 Corscot Avenue', true,2);
+insert into address (idx, name, hp, zipcode, address1, address2, address_basic, member_idx) values (3, 'Ruthanne', '1833837720', '9309', '2303 Mendota Park', '88 Hansons Junction', true,2);
+insert into address (idx, name, hp, zipcode, address1, address2, address_basic, member_idx) values (4, '김사과', '01011111111', '11111', '서울시', '강남구', false,1);
+insert into address (idx, name, hp, zipcode, address1, address2, address_basic, member_idx) values (5, 'Fawnia', '1168618338', '746', '676 Columbus Road', '802 Browning Way', true,2);
+insert into address (idx, name, hp, zipcode, address1, address2, address_basic, member_idx) values (6, 'Rowena', '3094891755', '711', '6561 Northland Way', '7 Banding Trail', true,2);
+insert into address (idx, name, hp, zipcode, address1, address2, address_basic, member_idx) values (7, 'Brnaby', '1005008074', '85480', '452 American Drive', '09002 Dovetail Place', true,2);
+insert into address (idx, name, hp, zipcode, address1, address2, address_basic, member_idx) values (8, '반하나', '01022222222', '22222', '서울시', '강남구', false,1);
+insert into address (idx, name, hp, zipcode, address1, address2, address_basic, member_idx) values (9, 'Dane', '5377288330', '06', '5 Sutteridge Parkway', '7704 Sunbrook Terrace', true,2);
+insert into address (idx, name, hp, zipcode, address1, address2, address_basic, member_idx) values (10, 'Jerrie', '5322434266', '012', '59662 Ridge Oak Center', '71952 Sommers Pass', true,2);
 
 -- card
 insert into card(idx, card_type, card_number, card_mm, card_yy, card_pw, birth_date, card_basic, member_idx) values (1, "BC", "1111111111111111", "01", "2023", "01", "010101", true, 1);
 insert into card(idx, card_type, card_number, card_mm, card_yy, card_pw, birth_date, card_basic, member_idx) values (2, "BC", "2222222222222222", "02", "2024", "02", "010101", false, 1);
 insert into card(idx, card_type, card_number, card_mm, card_yy, card_pw, birth_date, card_basic, member_idx) values (3, "BC", "3333333333333333", "02", "2025", "03", "010101", false, 1);
+-- point
+insert into point(idx, member_idx, point, reason, created_at) values (1, 1, 100, 1, "2023-01-28");
+insert into point(idx, member_idx, point, reason, created_at) values (2, 1, 100, 2, "2023-01-28");
+insert into point(idx, member_idx, point, reason, created_at) values (3, 1, -100, 4, "2023-01-28");
 -- wish
 insert into wish (idx, member_idx, product_idx) values (1, 1, 1);
 insert into wish (idx, member_idx, product_idx) values (2, 1, 2);

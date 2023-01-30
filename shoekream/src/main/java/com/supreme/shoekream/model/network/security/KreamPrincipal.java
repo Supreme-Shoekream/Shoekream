@@ -8,8 +8,10 @@ import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 
 import java.util.Collection;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -27,9 +29,10 @@ public record KreamPrincipal(
         String profileMemo,
         String imgUrl,
         String bank,
-        String accountNumber
+        String accountNumber,
+        Map<String, Object> oAuth2Attributes
 
-) implements UserDetails {
+) implements UserDetails, OAuth2User {
     public static KreamPrincipal of(Long idx,
                                     String nickname,
                                     String memberPw,
@@ -42,13 +45,14 @@ public record KreamPrincipal(
                                     String profileMemo,
                                     String imgUrl,
                                     String bank,
-                                    String accountNumber){
+                                    String accountNumber
+            , Map<String, Object> oAuth2Attributes){
         Set<RoleType> roleTypes = Set.of(RoleType.USER);
         return new KreamPrincipal(
                 idx,
                 nickname,
                 memberPw,
-                roleTypes.stream().map(RoleType::getEmail)
+                roleTypes.stream().map(RoleType::getName)
                         .map(SimpleGrantedAuthority::new)
                         .collect(Collectors.toUnmodifiableSet()),
                 name,
@@ -60,23 +64,35 @@ public record KreamPrincipal(
                 profileMemo,
                 imgUrl,
                 bank,
-                accountNumber
+                accountNumber,
+                oAuth2Attributes
+        );
+    }
+    public static KreamPrincipal createof(
+                                    String memberPw,
+                                    String name,
+                                    String hp,
+                                    String email,
+                                    String shoeSize){
+        return KreamPrincipal.of(
+                null,
+                null,
+                memberPw,
+                name,
+                hp,
+                email,
+                null,
+                shoeSize,
+                null,
+                null,
+                null,
+                null,
+                null,
+                Map.of()
         );
     }
 
-//    public static KreamPrincipal from(Member member){
-//        return KreamPrincipal.of(
-//                member.getIdx(),
-//                member.getNickname(),
-//                member.getMemberPw(),
-//                member.getName(),
-//                member.getEmail(),
-//                member.getHp(),
-//                member.getShoeSize()
-//        );
-//    }
-
-    public static KreamPrincipal from(MemberDTO dto){
+    public static KreamPrincipal fromFull(MemberDTO dto){
         return KreamPrincipal.of(
                 dto.idx(),
                 dto.nickname(),
@@ -90,7 +106,29 @@ public record KreamPrincipal(
                 dto.profileMemo(),
                 dto.imgUrl(),
                 dto.bank(),
-                dto.accNumber()
+                dto.accNumber(),
+                Map.of()
+
+        );
+    }
+
+    public static KreamPrincipal from(MemberDTO dto){
+        return KreamPrincipal.createof(
+                dto.memberPw(),
+                dto.name(),
+                dto.hp(),
+                dto.email(),
+                dto.shoeSize()
+        );
+    }
+
+    public static KreamPrincipal createfrom(MemberDTO dto){
+        return KreamPrincipal.createof(
+                dto.memberPw(),
+                dto.name(),
+                dto.hp(),
+                dto.email(),
+                dto.shoeSize()
         );
     }
 
@@ -159,11 +197,21 @@ public record KreamPrincipal(
         return true;
     }
 
+    @Override
+    public Map<String, Object> getAttributes() {
+        return oAuth2Attributes;
+    }
+
+    @Override
+    public String getName() {
+        return email;
+    }
+
     public enum RoleType {
         USER("ROLE_USER");
-        @Getter private final String email;
-        RoleType(String email){
-            this.email = email;
+        @Getter private final String name;
+        RoleType(String name){
+            this.name = name;
         }
     }
 }

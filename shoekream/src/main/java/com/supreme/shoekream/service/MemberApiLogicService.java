@@ -46,12 +46,13 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
     @Override
     public Header<MemberApiResponse> create(Header<MemberApiRequest> request) {
         MemberApiRequest memberApiRequest = request.getData();
+        MemberDTO memberDTO = memberApiRequest.toDTO();
         Member member = Member.builder()
-                .memberPw(memberApiRequest.getMemberPw())
-                .name(memberApiRequest.getName())
-                .hp(memberApiRequest.getHp())
-                .email(memberApiRequest.getEmail())
-                .shoeSize(memberApiRequest.getShoeSize())
+                .memberPw(memberDTO.memberPw())
+                .name(memberDTO.name())
+                .hp(memberDTO.hp())
+                .email(memberDTO.email())
+                .shoeSize(memberDTO.shoeSize())
                 .build();
         Member newMember = memberRepository.save(member);
         return Header.OK(response(newMember));
@@ -86,6 +87,17 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
         return null;
     }
 
+    public Header<MemberApiResponse> updateAccount(MemberDTO memberDTO, Long idx){
+        Optional<Member> member = memberRepository.findById(idx);
+        return member.map(
+                newMember -> {
+                    newMember.setBank(memberDTO.bank());
+                    newMember.setAccNumber(memberDTO.accNumber());
+                    return newMember;
+                }).map(newMember -> memberRepository.save(newMember)).map(
+                newMember -> response(newMember)).map(Header::OK).orElseGet(()->Header.ERROR("데이터없음"));
+    }
+
     @Override
     public Header delete(Long idx) {
 //        Optional<Member> members = baseRepository.findById(idx);
@@ -99,8 +111,9 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
 
     public Header<MemberApiResponse> login(Header<MemberApiRequest> request){
         MemberApiRequest memberApiRequest = request.getData();
+        MemberDTO memberDTO = memberApiRequest.toDTO();
         Optional<Member> member = memberRepository.findByEmailAndMemberPw(
-                memberApiRequest.getEmail(),memberApiRequest.getMemberPw()
+                memberDTO.email(),memberDTO.memberPw()
         );
         if (!member.isEmpty()){
             return Header.OK();
@@ -123,7 +136,17 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
         return Header.OK(memberApiResponses, pagination);
     }
 
+    @Transactional(readOnly = true)
+    public Optional<MemberDTO> searchUser(String email) {
+        return memberRepository.findByEmail(email)
+                .map(MemberDTO::fromEntity);
+    }
 
+    public MemberDTO saveUser(String password, String name, String hp, String email, String shoeSize) {
+        return MemberDTO.fromEntity(
+                memberRepository.save(Member.of(password, name, hp, email, shoeSize))
+        );
+    }
 
 }
 
