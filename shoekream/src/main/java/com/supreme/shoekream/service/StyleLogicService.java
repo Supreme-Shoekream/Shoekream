@@ -264,10 +264,26 @@ public class StyleLogicService {
         return trends;
     }
 
-    public List<BoardDTO> isBoardExist(Long memberIdx){
+    public List<BoardWithLikeListResponse> isBoardExist(Long memberIdx){
         System.out.println("테스트"+boardRepository.countAllByMemberIdx(memberIdx));
+        List<Lk> likes = likeRepository.findAllByMember(memberRepository.getReferenceById(memberIdx));
         if(boardRepository.countAllByMemberIdx(memberIdx) > 0){
-            return BoardDTO.fromEntity(boardRepository.findAllByMemberIdx(memberIdx));
+            List<BoardWithLikeListResponse> boards = BoardWithLikeListResponse.fromEntity(boardRepository.findAllByMemberIdx(memberIdx));
+
+            for(int i=0;i<boards.size();i++){
+                for(int j=0;j<likes.size();j++){
+                    if(boards.get(i).idx().equals(likes.get(j).getBoard().getIdx())){
+                        boards.set(i,
+                                BoardWithLikeListResponse.of(boards.get(i).idx(),
+                                        boards.get(i).memberDTO(),
+                                        boards.get(i).content(),
+                                        boards.get(i).img(), boards.get(i).hashtag(),boards.get(i).lks(), boards.get(i).replies(),
+                                        boards.get(i).tags(), boards.get(i).createdAt(), boards.get(i).modifiedAt(), true)
+                        );
+                    }
+                }
+            }
+            return boards;
         }else{
             return null;
         }
