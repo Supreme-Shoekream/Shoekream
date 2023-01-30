@@ -23,10 +23,14 @@ import java.util.Optional;
 @Transactional
 public class AddressApiLogicService {
     private final AddressRepository addressRepository;
-    private final MemberRepository memberRepository;
     @Transactional
     public List<Address> list(Long memberIdx, boolean isBasic){
         List<Address> addressList = addressRepository.findByMemberIdxAndAddressBasic(memberIdx, isBasic);
+        return addressList;
+    }
+    @Transactional
+    public List<Address> all(Long memberIdx){
+        List<Address> addressList = addressRepository.findByMemberIdx(memberIdx);
         return addressList;
     }
 
@@ -62,15 +66,15 @@ public class AddressApiLogicService {
         }
         Optional<Address> address = addressRepository.findById(idx);
         return address.map(
-                addressMap -> {
-                    addressMap.setName(dto.name());
-                    addressMap.setHp(dto.hp());
-                    addressMap.setZipcode(dto.zipcode());
-                    addressMap.setAddress1(dto.address1());
-                    addressMap.setAddress2(dto.address2());
-                    addressMap.setAddressBasic(dto.addressBasic());
-                    return addressMap;
-                }).map(addressMap -> addressRepository.save(addressMap))
+                        addressMap -> {
+                            addressMap.setName(dto.name());
+                            addressMap.setHp(dto.hp());
+                            addressMap.setZipcode(dto.zipcode());
+                            addressMap.setAddress1(dto.address1());
+                            addressMap.setAddress2(dto.address2());
+                            addressMap.setAddressBasic(dto.addressBasic());
+                            return addressMap;
+                        }).map(addressMap -> addressRepository.save(addressMap))
                 .map(addressMap -> AddressDTO.fromEntity(addressMap))
                 .map(Header::OK)
                 .orElseGet(()->Header.ERROR("데이터없음"));

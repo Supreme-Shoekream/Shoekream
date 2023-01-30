@@ -1,11 +1,16 @@
 <?xml version="1.0"?>
 <thlogic>
+    <attr sel=".follow_unfollow_btn">
+        <attr sel=".btn_follow" th:text="${flag} ? '언팔로우' : '팔로우'"/>
+    </attr>
     <attr sel=".social_tab">
         <attr sel=".tab_list">
             <attr sel="#count_followers" th:text="${followers.size}"/>
             <attr sel="#count_followings" th:text="${followings.size}"/>
         </attr>
     </attr>
+
+
     <attr sel="#memberIdx" th:value="${member.idx}"/>
 
 

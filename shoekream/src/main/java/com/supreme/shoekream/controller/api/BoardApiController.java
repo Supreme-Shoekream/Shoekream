@@ -78,7 +78,9 @@ public class BoardApiController {
         if(kreamPrincipal == null){
             return styleLogicService.unlog_trend();
         }
+        System.out.println("4444"+kreamPrincipal);
         MemberDTO member = kreamPrincipal.toFullDto();
+        System.out.println("test"+member);
         return styleLogicService.trendList(member);
     }
 
@@ -137,4 +139,13 @@ public class BoardApiController {
         }
     }
 
+    @GetMapping("/follow/{memberIdx}")
+    public void follow(@PathVariable(name = "memberIdx") Long memberIdx, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        styleLogicService.follow(memberIdx, kreamPrincipal.toFullDto());
+    }
+
+    @GetMapping("/unfollow/{memberIdx}")
+    public void unfollow(@PathVariable(name = "memberIdx") Long memberIdx, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        styleLogicService.unfollow(memberIdx, kreamPrincipal.toFullDto());
+    }
 }

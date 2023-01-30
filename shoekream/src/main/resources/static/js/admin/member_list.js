@@ -7,7 +7,6 @@
             const response = await fetch(`/api/admin/users?page=${index}`);
             const data = await response.json();
             console.log(data);
-
             let pagination = data.pagination;
             let totalPages = pagination.totalPages;
             let currentPage = pagination.currentPage + 1;
@@ -17,8 +16,8 @@
           <tr class="bg-pink">
             <td >${dto.name}</td>
             <td>${dto.email}</td>
-            <td>${dto.shoeSize}</td>
             <td>${dto.hp}</td>
+            <td>${dto.shoeSize}</td>
             <td>
               <div class="dropdown">
                 <a
@@ -35,8 +34,8 @@
                   <a class="dropdown-item view" href="#" onclick="pop_member_view(${dto.idx})"
                   ><i class="dw dw-eye"></i> View</a
                   >
-                  <a class="dropdown-item" href="#"
-                      ><i class="dw dw-edit2"></i> Point</a>
+                  <a class="dropdown-item" href="#" onclick="openPoint(${dto.idx})"
+                      ><i class="dw dw-edit2"></i> Point</a>                      
 
                       <a class="dropdown-item" href="#"
                       ><i class="dw dw-delete-3"></i> Penalty</a>
@@ -48,6 +47,7 @@
             </td>
           </tr>
         `;
+
             });
             document.querySelector("#itemList").innerHTML = itemList
 

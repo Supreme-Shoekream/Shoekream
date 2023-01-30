@@ -1,21 +1,14 @@
 package com.supreme.shoekream.service;
 
-import com.supreme.shoekream.model.dto.AddressDTO;
-import com.supreme.shoekream.model.dto.EventDTO;
-import com.supreme.shoekream.model.dto.ProductDTO;
-import com.supreme.shoekream.model.entity.Address;
+import com.supreme.shoekream.model.dto.*;
 import com.supreme.shoekream.model.entity.EventProduct;
 import com.supreme.shoekream.model.network.Header;
-import com.supreme.shoekream.repository.AddressRepository;
 import com.supreme.shoekream.repository.EventRepository;
-import com.supreme.shoekream.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
 import java.util.Optional;
 
 @Slf4j
@@ -25,26 +18,44 @@ import java.util.Optional;
 public class EventApiService {
     final EventRepository eventRepository;
     @Transactional
-    public List<EventDTO> list(Long idx){
-        return null;
-
+    public Optional<EventDTO> list(Long idx){
+        return eventRepository.findByIdx(idx)
+                .map(EventDTO::fromEntity);
     }
 
     @Transactional
     public Header<EventProduct> create(Header<EventDTO> request){
-        return null;
+        EventDTO dto = request.getData();
+        eventRepository.save(dto.toEntity(dto.productDTO().toEntity()));
+        return Header.OK();
 
     }
 
     @Transactional
-    public Header<EventProduct> update(Header<EventProduct> request) {
-        return null;
+    public Header<EventProduct> update(Header<EventProduct> request, Long idx) {
+        EventProduct eventProductRequest = request.getData();
+        Optional<EventProduct> eventProduct = eventRepository.findByIdx(idx);
+        // 세션처리
+        return eventProduct.map(
+                        ep -> {
+                            ep.setTitle(eventProductRequest.getTitle());
+                            ep.setImg(eventProductRequest.getImg());
+                            ep.setStartTime(eventProductRequest.getStartTime());
+                            ep.setEndTime(eventProductRequest.getEndTime());
+                            return ep;
+                        }).map(ep -> eventRepository.save(ep))
+                .map(Header::OK)
+                .orElseGet(() -> Header.ERROR("데이터 없음")
+                );
 
     }
     @Transactional
     public Header delete(Long idx) {
-        return null;
-
+        Optional<EventProduct> eventProduct = eventRepository.findByIdx(idx);
+        return eventProduct.map(ep -> {
+            eventRepository.delete(ep);
+            return Header.OK();
+        }).orElseGet(() -> Header.ERROR("데이터 없음"));
     }
 
 }

@@ -10,31 +10,36 @@ import java.time.LocalDateTime;
 
 public record PointDTO(
         Long idx,
-        int point,
-        @Enumerated(EnumType.STRING) PointType reason,
-        LocalDateTime regDate,
-        Long memberIdx
+        Long point,
+        PointType reason,
+        LocalDateTime regDate
 
 //        MemberDTO memberDTO
 ) {
     public static PointDTO of(
             Long idx,
-            int point,
+            Long point,
             PointType reason,
-            LocalDateTime regDate,
-            Long memberIdx
+            LocalDateTime regDate
     ){
-        return new PointDTO(idx, point, reason, regDate, memberIdx);
+        return new PointDTO(idx, point, reason, regDate);
     }
     public static PointDTO from(Point entity){
         return new PointDTO(
                 entity.getIdx(),
                 entity.getPoint(),
                 entity.getReason(),
-                entity.getRegDate(),
-                entity.getMemberIdx()
+                entity.getRegDate()
 //                MemberDTO.fromEntity(entity.getMember()) // MemberDTO
 
+        );
+    }
+    public Point toEntity(Member member){
+        return Point.of(
+                point,
+                reason,
+                regDate,
+                member
         );
     }
 }

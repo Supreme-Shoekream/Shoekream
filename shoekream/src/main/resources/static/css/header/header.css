@@ -1,0 +1,281 @@
+.btn_layer_close {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    cursor: pointer;
+}
+.layer_search .search_container, .layer_search .search_content_wrap, .layer_search .suggest_wrap {
+    background-color: #fff;
+}
+.lg .layer_search .search_wrap {
+    padding-top: 50px;
+}
+.lg .layer_search .search_content_wrap, .lg .layer_search .search_wrap, .lg .layer_search .suggest_area {
+    width: 800px;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.lg .layer_search .search_wrap {
+    padding-top: 50px;
+}
+.layer_search .search_wrap {
+    display: -webkit-box;
+    display: flex;
+}
+.layer_search .search_wrap .search_area {
+    -webkit-box-flex: 1;
+    flex: 1;
+}
+.layer_search .search1 {
+    width: 100%;
+    margin: 0;
+}
+.search {
+    width: 500px;
+    -webkit-box-flex: 0;
+    flex: none;
+    -webkit-box-ordinal-group: 1;
+    order: 0;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    margin: 0 8px;
+    padding-bottom: 16px;
+    border-bottom: 3px solid #000;
+}
+.search1 .input_search {
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 24px;
+    font-weight: 700;
+    color: #000;
+    line-height: 29px;
+    padding: 0 13px 0 1px;
+    width: 468px;
+    letter-spacing: -.015em;
+}
+.search1 .btn_search_delete {
+    float: right;
+    width: 24px;
+    height: 24px;
+    margin-top: 3px;
+    margin-right: 3px;
+}
+
+.lg .layer_search .btn_close {
+    display: none;
+}
+.layer_search .search_wrap .btn_close {
+    margin-left: auto;
+}
+.lg .layer_search .search_content_wrap {
+    margin-top: 20px;
+}
+.lg .layer_search .search_content_wrap, .lg .layer_search .search_wrap, .lg .layer_search .suggest_area {
+    width: 800px;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.layer_search_item.tag {
+    margin-bottom: 28px;
+}
+.layer_search_item {
+    display: block;
+    margin-bottom: 40px;
+}
+.layer_search_title_wrap {
+    margin-bottom: 12px;
+}
+.layer_search_title_wrap .title {
+    font-size: 16px;
+    font-weight: 700;
+}
+.layer_search_title_wrap .title_sub_text {
+    display: inline;
+    margin-left: 5px;
+    font-size: 13px;
+    color: rgba(34,34,34,.8);
+}
+.search_card_tag_wrap {
+    line-height: 13px;
+}
+.search_card_tag {
+    max-width: 142px;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 14px;
+    letter-spacing: -.21px;
+    color: rgba(34,34,34,.8);
+    background: #f4f4f4;
+    border: 1px solid #ebebeb;
+    border-radius: 20px;
+    padding: 8px 12px;
+    display: inline-block;
+    margin: 0 8px 12px 0;
+}
+.layer_search_item.ranking {
+    margin-bottom: 24px;
+}
+.layer_search_title_wrap .title_sub_text {
+    display: inline;
+    margin-left: 5px;
+    font-size: 13px;
+    color: rgba(34,34,34,.8);
+}
+.layer_search_title_wrap .title_sub_text span {
+    cursor: unset;
+}
+.search_card_ranking{
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+    list-style: none;
+    line-height: 17px;
+    font-size: 14px;
+}
+.search_card_ranking .search_card_ranking_item{
+    padding: 4px 0 16px;
+    cursor: pointer;
+    display: -webkit-box;
+    display: flex;
+}
+
+.search_card_ranking .ranking_idx{
+    font-weight: 600;
+    margin-right: 6px;
+}
+.search_card_ranking .ranking_title{
+    font-weight: 400;
+    margin-right: 6px;
+    max-width: 108px;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    display: inline-block;
+    white-space: nowrap;
+}
+.search_card_ranking{
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+    list-style: none;
+    line-height: 17px;
+    font-size: 14px;
+}
+.search_card_ranking .ranking_description{
+    font-size: 10px;
+    color: #f15746;
+    line-height: 12px;
+    font-weight: 600;
+}
+.shortcut_items {
+    display: grid;
+    grid-template-columns: repeat(5,minmax(0,1fr));
+    grid-column-gap: 8px;
+    -webkit-column-gap: 8px;
+    -moz-column-gap: 8px;
+    column-gap: 8px;
+    grid-row-gap: 12px;
+    row-gap: 12px;
+}
+.shortcut_item {
+    text-align: center;
+    cursor: pointer;
+}
+.lg .shortcut_item_img_wrap {
+    padding-top: 0;
+    height: 80px;
+    border-radius: 10px;
+}
+.shortcut_item_img_wrap{
+    padding-top: 100%;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #f0f0f0;
+    color: #f0f0f0;
+    border-radius: 50%;
+}
+.lg .shortcut_item_img_bg {
+    -webkit-transform: translateZ(10px);
+    transform: translateZ(10px);
+}
+
+.shortcut_item_img_wrap {
+    padding-top: 100%;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #f0f0f0;
+    color: #f0f0f0;
+    border-radius: 50%;
+}
+.lg .shortcut_item_title {
+    margin-top: 8px;
+}
+.shortcut_item_title {
+    width: 100%;
+    font-size: 13px;
+    display: -webkit-box;
+    letter-spacing: -.7px;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    word-break: keep-all;
+    margin-top: 6px;
+    word-wrap: break-word;
+}
+.layer_search_item{
+    display: block;
+    margin-bottom: 40px;
+}
+.layer_search_item.recent_products {
+    padding-bottom: 82px;
+}
+.layer_search_title_wrap .title_sub_text a {
+    text-decoration: underline;
+}
+.recent_product_wrap {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+.recent_product_wrap .recent_product_list {
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    display: -webkit-box;
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 15px;
+}
+.recent_product {
+    width: 80px;
+    display: inline-block;
+    margin-right: 8px;
+}
+.recent_product .image, .recent_product .recent_product_img, .recent_product .recent_product_img_wrap {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+}
+
+.recent_product_name {
+    font-size: 11px;
+    display: -webkit-box;
+    letter-spacing: -.7px;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    word-break: keep-all;
+    margin-top: 6px;
+    word-wrap: break-word;
+}
