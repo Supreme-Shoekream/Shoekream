@@ -78,7 +78,9 @@ public class BoardApiController {
         if(kreamPrincipal == null){
             return styleLogicService.unlog_trend();
         }
+        System.out.println("4444"+kreamPrincipal);
         MemberDTO member = kreamPrincipal.toFullDto();
+        System.out.println("test"+member);
         return styleLogicService.trendList(member);
     }
 

@@ -92,17 +92,25 @@ public record KreamPrincipal(
         );
     }
 
-//    public static KreamPrincipal from(Member member){
-//        return KreamPrincipal.of(
-//                member.getIdx(),
-//                member.getNickname(),
-//                member.getMemberPw(),
-//                member.getName(),
-//                member.getEmail(),
-//                member.getHp(),
-//                member.getShoeSize()
-//        );
-//    }
+    public static KreamPrincipal fromFull(MemberDTO dto){
+        return KreamPrincipal.of(
+                dto.idx(),
+                dto.nickname(),
+                dto.memberPw(),
+                dto.name(),
+                dto.hp(),
+                dto.email(),
+                dto.status(),
+                dto.shoeSize(),
+                dto.point(),
+                dto.profileMemo(),
+                dto.imgUrl(),
+                dto.bank(),
+                dto.accNumber(),
+                Map.of()
+
+        );
+    }
 
     public static KreamPrincipal from(MemberDTO dto){
         return KreamPrincipal.createof(
