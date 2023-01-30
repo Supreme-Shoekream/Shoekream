@@ -12,7 +12,7 @@
                         <attr sel="#address" th:text="${basic.address1} + ${basic.address2}"/>
                     </attr>
 
-                        <attr sel="#mark" th:if="${basic.addressBasic}" th:text="기본배송지"/>
+                    <attr sel="#mark" th:if="${basic.addressBasic}" th:text="기본배송지"/>
                 </attr>
             </attr>
         </attr>
@@ -39,5 +39,5 @@
         <attr sel="#btn_delete2" th:onclick="'javascript:delete_address('+ ${address.idx} + ');'"/>
     </attr>
 </thlogic>
-<!--        add.attribute(memeber,1)/ add.(member,0)-->
-<!--        기본올려 theacjk if address.기본 = 1 출력x-->
+        <!--        add.attribute(memeber,1)/ add.(member,0)-->
+        <!--        기본올려 theacjk if address.기본 = 1 출력x-->

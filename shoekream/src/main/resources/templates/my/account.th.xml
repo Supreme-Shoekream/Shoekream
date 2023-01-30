@@ -1,0 +1,6 @@
+<thlogic>
+    <attr sel="#bank_name" th:text="${account.bank != null} ? ${account.bank} : '(은행명)'"/>
+    <attr sel="#acc_number" th:text="${account.accNumber != null} ? ${account.accNumber} : '(계좌번호)'"/>
+    <attr sel="#name" th:text="${account.name}"/>
+    <attr sel="#input_holder" th:value="${account.name}"/>
+</thlogic>
