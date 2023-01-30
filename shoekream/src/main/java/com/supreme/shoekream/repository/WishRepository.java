@@ -1,5 +1,6 @@
 package com.supreme.shoekream.repository;
 
+import com.supreme.shoekream.model.dto.MemberDTO;
 import com.supreme.shoekream.model.dto.WishDTO;
 import com.supreme.shoekream.model.entity.Member;
 import com.supreme.shoekream.model.entity.Product;

@@ -45,7 +45,7 @@ public class QProduct extends EntityPathBase<Product> {
 
     public final StringPath size = createString("size");
 
-    public final NumberPath<Long> wishCount = createNumber("wishCount", Long.class);
+    public final NumberPath<Integer> wishCount = createNumber("wishCount", Integer.class);
 
     public QProduct(String variable) {
         super(Product.class, forVariable(variable));

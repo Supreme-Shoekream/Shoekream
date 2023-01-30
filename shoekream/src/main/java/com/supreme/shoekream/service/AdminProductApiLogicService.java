@@ -49,6 +49,7 @@ public class AdminProductApiLogicService extends BaseService<ProductApiRequest, 
                 .img(productApiRequest.getImg())
                 .brand(productApiRequest.getBrand())
                 .size(productApiRequest.getSize())
+                .wishCount(productApiRequest.getWishCount())
                 .category(productApiRequest.getCategory())
                 .modelNum(productApiRequest.getModelNum())
                 .releaseDate(productApiRequest.getReleaseDate())
@@ -63,7 +64,7 @@ public class AdminProductApiLogicService extends BaseService<ProductApiRequest, 
 
     @Override
     public Header<ProductApiResponse> read(Long idx) {
-        return productRepository.findByIdx(idx)
+        return productRepository.findById(idx)
                 .map(product-> response(product))
                 .map(Header::OK).orElseGet(() -> Header.ERROR("상품 없음!"));
     }
@@ -72,14 +73,15 @@ public class AdminProductApiLogicService extends BaseService<ProductApiRequest, 
     @Override
     public Header<ProductApiResponse> update(Header<ProductApiRequest> request) {
         ProductApiRequest productApiRequest = request.getData();
-        Optional<Product> products = productRepository.findByIdx(productApiRequest.getIdx());
+        Optional<Product> products = productRepository.findById(productApiRequest.getIdx());
         return products.map(
                         product -> {
+                            product.setImg(productApiRequest.getImg());
                             product.setBrand(productApiRequest.getBrand());
                             product.setName(productApiRequest.getName());
                             product.setNameKor(productApiRequest.getNameKor());
                             product.setSize(productApiRequest.getSize());
-                            product.setImg(productApiRequest.getImg());
+                            product.setWishCount(productApiRequest.getWishCount());
                             product.setModelNum(productApiRequest.getModelNum());
                             product.setReleaseDate(productApiRequest.getReleaseDate());
                             product.setFirstPrice(productApiRequest.getFirstPrice());
@@ -97,7 +99,7 @@ public class AdminProductApiLogicService extends BaseService<ProductApiRequest, 
 
     @Override
     public Header delete(Long idx) {
-        Optional<Product> products = productRepository.findByIdx(idx);
+        Optional<Product> products = productRepository.findById(idx);
         return products.map(product->{
             productRepository.delete(product);
             return Header.OK();

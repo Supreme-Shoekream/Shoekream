@@ -3,9 +3,89 @@
 //     console.log(window.scrollY)
 // });
 
+// 기능0. 로드되자마자 세팅해주는 값
+// id=username ? fetch :
+// fetch api: 관심상품 email proidx?? -> boolean ->src.on : off
+
+// 관심상품 눌렀는지 안눌렀는지 확인
+window.onload = function (){
+    $('span#wish_proIdx').click(function(e){
+        e.preventDefault();
+    });
+
+    // const items = document.querySelectorAll('gnb_item');
+    // items.forEach((it) => {
+    //     it.classList.remove('gnb_on');
+    // })
+    // const item = document.getElementById('st_gnb');
+    // item.classList.add('gnb_on');
+    // // console.log("in")
+    fetch("http://localhost:8889/api/product")
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data)
+            let feedList = "";
+            for(let i=0;i <data.length;i++){
+                feedList +=
+                    `
+                    <div class="feed_card item vertical"" style="padding-top: 10px; position: absolute;  left: ${(i%4)*307}px; top: ${Math.floor(i/4)*465}px">
+                                    <a href="/social/details#${data[i].idx}" class="feed_each">
+                                        <div class="card_box">
+                                            <div class="social_img_box vertical">
+                                                <a href="/social/details#${data[i].idx}" >
+                                                <picture class="picture social_img">
+                                                    <source type="image/webp"
+                                                        srcset="">
+                                                    <source
+                                                        srcset="">
+                                                    <img alt="소셜이미지"
+                                                        src="${data[i].img}"
+                                                        loading="auto" class="image">
+                                                </picture>
+                                                </a>
+                                            </div>
+                                            <div class="card_detail">
+                                                <div class="user_box">
+                                                    <picture class="picture img_profile">
+                                                        <source type="image/webp"
+                                                            srcset="">
+                                                        <source
+                                                            srcset="">
+                                                        <img alt="사용자 프로필 이미지"
+                                                            src="${data[i].memberDTO.imgUrl}"
+                                                            loading="auto" class="image" onclick="open_profile('${data[i].memberDTO.email}', ${data[i].memberDTO.idx})">
+                                                    </picture>
+                                                    <p class="user_name" onclick="open_profile('${data[i].memberDTO.email}', ${data[i].memberDTO.idx})">${data[i].memberDTO.nickname}</p><span aria-label="좋아요"
+                                                        role="button" class="btn like" onclick="like_clicked(${data[i].idx}, ${data[i].lks.length}, this)">
+`
+
+                if(data[i].islike == false){
+                    feedList += `<img id="like_icon" src="/img/styleImg/like_icon.png" alt="좋아요 이미지"
+                                                            class="icon sprite-icons social-like-gray-sm">`
+                }else{
+                    feedList += `<img id="like_icon" src="/img/styleImg/like_after_icon.png" alt="좋아요 이미지"
+                                                            class="icon sprite-icons social-like-gray-sm">`
+                }
+                feedList +=  `<span class="like_count">${data[i].lks.length}</span></span>
+                                                </div>
+                                                <p class="text_box">${data[i].content}` + ` #` +  `${data[i].hashtag}</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                    `
+            }
+
+            feedList = `<div class="gutter_item"></div>` + feedList;
+            document.getElementById('masonry_posts').innerHTML = feedList;
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+}
 
 // 기능1. 스크롤시 왼쪽 상품 사진 이동후 멈춤
-const is_fixed= document.querySelector(".is_fixed");
+    const is_fixed = document.querySelector(".is_fixed");
     // 왼쪽 상품 사진 
 
 // const t = $(".meditaion_notice_product");
@@ -13,25 +93,24 @@ const is_fixed= document.querySelector(".is_fixed");
 // const bottom = $("p.meditaion_notice_product").offset().top + $("p.meditaion_notice_product").outerHeight();
 // console.log(bottom);
 
-window.addEventListener('scroll', function(){
-    // console.log(y2);
-    // console.log(window.scrollY);
-    if(window.scrollY >= 1240){ 
+    window.addEventListener('scroll', function () {
+        // console.log(y2);
+        // console.log(window.scrollY);
+        if (window.scrollY >= 1240) {
 
-        // window.scrollY: 브라우저 최상단에서 현재까지 스크롤 된 좌표값 구함
-        // 좌표값이 1240인 곳에서 멈춰야함
-        is_fixed.classList.remove('is_fixed');
-        is_fixed.classList.add('is_absolute');
+            // window.scrollY: 브라우저 최상단에서 현재까지 스크롤 된 좌표값 구함
+            // 좌표값이 1240인 곳에서 멈춰야함
+            is_fixed.classList.remove('is_fixed');
+            is_fixed.classList.add('is_absolute');
             // css에서 position:absolute , top:1250px으로 지정해줬음
-    }else{
-        is_fixed.classList.remove('is_absolute');
-        is_fixed.classList.add('is_fixed');
-    }
-});
+        } else {
+            is_fixed.classList.remove('is_absolute');
+            is_fixed.classList.add('is_fixed');
+        }
+    });
 
 
-
-// 기능2. 모든 사이즈 클릭시 팝업 레이어창 
+// 기능2. 모든 사이즈 클릭시 팝업 레이어창
 // function everysizePopup() {
 //     const layer = document.querySelector('.lg.layer_detail_size_select.select_only_size');
 //     layer.classList.add('layer');
@@ -77,50 +156,48 @@ window.addEventListener('scroll', function(){
 // }
 
 
-
 // 기능4. 시세 - 개월 버튼
-const dates = document.querySelectorAll(".tab_list .date");
+    const dates = document.querySelectorAll(".tab_list .date");
 // console.log(items);
 //배열로 저장되기 때문에 forEach로 하나씩 이벤트를 등록해준다.
-dates.forEach((date)=>{
-    date.addEventListener('click',()=>{
-        dates.forEach((e)=>{
-        //하나만 선택되도록 기존의 효과를 지워준다.
-            e.classList.remove('on');
-            e.setAttribute('aria-selected','false');
+    dates.forEach((date) => {
+        date.addEventListener('click', () => {
+            dates.forEach((e) => {
+                //하나만 선택되도록 기존의 효과를 지워준다.
+                e.classList.remove('on');
+                e.setAttribute('aria-selected', 'false');
+            })
+
+            // 선택한 그 아이만 효과를 추가해준다.
+            date.classList.add('on');
+            date.setAttribute('aria-selected', 'true');
+
+            // const a = document.querySelector('.tab_list .graph_month');
+            // const b = document.getElementById(a.getAttribute('aria-controls'));
+            // console.log(b);
+
+            // const ch = b.childNodes;
+
+            // const canvas = ch[0].childNodes;
+
+            // const k = canvas[0];
+            // console.log(k.getAttribute('id'));
         })
-        
-    // 선택한 그 아이만 효과를 추가해준다.
-        date.classList.add('on');
-        date.setAttribute('aria-selected','true');
-        
-        // const a = document.querySelector('.tab_list .graph_month');
-        // const b = document.getElementById(a.getAttribute('aria-controls'));
-        // console.log(b);
-
-        // const ch = b.childNodes;
-
-        // const canvas = ch[0].childNodes;
-
-        // const k = canvas[0];
-        // console.log(k.getAttribute('id'));
-    })
-});
+    });
 
 
 // 기능6. 시세 - 체결내역
-const conclusiones = document.querySelectorAll(".tab_list .conclusion");
-conclusiones.forEach((conclusion)=>{
-    conclusion.addEventListener("click",() => {
-        conclusiones.forEach((e) => {
-            e.classList.remove("on");
-            e.setAttribute("aria-selected","false");
+    const conclusiones = document.querySelectorAll(".tab_list .conclusion");
+    conclusiones.forEach((conclusion) => {
+        conclusion.addEventListener("click", () => {
+            conclusiones.forEach((e) => {
+                e.classList.remove("on");
+                e.setAttribute("aria-selected", "false");
+            });
+            conclusion.classList.add("on");
+            conclusion.setAttribute("aria-selected", "true");
         });
-    conclusion.classList.add("on");
-    conclusion.setAttribute("aria-selected","true");
     });
-});
-
 
 
 // 기능7. 시세 - 모든 사이즈
@@ -141,56 +218,56 @@ conclusiones.forEach((conclusion)=>{
 
 
 // 기능8. 스크롤시 상단 고정 배너
-const floating = document.querySelector(".floating_price.lg");
-window.addEventListener("scroll", function(){
-    
-    if(window.scrollY >= 350){ 
-        floating.classList.add("is_open");
-    }else{
-        floating.classList.remove("is_open");
-    }
-});
+    const floating = document.querySelector(".floating_price.lg");
+    window.addEventListener("scroll", function () {
+
+        if (window.scrollY >= 350) {
+            floating.classList.add("is_open");
+        } else {
+            floating.classList.remove("is_open");
+        }
+    });
 
 
 // 기능9. 구매전확인사항 드롭다운(3개 동시에 열수있음)
-const dropdowns = document.querySelectorAll(".dropdown");
-dropdowns.forEach((dropdown) => {
+    const dropdowns = document.querySelectorAll(".dropdown");
+    dropdowns.forEach((dropdown) => {
 
-    dropdown.addEventListener("click",() => {
+        dropdown.addEventListener("click", () => {
 
-        const ch = dropdown.childNodes;
-        console.log(ch);
+            const ch = dropdown.childNodes;
+            console.log(ch);
 
-        if(ch[3].getAttribute("class", "dc")){
-            ch[3].removeAttribute("class", "dc");
-        }else{
-            ch[3].setAttribute("class", "dc");
-        }
+            if (ch[3].getAttribute("class", "dc")) {
+                ch[3].removeAttribute("class", "dc");
+            } else {
+                ch[3].setAttribute("class", "dc");
+            }
 
+        });
     });
-});
 
 
 // 기능10. 스타일 - 좋아요 버튼
-$('span.like').click(function(e){
-    e.preventDefault();
-});
+    $('span.like').click(function (e) {
+        e.preventDefault();
+    });
 
-const items = document.querySelectorAll(".like");
+    const items = document.querySelectorAll(".like");
     //배열로 저장되기 때문에 forEach로 하나씩 이벤트를 등록해준다.
     items.forEach((item) => {
 
-        item.addEventListener("click",()=>{
+        item.addEventListener("click", () => {
 
             const ch = item.childNodes;
 
-            if(ch[1].getAttribute('src')=='/img/smile.png'){
-                ch[1].setAttribute('src','/img/heart.png');
+            if (ch[1].getAttribute('src') == '/img/smile.png') {
+                ch[1].setAttribute('src', '/img/heart.png');
                 // 숫자 ++1
-            }else{
-                ch[1].setAttribute('src','/img/smile.png');
+            } else {
+                ch[1].setAttribute('src', '/img/smile.png');
             }
-            
+
         });
     });
 
@@ -221,20 +298,21 @@ const items = document.querySelectorAll(".like");
 // })
 
 // 기능12. 체결 내역 더보기 - 열고닫기
-function conPopup() {
-    const layer = document.querySelector(".layer_market_price");
-    layer.style.display = "block";
-    
-    const body = document.querySelector("body");
-    body.style.overflow = "hidden";
-}
-function conPopdown() {
-    const layer = document.querySelector(".layer_market_price");
-    layer.style.display = "none";
-    
-    const body = document.querySelector("body");
-    body.style.overflow = "";
-}
+    function conPopup() {
+        const layer = document.querySelector(".layer_market_price");
+        layer.style.display = "block";
+
+        const body = document.querySelector("body");
+        body.style.overflow = "hidden";
+    }
+
+    function conPopdown() {
+        const layer = document.querySelector(".layer_market_price");
+        layer.style.display = "none";
+
+        const body = document.querySelector("body");
+        body.style.overflow = "";
+    }
 
 
 // 기능13. 체결 내역 더보기 - 모든 사이즈
@@ -344,75 +422,148 @@ function conPopdown() {
 
 // ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
 // 관심상품 클릭시 버튼 활성화
-const wishes = document.querySelectorAll(".btn_wish");
-const wish_onoff = document.querySelector(".wish-onoff"); // 메인 관심상품
-const wish_onoff2 = document.querySelector(".btn_wish_simple .wish-onoff"); // 상단 고정 배너 관심상품
-wishes.forEach((wish) => {
-    wish.addEventListener("click", () => {
+    const wishes = document.querySelectorAll(".btn_wish");
+    const wish_onoff = document.querySelector(".wish-onoff"); // 메인 관심상품
+    const wish_onoff2 = document.querySelector(".btn_wish_simple .wish-onoff"); // 상단 고정 배너 관심상품
+    wishes.forEach((wish) => {
+        wish.addEventListener("click", () => {
 
-        const ch = wish.childNodes;
-        console.log(ch);
+            const ch = wish.childNodes;
+            console.log(ch);
 
-        if(ch[1].getAttribute("src") == "/img/select_mark_off.PNG"){
-            wish_onoff.setAttribute("src","/img/select_mark_on.png");
-            wish_onoff2.setAttribute("src","/img/select_mark_on.png");
-            wishCreate();
-        }else{
-            wish_onoff.setAttribute("src","/img/select_mark_off.PNG");
-            wish_onoff2.setAttribute("src","/img/select_mark_off.PNG");
-            wishDelete22();
-        }
-    })
-});
+
+
+            if (ch[1].getAttribute("src") == "/img/select_mark_off.PNG") {
+                wish_onoff.setAttribute("src", "/img/select_mark_on.png");
+                wish_onoff2.setAttribute("src", "/img/select_mark_on.png");
+                let count = 0;
+                count = count + 1;
+                $(".wish_count .wishCount").html(count);
+                // wishCount.innerText(count);
+                wishCreate();
+
+            } else {
+                wish_onoff.setAttribute("src", "/img/select_mark_off.PNG");
+                wish_onoff2.setAttribute("src", "/img/select_mark_off.PNG");
+                let totcount = $(".wish_count .wishCount").text();
+                totcount = totcount - 1;
+                $(".wish_count .wishCount").html(totcount);
+                wishDelete();
+            }
+        })
+    });
+
+// ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+// 관심상품 유무확인
+
 
 // ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
 // 관심상품 create
-function wishCreate(){
-    const proIdx =document.getElementById("wish_proIdx").getAttribute("value");
-    // console.log(proIdx);
-    fetch("http://localhost:8889/api/product", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
+    function wishCreate() {
+        const proIdx = document.getElementById("wish_proIdx").getAttribute("value");
+        // console.log(proIdx);
+        fetch("http://localhost:8889/api/product", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({
                 "productIdx": proIdx
-        }),
-    })
-        .then((res) => {
-            alert("관심상품 등록 성공!")
-            return;
+            }),
         })
-        .then((data) => {
-            console.log(data);
-            return;
-        })
-        .catch((err) => {
-            alert("에러! 에러! 관심상품 등록 실패!");
-            location.reload();
-            return;
-        })
-}
+            .then((res) => {
+                alert("관심상품 등록 성공!")
+                // location.reload();
+                return;
+            })
+            .then((data) => {
+                console.log(data);
+                return;
+            })
+            .catch((err) => {
+                alert("에러! 에러! 관심상품 등록 실패!");
+                location.reload();
+                return;
+            })
+    }
 
 // ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
 // 관심상품 delete
-function wishDelete22(){
-    let idx = document.getElementById("wish_proIdx").getAttribute("value");
-    fetch('http://localhost:8889/api/product/'+idx, {
-        method: "DELETE"
-    })
-        .then((res) => {
-            alert("관심상품 삭제 성공!")
-            location.reload();
+    function wishDelete() {
+        let idx = document.getElementById("wish_proIdx").getAttribute("value");
+        fetch('http://localhost:8889/api/product/' + idx, {
+            method: "DELETE"
         })
-        .then((data) => {
-            console.log(data);
-            return;
-        })
-        .catch((err) => {
-            alert("에러! 에러! 관심상품 삭제 실패!");
-            location.reload();
-            return;
-        })
-}
+            .then((res) => {
+                alert("관심상품 삭제 성공!")
+                location.reload();
+            })
+            .then((data) => {
+                console.log(data);
+                return;
+            })
+            .catch((err) => {
+                alert("에러! 에러! 관심상품 삭제 실패!");
+                location.reload();
+                return;
+            })
+    }
+
+// ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+// 로드시 관심상품 북마크 유지시키기
+
+// // const form = document.querySelector(".js-form"),
+//     const input = form.querySelector("img.wish-onoff")
+//     // greeting = document.querySelector(".js-greeting"),
+//     // button = document.querySelector("button");
+//
+// //저장할 데이터의 key값
+// const LOCAL_DATA = "wish";
+//
+// //input태그에 이름 입력 후 input태그를 감추고,
+// //텍스트가 나타나게 해주는 함수
+// function hiddenAndGreeting(name) {
+//     // greeting.style.display = "block";
+//     // form.style.display = "none";
+//     // button.style.display = "block";
+//     // button.addEventListener("click", onClick);
+//     // greeting.innerText = `Hi! ${name}`;
+//     localStorage.setItem(LOCAL_DATA, input.src="/img/select_mark_on.png");
+// }
+//
+// // input태그에 입력 시, lacalStorage의 value값으로 저장
+// function onSubmit(e) {
+//     e.preventDefault();
+//     localStorage.setItem(LOCAL_DATA, input.src);
+//     // hiddenAndGreeting(input.value);
+//     // input.value = "";
+// }
+//
+// //input태그 보이게 설정, 인사 텍스트와 버튼은 숨김.
+// //form에 submit 이벤트 설정
+// function askForNickName() {
+//     // form.style.display = "block";
+//     // greeting.style.display = "none";
+//     // button.style.display = "none";
+//     // form.addEventListener("submit", onSubmit); //form에 submit이벤트 추가
+//     localStorage.setItem(LOCAL_DATA, input.src="/img/select_mark_off.PNG");
+// }
+//
+// // 브라우저의 localStorage에 데이터가 있을때와 없을때 구분하여 실행
+// function loaded() {
+//     const data = localStorage.getItem(LOCAL_DATA);
+//     if (data === null) { // 데이터가 없을 시
+//         askForNickName();
+//     } else {//데이터가 이미 있을 시
+//         hiddenAndGreeting(data);
+//     }
+// }
+//
+// //처음 실행할 init함수
+// function init() {
+//     loaded();
+// }
+//
+// init();
+
 
 
 
