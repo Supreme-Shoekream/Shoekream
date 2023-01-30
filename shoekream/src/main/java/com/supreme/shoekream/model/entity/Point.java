@@ -2,6 +2,7 @@ package com.supreme.shoekream.model.entity;
 
 import com.supreme.shoekream.model.config.Auditable;
 import com.supreme.shoekream.model.config.BaseEntity;
+import com.supreme.shoekream.model.dto.MemberDTO;
 import com.supreme.shoekream.model.enumclass.PointType;
 import lombok.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -23,10 +24,29 @@ public class Point extends BaseEntity implements Auditable {
     private Long idx;
 
     private int point;
-    @Enumerated(EnumType.STRING) private PointType reason;
+    @Enumerated(EnumType.ORDINAL) private PointType reason;
     private LocalDateTime regDate;
-    private Long memberIdx;
-//    @ManyToOne
+    @ManyToOne
+    @JoinColumn(name="member_idx")
+    private Member member;
+    //    @ManyToOne
 //    @JoinColumn(name = "member_idx")
 //    private Member member;
+    private Point(
+            int point,
+            PointType reason,
+            LocalDateTime regDate,
+            Member member){
+        this.point=point;
+        this.reason=reason;
+        this.regDate=regDate;
+        this.member=member;
+    }
+    public static Point of(
+            int point,
+            PointType reason,
+            LocalDateTime regDate,
+            Member member){
+        return new Point(point,reason,regDate,member);
+    }
 }

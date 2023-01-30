@@ -15,145 +15,138 @@
 </head>
 
 <body>
-    <!--header-->
-    <header th:replace="/fragment/header::header"></header>
-    <!--header-->
-    <div class="container my lg" style="margin-top: 100px">
-        <div>
-            <!-- navbar -->
-            <nav th:replace="/fragment/mypage_navbar::nav"></nav>
-            <!--navbar-->
-        </div>
-        <div class="content_area">
-            <div class="point">
-                <div class="content_title">
-                    <div class="title">
-                        <h3>포인트</h3>
-                    </div><button type="button" class="btn_help"><img src="/img/question.png" alt=""></button>
-                </div>
-                <div class="dashboard">
-                    <div class="point_summary">
-                        <div class="point_info">
-                            <p class="title">사용 가능한 포인트</p>
-                            <p class="point"><b>0P</b></p>
-                        </div>
-                        <div class="divider">
-                            <div class="divider_line"></div>
-                        </div>
-                        <div class="point_info">
-                            <p class="title">이번달 소멸예정 포인트</p>
-                            <p class="point"><b>0P</b></p>
-                        </div>
+<!--header-->
+<header th:replace="/fragment/header::header"></header>
+<!--header-->
+<div class="container my lg" style="margin-top: 100px">
+    <div>
+        <!-- navbar -->
+        <nav th:replace="/fragment/mypage_navbar::nav"></nav>
+        <!--navbar-->
+    </div>
+    <div class="content_area">
+        <div class="point">
+            <div class="content_title">
+                <div class="title">
+                    <h3>포인트</h3>
+                </div><button type="button" class="btn_help"><img src="/img/question.png" alt=""></button>
+            </div>
+            <div class="dashboard">
+                <div class="point_summary">
+                    <div class="point_info">
+                        <p class="title">사용 가능한 포인트</p>
+                        <p class="point"><b>0P</b></p>
                     </div>
-                    <div class="register">
-                        <!-- 버튼자리 -->
+                    <div class="divider">
+                        <div class="divider_line"></div>
+                    </div>
+                    <div class="point_info">
+                        <p class="title">이번달 소멸예정 포인트</p>
+                        <p class="point"><b>0P</b></p>
                     </div>
                 </div>
-                <p class="description"> 포인트 유효기간은 적립일로부터 최대 1년까지이며, 유형에 따라 달라질 수 있습니다. </p>
-                <table class="point_history_table">
-                    <thead>
-                        <tr>
-                            <th class="point_history_header">상세 내역</th>
-                            <th class="point_history_header">적립/사용</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="point_history_data">
-                                <div class="point_detail">
-                                    <div class="status_stamp expired"><span
-                                            class="text">만료</span></div>
-                                    <div class="details">
-                                        <p class="created_date">2023/01/11</p>
-                                        <p class="title">유효기간 만료</p><!----><!---->
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="point_history_data">
-                                <div class="point_amount"><span
-                                        class="amount expired"> -3,000 </span></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="point_history_data">
-                                <div class="point_detail">
-                                    <div class="status_stamp issued"><span
-                                            class="text">적립</span></div>
-                                    <div class="details">
-                                        <p class="created_date">2022/12/11</p>
-                                        <p class="title">이벤트 적립</p>
-                                        <p class="description"><span>계좌이체
-                                                    최초등록</span><span class="ic-arrow"><!----></span></p>
-                                        <p class="expired_date"> 유효기간 2023/01/11 </p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="point_history_data">
-                                <div class="point_amount"><span
-                                        class="amount issued"> +3,000 </span></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                <div class="point_empty">
-                                    <p class="text">적립 또는 사용한 내역이 없습니다.</p>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <!---->
-                <!---->
-                <!---->
-            </div>
-        </div>
-    </div>
-    <!--footer-->
-    <footer th:replace="/fragment/footer::footer"></footer>
-    <!--footer-->
-    <div class="layer_point layer lg" style="display: none;">
-        <div class="layer_container"><a href="#" class="btn_layer_close">
-            <img src="/img/close.png">
-        </a>
-            <div class="layer_header">
-                <h2 class="title">이용안내</h2>
-            </div>
-            <div class="layer_content">
-                <div class="usable_wrap">
-                    <ul class="usable_list">
-                        <li class="usable_item"> 1,000P 이상부터 구매금액 제한 없이 사용하실 수 있습니다. </li>
-                        <li class="usable_item"> 입찰 삭제, 거래 취소 시 사용한 포인트는 환불됩니다. </li>
-                        <li class="usable_item"> 먼저 적립된 포인트부터 순서대로 사용되며, 사용하지 않으실 경우 유효기간이 지나면 자동 소멸됩니다. </li>
-                        <li class="usable_item"> 유효기간이 지난 후 환불받은 포인트는 다시 사용하실 수 없습니다. </li>
-                    </ul>
+                <div class="register">
+                    <!-- 버튼자리 -->
                 </div>
-                <div class="layer_btn"><a href="" class="btn outline medium"> 확인 </a></div>
             </div>
+            <p class="description"> 포인트 유효기간은 적립일로부터 최대 1년까지이며, 유형에 따라 달라질 수 있습니다. </p>
+            <table class="point_history_table">
+                <thead>
+                <tr>
+                    <th class="point_history_header">상세 내역</th>
+                    <th class="point_history_header">적립/사용</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr id="pointList">
+                    <td class="point_history_data">
+                        <div class="point_detail">
+                            <div class="status_stamp expired"><span
+                                    class="text">만료</span></div>
+                            <div class="details">
+                                <p class="created_date">2023/01/11</p>
+                                <p class="title">유효기간 만료</p><!----><!---->
+                            </div>
+                        </div>
+                    </td>
+                    <td class="point_history_data">
+                        <div class="point_amount"><span
+                                class="amount expired"> -3,000 </span></div>
+                    </td>
+                </tr>
+                <!--                        <tr>-->
+                <!--                            <td class="point_history_data">-->
+                <!--                                <div class="point_detail">-->
+                <!--                                    <div class="status_stamp issued"><span-->
+                <!--                                            class="text">적립</span></div>-->
+                <!--                                    <div class="details">-->
+                <!--                                        <p class="created_date">2022/12/11</p>-->
+                <!--                                        <p class="title">이벤트 적립</p>-->
+                <!--                                        <p class="description"><span>계좌이체-->
+                <!--                                                    최초등록</span><span class="ic-arrow">&lt;!&ndash;&ndash;&gt;</span></p>-->
+                <!--                                        <p class="expired_date"> 유효기간 2023/01/11 </p>-->
+                <!--                                    </div>-->
+                <!--                                </div>-->
+                <!--                            </td>-->
+                <!--                            <td class="point_history_data">-->
+                <!--                                <div class="point_amount"><span-->
+                <!--                                        class="amount issued"> +3,000 </span></div>-->
+                <!--                            </td>-->
+                <!--                        </tr>-->
+                </tbody>
+            </table>
+            <!---->
+            <!---->
+            <!---->
         </div>
     </div>
-    <script>
-        var layerPointOpen = false;
-        const helpBtn = document.querySelector('.btn_help')
-        const pointLayer = document.querySelector('.layer_point')
-        helpBtn.addEventListener('click', () => {
-            pointLayer.style.display = "block"
-        })
-        // 외부영역 클릭이벤트
-        // querySelector(레이어div)
-        pointLayer.addEventListener('click', (e) => {
-            if(e.target == e.currentTarget){
+</div>
+<!--footer-->
+<footer th:replace="/fragment/footer::footer"></footer>
+<!--footer-->
+<div class="layer_point layer lg" style="display: none;">
+    <div class="layer_container"><a href="#" class="btn_layer_close">
+        <img src="/img/close.png">
+    </a>
+        <div class="layer_header">
+            <h2 class="title">이용안내</h2>
+        </div>
+        <div class="layer_content">
+            <div class="usable_wrap">
+                <ul class="usable_list">
+                    <li class="usable_item"> 1,000P 이상부터 구매금액 제한 없이 사용하실 수 있습니다. </li>
+                    <li class="usable_item"> 입찰 삭제, 거래 취소 시 사용한 포인트는 환불됩니다. </li>
+                    <li class="usable_item"> 먼저 적립된 포인트부터 순서대로 사용되며, 사용하지 않으실 경우 유효기간이 지나면 자동 소멸됩니다. </li>
+                    <li class="usable_item"> 유효기간이 지난 후 환불받은 포인트는 다시 사용하실 수 없습니다. </li>
+                </ul>
+            </div>
+            <div class="layer_btn"><a href="" class="btn outline medium"> 확인 </a></div>
+        </div>
+    </div>
+</div>
+<script>
+    var layerPointOpen = false;
+    const helpBtn = document.querySelector('.btn_help')
+    const pointLayer = document.querySelector('.layer_point')
+    helpBtn.addEventListener('click', () => {
+        pointLayer.style.display = "block"
+    })
+    // 외부영역 클릭이벤트
+    // querySelector(레이어div)
+    pointLayer.addEventListener('click', (e) => {
+        if(e.target == e.currentTarget){
             pointLayer.style.display = "none"
-            }
-        })
-        const layerClose = document.querySelector('.btn_layer_close')
-        layerClose.addEventListener('click', () => {
-            pointLayer.style.display = "none"
-        })
-        const layerOk = document.querySelector('.layer_content .btn')
-        layerOk.addEventListener('click', () => {
-            pointLayer.style.display = "none"
-        }) 
-    </script>
+        }
+    })
+    const layerClose = document.querySelector('.btn_layer_close')
+    layerClose.addEventListener('click', () => {
+        pointLayer.style.display = "none"
+    })
+    const layerOk = document.querySelector('.layer_content .btn')
+    layerOk.addEventListener('click', () => {
+        pointLayer.style.display = "none"
+    })
+</script>
 </body>
 
 </html>

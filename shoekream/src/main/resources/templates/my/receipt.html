@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/css/fragment/mypage_navbar.css">
     <link rel="stylesheet" href="/css/layer/layer_receipt.css">
     <link rel="stylesheet" href="/css/fragment/footer.css">
-<!--    <script src="http://code.jquery.com/jquery-latest.js"></script>-->
+    <!--    <script src="http://code.jquery.com/jquery-latest.js"></script>-->
     <script defer src="/js/fragment/mypage_navbar.js"></script>
 </head>
 
@@ -54,10 +54,10 @@
 
                     </div>
                     <div class="input_hp" id="hp_input_box">
-                        <div class="input_box" id="input_hp"><h4 class="input_title">휴대폰번호</h4><div class="input_item"><input id="hp_input" type="tel" placeholder="- 없이 입력" autocomplete="off" class="input_txt input_hp"
-                                                                                                                              oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"></div></div>
+                        <div class="input_box" id="input_hp"><h4 id="input_type" class="input_title">휴대폰번호</h4><div class="input_item"><input id="hp_input" type="tel" placeholder="- 없이 입력" autocomplete="off" class="input_txt input_hp"
+                                                                                                                                              oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"></div></div>
 
-<!--                        <div class="receipt_config_wrap"><div class="checkbox_item"><input class="check" id="check1" type="checkbox" name="" class="blind"><label for="check1" class="check_label">&lt;!&ndash;라벨텍스트 있던곳&ndash;&gt;</label></div><label for="check1"><span style="width: 600px;"class="label_txt">현금영수증 신청 정보를 저장하여 자동으로 발급되는 것에 동의합니다.</span></label></div>-->
+                        <!--                        <div class="receipt_config_wrap"><div class="checkbox_item"><input class="check" id="check1" type="checkbox" name="" class="blind"><label for="check1" class="check_label">&lt;!&ndash;라벨텍스트 있던곳&ndash;&gt;</label></div><label for="check1"><span style="width: 600px;"class="label_txt">현금영수증 신청 정보를 저장하여 자동으로 발급되는 것에 동의합니다.</span></label></div>-->
                     </div>
                     <!---->
                 </div>
@@ -72,8 +72,8 @@
 <!--footer-->
 <div class="layer lg layer_alert" style="display: none;"><div class="layer_container"><a href="#" class="btn_layer_close"></a><div class="layer_header"><h2 class="title">현금영수증 정보</h2></div><div class="layer_content"><div class="alert_box"><p class="alert_desc">이미 진행중인 판매 거래를 포함하여 앞으로의 모든 판매 거래의 현금영수증 발급이 해당 정보로 변경됩니다.
     계속 진행하시겠습니까? </p></div><div class="layer_btn">
-    <button type="button" class="btn outlinegrey medium close_layer"> 취소 </button>
-    <button type="button" class="btn solid medium close_layer"> 계속 변경 </button></div></div></div></div>
+    <button type="button" class="btn outlinegrey medium" id="close_layer"> 취소 </button>
+    <button onClick="window.location.reload()" type="button" class="btn solid medium"> 계속 변경 </button></div></div></div></div>
 <script>
     const dropdownBtn = document.querySelector('.input_item')
     const dropdown = document.querySelector('.receipt_dropdown_menu')
@@ -89,7 +89,7 @@
     const inputHp = document.querySelector('.input_hp')
     const btnSave = document.querySelector('.btn_save')
     const layer = document.querySelector('.layer_alert')
-    const closeLayer = document.querySelectorAll('.close_layer')
+    const closeLayer = document.querySelector('#close_layer')
     receiptList.forEach((target) => {
         target.addEventListener('click', (e) => {
             inputPlaceholder.placeholder = e.target.textContent // 글자바꾸기
@@ -112,10 +112,18 @@
                 btnSave.classList.remove('btn_active')
                 btnSave.classList.add('btn_save')
             }
+            if(inputPlaceholder.placeholder == '개인소득공제(휴대폰)'){
+                document.querySelector('#input_type').innerHTML='휴대폰번호'
+            }
+            if(inputPlaceholder.placeholder == '개인소득공제(현금영수증카드)'){
+                document.querySelector('#input_type').innerHTML='카드번호'
+            }
         })
     })
     btnSave.addEventListener('click', () => {
-        layer.style.display="block"
+        if(!btnSave.classList.contains('disabled')) {
+            layer.style.display = "block"
+        }
     })
     layer.addEventListener('click', (e) => {
         if(e.target == e.currentTarget){
@@ -123,11 +131,8 @@
         }
     })
 
-    closeLayer.forEach((target) => {
-        target.addEventListener('click', () => {
-            layer.style.display="none"
-
-        })
+    closeLayer.addEventListener('click', e => {
+        layer.style.display="none"
     })
 
     // $(function(){
@@ -188,9 +193,9 @@
     //     }
     // });
 
-    document.querySelector('.input_hp').addEventListener('input', e => {
+    document.querySelector('.input_hp').addEventListener('keyup', e => {
         let strHp = e.target.value;
-        let checkHP = $('#check1').is(':checked')
+        let checkHP = document.querySelector('#hp_input')
         if(strHp && checkHP){
             document.querySelector('.btn_save').classList.remove('disabled');
         }else{
