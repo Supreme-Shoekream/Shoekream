@@ -260,6 +260,7 @@ table {
 }
 .point_amount>.amount.deducted, .point_amount>.amount.expired {
     color: #f15746;
+    font-weight: bold;
 }
 
 .point_detail>.status_stamp.invalidated,

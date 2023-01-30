@@ -1,6 +1,8 @@
 package com.supreme.shoekream.service;
 
+import com.supreme.shoekream.model.dto.AddressDTO;
 import com.supreme.shoekream.model.dto.MemberDTO;
+import com.supreme.shoekream.model.entity.Address;
 import com.supreme.shoekream.model.entity.Member;
 import com.supreme.shoekream.model.network.Header;
 import com.supreme.shoekream.model.network.Pagination;
@@ -63,11 +65,23 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
         return memberRepository.findById(idx).map(members -> response(members))
                 .map(Header::OK).orElseGet(()->Header.ERROR("데이터 없음"));
     }
+
+    public MemberDTO read2(Long idx){
+        Member member = memberRepository.findByIdx(idx);
+        return MemberDTO.fromEntity(member);
+    }
+
     public Header<MemberApiResponse> read(String email, String memberPw) {
         return memberRepository.findByEmailAndMemberPw(email,memberPw).map(
                         member -> response(member)).map(Header::OK)
                 .orElseGet(()-> Header.ERROR("이메일 또는 비밀번호가 틀렸습니다.")
                 );
+    }
+
+    public MemberDTO readPoint(Long idx){
+        Member member = memberRepository.findByIdx(idx);
+        MemberDTO memberDTO = MemberDTO.fromEntity(member);
+        return memberDTO;
     }
 
     @Override
