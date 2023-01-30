@@ -21,18 +21,18 @@ public class MemberPageController {
         return new ModelAndView("/login/login.html");
     }
 
-    @PostMapping(path="/loginOk")   // http://localhost:8889/loginOk
-    public String loginOk(HttpServletRequest request, String email, String memberPw){
-        if(memberApiLogicService.read(email, memberPw).getData() != null){
-            HttpSession session = request.getSession();
-            Long idx = memberApiLogicService.read(email, memberPw).getData().getIdx();
-            session.setAttribute("idx", idx);
-            session.setAttribute("email", email);
-            return "redirect:/index";
-        }else{
-            return "redirect:/login";
-        }
-    }
+//    @PostMapping(path="/loginOk")   // http://localhost:8889/loginOk
+//    public String loginOk(HttpServletRequest request, String email, String memberPw){
+//        if(memberApiLogicService.read(email, memberPw).getData() != null){
+//            HttpSession session = request.getSession();
+//            Long idx = memberApiLogicService.read(email, memberPw).getData().getIdx();
+//            session.setAttribute("idx", idx);
+//            session.setAttribute("email", email);
+//            return "redirect:/index";
+//        }else{
+//            return "redirect:/login";
+//        }
+//    }
 
     @GetMapping("/logout")
     public String logout(HttpServletRequest request){
