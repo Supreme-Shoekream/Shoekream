@@ -65,7 +65,7 @@ public class SecurityConfig {
     public UserDetailsService userDetailsService(MemberRepository memberRepository){
         return email -> memberRepository.findByEmail(email)
                 .map(MemberDTO::fromEntity)
-                .map(KreamPrincipal::from)
+                .map(KreamPrincipal::fromFull)
                 .orElseThrow(() -> new UsernameNotFoundException("유저를 찾을 수 없습니다 - email" + email));
     }
 
