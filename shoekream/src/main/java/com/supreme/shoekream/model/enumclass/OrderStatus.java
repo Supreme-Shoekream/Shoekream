@@ -4,7 +4,7 @@ import lombok.Getter;
 
 
 public enum OrderStatus {
-    BIDDING("입찰"),         //0
+    BIDDING("입찰중"),         //0
     PROGRESSING("진행중"),     //1
     END("종료");              //2
 

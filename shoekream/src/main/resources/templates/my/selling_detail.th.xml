@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<thlogic>
+    <!--상품 정보-->
+    <attr sel=".my_selling_detail">
+        <attr sel="#title_txt" th:text="'판매'+${sell.status}"/>
+        <attr sel=".order_number" th:text="'B-'+${sell.idx}"/>
+        <attr sel=".product_img" th:src="${sell.productImg}"/>
+        <attr sel=".number" th:text="${sell.productIdx}"/>
+        <attr sel=".name" th:text="${sell.productName}"/>
+        <attr sel=".size" th:text="${sell.productSize}"/>
+    </attr>
+    <!--상태별 display-->
+    <attr sel=".order_button" th:style="(${sell.status}=='입찰중')? 'display:block':'display:none'"/>
+    <!--내역 정보-->
+    <attr sel=".purchase_history">
+        <attr sel="#pay_price" th:text="${#numbers.formatInteger(sell.price, 0, 'COMMA')}"/>
+        <attr sel="#service_charge" th:text="${sell.fees} + '원'"/>
+        <attr sel="#final_price" th:text="${sell.totalPrice} + '원'"/>
+        <attr sel="#regdate_txt" th:datetime="${sell.createdAt}" th:text="${#temporals.format(sell.createdAt, 'yyyy/MM/dd')}"/>
+    </attr>
+    <!--배송 정보-->
+    <attr sel=".shipping_address_wrap">
+        <attr sel="#addressName" th:text="${sell.sender}"/>
+        <attr sel="#addressHp" th:text="${sell.senderHp}"/>
+        <attr sel="#addressDetail" th:text="${sell.senderAddress}"/>
+    </attr>
+    <!--결제 정보-->
+    <attr sel=".payment_wrap">
+        <attr sel="#cardLastNumber" th:text="${#strings.substring(sell.cardInfo,11, 15)}"/>
+    </attr>
+
+
+
+
+</thlogic>
