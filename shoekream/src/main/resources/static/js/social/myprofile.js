@@ -41,7 +41,7 @@ window.onload = function(){
                         for(let i=0;i<dat.length;i++){
                             feedList +=
                                 `
-                            <div class="feed_card item vertical" style="padding-top: 10px; position: absolute; left: ${Math.floor(i/5)*307}px; top: ${(i%5)*465}px">
+                            <div class="feed_card item vertical" style="padding-top: 10px; position: absolute; left: ${(i%4)*307}px; top: ${Math.floor(i/4)*465}px">
                                 <a href="#">
                                     <div class="card_box">
                                         <div class="social_img_box vertical">

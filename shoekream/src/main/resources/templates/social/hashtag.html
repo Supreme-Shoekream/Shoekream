@@ -75,7 +75,7 @@
                         <div class="social_feeds">
                             <div transition-duration="0" item-selector=".item" gutter=".gutter_item"
                                 horizontal-order="true" class="masonry_posts" id="masonry_posts"
-                                style="position: relative; height: 2300px;">
+                                style="position: relative; height: auto;">
                                 <div class="gutter_item"></div>
 
 
@@ -119,8 +119,6 @@
                                         </div>
                                     </a>
                                 </div>
-
-
                             </div>
                             
                         </div>
@@ -129,9 +127,9 @@
                 </div>
                 <!-- 컨테이너 끝 -->
                 <!-- 푸터 시작 -->
-
-
-                <footer th:replace="/fragment/footer :: footer"></footer>
+                <div class="footer">
+                    <footer th:replace="/fragment/footer :: footer"></footer>
+                </div>
                 <!-- 푸터 끝 -->
             </div>
         </div>

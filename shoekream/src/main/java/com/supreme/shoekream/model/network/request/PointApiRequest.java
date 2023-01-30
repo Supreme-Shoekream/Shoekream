@@ -9,13 +9,13 @@ import java.time.LocalDateTime;
 
 public record PointApiRequest(
         Long idx,
-        int point,
+        Long point,
         PointType reason,
         LocalDateTime regDate
 ) {
     public static PointApiRequest of(
             Long idx,
-            int point,
+            Long point,
             PointType reason,
             LocalDateTime regDate
     ){

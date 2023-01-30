@@ -22,7 +22,6 @@ public record MemberDTO(
         String accNumber
 ) {
     public static MemberDTO of(Long idx, String nickname, String memberPw, String name,
-//<<<<<<< HEAD
                                String hp, String email,Status status, String shoeSize,Long point, String profileMemo, String imgUrl, String bank, String accNumber){
         return new MemberDTO(idx, nickname, memberPw, name, hp, email,status, shoeSize,point, profileMemo, imgUrl, bank, accNumber);
     }
