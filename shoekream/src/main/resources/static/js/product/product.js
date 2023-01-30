@@ -7,82 +7,7 @@
 // id=username ? fetch :
 // fetch api: 관심상품 email proidx?? -> boolean ->src.on : off
 
-// 관심상품 눌렀는지 안눌렀는지 확인
-window.onload = function (){
-    $('span#wish_proIdx').click(function(e){
-        e.preventDefault();
-    });
 
-    // const items = document.querySelectorAll('gnb_item');
-    // items.forEach((it) => {
-    //     it.classList.remove('gnb_on');
-    // })
-    // const item = document.getElementById('st_gnb');
-    // item.classList.add('gnb_on');
-    // // console.log("in")
-    fetch("http://localhost:8889/api/product")
-        .then((response) => response.json())
-        .then((data) => {
-            console.log(data)
-            let feedList = "";
-            for(let i=0;i <data.length;i++){
-                feedList +=
-                    `
-                    <div class="feed_card item vertical"" style="padding-top: 10px; position: absolute;  left: ${(i%4)*307}px; top: ${Math.floor(i/4)*465}px">
-                                    <a href="/social/details#${data[i].idx}" class="feed_each">
-                                        <div class="card_box">
-                                            <div class="social_img_box vertical">
-                                                <a href="/social/details#${data[i].idx}" >
-                                                <picture class="picture social_img">
-                                                    <source type="image/webp"
-                                                        srcset="">
-                                                    <source
-                                                        srcset="">
-                                                    <img alt="소셜이미지"
-                                                        src="${data[i].img}"
-                                                        loading="auto" class="image">
-                                                </picture>
-                                                </a>
-                                            </div>
-                                            <div class="card_detail">
-                                                <div class="user_box">
-                                                    <picture class="picture img_profile">
-                                                        <source type="image/webp"
-                                                            srcset="">
-                                                        <source
-                                                            srcset="">
-                                                        <img alt="사용자 프로필 이미지"
-                                                            src="${data[i].memberDTO.imgUrl}"
-                                                            loading="auto" class="image" onclick="open_profile('${data[i].memberDTO.email}', ${data[i].memberDTO.idx})">
-                                                    </picture>
-                                                    <p class="user_name" onclick="open_profile('${data[i].memberDTO.email}', ${data[i].memberDTO.idx})">${data[i].memberDTO.nickname}</p><span aria-label="좋아요"
-                                                        role="button" class="btn like" onclick="like_clicked(${data[i].idx}, ${data[i].lks.length}, this)">
-`
-
-                if(data[i].islike == false){
-                    feedList += `<img id="like_icon" src="/img/styleImg/like_icon.png" alt="좋아요 이미지"
-                                                            class="icon sprite-icons social-like-gray-sm">`
-                }else{
-                    feedList += `<img id="like_icon" src="/img/styleImg/like_after_icon.png" alt="좋아요 이미지"
-                                                            class="icon sprite-icons social-like-gray-sm">`
-                }
-                feedList +=  `<span class="like_count">${data[i].lks.length}</span></span>
-                                                </div>
-                                                <p class="text_box">${data[i].content}` + ` #` +  `${data[i].hashtag}</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                    `
-            }
-
-            feedList = `<div class="gutter_item"></div>` + feedList;
-            document.getElementById('masonry_posts').innerHTML = feedList;
-        })
-        .catch((err) => {
-            console.log(err)
-        })
-}
 
 // 기능1. 스크롤시 왼쪽 상품 사진 이동후 멈춤
     const is_fixed = document.querySelector(".is_fixed");
@@ -421,41 +346,68 @@ window.onload = function (){
 
 
 // ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
-// 관심상품 클릭시 버튼 활성화
+// 관심상품 로드시 북마크 상태
     const wishes = document.querySelectorAll(".btn_wish");
     const wish_onoff = document.querySelector(".wish-onoff"); // 메인 관심상품
     const wish_onoff2 = document.querySelector(".btn_wish_simple .wish-onoff"); // 상단 고정 배너 관심상품
+    let isWish = document.getElementById("wishCount").getAttribute("value");
     wishes.forEach((wish) => {
-        wish.addEventListener("click", () => {
 
-            const ch = wish.childNodes;
-            console.log(ch);
+        const ch = wish.childNodes;
+        console.log(ch);
 
-
-
-            if (ch[1].getAttribute("src") == "/img/select_mark_off.PNG") {
-                wish_onoff.setAttribute("src", "/img/select_mark_on.png");
-                wish_onoff2.setAttribute("src", "/img/select_mark_on.png");
-                let count = 0;
-                count = count + 1;
-                $(".wish_count .wishCount").html(count);
-                // wishCount.innerText(count);
-                wishCreate();
-
-            } else {
-                wish_onoff.setAttribute("src", "/img/select_mark_off.PNG");
-                wish_onoff2.setAttribute("src", "/img/select_mark_off.PNG");
-                let totcount = $(".wish_count .wishCount").text();
-                totcount = totcount - 1;
-                $(".wish_count .wishCount").html(totcount);
-                wishDelete();
+        if(isWish == ""){
+            location.href = "http://localhost:8889/login";
+        }else {
+            if(isWish == "true") {
+                if (ch[1].getAttribute("src") == "/img/select_mark_off.PNG") {
+                    wish_onoff.setAttribute("src", "/img/select_mark_on.png");
+                    wish_onoff2.setAttribute("src", "/img/select_mark_on.png");
+                }else {
+                    wish_onoff.setAttribute("src", "/img/select_mark_on.png");
+                    wish_onoff2.setAttribute("src", "/img/select_mark_on.png");
+                }
+            }else{
+                if (ch[1].getAttribute("src") == "/img/select_mark_off.PNG") {
+                    wish_onoff.setAttribute("src", "/img/select_mark_off.PNG");
+                    wish_onoff2.setAttribute("src", "/img/select_mark_off.PNG");
+                }else {
+                    wish_onoff.setAttribute("src", "/img/select_mark_on.png");
+                    wish_onoff2.setAttribute("src", "/img/select_mark_on.png");
+                }
             }
-        })
+        }
     });
 
-// ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
-// 관심상품 유무확인
 
+// ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+// 관심상품 카운트
+wishes.forEach((wish) => {
+    wish.addEventListener("click", () => {
+
+        const ch = wish.childNodes;
+        console.log(ch);
+
+        if (ch[1].getAttribute("src") == "/img/select_mark_off.PNG") {
+            wish_onoff.setAttribute("src", "/img/select_mark_on.png");
+            wish_onoff2.setAttribute("src", "/img/select_mark_on.png");
+            // let totcount = $(".wish_count .wishCount").text();
+            let count = 0;
+            count = count + 1;
+            $(".wish_count .wishCount").html(count);
+            // wishCount.innerText(count);
+            wishCreate();
+
+        } else {
+            wish_onoff.setAttribute("src", "/img/select_mark_off.PNG");
+            wish_onoff2.setAttribute("src", "/img/select_mark_off.PNG");
+            let totcount = $(".wish_count .wishCount").text();
+            totcount = totcount - 1;
+            $(".wish_count .wishCount").html(totcount);
+            wishDelete();
+        }
+    })
+});
 
 // ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
 // 관심상품 create
@@ -470,8 +422,8 @@ window.onload = function (){
             }),
         })
             .then((res) => {
-                alert("관심상품 등록 성공!")
-                // location.reload();
+                // alert("관심상품 등록 성공!")
+                location.reload();
                 return;
             })
             .then((data) => {
@@ -493,7 +445,7 @@ window.onload = function (){
             method: "DELETE"
         })
             .then((res) => {
-                alert("관심상품 삭제 성공!")
+                // alert("관심상품 삭제 성공!")
                 location.reload();
             })
             .then((data) => {

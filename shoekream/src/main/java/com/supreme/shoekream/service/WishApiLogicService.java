@@ -45,23 +45,22 @@ public class WishApiLogicService {
     }
 
     // 관심상품 했는지 안했는지 확인
-//    public List<ProductWithWishResponse> isWishFalse(){
-//        List<ProductWithWishResponse> isWish = ProductWithWishResponse.fromEntity(wishRepository.findAll(Sort.by(Sort.Direction.DESC,"idx")));
-//        return isWish;
-//    }
-//
-//    public List<ProductWithWishResponse> isWishTrue(MemberDTO memberDTO){
-//        List<ProductWithWishResponse> isWish = ProductWithWishResponse.fromEntity(wishRepository.findAll(Sort.by(Sort.Direction.DESC,"idx")));
-//        List<WishDTO> wishes = wishRepository.findByMemberDTO(memberDTO.toEntity)
-//        return null;
-//    }
+    public boolean read(Long memIdx, Long proIdx){
+        Optional<Wish> wishSelect = wishRepository.findByMemberIdxAndProductIdx(memIdx, proIdx);
+        boolean result;
 
+        if(wishSelect.isPresent()){
+            result = true;
+        } else{
+            result = false;
+        }
 
-
+        return result;
+    }
 
 
     // 관심상품 생성
-    public Boolean create(WishDTO wishRequest, KreamPrincipal kreamPrincipal) {
+    public boolean create(WishDTO wishRequest, KreamPrincipal kreamPrincipal) {
         //ProductApiRequest productApiRequest = request.getData();
         Product product = productRepository.findByIdx(wishRequest.productIdx());
         product.setIdx(wishRequest.productIdx());
@@ -80,7 +79,7 @@ public class WishApiLogicService {
         Wish newWish = wishRepository.save(wish);
         Product newProduct = productRepository.save(product);
 
-        return Boolean.TRUE;
+        return true;
     }
 
 

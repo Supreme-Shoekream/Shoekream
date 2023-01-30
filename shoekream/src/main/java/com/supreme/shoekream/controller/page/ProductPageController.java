@@ -45,7 +45,19 @@ public class ProductPageController {
 
         Long proIdx = product.getData().getIdx();
         modelmap.addAttribute("proIdx", proIdx);
-        //        System.out.println("🟡" + proIdx);
+//        System.out.println("🟡" + proIdx);
+
+        if(kreamPrincipal == null){
+            logger.info("세션이 없습니다");
+        }else{
+            Long memIdx = kreamPrincipal.idx();
+            modelmap.addAttribute("memIdx", memIdx);
+//        System.out.println("🟡" + memIdx);
+
+            boolean isWish = wishApiLogicService.read(memIdx, proIdx);
+            modelmap.addAttribute("isWish", isWish);
+//        System.out.println("🟡" + isWish);
+        }
 
         List<ConclusionDTO> conclusion = conclusionApiLogicService.con_read(idx);
         modelmap.addAttribute("conclusion", conclusion); // "conclusion" 이름의 modelmap 객체를 view에서 사용하기위해 저장함
@@ -59,10 +71,7 @@ public class ProductPageController {
         modelmap.addAttribute("buy", buy);
 //        System.out.println("🟡" + buy);
 
-//        boolean isWish = kreamPrincipal.getUsername() ~ idx, proidx ->
-//        if(kreamPrincipal.getUsername().isEmpty()){ // 로그인 안했다
-//
-//        }
+
         return "product/product";
 
 //        Header<ProductApiResponse> con_product = productApiLogicService.con_read(idx);
