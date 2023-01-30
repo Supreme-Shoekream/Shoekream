@@ -25,7 +25,9 @@ $('span.like').click(function(e){
 
 function like_clicked(boardIdx, size, lk){
         console.log(boardIdx)
-
+    if(document.getElementById('username') == null){
+        location.href='/login';
+    }
     const items = document.querySelectorAll(".like");
     $('span.like').click(function(e){
         e.preventDefault();
@@ -45,7 +47,13 @@ function like_clicked(boardIdx, size, lk){
                 fetch("http://localhost:8889/api/social/unlike/" + boardIdx)
                     .then(()=>{
                         ch[1].setAttribute('src','/img/styleImg/like_icon.png');
-                        ch[2].innerHTML= Number(size);
+                        if(ch[2].innerHTML= Number(size) == 0){
+                            console.log('0일때')
+                            ch[2].innerHTML= Number(size);
+                        }else{
+                            console.log('0 아닐 때')
+                            ch[2].innerHTML= Number(size)-1;
+                        }
                     })
             }
 
@@ -55,6 +63,9 @@ function like_clicked(boardIdx, size, lk){
 function like_clicked_follow(boardIdx, size, lk){
     console.log(lk)
 
+    if(document.getElementById('username') == null){
+        location.href='/login';
+    }
     const items = document.querySelectorAll(".like");
     $('span.like').click(function(e){
         e.preventDefault();
@@ -76,7 +87,9 @@ function like_clicked_follow(boardIdx, size, lk){
             .then(()=>{
                 ch[1].setAttribute('src','/img/styleImg/like_icon.png');
                 // ch[2].innerHTML= Number(size);
-                document.getElementById('likeid_'+boardIdx).innerHTML = Number(size);
+                window.location.reload();
+
+
         })
     }
 
@@ -84,11 +97,14 @@ function like_clicked_follow(boardIdx, size, lk){
 
 function open_profile(memberEmail, memberIdx){
     console.log(memberEmail)
+    if(document.getElementById('username') == null){
+        location.href='/login';
+    }
     console.log(document.getElementById('username').innerHTML.trim())
     console.log(document.getElementById('username').innerHTML.trim() == memberEmail.trim())
 
     if(document.getElementById('username').innerHTML.trim() == memberEmail.trim()){
-        location.href = '/social/myprofile'
+        location.href = '/social/myprofile';
     }else{
         location.href = '/social/profile/'+memberIdx
     }

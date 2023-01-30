@@ -401,6 +401,18 @@ insert into board(hashtag, member_idx, content, img, created_at) values('데일�
 #슈프림 #슈프림패딩 #슈노 #슈프림노스페이스 #프스캇 #트레비스스캇 #스트릿', '/img/styleImg/feed19.jpeg', '2022-11-21 17:42:39');
 insert into board(hashtag, member_idx, content, img, created_at) values('데일리룩',20,'포터는 개인적으로 카키색이,,,💚', '/img/styleImg/feed20.jpeg', '2022-03-11 10:20:14');
 
+-- 상품태그용 피드
+insert into board(hashtag, member_idx, content, img, created_at) values('SUPREME',1, 'Long time no see','/img/styleImg/feed_tag1.jpeg', '2022-01-21 23:34:58'  );
+insert into board(hashtag, member_idx, content, img, created_at) values('나이키',5, '🧳','/img/styleImg/feed_tag2.jpeg', '2023-01-20 23:34:58' );
+insert into board(hashtag, member_idx, content, img, created_at) values('SUPREME',60, '후쿠오카 여행','/img/styleImg/feed_tag3.jpeg', '2023-01-12 23:34:58' );
+insert into board(hashtag, member_idx, content, img, created_at) values('SHOEKREAM',15,'','/img/styleImg/feed_tag4.jpeg', '2022-09-21 23:34:58' );
+insert into board(hashtag, member_idx, content, img, created_at) values('SUPREME',20,'','/img/styleImg/feed_tag5.jpeg', '2023-01-10 23:34:58' );
+insert into board(hashtag, member_idx, content, img, created_at) values('SHOEKREAM',45,'','/img/styleImg/feed_tag6.jpeg', '2023-01-21 22:34:58' );
+insert into board(hashtag, member_idx, content, img, created_at) values('SUPREME',10,'','/img/styleImg/feed_tag7.jpeg', '2023-01-21 23:30:58' );
+insert into board(hashtag, member_idx, content, img, created_at) values('SUPREME',6,'','/img/styleImg/feed_tag8.jpeg', '2023-01-21 23:14:58' );
+insert into board(hashtag, member_idx, content, img, created_at) values('SUPREME',1,'👽','/img/styleImg/feed_tag9.jpeg', '2023-01-21 23:34:38' );
+insert into board(hashtag, member_idx, content, img, created_at) values('SUPREME',8,'😎😎','/img/styleImg/feed_tag10.jpeg', '2023-01-21 23:34:59' );
+
 
 
 
@@ -450,6 +462,17 @@ insert into tag(board_idx, product_idx) values(1, 104);
 insert into tag(board_idx, product_idx) values(1, 103);
 insert into tag(board_idx, product_idx) values(1, 102);
 insert into tag(board_idx, product_idx) values(2, 104);
+
+insert into tag(board_idx, product_idx) values(21, 104);
+insert into tag(board_idx, product_idx) values(22, 104);
+insert into tag(board_idx, product_idx) values(23, 104);
+insert into tag(board_idx, product_idx) values(24, 104);
+insert into tag(board_idx, product_idx) values(25, 104);
+insert into tag(board_idx, product_idx) values(26, 104);
+insert into tag(board_idx, product_idx) values(27, 104);
+insert into tag(board_idx, product_idx) values(28, 104);
+insert into tag(board_idx, product_idx) values(29, 104);
+insert into tag(board_idx, product_idx) values(30, 104);
 
 
 -- # 판매내역

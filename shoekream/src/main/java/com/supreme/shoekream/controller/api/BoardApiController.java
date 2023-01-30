@@ -139,4 +139,13 @@ public class BoardApiController {
         }
     }
 
+    @GetMapping("/follow/{memberIdx}")
+    public void follow(@PathVariable(name = "memberIdx") Long memberIdx, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        styleLogicService.follow(memberIdx, kreamPrincipal.toFullDto());
+    }
+
+    @GetMapping("/unfollow/{memberIdx}")
+    public void unfollow(@PathVariable(name = "memberIdx") Long memberIdx, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        styleLogicService.unfollow(memberIdx, kreamPrincipal.toFullDto());
+    }
 }

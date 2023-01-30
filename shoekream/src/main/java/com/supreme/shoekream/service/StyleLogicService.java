@@ -74,6 +74,7 @@ public class StyleLogicService {
         }
 
         List<Lk> lks = likeRepository.findAllByMember(memberDTO.toEntity());
+
         for(int i=0;i<trend.size();i++){
             for(int j=0;j<lks.size();j++){
                 if(lks.get(j).getBoard().getIdx() == trend.get(i).idx()){
@@ -332,5 +333,17 @@ public List<FollowDTO> countFollowers(Long memberIdx){//내가 팔로우하고 �
         List<BoardWithLikeListResponse> feed = BoardWithLikeListResponse.fromEntity(boardRepository.findAllByHashtag(hashtag));
         System.out.println("해시태그"+feed);
         return feed;
+    }
+
+    public void follow(Long memberIdx, MemberDTO kreamPrincipal){
+        Follow follow = new Follow();
+        follow.setFollowerIdx(kreamPrincipal.idx());
+        follow.setFollowingIdx(memberIdx);
+        followRepository.save(follow);
+    }
+
+    public void unfollow(Long memberIdx, MemberDTO kreamPrincipal){
+        Follow follow = followRepository.findByFollowerIdxAndFollowingIdx(kreamPrincipal.idx(), memberIdx).get();
+        followRepository.delete(follow);
     }
 }
