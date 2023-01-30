@@ -124,6 +124,7 @@ public class AdminPageController {
         List<Integer> barNumbers = paginationService.getPaginationBarNumbers(pageable.getPageNumber(),sells.getTotalPages());
         map.addAttribute("sells", sells);
         map.addAttribute("barNumbers",barNumbers);
+        System.out.println(barNumbers);
         return("adminpage/sell");
     }
 

@@ -3,38 +3,65 @@
 <thlogic>
 
 <!--  오름차순/내림차순 정의  -->
-<!--    <attr sel="data-table" th:object="${sells}">-->
-<!--        <attr sel="thead/tr">-->
-<!--            <attr sel="th.idx/a" th:href="@{/admin/sell(page=${sells.number},sort='idx'+-->
-<!--                (*{sort.getOrderFor('idx')} != null ? (*{sort.getOrderFor('idx').direction.name} != 'DESC' ? ',desc' : '') : ''),-->
-<!--                searchKeyword=${param.searchValue}-->
-<!--                )}"/>-->
+    <attr sel="#sell_table" th:object="${sells}">
+        <attr sel="thead/tr">
 
-<!--        </attr>-->
-<!--    </attr>-->
+            <attr sel="th.order_num/a" th:href="@{/admin/sell(page=${sells.number},sort='idx'+
+                (*{sort.getOrderFor('idx')} != null ? (*{sort.getOrderFor('idx').direction.name} != 'DESC' ? ',desc' : '') : ''),
+                searchKeyword=${param.searchValue}
+                )}"/>
+
+            <attr sel="th.size/a" th:href="@{/admin/sell(page=${sells.number},sort='product.size'+
+                (*{sort.getOrderFor('product.size')} != null ? (*{sort.getOrderFor('product.size').direction.name} != 'DESC' ? ',desc' : '') : ''),
+                searchKeyword=${param.searchValue}
+                )}"/>
+
+            <attr sel="th.price/a" th:href="@{/admin/sell(page=${sells.number},sort='price'+
+                (*{sort.getOrderFor('price')} != null ? (*{sort.getOrderFor('price').direction.name} != 'DESC' ? ',desc' : '') : ''),
+                searchKeyword=${param.searchValue}
+                )}"/>
+
+            <attr sel="th.period/a" th:href="@{/admin/sell(page=${sells.number},sort='period'+
+                (*{sort.getOrderFor('period')} != null ? (*{sort.getOrderFor('period').direction.name} != 'DESC' ? ',desc' : '') : ''),
+                searchKeyword=${param.searchValue}
+                )}"/>
+
+        </attr>
+    </attr>
 
     <attr sel="tbody" th:remove="all-but-first">
         <attr sel="tr[0]" th:each="sell : ${sells}">
-            <attr sel="td.product_code" th:text="${sell.idx}"/>
-            <attr sel="td.order_num" th:text="${sell.productIdx}"/>
+            <attr sel="td.product_code" th:text="${sell.productIdx}"/>
+            <attr sel="td.order_num" th:text="${sell.idx}"/>
             <attr sel="td.name" th:text="${sell.sender}"/>
             <attr sel="td.size" th:text="${sell.productSize}"/>
             <attr sel="td.progress_status" th:text="${sell.progress}"/>
             <attr sel="td.price" th:text="${#numbers.formatInteger(sell.price, 0, 'COMMA')}"/>
             <attr sel="td.period" th:text="${sell.period}"/>
-<!--            <attr sel="td.deposit" th:text="${}"/>-->
+<!--            <attr sel="td.deposit" th:text="${sell.deposit}"/>-->
             <attr sel="td.status" th:text="${sell.status}"/>
-<!--            <attr sel="td.reg_data" th:datetime="${sell.created_at}" th:text="${#temporals.format(sell.created_at, 'yyyy-MM-dd')}"/>-->
+            <attr sel="td.reg_data" th:datetime="${sell.createdAt}" th:text="${#temporals.format(sell.createdAt, 'yyyy-MM-dd')}"/>
 
 <!-- View, Delete 부분 -->
             <attr sel="td.more">
                 <attr sel="#view_btn" th:onclick="'javascript:layer_sell_view('+ ${sell.idx} + ');'"/>
                 <attr sel="#delete_btn" th:onclick="'javascript:pop_sell_delete(' + ${sell.idx} + ');'"/>
             </attr>
-
         </attr>
     </attr>
 
-
+        <attr sel=".pagination">
+            <attr sel="li[0]/a" th:text="'◀'"
+                  th:href="@{/admin/sell(page=${sells.number - 1}, searchKeyword=${param.searchKeyword})}"
+                  th:class="'page-link'+(${sells.number}<=0 ? ' disabled' : '')"/>
+            <attr sel="li[1]" th:class="page-item" th:each="pageNumber : ${barNumbers}">
+                <attr sel="a" th:text="${pageNumber + 1}"
+                      th:href="@{/admin/sell(page=${pageNumber}, searchKeyword=${param.searchKeyword})}"
+                      th:class="'page-link'+(${pageNumber}==${sells.number} ? ' disabled' : '')"/>
+            </attr>
+            <attr sel="li[2]/a" th:text="'▶'"
+                  th:href="@{/admin/sell(page=${sells.number + 1}, searchKeyword=${param.searchKeyword})}"
+                  th:class="'page-link'+(${sells.number}>=${sells.totalPages -1} ? ' disabled' : '')"/>
+        </attr>
 
 </thlogic>
