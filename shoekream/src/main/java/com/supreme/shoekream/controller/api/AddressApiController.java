@@ -13,6 +13,8 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("api/my/address")
@@ -43,5 +45,17 @@ public class AddressApiController {
     public String delete(@PathVariable(name = "idx") Long idx) {
         addressApiLogicService.delete(idx);
         return "";
+    }
+    @GetMapping("/basic")
+    public List<Address> basic(@AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        return addressApiLogicService.list(kreamPrincipal.idx(), true);
+    }
+    @GetMapping("/other")
+    public List<Address> other(@AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        return addressApiLogicService.list(kreamPrincipal.idx(), false);
+    }
+    @GetMapping("/all")
+    public List<Address> list(@AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        return addressApiLogicService.all(kreamPrincipal.idx());
     }
 }

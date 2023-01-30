@@ -205,17 +205,57 @@ function step2(){
 
 /**
  * 🤍 기능6 새 주소 추가
+ * 주소에 필요한 element 선언
  * 열고닫기
  * 유효성검사
  * create를 위한 fetch
  * */
-document.querySelector('.layer_delivery .btn_layer_close').addEventListener('click', close_new_delivery)
-document.querySelector('.layer_delivery .btn_delete').addEventListener('click', close_new_delivery)
+const receiver_dd = document.getElementById('receiver')
+const receiverHp_dd = document.getElementById('receiverHp')
+const receiverAddress_dd = document.getElementById('receiverAddress')
+new_address_open_btn=document.querySelector('.layer_delivery .btn_layer_close');
+new_address_open_btn.addEventListener('click', pop_new_delivery)
 function close_new_delivery(){
     document.querySelector('.layer_delivery').style.display="none"
 }
 function pop_new_delivery(){
     document.querySelector('.layer_delivery').style.display="block"
+}
+new_address_send_btn=document.querySelector('.layer_delivery #submit_btn')
+new_address_send_btn.addEventListener('click',send_create)
+function send_create(){
+    const createName = document.querySelector('#name_input');
+    const createHp = document.querySelector('#hp_input');
+    const createZipcode = document.querySelector('#sample6_postcode');
+    const createAddress1 = document.querySelector('#sample6_address');
+    const createAddress2 = document.querySelector('#sample6_detailAddress')
+    const createAddressBasic = document.querySelector('#check1').checked;
+    fetch('/api/my/address', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            "transaction_time":`${new Date()}`,
+            "resultCode":"ok",
+            "description":"정상",
+            "data":{
+                "name": `${createName.value}`,
+                "hp": `${createHp.value}`,
+                "zipcode": `${createZipcode.value}`,
+                "address1": `${createAddress1.value}`,
+                "address2": `${createAddress2.value}`,
+                "addressBasic": `${createAddressBasic}`
+            }
+        }),
+    }).then((res)=>{
+        close_new_delivery()
+        receiver_dd.innerHTML=createName.value
+        receiverHp_dd.innerHTML=hp_decode(createHp.value.toString())
+        receiverAddress_dd.innerHTML='('+createZipcode.value+') '+createAddress1.value+" "+createAddress2.value
+        return;
+    })
+}
+function hp_decode(hp){
+    return hp.substring(0,3)+"-"+hp.substring(4,5)+"***-*"+hp.substring(8,11)
 }
 
 function maxLengthCheck(object){
@@ -318,30 +358,97 @@ document.querySelectorAll('#hp_input').forEach((item) =>{
  * 🤍 기능7 주소 변경
  * 열고 닫기
  * 사용자의 주소 리스트를 불러오는 fetch
+ * await async를 사용하지 않으면 addressList 빈 값이 나옴
  * 주소리스트 클릭시 내용 반영 및 닫기
  */
 function close_address(){
     document.querySelector('.layer_address').style.display="none"
 }
 function pop_address(){
+    address_list()
     document.querySelector('.layer_address').style.display="block"
 }
-
-// 주소 리스트중 하나 클릭시 레이어창 닫고 내용 반영
-const address = document.querySelectorAll('.select');
-address.forEach((item) => {
-    item.addEventListener('click', () => {
-        address.forEach((e) => {
-            // console.log(e.childNodes[3].childNodes[0]);
-            e.childNodes[3].style.display='none';
+async function address_list(){
+    let addressList="";
+    try{
+        const response_basic = await fetch(`/api/my/address/basic`);
+        const data_basic = await response_basic.json();
+        console.log(data_basic);
+        data_basic.forEach(dto=>{
+            let dto_hp = hp_decode(dto.hp)
+            addressList+=`
+                <div class="my_item is_active select">
+                    <div class="info_bind">
+                        <!---->
+                        <div class="address_info">
+                            <div class="name_box"><span class="name">${dto.name}</span><span class="mark">기본
+                배송지</span></div>
+                            <p class="phone">`+dto_hp+`</p>
+                            <div class="address_box"><span class="zipcode">${'('+dto.zipcode+') '}</span><span
+                                    class="address">${dto.address1+' '+dto.address2}</span></div>
+                        </div>
+                    </div>`
+            if(receiverHp_dd.innerHTML.trim()==dto.hp.trim()){
+                addressList+=`<div class="btn_bind" style="display: block;"><img src="/img/wcheck.png"></div>
+                </div>`
+            }else{
+                addressList+=`<div class="btn_bind" style="display: none;"><img src="/img/wcheck.png"></div>
+                </div>`
+            }
         })
-        let edit_address=item.childNodes[1].childNodes[3].childNodes[5].childNodes[1].innerHTML
-        // console.log(edit_address)
-        item.childNodes[3].style.display='block';
-        close_address();
-        document.querySelector('.address_info .address_txt').innerHTML= edit_address
-    })
-})
+        const response_other = await fetch(`/api/my/address/other`);
+        const data_other = await response_other.json();
+        console.log(data_other);
+        data_other.forEach(dto=>{
+            addressList+=`
+                <div class="my_item select">
+                    <div class="info_bind">
+                        <!---->
+                        <div class="address_info">
+                            <div class="name_box"><span class="name">${dto.name}</span><!----></div>
+                            <p class="phone">${dto.hp}</p>
+                            <div class="address_box"><span class="zipcode">${'('+dto.zipcode+')'}</span><span
+                                    class="address">${dto.address1+' '+dto.address2}</span></div>
+                        </div>
+                    </div>`
+
+            if(receiverHp_dd.innerHTML.trim()==dto.hp.trim()){
+                addressList+=`<div class="btn_bind" style="display: block;"><img src="/img/wcheck.png"></div>
+                </div>`
+            }else{
+                addressList+=`<div class="btn_bind" style="display: none;"><img src="/img/wcheck.png"></div>
+                </div>`
+            }
+        })
+        console.log('addressList'+addressList)
+        document.querySelector('.layer_address .other_list').innerHTML=addressList
+        const address = document.querySelectorAll('.select');
+
+        // 주소 리스트중 하나 클릭시 레이어창 닫고 내용 반영
+        address.forEach((item) => {
+            item.addEventListener('click', () => {
+                address.forEach((e) => {
+                    const img = e.childNodes[2]
+                    img.style.display='none';
+                })
+                const address_info = item.childNodes[1].childNodes[3]
+                let edit_name = address_info.childNodes[1].childNodes[0].innerHTML
+                let edit_hp = address_info.childNodes[3].innerHTML
+                let edit_address=address_info.childNodes[5].childNodes[1].innerHTML
+
+                item.childNodes[2].style.display='block';
+                close_address();
+                receiver_dd.innerHTML= edit_name;
+                receiverHp_dd.innerHTML = edit_hp;
+                receiverAddress_dd.innerHTML = edit_address;
+            })
+        })
+    }catch(error){
+        console.log(error)
+    }
+}
+
+
 
 /**
  * 🤍 기능8 배송 요청사항
