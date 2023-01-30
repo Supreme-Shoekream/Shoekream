@@ -62,4 +62,3 @@ public class QPoint extends EntityPathBase<Point> {
     }
 
 }
-

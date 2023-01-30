@@ -43,14 +43,15 @@ public class MypageController {
     private final AddressApiLogicService addressApiLogicService;
     private final CardApiLogicService cardApiLogicService;
     private final AccountApiLogicService accountApiLogicService;
+    private final MemberApiLogicService memberApiLogicService;
     @Autowired BuyService buyService;
     @Autowired SellService sellService;
     @Autowired WishApiLogicService wishApiLogicService;
     @Autowired PointApiLogicService pointApiLogicService;
 
     @GetMapping(path="")
-    public ModelAndView mypage(){
-        return new ModelAndView("/my/mypage");
+    public String mypage(){
+        return "/my/mypage";
     }
 
     @GetMapping(path = "buying")
@@ -113,8 +114,13 @@ public class MypageController {
     }
 
     @GetMapping(path="profile")
-    public ModelAndView profile(){
-        return new ModelAndView("/my/profile");
+    public String profile(ModelMap map, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        if(kreamPrincipal == null){
+            return "login/login";
+        }
+        System.out.println(memberApiLogicService.read2(kreamPrincipal.idx()));
+        map.addAttribute("profile", memberApiLogicService.read2(kreamPrincipal.idx()));
+        return "/my/profile";
     }
 
     @GetMapping(path="buying_detail")
@@ -178,6 +184,7 @@ public class MypageController {
             return "login/login";
         }
         MemberDTO memberDTO = kreamPrincipal.toFullDto();
+        map.addAttribute("member", memberApiLogicService.readPoint(memberDTO.idx()));
         map.addAttribute("point", pointApiLogicService.list(memberDTO.idx()));
         return "my/point";
     }
