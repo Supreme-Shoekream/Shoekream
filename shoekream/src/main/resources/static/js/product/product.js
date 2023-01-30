@@ -32,29 +32,29 @@ window.addEventListener('scroll', function(){
 
 
 // 기능2. 모든 사이즈 클릭시 팝업 레이어창 
-function everysizePopup() {
-    const layer = document.querySelector('.lg.layer_detail_size_select.select_only_size');
-    layer.classList.add('layer');
-        // class="lg layer_detail_size_select select_only_size"에 layer 추가
-    
-    const body = document.querySelector('body');
-    body.style.overflow = 'hidden';
-
-    layer.style.visibility ='visible';
-        // popup시 요소 뜨게함
-}
-
-function everysizePopdown() {
-    const layer = document.querySelector('.lg.layer_detail_size_select.select_only_size');
-    layer.classList.remove('layer');
-        // class="lg layer_detail_size_select select_only_size layer"에서 layer 제거
-    
-    const body = document.querySelector('body');
-    body.style.overflow = '';
-
-    layer.style.visibility ='hidden';
-        // popdown시 요소 숨김(style은 유지=자리값은 유지됨)
-}
+// function everysizePopup() {
+//     const layer = document.querySelector('.lg.layer_detail_size_select.select_only_size');
+//     layer.classList.add('layer');
+//         // class="lg layer_detail_size_select select_only_size"에 layer 추가
+//
+//     const body = document.querySelector('body');
+//     body.style.overflow = 'hidden';
+//
+//     layer.style.visibility ='visible';
+//         // popup시 요소 뜨게함
+// }
+//
+// function everysizePopdown() {
+//     const layer = document.querySelector('.lg.layer_detail_size_select.select_only_size');
+//     layer.classList.remove('layer');
+//         // class="lg layer_detail_size_select select_only_size layer"에서 layer 제거
+//
+//     const body = document.querySelector('body');
+//     body.style.overflow = '';
+//
+//     layer.style.visibility ='hidden';
+//         // popdown시 요소 숨김(style은 유지=자리값은 유지됨)
+// }
 
 
 // 기능3. 관심 상품 클릭시 팝업 레이어창 
@@ -108,41 +108,6 @@ dates.forEach((date)=>{
 });
 
 
-
-// 기능5. 시세 - 그래프 띄우기
-    // const a = document.querySelector('.tab_list .graph_month');
-    // const b = document.getElementById(a.getAttribute('aria-controls'));
-
-// const sales_panel1 = document.getElementById("graph1m").getContext("2d");
-// const graph1m = new Chart(sales_panel1, {
-//     type: "line",
-//     data: {
-//         labels: [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
-//         datasets: [{
-//             label: "시세",
-//             data: ['784000', '784000', '789000', '858000', '792000', '790000', '100000', '200000', '320000', '9000'],
-//             backgroundColor: 'rgba(255, 99, 132, 0.2)',
-//             borderColor: 'rgba(255, 99, 132, 1)',
-//             borderWidth: 1
-//         }]
-//     },
-//     options: {
-//         responsive: false,
-//         scales: {
-//             y: {
-//                 beginAtZero: false,
-//                 position: 'right' // 축이 왼쪽에 표시될지, 오른쪽에 표시될지 정할 수 있습니다.
-//             }
-//         },
-//         plugins: {
-//             legend: {
-//                 display: false // 라벨 없애기(그래프제목)
-//             }
-//         }
-//     },
-// });
-
-
 // 기능6. 시세 - 체결내역
 const conclusiones = document.querySelectorAll(".tab_list .conclusion");
 conclusiones.forEach((conclusion)=>{
@@ -159,20 +124,20 @@ conclusiones.forEach((conclusion)=>{
 
 
 // 기능7. 시세 - 모든 사이즈
-const filter_unit = document.querySelector(".filter_unit");
-    
-filter_unit.addEventListener("click", () => {
-    const layer =document.querySelector(".filter_unit .layer_size_list")
-    // const ch = filter_unit.childNodes;
-    // const ch5 = ch[5];
-    if(layer.style.display==="none"){
-        document.querySelector(".filter_unit .btn.btn_select").classList.add("on");
-        layer.style.display = "block";
-    }else{
-        document.querySelector(".filter_unit .btn.btn_select").classList.remove("on");
-        layer.style.display = "none";
-    }
-});
+// const filter_unit = document.querySelector(".filter_unit");
+//
+// filter_unit.addEventListener("click", () => {
+//     const layer =document.querySelector(".filter_unit .layer_size_list")
+//     // const ch = filter_unit.childNodes;
+//     // const ch5 = ch[5];
+//     if(layer.style.display==="none"){
+//         document.querySelector(".filter_unit .btn.btn_select").classList.add("on");
+//         layer.style.display = "block";
+//     }else{
+//         document.querySelector(".filter_unit .btn.btn_select").classList.remove("on");
+//         layer.style.display = "none";
+//     }
+// });
 
 
 // 기능8. 스크롤시 상단 고정 배너
@@ -187,7 +152,7 @@ window.addEventListener("scroll", function(){
 });
 
 
-// 기능9. 구매전확인사항 드롭다운(3개 다 열수있음)
+// 기능9. 구매전확인사항 드롭다운(3개 동시에 열수있음)
 const dropdowns = document.querySelectorAll(".dropdown");
 dropdowns.forEach((dropdown) => {
 
@@ -273,18 +238,18 @@ function conPopdown() {
 
 
 // 기능13. 체결 내역 더보기 - 모든 사이즈
-const size_select_wrap = document.querySelector(".size_select_wrap");
-    
-size_select_wrap.addEventListener("click", () => {
-    const layer = document.querySelector(".size_select_wrap .layer_size_list");
-    console.log(layer);
-
-    if(layer.style.display == "none"){
-        layer.style.display = "block";
-    }else{
-        layer.style.display = "none";
-    }
-});
+// const size_select_wrap = document.querySelector(".size_select_wrap");
+//
+// size_select_wrap.addEventListener("click", () => {
+//     const layer = document.querySelector(".size_select_wrap .layer_size_list");
+//     console.log(layer);
+//
+//     if(layer.style.display == "none"){
+//         layer.style.display = "block";
+//     }else{
+//         layer.style.display = "none";
+//     }
+// });
 
 
 // 기능14. 관심상품 클릭시 버튼 활성화
@@ -336,52 +301,48 @@ size_select_wrap.addEventListener("click", () => {
 
 
 // 사이즈 선택시 체크 표시
-// const list = document.querySelector(".conclusion2_layer_content");
-const item = document.querySelectorAll('.sl .size_item .size_link');
-const input = document.querySelector(".input_text");
-const checkImage = document.querySelector(".ico-check-s");
-
-item.forEach((target) => {
-    target.addEventListener("click", function(){
-        // input.placeholder = event.target.textContent;
-        item.forEach((e) => {
-            e.classList.remove("item_on");
-            e.childNodes[1].style.display="none";
-            // console.log(e.childNodes[1]);
-            // console.log(target.childNodes[0]);
-        })
-
-
-        // 사이즈값 찍어주기
-        $('span.input_text').text(target.innerHTML.replace('<img src="/img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;">',""));
-
-        // 사이즈값 가져오기
-        let size = $('span.it1').text(); // 앞에 찍어주는 사이즈값(메인 사이즈팝업창)
-        let size2 = $('span.sss').text(); // 사이즈 팝업창에서의 사이즈값
-
-        console.log("size:" + size);
-        console.log("size2:" + size2);
-        if(size == size2){
-            
-        }
-
-        $('a.item_on').css("display", "block");
-        
-        // input.classList.add("input_txt_color");
-
-        target.classList.add("item_on");
-        target.childNodes[1].style.display = "block";
-        
-
-        // console.log(target.childNodes[1]);
-        // list.style.display = "block";
-
-
-    })
-    
-});
+// // const list = document.querySelector(".conclusion2_layer_content");
+// const item = document.querySelectorAll('.sl .size_item .size_link');
+// const input = document.querySelector(".input_text");
+// const checkImage = document.querySelector(".ico-check-s");
+//
+// item.forEach((target) => {
+//     target.addEventListener("click", function(){
+//         // input.placeholder = event.target.textContent;
+//         item.forEach((e) => {
+//             e.classList.remove("item_on");
+//             e.childNodes[1].style.display="none";
+//             // console.log(e.childNodes[1]);
+//             // console.log(target.childNodes[0]);
+//         })
+//
+//         // 사이즈값 찍어주기
+//         $('span.input_text').text(target.innerHTML.replace('<img src="/img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;">',""));
+//
+//         // 사이즈값 가져오기
+//         let size = $('span.it1').text(); // 앞에 찍어주는 사이즈값(메인 사이즈팝업창)
+//         let size2 = $('span.sss').text(); // 사이즈 팝업창에서의 사이즈값
+//
+//         console.log("size:" + size);
+//         console.log("size2:" + size2);
+//         if(size == size2){
+//
+//         }
+//
+//         $('a.item_on').css("display", "block");
+//
+//         // input.classList.add("input_txt_color");
+//
+//         target.classList.add("item_on");
+//         target.childNodes[1].style.display = "block";
+//
+//         // console.log(target.childNodes[1]);
+//         // list.style.display = "block";
+//     })
+// });
 
 
+// ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
 // 관심상품 클릭시 버튼 활성화
 const wishes = document.querySelectorAll(".btn_wish");
 const wish_onoff = document.querySelector(".wish-onoff"); // 메인 관심상품
@@ -395,27 +356,20 @@ wishes.forEach((wish) => {
         if(ch[1].getAttribute("src") == "/img/select_mark_off.PNG"){
             wish_onoff.setAttribute("src","/img/select_mark_on.png");
             wish_onoff2.setAttribute("src","/img/select_mark_on.png");
-            // ch[1].setAttribute("src","/img/select_mark_on.png");
+            wishCreate();
         }else{
             wish_onoff.setAttribute("src","/img/select_mark_off.PNG");
             wish_onoff2.setAttribute("src","/img/select_mark_off.PNG");
-            // ch[1].setAttribute("src","/img/select_mark_off.PNG");
+            wishDelete22();
         }
     })
 });
 
 // ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
-// create
-// function wishcreate(){
-//     const btn_save = document.querySelector('.wish_save');
-//     btn_save.addEventListener("click",sendit);
-// }
-
-function wishcreate(){
-    const proIdx =document.getElementById("wish_proIdx").getAttribute("value"); // 상품 정보(idx)
-    console.log(proIdx);
-
-    // fetch("http://localhost:8889/api/product", {
+// 관심상품 create
+function wishCreate(){
+    const proIdx =document.getElementById("wish_proIdx").getAttribute("value");
+    // console.log(proIdx);
     fetch("http://localhost:8889/api/product", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -425,7 +379,6 @@ function wishcreate(){
     })
         .then((res) => {
             alert("관심상품 등록 성공!")
-            // location.href="/admin/products";
             return;
         })
         .then((data) => {
@@ -438,6 +391,29 @@ function wishcreate(){
             return;
         })
 }
+
+// ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+// 관심상품 delete
+function wishDelete22(){
+    let idx = document.getElementById("wish_proIdx").getAttribute("value");
+    fetch('http://localhost:8889/api/product/'+idx, {
+        method: "DELETE"
+    })
+        .then((res) => {
+            alert("관심상품 삭제 성공!")
+            location.reload();
+        })
+        .then((data) => {
+            console.log(data);
+            return;
+        })
+        .catch((err) => {
+            alert("에러! 에러! 관심상품 삭제 실패!");
+            location.reload();
+            return;
+        })
+}
+
 
 
 

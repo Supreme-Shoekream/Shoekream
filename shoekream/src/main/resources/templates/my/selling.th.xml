@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
 <thlogic>
+    <attr sel="#bindCount" th:text="${bidCount}"/>
+    <attr sel="#continueCount" th:text="${proCount}"/>
+    <attr sel="#endCount" th:text="${endCount}"/>
     <attr sel="#bidding">
         <attr sel=".purchase_list_display_item" th:each="bidding : ${biddings}">
             <attr sel=".purchase_list_product">

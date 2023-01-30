@@ -46,6 +46,7 @@ public class AddressApiController {
         addressApiLogicService.delete(idx);
         return "";
     }
+
     @GetMapping("/basic")
     public List<Address> basic(@AuthenticationPrincipal KreamPrincipal kreamPrincipal){
         return addressApiLogicService.list(kreamPrincipal.idx(), true);

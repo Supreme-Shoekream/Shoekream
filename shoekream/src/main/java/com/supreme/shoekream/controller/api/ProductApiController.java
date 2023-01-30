@@ -11,6 +11,7 @@ import com.supreme.shoekream.model.network.response.ProductApiResponse;
 import com.supreme.shoekream.model.network.response.WishApiResponse;
 import com.supreme.shoekream.model.network.security.KreamPrincipal;
 import com.supreme.shoekream.service.ProductApiLogicService;
+import com.supreme.shoekream.service.WishApiLogicService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,35 +28,23 @@ import java.util.List;
 @Slf4j
 @RequestMapping("/api/product") // http://localhost:8889/api/product
 public class ProductApiController {
-
-
-
     @Autowired ProductApiLogicService productApiLogicService;
+    @Autowired WishApiLogicService wishApiLogicService;
 
-    // 생성
-//    @PostMapping("") // http://localhost:8889/api/product
-//    public Boolean create(HttpServletRequest request) {
-//        request.getParameter("data");
-//        request.get
-////        log.info("~~~~~~~~~~~~~~~~~~~ :{} ",s);
-//        return productApiLogicService.create();
-//    }
-//    @PostMapping("") // http://localhost:8889/api/product
-//    public Header<WishApiResponse> create(@RequestBody Header<WishApiRequest> request) {
-//        return productApiLogicService.create(request);
-//    }
+
+    // 관심상품 생성
     @PostMapping("") // http://localhost:8889/api/product
     public Boolean create(@RequestBody WishDTO request, @AuthenticationPrincipal KreamPrincipal kreamPrincipal) {
-        Long idx = request.idx();
-        Long proIdx = request.productIdx();
-        Long memIdx = kreamPrincipal.idx();
-        boolean save = productApiLogicService.create(request, kreamPrincipal);
+//        Long idx = request.idx();
+//        Long proIdx = request.productIdx();
+//        Long memIdx = kreamPrincipal.idx();
+        boolean save = wishApiLogicService.create(request, kreamPrincipal);
         return save;
     }
 
-    // 삭제
+    // 관심상품 삭제
     @DeleteMapping("/{idx}") // http://localhost:8889/api/product/{idx}
-    public Header<ProductApiResponse> delete(@PathVariable(name="idx") Long idx) {
-        return productApiLogicService.delete(idx);
+    public Header<ProductApiResponse> delete(@PathVariable Long idx) {
+        return wishApiLogicService.delete(idx);
     }
 }

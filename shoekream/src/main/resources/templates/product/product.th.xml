@@ -42,6 +42,10 @@
 <!--        <attr sel="em.nowBuy" th:text="*{nowBuy}"/>-->
 <!--        <attr sel="em.nowSell" th:text="*{nowSell}"/>-->
     </attr>
+    <!-- 시세 -->
+    <attr sel=".detail_wrap" th:object ="${product.data}">
+        <attr sel="span.size" th:text="*{size}"/>
+    </attr>
     <!-- 체결 거래 -->
     <attr sel=".panel1">
         <attr sel=".panel1_tbody" th:remove="all-but-first">

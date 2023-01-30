@@ -1,5 +1,7 @@
 package com.supreme.shoekream.model.dto;
 
+import com.supreme.shoekream.model.entity.*;
+
 import java.time.LocalDateTime;
 
 public record EventDTO(
@@ -22,5 +24,18 @@ public record EventDTO(
             LocalDateTime endTime
     ){
         return new EventDTO(idx, title, img, productDTO, startTime, endTime);
+    }
+    public static EventDTO fromEntity(EventProduct entity){
+        return new EventDTO(
+                entity.getIdx(),
+                entity.getTitle(),
+                entity.getImg(),
+                ProductDTO.fromEntity(entity.getProduct()),
+                entity.getStartTime(),
+                entity.getEndTime()
+        );
+    }
+    public EventProduct toEntity(Product product){
+        return EventProduct.of(idx,title,img,product,startTime,endTime);
     }
 }

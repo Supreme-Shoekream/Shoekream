@@ -93,7 +93,7 @@
                                             </div>
                                             <div class="product_detail">
                                                 <div>
-                                                    <a href="#" class="brand-text wish_pro_brand"> Asics </a>
+                                                    <a class="brand-text wish_pro_brand"> Asics </a>
                                                 </div>
                                                 <p class="name wish_pro_name">Asics Gel-Venture 6 SPS Birch French Blue</p>
                                                 <span class="size wish_pro_size">245</span>
@@ -113,7 +113,7 @@
                                                         </div>
                                                     </a>
                                                 </div>
-                                                <a href="#" class="status_link"> 삭제 </a>
+                                                    <a class="status_link" id="wish_proIdx" th:onclick="wishDelete(this.getAttribute('value'))">삭제</a>
                                             </div>
                                         </div>
                                     </div>
@@ -154,6 +154,7 @@
         </div>
     </div>
 </body>
+<script src="/js/my/wish.js"></script>
 <!--<script>-->
 <!--    history.replaceState({}, null, location.pathname);-->
 <!--</script>-->
