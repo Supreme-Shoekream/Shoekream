@@ -1,8 +1,11 @@
 package com.supreme.shoekream.config;
 
 import com.supreme.shoekream.model.dto.MemberDTO;
+import com.supreme.shoekream.model.network.security.KakaoOAuth2Response;
 import com.supreme.shoekream.model.network.security.KreamPrincipal;
 import com.supreme.shoekream.repository.MemberRepository;
+import com.supreme.shoekream.service.MemberApiLogicService;
+import org.aspectj.bridge.MessageUtil;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -11,15 +14,23 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
+import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
+import org.springframework.security.oauth2.client.userinfo.OAuth2UserService;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.security.web.SecurityFilterChain;
+
+import java.util.UUID;
 
 @Configuration
 public class SecurityConfig {
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http
+                , OAuth2UserService<OAuth2UserRequest, OAuth2User> oAuth2UserService
+    ) throws Exception {
         http.csrf().disable();
         return http
-                .authorizeRequests(auth -> auth.anyRequest().permitAll())
+                .authorizeRequests(auth -> auth.antMatchers("/login").permitAll())
                 .formLogin()
                 .loginPage("/login")            // 사용자 정의 로그인 페이지
                     .defaultSuccessUrl("/")            // 로그인 성공 후 이동 페이지
@@ -30,9 +41,13 @@ public class SecurityConfig {
     //                    .successHandler(loginSuccessHandler())		// 로그인 성공 후 핸들러
     //                    .failureHandler(loginFailureHandler())		// 로그인 실패 후 핸들러
                     .and()
-                .logout()
-                    .logoutSuccessUrl("/")      //로그아웃 페이지
-                    .and()
+                .logout(logout -> logout.logoutSuccessUrl("/"))
+                .oauth2Login(oAuth -> oAuth
+                        .userInfoEndpoint(userInfo -> userInfo
+                                .userService(oAuth2UserService)
+                        )
+                ).oauth2Login().loginPage("/login")
+                .and()
                 .build();
     }
 
@@ -60,4 +75,50 @@ public class SecurityConfig {
                 .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
                 .sessionFixation().changeSessionId();
     }
+
+    /**
+     * <p>
+     * OAuth 2.0 기술을 이용한 인증 정보를 처리한다.
+     * 카카오 인증 방식을 선택.
+     *
+     * <p>
+     * TODO: 카카오 도메인에 결합되어 있는 코드. 확장을 고려하면 별도 인증 처리 서비스 클래스로 분리하는 것이 좋지만, 현재 다른 OAuth 인증 플랫폼을 사용할 예정이 없어 이렇게 마무리한다.
+     *
+     * @param memberApiLogicService  게시판 서비스의 사용자 계정을 다루는 서비스 로직
+     * @param passwordEncoder 패스워드 암호화 도구
+     * @return {@link OAuth2UserService} OAuth2 인증 사용자 정보를 읽어들이고 처리하는 서비스 인스턴스 반환
+     */
+    @Bean
+    public OAuth2UserService<OAuth2UserRequest, OAuth2User> oAuth2UserService(
+            MemberApiLogicService memberApiLogicService,
+            PasswordEncoder passwordEncoder
+    ) {
+        final DefaultOAuth2UserService delegate = new DefaultOAuth2UserService();
+
+        return userRequest -> {
+            OAuth2User oAuth2User = delegate.loadUser(userRequest);
+
+            KakaoOAuth2Response kakaoResponse = KakaoOAuth2Response.from(oAuth2User.getAttributes());
+            String registrationId = userRequest.getClientRegistration().getRegistrationId();
+            String providerId = String.valueOf(kakaoResponse.id());
+            String username = registrationId + "_" + providerId;
+            String email = kakaoResponse.email();
+            String dummyPassword = passwordEncoder.encode("{bcrypt}" + UUID.randomUUID());
+
+            return memberApiLogicService.searchUser(email)
+                    .map(KreamPrincipal::createfrom)
+                    .orElseGet(() ->
+                            KreamPrincipal.createfrom(//memberDTO
+                                    memberApiLogicService.saveUser(
+                                            dummyPassword,
+                                            kakaoResponse.nickname(),
+                                            null,
+                                            email,
+                                            null
+                                    )
+                            )
+                    );
+        };
+    }
+
 }
