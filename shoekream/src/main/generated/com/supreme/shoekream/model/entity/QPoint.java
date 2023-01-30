@@ -34,7 +34,7 @@ public class QPoint extends EntityPathBase<Point> {
     //inherited
     public final DateTimePath<java.time.LocalDateTime> modifiedAt = _super.modifiedAt;
 
-    public final NumberPath<Integer> point = createNumber("point", Integer.class);
+    public final NumberPath<Long> point = createNumber("point", Long.class);
 
     public final EnumPath<com.supreme.shoekream.model.enumclass.PointType> reason = createEnum("reason", com.supreme.shoekream.model.enumclass.PointType.class);
 
@@ -62,3 +62,4 @@ public class QPoint extends EntityPathBase<Point> {
     }
 
 }
+

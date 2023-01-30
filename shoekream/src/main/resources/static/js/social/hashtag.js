@@ -35,7 +35,7 @@ window.onload = function (){
                                                 </picture>
                                             </div>
                                             <div class="card_detail">
-                                                <div class="user_box" onclick="open_profile('${data[i].memberDTO.email}', ${data[i].memberDTO.idx})">
+                                                <div class="user_box">
                                                     <picture class="picture img_profile">
                                                         <source type="image/webp"
                                                             srcset="">
@@ -43,9 +43,9 @@ window.onload = function (){
                                                             srcset="">
                                                         <img alt="사용자 프로필 이미지"
                                                             src="${data[i].memberDTO.imgUrl}"
-                                                            loading="auto" class="image">
+                                                            loading="auto" class="image" onclick="open_profile('${data[i].memberDTO.email}', ${data[i].memberDTO.idx})">
                                                     </picture>
-                                                    <p class="user_name">${data[i].memberDTO.nickname}</p><span aria-label="좋아요"
+                                                    <p class="user_name" onclick="open_profile('${data[i].memberDTO.email}', ${data[i].memberDTO.idx})">${data[i].memberDTO.nickname}</p><span aria-label="좋아요"
                                                         role="button" class="btn like" onclick="like_clicked(${data[i].idx}, ${data[i].lks.length}, this)">
                                                         `
                         if(data[i].islike == false){
