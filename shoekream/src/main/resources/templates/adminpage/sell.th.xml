@@ -38,12 +38,11 @@
             <attr sel="td.progress_status" th:text="${sell.progress}"/>
             <attr sel="td.price" th:text="${#numbers.formatInteger(sell.price, 0, 'COMMA')}"/>
             <attr sel="td.period" th:text="${sell.period}"/>
-<!--            <attr sel="td.deposit" th:text="${sell.deposit}"/>-->
             <attr sel="td.status" th:text="${sell.status}"/>
             <attr sel="td.reg_data" th:datetime="${sell.createdAt}" th:text="${#temporals.format(sell.createdAt, 'yyyy-MM-dd')}"/>
 
 <!-- View, Delete 부분 -->
-            <attr sel="td.more">
+            <attr sel=".dropdown">
                 <attr sel="#view_btn" th:onclick="'javascript:layer_sell_view('+ ${sell.idx} + ');'"/>
                 <attr sel="#delete_btn" th:onclick="'javascript:pop_sell_delete(' + ${sell.idx} + ');'"/>
             </attr>
