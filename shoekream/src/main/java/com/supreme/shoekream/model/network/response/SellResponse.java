@@ -3,6 +3,7 @@ package com.supreme.shoekream.model.network.response;
 import com.supreme.shoekream.model.dto.SellDTO;
 import com.supreme.shoekream.model.enumclass.Progress;
 
+import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 
 /**
@@ -31,7 +32,9 @@ public record SellResponse(
         String progress,
         String status,
         Long BuyIdx,
-        LocalDateTime deadline
+        LocalDateTime deadline,
+        String fees,
+        String totalPrice
 ) {
 
     public static SellResponse from(SellDTO dto){
@@ -45,6 +48,10 @@ public record SellResponse(
         }else{
             deadline = createdAt.plusDays(period);
         }
+        Long price = dto.price();
+        DecimalFormat format = new DecimalFormat("###,###");
+        String fees = format.format(Math.floor(price*0.015/100)*100);
+        String totalPrice = format.format(price-Math.floor(price*0.015/100)*100);
         return new SellResponse(
                 dto.idx(),
                 dto.productDTO().idx(),
@@ -65,7 +72,9 @@ public record SellResponse(
                 progress,
                 dto.status().getDescription(),
                 dto.buyIdx(),
-                deadline
+                deadline,
+                fees,
+                totalPrice
         );
     }
 }

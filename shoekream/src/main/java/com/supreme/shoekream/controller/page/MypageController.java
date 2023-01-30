@@ -1,6 +1,7 @@
 package com.supreme.shoekream.controller.page;
 
 
+import com.supreme.shoekream.model.dto.BuyDTO;
 import com.supreme.shoekream.model.dto.MemberDTO;
 
 import com.supreme.shoekream.model.entity.Product;
@@ -61,13 +62,19 @@ public class MypageController {
         map.addAttribute("biddings", biddings);
         map.addAttribute("progressings", progressings);
         map.addAttribute("ends", ends);
+        map.addAttribute("bidCount",biddings.stream().toList().size());
+        map.addAttribute("proCount",progressings.stream().toList().size());
+        map.addAttribute("endCount",ends.stream().toList().size());
         return ("/my/buying");
     }
 
-//    @GetMapping(path = "buying")
-//    public ModelAndView buying(){
-//        return new ModelAndView("/my/buying");
-//    }
+    @GetMapping(path = "buying/{buyIdx}")
+    public String buyingDetail(ModelMap map, @PathVariable(name="buyIdx") Long buyIdx, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        BuyResponse buy = BuyResponse.from(buyService.buyDetail(buyIdx));
+        map.addAttribute("buy",buy);
+        return("/my/buying_detail");
+    }
+
     @GetMapping(path = "selling")
     public String selling(ModelMap map, @PageableDefault(size = 10, sort = "createdAt", direction = Sort.Direction.DESC) Pageable pageable
             , @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
@@ -78,12 +85,17 @@ public class MypageController {
         map.addAttribute("biddings",biddings);
         map.addAttribute("progressings",progressings);
         map.addAttribute("ends",ends);
+        map.addAttribute("bidCount",biddings.stream().toList().size());
+        map.addAttribute("proCount",progressings.stream().toList().size());
+        map.addAttribute("endCount",ends.stream().toList().size());
         System.out.println("입찰중"+biddings+"진행중"+progressings+"종료"+ends);
         return ("/my/selling");
     }
 
     @GetMapping(path = "selling/{sellIdx}")
     public String sellingDetail(ModelMap map, @PathVariable(name="sellIdx") Long sellIdx, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        SellResponse sell = SellResponse.from(sellService.sellDetail(sellIdx));
+        map.addAttribute("sell", sell);
         return("/my/selling_detail");
     }
 

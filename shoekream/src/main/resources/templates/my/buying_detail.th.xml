@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<thlogic>
+<!--상품 정보-->
+    <attr sel=".my_buying_detail">
+        <attr sel="#title_txt" th:text="'구매'+${buy.status}"/>
+        <attr sel=".order_number" th:text="'B-'+${buy.idx}"/>
+        <attr sel=".product_img" th:src="${buy.productImg}"/>
+        <attr sel=".number" th:text="${buy.productIdx}"/>
+        <attr sel=".name" th:text="${buy.productName}"/>
+        <attr sel=".size" th:text="${buy.productSize}"/>
+    </attr>
+<!--상태별 display-->
+    <attr sel=".price_list" th:style="(${buy.status}=='입찰중')? 'display:block':'display:none'"/>
+    <attr sel=".order_button" th:style="(${buy.status}=='입찰중')? 'display:block':'display:none'"/>
+<!--내역 정보-->
+    <attr sel=".purchase_history">
+        <attr sel=".unit" th:text="${#numbers.formatInteger(buy.price, 0, 'COMMA')}"/>
+        <attr sel="#service_charge" th:text="${buy.fees} + '원'"/>
+        <attr sel="#final_price" th:text="${buy.totalPrice} + '원'"/>
+        <attr sel="#regdate_txt" th:datetime="${buy.createdAt}" th:text="${#temporals.format(buy.createdAt, 'yyyy/MM/dd')}"/>
+        <attr sel="#period" th:datetime="${buy.deadline}" th:text="${#temporals.format(buy.deadline, 'yyyy/MM/dd')}"/>
+    </attr>
+<!--배송 정보-->
+    <attr sel=".shipping_address_wrap">
+        <attr sel="#addressName" th:text="${buy.receiver}"/>
+        <attr sel="#addressHp" th:text="${buy.receiverHp}"/>
+        <attr sel="#addressDetail" th:text="${buy.receiverAddress}"/>
+    </attr>
+<!--결제 정보-->
+    <attr sel=".payment_wrap">
+        <attr sel="#cardLastNumber" th:text="${#strings.substring(buy.cardInfo,11, 15)}"/>
+    </attr>
+
+
+
+
+</thlogic>
