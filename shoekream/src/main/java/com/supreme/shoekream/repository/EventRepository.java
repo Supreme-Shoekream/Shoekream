@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface EventRepository extends JpaRepository<EventProduct, Long> {
-    List<EventProduct> findByIdx(Long idx);
+    Optional<EventProduct> findByIdx(Long idx);
 
 
 }

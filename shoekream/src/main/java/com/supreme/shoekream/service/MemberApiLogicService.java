@@ -150,7 +150,17 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
         return Header.OK(memberApiResponses, pagination);
     }
 
+    @Transactional(readOnly = true)
+    public Optional<MemberDTO> searchUser(String email) {
+        return memberRepository.findByEmail(email)
+                .map(MemberDTO::fromEntity);
+    }
 
+    public MemberDTO saveUser(String password, String name, String hp, String email, String shoeSize) {
+        return MemberDTO.fromEntity(
+                memberRepository.save(Member.of(password, name, hp, email, shoeSize))
+        );
+    }
 
 }
 

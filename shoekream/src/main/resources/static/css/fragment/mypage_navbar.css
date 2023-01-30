@@ -82,7 +82,6 @@ body, button, dd, div, dl, dt, fieldset, figcaption, figure, form, h1, h2, h3, h
     float: left;
     width: 180px;
     margin-right: 20px;
-    margin-bottom: 500px;
 }
 .snb_list+.snb_list {
     margin-top: 40px;
