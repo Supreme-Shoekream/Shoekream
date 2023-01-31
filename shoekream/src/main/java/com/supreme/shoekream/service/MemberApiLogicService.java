@@ -70,6 +70,13 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
                 );
     }
 
+    @Transactional
+    public MemberDTO list(Long idx){
+        Member member = memberRepository.findByIdx(idx);
+        MemberDTO memberDTO = MemberDTO.fromEntity(member);
+        return memberDTO;
+    }
+
     @Override
     public Header<MemberApiResponse> update(Header<MemberApiRequest> request) {
 //        MemberApiRequest memberApiRequest = request.getData();

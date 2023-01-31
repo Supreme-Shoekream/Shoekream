@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<thlogic>
+    <attr sel=".user_thumb">
+        <attr sel=".thumb_img" th:src="${member.imgUrl}"/>
+    </attr>
+    <attr sel=".user_info">
+        <attr sel=".name" th:src="${member.nickname}"/>
+        <attr sel=".email" th:text="${member.email}"/>
+    </attr>
+    <attr sel=".membership_item">
+        <attr sel="#point" th:src="${member.point}"/>
+    </attr>
+
+
+</thlogic>

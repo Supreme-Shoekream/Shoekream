@@ -11,7 +11,6 @@ import com.supreme.shoekream.model.enumclass.OrderStatus;
 
 import com.supreme.shoekream.model.network.Header;
 import com.supreme.shoekream.model.network.response.BuyResponse;
-import com.supreme.shoekream.model.network.response.ProductApiResponse;
 import com.supreme.shoekream.model.network.response.SellResponse;
 import com.supreme.shoekream.model.network.response.WishApiResponse;
 import com.supreme.shoekream.model.network.security.KreamPrincipal;
@@ -43,14 +42,25 @@ public class MypageController {
     private final AddressApiLogicService addressApiLogicService;
     private final CardApiLogicService cardApiLogicService;
     private final AccountApiLogicService accountApiLogicService;
+    private final MemberApiLogicService memberApiLogicService;
     @Autowired BuyService buyService;
     @Autowired SellService sellService;
     @Autowired WishApiLogicService wishApiLogicService;
     @Autowired PointApiLogicService pointApiLogicService;
 
+//    @GetMapping(path="")
+//    public ModelAndView mypage(){
+//        return new ModelAndView("/my/mypage");
+//    }
+
     @GetMapping(path="")
-    public ModelAndView mypage(){
-        return new ModelAndView("/my/mypage");
+    public String mypage(ModelMap modelmap, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        if(kreamPrincipal == null){
+            return "login/login";
+        }
+        MemberDTO memberDTO = kreamPrincipal.toFullDto();
+        modelmap.addAttribute("member", memberApiLogicService.list(memberDTO.idx()));
+        return "/my/mypage";
     }
 
     @GetMapping(path = "buying")
