@@ -3,12 +3,6 @@
 //     console.log(window.scrollY)
 // });
 
-// 기능0. 로드되자마자 세팅해주는 값
-// id=username ? fetch :
-// fetch api: 관심상품 email proidx?? -> boolean ->src.on : off
-
-
-
 // 기능1. 스크롤시 왼쪽 상품 사진 이동후 멈춤
     const is_fixed = document.querySelector(".is_fixed");
     // 왼쪽 상품 사진 
@@ -381,29 +375,27 @@
 
 
 // ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
-// 관심상품 카운트
+// 관심상품 클릭시 카운트
 wishes.forEach((wish) => {
     wish.addEventListener("click", () => {
 
         const ch = wish.childNodes;
-        console.log(ch);
+        // console.log(ch);
 
         if (ch[1].getAttribute("src") == "/img/select_mark_off.PNG") {
             wish_onoff.setAttribute("src", "/img/select_mark_on.png");
             wish_onoff2.setAttribute("src", "/img/select_mark_on.png");
-            // let totcount = $(".wish_count .wishCount").text();
-            let count = 0;
-            count = count + 1;
-            $(".wish_count .wishCount").html(count);
-            // wishCount.innerText(count);
+            // let count = 0;
+            // count = count + 1;
+            // $(".wish_count .wishCount").html(count);
             wishCreate();
 
         } else {
             wish_onoff.setAttribute("src", "/img/select_mark_off.PNG");
             wish_onoff2.setAttribute("src", "/img/select_mark_off.PNG");
-            let totcount = $(".wish_count .wishCount").text();
-            totcount = totcount - 1;
-            $(".wish_count .wishCount").html(totcount);
+            // let totcount = $(".wish_count .wishCount").text();
+            // totcount = totcount - 1;
+            // $(".wish_count .wishCount").html(totcount);
             wishDelete();
         }
     })
@@ -422,7 +414,7 @@ wishes.forEach((wish) => {
             }),
         })
             .then((res) => {
-                // alert("관심상품 등록 성공!")
+                alert("관심상품 등록 성공!")
                 location.reload();
                 return;
             })
@@ -445,7 +437,7 @@ wishes.forEach((wish) => {
             method: "DELETE"
         })
             .then((res) => {
-                // alert("관심상품 삭제 성공!")
+                alert("관심상품 삭제 성공!")
                 location.reload();
             })
             .then((data) => {
@@ -459,62 +451,7 @@ wishes.forEach((wish) => {
             })
     }
 
-// ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
-// 로드시 관심상품 북마크 유지시키기
 
-// // const form = document.querySelector(".js-form"),
-//     const input = form.querySelector("img.wish-onoff")
-//     // greeting = document.querySelector(".js-greeting"),
-//     // button = document.querySelector("button");
-//
-// //저장할 데이터의 key값
-// const LOCAL_DATA = "wish";
-//
-// //input태그에 이름 입력 후 input태그를 감추고,
-// //텍스트가 나타나게 해주는 함수
-// function hiddenAndGreeting(name) {
-//     // greeting.style.display = "block";
-//     // form.style.display = "none";
-//     // button.style.display = "block";
-//     // button.addEventListener("click", onClick);
-//     // greeting.innerText = `Hi! ${name}`;
-//     localStorage.setItem(LOCAL_DATA, input.src="/img/select_mark_on.png");
-// }
-//
-// // input태그에 입력 시, lacalStorage의 value값으로 저장
-// function onSubmit(e) {
-//     e.preventDefault();
-//     localStorage.setItem(LOCAL_DATA, input.src);
-//     // hiddenAndGreeting(input.value);
-//     // input.value = "";
-// }
-//
-// //input태그 보이게 설정, 인사 텍스트와 버튼은 숨김.
-// //form에 submit 이벤트 설정
-// function askForNickName() {
-//     // form.style.display = "block";
-//     // greeting.style.display = "none";
-//     // button.style.display = "none";
-//     // form.addEventListener("submit", onSubmit); //form에 submit이벤트 추가
-//     localStorage.setItem(LOCAL_DATA, input.src="/img/select_mark_off.PNG");
-// }
-//
-// // 브라우저의 localStorage에 데이터가 있을때와 없을때 구분하여 실행
-// function loaded() {
-//     const data = localStorage.getItem(LOCAL_DATA);
-//     if (data === null) { // 데이터가 없을 시
-//         askForNickName();
-//     } else {//데이터가 이미 있을 시
-//         hiddenAndGreeting(data);
-//     }
-// }
-//
-// //처음 실행할 init함수
-// function init() {
-//     loaded();
-// }
-//
-// init();
 
 
 

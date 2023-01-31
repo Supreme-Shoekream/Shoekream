@@ -1,20 +1,15 @@
 package com.supreme.shoekream.service;
 
-import com.supreme.shoekream.model.dto.MemberDTO;
 import com.supreme.shoekream.model.dto.WishDTO;
 import com.supreme.shoekream.model.entity.Member;
 import com.supreme.shoekream.model.entity.Product;
 import com.supreme.shoekream.model.entity.Wish;
-import com.supreme.shoekream.model.network.Header;
-import com.supreme.shoekream.model.network.response.ProductApiResponse;
-import com.supreme.shoekream.model.network.response.ProductWithWishResponse;
 import com.supreme.shoekream.model.network.security.KreamPrincipal;
 import com.supreme.shoekream.repository.MemberRepository;
 import com.supreme.shoekream.repository.ProductRepository;
 import com.supreme.shoekream.repository.WishRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -61,7 +56,6 @@ public class WishApiLogicService {
 
     // 관심상품 생성
     public boolean create(WishDTO wishRequest, KreamPrincipal kreamPrincipal) {
-        //ProductApiRequest productApiRequest = request.getData();
         Product product = productRepository.findByIdx(wishRequest.productIdx());
         product.setIdx(wishRequest.productIdx());
 
@@ -82,21 +76,24 @@ public class WishApiLogicService {
         return true;
     }
 
-
     // 관심상품 삭제
-    public Header delete(Long idx) {
-        Optional<Wish> wishes = wishRepository.findByProductIdx(idx);
+    public boolean delete(Long idx, Long kreamPrincipalIdx) {
         Product product = productRepository.findByIdx(idx);
+        Optional<Wish> wishSelect = wishRepository.findByMemberIdxAndProductIdx(kreamPrincipalIdx, idx);
+        wishSelect.map(select -> {
 
-        int count = product.getWishCount();
-        count = count - 1;
-        product.setWishCount(count);
-
-        return wishes.map(wish->{
-            wishRepository.delete(wish);
+            int count = product.getWishCount();
+            count = count - 1;
+            product.setWishCount(count);
             Product newProduct = productRepository.save(product);
-            return Header.OK();
-        }).orElseGet(()->Header.ERROR("데이터 없음"));
+
+            Long wishSelectidx = select.getIdx();
+            wishRepository.deleteById(wishSelectidx);
+
+            return true;
+        });
+
+        return true;
     }
 
 }
