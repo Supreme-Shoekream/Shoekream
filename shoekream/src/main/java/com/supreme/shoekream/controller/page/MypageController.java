@@ -59,7 +59,16 @@ public class MypageController {
             return "login/login";
         }
         MemberDTO memberDTO = kreamPrincipal.toFullDto();
+//        List<BuyResponse> topBuy = buyService. myBuyList(memberDTO.idx()).stream().map(BuyResponse::from).toList();
+        List<BuyResponse> biddings = buyService. myPageBuyListByStatus(memberDTO.idx(), OrderStatus.BIDDING).stream().map(BuyResponse::from).toList();
+        List<BuyResponse> progressings = buyService. myPageBuyListByStatus(memberDTO.idx(), OrderStatus.PROGRESSING).stream().map(BuyResponse::from).toList();
+        List<BuyResponse> ends = buyService. myPageBuyListByStatus(memberDTO.idx(), OrderStatus.END).stream().map(BuyResponse::from).toList();
+//        modelmap.addAttribute("topBuy", memberApiLogicService.list(memberDTO.idx()));
+        modelmap.addAttribute("buying", buyService.myBuyList(memberDTO.idx()));
         modelmap.addAttribute("member", memberApiLogicService.list(memberDTO.idx()));
+        modelmap.addAttribute("bidCount",biddings.stream().toList().size());
+        modelmap.addAttribute("proCount",progressings.stream().toList().size());
+        modelmap.addAttribute("endCount",ends.stream().toList().size());
         return "/my/mypage";
     }
 
