@@ -1,6 +1,7 @@
 package com.supreme.shoekream.service;
 
 import com.supreme.shoekream.model.dto.MemberDTO;
+import com.supreme.shoekream.model.dto.ProductDTO;
 import com.supreme.shoekream.model.dto.socialDTO.BoardDTO;
 import com.supreme.shoekream.model.dto.socialDTO.FollowDTO;
 import com.supreme.shoekream.model.dto.socialDTO.LkDTO;
@@ -32,6 +33,8 @@ public class StyleLogicService {
     private final MemberRepository memberRepository;
     private final LikeRepository likeRepository;
     private final ReplyRepository replyRepository;
+    private  final ProductRepository productRepository;
+    private final TagRepository tagRepository;
 
     @Transactional(readOnly=true)
     public List<BoardDTO> list(){
@@ -361,5 +364,59 @@ public List<FollowDTO> countFollowers(Long memberIdx){//내가 팔로우하고 �
     public void unfollow(Long memberIdx, MemberDTO kreamPrincipal){
         Follow follow = followRepository.findByFollowerIdxAndFollowingIdx(kreamPrincipal.idx(), memberIdx).get();
         followRepository.delete(follow);
+    }
+
+    public List<BoardWithLikeListResponse> getProductBoards(Long productIdx){
+        System.out.println(productIdx);
+        Product product = productRepository.getReferenceById(productIdx);
+        String productName = product.getName();
+        List<Product>  products = productRepository.findAllByName(productName);
+        System.out.println("4444"+products);
+        List<Tag> tags = new ArrayList<>();
+        for(int i=0;i<products.size();i++){
+            tags.addAll(tagRepository.findAllByProductIdx(products.get(i).getIdx()));
+        }// 프로덕트와 같은 이름(모든 사이즈)를 포함한 태그들을 불러오기
+
+        List<BoardWithLikeListResponse> responses = new ArrayList<>();
+        for(int i=0;i<tags.size();i++){
+            responses.add(BoardWithLikeListResponse.fromEntity(boardRepository.findByIdx(tags.get(i).getIdx())));
+        }
+        System.out.println("리스폰스 테스트"+responses);
+        return responses;
+    }
+    public List<BoardWithLikeListResponse> getProductBoards(Long productIdx, Long memberIdx){
+        System.out.println(productIdx);
+        Product product = productRepository.getReferenceById(productIdx);
+        String productName = product.getName();
+        List<Product>  products = productRepository.findAllByName(productName);
+        System.out.println("4444"+products);
+        List<Tag> tags = new ArrayList<>();
+        for(int i=0;i<products.size();i++){
+            tags.addAll(tagRepository.findAllByProductIdx(products.get(i).getIdx()));
+        }// 프로덕트와 같은 이름(모든 사이즈)를 포함한 태그들을 불러오기
+
+        List<BoardWithLikeListResponse> responses = new ArrayList<>();
+        for(int i=0;i<tags.size();i++){
+            responses.add(BoardWithLikeListResponse.fromEntity(boardRepository.findByIdx(tags.get(i).getIdx())));
+        }
+        System.out.println("리스폰스 테스트"+responses);
+
+        List<Lk> likes = likeRepository.findAllByMember(memberRepository.getReferenceById(memberIdx));
+
+        for(int i=0;i<responses.size();i++){
+            for(int j=0;j<likes.size();j++){
+                if(responses.get(i).idx().equals(likes.get(j).getBoard().getIdx())){
+                    responses.set(i,
+                            BoardWithLikeListResponse.of(responses.get(i).idx(),
+                                    responses.get(i).memberDTO(),
+                                    responses.get(i).content(),
+                                    responses.get(i).img(), responses.get(i).hashtag(),responses.get(i).lks(), responses.get(i).replies(),
+                                    responses.get(i).tags(), responses.get(i).createdAt(), responses.get(i).modifiedAt(), true)
+                    );
+                }
+            }
+        }
+
+        return responses;
     }
 }
