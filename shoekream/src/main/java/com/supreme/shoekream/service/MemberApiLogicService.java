@@ -33,8 +33,6 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
                 .status(member.getStatus())
                 .shoeSize(member.getShoeSize())
                 .point(member.getPoint())
-                .createdAt(member.getCreatedAt())
-                .modifiedAt(member.getModifiedAt())
                 .profileMemo(member.getProfileMemo())
                 .imgUrl(member.getImgUrl())
                 .bank(member.getBank())
@@ -47,16 +45,31 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
     public Header<MemberApiResponse> create(Header<MemberApiRequest> request) {
         MemberApiRequest memberApiRequest = request.getData();
         MemberDTO memberDTO = memberApiRequest.toDTO();
-        Member member = Member.builder()
-                .memberPw(memberDTO.memberPw())
-                .name(memberDTO.name())
-                .hp(memberDTO.hp())
-                .email(memberDTO.email())
-                .shoeSize(memberDTO.shoeSize())
-                .build();
-        Member newMember = memberRepository.save(member);
+//        Member member = Member.builder()
+//                .memberPw(memberDTO.memberPw())
+//                .name(memberDTO.name())
+//                .hp(memberDTO.hp())
+//                .email(memberDTO.email())
+//                .shoeSize(memberDTO.shoeSize())
+//                .build();
+        Member newMember = memberRepository.save(memberDTO.toEntity());
+
+        //memberRepository.save(Member.of(password, name, hp, email, shoeSize))
         return Header.OK(response(newMember));
     }
+//@Override
+//public Header<MemberApiResponse> create(Header<MemberApiRequest> request) {
+//    MemberApiRequest memberApiRequest = request.getData();
+//    Member member = Member.builder()
+//            .memberPw(memberApiRequest.memberPw())
+//            .name(memberApiRequest.name())
+//            .hp(memberApiRequest.hp())
+//            .email(memberApiRequest.email())
+//            .shoeSize(memberApiRequest.shoeSize())
+//            .build();
+//    Member newMember = memberRepository.save(member);
+//    return Header.OK(response(newMember));
+//}
 
     @Override
     public Header<MemberApiResponse> read(Long idx) {

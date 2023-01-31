@@ -2,6 +2,7 @@ package com.supreme.shoekream.model.dto;
 
 import com.supreme.shoekream.model.entity.Member;
 import com.supreme.shoekream.model.enumclass.Status;
+import com.supreme.shoekream.model.network.security.KreamPrincipal;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -19,20 +20,21 @@ public record MemberDTO(
         String profileMemo,
         String imgUrl,
         String bank,
-        String accNumber
+        String accNumber,
+        KreamPrincipal.RoleType roleType
 ) {
     public static MemberDTO of(Long idx, String nickname, String memberPw, String name,
-                               String hp, String email,Status status, String shoeSize,Long point, String profileMemo, String imgUrl, String bank, String accNumber){
-        return new MemberDTO(idx, nickname, memberPw, name, hp, email,status, shoeSize,point, profileMemo, imgUrl, bank, accNumber);
+                               String hp, String email,Status status, String shoeSize,Long point, String profileMemo, String imgUrl, String bank, String accNumber, KreamPrincipal.RoleType roleType){
+        return new MemberDTO(idx, nickname, memberPw, name, hp, email,status, shoeSize,point, profileMemo, imgUrl, bank, accNumber, roleType);
     }
     public static MemberDTO of(String nickname, String memberPw, String name,
                                String hp, String email,String shoeSize){
-        return new MemberDTO(null, nickname, memberPw, name, hp, email,Status.MEMBER, shoeSize,0L, null, null, null, null);
+        return new MemberDTO(null, nickname, memberPw, name, hp, email,Status.MEMBER, shoeSize,0L, null, null, null, null,null);
     }
     public static MemberDTO of(String memberPw, String name,
                                String hp, String email, String shoeSize,
-                               String bank, String accNumber){
-        return new MemberDTO(null, null, memberPw, name, hp, email,null, shoeSize,null, null, null, bank, accNumber);
+                               String bank, String accNumber,KreamPrincipal.RoleType roleType){
+        return new MemberDTO(null, null, memberPw, name, hp, email,null, shoeSize,null, null, null, bank, accNumber, roleType);
     }
 
     public static MemberDTO fromEntity(Member member){
@@ -49,7 +51,8 @@ public record MemberDTO(
                 member.getProfileMemo(),
                 member.getImgUrl(),
                 member.getBank(),
-                member.getAccNumber()
+                member.getAccNumber(),
+                null
         );
     }
 

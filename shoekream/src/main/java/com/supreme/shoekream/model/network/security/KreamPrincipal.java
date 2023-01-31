@@ -30,7 +30,8 @@ public record KreamPrincipal(
         String imgUrl,
         String bank,
         String accountNumber,
-        Map<String, Object> oAuth2Attributes
+        Map<String, Object> oAuth2Attributes,
+        KreamPrincipal.RoleType roleType
 
 ) implements UserDetails, OAuth2User {
     public static KreamPrincipal of(Long idx,
@@ -46,7 +47,7 @@ public record KreamPrincipal(
                                     String imgUrl,
                                     String bank,
                                     String accountNumber
-            , Map<String, Object> oAuth2Attributes){
+            , Map<String, Object> oAuth2Attributes, KreamPrincipal.RoleType roleType){
         Set<RoleType> roleTypes = Set.of(RoleType.USER);
         return new KreamPrincipal(
                 idx,
@@ -65,7 +66,8 @@ public record KreamPrincipal(
                 imgUrl,
                 bank,
                 accountNumber,
-                oAuth2Attributes
+                oAuth2Attributes,
+                roleType
         );
     }
     public static KreamPrincipal createof(
@@ -88,7 +90,8 @@ public record KreamPrincipal(
                 null,
                 null,
                 null,
-                Map.of()
+                Map.of(),
+                RoleType.USER
         );
     }
 
@@ -107,7 +110,8 @@ public record KreamPrincipal(
                 dto.imgUrl(),
                 dto.bank(),
                 dto.accNumber(),
-                Map.of()
+                Map.of(),
+                RoleType.USER
 
         );
     }
@@ -158,7 +162,9 @@ public record KreamPrincipal(
                 profileMemo,
                 imgUrl,
                 bank,
-                accountNumber
+                accountNumber,
+                roleType
+
         );
     }
 

@@ -1,6 +1,6 @@
 window.onload = function(){
     const btn = document.querySelector('.btn_join');
-    btn.addEventListener('click',sendit);
+    // btn.addEventListener('click',sendit);
 }
 function sendit() {
     //request로 필요한 DOM 객체 선택
