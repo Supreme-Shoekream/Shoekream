@@ -76,9 +76,9 @@
     </attr>
 
 <!--    스타일-->
-    <attr sel=".feed_area">
-
-    </attr>
+<!--    <attr sel=".feed_area">-->
+<!--        <attr sel=".num" th:text="${boards}"-->
+<!--    </attr>-->
 
 
     <!-- 관심 상품 추가 -->

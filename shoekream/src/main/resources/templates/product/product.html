@@ -831,10 +831,10 @@
                             <div class="feed_area">
                                 <h2 class="feed_title">
                                     <span class="title">스타일</span>
-                                    <span class="num">1145</span>
+                                    <span class="num" id="style_cnt">1145</span>
                                 </h2>
                                 <div class="social_feeds">
-                                    <div transition-duration="0" item-selector=".item" gutter=".gutter_item" horizontal-order="true" class="masonry_posts" style="position: relative; height: 750px;">
+                                    <div transition-duration="0" item-selector=".item" gutter=".gutter_item" horizontal-order="true" class="masonry_posts" style="position: relative; height: 800px;">
                                         <div class="gutter_item"></div>
                                         <div class="feed_card item square" style="position: absolute; left: 0px; top: 0px;">
                                             <a href="#">
@@ -1452,6 +1452,8 @@
         </div>
 </body>
     <script src="/js/product/product.js"></script>
+    <script src="/js/social/product_boards.js"></script>
+    <script src="/js/social/like.js"></script>
     <script th:inline="javascript">
         /*<![CDATA[*/
         let conclusion = [[${conclusion}]];

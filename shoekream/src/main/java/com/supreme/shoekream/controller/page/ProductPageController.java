@@ -4,6 +4,7 @@ import com.supreme.shoekream.model.dto.ConclusionDTO;
 import com.supreme.shoekream.model.dto.WishDTO;
 import com.supreme.shoekream.model.entity.Product;
 import com.supreme.shoekream.model.network.Header;
+import com.supreme.shoekream.model.network.response.BoardWithLikeListResponse;
 import com.supreme.shoekream.model.network.response.ProductApiResponse;
 import com.supreme.shoekream.model.network.security.KreamPrincipal;
 import com.supreme.shoekream.repository.ProductRepository;
@@ -34,6 +35,8 @@ public class ProductPageController {
     @Autowired ProductRepository productRepository;
     @Autowired WishRepository wishRepository;
     private final Logger logger = LoggerFactory.getLogger(ProductPageController.class.getName());
+
+    private final StyleLogicService styleLogicService;
 
 
     @GetMapping(path="/{idx}") //http://localhost:8889/product/{idx}
@@ -71,7 +74,7 @@ public class ProductPageController {
         modelmap.addAttribute("buy", buy);
 //        System.out.println("🟡" + buy);
 
-//      스타일
+
 
         return "product/product";
 
