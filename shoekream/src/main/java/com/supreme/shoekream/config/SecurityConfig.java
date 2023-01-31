@@ -8,7 +8,13 @@ import com.supreme.shoekream.service.MemberApiLogicService;
 import org.aspectj.bridge.MessageUtil;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -23,14 +29,35 @@ import org.springframework.security.web.SecurityFilterChain;
 import java.util.UUID;
 
 @Configuration
-public class SecurityConfig {
+public class SecurityConfig{
+
+
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http
                 , OAuth2UserService<OAuth2UserRequest, OAuth2User> oAuth2UserService
     ) throws Exception {
         http.csrf().disable();
         return http
-                .authorizeRequests(auth -> auth.antMatchers("/login").permitAll())
+                .authorizeRequests(auth -> auth.antMatchers("/login").permitAll()
+                        .mvcMatchers("/",
+                                "https://kauth.kakao.com/oauth/authorize/**",
+                                "/login",
+                                "/login/**",
+                                "/loginOk",
+                                "/join",
+                                "/api/**",
+                                "/find",
+                                "/product/**",
+                                "/searchs/**",
+                                "/social",
+                                "/social/newest",
+                                "/social/hashtag/**",
+                                "/social/details",
+                                "/joinOk"
+                        ).permitAll()
+                   .anyRequest().authenticated()
+                )
                 .formLogin()
                 .loginPage("/login")            // 사용자 정의 로그인 페이지
                     .defaultSuccessUrl("/")            // 로그인 성공 후 이동 페이지
@@ -38,19 +65,23 @@ public class SecurityConfig {
                     .usernameParameter("email")            // 아이디 파라미터명 설정
                     .passwordParameter("memberPw")            // 패스워드 파라미터명 설정
                     .loginProcessingUrl("/loginOk")            // 로그인 Form Action Url
-    //                    .successHandler(loginSuccessHandler())		// 로그인 성공 후 핸들러
-    //                    .failureHandler(loginFailureHandler())		// 로그인 실패 후 핸들러
+                    .successHandler(new CustomLoginSuccessHandler())		// 로그인 성공 후 핸들러
+    //              .failureHandler(loginFailureHandler())		// 로그인 실패 후 핸들러
                     .and()
                 .logout(logout -> logout.logoutSuccessUrl("/"))
                 .oauth2Login(oAuth -> oAuth
                         .userInfoEndpoint(userInfo -> userInfo
                                 .userService(oAuth2UserService)
                         )
+                        .successHandler(new CustomLoginSuccessHandler())
                 ).oauth2Login().loginPage("/login")
                 .and()
                 .build();
     }
-
+    @Bean
+    public WebSecurityCustomizer webSecurityCustomizer() {
+        return (web) -> web.ignoring().antMatchers("/js/**", "/img/**", "/css/**","/lib/**");
+    }
 //        return http
 //            .authorizeRequests(auth -> auth.anyRequest().permitAll())
 //            .formLogin().and()
