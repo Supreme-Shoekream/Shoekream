@@ -114,7 +114,7 @@ public class BoardApiController {
     }
 
     @GetMapping("/isBoardExist/{memberIdx}")
-    public List<BoardDTO> isBoardExist(@PathVariable(name = "memberIdx") Long memberIdx){
+    public List<BoardWithLikeListResponse> isBoardExist(@PathVariable(name = "memberIdx") Long memberIdx){
         return styleLogicService.isBoardExist(memberIdx);
     }
 
