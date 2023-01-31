@@ -74,6 +74,13 @@
             </attr>
         </attr>
     </attr>
+
+<!--    스타일-->
+    <attr sel=".feed_area">
+
+    </attr>
+
+
     <!-- 관심 상품 추가 -->
     <attr sel=".layer_interest" th:object ="${product.data}">
         <attr sel="img#previewImg5" th:src="*{img}"/>

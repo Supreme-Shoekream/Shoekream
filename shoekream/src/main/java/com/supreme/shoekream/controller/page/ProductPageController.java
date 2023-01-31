@@ -71,6 +71,7 @@ public class ProductPageController {
         modelmap.addAttribute("buy", buy);
 //        System.out.println("🟡" + buy);
 
+//      스타일
 
         return "product/product";
 

@@ -1,6 +1,7 @@
 package com.supreme.shoekream.service;
 
 import com.supreme.shoekream.model.dto.MemberDTO;
+import com.supreme.shoekream.model.dto.ProductDTO;
 import com.supreme.shoekream.model.dto.socialDTO.BoardDTO;
 import com.supreme.shoekream.model.dto.socialDTO.FollowDTO;
 import com.supreme.shoekream.model.dto.socialDTO.LkDTO;
@@ -32,6 +33,7 @@ public class StyleLogicService {
     private final MemberRepository memberRepository;
     private final LikeRepository likeRepository;
     private final ReplyRepository replyRepository;
+    private  final ProductRepository productRepository;
 
     @Transactional(readOnly=true)
     public List<BoardDTO> list(){
@@ -362,4 +364,11 @@ public List<FollowDTO> countFollowers(Long memberIdx){//내가 팔로우하고 �
         Follow follow = followRepository.findByFollowerIdxAndFollowingIdx(kreamPrincipal.idx(), memberIdx).get();
         followRepository.delete(follow);
     }
+
+//    public List<BoardWithLikeListResponse> getProductBoards(Long productIdx){
+//        System.out.println(productIdx);
+//        Product product = productRepository.getReferenceById(productIdx);
+//        String productName = product.getName();
+////        List<Product>
+//    }
 }
