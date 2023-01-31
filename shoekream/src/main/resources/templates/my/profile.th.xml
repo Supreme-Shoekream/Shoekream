@@ -1,0 +1,8 @@
+<thlogic>
+    <attr sel="#profile_name" th:text="${profile.nickname}"/>
+    <attr sel="#profile_email" th:text="${profile.email}"/>
+<!--    <attr sel="#profiel_password" th:text="${profile.password}"/>-->
+    <attr sel="#profile_nickname" th:text="${profile.nickname}"/>
+    <attr sel="#profile_hp" th:text="${profile.hp}"/>
+    <attr sel="#profile_shoe" th:text="${profile.shoeSize}"/>
+</thlogic>

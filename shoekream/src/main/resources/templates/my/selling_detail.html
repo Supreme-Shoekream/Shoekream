@@ -2,15 +2,18 @@
 <html lang="ko"
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org/">
-
-      <link rel="stylesheet" href="/css/my/selling_detail.css">
-      <head th:replace="/fragment/footer_head :: head"></head>
-      <link rel="stylesheet" href="/css/fragment/footer.css">
-    <title>판매 상세 페이지</title>
-<!-- footer_head.html -->
-      <div th:replace="fragment/mypage_header :: header"></div>
-<!-- footer_head.html 끝-->
-
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHOEKREAM | 한정판 거래의 FLEX</title>
+    <link rel="stylesheet" href="/css/my/selling_detail.css">
+    <link rel="stylesheet" href="/css/fragment/footer.css">
+    <link rel="stylesheet" href="/css/fragment/mypage_navbar.css">
+    <script defer src="/js/fragment/mypage_navbar.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+            integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+</head>
 <body>
 <div id="__nuxt">
     <!---->
@@ -18,18 +21,19 @@
         <div class="wrap win_os">
             <!---->
             <div class="wrap_inner">
-                <!-- header_title start -->
-<!--                <div th:replace="include/pjs_header_title :: header_title"></div>-->
-                <!-- header_title end -->
-                <!--container-->
+                <div class="wrap_inner">
+                    <!-- header_title start -->
+                    <div th:replace="fragment/header :: header"></div>
+                    <!--header_title end-->
+                </div>
                 <div class="container my lg">
                     <div>
                         <!--snb_area start-->
-<!--                        <div th:replace="include/pjs_mypage_snb_mo :: mypage_snb_mo"></div>-->
+                        <nav th:replace="/fragment/mypage_navbar::nav"></nav>
                         <!--snb_area end-->
                     </div>
                     <div class="content_area">
-                        <div class="my_buying_detail finished">
+                        <div class="my_selling_detail finished">
                             <div class="content_title">
                                 <div class="title">
                                     <h2 id="title_txt">종료된 거래 </h2>
@@ -64,7 +68,7 @@
                                     </div>
                                     <!---->
                                     <div class="order_btn">
-                                        <a type="button" class="btn outlinegrey small" onclick="location.href='/product/'+productId;"> 상품 상세 </a>
+                                        <a type="button" class="btn outlinegrey small" th:href="@{/product/{idx}(idx=${sell.productIdx})}"> 상품 상세 </a>
                                     </div>
                                     <!---->
                                 </div>
@@ -116,7 +120,7 @@
                                                 <dt class="title" id="box_title">정산금액</dt>
                                                 <dd class="price buy">
                                                     <span class="amount" id="total_price"></span>
-                                                    <span class="unit">313,200원</span>
+                                                    <span class="unit" id="final_price">313,200원</span>
                                                 </dd>
                                             </dl>
                                         </div>
@@ -142,7 +146,7 @@
                                                     <span >수수료</span>
                                                     <!---->
                                                 </dt>
-                                                <dd class="price_text"> 무료 </dd>
+                                                <dd class="price_text" id="service_charge"> 무료 </dd>
                                             </dl>
 
                                             <dl class="price_addition">
@@ -168,13 +172,13 @@
 
                                         <div class="detail_box">
 
-                                            <dl class="price_addition">
-                                                <dt  class="price_title">
-                                                    <span >정산일</span>
-                                                    <!---->
-                                                </dt>
-                                                <dd  class="price_text" id="regdate_txt"> 23/01/02 </dd>
-                                            </dl>
+<!--                                            <dl class="price_addition">-->
+<!--                                                <dt  class="price_title">-->
+<!--                                                    <span >정산일</span>-->
+<!--                                                    &lt;!&ndash;&ndash;&gt;-->
+<!--                                                </dt>-->
+<!--                                                <dd  class="price_text" id="deadline"> 23/01/02 </dd>-->
+<!--                                            </dl>-->
                                             
                                         </div>
 
@@ -182,18 +186,18 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="shipping_info_wrap">
-                            <div class="section_title">
-                                <div class="title_box">
-                                    <h4 class="title"> 발송 정보 </h4>
-                                </div>
-                                <p class="noti">발송 마감기한 내에 발송완료 상태에서 발송정보 변경이 가능합니다.</p>
-                                <!---->
-                            </div>
-                            <div class="shipping_info">
-                                <a class="btn_shipping" onclick="delivary()"> CJ대한통운123456789</a>
-                            </div>
-                        </div>
+<!--                        <div class="shipping_info_wrap">-->
+<!--                            <div class="section_title">-->
+<!--                                <div class="title_box">-->
+<!--                                    <h4 class="title"> 발송 정보 </h4>-->
+<!--                                </div>-->
+<!--                                <p class="noti">발송 마감기한 내에 발송완료 상태에서 발송정보 변경이 가능합니다.</p>-->
+<!--                                &lt;!&ndash;&ndash;&gt;-->
+<!--                            </div>-->
+<!--                            <div class="shipping_info">-->
+<!--                                <a class="btn_shipping" onclick="delivary()"> CJ대한통운123456789</a>-->
+<!--                            </div>-->
+<!--                        </div>-->
 
                         <div class="payment_wrap">
                             <div class="section_title">
@@ -202,17 +206,17 @@
                                 </div>
                                 <!---->
                             </div>
-                            <div class="payment_info">
-                                <div class="card_info">
-                                    <span class="card_name" id="cardCompany"> 삼성</span>
-                                    <div class="card_num">
-                                            <span class="num_bind">
-                                                <span class="last_num" id="cardLastNumber">****************</span>
-                                            </span>
-                                        <!---->
-                                    </div>
-                                </div>
-                            </div>
+<!--                            <div class="payment_info">-->
+<!--                                <div class="card_info">-->
+<!--                                    <span class="card_name" id="cardCompany"> BC</span>-->
+<!--                                    <div class="card_num">-->
+<!--                                            <span class="num_bind">-->
+<!--                                                <span class="last_num" id="cardLastNumber">****************</span>-->
+<!--                                            </span>-->
+<!--                                        &lt;!&ndash;&ndash;&gt;-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
                         </div>
 
                         <div class="payment_wrap">
@@ -224,7 +228,7 @@
                             </div>
                             <div class="payment_info">
                                 <div class="card_info">
-                                    <span class="card_name" id="cardCompany"> 삼성</span>
+                                    <span class="card_name" id="cardCompany"> BC</span>
                                     <div class="card_num">
                                             <span class="num_bind">
                                                 <span class="dot">
@@ -271,7 +275,7 @@
                         </div>
                         
                         <div class="detail_btn_box">
-                            <a href="#" type="button" class="btn_view_list outlinegrey medium"> 목록보기 </a>
+                            <a href="/my/selling" type="button" class="btn_view_list outlinegrey medium"> 목록보기 </a>
                         </div>
                     </div>
                     <!----><!----><!----><!----><!---->
@@ -295,15 +299,11 @@
                 </div>
             </div>
         </div>
-        <!--footer start-->
-        <div th:replace="fragment/footer :: footer"></div>
-        <!----><!----><!----><!---->
     </div>
 </div>
-<!---->
-</div>
-</div>
-</div>
+<!--footer-->
+<div th:replace="fragment/footer :: footer"></div>
+<!--footer end--><!----><!----><!---->
 <script>
     const sessionId = sessionStorage.getItem('userid'); // 세션 가져오기
 
@@ -318,8 +318,6 @@
     document.querySelector("#buying").className += ' menu_on';
 
 </script>
-<script type="text/javascript" th:src="@{/lib/js/pjs_header_nav.js}"></script>
-<script th:src="@{/lib/js/loginpage_mypage_all.js}" type="text/javascript"></script>
-<script th:src="@{/lib/js/mypage_buying_detail.js}" type="text/javascript"></script>
+<script src="/js/my/selling_detail.js"></script>
 </body>
 </html>

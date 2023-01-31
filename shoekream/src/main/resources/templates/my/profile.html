@@ -31,7 +31,7 @@
                 </div>
                 <div class="user_profile">
                     <div class="profile_thumb"><img id="profile_img" src="/img/profile.png" alt="사용자 이미지" class="thumb_img read_img"></div>
-                    <div class="profile_detail"><strong class="name">fd730</strong>
+                    <div class="profile_detail"><strong class="name" id="profile_name">fd730</strong>
                         <div class="profile_btn_box"><label href="#" class="btn outlinegrey small" for="modify_img"> 이미지 변경 </label><a href="#"
                                 class="btn outlinegrey small" onclick="delete_img()"> 삭제 </a></div>
                     </div>
@@ -40,12 +40,13 @@
                 <div class="profile_info">
                     <div class="profile_group">
                         <h4 class="group_title">로그인 정보</h4>
-                        <div class="unit">
+                        <div class="unit unit_email">
                             <h5 class="title">이메일 주소</h5>
-                            <p class="desc email">f***0@naver.com</p><button type="button"
-                                class="btn btn_modify outlinegrey small"> 변경 </button>
+                            <p class="desc email" id="profile_email">f***0@naver.com</p><button type="button"
+                                class="btn btn_modify outlinegrey small"  onclick="pop_email()"> 변경 </button>
                         </div>
-                        <div class="modify" style="display: none;">
+
+                        <div class="modify modify_email" style="display: none;">
                             <div class="input_box">
                                 <h6 class="input_title">이메일 주소 변경</h6>
                                 <div class="input_item"><input type="email" autocomplete="off" class="input_txt"
@@ -53,15 +54,15 @@
                                 <p class="input_error"> </p>
                             </div>
                             <div class="modify_btn_box"><button type="button" class="btn outlinegrey medium"
-                                    slot="button"> 취소 </button><button disabled="disabled" type="button"
-                                    class="btn solid medium disabled" slot="button"> 인증 메일 발송 </button></div>
+                                    slot="button" onclick="close_email()"> 취소 </button><button disabled="disabled" type="button"
+                                    class="btn solid medium disabled" slot="button"> 변경 </button></div>
                         </div>
-                        <div class="unit">
+                        <div class="unit unit_password">
                             <h5 class="title">비밀번호</h5>
-                            <p class="desc password">•••••••••</p><button type="button"
-                                class="btn btn_modify outlinegrey small"> 변경 </button>
+                            <p class="desc password" id="profile_password">•••••••••</p><button type="button"
+                                class="btn btn_modify outlinegrey small" onclick="pop_password()"> 변경 </button>
                         </div>
-                        <div class="modify" style="display: none;">
+                        <div class="modify  modify_password" style="display: none;">
                             <h5 class="title">비밀번호 변경</h5>
                             <div class="input_box">
                                 <h6 class="input_title">이전 비밀번호</h6>
@@ -78,7 +79,7 @@
                                 </p>
                             </div>
                             <div class="modify_btn_box"><button type="button" class="btn outlinegrey medium"
-                                    slot="button"> 취소 </button><button disabled="disabled" type="button"
+                                    slot="button" onclick="close_password()"> 취소 </button><button disabled="disabled" type="button"
                                     class="btn solid medium disabled" slot="button"> 저장 </button></div>
                         </div>
                     </div>
@@ -86,7 +87,7 @@
                         <h4 class="group_title">개인 정보</h4>
                         <div class="unit unit_name">
                             <h5 class="title">이름</h5>
-                            <p class="desc">fd730</p><button type="button" class="btn btn_modify outlinegrey small" onclick="pop_name()"> 변경
+                            <p class="desc" id="profile_nickname">fd730</p><button type="button" class="btn btn_modify outlinegrey small" onclick="pop_name()"> 변경
                             </button>
                         </div>
                         <div class="modify name modify_name" style="display: none;">
@@ -101,14 +102,26 @@
                                     slot="button"> 취소 </button><button type="button"
                                     class="btn solid medium disabled close_name" id="name_save"slot="button" disabled="true"> 저장 </button></div>
                         </div>
-                        <div class="unit">
+                        <div class="unit unit_hp">
                             <h5 class="title">휴대폰 번호</h5>
-                            <p class="desc">010-5***-*794</p><button type="button"
-                                class="btn btn_modify outlinegrey small"> 변경 </button>
+                            <p class="desc" id="profile_hp">010-5***-*794</p><button type="button"
+                                class="btn btn_modify outlinegrey small"  onclick="pop_hp()"> 변경 </button>
+                        </div>
+                        <div class="modify modify_hp" style="display: none;">
+                            <h5 class="title">휴대폰 번호</h5>
+                            <div class="input_box" id="hp_input_box">
+                                <h6 class="input_title">새로운 휴대폰 번호</h6>
+                                <div class="input_item"><input type="text" id="hp_input" placeholder="고객님의 이름" autocomplete="off"
+                                                               class="input_txt"></div>
+                                <p class="input_error" id="hp_input_error"></p>
+                            </div>
+                            <div class="modify_btn_box"><button type="button" class="btn outlinegrey medium close_name "
+                                                                slot="button" onclick="close_hp()"> 취소 </button><button type="button"
+                                                                                                   class="btn solid medium disabled close_name" id="hp_save"slot="button" disabled="true"> 저장 </button></div>
                         </div>
                         <div class="unit">
                             <h5 class="title">신발 사이즈</h5>
-                            <p class="desc size">260</p><button type="button" class="btn btn_modify outlinegrey small" id ="name_size" onclick="pop_layer();"> 변경
+                            <p class="desc size" id="profile_shoe">260</p><button type="button" class="btn btn_modify outlinegrey small" id ="name_size" onclick="pop_layer();"> 변경
                             </button>
                         </div>
                         <div class="layer lg layer_size" style="display: none;">
@@ -118,42 +131,42 @@
                                 </div>
                                 <div class="layer_content">
                                     <div class="size_list_area">
-                                        <div class="size_item"><a href="#" class="btn outlinegrey medium "><span
+                                        <div class="size_item"><a class="btn outlinegrey medium "><span
                                                     class="info_txt">220</span></a></div>
-                                        <div class="size_item"><a href="#" class="btn outlinegrey medium "><span
+                                        <div class="size_item"><a class="btn outlinegrey medium "><span
                                                     class="info_txt">225</span></a></div>
-                                        <div class="size_item"><a href="#" class="btn outlinegrey medium "><span
+                                        <div class="size_item"><a class="btn outlinegrey medium "><span
                                                     class="info_txt">230</span></a></div>
-                                        <div class="size_item"><a href="#" class="btn outlinegrey medium "><span
+                                        <div class="size_item"><a class="btn outlinegrey medium "><span
                                                     class="info_txt">235</span></a></div>
-                                        <div class="size_item"><a href="#" class="btn outlinegrey medium "><span
+                                        <div class="size_item"><a class="btn outlinegrey medium "><span
                                                     class="info_txt">240</span></a></div>
-                                        <div class="size_item"><a href="#" class="btn outlinegrey medium "><span
+                                        <div class="size_item"><a class="btn outlinegrey medium "><span
                                                     class="info_txt">245</span></a></div>
-                                        <div class="size_item"><a href="#" class="btn outlinegrey medium "><span
+                                        <div class="size_item"><a class="btn outlinegrey medium "><span
                                                     class="info_txt">250</span></a></div>
-                                        <div class="size_item"><a href="#" class="btn outlinegrey medium "><span
+                                        <div class="size_item"><a class="btn outlinegrey medium "><span
                                                     class="info_txt">255</span></a></div>
-                                        <div class="size_item"><a href="#" class="btn outlinegrey medium on"><span
+                                        <div class="size_item"><a class="btn outlinegrey medium on"><span
                                                     class="info_txt">260</span></a></div>
-                                        <div class="size_item"><a href="#" class="btn outlinegrey medium "><span
+                                        <div class="size_item"><a class="btn outlinegrey medium "><span
                                                     class="info_txt">265</span></a></div>
-                                        <div class="size_item"><a href="#" class="btn outlinegrey medium "><span
+                                        <div class="size_item"><a class="btn outlinegrey medium "><span
                                                     class="info_txt">270</span></a></div>
-                                        <div class="size_item"><a href="#" class="btn outlinegrey medium "><span
+                                        <div class="size_item"><a class="btn outlinegrey medium "><span
                                                     class="info_txt">275</span></a></div>
-                                        <div class="size_item"><a href="#" class="btn outlinegrey medium "><span
+                                        <div class="size_item"><a class="btn outlinegrey medium "><span
                                                     class="info_txt">280</span></a></div>
-                                        <div class="size_item"><a href="#" class="btn outlinegrey medium "><span
+                                        <div class="size_item"><a class="btn outlinegrey medium "><span
                                                     class="info_txt">285</span></a></div>
-                                        <div class="size_item"><a href="#" class="btn outlinegrey medium "><span
+                                        <div class="size_item"><a class="btn outlinegrey medium "><span
                                                     class="info_txt">290</span></a></div>
-                                        <div class="size_item"><a href="#" class="btn outlinegrey medium "><span
+                                        <div class="size_item"><a class="btn outlinegrey medium "><span
                                                     class="info_txt">295</span></a></div>
-                                        <div class="size_item"><a href="#" class="btn outlinegrey medium "><span
+                                        <div class="size_item"><a class="btn outlinegrey medium "><span
                                                     class="info_txt">300</span></a></div>
                                     </div>
-                                    <div class="layer_btn"><a href="#" class="btn solid medium" onclick="close_layer();"> 확인 </a>
+                                    <div class="layer_btn"><a class="btn solid medium" onclick="close_layer();"> 확인 </a>
                                     </div>
                                 </div>
                             </div>
@@ -194,11 +207,35 @@ document.querySelector('#name_input').addEventListener('input', e=>{
     }
     document.querySelector('#name_input_error').innerHTML=errorMsg;
 });
-
+function pop_email(){
+    document.querySelector('.unit_email').style.display="none"
+    document.querySelector('.modify_email').style.display="block"
+}
+function close_email(){
+    document.querySelector('.unit_email').style.display="block"
+    document.querySelector('.modify_email').style.display="none"
+}
+function pop_password(){
+    document.querySelector('.unit_password').style.display="none"
+    document.querySelector('.modify_password').style.display="block"
+}
+function close_password(){
+    document.querySelector('.unit_password').style.display="block"
+    document.querySelector('.modify_password').style.display="none"
+}
 function pop_name(){
     document.querySelector('.unit_name').style.display="none"
     document.querySelector('.modify_name').style.display="block"
 }
+function pop_hp(){
+    document.querySelector('.unit_hp').style.display="none"
+    document.querySelector('.modify_hp').style.display="block"
+}
+function close_hp(){
+    document.querySelector('.unit_hp').style.display="block"
+    document.querySelector('.modify_hp').style.display="none"
+}
+
 const closename =document.querySelectorAll('.close_name')
 const layer1 = document.querySelector('.modify_name')
 const layer2 = document.querySelector('.unit_name')

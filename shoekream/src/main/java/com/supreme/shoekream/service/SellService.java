@@ -49,7 +49,7 @@ public class SellService {
 
     //관리자페이지/사용자페이지 detail
     @Transactional(readOnly = true)
-    public SellDTO SellDetail(Long buyIdx){
+    public SellDTO sellDetail(Long buyIdx){
         return sellRepository.findById(buyIdx)
                 .map(SellDTO::fromEntity)
                 .orElseThrow(() -> new EntityNotFoundException("구매내역이 없습니다 "));

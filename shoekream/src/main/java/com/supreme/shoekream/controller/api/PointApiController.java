@@ -26,14 +26,15 @@ public class PointApiController {
     public Header<PointApiResponse> create(@RequestBody Header<PointApiRequest> request,@PathVariable(name = "idx") Long idx){
         PointApiRequest pointApiRequest = request.getData();
         PointDTO pointDTO = pointApiRequest.toDTO();
+        pointApiLogicService.update(pointDTO, idx);
         return pointApiLogicService.create(pointDTO, idx);
     }
 
-    @PutMapping("")
-    public String update(HttpServletRequest request){
-        HttpSession session = request.getSession();
-        Long userIdx = (Long)session.getAttribute("idx");
-        pointApiLogicService.update(userIdx);
-        return "";
-    }
+//    @PutMapping("")
+//    public String update(HttpServletRequest request){
+//        HttpSession session = request.getSession();
+//        Long userIdx = (Long)session.getAttribute("idx");
+//        pointApiLogicService.update(userIdx);
+//        return "";
+//    }
 }

@@ -14,7 +14,9 @@ import java.util.Optional;
 
 public interface ProductRepository extends JpaRepository<Product, Long>, QuerydslPredicateExecutor<Product>
 {
-    Optional<Product> findByIdx(Long idx);
+//    Optional<Product> findByIdx(Long idx);
+
+    Product findByIdx(Long idx);
 
     List<Product> findByOrderByIdxDesc();
     List<Product> findByCollection(String collection);
@@ -28,6 +30,8 @@ public interface ProductRepository extends JpaRepository<Product, Long>, Queryds
                                                                                        String category, String collection,
                                                                                        String gender, String keyword, Pageable pageable);
     Page<Product> findBySize(String size, Pageable pageable);
+
+    List<Product> findAllByName(String name);
 }
 
 

@@ -28,6 +28,11 @@ public class AddressApiLogicService {
         List<Address> addressList = addressRepository.findByMemberIdxAndAddressBasic(memberIdx, isBasic);
         return addressList;
     }
+    @Transactional
+    public List<Address> all(Long memberIdx){
+        List<Address> addressList = addressRepository.findByMemberIdx(memberIdx);
+        return addressList;
+    }
 
     @Transactional
     public Header<AddressDTO> read(Long idx){

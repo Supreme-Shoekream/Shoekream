@@ -1,5 +1,6 @@
 package com.supreme.shoekream.service;
 
+import com.supreme.shoekream.model.dto.MemberDTO;
 import com.supreme.shoekream.model.dto.PointDTO;
 import com.supreme.shoekream.model.entity.Admin;
 import com.supreme.shoekream.model.entity.Member;
@@ -40,14 +41,10 @@ public class PointApiLogicService {
 
 
     @Transactional
-    public String update(Long userIdx){
-        Optional<Member> member = memberRepository.findById(userIdx);
-        member.ifPresent(
-                memberUpdate -> {
-                    memberUpdate.setPoint(memberUpdate.getPoint()+100);
-                    memberRepository.save(memberUpdate);
-                }
-        );
-        return "";
+    public Header<MemberDTO> update(PointDTO dto, Long idx){
+        Member member = memberRepository.findByIdx(idx);
+        Long point = member.getPoint();
+        member.setPoint(point+dto.point());
+        return Header.OK();
     }
 }

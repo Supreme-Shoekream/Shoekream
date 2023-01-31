@@ -139,9 +139,11 @@
                     <div class="section_content">
                         <div class="bid_deadline">
                             <p class="deadline_txt"> 30일 (2023/01/24 마감) </p>
-                            <div class="deadline_tab"><a class="btn outlinegrey medium"> 1일 </a><a
-                                    class="btn outlinegrey medium"> 3일 </a><a class="btn outlinegrey medium"> 7일
-                                </a><a class="btn outlinegrey medium is_active"> 30일 </a>
+                            <div class="deadline_tab">
+                                <a class="btn outlinegrey medium"> 1일 </a>
+                                <a class="btn outlinegrey medium"> 3일 </a>
+                                <a class="btn outlinegrey medium"> 7일 </a>
+                                <a class="btn outlinegrey medium is_active"> 30일 </a>
                                 <a class="btn outlinegrey medium"> 60일 </a>
                             </div>
                         </div>
@@ -160,10 +162,7 @@
             </div><!----><!---->
         </div>
     </div>
-
-
-
-    <!--step2!!-->
+<!--step2!!-->
     <div class="container buy md step-2" style="display: none;"><!---->
         <div class="content"><!---->
             <div class="buy_immediate">
@@ -215,16 +214,165 @@
                                     </button>
                                 </div>
                                 <!--배송 요청사항 클릭시 레이어창 시작-->
-                                <div th:replace="/layer/layer_shipping_memo::layer_shipping_memo"></div>
+                                <div class="layer_shipping_memo layer lg" style="display:none">
+                                    <div class="layer_container"><a class="btn_layer_close"
+                                                                    onclick="close_layer_shipping_memo()">
+                                        <img src="/img/close.png"></a>
+                                        <div class="layer_header">
+                                            <p class="title">배송 요청사항</p>
+                                        </div>
+                                        <div class="layer_content">
+                                            <div class="button_shipping_memo_wrap selectable checked">
+                                                <p>요청사항 없음</p><img src="/img/wcheck.png" style="display: block;">
+                                            </div>
+                                            <div class="button_shipping_memo_wrap selectable ">
+                                                <p>문 앞에 놓아주세요</p><img src="/img/wcheck.png">
+                                            </div>
+                                            <div class="button_shipping_memo_wrap selectable">
+                                                <p>경비실에 맡겨 주세요</p><img src="/img/wcheck.png">
+                                            </div>
+                                            <div class="button_shipping_memo_wrap selectable">
+                                                <p>파손 위험 상품입니다. 배송 시 주의해주세요</p><img src="/img/wcheck.png">
+                                            </div>
+                                            <div class="shipping_memo">
+                                                <div class="button_shipping_memo_wrap direct_input"
+                                                     updatedmemo="[object Object]">
+                                                    <p>직접 입력</p>
+                                                    <img src="/img/wcheck.png">
+                                                </div>
+                                                <!--직접 입력하는 드롭다운-->
+                                                <div><textarea placeholder="내용을 입력해주세요.(최대 40자)" maxlength="40"
+                                                               class="textarea_shipping_memo"
+                                                               style="display: none;"></textarea>
+                                                </div>
+                                                <!--직접 입력하는 드롭다운-->
+                                            </div>
+                                            <div class="shipping_memo_buttons">
+                                                <button type="button" class="btn btn_cancel outlinegrey medium"
+                                                        onclick="close_layer_shipping_memo()"> 취소
+                                                </button><a  class="btn btn_apply solid medium"
+                                                             onclick="update_layer_shipping_memo()"> 적용하기 </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <!--배송 요청사항 클릭시 레이어창 끝-->
                             </div>
                         </div>
                     </div>
                     <!--주소 변경 클릭시 나오는 모달창 시작-->
-                    <div th:replace="/layer/layer_address::layer_address"></div>
+                    <div class="layer_address layer lg" style="display: none" >
+                        <div class="layer_container"><a href="#" class="btn_layer_close" onclick="close_address()">
+                            <img src="/img/close.png">
+                        </a>
+                            <div class="layer_header">
+                                <h2 class="title">주소록</h2>
+                            </div>
+                            <div class="layer_content">
+                                <div class="list_wrap">
+                                    <!---->
+                                    <div class="my_list">
+                                        <!---->
+                                        <div class="other">
+                                            <div class="other_list">
+                                                <div class="my_item is_active select">
+                                                    <div class="info_bind">
+                                                        <!---->
+                                                        <div class="address_info">
+                                                            <div class="name_box"><span class="name">반**</span><span class="mark">기본
+                                                배송지</span></div>
+                                                            <p class="phone">010-2***-*222</p>
+                                                            <div class="address_box"><span class="zipcode">(63309)</span><span
+                                                                    class="address">제주특별자치도 제주시 첨단로 242 (영평동) 바나나 나무</span></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn_bind" style="display: block;"><img src="/img/wcheck.png"></div>
+                                                </div>
+                                                <div class="my_item select">
+                                                    <div class="info_bind">
+                                                        <!---->
+                                                        <div class="address_info">
+                                                            <div class="name_box"><span class="name">김**</span>
+                                                                <!---->
+                                                            </div>
+                                                            <p class="phone">010-1***-*111</p>
+                                                            <div class="address_box"><span class="zipcode">(13494)</span><span
+                                                                    class="address">경기 성남시 분당구 판교역로 235 (삼평동, 에이치스퀘어 엔동) 사과나무</span></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn_bind" style="display: none;"><img src="/img/wcheck.png"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!---->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <!--주소 변경 클릭시 나오는 모달창 끝-->
                     <!--새 주소 추가 버튼 클릭시 나오는 모달창 시작-->
-                    <div th:replace="/layer/layer_delivery::layer_delivery"></div>
+                    <div class="layer_delivery layer lg" style="display:none" >
+                        <div class="layer_container"><a href="#" class="btn_layer_close">
+                            <div><img src="../../img/close.png" onclick="close_new_delivery()"></div>
+                            <!---->
+                        </a>
+                            <div class="layer_header">
+                                <h2 class="title"> 새 주소 추가 </h2>
+                            </div>
+                            <div class="layer_content">
+                                <div class="delivery_bind">
+                                    <div class="delivery_input">
+                                        <div class="input_box" id="name_input_box">
+                                            <h4 class="input_title">이름</h4>
+                                            <div class="input_item"><input type="text" placeholder="수령인의 이름" autocomplete="off"
+                                                                           class="input_txt" id="name_input"></div>
+                                            <p class="input_error" id="name_input_error"></p>
+                                        </div>
+                                        <div class="input_box" id="hp_input_box">
+                                            <h4 class="input_title">휴대폰 번호</h4>
+                                            <div class="input_item">
+                                                <input type="number" maxlength="11" name="hp" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="- 없이 입력" autocomplete="off" class="input_txt" id="hp_input" oninput="maxLengthCheck(this)">
+                                            </div>
+                                            <p class="input_error" id="hp_input_error"></p>
+                                        </div>
+                                        <div class="input_box">
+                                            <h4 class="input_title">우편번호</h4>
+                                            <div class="input_item">
+                                                <input type="text" placeholder="우편 번호를 검색하세요" readonly="readonly" autocomplete="off" class="input_txt" id="sample6_postcode">
+                                                <a href="#" class="btn btn_zipcode outline small" data-v-1c44afeb="" onclick="sample6_execDaumPostcode()"> 우편번호 </a>
+                                            </div>
+                                        </div>
+                                        <div class="input_box">
+                                            <h4 class="input_title">주소</h4>
+                                            <div class="input_item">
+                                                <input type="text" placeholder="우편 번호 검색 후, 자동입력 됩니다" readonly="readonly" autocomplete="off" class="input_txt" id="sample6_address"></div>
+                                        </div>
+                                        <div class="input_box">
+                                            <h4 class="input_title">상세 주소</h4>
+                                            <div class="input_item">
+                                                <input type="text" placeholder="건물, 아파트, 동/호수 입력" autocomplete="off" class="input_txt" id="sample6_detailAddress"></div>
+                                        </div>
+                                        <div class="input_box" style="display:none">
+                                            <h4 class="input_title">참고항목</h4>
+                                            <div class="input_item">
+                                                <input type="text"autocomplete="off" class="input_txt" id="sample6_extraAddress"></div>
+                                        </div>
+                                    </div>
+                                    <div class="delivery_check">
+                                        <div class="checkbox_item"><input id="check1" type="checkbox" name="" class="check"><label
+                                                for="check1" class="check_label"><span class="label_txt">기본 배송지로 설정</span>
+                                            <!---->
+                                        </label></div>
+                                    </div>
+                                </div>
+                                <div class="layer_btn">
+                                    <a href="#" class="btn btn_delete outlinegrey medium" onclick="close_new_delivery()"> 취소 </a>
+                                    <a disabled="disabled" href="#" class="btn btn_save solid medium disabled" id="submit_btn"> 저장하기 </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <!--새 주소 추가 버튼 클릭시 나오는 모달창 끝-->
                 </section>
                 <section>

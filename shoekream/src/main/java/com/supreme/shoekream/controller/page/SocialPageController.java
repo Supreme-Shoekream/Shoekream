@@ -94,13 +94,22 @@ public class SocialPageController {
     public ModelAndView upload(){ return new ModelAndView("social/upload"); }
 
     @GetMapping(path = "/social/profile/{memberIdx}")
-    public String profile(@PathVariable(name = "memberIdx") Long memberIdx, ModelMap map){
+    public String profile(@PathVariable(name = "memberIdx") Long memberIdx, ModelMap map, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
         List<FollowDTO> followings = styleLogicService.countFollowing(memberIdx);
         List<FollowDTO> followers = styleLogicService.countFollowers(memberIdx);
 
         map.addAttribute("member", styleLogicService.getMember(memberIdx));
         map.addAttribute("followings", followings);
         map.addAttribute("followers", followers);
+        boolean flag = false;
+        for(int i=0;i<followers.size();i++){
+            System.out.println("flag" + kreamPrincipal.idx()+followers.get(i).follower().idx());
+            if(kreamPrincipal != null && followers.get(i).follower().idx().equals(kreamPrincipal.idx())){
+                flag = true;
+            }
+        }
+        System.out.println(flag);
+        map.addAttribute("flag", flag);
         return "social/profile";
     }
 
@@ -122,4 +131,8 @@ public class SocialPageController {
         return "social/details";
     }
 
+    @GetMapping(path="/social/products/")//productIdx 추가
+    public ModelAndView products(){
+        return new ModelAndView("social/social_product");
+    }
 }

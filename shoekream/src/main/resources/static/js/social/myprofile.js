@@ -39,12 +39,14 @@ window.onload = function(){
 
                         let feedList="<div class=\"gutter_item\"></div>";
                         for(let i=0;i<dat.length;i++){
+                            console.log(dat[i].islike);
                             feedList +=
                                 `
-                            <div class="feed_card item vertical" style="padding-top: 10px; position: absolute; left: ${Math.floor(i/5)*307}px; top: ${(i%5)*465}px">
-                                <a href="#">
+                            <div class="feed_card item vertical" style="padding-top: 10px; position: absolute; left: ${(i%4)*307}px; top: ${Math.floor(i/4)*465}px">
+                                <a>
                                     <div class="card_box">
                                         <div class="social_img_box vertical">
+                                            <a href="/social/details/#${dat[i].idx}">
                                             <picture class="picture social_img">
                                                 <source type="image/webp"
                                                     srcset="">
@@ -54,6 +56,7 @@ window.onload = function(){
                                                     src="${dat[i].img}"
                                                     loading="auto" class="image">
                                             </picture>
+                                            </a>
                                         </div>
                                         <div class="card_detail">
                                             <div class="user_box">
@@ -67,10 +70,18 @@ window.onload = function(){
                                                         loading="auto" class="image">
                                                 </picture>
                                                 <p class="feed_user_name">${dat[i].memberDTO.nickname}</p>
-                                                <span aria-label="좋아요"  class="btn like" >
-                                                    <img src="/img/styleImg/like_icon.png" alt="좋아요 이미지" id="like_icon"
-                                                        class="icon sprite-icons social-like-gray-sm">
-                                                    <span class="like_count">${dat[i].lks.length}</span>
+                                                <span aria-label="좋아요"  class="btn like" onclick="like_clicked(${dat[i].idx}, ${dat[i].lks.length}, this)" >
+                                                `
+                            if(dat[i].islike == false){
+                                feedList += `<img id="like_icon" src="/img/styleImg/like_icon.png" alt="좋아요 이미지"
+                                                            class="icon sprite-icons social-like-gray-sm">`
+                            }else{
+                                feedList += `<img id="like_icon" src="/img/styleImg/like_after_icon.png" alt="좋아요 이미지"
+                                                            class="icon sprite-icons social-like-gray-sm">`
+                            }
+
+
+                            feedList +=   `<span class="like_count">${dat[i].lks.length}</span>
                                                 </span>
                                             </div>
                                             <p class="text_box">${dat[i].content}` + `  #` + `
