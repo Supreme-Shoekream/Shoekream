@@ -118,7 +118,6 @@ public class MypageController {
         if(kreamPrincipal == null){
             return "login/login";
         }
-        System.out.println(memberApiLogicService.read2(kreamPrincipal.idx()));
         map.addAttribute("profile", memberApiLogicService.read2(kreamPrincipal.idx()));
         return "/my/profile";
     }

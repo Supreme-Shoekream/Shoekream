@@ -68,7 +68,11 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
 
     public MemberDTO read2(Long idx){
         Member member = memberRepository.findByIdx(idx);
-        return MemberDTO.fromEntity(member);
+        String pwNum = "";
+        for(int i=0; i<member.getMemberPw().substring(6).length();i++){pwNum += "•";}
+        MemberDTO dto = MemberDTO.of(member.getNickname(),pwNum,member.getName(),
+                member.getHp(),member.getEmail(),member.getShoeSize());
+        return dto;
     }
 
     public Header<MemberApiResponse> read(String email, String memberPw) {
