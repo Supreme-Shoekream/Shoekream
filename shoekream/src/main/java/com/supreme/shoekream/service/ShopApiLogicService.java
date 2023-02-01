@@ -153,5 +153,11 @@ public class ShopApiLogicService extends BaseService<ProductApiRequest, ProductA
                 size,brand,category,collection,gender,keyword,pageable).map(ProductDTO::fromEntity);
     }
 
+
+    @Transactional(readOnly = true)
+    public Page<ProductDTO> brand(String brandName, Pageable pageable){
+        return productRepository.findByBrand(brandName,pageable).map(ProductDTO::fromEntity);
+
+    }
 }
 

@@ -189,7 +189,6 @@ function step2(){
         document.querySelector('.product_price').innerHTML = wish_price.toLocaleString('ko-KR') + "원"
     }else{
         if(Number(period) == 0) { period=30; }  // 설정 클릭 안하면 30일로 세팅!
-        console.log(period);
         wish_price = Number(bid_input.value.replaceAll(',', ''));
         console.log("wish_price:"+wish_price)
         document.querySelector('.product_price').innerHTML = bid_input.value+"원"
@@ -806,7 +805,7 @@ document.querySelectorAll('#pin_input').forEach((item) =>{
  * 클릭시 fetch 비동기 리스트 출력
  * 선택시 반영하고 닫기
  */
-const card_drop_btn = document.querySelector('.clickable_card img')
+const card_drop_btn = document.querySelector('.clickable_card')
 const main_card = document.querySelector('.main_card .clickable_card')
 console.log(card_drop_btn)
 const card_drop_div = document.querySelector('.other_card')
