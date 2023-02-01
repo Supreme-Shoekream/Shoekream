@@ -167,4 +167,16 @@ public class BoardApiController {
             }
         }
     }
+
+    @GetMapping("/products/full/{productIdx}")
+    public List<BoardWithLikeListResponse> productFull(@PathVariable(name = "productIdx") Long productIdx, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        if(kreamPrincipal == null){
+            List<BoardWithLikeListResponse> responses = styleLogicService.getProductBoards(productIdx);
+            return responses;
+
+        }else{
+            List<BoardWithLikeListResponse> responses = styleLogicService.getProductBoards(productIdx, kreamPrincipal.idx());
+            return responses;
+        }
+    }
 }
