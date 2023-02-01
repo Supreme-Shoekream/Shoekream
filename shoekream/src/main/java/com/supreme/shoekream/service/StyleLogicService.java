@@ -427,6 +427,7 @@ public List<FollowDTO> countFollowers(Long memberIdx){//내가 팔로우하고 �
                 .content(boardStyleApiRequest.content())
                 .img(boardStyleApiRequest.img())
                 .member(memberDTO.toEntity())
+                .hashtag(boardStyleApiRequest.hashtag())
                 .build();
         Board newBoard = boardRepository.save(board);
         return null;

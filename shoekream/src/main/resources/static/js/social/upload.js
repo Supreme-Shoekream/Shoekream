@@ -87,6 +87,7 @@ document.getElementById('submit').onclick = function(){styleBoardSend()};
 // create
 function styleBoardSend(){
     const content = document.getElementById("content_input").value; // 게시글 내용
+    const hashtag = document.getElementById("hashtag_input").value; // 해시태그 내용
     const img2 = document.getElementById("previewImage").src; // 게시글 사진
         const img = img2.replaceAll("http://localhost:8889", "");
     // const hashtag = document.getElementById("brand").value; // 해시태그
@@ -107,8 +108,8 @@ function styleBoardSend(){
             "description":"정상",
             "data":{
                 "content":`${content}`,
-                "img":`${img}`
-                // "hashtag":`${hashtag}`,
+                "img":`${img}`,
+                "hashtag":`${hashtag}`
                 // "tag":`${tag}`
             }
         }),
