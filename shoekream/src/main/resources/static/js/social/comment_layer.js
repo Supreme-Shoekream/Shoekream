@@ -10,8 +10,12 @@ function comment_more(idx, sessionUserIdx){
                 console.log(document.getElementById('now_boardIdx').value)
                 document.getElementById('layer_board_member_profile').src = data.memberDTO.imgUrl;
                 document.getElementById('layer_board_nickname').innerHTML = data.memberDTO.nickname;
-                document.getElementById('layer_board_content').innerHTML = data.content+`
+                if(data.hashtag != null){
+                    document.getElementById('layer_board_content').innerHTML = data.content+`
             <br><a><span class="hashtag" id="layer_board_hashtag">` + '#' + data.hashtag + `</span></a>`;
+                }else{
+                    document.getElementById('layer_board_content').innerHTML = data.content;
+                }
                 dt = new Date(data.createdAt);
                 document.getElementById('layer_board_time').innerText =
                     dt.getFullYear() + '년 ' + (dt.getMonth()+1) + '월 ' + dt.getDate() + '일'

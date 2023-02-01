@@ -236,13 +236,15 @@ public class StyleLogicService {
         List<Integer> hashCnt = new ArrayList<>();
         List<String> hashtags = new ArrayList<>();
         for(int i=0; i<boards.size(); i++){
-            hashtags.add(boards.get(i).getHashtag());
-            hashCnt.add(1);
-            for(int j=0;j<i;j++){
-                if(hashtags.get(i).equals(hashtags.get(j))){
-                    hashCnt.set(j, hashCnt.get(j)+1);
-                    hashCnt.set(i, 0);
-                    break;
+            if(boards.get(i).getHashtag() != null){
+                hashtags.add(boards.get(i).getHashtag());
+                hashCnt.add(1);
+                for(int j=0;j<i;j++){
+                    if(hashtags.get(i).equals(hashtags.get(j))){
+                        hashCnt.set(j, hashCnt.get(j)+1);
+                        hashCnt.set(i, 0);
+                        break;
+                    }
                 }
             }
         }

@@ -59,8 +59,14 @@ window.onload = function (){
                         }
                                                       feedList +=  `<span class="like_count">${data[i].lks.length}</span></span>
                                                 </div>
-                                                <p class="text_box">${data[i].content}` + ` #` +  `${data[i].hashtag}</p>
-                                            </div>
+                                                `
+                                                          if(data[i].hashtag != null){
+                                                              feedList =+ `<p className="text_box">${data[i].content}` + ` #` +
+                                                                  `${data[i].hashtag}</p>`
+                                                          }else{
+                                                              feedList =+ `<p className="text_box">${data[i].content}</p>`
+                                                          }
+                feedList += `</div>
                                         </div>
                                     </a>
                                 </div>
