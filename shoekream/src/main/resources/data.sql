@@ -473,6 +473,7 @@ insert into tag(board_idx, product_idx) values(27, 104);
 insert into tag(board_idx, product_idx) values(28, 104);
 insert into tag(board_idx, product_idx) values(29, 104);
 insert into tag(board_idx, product_idx) values(30, 104);
+insert into tag(board_idx, product_idx) values(15, 100);
 
 
 -- # 판매내역

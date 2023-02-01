@@ -30,6 +30,8 @@ public interface ProductRepository extends JpaRepository<Product, Long>, Queryds
                                                                                        String category, String collection,
                                                                                        String gender, String keyword, Pageable pageable);
     Page<Product> findBySize(String size, Pageable pageable);
+
+    List<Product> findAllByName(String name);
 }
 
 

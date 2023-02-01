@@ -148,4 +148,23 @@ public class BoardApiController {
     public void unfollow(@PathVariable(name = "memberIdx") Long memberIdx, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
         styleLogicService.unfollow(memberIdx, kreamPrincipal.toFullDto());
     }
+
+    @GetMapping("/products/mini/{productIdx}")
+    public List<BoardWithLikeListResponse> product_mini(@PathVariable(name = "productIdx") Long productIdx, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        if(kreamPrincipal == null){
+            List<BoardWithLikeListResponse> responses = styleLogicService.getProductBoards(productIdx);
+            if(responses.size()<1){
+                return null;
+            }else{
+                return responses;
+            }
+        }else{
+            List<BoardWithLikeListResponse> responses = styleLogicService.getProductBoards(productIdx, kreamPrincipal.idx());
+            if(responses.size()<1){
+                return null;
+            }else{
+                return responses;
+            }
+        }
+    }
 }

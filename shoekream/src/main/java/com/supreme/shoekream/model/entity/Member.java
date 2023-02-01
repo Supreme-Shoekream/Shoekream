@@ -3,6 +3,7 @@ package com.supreme.shoekream.model.entity;
 import com.supreme.shoekream.model.config.Auditable;
 import com.supreme.shoekream.model.config.BaseEntity;
 import com.supreme.shoekream.model.enumclass.Status;
+import com.supreme.shoekream.model.network.security.KreamPrincipal;
 import lombok.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.security.core.GrantedAuthority;
@@ -19,9 +20,7 @@ import java.util.Set;
 @Data               //getter,setter
 @Builder             //method.method...가능하게 만들어주는
 @ToString(callSuper = true) //부모의 toString을 사용하기 위해
-@EqualsAndHashCode(callSuper = true)//Generating equals/hashCode 에러 없애는 방법
-@EntityListeners(AuditingEntityListener.class)//이벤트리스너(crud되기전후에 이벤트 발생)
-public class Member extends BaseEntity implements Auditable {
+public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idx;
@@ -37,6 +36,8 @@ public class Member extends BaseEntity implements Auditable {
     private String imgUrl;
     private String bank;
     private String accNumber;
+
+    private KreamPrincipal.RoleType roleType;
 
     public Member(Long idx, String nickname, String memberPw, String name, String hp, String email, String shoeSize, String profileMemo, String imgUrl, String bank, String accNumber) {
         this.idx = idx;
