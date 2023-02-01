@@ -114,7 +114,7 @@ public class BoardApiController {
     }
 
     @GetMapping("/isBoardExist/{memberIdx}")
-    public List<BoardDTO> isBoardExist(@PathVariable(name = "memberIdx") Long memberIdx){
+    public List<BoardWithLikeListResponse> isBoardExist(@PathVariable(name = "memberIdx") Long memberIdx){
         return styleLogicService.isBoardExist(memberIdx);
     }
 
@@ -147,5 +147,36 @@ public class BoardApiController {
     @GetMapping("/unfollow/{memberIdx}")
     public void unfollow(@PathVariable(name = "memberIdx") Long memberIdx, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
         styleLogicService.unfollow(memberIdx, kreamPrincipal.toFullDto());
+    }
+
+    @GetMapping("/products/mini/{productIdx}")
+    public List<BoardWithLikeListResponse> product_mini(@PathVariable(name = "productIdx") Long productIdx, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        if(kreamPrincipal == null){
+            List<BoardWithLikeListResponse> responses = styleLogicService.getProductBoards(productIdx);
+            if(responses.size()<1){
+                return null;
+            }else{
+                return responses;
+            }
+        }else{
+            List<BoardWithLikeListResponse> responses = styleLogicService.getProductBoards(productIdx, kreamPrincipal.idx());
+            if(responses.size()<1){
+                return null;
+            }else{
+                return responses;
+            }
+        }
+    }
+
+    @GetMapping("/products/full/{productIdx}")
+    public List<BoardWithLikeListResponse> productFull(@PathVariable(name = "productIdx") Long productIdx, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        if(kreamPrincipal == null){
+            List<BoardWithLikeListResponse> responses = styleLogicService.getProductBoards(productIdx);
+            return responses;
+
+        }else{
+            List<BoardWithLikeListResponse> responses = styleLogicService.getProductBoards(productIdx, kreamPrincipal.idx());
+            return responses;
+        }
     }
 }

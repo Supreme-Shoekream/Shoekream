@@ -1,6 +1,6 @@
 // ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
 // delete
-function wishDelete(idx){
+function Delete(idx){
     // let idx = document.getElementById("wish_proIdx").getAttribute("value");
         fetch('http://localhost:8889/api/product/'+idx, {
             method: "DELETE"

@@ -19,7 +19,7 @@ public class ProductApiResponse {
     private String name;
     private String nameKor;
     private String size;
-    private Long wishCount;
+    private int wishCount;
     private String modelNum;
     private String releaseDate;
     private String color;

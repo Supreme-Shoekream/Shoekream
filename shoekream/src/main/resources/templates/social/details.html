@@ -266,6 +266,16 @@
                         <!--                            게시글 하나 끝-->
                     </div>
                 </div>
+
+                <!--                    위아래 버튼 시작 -->
+                <button class="btn_top lg" style="">
+                    <img class="ico-top icon sprite-icons" src="../img/main/top.png">
+                </button>
+                <button class="btn_bottom lg" style="">
+                    <img class="ico-bottom icon sprite-icons" src="../img/main/bottom.png">
+                </button>
+                <!--                    위아래 버튼 끝 -->
+
             </div>
         </div>
     </div>
@@ -316,7 +326,9 @@
 
 <!--    <link rel="stylesheet" href="../../static/lib/css/hashtag.css">-->
 <!-- 푸터 시작 -->
-<footer th:replace="/fragment/footer :: footer"></footer>
+<div class="footer">
+    <footer th:replace="/fragment/footer :: footer"></footer>
+</div>
 <!-- 푸터 끝 -->
 
 <script src="/js/social/comment_layer.js"></script>
@@ -327,16 +339,14 @@
 
 
 </html>
-<!--<script>-->
-<!--    window.onload = function(){-->
-<!--        const items = document.querySelectorAll('gnb_item');-->
-<!--        items.forEach((it) => {-->
-<!--            it.classList.remove('gnb_on');-->
-<!--        })-->
-<!--        const item = document.getElementById('st_gnb');-->
-<!--        item.classList.add('gnb_on');-->
-<!--    }-->
-
-<!--</script>-->
+<script>
+    $('.btn_top').click(function(){
+        $('html, body').animate({scrollTop:0},10);
+        return false;
+    });
+    $(".btn_bottom").click(function() {
+        $('html').animate({scrollTop : ($('.notice_area').offset().top)}, 10);
+    });
+</script>
 
 
