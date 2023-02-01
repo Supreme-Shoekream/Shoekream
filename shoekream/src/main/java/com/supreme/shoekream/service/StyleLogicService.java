@@ -8,7 +8,9 @@ import com.supreme.shoekream.model.dto.socialDTO.LkDTO;
 import com.supreme.shoekream.model.dto.socialDTO.ReplyDTO;
 import com.supreme.shoekream.model.entity.*;
 import com.supreme.shoekream.model.network.Header;
+import com.supreme.shoekream.model.network.request.BoardStyleApiRequest;
 import com.supreme.shoekream.model.network.request.ReplyApiRequest;
+import com.supreme.shoekream.model.network.response.BoardStyleApiResponse;
 import com.supreme.shoekream.model.network.response.BoardWithLikeListResponse;
 import com.supreme.shoekream.model.network.security.KreamPrincipal;
 import com.supreme.shoekream.repository.*;
@@ -234,13 +236,15 @@ public class StyleLogicService {
         List<Integer> hashCnt = new ArrayList<>();
         List<String> hashtags = new ArrayList<>();
         for(int i=0; i<boards.size(); i++){
-            hashtags.add(boards.get(i).getHashtag());
-            hashCnt.add(1);
-            for(int j=0;j<i;j++){
-                if(hashtags.get(i).equals(hashtags.get(j))){
-                    hashCnt.set(j, hashCnt.get(j)+1);
-                    hashCnt.set(i, 0);
-                    break;
+            if(boards.get(i).getHashtag() != null){
+                hashtags.add(boards.get(i).getHashtag());
+                hashCnt.add(1);
+                for(int j=0;j<i;j++){
+                    if(hashtags.get(i).equals(hashtags.get(j))){
+                        hashCnt.set(j, hashCnt.get(j)+1);
+                        hashCnt.set(i, 0);
+                        break;
+                    }
                 }
             }
         }
@@ -415,6 +419,18 @@ public List<FollowDTO> countFollowers(Long memberIdx){//내가 팔로우하고 �
         }
 
         return responses;
+    }
+
+    public BoardStyleApiResponse create(Header<BoardStyleApiRequest> request, MemberDTO memberDTO){
+        BoardStyleApiRequest boardStyleApiRequest = request.getData();
+        Board board = Board.builder()
+                .content(boardStyleApiRequest.content())
+                .img(boardStyleApiRequest.img())
+                .member(memberDTO.toEntity())
+                .hashtag(boardStyleApiRequest.hashtag())
+                .build();
+        Board newBoard = boardRepository.save(board);
+        return null;
     }
 }
 

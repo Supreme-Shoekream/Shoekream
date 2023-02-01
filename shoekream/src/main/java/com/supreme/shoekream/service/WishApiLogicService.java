@@ -39,7 +39,7 @@ public class WishApiLogicService {
         return products;
     }
 
-    // 관심상품 했는지 안했는지 확인
+    // 로그인 한 사용자가 관심상품 했는지 안했는지 확인
     public boolean read(Long memIdx, Long proIdx){
         Optional<Wish> wishSelect = wishRepository.findByMemberIdxAndProductIdx(memIdx, proIdx);
         boolean result;
@@ -52,6 +52,7 @@ public class WishApiLogicService {
 
         return result;
     }
+
 
 
     // 관심상품 생성

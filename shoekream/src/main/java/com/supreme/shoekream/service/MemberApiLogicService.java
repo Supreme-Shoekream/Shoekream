@@ -79,9 +79,13 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
                 .map(Header::OK).orElseGet(()->Header.ERROR("데이터 없음"));
     }
 
-    public MemberDTO read2(Long idx){
+    public MemberDTO readProfile(Long idx){
         Member member = memberRepository.findByIdx(idx);
-        return MemberDTO.fromEntity(member);
+        String pwNum = "";
+        for(int i=0; i<member.getMemberPw().substring(6).length();i++){pwNum += "•";}
+        MemberDTO dto = MemberDTO.of(member.getNickname(),pwNum,member.getName(),
+                member.getHp(),member.getEmail(),member.getShoeSize());
+        return dto;
     }
 
     public Header<MemberApiResponse> read(String email, String memberPw) {
@@ -125,6 +129,16 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
                 newMember -> response(newMember)).map(Header::OK).orElseGet(()->Header.ERROR("데이터없음"));
     }
 
+    public Header<MemberApiResponse> updateProfile(MemberDTO dto, Long idx){
+        Optional<Member> member = memberRepository.findById(idx);
+        Member newMember = member.get();
+        if(dto.email() != null) newMember.setEmail(dto.email());
+        if(dto.memberPw() != null) newMember.setMemberPw("{noop}"+dto.memberPw());
+        if(dto.nickname() != null) newMember.setNickname(dto.nickname());
+        if(dto.hp() != null) newMember.setHp(dto.hp());
+        if(dto.shoeSize() != null) newMember.setShoeSize(dto.shoeSize());
+        return Header.OK();
+    }
     @Override
     public Header delete(Long idx) {
 //        Optional<Member> members = baseRepository.findById(idx);
