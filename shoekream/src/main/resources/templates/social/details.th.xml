@@ -52,7 +52,7 @@
             <attr sel=".social_text">
                 <attr sel=".text" th:text="${detail.content}">
                 </attr>
-                <attr sel=".hashtag/p" th:text="'#' + ${detail.hashtag}" th:onclick="'javascript:hashtag('+ this + ');'"/>
+                <attr sel=".hashtag/p" th:text="${detail.hashtag} ? '#' + ${detail.hashtag} : '' " th:onclick="'javascript:hashtag('+ this + ');'"/>
             </attr>
 
             <attr sel=".social_comment">
