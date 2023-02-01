@@ -8,7 +8,9 @@ import com.supreme.shoekream.model.dto.socialDTO.LkDTO;
 import com.supreme.shoekream.model.dto.socialDTO.ReplyDTO;
 import com.supreme.shoekream.model.entity.*;
 import com.supreme.shoekream.model.network.Header;
+import com.supreme.shoekream.model.network.request.BoardStyleApiRequest;
 import com.supreme.shoekream.model.network.request.ReplyApiRequest;
+import com.supreme.shoekream.model.network.response.BoardStyleApiResponse;
 import com.supreme.shoekream.model.network.response.BoardWithLikeListResponse;
 import com.supreme.shoekream.model.network.security.KreamPrincipal;
 import com.supreme.shoekream.repository.*;
@@ -418,5 +420,15 @@ public List<FollowDTO> countFollowers(Long memberIdx){//내가 팔로우하고 �
         }
 
         return responses;
+    }
+
+    public BoardStyleApiResponse create(Header<BoardStyleApiRequest> request){
+        BoardStyleApiRequest boardStyleApiRequest = request.getData();
+        Board board = Board.builder()
+                .content(boardStyleApiRequest.content())
+                .img(boardStyleApiRequest.img())
+                .build();
+        Board newBoard = boardRepository.save(board);
+        return null;
     }
 }

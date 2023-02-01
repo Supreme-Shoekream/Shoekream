@@ -32,26 +32,104 @@ function readImage(input){
 
     // 인풋 태그에 파일이 있는 경우
     if(input.files && input.files[0]){
-        const reader = new FileReader();
+        const fileReader = new FileReader();
 
-        reader.onload = e => {
+        fileReader.onload = () => {
             const previewImage = document.getElementById("previewImage");
-            previewImage.src = e.target.result;
+            previewImage.src = "/img/styleImg/" + input.files[0].name;
         }
-        reader.readAsDataURL(input.files[0]);
+        fileReader.readAsDataURL(input.files[0]);
+        //fileReader.readAsText(input.files[0]);
     }
 }
 
-
-
-
-
-
 // change 이벤트
-const inputImage = document.getElementById('imgUpload');
-inputImage.addEventListener("change", e => {
-    readImage(e.target);
-})
+// const inputImage = document.getElementById('imgUpload');
+// inputImage.addEventListener("change", e => {
+$("input[type='file']").on("change", function(e){
+        let formData = new FormData();
+        let fileInput = $('input[name="imgUpload"]');
+        let fileList = fileInput[0].files;
+        let fileObj = fileList[0];
+        console.log("fileName : " + fileObj.name); // 파일 이름 확인
+        console.log("fileSize : " + fileObj.size); // 파일 사이즈 확인
+        formData.append("imgUpload", fileObj);
+
+    // const previewImage = document.getElementById("previewImage");
+    // previewImage.src = "/img/styleImg/" + fileObj.name;
+
+        // ajax를 사용하여 서버로 전송
+        $.ajax({
+            url: "/api/social/imgUpload", // 서버로 요청을 보낼 url
+            processData : false, // 서버로 전송할 데이터를 queryStirng 형태로 변환할지 여부
+            contentType : false, // 서버로 전송되는 데이터의 content-type
+            data : formData, // 서버로 전송할 데이터
+            type : 'POST', // 서버 요청 타입(GET, POST)
+            enctype:'multipart/form-data',
+            dataType : 'text', // 서버로부터 반환받을 데이터 타입
+            async : false,
+            success : function (data){
+                alert(data);
+            },
+            error: function(e) {
+                alert("값을 가져오지 못했습니다.");
+            }
+        });
+
+        readImage(e.target);
+    });
+
+
+
+document.getElementById('submit').onclick = function(){styleBoardSend()};
+
+// ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+// create
+function styleBoardSend(){
+    const content = document.getElementById("content_input").value; // 게시글 내용
+    const img2 = document.getElementById("previewImage").src; // 게시글 사진
+        const img = img2.replaceAll("http://localhost:8889", "");
+    // const hashtag = document.getElementById("brand").value; // 해시태그
+    // const tag = document.getElementById("brand").value; // 상품 태그
+
+    if(img === ""){
+        alert("게시글 이미지를 넣어주세요");
+        img.focus();
+        return false;
+    }
+
+    fetch("http://localhost:8889/api/social/boardcreate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            "transaction_time":`${new Date()}`,
+            "resultCode":"ok",
+            "description":"정상",
+            "data":{
+                "content":`${content}`,
+                "img":`${img}`
+                // "hashtag":`${hashtag}`,
+                // "tag":`${tag}`
+            }
+        }),
+    })
+        .then((res) => {
+            alert("게시글 등록 성공!")
+            location.href="myprofile";
+            return;
+        })
+        .then((data) => {
+            console.log(data);
+            return;
+        })
+        .catch((err) => {
+            alert("에러! 에러! 게시글 등록 실패!");
+            location.reload();
+            return;
+        })
+}
+
+
 
 // onintut
 function search(){

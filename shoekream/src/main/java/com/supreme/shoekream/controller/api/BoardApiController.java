@@ -1,24 +1,26 @@
 package com.supreme.shoekream.controller.api;
 
-import com.supreme.shoekream.controller.page.SocialPageController;
 import com.supreme.shoekream.model.dto.MemberDTO;
 import com.supreme.shoekream.model.dto.socialDTO.BoardDTO;
 import com.supreme.shoekream.model.dto.socialDTO.ReplyDTO;
-import com.supreme.shoekream.model.entity.Board;
-import com.supreme.shoekream.model.entity.Member;
 import com.supreme.shoekream.model.network.Header;
+import com.supreme.shoekream.model.network.request.BoardStyleApiRequest;
 import com.supreme.shoekream.model.network.request.ReplyApiRequest;
+import com.supreme.shoekream.model.network.response.BoardStyleApiResponse;
 import com.supreme.shoekream.model.network.response.BoardWithLikeListResponse;
+import com.supreme.shoekream.model.network.response.ProductApiResponse;
 import com.supreme.shoekream.model.network.response.ProfileLinkResponse;
 import com.supreme.shoekream.model.network.security.KreamPrincipal;
 import com.supreme.shoekream.repository.BoardRepository;
 import com.supreme.shoekream.service.StyleLogicService;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.parameters.P;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.util.List;
 
 @RestController
@@ -166,5 +168,41 @@ public class BoardApiController {
                 return responses;
             }
         }
+    }
+
+
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    // 첨부 파일 업로드(생성)
+    @PostMapping("/imgUpload") // http://localhost:8889/api/social/imgUpload
+    public String uploadAjaxActionPOST(@RequestParam(value = "imgUpload", required = false) MultipartFile uploadFile) {
+        logger.info("⚠️uploadAjaxActionPOST..........");
+        logger.info("⚠️파일 이름 : " + uploadFile.getOriginalFilename());
+        logger.info("⚠️파일 타입 : " + uploadFile.getContentType());
+        logger.info("⚠️파일 크기 : " + uploadFile.getSize());
+        // 파일 저장 폴더 경로
+        String uploadFilePath = "/Users/oyun-yeong/Desktop/Shoekream/publising/Shoekream/shoekream/src/main/resources/static/img/styleImg/";
+        // 폴더 생성
+        File uploadPath = new File(uploadFilePath);
+        if(!uploadPath.exists()) {
+            uploadPath.mkdirs();
+        }
+        String uploadFileName = uploadFile.getOriginalFilename(); // 파일 이름
+//        uploadFileName = uploadFileName.replace(" ", "_"); // 파일 이름에 띄어쓰기가 있으면 언더바로 변경하기
+//        System.out.println("🔵" + uploadFileName);
+//        File saveFile = new File(uploadPath, uploadFileName); // 파일 위치, 파일 이름을 합친 File 객체
+        File saveFile = new File(uploadFilePath, uploadFileName); // 파일 위치, 파일 이름을 합친 File 객체
+        try { // 파일 저장
+            uploadFile.transferTo(saveFile);
+            logger.info("🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢");
+            logger.info("이미지 파일 저장 완료");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return uploadFileName;
+    }
+
+    @PostMapping("/boardcreate") // http://localhost:8889/api/social/boardcreate
+    public BoardStyleApiResponse create(@RequestBody Header<BoardStyleApiRequest> request) {
+        return styleLogicService.create(request);
     }
 }
