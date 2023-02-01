@@ -27,9 +27,10 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class ProductApiLogicService {
-    @Autowired ProductRepository productRepository;
-    @Autowired WishRepository wishRepository;
+    private final ProductRepository productRepository;
+    private final WishRepository wishRepository;
 
     private ProductApiResponse response(Product product){
         ProductApiResponse productApiResponse = ProductApiResponse.builder()
