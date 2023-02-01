@@ -119,3 +119,11 @@ function comment_delete(replyIdx){
             alert(err);
         })
 }
+
+$('.btn_top').click(function(){
+    $('html, body').animate({scrollTop:0},10);
+    return false;
+});
+$(".btn_bottom").click(function() {
+    $('html').animate({scrollTop : ($('.footer').offset().top)}, 10);
+});
