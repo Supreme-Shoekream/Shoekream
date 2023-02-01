@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 public record MemberApiRequest(
         String memberPw,
         String name,
+        String nickname,
         String hp,
         String email,
         String shoeSize,
@@ -26,6 +27,7 @@ public record MemberApiRequest(
         return MemberDTO.of(
                 memberPw,
                 name,
+                nickname,
                 hp,
                 email,
                 shoeSize,

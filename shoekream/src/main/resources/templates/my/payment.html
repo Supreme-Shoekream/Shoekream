@@ -233,7 +233,7 @@
             let birthday = document.querySelector('#birthday_input').value;
             let pin = document.querySelector('#pin_input').value;
             console.log(cardNumber, dateMm, dateYy, birthday, pin)
-            fetch('http://localhost:8989/api/my/payment', {
+            fetch('http://localhost:8889/api/my/payment', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({
@@ -257,7 +257,7 @@
     }
     // 기본 카드 수정
     function basicCard(idx){
-        fetch('http://localhost:8989/api/my/payment/'+idx,
+        fetch('http://localhost:8889/api/my/payment/'+idx,
             {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
@@ -272,7 +272,7 @@
     }
     // 카드 삭제
     function deleteCard(idx){
-        fetch('http://localhost:8989/api/my/payment/'+idx,
+        fetch('http://localhost:8889/api/my/payment/'+idx,
             {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
