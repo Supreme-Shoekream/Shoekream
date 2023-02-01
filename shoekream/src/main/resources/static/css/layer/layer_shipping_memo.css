@@ -4,10 +4,10 @@
     height: auto;
     padding: 0 32px;
 }
-.button_shipping_memo_wrap.checked {
+.layer .button_shipping_memo_wrap.checked {
     font-weight: 700;
 }
-.button_shipping_memo_wrap {
+.layer .button_shipping_memo_wrap {
     font-size: 15px;
     padding: 17px 0;
     display: flex;
@@ -15,12 +15,12 @@
     justify-content: space-between;
     cursor: pointer;
 }
-.button_shipping_memo_wrap > img{
+.layer .button_shipping_memo_wrap > img{
     width: 20px;
     height: 20px;
     display: none;
 }
-.button_shipping_memo_wrap+.button_shipping_memo_wrap {
+.layer .button_shipping_memo_wrap+.button_shipping_memo_wrap {
     border-top: 1px solid rgba(34,34,34,.05);
 }
 .textarea_shipping_memo {
