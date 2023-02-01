@@ -61,3 +61,8 @@ tab_items.forEach((item) => {
 //     $(".status_layer").css('display', 'none'); // 팝업 닫고
 //     $(".status").val(document.querySelector('.status_item.active .btn').text.trim());
 // });
+
+// 상세페이지
+function buyDetail(idx){
+    location.href='/my/buying/'+ idx
+}

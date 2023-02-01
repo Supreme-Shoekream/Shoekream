@@ -602,3 +602,29 @@ img, video {
     flex-direction: column;
     align-self: center;
 }
+
+.purchase_list_product .list_item_title_wrap .list_item_title {
+    line-height: 17px;
+    font-size: 14px;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.list_item_status .column_last .last_title {
+    font-size: 14px;
+    letter-spacing: -.21px;
+}
+
+.list_item_status .column_secondary {
+    font-size: 13px;
+    letter-spacing: -.07px;
+    margin-right: 80px;
+}
+
+.list_item_column .column_secondary {
+    margin-left: 50px;
+}

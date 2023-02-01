@@ -56,3 +56,8 @@ tab_items.forEach((item) => {
         }
         })
 })
+
+// 상세페이지
+function sellDetail(idx){
+    location.href='/my/selling/'+ idx
+}

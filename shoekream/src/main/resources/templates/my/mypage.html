@@ -113,7 +113,7 @@
                                         <!---->
                                         <div id="buyDisplay">
                                             <div class="purchase_list_display_item" style="background-color:#FFFFFF;">
-                                                <div class="purchase_list_product">
+                                                <div class="purchase_list_product" onclick="location.href='#'">
                                                     <div class="list_item_img_wrap">
                                                         <img
                                                                 alt="product_image"
@@ -188,27 +188,52 @@
                                 <div>
                                     <div class="purchase_list all ask">
                                         <!---->
-
+                                        <div id="sellDisplay">
+                                            <div class="purchase_list_display_item" style="background-color:#FFFFFF;">
+                                                <div class="purchase_list_product" onclick="location.href='#'">
+                                                    <div class="list_item_img_wrap">
+                                                        <img
+                                                                alt="product_image"
+                                                                src="/img/nav_close_icon.png"
+                                                                class="list_item_img"
+                                                                style="background-color: rgb(244, 244, 244);"><!---->
+                                                    </div>
+                                                    <div class="list_item_title_wrap">
+                                                        <p class="list_item_title">Maison Margiela High Top Security Sock Runners Black</p>
+                                                        <p class="list_item_description">ONE SIZE</p>
+                                                    </div>
+                                                </div>
+                                                <div class="list_item_status">
+                                                    <div class="list_item_column column_secondary">
+                                                        <p class="secondary_title display_paragraph" style="color:#222222;">50,000원/p>
+                                                    </div>
+                                                    <div class="list_item_column column_last">
+                                                        <p class="last_title display_paragraph" style="color:#222222;"><time>기한만료</time></p>
+                                                        <p class="last_description display_paragraph"></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="empty_area">
                                     <p class="desc">거래 내역이 없습니다.</p>
                                 </div>
                             </div>
-                            <div class="my_home_title">
-                                <h3 class="title"> 관심 상품 </h3>
-                                <a href="/my/wish" class="btn_more">
-                                    <span class="btn_txt">더보기</span>
-                                </a>
-                                <!---->
-                            </div>
-                            <div class="interest_product">
-                                <!---->
-                            </div>
-                            <div class="empty_area has_bg">
-                                <p class="desc">추가하신 관심 상품이 없습니다.</p>
-                                <a href="#" class="btn outlinegrey small"> SHOP 바로가기 </a>
-                            </div>
+<!--                            <div class="my_home_title">-->
+<!--                                <h3 class="title"> 관심 상품 </h3>-->
+<!--                                <a href="/my/wish" class="btn_more">-->
+<!--                                    <span class="btn_txt">더보기</span>-->
+<!--                                </a>-->
+<!--                                &lt;!&ndash;&ndash;&gt;-->
+<!--                            </div>-->
+<!--                            <div class="interest_product">-->
+<!--                                &lt;!&ndash;&ndash;&gt;-->
+<!--                            </div>-->
+<!--                            <div class="empty_area has_bg">-->
+<!--                                <p class="desc">추가하신 관심 상품이 없습니다.</p>-->
+<!--                                <a href="#" class="btn outlinegrey small"> SHOP 바로가기 </a>-->
+<!--                            </div>-->
                             <!---->
                             <!--point layer start-->
                             <!--                            <div th:replace="include/pjs_point_layer :: point_layer"></div>-->
@@ -236,7 +261,14 @@
 <!--footer 넣을곳-->
 <footer th:replace="fragment/footer.html :: footer"></footer>
 <!--footer 넣을곳-->
-
+<script>
+    function buyDetail(idx){
+        location.href='/my/buying/'+ idx
+    }
+    function sellDetail(idx){
+        location.href='/my/selling/'+ idx
+    }
+</script>
 </body>
 </html>
 

@@ -59,16 +59,23 @@ public class MypageController {
             return "login/login";
         }
         MemberDTO memberDTO = kreamPrincipal.toFullDto();
-//        List<BuyResponse> topBuy = buyService. myBuyList(memberDTO.idx()).stream().map(BuyResponse::from).toList();
+        List<BuyResponse> buyDisplay = buyService. myBuyList(memberDTO.idx()).stream().map(BuyResponse::from).toList();
+        List<SellResponse> sellDisplay = sellService. mysellList(memberDTO.idx()).stream().map(SellResponse::from).toList();
         List<BuyResponse> biddings = buyService. myPageBuyListByStatus(memberDTO.idx(), OrderStatus.BIDDING).stream().map(BuyResponse::from).toList();
         List<BuyResponse> progressings = buyService. myPageBuyListByStatus(memberDTO.idx(), OrderStatus.PROGRESSING).stream().map(BuyResponse::from).toList();
         List<BuyResponse> ends = buyService. myPageBuyListByStatus(memberDTO.idx(), OrderStatus.END).stream().map(BuyResponse::from).toList();
-//        modelmap.addAttribute("topBuy", memberApiLogicService.list(memberDTO.idx()));
-        modelmap.addAttribute("buying", buyService.myBuyList(memberDTO.idx()));
+        List<SellResponse> biddingsSell = sellService. myPageSellListByStatus(memberDTO.idx(), OrderStatus.BIDDING).stream().map(SellResponse::from).toList();
+        List<SellResponse> progressingsSell = sellService. myPageSellListByStatus(memberDTO.idx(), OrderStatus.PROGRESSING).stream().map(SellResponse::from).toList();
+        List<SellResponse> endsSell = sellService. myPageSellListByStatus(memberDTO.idx(), OrderStatus.END).stream().map(SellResponse::from).toList();
+        modelmap.addAttribute("buyDisplay", buyDisplay);
+        modelmap.addAttribute("sellDisplay", sellDisplay);
         modelmap.addAttribute("member", memberApiLogicService.list(memberDTO.idx()));
         modelmap.addAttribute("bidCount",biddings.stream().toList().size());
         modelmap.addAttribute("proCount",progressings.stream().toList().size());
         modelmap.addAttribute("endCount",ends.stream().toList().size());
+        modelmap.addAttribute("bidCountSell",biddingsSell.stream().toList().size());
+        modelmap.addAttribute("proCountSell",progressingsSell.stream().toList().size());
+        modelmap.addAttribute("endCountSell",endsSell.stream().toList().size());
         return "/my/mypage";
     }
 

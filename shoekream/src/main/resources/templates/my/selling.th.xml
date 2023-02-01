@@ -5,39 +5,39 @@
     <attr sel="#endCount" th:text="${endCount}"/>
     <attr sel="#bidding">
         <attr sel=".purchase_list_display_item" th:each="bidding : ${biddings}">
-            <attr sel=".purchase_list_product">
+            <attr sel=".purchase_list_product" th:onclick="'javascript:sellDetail('+ ${bidding.idx} + ');'">
                 <attr sel=".list_item_img" th:src="${bidding.productImg}"/>
                 <attr sel=".list_item_title" th:text="${bidding.productName}"/>
                 <attr sel=".list_item_description" th:text="${bidding.productSize}"/>
             </attr>
             <attr sel=".list_item_status">
-                <attr sel=".secondary_title" th:text="${#numbers.formatInteger(bidding.price, 0, 'COMMA')}"/>
+                <attr sel=".secondary_title" th:text="${#numbers.formatInteger(bidding.price, 0, 'COMMA')} + '원'"/>
                 <attr sel=".last_title/time" th:datetime="${bidding.deadline}" th:text="${#temporals.format(bidding.deadline, 'yyyy/MM/dd')}"/>
             </attr>
         </attr>
     </attr>
     <attr sel="#progressing" >
         <attr sel=".purchase_list_display_item" th:each="progressing : ${progressings}">
-            <attr sel=".purchase_list_product">
+            <attr sel=".purchase_list_product" th:onclick="'javascript:sellDetail('+ ${progressing.idx} + ');'">
                 <attr sel=".list_item_img" th:src="${progressing.productImg}"/>
                 <attr sel=".list_item_title" th:text="${progressing.productName}"/>
                 <attr sel=".list_item_description" th:text="${progressing.productSize}"/>
             </attr>
             <attr sel=".list_item_status">
-                <attr sel=".secondary_title" th:text="${#numbers.formatInteger(progressing.price, 0, 'COMMA')}"/>
+                <attr sel=".secondary_title" th:text="${#numbers.formatInteger(progressing.price, 0, 'COMMA')} + '원'"/>
                 <attr sel=".last_title" th:text="${progressing.progress}"/>
             </attr>
         </attr>
     </attr>
     <attr sel="#ends" >
         <attr sel=".purchase_list_display_item" th:each="end : ${ends}">
-            <attr sel=".purchase_list_product">
+            <attr sel=".purchase_list_product" th:onclick="'javascript:sellDetail('+ ${end.idx} + ');'">
                 <attr sel=".list_item_img" th:src="${end.productImg}"/>
                 <attr sel=".list_item_title" th:text="${end.productName}"/>
                 <attr sel=".list_item_description" th:text="${end.productSize}"/>
             </attr>
             <attr sel=".list_item_status">
-                <attr sel=".secondary_title" th:text="${#numbers.formatInteger(end.price, 0, 'COMMA')}"/>
+                <attr sel=".secondary_title" th:text="${#numbers.formatInteger(end.price, 0, 'COMMA')} + '원'"/>
                 <attr sel=".last_title" th:text="${end.progress}"/>
             </attr>
         </attr>
