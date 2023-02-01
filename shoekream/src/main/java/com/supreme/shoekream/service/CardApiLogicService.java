@@ -27,11 +27,22 @@ public class CardApiLogicService {
         List<Card> card = cardRepository.findByMemberIdxAndCardBasic(memberIdx, isBasic);
         return card;
     }
+    @Transactional
+    public List<Card> listAll(Long memberIdx){
+        return cardRepository.findByMemberIdx(memberIdx);
+    }
 
     @Transactional
-    public Header<CardApiResponse> create(CardDTO dto){
-        cardRepository.save(dto.toEntity(dto.memberDTO().toEntity()));
-        return Header.OK();
+    public Header<CardDTO> create(CardDTO dto){
+        Member member = dto.memberDTO().toEntity();
+        if(dto.cardBasic()==true){
+            List<Card> cards = cardRepository.findByMemberIdx(member.getIdx());
+            cards.forEach(
+                    card -> {card.setCardBasic(false);});
+        }
+        Card newCard = cardRepository.save(dto.toEntity(dto.memberDTO().toEntity()));
+        CardDTO cardDTO =CardDTO.from(newCard);
+        return Header.OK(cardDTO);
     }
 
     @Transactional

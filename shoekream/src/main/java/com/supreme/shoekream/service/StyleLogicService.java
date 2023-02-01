@@ -381,17 +381,15 @@ public List<FollowDTO> countFollowers(Long memberIdx){//내가 팔로우하고 �
 
         List<BoardWithLikeListResponse> responses = new ArrayList<>();
         for(int i=0;i<tags.size();i++){
-            responses.add(BoardWithLikeListResponse.fromEntity(boardRepository.findByIdx(tags.get(i).getIdx())));
+            responses.add(BoardWithLikeListResponse.fromEntity(boardRepository.findByIdx(tags.get(i).getBoard().getIdx())));
         }
         System.out.println("리스폰스 테스트"+responses);
         return responses;
     }
     public List<BoardWithLikeListResponse> getProductBoards(Long productIdx, Long memberIdx){
-        System.out.println(productIdx);
         Product product = productRepository.getReferenceById(productIdx);
         String productName = product.getName();
         List<Product>  products = productRepository.findAllByName(productName);
-        System.out.println("4444"+products);
         List<Tag> tags = new ArrayList<>();
         for(int i=0;i<products.size();i++){
             tags.addAll(tagRepository.findAllByProductIdx(products.get(i).getIdx()));
@@ -399,9 +397,8 @@ public List<FollowDTO> countFollowers(Long memberIdx){//내가 팔로우하고 �
 
         List<BoardWithLikeListResponse> responses = new ArrayList<>();
         for(int i=0;i<tags.size();i++){
-            responses.add(BoardWithLikeListResponse.fromEntity(boardRepository.findByIdx(tags.get(i).getIdx())));
+            responses.add(BoardWithLikeListResponse.fromEntity(boardRepository.findByIdx(tags.get(i).getBoard().getIdx())));
         }
-        System.out.println("리스폰스 테스트"+responses);
 
         List<Lk> likes = likeRepository.findAllByMember(memberRepository.getReferenceById(memberIdx));
 
@@ -432,3 +429,4 @@ public List<FollowDTO> countFollowers(Long memberIdx){//내가 팔로우하고 �
         return null;
     }
 }
+

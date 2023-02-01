@@ -992,3 +992,23 @@ h2 {
     color: #fff;
     background-color: #222;
 }
+
+/*위아래 버튼*/
+
+.btn_top {
+    position: fixed;
+    bottom: 70px;
+    right: 24px;
+    width: 44px;
+    height: 48px;
+    z-index: 999;
+}
+
+.btn_bottom {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 44px;
+    height: 48px;
+    z-index: 999;
+}

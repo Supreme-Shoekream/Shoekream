@@ -170,7 +170,6 @@ public class BoardApiController {
         }
     }
 
-
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     // 첨부 파일 업로드(생성)
     @PostMapping("/imgUpload") // http://localhost:8889/api/social/imgUpload
@@ -204,5 +203,17 @@ public class BoardApiController {
     @PostMapping("/boardcreate") // http://localhost:8889/api/social/boardcreate
     public BoardStyleApiResponse create(@RequestBody Header<BoardStyleApiRequest> request) {
         return styleLogicService.create(request);
+
+    @GetMapping("/products/full/{productIdx}")
+    public List<BoardWithLikeListResponse> productFull(@PathVariable(name = "productIdx") Long productIdx, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        if(kreamPrincipal == null){
+            List<BoardWithLikeListResponse> responses = styleLogicService.getProductBoards(productIdx);
+            return responses;
+
+        }else{
+            List<BoardWithLikeListResponse> responses = styleLogicService.getProductBoards(productIdx, kreamPrincipal.idx());
+            return responses;
+        }
+
     }
 }
