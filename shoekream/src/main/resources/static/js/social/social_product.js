@@ -1,35 +1,40 @@
-window.onload = function (){
-    $('span.like').click(function(e){
-        e.preventDefault();
-    });
-
+addEventListener("scroll", e => {
+    const mini = document.getElementById('brand_scroll');
+    if(window.scrollY>0){
+        mini.setAttribute('style', 'display: flex;');
+    }else{
+        mini.setAttribute('style', 'display: none;');
+    }
+})
+window.onload = function(){
     const items = document.querySelectorAll('gnb_item');
     items.forEach((it) => {
         it.classList.remove('gnb_on');
     })
-    const item = document.getElementById('st_gnb');
+    const item = document.getElementById('sh_gnb');
     item.classList.add('gnb_on');
-    // console.log("in")
-    fetch("http://localhost:8889/api/social/newest/")
-        .then((response) => response.json())
-        .then((data) => {
-            console.log(data)
+
+    const productIdx = document.querySelector('.productIdx').value;
+    fetch("http://localhost:8889/api/social/products/full/"+productIdx)
+        .then((boards) => boards.json())
+        .then((d)=>{
+            console.log(d)
             let feedList = "";
-            for(let i=0;i <data.length;i++){
+            for(let i=0;i <d.length;i++){
                 feedList +=
                     `
-                    <div class="feed_card item vertical"" style="padding-top: 10px; position: absolute;  left: ${(i%4)*307}px; top: ${Math.floor(i/4)*465}px">
-                                    <a href="/social/details#${data[i].idx}" class="feed_each">
+                    <div class="feed_card item vertical" style="padding-top: 10px; position: absolute; left: ${(i%4)*307}px; top: ${Math.floor(i/4)*465}px">
+                                    <a class="feed_each">
                                         <div class="card_box">
                                             <div class="social_img_box vertical">
-                                                <a href="/social/details#${data[i].idx}" >
+                                                <a href="/social/details#${d[i].idx}" >
                                                 <picture class="picture social_img">
                                                     <source type="image/webp"
                                                         srcset="">
                                                     <source
                                                         srcset="">
                                                     <img alt="소셜이미지"
-                                                        src="${data[i].img}"
+                                                        src="${d[i].img}"
                                                         loading="auto" class="image">
                                                 </picture>
                                                 </a>
@@ -42,27 +47,26 @@ window.onload = function (){
                                                         <source
                                                             srcset="">
                                                         <img alt="사용자 프로필 이미지"
-                                                            src="${data[i].memberDTO.imgUrl}"
-                                                            loading="auto" class="image" onclick="open_profile('${data[i].memberDTO.email}', ${data[i].memberDTO.idx})">
+                                                            src="${d[i].memberDTO.imgUrl}"
+                                                            loading="auto" class="image" onclick="open_profile('${d[i].memberDTO.email}', ${d[i].memberDTO.idx})">
                                                     </picture>
-                                                    <p class="user_name" onclick="open_profile('${data[i].memberDTO.email}', ${data[i].memberDTO.idx})">${data[i].memberDTO.nickname}</p><span aria-label="좋아요"
-                                                        role="button" class="btn like" onclick="like_clicked(${data[i].idx}, ${data[i].lks.length}, this)">
-`
-
-                if(data[i].islike == false){
+                                                    <p class="user_name" onclick="open_profile('${d[i].memberDTO.email}', ${d[i].memberDTO.idx})">${d[i].memberDTO.nickname}</p><span aria-label="좋아요"
+                                                        role="button" class="btn like" onclick="like_clicked(${d[i].idx}, ${d[i].lks.length}, this)">
+                                                        `
+                if(d[i].islike == false){
                     feedList += `<img id="like_icon" src="/img/styleImg/like_icon.png" alt="좋아요 이미지"
                                                             class="icon sprite-icons social-like-gray-sm">`
                 }else{
                     feedList += `<img id="like_icon" src="/img/styleImg/like_after_icon.png" alt="좋아요 이미지"
                                                             class="icon sprite-icons social-like-gray-sm">`
                 }
-                feedList +=  `<span class="like_count">${data[i].lks.length}</span></span>
+                feedList +=  `<span class="like_count">${d[i].lks.length}</span></span>
                                                 </div>`
-                if(data[i].hashtag != null){
-                    feedList += `<p className="text_box">${data[i].content}` + ` #` +
-                        `${data[i].hashtag}</p>`
+                if(d[i].hashtag != null){
+                    feedList += `<p className="text_box">${d[i].content}` + ` #` +
+                        `${d[i].hashtag}</p>`
                 }else{
-                    feedList += `<p className="text_box">${data[i].content}</p>`
+                    feedList += `<p className="text_box">${d[i].content}</p>`
                 }
                 feedList += `</div>
                                         </div>
@@ -72,12 +76,9 @@ window.onload = function (){
             }
 
             feedList = `<div class="gutter_item"></div>` + feedList;
-            document.getElementById('masonry_posts').innerHTML = feedList;
+            document.querySelector('.masonry_posts').innerHTML = feedList;
             document.querySelector('.footer').style.position= 'absolute';
             document.querySelector('.footer').style.width= '100%';
-            document.querySelector('.footer').style.top= (Math.floor(((data.length)/4)+1)*465+300)+'px';
-        })
-        .catch((err) => {
-            console.log(err)
+            document.querySelector('.footer').style.top= (Math.floor(((d.length)/4)+1)*465+300)+'px';
         })
 }
