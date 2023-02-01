@@ -61,10 +61,10 @@ window.onload = function (){
                                                 </div>
                                                 `
                                                           if(data[i].hashtag != null){
-                                                              feedList =+ `<p className="text_box">${data[i].content}` + ` #` +
+                                                              feedList += `<p className="text_box">${data[i].content}` + ` #` +
                                                                   `${data[i].hashtag}</p>`
                                                           }else{
-                                                              feedList =+ `<p className="text_box">${data[i].content}</p>`
+                                                              feedList += `<p className="text_box">${data[i].content}</p>`
                                                           }
                 feedList += `</div>
                                         </div>
