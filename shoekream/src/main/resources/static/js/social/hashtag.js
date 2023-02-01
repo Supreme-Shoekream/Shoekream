@@ -24,6 +24,7 @@ window.onload = function (){
                                     <a href="#" class="feed_each">
                                         <div class="card_box">
                                             <div class="social_img_box vertical">
+                                                <a href="/social/details#${data[i].idx}" >
                                                 <picture class="picture social_img">
                                                     <source type="image/webp"
                                                         srcset="">
@@ -33,6 +34,7 @@ window.onload = function (){
                                                         src="${data[i].img}"
                                                         loading="auto" class="image">
                                                 </picture>
+                                                </a>
                                             </div>
                                             <div class="card_detail">
                                                 <div class="user_box">
