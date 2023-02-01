@@ -61,9 +61,14 @@ window.onload = function(){
                                                             class="icon sprite-icons social-like-gray-sm">`
                 }
                 feedList +=  `<span class="like_count">${d[i].lks.length}</span></span>
-                                                </div>
-                                                <p class="text_box">${d[i].content}` + ` #` +  `${d[i].hashtag}</p>
-                                            </div>
+                                                </div>`
+                if(d[i].hashtag != null){
+                    feedList += `<p className="text_box">${d[i].content}` + ` #` +
+                        `${d[i].hashtag}</p>`
+                }else{
+                    feedList += `<p className="text_box">${d[i].content}</p>`
+                }
+                feedList += `</div>
                                         </div>
                                     </a>
                                 </div>
