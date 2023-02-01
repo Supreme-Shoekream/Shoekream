@@ -2125,7 +2125,7 @@ svg:not(:root) {
 }
 
 .social-like-gray-sm {
-    width: 22px;
+    width: 20px;
     height: 20px;
 }
 
@@ -2208,7 +2208,7 @@ svg:not(:root) {
     font-size: 13px;
     letter-spacing: -.07px;
     font-weight: 400;
-    color: rgba(34,34,34,.5);
+    color: rgba(34,34,34,.8);
 }
 
 .more_title .arr-right-gray {
