@@ -31,10 +31,10 @@ public record MemberDTO(
                                String hp, String email,String shoeSize){
         return new MemberDTO(null, nickname, memberPw, name, hp, email,Status.MEMBER, shoeSize,0L, null, null, null, null,null);
     }
-    public static MemberDTO of(String memberPw, String name,
+    public static MemberDTO of(String memberPw, String name, String nickname,
                                String hp, String email, String shoeSize,
                                String bank, String accNumber,KreamPrincipal.RoleType roleType){
-        return new MemberDTO(null, null, memberPw, name, hp, email,null, shoeSize,null, null, null, bank, accNumber, roleType);
+        return new MemberDTO(null, nickname, memberPw, name, hp, email,null, shoeSize,null, null, null, bank, accNumber, roleType);
     }
 
     public static MemberDTO fromEntity(Member member){
