@@ -68,7 +68,7 @@ public class BoardApiController {
 
 
     @PostMapping("/comment_create")
-    public Header<ReplyDTO> create(@RequestBody Header<ReplyApiRequest> request, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+    public Header<ReplyDTO> comment_create(@RequestBody Header<ReplyApiRequest> request, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
 //        System.out.println(request.getData());
         ReplyApiRequest replyApiRequest = request.getData();
         ReplyDTO replyDTO = replyApiRequest.toDTO(kreamPrincipal.toFullDto());
@@ -179,7 +179,8 @@ public class BoardApiController {
         logger.info("⚠️파일 타입 : " + uploadFile.getContentType());
         logger.info("⚠️파일 크기 : " + uploadFile.getSize());
         // 파일 저장 폴더 경로
-        String uploadFilePath = "/Users/oyun-yeong/Desktop/Shoekream/publising/Shoekream/shoekream/src/main/resources/static/img/styleImg/";
+//        String uploadFilePath = "/Users/oyun-yeong/Desktop/Shoekream/publising/Shoekream/shoekream/src/main/resources/static/img/styleImg/";
+        String uploadFilePath = "E:/Kream_project/Shoekream/shoekream/src/main/resources/static/img/styleImg/";
         // 폴더 생성
         File uploadPath = new File(uploadFilePath);
         if(!uploadPath.exists()) {
@@ -201,8 +202,9 @@ public class BoardApiController {
     }
 
     @PostMapping("/boardcreate") // http://localhost:8889/api/social/boardcreate
-    public BoardStyleApiResponse create(@RequestBody Header<BoardStyleApiRequest> request) {
-        return styleLogicService.create(request);
+    public BoardStyleApiResponse board_create(@RequestBody Header<BoardStyleApiRequest> request, @AuthenticationPrincipal KreamPrincipal kreamPrincipal) {
+        return styleLogicService.create(request, kreamPrincipal.toFullDto());
+    }
 
     @GetMapping("/products/full/{productIdx}")
     public List<BoardWithLikeListResponse> productFull(@PathVariable(name = "productIdx") Long productIdx, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){

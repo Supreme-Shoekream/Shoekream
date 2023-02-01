@@ -419,11 +419,12 @@ public List<FollowDTO> countFollowers(Long memberIdx){//내가 팔로우하고 �
         return responses;
     }
 
-    public BoardStyleApiResponse create(Header<BoardStyleApiRequest> request){
+    public BoardStyleApiResponse create(Header<BoardStyleApiRequest> request, MemberDTO memberDTO){
         BoardStyleApiRequest boardStyleApiRequest = request.getData();
         Board board = Board.builder()
                 .content(boardStyleApiRequest.content())
                 .img(boardStyleApiRequest.img())
+                .member(memberDTO.toEntity())
                 .build();
         Board newBoard = boardRepository.save(board);
         return null;
