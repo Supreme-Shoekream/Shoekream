@@ -39,13 +39,13 @@ public class SellService {
     private final ProductRepository productRepository;
     private final ConclusionRepository conclusionRepository;
 
-    //사용자이메일로 검색 or 상품이름으로 검색
+    //판매자로 검색
     @Transactional(readOnly = true)
     public Page<SellDTO> searchSell(String searchKeyword, Pageable pageable){
         if(searchKeyword == null || searchKeyword.isBlank()){
             return sellRepository.findAll(pageable).map(SellDTO::fromEntity);
         }
-        return null;
+        return sellRepository.findBySender(searchKeyword, pageable).map(SellDTO::fromEntity);
     }
 
     //관리자페이지/사용자페이지 detail
