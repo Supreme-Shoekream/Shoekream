@@ -1,7 +1,7 @@
 // search
 const searchInput = document.getElementById('search_box')
-searchInput.addEventListener('blur',search_buy)
-function search_buy(){
+searchInput.addEventListener('blur',search_sell)
+function search_sell(){
     location.href="/admin/sell?page=0&searchKeyword="+searchInput.value;
 }
 
