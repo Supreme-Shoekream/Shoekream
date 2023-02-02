@@ -3,6 +3,18 @@
     <attr sel="#bindCount" th:text="${bidCount}"/>
     <attr sel="#continueCount" th:text="${proCount}"/>
     <attr sel="#endCount" th:text="${endCount}"/>
+
+    <attr sel=".head_status">
+        <attr sel="#wish_price">
+            <attr sel="a" th:text="'구매 희망가'" th:href="@{/my/buying(page=${biddings.number},
+            sort='price' + (${biddings.sort.getOrderFor('price')} != null ? (${biddings.sort.getOrderFor('price').direction.name} != 'DESC' ? ',desc' : '') : ''))}"/>
+        </attr>
+        <attr sel="#purchase_date">
+            <attr sel="a" th:text="'구매일'" th:href="@{/my/buying(page=${biddings.number},
+            sort='createdAt' + (${biddings.sort.getOrderFor('createdAt')} != null ? (${biddings.sort.getOrderFor('createdAt').direction.name} != 'DESC' ? ',desc' : '') : ''))}"/>
+        </attr>
+    </attr>
+
     <attr sel="#bidding">
         <attr sel=".purchase_list_display_item" th:each="bidding : ${biddings}">
             <attr sel=".purchase_list_product" th:onclick="'javascript:buyDetail('+ ${bidding.idx} + ');'">
@@ -12,7 +24,7 @@
             </attr>
             <attr sel=".list_item_status">
                 <attr sel=".secondary_title" th:text="${#numbers.formatInteger(bidding.price, 0, 'COMMA')} + '원'"/>
-                <attr sel=".last_title/time" th:datetime="${bidding.deadline}" th:text="${#temporals.format(bidding.deadline, 'yyyy/MM/dd')}"/>
+                <attr sel=".last_title/time" th:datetime="${bidding.createdAt}" th:text="${#temporals.format(bidding.createdAt, 'yyyy/MM/dd')}"/>
             </attr>
         </attr>
     </attr>
@@ -24,7 +36,6 @@
                 <attr sel=".list_item_description" th:text="${progressing.productSize}"/>
             </attr>
             <attr sel=".list_item_status">
-                <attr sel=".secondary_title" th:text="${#numbers.formatInteger(progressing.price, 0, 'COMMA')} + '원'"/>
                 <attr sel=".last_title" th:text="${progressing.progress}"/>
             </attr>
         </attr>
@@ -37,7 +48,6 @@
                 <attr sel=".list_item_description" th:text="${end.productSize}"/>
             </attr>
             <attr sel=".list_item_status">
-                <attr sel=".secondary_title" th:text="${#numbers.formatInteger(end.price, 0, 'COMMA')} + '원'"/>
                 <attr sel=".last_title" th:text="${end.progress}"/>
             </attr>
         </attr>

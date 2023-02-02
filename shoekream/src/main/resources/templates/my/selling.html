@@ -147,15 +147,15 @@
                                             <!-- purchase_list -->
                                             <div class="purchase_list finished bid">
                                                 <div class="purchase_head">
-                                                    <div class="head_product">
-                                                        <a href="#" class="btn_filter">
-                                                            <span>전체</span>
-                                                            <img src="/img/select_icon.png" class="ico-arr-dir-down-circle icon sprite-icons"></img>
-                                                        </a>
-                                                    </div>
+<!--                                                    <div class="head_product">-->
+<!--                                                        <a href="#" class="btn_filter">-->
+<!--                                                            <span>전체</span>-->
+<!--                                                            <img src="/img/select_icon.png" class="ico-arr-dir-down-circle icon sprite-icons"></img>-->
+<!--                                                        </a>-->
+<!--                                                    </div>-->
                                                     <div class="head_status">
-                                                        <div class="status_box field_price">
-                                                            <a class="status_link">
+                                                        <div class="status_box field_price" id="wish_price">
+                                                            <a class="status_link" id="wish_price_arrow">
                                                                 <span class="status_txt">판매 희망가</span>
                                                             </a>
                                                         </div>
@@ -169,9 +169,9 @@
                                                                 <span class="status_txt">판매 가격</span>
                                                             </a>
                                                         </div>
-                                                        <div class="status_box field_expires_at">
-                                                            <a class="status_link">
-                                                                <span class="status_txt">만료일</span>
+                                                        <div class="status_box field_expires_at" id="purchase_date">
+                                                            <a class="status_link" id="purchase_date_arrow">
+                                                                <span class="status_txt">판매일</span>
                                                             </a>
                                                         </div>
                                                         <div class="status_box field_status" style="display: none">
@@ -204,12 +204,10 @@
                                                             <div class="list_item_status">
                                                                 <div
                                                                         class="list_item_column column_secondary">
-                                                                    <p class="secondary_title display_paragraph"
-                                                                       style="color: rgb(34, 34, 34);">50,000원</p>
+                                                                    <p class="secondary_title display_paragraph">50,000원</p>
                                                                 </div>
                                                                 <div class="list_item_column column_last">
-                                                                    <p class="last_title display_paragraph"
-                                                                       style="color: rgb(241, 87, 70);"><time>기한만료</time></p>
+                                                                    <p class="last_title display_paragraph"><time>기한만료</time></p>
                                                                     <p class="last_description display_paragraph"></p>
                                                                 </div>
                                                             </div>
@@ -234,14 +232,8 @@
                                                                 </div>
                                                             </div>
                                                             <div class="list_item_status">
-                                                                <div
-                                                                        class="list_item_column column_secondary">
-                                                                    <p class="secondary_title display_paragraph"
-                                                                       style="color: rgb(34, 34, 34);">50,000원</p>
-                                                                </div>
                                                                 <div class="list_item_column column_last">
-                                                                    <p class="last_title display_paragraph"
-                                                                       style="color: rgb(241, 87, 70);">발송요청</p>
+                                                                    <p class="last_title display_paragraph">발송요청</p>
                                                                     <p class="last_description display_paragraph"></p>
                                                                 </div>
                                                             </div>
@@ -266,14 +258,8 @@
                                                                 </div>
                                                             </div>
                                                             <div class="list_item_status">
-                                                                <div
-                                                                        class="list_item_column column_secondary">
-                                                                    <p class="secondary_title display_paragraph"
-                                                                       style="color: rgb(34, 34, 34);">50,000원</p>
-                                                                </div>
                                                                 <div class="list_item_column column_last">
-                                                                    <p class="last_title display_paragraph"
-                                                                       style="color: rgb(241, 87, 70);">정산완료</p>
+                                                                    <p class="last_title display_paragraph">정산완료</p>
                                                                     <p class="last_description display_paragraph"></p>
                                                                 </div>
                                                             </div>
@@ -282,72 +268,72 @@
                                                 </div>
 
                                                 <!--상태 팝업 1 입찰중-->
-                                                <div class="layer lg" style="display: none;" id="status1">
-                                                    <div class="layer_container">
-                                                        <div class="layer_header">
-                                                            <h2 class="title">선택한 상태 보기</h2>
-                                                        </div>
-                                                        <div class="layer_content">
-                                                            <div class="select_status">
-                                                                <ul class="status_list">
-                                                                    <li class="status_item item_on"><a class="status_link">전체</a></li>
-                                                                    <li class="status_item"><a class="status_link">입찰중</a></li>
-                                                                    <li class="status_item status_danger"><a class="status_link">기한만료</a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                        <a class="btn_layer_close">
-                                                            <img src="/img/nav_close_icon.png" class="ico-close icon sprite-icons">
-                                                        </a>
-                                                    </div>
-                                                </div>
+<!--                                                <div class="layer lg" style="display: none;" id="status1">-->
+<!--                                                    <div class="layer_container">-->
+<!--                                                        <div class="layer_header">-->
+<!--                                                            <h2 class="title">선택한 상태 보기</h2>-->
+<!--                                                        </div>-->
+<!--                                                        <div class="layer_content">-->
+<!--                                                            <div class="select_status">-->
+<!--                                                                <ul class="status_list">-->
+<!--                                                                    <li class="status_item item_on"><a class="status_link">전체</a></li>-->
+<!--                                                                    <li class="status_item"><a class="status_link">입찰중</a></li>-->
+<!--                                                                    <li class="status_item status_danger"><a class="status_link">기한만료</a></li>-->
+<!--                                                                </ul>-->
+<!--                                                            </div>-->
+<!--                                                        </div>-->
+<!--                                                        <a class="btn_layer_close">-->
+<!--                                                            <img src="/img/nav_close_icon.png" class="ico-close icon sprite-icons">-->
+<!--                                                        </a>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
                                                 <!--상태 팝업 2 진행중-->
-                                                <div class="layer lg" style="display: none;" id="status2">
-                                                    <div class="layer_container">
-                                                        <div class="layer_header">
-                                                            <h2 class="title">선택한 상태 보기</h2>
-                                                        </div>
-                                                        <div class="layer_content">
-                                                            <div class="select_status">
-                                                                <ul class="status_list">
-                                                                    <li class="status_item item_on"><a class="status_link">전체</a></li>
-                                                                    <li class="status_item"><a class="status_link">대기중</a></li>
-                                                                    <li class="status_item"><a class="status_link">발송완료</a></li>
-                                                                    <li class="status_item"><a class="status_link">입고대기</a></li>
-                                                                    <li class="status_item"><a class="status_link">입고완료</a></li>
-                                                                    <li class="status_item"><a class="status_link">검수중</a></li>
-                                                                    <li class="status_item status_warning"><a class="status_link">검수보류</a></li>
-                                                                    <li class="status_item"><a class="status_link">검수합격</a></li>
-                                                                    <li class="status_item"><a class="status_link">배송중</a></li>
-                                                                    <li class="status_item status_danger"><a class="status_link">거래실패</a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                        <a class="btn_layer_close">
-                                                            <img src="/img/nav_close_icon.png" class="ico-close icon sprite-icons">
-                                                        </a>
-                                                    </div>
-                                                </div>
+<!--                                                <div class="layer lg" style="display: none;" id="status2">-->
+<!--                                                    <div class="layer_container">-->
+<!--                                                        <div class="layer_header">-->
+<!--                                                            <h2 class="title">선택한 상태 보기</h2>-->
+<!--                                                        </div>-->
+<!--                                                        <div class="layer_content">-->
+<!--                                                            <div class="select_status">-->
+<!--                                                                <ul class="status_list">-->
+<!--                                                                    <li class="status_item item_on"><a class="status_link">전체</a></li>-->
+<!--                                                                    <li class="status_item"><a class="status_link">대기중</a></li>-->
+<!--                                                                    <li class="status_item"><a class="status_link">발송완료</a></li>-->
+<!--                                                                    <li class="status_item"><a class="status_link">입고대기</a></li>-->
+<!--                                                                    <li class="status_item"><a class="status_link">입고완료</a></li>-->
+<!--                                                                    <li class="status_item"><a class="status_link">검수중</a></li>-->
+<!--                                                                    <li class="status_item status_warning"><a class="status_link">검수보류</a></li>-->
+<!--                                                                    <li class="status_item"><a class="status_link">검수합격</a></li>-->
+<!--                                                                    <li class="status_item"><a class="status_link">배송중</a></li>-->
+<!--                                                                    <li class="status_item status_danger"><a class="status_link">거래실패</a></li>-->
+<!--                                                                </ul>-->
+<!--                                                            </div>-->
+<!--                                                        </div>-->
+<!--                                                        <a class="btn_layer_close">-->
+<!--                                                            <img src="/img/nav_close_icon.png" class="ico-close icon sprite-icons">-->
+<!--                                                        </a>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
                                                 <!--상태 팝업 3 종료-->
-                                                <div class="layer lg" style="display: none;" id="status3">
-                                                    <div class="layer_container">
-                                                        <div class="layer_header">
-                                                            <h2 class="title">선택한 상태 보기</h2>
-                                                        </div>
-                                                        <div class="layer_content">
-                                                            <div class="select_status">
-                                                                <ul class="status_list">
-                                                                    <li class="status_item item_on"><a class="status_link">전체</a></li>
-                                                                    <li class="status_item"><a class="status_link">배송완료</a></li>
-                                                                    <li class="status_item status_danger"><a class="status_link">취소완료</a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                        <a class="btn_layer_close">
-                                                            <img src="/img/nav_close_icon.png" class="ico-close icon sprite-icons">
-                                                        </a>
-                                                    </div>
-                                                </div>
+<!--                                                <div class="layer lg" style="display: none;" id="status3">-->
+<!--                                                    <div class="layer_container">-->
+<!--                                                        <div class="layer_header">-->
+<!--                                                            <h2 class="title">선택한 상태 보기</h2>-->
+<!--                                                        </div>-->
+<!--                                                        <div class="layer_content">-->
+<!--                                                            <div class="select_status">-->
+<!--                                                                <ul class="status_list">-->
+<!--                                                                    <li class="status_item item_on"><a class="status_link">전체</a></li>-->
+<!--                                                                    <li class="status_item"><a class="status_link">배송완료</a></li>-->
+<!--                                                                    <li class="status_item status_danger"><a class="status_link">취소완료</a></li>-->
+<!--                                                                </ul>-->
+<!--                                                            </div>-->
+<!--                                                        </div>-->
+<!--                                                        <a class="btn_layer_close">-->
+<!--                                                            <img src="/img/nav_close_icon.png" class="ico-close icon sprite-icons">-->
+<!--                                                        </a>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
                                                 <!----><!----><!----><!---->
                                             </div>
                                         </div>

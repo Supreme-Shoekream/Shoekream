@@ -28,7 +28,7 @@
             </attr>
             <attr sel=".list_item_status">
                 <attr sel=".secondary_title" th:text="${#numbers.formatInteger(buyDisplay.price, 0, 'COMMA')} + '원'"/>
-                <attr sel=".last_title/time" th:datetime="${buyDisplay.deadline}" th:text="${#temporals.format(buyDisplay.deadline, 'yyyy/MM/dd')}"/>
+                <attr sel=".last_title/time" th:datetime="${buyDisplay.createdAt}" th:text="${#temporals.format(buyDisplay.createdAt, 'yyyy/MM/dd')}"/>
             </attr>
         </attr>
     </attr>
@@ -47,7 +47,7 @@
             </attr>
             <attr sel=".list_item_status">
                 <attr sel=".secondary_title" th:text="${#numbers.formatInteger(sellDisplay.price, 0, 'COMMA')} + '원'"/>
-                <attr sel=".last_title/time" th:datetime="${sellDisplay.deadline}" th:text="${#temporals.format(sellDisplay.deadline, 'yyyy/MM/dd')}"/>
+                <attr sel=".last_title/time" th:datetime="${sellDisplay.createdAt}" th:text="${#temporals.format(sellDisplay.createdAt, 'yyyy/MM/dd')}"/>
             </attr>
         </attr>
     </attr>
