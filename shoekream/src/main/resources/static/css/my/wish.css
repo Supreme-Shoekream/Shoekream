@@ -436,7 +436,6 @@ svg:not(:root) {
 }
 
 .product_detail .size {
-    margin-top: auto;
     font-size: 13px;
     font-weight: 700;
     line-height: 16px;
@@ -651,6 +650,9 @@ svg:not(:root) {
     border-color: #ebebeb;
 }
 
+span.wish_pro_size {
+    margin-top: 25px;
+}
 
 
 

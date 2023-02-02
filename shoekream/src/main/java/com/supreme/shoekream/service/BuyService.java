@@ -5,6 +5,7 @@ import com.supreme.shoekream.model.dto.*;
 import com.supreme.shoekream.model.entity.*;
 import com.supreme.shoekream.model.enumclass.OrderStatus;
 
+import com.supreme.shoekream.model.enumclass.PointType;
 import com.supreme.shoekream.model.enumclass.Progress;
 import com.supreme.shoekream.model.enumclass.SellProgress;
 import com.supreme.shoekream.model.network.Header;
@@ -22,6 +23,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityNotFoundException;
 
 import java.text.DecimalFormat;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -106,6 +108,9 @@ public class BuyService {
         Product product = productRepository.findById(buyDTO.productDTO().idx()).get();
         Member member = memberRepository.findById(buyDTO.memberDTO().idx()).get();
         BuyDTO response;
+        String price;
+        DecimalFormat format = new DecimalFormat("###,###");
+        price = format.format(buyDTO.price())+"원";
         // sell != null -> 판매자 progress null->0(발송요청), status 0->1(진행중) update + 채결내역 등록
         if(buyDTO.sellIdx() == null){
             Buy newBuy = buyRepository.save(buyDTO.toEntity(product,member,null));
@@ -119,14 +124,14 @@ public class BuyService {
             System.out.println("즉시💨💨"+newBuy);
             sell.setBuy(newBuy);
             response = BuyDTO.fromEntity(newBuy);
-//            ConclusionDTO conclusionDTO = ConclusionDTO.of();
-//            conclusionRepository.save(conclusionDTO.toEntity());
+            ConclusionDTO conclusionDTO = ConclusionDTO.of(price, LocalDateTime.now(),buyDTO.productDTO());
+            conclusionRepository.save(conclusionDTO.toEntity(product));
         }
 
         // buyDTO.usepoint != 0 -> 포인트 테이블에 등록 + 사용자가 사용한 포인트 만큼 차감
         if(buyDTO.usePoint() != 0){
-//            PointDTO pointDTO = PointDTO.of(...);
-//            pointRepository.save(pointDTO.toEntity(member));
+            PointDTO pointDTO = PointDTO.of((long)buyDTO.usePoint(), PointType.BUY_USE,LocalDateTime.now());
+            pointRepository.save(pointDTO.toEntity(member));
             member.setPoint(member.getPoint()- buyDTO.usePoint());
         }
         return Header.OK(response);

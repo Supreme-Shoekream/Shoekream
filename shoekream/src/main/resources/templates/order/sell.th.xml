@@ -15,14 +15,32 @@
     <attr sel=".price_now_box">
         <attr sel="#now_price" th:text="${sellNowPrice}"/>
     </attr>
+    <attr sel=".step-2">
+        <attr sel=".account_info">
+            <attr sel="div[0]/dt" th:text="${member.bank} !=null ? '계좌' : ''"/>
+            <attr sel="div[0]/dd" th:text="${member.bank} !=null ? ${member.bank}+' '+${member.accNumber} : '등록된 판매 정산 계좌가 없습니다.'" />
+            <attr sel="div[1]/dt" th:text="${member.bank} !=null ? '예금주' : ''"/>
+            <attr sel="div[1]/dd" th:text="${member.bank} !=null ? ${member.name} : '새 계좌번호를 추가해주세요!'" />
+        </attr>
+        <attr sel="#account_btn" th:text="${member.bank} !=null ? '변경' : '등록'"/>
+        <attr sel="#bank_name" th:text="${member.bank != null} ? ${member.bank} : '(은행명)'"/>
+        <attr sel="#acc_number" th:text="${member.accNumber != null} ? ${member.accNumber} : '(계좌번호)'"/>
+        <attr sel="#name" th:text="${member.name}"/>
+        <attr sel="#input_holder" th:value="${member.name}"/>
 
-    <attr sel=".account_info">
-        <attr sel="div[0]/dt" th:text="${member.bank} !=null ? '계좌' : ''"/>
-        <attr sel="div[0]/dd" th:text="${member.bank} !=null ? ${member.bank}+' '+${member.accountNumber} : '등록된 판매 정산 계좌가 없습니다.'" />
-        <attr sel="div[1]/dt" th:text="${member.bank} !=null ? '예금주' : ''"/>
-        <attr sel="div[1]/dd" th:text="${member.bank} !=null ? ${member.name} : '새 계좌번호를 추가해주세요!'" />
+        <attr sel=".empty_delivery_info" th:style="(${basicAddress}==null) ?'display:flex' :'display:none' "/>
+        <attr sel=".delivery_info" th:style="(${basicAddress}!=null) ?'display:block' :'display:none'"/>
+        <attr sel=".address_info">
+            <attr sel="#sender" th:text="${basicAddress}!=null ? ${basicAddress.name} : ''"/>
+            <attr sel="#senderHp" th:text="${basicAddress}!=null ? ${#strings.substring(basicAddress.hp,0,3)+'-'+#strings.substring(basicAddress.hp,4,5)+'***-*'+#strings.substring(basicAddress.hp,8,11)} : '등록된 주소가 없습니다'"/>
+            <attr sel="#senderAddress" th:text="${basicAddress}!=null ? ${'('+basicAddress.zipcode+') '+basicAddress.address1+' '+basicAddress.address2} : ''"/>
+        </attr>
+
+        <attr sel=".regist_link" th:style="(${basicCard}==null) ?'display:flex' :'display:none' "/>
+        <attr sel=".main_card" th:style="(${basicCard}!=null) ?'display:block' :'display:none'">
+            <attr sel="#cardInfo" th:text="${basicCard}!=null ? ${#strings.substring(basicCard.cardNumber,12,16)} :''"/>
+        </attr>
     </attr>
-    <attr sel="#account_btn" th:text="${member.bank} !=null ? '변경' : '등록'"/>
     <attr sel=".step-3">
         <attr sel=".image" th:src="${product.data.img}"></attr>
     </attr>

@@ -19,7 +19,7 @@ public class Product {
     private String name; // 상품명
     private String nameKor; // 상품명(한글)
     private String size; // 사이즈
-    private int wishCount; // 관심상품수
+    @ColumnDefault("0")private int wishCount; // 관심상품수
     private String modelNum; // 모델번호
     private String releaseDate; // 출시일
     private String color; // 컬러

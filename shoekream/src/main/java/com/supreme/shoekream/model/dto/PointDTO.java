@@ -24,6 +24,13 @@ public record PointDTO(
     ){
         return new PointDTO(idx, point, reason, regDate);
     }
+    public static PointDTO of(
+            Long point,
+            PointType reason,
+            LocalDateTime regDate
+    ){
+        return new PointDTO(null, point, reason, regDate);
+    }
     public static PointDTO from(Point entity){
         return new PointDTO(
                 entity.getIdx(),

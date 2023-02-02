@@ -20,8 +20,9 @@
     <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://kream.co.kr/favicon.ico">
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"
         integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-        <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-</head><script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+</head>
+<script>
     function sample6_execDaumPostcode() {
         new daum.Postcode({
             oncomplete: function(data) {
@@ -731,7 +732,7 @@
                             <div class="alert_box">
                                 <p class="alert_desc">이미 진행 중인 거래를 포함하여 앞으로<br>모든 거래의 결제가 해당카드로 변경됩니다.</p>
                             </div>
-                            <div class="layer_btn"><button type="button" class="btn outlinegrey medium" onclick="createCard(false)"> 변경없이 등록
+                            <div class="layer_btn"><button type="button" class="btn outlinegrey medium" onclick="createCard(false)" style="font-size: 13.2px;"> 변경없이 등록
                                 </button><button type="button" class="btn solid medium" onclick="createCard(true)"> 계속 변경 </button></div>
                         </div>
                     </div>
