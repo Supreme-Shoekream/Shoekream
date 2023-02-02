@@ -36,7 +36,7 @@ public interface ProductRepository extends
     Page<Product> findBySizeContainingAndBrandContainingAndCategoryContainingAndCollectionContainingAndGenderContainingAndNameContaining(String size, String brand,
                                                                                        String category, String collection,
                                                                                        String gender, String keyword, Pageable pageable);
-    Page<Product> findBySize(String size, Pageable pageable);
+    Page<Product> findBySizeContaining(String size, Pageable pageable);
     List<Product> findAllByName(String name);
     Page<Product> findByBrand(String brand, Pageable pageable);
 

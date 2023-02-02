@@ -47,7 +47,7 @@ async function show_search_layer(_keyword){
         const _html = _result.data.map(_val =>
 
             `<div  class="suggest_item">
-                  <a  href="${_val.idx}" class="suggest_link">
+                  <a  href="/product/${_val.idx}" class="suggest_link">
                     <div  class="suggest_thumb" style="background-color: rgb(235, 240, 245);">
                       <picture class="picture thumb_img">
                         <img src="${_val.img}" loading="lazy" class="image">
