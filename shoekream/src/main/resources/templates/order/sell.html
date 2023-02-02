@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/order/header.css">
     <link rel="stylesheet" href="/css/order/sell.css">
     <link rel="stylesheet" href="/css/layer/layer.css">
+    <link rel="stylesheet" href="/css/layer/layer_payout_account.css">
     <link rel="stylesheet" href="/css/layer/layer_delivery.css">
     <link rel="stylesheet" href="/css/layer/layer_address.css">
     <link rel="stylesheet" href="/css/layer/layer_shipping_memo.css">
@@ -19,8 +20,52 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" />
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"
         integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
-
+<script>
+    function sample6_execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                var addr = ''; // 주소 변수
+                var extraAddr = ''; // 참고항목 변수
+                //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                    addr = data.roadAddress;
+                } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                    addr = data.jibunAddress;
+                }
+                // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+                if(data.userSelectedType === 'R'){
+                    // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                    // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                    if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                        extraAddr += data.bname;
+                    }
+                    // 건물명이 있고, 공동주택일 경우 추가한다.
+                    if(data.buildingName !== '' && data.apartment === 'Y'){
+                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                    }
+                    // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                    if(extraAddr !== ''){
+                        extraAddr = ' (' + extraAddr + ')';
+                    }
+                    // 조합된 참고항목을 해당 필드에 넣는다.
+                    document.getElementById("sample6_extraAddress").value = extraAddr;
+                } else {
+                    document.getElementById("sample6_extraAddress").value = '';
+                }
+                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                document.getElementById('sample6_postcode').value = data.zonecode;
+                document.getElementById("sample6_address").value = addr;
+                // 커서를 상세주소 필드로 이동한다.
+                document.getElementById("sample6_detailAddress").focus();
+            }
+        }).open();
+    }
+</script>
 <body>
 <!-- Header 시작 -->
 <header th:replace="/fragment/order_header.html :: order_header"></header>
@@ -169,7 +214,86 @@
                     </div>
                     <!--판매 정산계좌 레이어창-->
                     <!-- 판매 정산계좌 창 layer_payout_account-->
-                    <div th:replace="/layer/layer_payout_account.html :: layer_payout_account"></div>
+                    <div class="layer_payout_account layer lg" style="display:none">
+                        <div class="layer_container"><a href="#" class="btn_layer_close" onclick="close_payout_account()">
+                            <img src="/img/close.png">
+                        </a>
+                            <div class="layer_header">
+                                <h2 class="title">판매 정산 계좌</h2>
+                            </div>
+                            <div class="layer_content">
+                                <div class="registered_account_box">
+                                    <h4 class="box_title">등록된 계좌 정보</h4>
+                                    <p class="box_account_info"><span class="account" id="bank_name">은행명</span>
+                                        <span class="account" id="acc_number">계좌번호</span><span class="account_devider">/</span><span
+                                                class="name" id="name"></span></p>
+                                </div>
+                                <div class="content_registration">
+                                    <div class="account_registration">
+                                        <div class="input_logistics_companies input_box">
+                                            <h4 class="input_title">은행명</h4>
+                                            <div onclick="dropdown()" class="input_item"><input id="input_bank" type="text"
+                                                                                                placeholder="선택하세요" readonly="readonly" autocomplete="off" inputmode="numeric"
+                                                                                                class="input_txt"><button  type="button" class="btn btn_dropdown"
+                                            ><img src="/img/down.png" alt="img"></button>
+                                            </div>
+                                            <div class="bank_dropdown_menu" style="display: none;">
+                                                <ul class="bank_list">
+                                                    <li class="bank_list_li">국민은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                                    <li class="bank_list_li">신한은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                                    <li class="bank_list_li">우리은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                                    <li class="bank_list_li">하나은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                                    <li class="bank_list_li">기업은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                                    <li class="bank_list_li">농협은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                                    <li class="bank_list_li">SC은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                                    <li class="bank_list_li">우체국<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                                    <li class="bank_list_li">한국씨티은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                                    <li class="bank_list_li">산업은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                                    <li class="bank_list_li">카카오뱅크<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                                    <li class="bank_list_li">부산은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                                    <li class="bank_list_li">대구은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                                    <li class="bank_list_li">광주은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                                    <li class="bank_list_li">케이뱅크<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                                    <li class="bank_list_li">수협중앙회<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                                    <li class="bank_list_li">제주은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                                    <li class="bank_list_li">전북은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                                    <li class="bank_list_li">지역농축협<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                                    <li class="bank_list_li">경남은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                                    <li class="bank_list_li">새마을금고연합회<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                                    <li class="bank_list_li">신협<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                                    <li class="bank_list_li">저축은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                                    <li class="bank_list_li">HSBC은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                                    <li class="bank_list_li">도이치은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                                    <li class="bank_list_li">제이피모간체이스은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                                    <li class="bank_list_li">BOA은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                                    <li class="bank_list_li">비엔피파리바은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                                    <li class="bank_list_li">중국공상은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                                    <li class="bank_list_li">산림조합<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                                    <li class="bank_list_li">중국건설은행<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                                    <li class="bank_list_li">토스뱅크<img class="check_image" src="/img/wcheck.png" alt="img" style="display:none"></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="input_box" id="input_acc_box">
+                                            <h4 class="input_title">계좌번호</h4>
+                                            <div class="input_item"><input id="input_acc" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" type="text"
+                                                                           placeholder="- 없이 입력하세요" autocomplete="off" class="input_txt input_write"></div>
+                                            <p class="input_error">올바른 계좌번호를 입력해주세요.</p>
+                                        </div>
+                                        <div class="input_box" id="input_holder_box">
+                                            <h4 class="input_title">예금주</h4>
+                                            <div class="input_item"><input disabled="disabled" id="input_holder" type="text"
+                                                                           placeholder="예금주명을 정확히 입력하세요." autocomplete="off" class="input_txt input_write"></div>
+                                            <p class="input_error">올바른 이름을 입력해주세요. (2-50자)</p>
+                                        </div>
+                                    </div>
+                                    <div class="registration_btn_box"><a id="submit_btn_acc"
+                                                                         disabled="disabled" href="javascript:void(0);" class="btn btn_save solid medium disabled"> 변경하기 </a></div>
+                                    <!---->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <!--판매 정산계좌 끝 layer_payout_account-->
                 </section>
                 <section>
@@ -179,6 +303,8 @@
                                 추가</a>
                         </div>
                         <div class="section_content">
+                            <a onclick="pop_new_delivery()" class="empty_delivery_info" style="display: none">
+                                <span class="guide_txt">주소를 추가해주세요.</span></a>
                             <div class="delivery_info">
                                 <div class="address_info">
                                     <dl class="info_list">
@@ -206,16 +332,169 @@
                                     </button>
                                 </div>
                                 <!--배송 요청사항 레이어창-->
-                                <div th:replace="/layer/layer_shipping_memo.html :: layer_shipping_memo"></div>
+                                <div class="layer_shipping_memo layer lg" style="display:none" th:fragment="layer_shipping_memo">
+                                    <div class="layer_container"><a class="btn_layer_close"
+                                                                    onclick="close_layer_shipping_memo()">
+                                        <img src="/img/close.png"></a>
+                                        <div class="layer_header">
+                                            <p class="title">배송 요청사항</p>
+                                        </div>
+                                        <div class="layer_content">
+                                            <div class="button_shipping_memo_wrap selectable checked"
+                                                 updated-memo="[object Object]">
+                                                <p>요청사항 없음</p><img src="/img/wcheck.png" style="display: block;">
+                                            </div>
+                                            <div class="button_shipping_memo_wrap selectable "
+                                                 updated-memo="[object Object]">
+                                                <p>문 앞에 놓아주세요</p><img src="/img/wcheck.png">
+                                            </div>
+                                            <div class="button_shipping_memo_wrap selectable"
+                                                 updated-memo="[object Object]">
+                                                <p>경비실에 맡겨 주세요</p><img src="/img/wcheck.png">
+                                            </div>
+                                            <div class="button_shipping_memo_wrap selectable"
+                                                 updated-memo="[object Object]">
+                                                <p>파손 위험 상품입니다. 배송 시 주의해주세요</p><img src="/img/wcheck.png">
+                                            </div>
+                                            <div class="shipping_memo">
+                                                <div class="button_shipping_memo_wrap direct_input"
+                                                     updatedmemo="[object Object]">
+                                                    <p>직접 입력</p>
+                                                    <img src="/img/wcheck.png">
+                                                </div>
+                                                <!--직접 입력하는 드롭다운-->
+                                                <div><textarea placeholder="내용을 입력해주세요.(최대 40자)" maxlength="40"
+                                                               class="textarea_shipping_memo"
+                                                               style="display: none;"></textarea>
+                                                </div>
+                                                <!--직접 입력하는 드롭다운-->
+                                            </div>
+                                            <div class="shipping_memo_buttons">
+                                                <button type="button" class="btn btn_cancel outlinegrey medium"
+                                                        onclick="close_layer_shipping_memo()"> 취소
+                                                </button><a  class="btn btn_apply solid medium"
+                                                             onclick="update_layer_shipping_memo()"> 적용하기 </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <!--배송 요청사항 클릭시 레이어창 끝-->
                             </div>
                         </div>
                     </div>
-                    <!--주소 변경 클릭시 나오는 모달창-->
-                    <div th:replace="/layer/layer_address.html :: layer_address"></div>
+                    <!--주소 변경 클릭시 나오는 모달창 시작-->
+                    <div class="layer_address layer lg" style="display: none" >
+                        <div class="layer_container"><a href="#" class="btn_layer_close" onclick="close_address()">
+                            <img src="/img/close.png">
+                        </a>
+                            <div class="layer_header">
+                                <h2 class="title">주소록</h2>
+                            </div>
+                            <div class="layer_content">
+                                <div class="list_wrap">
+                                    <!---->
+                                    <div class="my_list">
+                                        <!---->
+                                        <div class="other">
+                                            <div class="other_list">
+                                                <div class="my_item is_active select">
+                                                    <div class="info_bind">
+                                                        <!---->
+                                                        <div class="address_info">
+                                                            <div class="name_box"><span class="name">반**</span><span class="mark">기본
+                                                배송지</span></div>
+                                                            <p class="phone">010-2***-*222</p>
+                                                            <div class="address_box"><span class="zipcode">(63309)</span><span
+                                                                    class="address">제주특별자치도 제주시 첨단로 242 (영평동) 바나나 나무</span></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn_bind" style="display: block;"><img src="/img/wcheck.png"></div>
+                                                </div>
+                                                <div class="my_item select">
+                                                    <div class="info_bind">
+                                                        <!---->
+                                                        <div class="address_info">
+                                                            <div class="name_box"><span class="name">김**</span>
+                                                                <!---->
+                                                            </div>
+                                                            <p class="phone">010-1***-*111</p>
+                                                            <div class="address_box"><span class="zipcode">(13494)</span><span
+                                                                    class="address">경기 성남시 분당구 판교역로 235 (삼평동, 에이치스퀘어 엔동) 사과나무</span></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn_bind" style="display: none;"><img src="/img/wcheck.png"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!---->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <!--주소 변경 클릭시 나오는 모달창 끝-->
                     <!--새 주소 추가 버튼 클릭시 나오는 모달창 시작-->
-                    <div th:replace="/layer/layer_delivery::layer_delivery"></div>
+                    <div class="layer_delivery layer lg" style="display:none" >
+                        <div class="layer_container"><a class="btn_layer_close" onclick="close_new_delivery()">
+                            <div><img src="/img/close.png"></div>
+                            <!---->
+                        </a>
+                            <div class="layer_header">
+                                <h2 class="title"> 새 주소 추가 </h2>
+                            </div>
+                            <div class="layer_content">
+                                <div class="delivery_bind">
+                                    <div class="delivery_input">
+                                        <div class="input_box" id="name_input_box">
+                                            <h4 class="input_title">이름</h4>
+                                            <div class="input_item"><input type="text" placeholder="수령인의 이름" autocomplete="off"
+                                                                           class="input_txt" id="name_input"></div>
+                                            <p class="input_error" id="name_input_error"></p>
+                                        </div>
+                                        <div class="input_box" id="hp_input_box">
+                                            <h4 class="input_title">휴대폰 번호</h4>
+                                            <div class="input_item">
+                                                <input type="number" maxlength="11" name="hp" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="- 없이 입력" autocomplete="off" class="input_txt" id="hp_input" oninput="maxLengthCheck(this)">
+                                            </div>
+                                            <p class="input_error" id="hp_input_error"></p>
+                                        </div>
+                                        <div class="input_box">
+                                            <h4 class="input_title">우편번호</h4>
+                                            <div class="input_item">
+                                                <input type="text" placeholder="우편 번호를 검색하세요" readonly="readonly" autocomplete="off" class="input_txt" id="sample6_postcode">
+                                                <a href="#" class="btn btn_zipcode outline small" data-v-1c44afeb="" onclick="sample6_execDaumPostcode()"> 우편번호 </a>
+                                            </div>
+                                        </div>
+                                        <div class="input_box">
+                                            <h4 class="input_title">주소</h4>
+                                            <div class="input_item">
+                                                <input type="text" placeholder="우편 번호 검색 후, 자동입력 됩니다" readonly="readonly" autocomplete="off" class="input_txt" id="sample6_address"></div>
+                                        </div>
+                                        <div class="input_box">
+                                            <h4 class="input_title">상세 주소</h4>
+                                            <div class="input_item">
+                                                <input type="text" placeholder="건물, 아파트, 동/호수 입력" autocomplete="off" class="input_txt" id="sample6_detailAddress"></div>
+                                        </div>
+                                        <div class="input_box" style="display:none">
+                                            <h4 class="input_title">참고항목</h4>
+                                            <div class="input_item">
+                                                <input type="text"autocomplete="off" class="input_txt" id="sample6_extraAddress"></div>
+                                        </div>
+                                    </div>
+                                    <div class="delivery_check">
+                                        <div class="checkbox_item"><input id="check1" type="checkbox" name="" class="check"><label
+                                                for="check1" class="check_label"><span class="label_txt">기본 배송지로 설정</span>
+                                            <!---->
+                                        </label></div>
+                                    </div>
+                                </div>
+                                <div class="layer_btn">
+                                    <a href="#" class="btn btn_delete outlinegrey medium" onclick="close_new_delivery()"> 취소 </a>
+                                    <a disabled="disabled" href="#" class="btn btn_save solid medium disabled" id="submit_btn"> 저장하기 </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <!--새 주소 추가 버튼 클릭시 나오는 모달창 끝-->
 
                 </section>
@@ -274,10 +553,100 @@
                                 <div class="main_title"> 카드 간편결제 <span class="sub_title">일시불</span></div><a href="#none"
                                     class="btn_card_add" onclick="pop_card()">+ 새 카드 추가</a>
                             </h4>
-                            <!-- layer_card 시작-->
-                            <div th:replace="/layer/layer_card.html :: layer_card"></div>
+                            <!--layer_card 시작-->
+                            <div class="layer_card layer lg" style="display: none;">
+                                <div class="layer_container"><a href="#" class="btn_layer_close">
+                                    <div><img src="/img/close.png" onclick="close_card()"></div>
+                                    <!---->
+                                </a>
+                                    <div class="layer_header">
+                                        <h2 class="title"> 새 카드 추가 </h2>
+                                    </div>
+                                    <div class="layer_content">
+                                        <div class="card_bind">
+                                            <div class="card_input">
+                                                <div class="input_box" id="card_input_box">
+                                                    <h4 class="input_title">카드번호</h4>
+                                                    <div class="input_item" id="connected-input">
+                                                        <input type="number" maxlength="4" placeholder="⦁⦁⦁⦁" autocomplete="off"
+                                                               class="input_card" id="cc-1" oninput="maxLengthCheck(this)"> -
+                                                        <input type="number" maxlength="4" placeholder="⦁⦁⦁⦁" autocomplete="off"
+                                                               class="input_card" id="cc-2" oninput="maxLengthCheck(this)"> -
+                                                        <input type="number" maxlength="4" placeholder="⦁⦁⦁⦁" autocomplete="off"
+                                                               class="input_card" id="cc-3" oninput="maxLengthCheck(this)"> -
+                                                        <input type="number" maxlength="4" placeholder="⦁⦁⦁⦁" autocomplete="off"
+                                                               class="input_card" id="cc-4" oninput="maxLengthCheck(this)">
+                                                    </div>
+                                                    <p class="input_error" id="card_input_error"></p>
+                                                </div>
+                                                <div class="input_box" id="expirydate_input_box">
+                                                    <h4 class="input_title">유효기간</h4>
+                                                    <div class="input_item">
+                                                        <!-- <input type="tel" placeholder="12" autocomplete="off" class="input_expirydate"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="tel" placeholder="2025" autocomplete="off" class="input_expirydate" id="expirydate_input"> -->
+                                                        <select class="input_expiration_month" id="expiration-month"
+                                                                aria-label="Expiration Month" required>
+                                                            <option>01</option>
+                                                            <option>02</option>
+                                                            <option>03</option>
+                                                            <option>04</option>
+                                                            <option>05</option>
+                                                            <option>06</option>
+                                                            <option>07</option>
+                                                            <option>08</option>
+                                                            <option>09</option>
+                                                            <option>10</option>
+                                                            <option>11</option>
+                                                            <option>12</option>
+                                                        </select>
+                                                        <select class="input_expiration_year" id="expiration-year" aria-label="Expiration Year"
+                                                                required>
+                                                            <option>2023</option>
+                                                            <option>2024</option>
+                                                            <option>2025</option>
+                                                            <option>2026</option>
+                                                            <option>2027</option>
+                                                            <option>2028</option>
+                                                            <option>2029</option>
+                                                            <option>2030</option>
+                                                            <option>2031</option>
+                                                            <option>2032</option>
+                                                        </select>
+                                                    </div>
+                                                    <p class="input_error"></p>
+                                                </div>
+                                                <div class="input_box" id="birthday_input_box">
+                                                    <h4 class="input_title">생년월일</h4>
+                                                    <div class="input_item">
+                                                        <input type="number" maxlength="6" placeholder="⦁⦁⦁⦁⦁⦁" autocomplete="off"
+                                                               class="input_birthday" id="birthday_input" oninput="maxLengthCheck(this)">
+                                                    </div>
+                                                    <p class="input_error" id="birthday_input_error"></p>
+                                                </div>
+                                                <div class="input_box" id="pin_input_box">
+                                                    <h4 class="input_title">비밀번호</h4>
+                                                    <div class="input_item">
+                                                        <input type="number" maxlength="2" placeholder="⦁⦁" autocomplete="off"
+                                                               class="input_cardpw" id="pin_input" oninput="maxLengthCheck(this)">**
+                                                    </div>
+                                                    <p class="input_error" id="pin_input_error"></p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="layer_btn">
+                                            <a href="#" class="btn btn_delete outlinegrey medium" onclick="close_card()"> 취소 </a>
+                                            <a disabled="disabled" onclick="cardBasicOk()" href="#" class="btn btn_save solid medium disabled"
+                                               id="submit_card_btn"> 저장하기
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <!--layer_card 끝-->
                             <div class="card_list">
+                                <a class="regist_link" onclick="pop_card()">
+                                    <span class="regist_text">카드를 등록해주세요</span>
+                                </a>
                                 <div class="main_card">
                                     <div class="clickable_card">
                                         <div class="card_info"><span class="card_name"> BC</span>
@@ -401,6 +770,22 @@
                                 id="submit" onclick="pop_order_price_confirm()"> 판매 입찰하기 </a></div>
                     </div>
                 </section>
+                <!--카드 등록시 나오는 팝업-->
+                <div class="layer lg layer_alert card_create_layer" style="display: none;">
+                    <div class="layer_container"><a onclick="close_card_create_layer()" class="btn_layer_close"><img src="/img/close.png
+                "></a>
+                        <div class="layer_header">
+                            <h2 class="title">기본 결제 변경</h2>
+                        </div>
+                        <div class="layer_content">
+                            <div class="alert_box">
+                                <p class="alert_desc">이미 진행 중인 거래를 포함하여 앞으로<br>모든 거래의 결제가 해당카드로 변경됩니다.</p>
+                            </div>
+                            <div class="layer_btn"><button type="button" class="btn outlinegrey medium" onclick="createCard(false)" style="font-size: 13.2px;"> 변경없이 등록
+                            </button><button type="button" class="btn solid medium" onclick="createCard(true)"> 계속 변경 </button></div>
+                        </div>
+                    </div>
+                </div>
                 <!--결제하기 클릭시 나오는 팝업-->
                 <div class="layer_order_price_confirm layer md" style="display: none;">
                     <div class="layer_container"><a onclick="close_order_price_confirm()" class="btn_layer_close">

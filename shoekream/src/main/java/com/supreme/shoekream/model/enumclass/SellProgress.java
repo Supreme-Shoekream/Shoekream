@@ -2,6 +2,7 @@ package com.supreme.shoekream.model.enumclass;
 
 import lombok.Getter;
 
+@Getter
 public enum SellProgress {
     SHIPMENT_REQUEST("발송요청", "거래채결시 판매자 진행상황"),
     RECEIVING_COMPLETE("입고완료", "입고완료시 판매자 진행상황"),

@@ -1,6 +1,7 @@
 package com.supreme.shoekream.controller.page;
 
 import com.supreme.shoekream.model.dto.MemberDTO;
+import com.supreme.shoekream.model.dto.ProductDTO;
 import com.supreme.shoekream.model.dto.socialDTO.BoardDTO;
 import com.supreme.shoekream.model.dto.socialDTO.FollowDTO;
 import com.supreme.shoekream.model.entity.Board;
@@ -11,6 +12,7 @@ import com.supreme.shoekream.model.network.security.KreamPrincipal;
 import com.supreme.shoekream.repository.BoardRepository;
 import com.supreme.shoekream.repository.FollowRepository;
 import com.supreme.shoekream.repository.MemberRepository;
+import com.supreme.shoekream.repository.ProductRepository;
 import com.supreme.shoekream.service.StyleLogicService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +41,7 @@ public class SocialPageController {
 
     private final FollowRepository followRepository;
     private final StyleLogicService styleLogicService;
+    private final ProductRepository productRepository;
 
 
     @GetMapping(path="/social")    // http://localhost:8889/social
@@ -84,8 +87,8 @@ public class SocialPageController {
     @GetMapping(path = "/social/style_profile_edit")   // http://localhost:8889/social/style_profile_edit
     public ModelAndView style_profile_edit(){ return new ModelAndView("social/style_profile_edit"); }
 
-    @GetMapping(path = "/social/social_product")   // http://localhost:8889/social/style_profile_edit
-    public ModelAndView style_profilsocial_producte_edit(){ return new ModelAndView("social/social_product"); }
+//    @GetMapping(path = "/social/social_product")   // http://localhost:8889/social/style_profile_edit
+//    public ModelAndView style_profilsocial_producte_edit(){ return new ModelAndView("social/social_product"); }
 
     @GetMapping(path = "/social/users")   // http://localhost:8889/social/style_profile_edit
     public ModelAndView users(){ return new ModelAndView("social/users"); }
@@ -94,13 +97,22 @@ public class SocialPageController {
     public ModelAndView upload(){ return new ModelAndView("social/upload"); }
 
     @GetMapping(path = "/social/profile/{memberIdx}")
-    public String profile(@PathVariable(name = "memberIdx") Long memberIdx, ModelMap map){
+    public String profile(@PathVariable(name = "memberIdx") Long memberIdx, ModelMap map, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
         List<FollowDTO> followings = styleLogicService.countFollowing(memberIdx);
         List<FollowDTO> followers = styleLogicService.countFollowers(memberIdx);
 
         map.addAttribute("member", styleLogicService.getMember(memberIdx));
         map.addAttribute("followings", followings);
         map.addAttribute("followers", followers);
+        boolean flag = false;
+        for(int i=0;i<followers.size();i++){
+            System.out.println("flag" + kreamPrincipal.idx()+followers.get(i).follower().idx());
+            if(kreamPrincipal != null && followers.get(i).follower().idx().equals(kreamPrincipal.idx())){
+                flag = true;
+            }
+        }
+        System.out.println(flag);
+        map.addAttribute("flag", flag);
         return "social/profile";
     }
 
@@ -122,4 +134,9 @@ public class SocialPageController {
         return "social/details";
     }
 
+    @GetMapping(path="/social/social_product/{productIdx}")//productIdx 추가
+    public String productPage(@PathVariable(name = "productIdx") Long productIdx, ModelMap map){
+        map.addAttribute("product", ProductDTO.fromEntity(productRepository.findByIdx(productIdx)));
+        return "social/social_product";
+    }
 }

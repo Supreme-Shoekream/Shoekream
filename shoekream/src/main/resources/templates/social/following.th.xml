@@ -21,7 +21,7 @@
                 </attr>
                 <attr sel="ul.product_list">
                     <attr sel="li.product_item" th:each="tag : ${detail.tags}">
-                        <attr sel="a.product_link">     <!-- !!!!!!!!!!!!!!!수정!!!!!!!!!!!!!!!-->
+                        <attr sel="a.product_link" th:href="'/product/'+${tag.productDTO.idx}">
                             <attr sel=".product">
                                 <attr sel="picture.product_img/img" th:src="${tag.productDTO.img}"/>
                             </attr>
@@ -50,7 +50,7 @@
             <attr sel=".social_text">
                 <attr sel=".text" th:text="${detail.content}">
                 </attr>
-                <attr sel=".hashtag/p" th:text="'#' + ${detail.hashtag}" th:onclick="'javascript:hashtag('+ this + ');'"/>
+                <attr sel=".hashtag/p" th:text="${detail.hashtag} ? '#' + ${detail.hashtag} : '' " th:onclick="'javascript:hashtag('+ this + ');'"/>
             </attr>
 
             <attr sel=".social_comment">

@@ -15,7 +15,7 @@ public class ProductApiRequest {
     private String name;
     private String nameKor;
     private String size;
-    private Long wishCount;
+    private int wishCount;
     private String img;
     private String modelNum;
     private String releaseDate;

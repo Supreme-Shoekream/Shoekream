@@ -14,6 +14,7 @@
 .btn_bind img{
     width: 24px;
     height: 24px;
+    margin-right: 10px;
 }
 .my_item {
     position: relative;
@@ -21,6 +22,7 @@
     display: flex;
     -webkit-box-align: center;
     align-items: center;
+    justify-content: space-between;
 }
 .my_item .info_bind{
     margin-right: 24px;

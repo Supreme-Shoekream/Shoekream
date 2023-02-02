@@ -139,8 +139,12 @@ public class MypageController {
     }
 
     @GetMapping(path="profile")
-    public ModelAndView profile(){
-        return new ModelAndView("/my/profile");
+    public String profile(ModelMap map, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        if(kreamPrincipal == null){
+            return "login/login";
+        }
+        map.addAttribute("profile", memberApiLogicService.readProfile(kreamPrincipal.idx()));
+        return "/my/profile";
     }
 
     @GetMapping(path="buying_detail")
@@ -204,6 +208,7 @@ public class MypageController {
             return "login/login";
         }
         MemberDTO memberDTO = kreamPrincipal.toFullDto();
+        map.addAttribute("member", memberApiLogicService.readPoint(memberDTO.idx()));
         map.addAttribute("point", pointApiLogicService.list(memberDTO.idx()));
         return "my/point";
     }

@@ -23,7 +23,7 @@ public class Point extends BaseEntity implements Auditable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idx;
 
-    private int point;
+    private Long point;
     @Enumerated(EnumType.ORDINAL) private PointType reason;
     private LocalDateTime regDate;
     @ManyToOne
@@ -33,7 +33,7 @@ public class Point extends BaseEntity implements Auditable {
 //    @JoinColumn(name = "member_idx")
 //    private Member member;
     private Point(
-            int point,
+            Long point,
             PointType reason,
             LocalDateTime regDate,
             Member member){
@@ -43,7 +43,7 @@ public class Point extends BaseEntity implements Auditable {
         this.member=member;
     }
     public static Point of(
-            int point,
+            Long point,
             PointType reason,
             LocalDateTime regDate,
             Member member){

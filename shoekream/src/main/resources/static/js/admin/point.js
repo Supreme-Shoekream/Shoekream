@@ -42,7 +42,7 @@ function submitPoint(idx){
                 break;
         }
 
-        fetch('http://localhost:8989/api/my/point/'+idx, {
+        fetch('http://localhost:8889/api/my/point/'+idx, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

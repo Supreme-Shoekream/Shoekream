@@ -3,7 +3,7 @@
     <!-- 상품 사진 -->
     <attr sel="img#previewImg2" th:object="${product.data}" th:src="*{img}"/>
     <!-- 브랜드명, 상품명 -->
-    <attr sel=".main_title_box"th:object="${product.data}">
+    <attr sel=".main_title_box" th:object="${product.data}">
         <attr sel="a.brand" th:text="*{brand}"/>
         <attr sel="p.name" th:text="*{name}"/>
         <attr sel="p.nameKor" th:text="*{nameKor}"/>
@@ -13,19 +13,20 @@
         <attr sel="span.size" th:text="*{size}"/>
     </attr>
     <!-- 최근거래가 -->
-<!--    <attr sel=".detail_price" th:object ="${product.data}">-->
-<!--        <attr sel="span.recentPrice" th:text="*{recentPrice}"/>-->
+    <attr sel=".detail_price">
+        <attr sel="span.recentPrice" th:if="${recentPrice == null}" th:text="${recentPrice}"/>
+        <attr sel="span.recentPrice" th:if="${recentPrice != null}" th:text="${recentPrice}"/>
 <!--        <attr sel="p.fluctuation" th:text="*{fluctuation}"/>-->
-<!--    </attr>-->
+    </attr>
     <!-- 즉시구매가, 즉시판매가 -->
     <attr sel=".division_btn_box">
         <attr sel="em.nowBuy" th:text="${sell}+'원'"/>
         <attr sel="em.nowSell" th:text="${buy}+'원'"/>
     </attr>
     <!-- 관심상품 -->
-<!--    <attr sel=".wish_count" th:object ="${product.data}">-->
-<!--        <attr sel="span.wishCount" th:text="*{wishCount}"/>-->
-<!--    </attr>-->
+    <attr sel=".wish_count" th:object ="${product.data}">
+        <attr sel="span.wishCount" th:text="*{wishCount}"/>
+    </attr>
     <!-- 상품 정보 -->
     <attr sel=".detail_product" th:object ="${product.data}">
         <attr sel="dd.modelNum" th:text="*{modelNum}"/>
@@ -38,9 +39,7 @@
         <attr sel="img#previewImg3" th:src="*{img}"/>
         <attr sel="p.name" th:text="*{name}"/>
         <attr sel="p.nameKor" th:text="*{nameKor}"/>
-<!--        <attr sel="span.wishCount" th:text="*{wishCount}"/>-->
-<!--        <attr sel="em.nowBuy" th:text="*{nowBuy}"/>-->
-<!--        <attr sel="em.nowSell" th:text="*{nowSell}"/>-->
+        <attr sel="span.wishCount" th:text="*{wishCount}"/>
     </attr>
     <!-- 시세 -->
     <attr sel=".detail_wrap" th:object ="${product.data}">
@@ -73,10 +72,25 @@
             </attr>
         </attr>
     </attr>
-    <!-- 관심 상품 추가 -->
-    <attr sel=".layer_interest" th:object ="${product.data}">
-        <attr sel="img#previewImg5" th:src="*{img}"/>
-        <attr sel="p.name" th:text="*{name}"/>
-        <attr sel="p.nameKor" th:text="*{nameKor}"/>
+<!--    &lt;!&ndash; 관심 상품 추가 &ndash;&gt;-->
+<!--    <attr sel=".layer_interest" th:object ="${product.data}">-->
+<!--        <attr sel="img#previewImg5" th:src="*{img}"/>-->
+<!--        <attr sel="p.name" th:text="*{name}"/>-->
+<!--        <attr sel="p.nameKor" th:text="*{nameKor}"/>-->
+<!--    </attr>-->
+    <!-- 브랜드 다른 상품 -->
+    <attr sel=".other_product_area">
+        <attr sel="span.owner" th:object="${product.data}" th:text="*{brand}"/>
+        <attr sel="a.btn_more" th:href="@{/brand/{brandName}(brandName=${product.data.brand})}" />
+        <attr sel=".product_list" th:remove="all-but-first">
+            <attr sel="div.product_item[0]" th:each="brandOtherProduct, index : ${brandOtherProduct}" th:if="${index.index} < 8">
+                <attr sel="img.image" th:src="${brandOtherProduct.img}"/>
+                <attr sel="p.brand" th:text="${brandOtherProduct.brand}"/>
+                <attr sel="p.name" th:text="${brandOtherProduct.name}"/>
+                <attr sel="em.nowBuy" th:text="${brandOtherProductSell[index.index]+'원'}"/>
+                <attr sel="a.item_inner" th:href="@{/product/{proIdx}(proIdx=${brandOtherProduct.idx})}"/>
+                <attr sel="a.brand_link" th:href="@{/brand/{brandName}(brandName=${brandOtherProduct.brand})}"/>
+            </attr>
+        </attr>
     </attr>
 </thlogic>

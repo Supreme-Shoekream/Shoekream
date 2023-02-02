@@ -11,7 +11,7 @@ public record ProductDTO(
         String name,
         String nameKor,
         String size,
-        Long wishCount,
+        int wishCount,
         String modelNum,
         String releaseDate,
         String color,
@@ -21,7 +21,7 @@ public record ProductDTO(
         String collection
 ) {
 
-    public static ProductDTO of(Long idx, String img, String brand, String name, String nameKor, String size, Long wishCount, String modelNum, String releaseDate, String color, String firstPrice, String category, String gender, String collection ){
+    public static ProductDTO of(Long idx, String img, String brand, String name, String nameKor, String size, int wishCount, String modelNum, String releaseDate, String color, String firstPrice, String category, String gender, String collection ){
         return new ProductDTO(idx, img, brand, name, nameKor, size, wishCount, modelNum, releaseDate, color, firstPrice, category, gender, collection);
     }
 
@@ -29,6 +29,25 @@ public record ProductDTO(
     // entity -> dto
     public static ProductDTO fromEntity(Product entity){
         return new ProductDTO(
+                entity.getIdx(),
+                entity.getImg(),
+                entity.getBrand(),
+                entity.getName(),
+                entity.getNameKor(),
+                entity.getSize(),
+                entity.getWishCount(),
+                entity.getModelNum(),
+                entity.getReleaseDate(),
+                entity.getColor(),
+                entity.getFirstPrice(),
+                entity.getCategory(),
+                entity.getGender(),
+                entity.getCollection()
+        );
+    }
+
+    public static Product fromEntity2(Product entity){
+        return new Product(
                 entity.getIdx(),
                 entity.getImg(),
                 entity.getBrand(),

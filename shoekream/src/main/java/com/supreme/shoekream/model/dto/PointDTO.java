@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 
 public record PointDTO(
         Long idx,
-        int point,
+        Long point,
         PointType reason,
         LocalDateTime regDate
 
@@ -18,11 +18,18 @@ public record PointDTO(
 ) {
     public static PointDTO of(
             Long idx,
-            int point,
+            Long point,
             PointType reason,
             LocalDateTime regDate
     ){
         return new PointDTO(idx, point, reason, regDate);
+    }
+    public static PointDTO of(
+            Long point,
+            PointType reason,
+            LocalDateTime regDate
+    ){
+        return new PointDTO(null, point, reason, regDate);
     }
     public static PointDTO from(Point entity){
         return new PointDTO(

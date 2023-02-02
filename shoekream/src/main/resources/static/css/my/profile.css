@@ -165,9 +165,6 @@ h4 {
     position: relative;
     border-bottom: 1px solid #ebebeb;
 }
-.desc.email {
-    color: rgba(34,34,34,.5);
-}
 .desc {
     padding-top: 6px;
     font-size: 16px;
@@ -449,5 +446,11 @@ h4 {
     display: inline-block;
     font-size: 13px;
     letter-spacing: -.07px;
+    color: rgba(34,34,34,.5);
+}
+.title h5 {
+    color: rgba(34,34,34,.5);
+}
+#profile_email{
     color: rgba(34,34,34,.5);
 }

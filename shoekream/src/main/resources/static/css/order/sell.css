@@ -599,7 +599,7 @@ section .section_title .title_txt {
   float: right;
   position: absolute;
   right: 8px;
-  top: 30px;
+  /*top: 30px;*/
   width: 22px;
 }
 /*****************판매 정산 계좌****************/
@@ -723,6 +723,37 @@ section .section_title .title_txt {
 .layer_payout_account .btn_save{
   width: 102px;
   border-radius: 10px;
+}
+.bank_dropdown_menu{
+  background-color: white;
+  position: absolute;
+  z-index: 1010;
+  width: 100%;
+}
+.bank_list{
+  border: 1px solid rgb(230, 228, 228);
+  overflow-y: auto;
+  max-height: 240px;
+}
+.bank_list li{
+  padding: 11px 20px 10px 16px;
+  color: gray;
+  font-size: 13px;
+}
+.bank_list:hover{
+  cursor: pointer;
+}
+.input_txt_color::placeholder{
+  color:black;
+}
+.select_bank{
+  font-weight: bolder;
+  color: black !important;
+}
+.bank_list_li img{
+  width: 18x;
+  height: 18px;
+  float: right;
 }
 /****************최종 주문 정보*****************/
 .instant_group {
@@ -1342,6 +1373,14 @@ input[class="check"]:checked + label {
   color: #31b46e;
 }
 /*****layer_order_price_confirm****/
+.layer_alert .alert_box {
+  padding: 8px 32px 0;
+}
+.layer_alert .alert_desc {
+  font-size: 14px;
+  letter-spacing: -.21px;
+  color: rgba(34,34,34,.8);
+}
 .layer_order_price_confirm .layer_container {
   width: 400px;
   text-align: center;
@@ -1416,3 +1455,45 @@ input[class="check"]:checked + label {
   width: 100%;
   border:#fff;
 }
+/*주소를 추가해주세요부분*/
+.empty_delivery_info{
+  display: -webkit-box;
+  display: flex;
+  width: 100%;
+  height: 44px;
+  border-radius: 10px;
+  border: 1px solid #ebebeb;
+  background-color: #fafafa;
+  -webkit-box-align: center;
+  align-items: center;
+}
+.empty_delivery_info .guide_txt {
+  margin-left: 12px;
+  font-size: 14px;
+  letter-spacing: -.21px;
+  color: rgba(34,34,34,.5);
+}
+/*카드 추가해주세요 부분*/
+.main_card.disabled {
+  cursor: not-allowed;
+}
+.regist_link{
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  padding: 0 12px;
+  height: 62px;
+  background-color: #fafafa;
+  border: 1px solid #ebebeb;
+  border-radius: 10px;
+  font-size: 14px;
+  letter-spacing: -.21px;
+  color: rgba(34,34,34,.5);
+}
+.regist_link .regist_text{
+  -webkit-box-flex: 1;
+  flex: 1;
+}
+
+/*alert*/

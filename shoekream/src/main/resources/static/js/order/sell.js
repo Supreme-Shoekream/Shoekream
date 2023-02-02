@@ -205,6 +205,7 @@ function step2() {
     console.log("즉시판매가"+price_now);
     document.querySelector(".product_price").innerHTML = wish_price.toLocaleString("ko-KR") + "원";
   } else {
+    if(Number(period) == 0) { period=30; }  // 설정 클릭 안하면 30일로 세팅!
     wish_price = Number(bid_input.value.replaceAll(",", ""));
     console.log("wish_price:" + wish_price);
     document.querySelector(".product_price").innerHTML = bid_input.value + "원";
@@ -223,6 +224,7 @@ function step2() {
 /**
  * 🤍 기능6 판매 정산 계좌 변경
  * 열고닫기
+ * 드롭다운
  * 유효성검사
  * member update를 위한 fetch
  * */
@@ -233,13 +235,101 @@ function pop_payout_account(){
 function close_payout_account(){
   document.querySelector('.layer_payout_account').style.display="none"
 }
+function dropdown(){
+  // 클릭했을때 style.display==="none" => block 아니면 none
+  const bankId = document.querySelector(".bank_dropdown_menu")
+  if(bankId.style.display == "none"){
+    bankId.style.display = "block"
+  }else{
+    bankId.style.display = "none"
+  }
+}
+const bankId = document.querySelector(".bank_dropdown_menu")
+const bankList = document.querySelectorAll('.bank_list_li')
+const bankName = document.querySelector("#input_bank")
+bankList.forEach((target) => {
+  target.addEventListener("click", function(){
+    bankName.placeholder = target.textContent
+    bankList.forEach((e) => {
+      e.classList.remove("select_bank")
+      e.childNodes[1].style.display="none"
+    })
 
+    bankName.classList.add("input_txt_color")
+    target.classList.add("select_bank")
+    target.childNodes[1].style.display = "block"
+    bankId.style.display = "none"
+  })})
+// 버튼활성화
+const accountForm = document.querySelector('#input_acc')
+const accountHolder = document.querySelector('#input_holder')
+const submitButton = document.querySelector('#submit_btn_acc')
+bankName.addEventListener('keyup', activeEvent);
+accountForm.addEventListener('keyup', activeEvent);
+let strAcc
+function activeEvent() {
+  switch(accountHolder.value && accountHolder.value && bankName.placeholder != '선택하세요' && validateAcc(strAcc)){
+    case true : submitButton.disabled = true; submitButton.classList.remove('disabled'); submitButton.addEventListener('click',submit_account); break;
+    case false : submitButton.disabled = false; submitButton.classList.add('disabled'); submitButton.removeEventListener('click',submit_account); break;
+  }
+}
+// 버튼 submit
+function submit_account() {
+  if (!submitButton.classList.contains('disabled')) {
+    let bankName = document.querySelector('#input_bank').placeholder
+    let accNum = document.querySelector('#input_acc').value
+    fetch('http://localhost:8889/api/my/account', {
+      method: 'PUT',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        "transaction_time": `${new Date()}`,
+        "resultCode": "ok",
+        "description": "정상",
+        "data": {
+          "bank": `${bankName}`,
+          "accNumber": `${accNum}`
+        }
+      }),
+    }).then((res) => {
+      document.getElementById('accountInfo').innerHTML = bankName +" " + accNum
+      document.getElementById('bank_name').innerHTML = bankName
+      document.getElementById('acc_number').innerHTML= accNum
+      close_payout_account()
+      return;
+    })
+  }
+}
+
+// 계좌번호 정규 표현식
+function validateAcc(strAcc){
+  const reg_acc = /^[0-9]{2,}$/;
+  if(!reg_acc.test(''+strAcc)){
+    return false;
+  }
+  return true;
+}
+// 계좌번호 유효성 검사
+document.querySelector('#input_acc').addEventListener('input', e => {
+  strAcc = e.target.value;
+  if(!validateAcc(strAcc)){
+    document.querySelector('#input_acc_box').className='has_button input_box has_error';
+    document.querySelector('#input_acc').setAttribute('validateresult',false);
+  } else {
+    document.querySelector('#input_acc_box').className='has_button input_box fill';
+    document.querySelector('#input_acc').setAttribute('validateresult',true);
+
+  }
+
+})
 /**
  * 🤍 기능7 새 주소 추가
  * 열고닫기
  * 유효성검사
  * create를 위한 fetch
  * */
+const sender_dd = document.getElementById('sender')
+const senderHp_dd = document.getElementById('senderHp')
+const senderAddress_dd = document.getElementById('senderAddress')
 document.querySelector('.layer_delivery .btn_layer_close').addEventListener('click', close_new_delivery)
 document.querySelector('.layer_delivery .btn_delete').addEventListener('click', close_new_delivery)
 function close_new_delivery() {
@@ -248,6 +338,58 @@ function close_new_delivery() {
 function pop_new_delivery() {
   document.querySelector(".layer_delivery").style.display = "block";
 }
+new_address_send_btn=document.querySelector('.layer_delivery #submit_btn')
+new_address_send_btn.addEventListener('click',send_create)
+function send_create(){
+  const createName = document.querySelector('#name_input');
+  const createHp = document.querySelector('#hp_input');
+  const createZipcode = document.querySelector('#sample6_postcode');
+  const createAddress1 = document.querySelector('#sample6_address');
+  const createAddress2 = document.querySelector('#sample6_detailAddress')
+  const createAddressBasic = document.querySelector('#check1').checked;
+  fetch('/api/my/address', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      "transaction_time":`${new Date()}`,
+      "resultCode":"ok",
+      "description":"정상",
+      "data":{
+        "name": `${createName.value}`,
+        "hp": `${createHp.value}`,
+        "zipcode": `${createZipcode.value}`,
+        "address1": `${createAddress1.value}`,
+        "address2": `${createAddress2.value}`,
+        "addressBasic": `${createAddressBasic}`
+      }
+    }),
+  }).then((res)=>{
+    // 주소가 아예 등록되지 않았더라면 주소창이 닫혀있기때문에, 열어주고, 빈주소창은 닫아준다.
+    empty_delivery_info = document.querySelector('.empty_delivery_info')
+    delivery_info = document.querySelector('.delivery_info')
+    if(delivery_info.style.display=='none'){
+      delivery_info.style.display='block'
+      empty_delivery_info.style.display='none'
+    }
+    //레이어창 닫고 새로운 정보 반영
+    close_new_delivery()
+    sender_dd.innerHTML=createName.value
+    senderHp_dd.innerHTML=hp_decode(createHp.value.toString())
+    senderAddress_dd.innerHTML='('+createZipcode.value+') '+createAddress1.value+" "+createAddress2.value
+    //레이어창 비워주기
+    createName.value=''
+    createHp.value=''
+    createZipcode.value=''
+    createAddress1.value=''
+    createAddress2.value=''
+    document.querySelector('#check1').checked = false
+    return;
+  })
+}
+function hp_decode(hp){
+  return hp.substring(0,3)+"-"+hp.substring(4,5)+"***-*"+hp.substring(8,11)
+}
+
 function maxLengthCheck(object){
   if (object.value.length > object.maxLength){
     object.value = object.value.slice(0, object.maxLength);
@@ -321,10 +463,10 @@ document.querySelectorAll('#name_input').forEach((item) =>{
   item.addEventListener('blur', e=>{
     strName=e.target.value;
     if((validateName(strName))&&(validateHp(strHp))){
-      $("#submit_btn").removeClass("active");
+      $("#submit_btn").addClass("active");
       $("#submit_btn").removeClass("disabled")
     }else{
-      $("#submit_btn").addClass("active");
+      $("#submit_btn").removeClass("active");
       $("#submit_btn").addClass("disabled")
     }
   })
@@ -334,10 +476,10 @@ document.querySelectorAll('#hp_input').forEach((item) =>{
   item.addEventListener('blur', e=>{
     strHp=e.target.value;
     if((validateName(strName))&&(validateHp(strHp))){
-      $("#submit_btn").removeClass("active");
+      $("#submit_btn").addClass("active");
       $("#submit_btn").removeClass("disabled")
     }else{
-      $("#submit_btn").addClass("active");
+      $("#submit_btn").removeClass("active");
       $("#submit_btn").addClass("disabled")
     }
   })
@@ -353,26 +495,89 @@ function close_address() {
   document.querySelector(".layer_address").style.display = "none";
 }
 function pop_address() {
+  address_list()
   document.querySelector(".layer_address").style.display = "block";
 }
+async function address_list(){
+  let addressList="";
+  try{
+    const response_basic = await fetch(`/api/my/address/basic`);
+    const data_basic = await response_basic.json();
+    console.log(data_basic);
+    data_basic.forEach(dto=>{
+      let dto_hp = hp_decode(dto.hp)
+      addressList+=`
+                <div class="my_item is_active select">
+                    <div class="info_bind">
+                        <!---->
+                        <div class="address_info">
+                            <div class="name_box"><span class="name">${dto.name}</span><span class="mark">기본
+                배송지</span></div>
+                            <p class="phone">`+dto_hp+`</p>
+                            <div class="address_box"><span class="zipcode">${'('+dto.zipcode+') '}</span><span
+                                    class="address">${dto.address1+' '+dto.address2}</span></div>
+                        </div>
+                    </div>`
+      if(senderHp_dd.innerHTML.trim()==dto_hp){
+        addressList+=`<div class="btn_bind" style="display: block;"><img src="/img/wcheck.png"></div>
+                </div>`
+      }else{
+        addressList+=`<div class="btn_bind" style="display: none;"><img src="/img/wcheck.png"></div>
+                </div>`
+      }
+    })
+    const response_other = await fetch(`/api/my/address/other`);
+    const data_other = await response_other.json();
+    console.log(data_other);
+    data_other.forEach(dto=>{
+      let dto_hp = hp_decode(dto.hp)
+      addressList+=`
+                <div class="my_item select">
+                    <div class="info_bind">
+                        <!---->
+                        <div class="address_info">
+                            <div class="name_box"><span class="name">${dto.name}</span><!----></div>
+                            <p class="phone">`+dto_hp+`</p>
+                            <div class="address_box"><span class="zipcode">${'('+dto.zipcode+') '}</span><span
+                                    class="address">${dto.address1+' '+dto.address2}</span></div>
+                        </div>
+                    </div>`
 
-// 주소 리스트중 하나 클릭시 레이어창 닫고 내용 반영
-const address = document.querySelectorAll(".select");
-address.forEach((item) => {
-  item.addEventListener("click", () => {
-    address.forEach((e) => {
-      // console.log(e.childNodes[3].childNodes[0]);
-      e.childNodes[3].style.display = "none";
-    });
-    let edit_address =
-      item.childNodes[1].childNodes[3].childNodes[5].childNodes[1].innerHTML;
-    // console.log(edit_address)
-    item.childNodes[3].style.display = "block";
-    close_address();
-    document.querySelector(".address_info .address_txt").innerHTML =
-      edit_address;
-  });
-});
+      if(senderHp_dd.innerHTML.trim()==dto_hp){
+        addressList+=`<div class="btn_bind" style="display: block;"><img src="/img/wcheck.png"></div>
+                </div>`
+      }else{
+        addressList+=`<div class="btn_bind" style="display: none;"><img src="/img/wcheck.png"></div>
+                </div>`
+      }
+    })
+    console.log('addressList'+addressList)
+    document.querySelector('.layer_address .other_list').innerHTML=addressList
+    const address = document.querySelectorAll('.select');
+
+    // 주소 리스트중 하나 클릭시 레이어창 닫고 내용 반영
+    address.forEach((item) => {
+      item.addEventListener('click', () => {
+        address.forEach((e) => {
+          const img = e.childNodes[2]
+          img.style.display='none';
+        })
+        const address_info = item.childNodes[1].childNodes[3]
+        let edit_name = address_info.childNodes[1].childNodes[0].innerHTML
+        let edit_hp = address_info.childNodes[3].innerHTML
+        let edit_address=address_info.childNodes[5].childNodes[1].innerHTML
+
+        item.childNodes[2].style.display='block';
+        close_address();
+        sender_dd.innerHTML= edit_name;
+        senderHp_dd.innerHTML = edit_hp;
+        senderAddress_dd.innerHTML = edit_address;
+      })
+    })
+  }catch(error){
+    console.log(error)
+  }
+}
 
 /**
  * 🤍 기능9 배송 요청사항
@@ -464,6 +669,50 @@ function close_card() {
 function pop_card() {
   document.querySelector(".layer_card").style.display = "block";
 }
+function close_card_create_layer(){document.querySelector('.card_create_layer').style.display="none"}
+function cardBasicOk(){document.querySelector('.card_create_layer').style.display="block"}
+function createCard(isBasic) {
+  let cardBasic = isBasic
+  btnSave = document.querySelector('#submit_card_btn')
+  if (btnSave.classList.contains('disabled')) {
+
+  } else {
+    let cardNumber = document.querySelector('#cc-1').value +
+        document.querySelector('#cc-2').value +
+        document.querySelector('#cc-3').value +
+        document.querySelector('#cc-4').value
+    console.log(cardNumber)
+    let dateMm = document.querySelector('#expiration-month').value;
+    let dateYy = document.querySelector('#expiration-year').value;
+    let birthday = document.querySelector('#birthday_input').value;
+    let pin = document.querySelector('#pin_input').value;
+    console.log(cardNumber, dateMm, dateYy, birthday, pin)
+    fetch('/api/my/payment', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        "transaction_time": `${new Date()}`,
+        "resultCode": "ok",
+        "description": "정상",
+        "data": {
+          "cardNumber": `${cardNumber}`,
+          "cardMm": `${dateMm}`,
+          "cardYy": `${dateYy}`,
+          "birthDate": `${birthday}`,
+          "cardPw": `${pin}`,
+          "cardBasic": `${cardBasic}`
+        }
+      }),
+    }).then((res) => {
+      close_card_create_layer()
+      close_card()
+      document.querySelector('.regist_link').style.display='none'
+      document.querySelector('.main_card').style.display='block'
+      document.getElementById('cardInfo').innerHTML=document.querySelector('#cc-4').value;
+      return;
+    })
+  }
+}
 
 // 카드 번호 정규 표현식
 function validateCc1(strCc1){
@@ -543,11 +792,11 @@ document.querySelectorAll('.input_card').forEach((item) =>{
   item.addEventListener('blur', e=>{
     strCc1=e.target.value;
     if((validateCc1(strCc1))&&(validateBirthday(strBirthday))&&(validatePin(strPin))){
-      $("#submit_btn").removeClass("active");
-      $("#submit_btn").removeClass("disabled")
+      $("#submit_card_btn").addClass("active");
+      $("#submit_card_btn").removeClass("disabled")
     }else{
-      $("#submit_btn").addClass("active");
-      $("#submit_btn").addClass("disabled")
+      $("#submit_card_btn").removeClass("active");
+      $("#submit_card_btn").addClass("disabled")
     }
   })
 })
@@ -555,11 +804,11 @@ document.querySelectorAll('#birthday_input').forEach((item) =>{
   item.addEventListener('blur', e=>{
     strBirthday=e.target.value;
     if((validateCc1(strCc1))&&(validateBirthday(strBirthday))&&(validatePin(strPin))){
-      $("#submit_btn").removeClass("active");
-      $("#submit_btn").removeClass("disabled")
+      $("#submit_card_btn").addClass("active");
+      $("#submit_card_btn").removeClass("disabled")
     }else{
-      $("#submit_btn").addClass("active");
-      $("#submit_btn").addClass("disabled")
+      $("#submit_card_btn").removeClass("active");
+      $("#submit_card_btn").addClass("disabled")
     }
   })
 })
@@ -568,11 +817,11 @@ document.querySelectorAll('#pin_input').forEach((item) =>{
   item.addEventListener('blur', e=>{
     strPin=e.target.value;
     if((validateCc1(strCc1))&&(validateBirthday(strBirthday))&&(validatePin(strPin))){
-      $("#submit_btn").removeClass("active");
-      $("#submit_btn").removeClass("disabled")
+      $("#submit_card_btn").addClass("active");
+      $("#submit_card_btn").removeClass("disabled")
     }else{
-      $("#submit_btn").addClass("active");
-      $("#submit_btn").addClass("disabled")
+      $("#submit_card_btn").removeClass("active");
+      $("#submit_card_btn").addClass("disabled")
     }
   })
 });
@@ -588,18 +837,48 @@ console.log(card_drop_btn)
 const card_drop_div = document.querySelector('.other_card')
 card_drop_btn.addEventListener('click',()=>{
     if(card_drop_div.style.display=='none'){
+        card_list()
         card_drop_div.style.display='block'
     }else{
         card_drop_div.style.display='none'
     }
 })
-const cards = document.querySelectorAll('.other_card_item')
-cards.forEach((card)=>{
-    card.addEventListener('click',()=>{
-        main_card.childNodes[1].innerHTML = card.childNodes[1].innerHTML
-        card_drop_div.style.display='none'
+async function card_list() {
+  let cardList = "";
+  try {
+    const response_basic = await fetch(`/api/my/payment`);
+    const data_basic = await response_basic.json();
+    console.log(data_basic);
+    data_basic.forEach(dto => {
+      let last_num= dto.cardNumber.substring(12,16)
+      cardList += `
+                <li class="other_card_item">
+                    <div class="card_info"><span class="card_name"> BC</span>
+                        <div class="card_num">
+                            <span class="num_bind">
+                                <span class="dot"><span class="dot"></span></span><span class="hyphen"></span>
+                                <span class="dot"><span class="dot"></span></span><span class="hyphen"></span>
+                                <span class="dot"><span class="dot"></span></span><span class="hyphen"></span>
+                                <div class="last_num_box"><span class="last_num">${last_num}</span></div>
+                            </span><!---->
+                        </div>
+                    </div>
+                </li>`
     })
-})
+    document.querySelector('.other_card .other_card_list').innerHTML = cardList
+    const cards = document.querySelectorAll('.other_card_item')
+    cards.forEach((card)=>{
+      card.addEventListener('click',()=>{
+        let last_number = card.childNodes[1].childNodes[2].childNodes[1].childNodes[10].childNodes[0].innerHTML
+        document.getElementById('cardInfo').innerHTML=last_number
+        card_drop_div.style.display='none'
+      })
+    })
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 //결재 방법 선택시 테두리 효과
 const items = document.querySelectorAll(".method");
 items.forEach((item) => {

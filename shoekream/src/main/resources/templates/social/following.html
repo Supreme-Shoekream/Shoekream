@@ -94,7 +94,7 @@
                                 <div class="product_list_area single_list" >
                                     <ul class="product_list" style="transform:translateX(0px);" >
                                         <li class="product_item" >
-                                            <a href="/products/66895" class="product_link" >
+                                            <a class="product_link" >
                                                 <div class="product" style="background-color:#f4f4f4;">
                                                     <picture class="picture product_img">
                                                         <source type="image/webp" srcset="" >
@@ -265,6 +265,15 @@
                         </div>
                         <!--                            게시글 하나 끝-->
                     </div>
+
+                    <!--                    위아래 버튼 시작 -->
+                    <button class="btn_top lg" style="">
+                        <img class="ico-top icon sprite-icons" src="/img/main/top.png">
+                    </button>
+                    <button class="btn_bottom lg" style="">
+                        <img class="ico-bottom icon sprite-icons" src="/img/main/bottom.png">
+                    </button>
+                    <!--                    위아래 버튼 끝 -->
                 </div>
             </div>
         </div>
@@ -316,7 +325,9 @@
 
 <!--    <link rel="stylesheet" href="../../static/lib/css/hashtag.css">-->
 <!-- 푸터 시작 -->
-<footer th:replace="/fragment/footer :: footer"></footer>
+<div class="footer">
+    <footer th:replace="/fragment/footer :: footer"></footer>
+</div>
 <!-- 푸터 끝 -->
 
 <script src="/js/social/comment_layer.js"></script>

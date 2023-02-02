@@ -1,13 +1,16 @@
 package com.supreme.shoekream.service;
 
 import com.supreme.shoekream.model.dto.MemberDTO;
+import com.supreme.shoekream.model.dto.ProductDTO;
 import com.supreme.shoekream.model.dto.socialDTO.BoardDTO;
 import com.supreme.shoekream.model.dto.socialDTO.FollowDTO;
 import com.supreme.shoekream.model.dto.socialDTO.LkDTO;
 import com.supreme.shoekream.model.dto.socialDTO.ReplyDTO;
 import com.supreme.shoekream.model.entity.*;
 import com.supreme.shoekream.model.network.Header;
+import com.supreme.shoekream.model.network.request.BoardStyleApiRequest;
 import com.supreme.shoekream.model.network.request.ReplyApiRequest;
+import com.supreme.shoekream.model.network.response.BoardStyleApiResponse;
 import com.supreme.shoekream.model.network.response.BoardWithLikeListResponse;
 import com.supreme.shoekream.model.network.security.KreamPrincipal;
 import com.supreme.shoekream.repository.*;
@@ -32,6 +35,8 @@ public class StyleLogicService {
     private final MemberRepository memberRepository;
     private final LikeRepository likeRepository;
     private final ReplyRepository replyRepository;
+    private  final ProductRepository productRepository;
+    private final TagRepository tagRepository;
 
     @Transactional(readOnly=true)
     public List<BoardDTO> list(){
@@ -74,6 +79,7 @@ public class StyleLogicService {
         }
 
         List<Lk> lks = likeRepository.findAllByMember(memberDTO.toEntity());
+
         for(int i=0;i<trend.size();i++){
             for(int j=0;j<lks.size();j++){
                 if(lks.get(j).getBoard().getIdx() == trend.get(i).idx()){
@@ -230,13 +236,15 @@ public class StyleLogicService {
         List<Integer> hashCnt = new ArrayList<>();
         List<String> hashtags = new ArrayList<>();
         for(int i=0; i<boards.size(); i++){
-            hashtags.add(boards.get(i).getHashtag());
-            hashCnt.add(1);
-            for(int j=0;j<i;j++){
-                if(hashtags.get(i).equals(hashtags.get(j))){
-                    hashCnt.set(j, hashCnt.get(j)+1);
-                    hashCnt.set(i, 0);
-                    break;
+            if(boards.get(i).getHashtag() != null){
+                hashtags.add(boards.get(i).getHashtag());
+                hashCnt.add(1);
+                for(int j=0;j<i;j++){
+                    if(hashtags.get(i).equals(hashtags.get(j))){
+                        hashCnt.set(j, hashCnt.get(j)+1);
+                        hashCnt.set(i, 0);
+                        break;
+                    }
                 }
             }
         }
@@ -263,10 +271,26 @@ public class StyleLogicService {
         return trends;
     }
 
-    public List<BoardDTO> isBoardExist(Long memberIdx){
+    public List<BoardWithLikeListResponse> isBoardExist(Long memberIdx){
         System.out.println("테스트"+boardRepository.countAllByMemberIdx(memberIdx));
+        List<Lk> likes = likeRepository.findAllByMember(memberRepository.getReferenceById(memberIdx));
         if(boardRepository.countAllByMemberIdx(memberIdx) > 0){
-            return BoardDTO.fromEntity(boardRepository.findAllByMemberIdx(memberIdx));
+            List<BoardWithLikeListResponse> boards = BoardWithLikeListResponse.fromEntity(boardRepository.findAllByMemberIdx(memberIdx));
+
+            for(int i=0;i<boards.size();i++){
+                for(int j=0;j<likes.size();j++){
+                    if(boards.get(i).idx().equals(likes.get(j).getBoard().getIdx())){
+                        boards.set(i,
+                                BoardWithLikeListResponse.of(boards.get(i).idx(),
+                                        boards.get(i).memberDTO(),
+                                        boards.get(i).content(),
+                                        boards.get(i).img(), boards.get(i).hashtag(),boards.get(i).lks(), boards.get(i).replies(),
+                                        boards.get(i).tags(), boards.get(i).createdAt(), boards.get(i).modifiedAt(), true)
+                        );
+                    }
+                }
+            }
+            return boards;
         }else{
             return null;
         }
@@ -333,4 +357,80 @@ public List<FollowDTO> countFollowers(Long memberIdx){//내가 팔로우하고 �
         System.out.println("해시태그"+feed);
         return feed;
     }
+
+    public void follow(Long memberIdx, MemberDTO kreamPrincipal){
+        Follow follow = new Follow();
+        follow.setFollowerIdx(kreamPrincipal.idx());
+        follow.setFollowingIdx(memberIdx);
+        followRepository.save(follow);
+    }
+
+    public void unfollow(Long memberIdx, MemberDTO kreamPrincipal){
+        Follow follow = followRepository.findByFollowerIdxAndFollowingIdx(kreamPrincipal.idx(), memberIdx).get();
+        followRepository.delete(follow);
+    }
+
+    public List<BoardWithLikeListResponse> getProductBoards(Long productIdx){
+        System.out.println(productIdx);
+        Product product = productRepository.getReferenceById(productIdx);
+        String productName = product.getName();
+        List<Product>  products = productRepository.findAllByName(productName);
+        System.out.println("4444"+products);
+        List<Tag> tags = new ArrayList<>();
+        for(int i=0;i<products.size();i++){
+            tags.addAll(tagRepository.findAllByProductIdx(products.get(i).getIdx()));
+        }// 프로덕트와 같은 이름(모든 사이즈)를 포함한 태그들을 불러오기
+
+        List<BoardWithLikeListResponse> responses = new ArrayList<>();
+        for(int i=0;i<tags.size();i++){
+            responses.add(BoardWithLikeListResponse.fromEntity(boardRepository.findByIdx(tags.get(i).getBoard().getIdx())));
+        }
+        System.out.println("리스폰스 테스트"+responses);
+        return responses;
+    }
+    public List<BoardWithLikeListResponse> getProductBoards(Long productIdx, Long memberIdx){
+        Product product = productRepository.getReferenceById(productIdx);
+        String productName = product.getName();
+        List<Product>  products = productRepository.findAllByName(productName);
+        List<Tag> tags = new ArrayList<>();
+        for(int i=0;i<products.size();i++){
+            tags.addAll(tagRepository.findAllByProductIdx(products.get(i).getIdx()));
+        }// 프로덕트와 같은 이름(모든 사이즈)를 포함한 태그들을 불러오기
+
+        List<BoardWithLikeListResponse> responses = new ArrayList<>();
+        for(int i=0;i<tags.size();i++){
+            responses.add(BoardWithLikeListResponse.fromEntity(boardRepository.findByIdx(tags.get(i).getBoard().getIdx())));
+        }
+
+        List<Lk> likes = likeRepository.findAllByMember(memberRepository.getReferenceById(memberIdx));
+
+        for(int i=0;i<responses.size();i++){
+            for(int j=0;j<likes.size();j++){
+                if(responses.get(i).idx().equals(likes.get(j).getBoard().getIdx())){
+                    responses.set(i,
+                            BoardWithLikeListResponse.of(responses.get(i).idx(),
+                                    responses.get(i).memberDTO(),
+                                    responses.get(i).content(),
+                                    responses.get(i).img(), responses.get(i).hashtag(),responses.get(i).lks(), responses.get(i).replies(),
+                                    responses.get(i).tags(), responses.get(i).createdAt(), responses.get(i).modifiedAt(), true)
+                    );
+                }
+            }
+        }
+
+        return responses;
+    }
+
+    public BoardStyleApiResponse create(Header<BoardStyleApiRequest> request, MemberDTO memberDTO){
+        BoardStyleApiRequest boardStyleApiRequest = request.getData();
+        Board board = Board.builder()
+                .content(boardStyleApiRequest.content())
+                .img(boardStyleApiRequest.img())
+                .member(memberDTO.toEntity())
+                .hashtag(boardStyleApiRequest.hashtag())
+                .build();
+        Board newBoard = boardRepository.save(board);
+        return null;
+    }
 }
+

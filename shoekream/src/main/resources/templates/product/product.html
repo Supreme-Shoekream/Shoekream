@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -12,11 +11,6 @@
                 integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
         <!-- chart.js cdn -->
         <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
-
-        <!-- 슬릭 슬라이더 -->
-        <!-- <link rel="stylesheet" href="../css/main/slick-theme.css">-->
-        <!-- <link rel="stylesheet" href="../css/main/slick.css">-->
-        <!-- <script src="../js/main/slick.min.js"></script>-->
         
         <link rel="stylesheet" href="/css/product/product.css">
         <link rel="stylesheet" href="/css/fragment/footer.css">
@@ -29,10 +23,8 @@
     </head>
     <body>
         <div id="__nuxt">
-            <!---->
             <div class="__layout">
                 <div tabindex="0" class="wrap etc lg">
-                    <!---->
                     <!-- 헤더 시작 -->
                     <header th:replace="/fragment/header.html :: header"></header>
                     <!-- 헤더 끝 -->
@@ -68,44 +60,11 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- 상품 사진 슬릭슬라이더 시작 -->
-                                                <!-- <div id="pro_slider-div" class="column_box" style="width: 560px;">
-                                                    <div class="main_banner" style="width: 100%; ">
-                                                        <picture class="picture">
-                                                            <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMTA4MDZfMjY0/MDAxNjI4MjM5NTA1MjU1.9FfkTXbxZFWKxDMdPayVFlD0GIyNT-mFVIQ7zZW3SPcg.c03UoCFjKXtP4XtNMgBdrmTOIQlqxrePk4JScV4GUHEg.PNG/p_8001cbaf0db042bda09fea320ee328b4.png?type=l_webp">
-                                                            <source srcset="https://kream-phinf.pstatic.net/MjAyMTA4MDZfMjY0/MDAxNjI4MjM5NTA1MjU1.9FfkTXbxZFWKxDMdPayVFlD0GIyNT-mFVIQ7zZW3SPcg.c03UoCFjKXtP4XtNMgBdrmTOIQlqxrePk4JScV4GUHEg.PNG/p_8001cbaf0db042bda09fea320ee328b4.png?type=l">
-                                                            <img alt="상품 이미지" src="https://kream-phinf.pstatic.net/MjAyMTA4MDZfMjY0/MDAxNjI4MjM5NTA1MjU1.9FfkTXbxZFWKxDMdPayVFlD0GIyNT-mFVIQ7zZW3SPcg.c03UoCFjKXtP4XtNMgBdrmTOIQlqxrePk4JScV4GUHEg.PNG/p_8001cbaf0db042bda09fea320ee328b4.png?type=l" loading="lazy" fetchpriority="high" class="image bannerImg">
-                                                        </picture>
-                                                    </div>
-                                                    <div class="main_banner" style="width: 100%;">
-                                                        <picture class="picture">
-                                                            <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMTA4MDZfNDEg/MDAxNjI4MjM5NTA1MzAx.AferhzIi3eSei272TsoXwGto7buSps5uMQ0GxgwPwI0g.RRQcZGZ5R35-Tp2fXP2SrElD9cFg-l4qGPXsH6e-V6Ig.PNG/p_008c53c9c2c9416ba2375897fe4f8359.png?type=l_webp">
-                                                            <source srcset="https://kream-phinf.pstatic.net/MjAyMTA4MDZfNDEg/MDAxNjI4MjM5NTA1MzAx.AferhzIi3eSei272TsoXwGto7buSps5uMQ0GxgwPwI0g.RRQcZGZ5R35-Tp2fXP2SrElD9cFg-l4qGPXsH6e-V6Ig.PNG/p_008c53c9c2c9416ba2375897fe4f8359.png?type=l">
-                                                            <img alt="상품 이미지" src="https://kream-phinf.pstatic.net/MjAyMTA4MDZfNDEg/MDAxNjI4MjM5NTA1MzAx.AferhzIi3eSei272TsoXwGto7buSps5uMQ0GxgwPwI0g.RRQcZGZ5R35-Tp2fXP2SrElD9cFg-l4qGPXsH6e-V6Ig.PNG/p_008c53c9c2c9416ba2375897fe4f8359.png?type=l" loading="lazy" fetchpriority="high" class="image bannerImg">
-                                                        </picture>
-                                                    </div>
-                                                    <div class="main_banner" style="width: 100%;">
-                                                        <picture class="picture"><source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMTA4MDZfMjIw/MDAxNjI4MjM5NTA1Mjk3.3a0Km5mhmJWc-bZE5Q5RMFFg66b6CfSl5HPIIG26nUkg.xcwMKQnTETcSY1PdFkPtJZ_aLhfdW5p5h-26WwHc5N4g.PNG/p_5936ba4779c84b1e90da4a4502d93e0b.png?type=l_webp">
-                                                            <source srcset="https://kream-phinf.pstatic.net/MjAyMTA4MDZfMjIw/MDAxNjI4MjM5NTA1Mjk3.3a0Km5mhmJWc-bZE5Q5RMFFg66b6CfSl5HPIIG26nUkg.xcwMKQnTETcSY1PdFkPtJZ_aLhfdW5p5h-26WwHc5N4g.PNG/p_5936ba4779c84b1e90da4a4502d93e0b.png?type=l">
-                                                            <img alt="상품 이미지" src="https://kream-phinf.pstatic.net/MjAyMTA4MDZfMjIw/MDAxNjI4MjM5NTA1Mjk3.3a0Km5mhmJWc-bZE5Q5RMFFg66b6CfSl5HPIIG26nUkg.xcwMKQnTETcSY1PdFkPtJZ_aLhfdW5p5h-26WwHc5N4g.PNG/p_5936ba4779c84b1e90da4a4502d93e0b.png?type=l" loading="lazy" fetchpriority="high" class="image bannerImg">
-                                                        </picture>
-                                                    </div>
-                                                    <div class="main_banner" style="width: 100%;">
-                                                        <picture class="picture">
-                                                            <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMTA4MTJfMzIg/MDAxNjI4NzQyMTMyNjk1.m9pp08Gu-pCfZ2YiguvnhoGelxRqLs7CCz4w6YwwL6Eg.PoLFxuEV5YKJacy5n8cA-CqKtXphyLFiavZoJrnggIQg.PNG/a_c86308e9cc2d43c08ebdef8733b88719.png?type=l_webp">
-                                                            <source srcset="https://kream-phinf.pstatic.net/MjAyMTA4MTJfMzIg/MDAxNjI4NzQyMTMyNjk1.m9pp08Gu-pCfZ2YiguvnhoGelxRqLs7CCz4w6YwwL6Eg.PoLFxuEV5YKJacy5n8cA-CqKtXphyLFiavZoJrnggIQg.PNG/a_c86308e9cc2d43c08ebdef8733b88719.png?type=l">
-                                                            <img alt="상품 이미지" src="https://kream-phinf.pstatic.net/MjAyMTA4MTJfMzIg/MDAxNjI4NzQyMTMyNjk1.m9pp08Gu-pCfZ2YiguvnhoGelxRqLs7CCz4w6YwwL6Eg.PoLFxuEV5YKJacy5n8cA-CqKtXphyLFiavZoJrnggIQg.PNG/a_c86308e9cc2d43c08ebdef8733b88719.png?type=l" loading="lazy" fetchpriority="high" class="image bannerImg">
-                                                        </picture>
-                                                    </div>
-                                                </div> -->
-                                                <!-- 상품 사진 슬릭슬라이더 끝 -->
-
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- 상품 사진 끝 -->
-
                                 <div class="column rect">
                                     <div class="column_box">
                                         <!-- 상품 정보 시작 -->
@@ -113,13 +72,10 @@
                                             <div class="detail_main_title lg">
                                                 <div class="main_title_box">
                                                     <div>
-<!--                                                        <a href="/brand" click.prevent="onClickBrand" class="brand">Nike</a>-->
-                                                        <a href="/brand" click.prevent="onClickBrand" class="brand">브랜드명</a>
+                                                        <a th:href="@{/brand/{brandName}(brandName=${product.data.brand})}" class="brand">Nike</a>
                                                     </div>
-<!--                                                    <p class="title">Nike Dunk Low SE Seoul</p>-->
-                                                    <p class="title name">상품명</p>
-<!--                                                    <p class="sub_title">나이키 덩크 로우 SE 서울</p>-->
-                                                    <p class="sub_title nameKor">상품명(KOR)</p>
+                                                    <p class="title name">Nike x Supreme Air Force 1 Low White</p>
+                                                    <p class="sub_title nameKor">나이키 x 슈프림 에어포스 1 로우 화이트</p>
                                                 </div>
                                             </div>
                                             <div class="product_figure_wrap lg">
@@ -128,11 +84,9 @@
                                                         <span class="title_txt">사이즈</span>
                                                     </div>
                                                     <div class="size">
-                                                        <a class="btn_size" onclick="everysizePopup()">
-<!--                                                            <span class="btn_text input_text it1">모든 사이즈</span>-->
+                                                        <a class="btn_size">
                                                             <div style="display: flex;">
-                                                                <span class="btn_text input_text it1 size" style="padding-top: 3px;">270</span>
-<!--                                                                <img src="/img/select_icon.png" class="ico-arr-dir-down-circle icon sprite-icons">-->
+                                                                <span class="btn_text input_text it1 size" style="padding-top: 3px;">230</span>
                                                             </div>
                                                         </a>
                                                     </div>
@@ -143,12 +97,9 @@
                                                     </div>
                                                     <div class="price">
                                                         <div class="amount">
-<!--                                                            <span class="num">229,000</span>-->
-<!--                                                            <span class="won">원</span>-->
-                                                            <span class="num recentPrice">최근거래가</span>
+                                                            <span class="num recentPrice">230,000</span>
                                                         </div>
                                                         <div class="fluctuation">
-<!--                                                            <p style="margin: 0;">29,000원 (-11.2%)</p>-->
                                                             <p class="fluctuation" style="margin: 0;">가격변동</p>
                                                         </div>
                                                     </div>
@@ -156,37 +107,30 @@
                                             </div>
                                             <div class="btn_wrap">
                                                 <div class="division_btn_box lg">
-                                                    <a class="btn_division buy">
+                                                    <a class="btn_division buy" th:href="@{/buy/check/{productIdx}(productIdx=${proIdx})}">
                                                         <strong class="title">구매</strong>
                                                         <div class="price">
                                                             <span class="amount">
-<!--                                                                <em class="num">214,000</em>-->
-<!--                                                                <span class="won">원</span>-->
-<!--                                                                <em class="num nowBuy">[[${sell}]]</em>-->
-                                                                <em class="num nowBuy">즉시구매가</em>
+                                                                <em class="num nowBuy">340,000원</em>
                                                             </span>
                                                             <span class="desc">즉시 구매가</span>
                                                         </div>
                                                     </a>
-                                                    <a class="btn_division sell">
+                                                    <a class="btn_division sell" th:href="@{/sell/check/{productIdx}(productIdx=${proIdx})}">
                                                         <strong class="title">판매</strong>
                                                         <div class="price">
                                                             <span class="amount">
-<!--                                                                <em class="num">303,000</em>-->
-<!--                                                                <span class="won">원</span>-->
-                                                                <em class="num nowSell">즉시판매가</em>
+                                                                <em class="num nowSell">250,000원</em>
                                                             </span>
                                                             <span class="desc">즉시 판매가</span>
                                                         </div>
                                                     </a>
                                                 </div>
-<!--                                                <a class="btn full outlinegrey large btn_wish wish_save" onclick="wishCreate()" aria-label="관심상품">-->
                                                 <a class="btn full outlinegrey large btn_wish wish_save" aria-label="관심상품">
                                                     <img src="/img/select_mark_off.PNG" class="icon sprite-icons wish-onoff">
                                                     <span class="btn_text" id="wish_proIdx" style="padding-left: 5px;" th:value="${proIdx}">관심상품</span>
-<!--                                                    <span class="wish_count_num">1.7만</span>-->
                                                     <div class="wish_count" style="padding-left: 5px;">
-                                                        <span class="wish_count_num wishCount">관심상품수</span>
+                                                        <span class="wish_count_num wishCount" id="wishCount" th:value="${isWish}">1.4만</span>
                                                     </div>
                                                 </a>
                                             </div>
@@ -243,38 +187,11 @@
                                                     <h3 class="detail_title lg">시세</h3>
                                                     <div class="sales_filter lg">
                                                         <div class="filter_unit">
-<!--                                                            <button type="button" slot="button" class="btn btn_select">-->
-<!--                                                                <span class="select_text layer_open input_text size">모든 사이즈</span>-->
-<!--                                                            </button>-->
-                                                            <!-- 모든 사이즈 드롭박스 시작 -->
-<!--                                                            <div class="layer_size_list layer lg" style="display: none;">-->
-<!--                                                                <div class="layer_container">-->
-<!--                                                                    <a class="btn_layer_close">-->
-<!--                                                                        <svg xmlns="http://www.w3.org/2000/svg" class="ico-close icon sprite-icons">-->
-<!--                                                                            <use href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggc3Ryb2tlPSIjMjIyIiBzdHJva2Utd2lkdGg9IjEuNSIgZD0iTTYgMTVsNi02IDYgNiIvPjwvc3ZnPg==" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-close"></use>-->
-<!--                                                                        </svg>-->
-<!--                                                                    </a>-->
-<!--                                                                    <div class="layer_header">-->
-<!--                                                                        <h2 class="title">사이즈 선택</h2>-->
-<!--                                                                    </div>-->
-<!--                                                                    <div class="layer_content conclusion2_layer_content" style="display: block;">-->
-<!--                                                                        <ul class="size_list sl">-->
-<!--                                                                            <li class="size_item"><a class="size_link item_on">모든 사이즈<img src="/img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: block;"></img></a></li>-->
-<!--                                                                            <li class="size_item"><a class="size_link">230<img src="/img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"></img></a></li>-->
-<!--                                                                            <li class="size_item"><a class="size_link">240<img src="/img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"></img></a></li>-->
-<!--                                                                            <li class="size_item"><a class="size_link">250<img src="/img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"></img></a></li>-->
-<!--                                                                            <li class="size_item"><a class="size_link">260<img src="/img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"></img></a></li>-->
-<!--                                                                            <li class="size_item"><a class="size_link">270<img src="/img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"></img></a></li>-->
-<!--                                                                            <li class="size_item"><a class="size_link">280<img src="/img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"></img></a></li>-->
-<!--                                                                        </ul>-->
-<!--                                                                    </div>-->
-<!--                                                                </div>-->
-<!--                                                            </div>-->
-                                                            <!-- 모든 사이즈 드롭박스 끝 -->
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="wrap_sales">
+                                                <!-- 시세 = 그래프 있을때 -->
+                                                <div class="wrap_sales"  th:if="${!#lists.isEmpty(conclusion)}">
                                                     <div class="tab_area">
                                                         <ul role="tablist" class="tab_list">
                                                             <li  role="tab" aria-selected="true" aria-controls="sales_panel1" class="date item on">
@@ -320,7 +237,19 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="wrap_bids">
+                                                <!-- 시세 = 그래프 없을때 -->
+<!--                                                <div class="wrap_sales" th:if="${#lists.isEmpty(conclusion)}">-->
+<!--                                                    <div class="table_wrap lg">-->
+<!--                                                        <div class="empty_content lg">-->
+<!--                                                            <div class="empty_bg">-->
+<!--                                                                <span class="blind">빈 데이터 이미지</span>-->
+<!--                                                            </div>-->
+<!--                                                            <p class="empty_text">체결된 거래가 아직 없습니다</p>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+                                                <!-- 시세 - 거래 내역 있을때 -->
+                                                <div class="wrap_bids" th:if="${!#lists.isEmpty(conclusion)}">
                                                     <div class="tab_area">
                                                         <ul role="tablist" class="tab_list">
                                                             <li role="tab" aria-selected="true" aria-controls="panel1" class="conclusion item on">
@@ -356,26 +285,6 @@
                                                                             <td class="table_td size">270</td>
                                                                             <td class="table_td align_right price">229,000원</td>
                                                                             <td class="table_td align_right createdAt"><time>22/12/22</time></td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="table_td">250</td>
-                                                                            <td class="table_td align_right">258,000원</td>
-                                                                            <td class="table_td align_right">22/12/22</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="table_td">260</td>
-                                                                            <td class="table_td align_right">204,000원</td>
-                                                                            <td class="table_td align_right">22/12/22</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="table_td">270</td>
-                                                                            <td class="table_td align_right">244,000원</td>
-                                                                            <td class="table_td align_right">22/12/22</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="table_td">230</td>
-                                                                            <td class="table_td align_right">229,000원</td>
-                                                                            <td class="table_td align_right">22/12/22</td>
                                                                         </tr>
                                                                     </tbody>
                                                                 </table>
@@ -482,7 +391,131 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- 시세 - 로그인 안했을 때 -->
+                                                <!-- 시세 - 거래 내역 없을때 -->
+<!--                                                <div class="wrap_bids" th:if="${#lists.isEmpty(conclusion)}" style="dis: hidden">-->
+<!--                                                    <div class="tab_area">-->
+<!--                                                        <ul role="tablist" class="tab_list">-->
+<!--                                                            <li role="tab" aria-selected="true" aria-controls="panel1" class="conclusion item on">-->
+<!--                                                                <a class="item_link">체결 거래</a>-->
+<!--                                                            </li>-->
+<!--                                                            <li role="tab" aria-selected="false" aria-controls="panel2" class="conclusion item">-->
+<!--                                                                <a class="item_link">판매 입찰</a>-->
+<!--                                                            </li>-->
+<!--                                                            <li role="tab" aria-selected="false" aria-controls="panel3" class="conclusion item">-->
+<!--                                                                <a class="item_link">구매 입찰</a>-->
+<!--                                                            </li>-->
+<!--                                                        </ul>-->
+<!--                                                        <div id="panel1" role="tabpanel" span="sales" class="tab_content">-->
+<!--                                                            <div class="table_wrap lg">-->
+<!--                                                                <div class="empty_content lg">-->
+<!--                                                                    <div class="empty_bg">-->
+<!--                                                                        <span class="blind">빈 데이터 이미지</span>-->
+<!--                                                                    </div>-->
+<!--                                                                    <p class="empty_text">체결된 거래가 아직 없습니다</p>-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                        </div>-->
+<!--                                                        <div id="panel2" role="tabpanel" span="asks" class="tab_content">-->
+<!--                                                            <div class="table_wrap lg">-->
+<!--                                                                <table>-->
+<!--                                                                    <caption>-->
+<!--                                                                        <span class="blind">데이터 테이블</span>-->
+<!--                                                                    </caption>-->
+<!--                                                                    <colgroup>-->
+<!--                                                                        <col style="width:29.76%;">-->
+<!--                                                                        <col style="width:36.52%;">-->
+<!--                                                                        <col style="width:33.72%;">-->
+<!--                                                                    </colgroup>-->
+<!--                                                                    <thead>-->
+<!--                                                                    <tr>-->
+<!--                                                                        <th class="table_th">사이즈</th>-->
+<!--                                                                        <th class="table_th align_right">판매 희망가</th>-->
+<!--                                                                        <th class="table_th align_right">수량</th>-->
+<!--                                                                    </tr>-->
+<!--                                                                    </thead>-->
+<!--                                                                    <tbody>-->
+<!--                                                                    <tr>-->
+<!--                                                                        <td class="table_td">260</td>-->
+<!--                                                                        <td class="table_td align_right">214,000원</td>-->
+<!--                                                                        <td class="table_td align_right">1</td>-->
+<!--                                                                    </tr>-->
+<!--                                                                    <tr>-->
+<!--                                                                        <td class="table_td">260</td>-->
+<!--                                                                        <td class="table_td align_right">217,000원</td>-->
+<!--                                                                        <td class="table_td align_right">1</td>-->
+<!--                                                                    </tr>-->
+<!--                                                                    <tr>-->
+<!--                                                                        <td class="table_td">270</td>-->
+<!--                                                                        <td class="table_td align_right">219,000원</td>-->
+<!--                                                                        <td class="table_td align_right">1</td>-->
+<!--                                                                    </tr>-->
+<!--                                                                    <tr>-->
+<!--                                                                        <td class="table_td">240</td>-->
+<!--                                                                        <td class="table_td align_right">220,000원</td>-->
+<!--                                                                        <td class="table_td align_right">2</td>-->
+<!--                                                                    </tr>-->
+<!--                                                                    <tr>-->
+<!--                                                                        <td class="table_td">250</td>-->
+<!--                                                                        <td class="table_td align_right">223,000원</td>-->
+<!--                                                                        <td class="table_td align_right">1</td>-->
+<!--                                                                    </tr>-->
+<!--                                                                    </tbody>-->
+<!--                                                                </table>-->
+<!--                                                            </div>-->
+<!--                                                            <a class="btn outlinegrey full medium">입찰 내역 더보기</a>-->
+<!--                                                        </div>-->
+<!--                                                        <div id="panel3" role="tabpanel" span="bids" class="tab_content">-->
+<!--                                                            <div class="table_wrap lg">-->
+<!--                                                                <table>-->
+<!--                                                                    <caption>-->
+<!--                                                                        <span class="blind">데이터 테이블</span>-->
+<!--                                                                    </caption>-->
+<!--                                                                    <colgroup>-->
+<!--                                                                        <col style="width:29.76%;">-->
+<!--                                                                        <col style="width:36.52%;">-->
+<!--                                                                        <col style="width:33.72%;">-->
+<!--                                                                    </colgroup>-->
+<!--                                                                    <thead>-->
+<!--                                                                    <tr>-->
+<!--                                                                        <th class="table_th">사이즈</th>-->
+<!--                                                                        <th class="table_th align_right">구매 희망가</th>-->
+<!--                                                                        <th class="table_th align_right">수량</th>-->
+<!--                                                                    </tr>-->
+<!--                                                                    </thead>-->
+<!--                                                                    <tbody>-->
+<!--                                                                    <tr>-->
+<!--                                                                        <td class="table_td">280</td>-->
+<!--                                                                        <td class="table_td align_right">303,000원</td>-->
+<!--                                                                        <td class="table_td align_right">1</td>-->
+<!--                                                                    </tr>-->
+<!--                                                                    <tr>-->
+<!--                                                                        <td class="table_td">230</td>-->
+<!--                                                                        <td class="table_td align_right">300,000원</td>-->
+<!--                                                                        <td class="table_td align_right">1</td>-->
+<!--                                                                    </tr>-->
+<!--                                                                    <tr>-->
+<!--                                                                        <td class="table_td">240</td>-->
+<!--                                                                        <td class="table_td align_right">290,000원</td>-->
+<!--                                                                        <td class="table_td align_right">1</td>-->
+<!--                                                                    </tr>-->
+<!--                                                                    <tr>-->
+<!--                                                                        <td class="table_td">280</td>-->
+<!--                                                                        <td class="table_td align_right">286,000원</td>-->
+<!--                                                                        <td class="table_td align_right">1</td>-->
+<!--                                                                    </tr>-->
+<!--                                                                    <tr>-->
+<!--                                                                        <td class="table_td">240</td>-->
+<!--                                                                        <td class="table_td align_right">281,000원</td>-->
+<!--                                                                        <td class="table_td align_right">1</td>-->
+<!--                                                                    </tr>-->
+<!--                                                                    </tbody>-->
+<!--                                                                </table>-->
+<!--                                                            </div>-->
+<!--                                                            <a class="btn outlinegrey full medium">입찰 내역 더보기</a>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+                                                <!-- 시세 - 로그인 안했을때 -->
                                                 <!-- <div class="layer_alert_login">
                                                     <div class="layer_content">
                                                         <p class="notice">모든 체결 거래는<br>로그인 후 확인 가능합니다.</p>
@@ -534,7 +567,7 @@
                                                                 <div class="dropdown">
                                                                     <div class="dropdown_head">
                                                                         <p class="title">검수 안내</p>
-                                                                        <img src="/img/down.png" class="icon sprite-icons ico-arr-down-gray"></img>
+                                                                        <img src="/img/down.png" class="icon sprite-icons ico-arr-down-gray">
                                                                     </div>
                                                                     <div class="dropdown_content dc">
                                                                         <div class="content">
@@ -578,7 +611,7 @@
                                                                 <div class="dropdown">
                                                                     <div class="dropdown_head">
                                                                         <p class="title">구매 환불/취소/교환 안내</p>
-                                                                        <img src="/img/down.png" class="icon sprite-icons ico-arr-down-gray"></img>
+                                                                        <img src="/img/down.png" class="icon sprite-icons ico-arr-down-gray">
                                                                     </div>
                                                                     <div class="dropdown_content dc">
                                                                         <div class="content">
@@ -606,7 +639,7 @@
                                                     <ul class="guide_list">
                                                         <li class="guide_item">
                                                             <div class="thumb_area">
-                                                                <img src="https://kream.co.kr/_nuxt/img/img-guide-item-01.fa306b8.svg" alt="" class="img">
+                                                                <img src="/img/product_check1.png" alt="" class="img">
                                                             </div>
                                                             <div class="text_area">
                                                                 <strong class="title">100% 정품 보증</strong>
@@ -615,7 +648,7 @@
                                                         </li>
                                                         <li class="guide_item">
                                                             <div class="thumb_area">
-                                                                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMzYiIHZpZXdCb3g9IjAgMCA0MCAzNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE3LjUgMjYuM0MxMS41MzUzIDI2LjMgNi43IDIxLjQ2NDcgNi43IDE1LjVDNi43IDkuNTM1MzMgMTEuNTM1MyA0LjcgMTcuNSA0LjdDMjMuNDY0NyA0LjcgMjguMyA5LjUzNTMzIDI4LjMgMTUuNUMyOC4zIDIxLjQ2NDcgMjMuNDY0NyAyNi4zIDE3LjUgMjYuM1oiIGZpbGw9IndoaXRlIiBzdHJva2U9IiMyMjIyMjIiIHN0cm9rZS13aWR0aD0iMS40IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxwYXRoIGQ9Ik0yNSAyM0wzMSAyOSIgc3Ryb2tlPSIjMjIyMjIyIiBzdHJva2Utd2lkdGg9IjEuNSIvPgo8cGF0aCBkPSJNMTYgMTMuMzMzM0wyMC43NzI3IDE4TDMxIDgiIHN0cm9rZT0iIzIyMjIyMiIgc3Ryb2tlLXdpZHRoPSIyLjIiLz4KPC9zdmc+Cg==" alt="" class="img">
+                                                                <img src="/img/product_check2.png" alt="" class="img" style="margin-top: 5px;">
                                                             </div>
                                                             <div class="text_area">
                                                                 <strong class="title">엄격한 다중 검수</strong>
@@ -624,7 +657,7 @@
                                                         </li>
                                                         <li class="guide_item">
                                                             <div class="thumb_area">
-                                                                <img src="https://kream.co.kr/_nuxt/img/img-guide-item-03.963fee7.svg" alt="" class="img">
+                                                                <img src="/img/product_check3.png" alt="" class="img">
                                                             </div>
                                                             <div class="text_area">
                                                                 <strong class="title">정품 인증 패키지</strong>
@@ -651,16 +684,12 @@
                                                     <div class="buy_product">
                                                         <div class="product" style="background-color: rgb(235, 240, 245);">
                                                             <picture class="picture product_img">
-                                                                <img alt="상품 이미지" src="" loading="lazy" class="image img" id="previewImg4"></picture>
-                                                            <!---->
-                                                            <!---->
-                                                            <!---->
-                                                            <!---->
+                                                                <img alt="상품 이미지" src="" loading="lazy" class="image img" id="previewImg4">
+                                                            </picture>
                                                         </div>
                                                         <div class="buy_info">
                                                             <div class="model_info">
                                                                 <strong class="model_number">
-                                                                    <!---->
                                                                     <span class="text"></span>
                                                                 </strong>
                                                                 <p class="model_title name">상품명</p>
@@ -668,30 +697,7 @@
                                                                 <div class="size_select_wrap">
                                                                     <button type="button" class="btn btn_size" slot="button">
                                                                         <span class="size input_text">모든 사이즈</span>
-<!--                                                                        <img src="/img/select_icon.png" class="ico-arr-dir-down-circle icon sprite-icons"/>-->
                                                                     </button>
-<!--                                                                    <div class="layer_size_list layer lg" style="display: none;">-->
-<!--                                                                        <div class="layer_container">-->
-<!--                                                                            <a class="btn_layer_close">-->
-<!--                                                                                <svg xmlns="http://www.w3.org/2000/svg" class="ico-close icon sprite-icons">-->
-<!--                                                                                    <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-close" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-close"></use>-->
-<!--                                                                                </svg></a>-->
-<!--                                                                            <div class="layer_header">-->
-<!--                                                                                <h2 class="title">사이즈 선택</h2>-->
-<!--                                                                            </div>-->
-<!--                                                                            <div class="layer_content conclusion2_layer_content" style="display: block;">-->
-<!--                                                                                <ul class="size_list sl">-->
-<!--                                                                                    <li class="size_item"><a class="size_link item_on">모든 사이즈<img src="/img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: block;"/></a></li>-->
-<!--                                                                                    <li class="size_item"><a class="size_link">230<img src="/img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"/></a></li>-->
-<!--                                                                                    <li class="size_item"><a class="size_link">240<img src="/img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"/></a></li>-->
-<!--                                                                                    <li class="size_item"><a class="size_link">250<img src="/img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"/></a></li>-->
-<!--                                                                                    <li class="size_item"><a class="size_link">260<img src="/img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"/></a></li>-->
-<!--                                                                                    <li class="size_item"><a class="size_link">270<img src="/img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"/></a></li>-->
-<!--                                                                                    <li class="size_item"><a class="size_link">280<img src="/img/wcheck.png" class="ico-check-s icon sprite-icons" style="display: none;"/></a></li>-->
-<!--                                                                                </ul>-->
-<!--                                                                            </div>-->
-<!--                                                                        </div>-->
-<!--                                                                    </div>-->
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -782,7 +788,7 @@
                                                 <div class="product_area">
                                                     <div class="product_thumb" style="background-color: rgb(235, 240, 245);">
                                                         <picture class="picture product_img">
-                                                            <img alt="상품 이미지" src="" loading="lazy" class="image img" id="previewImg3" style="width: 64px; height: 64px; margin-left: 40px; margin-bottom: 15px;">
+                                                            <img alt="상품 이미지" src="" loading="lazy" class="image img" id="previewImg3" style="width: 64px; height: 64px; margin-left: 40px;">
                                                         </picture>
                                                     </div>
                                                     <div class="product_info">
@@ -791,10 +797,9 @@
                                                     </div>
                                                 </div>
                                                 <div class="btn_area">
-<!--                                                    <a class="btn outlinegrey large btn_wish btn_wish_simple" aria-label="관심상품" onclick="wishCreate()">-->
                                                     <a class="btn outlinegrey large btn_wish btn_wish_simple" aria-label="관심상품">
                                                         <img src="/img/select_mark_off.PNG" class="icon sprite-icons wish-onoff"/>
-                                                        <span class="wish_count_num wishCount" style="padding-left: 5px;">관심상품수</span>
+                                                        <span class="wish_count_num wishCount" th:value="${isWish}" style="padding-left: 5px;">관심상품수</span>
                                                     </a>
                                                     <div class="division_btn_box lg">
                                                         <a class="btn_division buy">
@@ -825,31 +830,31 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- 스타일 시작 -->
                         <div>
-                            <!---->
-                            <!-- 스타일 시작 -->
                             <div class="feed_area">
                                 <h2 class="feed_title">
                                     <span class="title">스타일</span>
-                                    <span class="num">1145</span>
+                                    <span class="num" id="style_cnt">1145</span>
                                 </h2>
                                 <div class="social_feeds">
-                                    <div transition-duration="0" item-selector=".item" gutter=".gutter_item" horizontal-order="true" class="masonry_posts" style="position: relative; height: 750px;">
+                                    <div transition-duration="0" item-selector=".item" gutter=".gutter_item" horizontal-order="true" class="masonry_posts" style="position: relative; height: 800px;">
                                         <div class="gutter_item"></div>
                                         <div class="feed_card item square" style="position: absolute; left: 0px; top: 0px;">
                                             <a href="#">
                                                 <div class="card_box">
                                                     <div class="social_img_box square">
                                                         <picture class="picture social_img">
-                                                            <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjdfODMg/MDAxNjcyMTI1NTcyMzU4.ICgHWGDXX3f9VY9PGMCWuyfDBgkXeW7n0joIzj69pcsg.HvfoHMzCTB0S4nOHZ3MHbp9JpIAa6G1L-XZqruqnPCYg.JPEG/p_98fe0ff54520417babe295df8155e2c5.jpg?type=m_webp">
-                                                            <source srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjdfODMg/MDAxNjcyMTI1NTcyMzU4.ICgHWGDXX3f9VY9PGMCWuyfDBgkXeW7n0joIzj69pcsg.HvfoHMzCTB0S4nOHZ3MHbp9JpIAa6G1L-XZqruqnPCYg.JPEG/p_98fe0ff54520417babe295df8155e2c5.jpg?type=m">
-                                                            <img alt="소셜이미지" src="https://kream-phinf.pstatic.net/MjAyMjEyMjdfODMg/MDAxNjcyMTI1NTcyMzU4.ICgHWGDXX3f9VY9PGMCWuyfDBgkXeW7n0joIzj69pcsg.HvfoHMzCTB0S4nOHZ3MHbp9JpIAa6G1L-XZqruqnPCYg.JPEG/p_98fe0ff54520417babe295df8155e2c5.jpg?type=m" loading="lazy" class="image"></picture>
+                                                            <source type="image/webp" srcset="">
+                                                            <source srcset="">
+                                                            <img alt="소셜이미지" src="" loading="lazy" class="image"></picture>
                                                     </div>
                                                     <div class="card_detail">
                                                         <div class="user_box">
                                                             <picture class="picture img_profile">
-                                                                <source type="image/webp" srcset="/images/account_img_default.png?type=s_webp">
-                                                                <source srcset="/images/account_img_default.png?type=s">
+                                                                <source type="image/webp" srcset="">
+                                                                <source srcset="">
                                                                 <img alt="사용자 프로필 이미지" src="/img/kream_empty_img.png" loading="lazy" class="image">
                                                             </picture>
                                                             <p class="user_name">17_07.06</p>
@@ -859,213 +864,13 @@
                                                             </span>
                                                         </div>
                                                         <p class="text_box">코레아 우라 #나이키 #서울 #덩크서울 #크림</p>
-                                                        <!---->
                                                     </div>
                                                 </div>
-                                                <!---->
-                                            </a>
-                                        </div>
-                                        <div class="feed_card item square" style="position: absolute; left: 307px; top: 0px;">
-                                            <a href="#">
-                                                <div class="card_box">
-                                                    <div class="social_img_box square">
-                                                        <picture class="picture social_img">
-                                                            <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMjEyMTlfNTQg/MDAxNjcxNDUxNDUxNTk4.xbCSb6ME90QU3j6gzpKtwil5dukB7kQSZWNaj8nbwiUg.H61G7Hl7Km2rYuSWh2DnHhNx9eEq20lKiB9ndQN0IEog.JPEG/p_831bb87698884ee1a165210ce29f6bf4.jpeg?type=m_webp">
-                                                            <source srcset="https://kream-phinf.pstatic.net/MjAyMjEyMTlfNTQg/MDAxNjcxNDUxNDUxNTk4.xbCSb6ME90QU3j6gzpKtwil5dukB7kQSZWNaj8nbwiUg.H61G7Hl7Km2rYuSWh2DnHhNx9eEq20lKiB9ndQN0IEog.JPEG/p_831bb87698884ee1a165210ce29f6bf4.jpeg?type=m">
-                                                            <img alt="소셜이미지" src="https://kream-phinf.pstatic.net/MjAyMjEyMTlfNTQg/MDAxNjcxNDUxNDUxNTk4.xbCSb6ME90QU3j6gzpKtwil5dukB7kQSZWNaj8nbwiUg.H61G7Hl7Km2rYuSWh2DnHhNx9eEq20lKiB9ndQN0IEog.JPEG/p_831bb87698884ee1a165210ce29f6bf4.jpeg?type=m" loading="lazy" class="image"></picture>
-                                                    </div>
-                                                    <div class="card_detail">
-                                                        <div class="user_box">
-                                                            <picture class="picture img_profile">
-                                                                <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjBfMjIz/MDAxNjcxNDkzODUxODcw.I9qmE2cpiw3IMeHQPcET2kYo7LdYV1y7lPIUgqUyungg.wNa7Tf4L2tZxC_nK79t07hw_aw6bcUMR72FzEwO30fQg.JPEG/p_2f82dd3a99964b11a5ba40187f60f217.jpeg?type=s_webp">
-                                                                <source srcset="https://kream-phinf.pstatic.net/MjAyMjEyMjBfMjIz/MDAxNjcxNDkzODUxODcw.I9qmE2cpiw3IMeHQPcET2kYo7LdYV1y7lPIUgqUyungg.wNa7Tf4L2tZxC_nK79t07hw_aw6bcUMR72FzEwO30fQg.JPEG/p_2f82dd3a99964b11a5ba40187f60f217.jpeg?type=s">
-                                                                <img alt="사용자 프로필 이미지" src="https://kream-phinf.pstatic.net/MjAyMjEyMjBfMjIz/MDAxNjcxNDkzODUxODcw.I9qmE2cpiw3IMeHQPcET2kYo7LdYV1y7lPIUgqUyungg.wNa7Tf4L2tZxC_nK79t07hw_aw6bcUMR72FzEwO30fQg.JPEG/p_2f82dd3a99964b11a5ba40187f60f217.jpeg?type=s" loading="lazy" class="image"></picture>
-                                                            <p class="user_name">bigshot344</p>
-                                                            <span aria-label="좋아요" role="button" class="btn like">
-                                                                <img src="/img/smile.png" class="icon sprite-icons social-like-gray-sm"></img>
-                                                                <span class="like_count">166</span>
-                                                            </span>
-                                                        </div>
-                                                        <p class="text_box">아름다운 서울에서 서울에서 살렵니다. by 경기도민 #KREAM #KREAM챌린지 #미리메리챌린지 #nike #dunk #seoul #DM7708_100</p>
-                                                        <!---->
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="feed_card item square" style="position: absolute; left: 614px; top: 0px;">
-                                            <a href="#">
-                                                <div class="card_box">
-                                                    <div class="social_img_box square">
-                                                        <picture class="picture social_img">
-                                                            <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMjEyMTlfNzAg/MDAxNjcxNDQ2MDU0Njcz.1HiQCPOi9QLHvhqOwQI86A-BzxUdB0FSzW4kBMfER8cg.KP-3doCGweriTIaLhpJKn9v5YGSqJucWLGor5TqxvTgg.JPEG/p_2c811c6b877548698a9064659bf97164.jpeg?type=m_webp">
-                                                            <source srcset="https://kream-phinf.pstatic.net/MjAyMjEyMTlfNzAg/MDAxNjcxNDQ2MDU0Njcz.1HiQCPOi9QLHvhqOwQI86A-BzxUdB0FSzW4kBMfER8cg.KP-3doCGweriTIaLhpJKn9v5YGSqJucWLGor5TqxvTgg.JPEG/p_2c811c6b877548698a9064659bf97164.jpeg?type=m">
-                                                            <img alt="소셜이미지" src="https://kream-phinf.pstatic.net/MjAyMjEyMTlfNzAg/MDAxNjcxNDQ2MDU0Njcz.1HiQCPOi9QLHvhqOwQI86A-BzxUdB0FSzW4kBMfER8cg.KP-3doCGweriTIaLhpJKn9v5YGSqJucWLGor5TqxvTgg.JPEG/p_2c811c6b877548698a9064659bf97164.jpeg?type=m" loading="lazy" class="image"></picture>
-                                                    </div>
-                                                    <div class="card_detail">
-                                                        <div class="user_box">
-                                                            <picture class="picture img_profile">
-                                                                <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMjA5MTZfNzYg/MDAxNjYzMzE4MzU3ODEx.mYIzmmbBtHPClrX5gOZK1hLVCxMgrqPjiisK0G7ExdIg.HIzfZyCtVP3h9AF6LYhOzwStkKcKmeEy5Z_vKnzwQO4g.JPEG/p_a86fdc75286b4f6f834d88c54352ab16.jpeg?type=s_webp">
-                                                                <source srcset="https://kream-phinf.pstatic.net/MjAyMjA5MTZfNzYg/MDAxNjYzMzE4MzU3ODEx.mYIzmmbBtHPClrX5gOZK1hLVCxMgrqPjiisK0G7ExdIg.HIzfZyCtVP3h9AF6LYhOzwStkKcKmeEy5Z_vKnzwQO4g.JPEG/p_a86fdc75286b4f6f834d88c54352ab16.jpeg?type=s">
-                                                                <img alt="사용자 프로필 이미지" src="https://kream-phinf.pstatic.net/MjAyMjA5MTZfNzYg/MDAxNjYzMzE4MzU3ODEx.mYIzmmbBtHPClrX5gOZK1hLVCxMgrqPjiisK0G7ExdIg.HIzfZyCtVP3h9AF6LYhOzwStkKcKmeEy5Z_vKnzwQO4g.JPEG/p_a86fdc75286b4f6f834d88c54352ab16.jpeg?type=s" loading="lazy" class="image"></picture>
-                                                            <p class="user_name">ezunzun</p>
-                                                            <span aria-label="좋아요" role="button" class="btn like">
-                                                                <img src="/img/smile.png" class="icon sprite-icons social-like-gray-sm"></img>
-                                                                <span class="like_count">37</span>
-                                                            </span>
-                                                        </div>
-                                                        <p class="text_box">#미리메리챌린지 #무신사 #덩크로우서울 #LMC #유니폼브릿지</p>
-                                                        <!---->
-                                                    </div>
-                                                </div>
-                                                <!---->
-                                            </a>
-                                        </div>
-                                        <div class="feed_card item square" style="position: absolute; left: 921px; top: 0px;">
-                                            <a href="#">
-                                                <div class="card_box">
-                                                    <div class="social_img_box square">
-                                                        <picture class="picture social_img">
-                                                            <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMjEyMTdfMjk1/MDAxNjcxMjIzNzMzODEw.xJnPpqwYqRE7KKO1GL3sadHiuEX37qwNmWiZz8OmJaUg.eFqI4MKEK2XF2w8Rjqxbz3gsQE2hqwS-pTM6YJPl_7wg.JPEG/p_f1165ddd8e90484fba76cc2bda45c0e0.jpeg?type=m_webp">
-                                                            <source srcset="https://kream-phinf.pstatic.net/MjAyMjEyMTdfMjk1/MDAxNjcxMjIzNzMzODEw.xJnPpqwYqRE7KKO1GL3sadHiuEX37qwNmWiZz8OmJaUg.eFqI4MKEK2XF2w8Rjqxbz3gsQE2hqwS-pTM6YJPl_7wg.JPEG/p_f1165ddd8e90484fba76cc2bda45c0e0.jpeg?type=m">
-                                                            <img alt="소셜이미지" src="https://kream-phinf.pstatic.net/MjAyMjEyMTdfMjk1/MDAxNjcxMjIzNzMzODEw.xJnPpqwYqRE7KKO1GL3sadHiuEX37qwNmWiZz8OmJaUg.eFqI4MKEK2XF2w8Rjqxbz3gsQE2hqwS-pTM6YJPl_7wg.JPEG/p_f1165ddd8e90484fba76cc2bda45c0e0.jpeg?type=m" loading="lazy" class="image"></picture>
-                                                    </div>
-                                                    <div class="card_detail">
-                                                        <div class="user_box">
-                                                            <picture class="picture img_profile">
-                                                                <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMDEwMTlfMjk5/MDAxNjAzMDYzMzMzNzU0.KGHzsqWjUapRceIBqYG5Eit3tkxkqRIGez912sW8AyEg.-jxUM95WIloDBaEHwv8Fo-JyjodedLFhWL6cNZKXZkYg.JPEG/p_7b2bd9b3aea6439db65c080582ab74ac.jpg?type=s_webp">
-                                                                <source srcset="https://kream-phinf.pstatic.net/MjAyMDEwMTlfMjk5/MDAxNjAzMDYzMzMzNzU0.KGHzsqWjUapRceIBqYG5Eit3tkxkqRIGez912sW8AyEg.-jxUM95WIloDBaEHwv8Fo-JyjodedLFhWL6cNZKXZkYg.JPEG/p_7b2bd9b3aea6439db65c080582ab74ac.jpg?type=s">
-                                                                <img alt="사용자 프로필 이미지" src="https://kream-phinf.pstatic.net/MjAyMDEwMTlfMjk5/MDAxNjAzMDYzMzMzNzU0.KGHzsqWjUapRceIBqYG5Eit3tkxkqRIGez912sW8AyEg.-jxUM95WIloDBaEHwv8Fo-JyjodedLFhWL6cNZKXZkYg.JPEG/p_7b2bd9b3aea6439db65c080582ab74ac.jpg?type=s" loading="lazy" class="image"></picture>
-                                                            <p class="user_name">aanh_nd</p>
-                                                            <span aria-label="좋아요" role="button" class="btn like">
-                                                                <img src="/img/smile.png" class="icon sprite-icons social-like-gray-sm"></img>
-                                                                <span class="like_count">30</span>
-                                                            </span>
-                                                        </div>
-                                                        <p class="text_box">❄️ #나이키 #서울 #덩크로우</p>
-                                                        <!---->
-                                                    </div>
-                                                </div>
-                                                <!---->
-                                            </a>
-                                        </div>
-                                        <div class="feed_card item square" style="position: absolute; left: 0px; top: 333px;">
-                                            <a href="#">
-                                                <div class="card_box">
-                                                    <div class="social_img_box square">
-                                                        <picture class="picture social_img">
-                                                            <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMjEyMTZfMTU1/MDAxNjcxMTc1MTE3MzM0.TwjnDM5EE9ULlLSqi__3rFtarB4tAerlzW6bY1VzEg8g.81DHwXdEgDmB51SI0zcIFkpJrQAtFm6pyRIssLLOUEQg.JPEG/p_18b1001e1acd4570ab6fd0cbe3d8dea5.jpg?type=m_webp">
-                                                            <source srcset="https://kream-phinf.pstatic.net/MjAyMjEyMTZfMTU1/MDAxNjcxMTc1MTE3MzM0.TwjnDM5EE9ULlLSqi__3rFtarB4tAerlzW6bY1VzEg8g.81DHwXdEgDmB51SI0zcIFkpJrQAtFm6pyRIssLLOUEQg.JPEG/p_18b1001e1acd4570ab6fd0cbe3d8dea5.jpg?type=m">
-                                                            <img alt="소셜이미지" src="https://kream-phinf.pstatic.net/MjAyMjEyMTZfMTU1/MDAxNjcxMTc1MTE3MzM0.TwjnDM5EE9ULlLSqi__3rFtarB4tAerlzW6bY1VzEg8g.81DHwXdEgDmB51SI0zcIFkpJrQAtFm6pyRIssLLOUEQg.JPEG/p_18b1001e1acd4570ab6fd0cbe3d8dea5.jpg?type=m" loading="lazy" class="image"></picture>
-                                                    </div>
-                                                    <div class="card_detail">
-                                                        <div class="user_box">
-                                                            <picture class="picture img_profile">
-                                                                <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMjAyMTRfMTcx/MDAxNjQ0Nzc1NTk2ODY4.SFEmCasd7ik0xGgSaoAParbLFjMxOzzFRrFNgGKLVL8g.QRrKmK1Uebm9W2mbKyi4vf1_sNbd_AyaQGYkgItodL8g.JPEG/p_5c3e05089c1a4dc0956ca8d9a0a99aa2.jpg?type=s_webp">
-                                                                <source srcset="https://kream-phinf.pstatic.net/MjAyMjAyMTRfMTcx/MDAxNjQ0Nzc1NTk2ODY4.SFEmCasd7ik0xGgSaoAParbLFjMxOzzFRrFNgGKLVL8g.QRrKmK1Uebm9W2mbKyi4vf1_sNbd_AyaQGYkgItodL8g.JPEG/p_5c3e05089c1a4dc0956ca8d9a0a99aa2.jpg?type=s">
-                                                                <img alt="사용자 프로필 이미지" src="https://kream-phinf.pstatic.net/MjAyMjAyMTRfMTcx/MDAxNjQ0Nzc1NTk2ODY4.SFEmCasd7ik0xGgSaoAParbLFjMxOzzFRrFNgGKLVL8g.QRrKmK1Uebm9W2mbKyi4vf1_sNbd_AyaQGYkgItodL8g.JPEG/p_5c3e05089c1a4dc0956ca8d9a0a99aa2.jpg?type=s" loading="lazy" class="image"></picture>
-                                                            <p class="user_name">kangym19</p>
-                                                            <span aria-label="좋아요" role="button" class="btn like">
-                                                                <img src="/img/smile.png" class="icon sprite-icons social-like-gray-sm"></img>
-                                                                <span class="like_count">26</span>
-                                                            </span>
-                                                        </div>
-                                                        <p class="text_box">#미리메리챌린지 #나이키 #서울 #덩크로우</p>
-                                                        <!---->
-                                                    </div>
-                                                </div>
-                                                <!---->
-                                            </a>
-                                        </div>
-                                        <div class="feed_card item square" style="position: absolute; left: 307px; top: 353px;">
-                                            <a href="#">
-                                                <div class="card_box">
-                                                    <div class="social_img_box square">
-                                                        <picture class="picture social_img">
-                                                            <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMjEyMDZfMTgw/MDAxNjcwMzM2MTMyNTM2.ifIbxJlLvb9sG2gme5ni75KuAGCERnTBjJzCX5v1FR0g._NdRhSxQgy7nUfKNz6eBy7ZAQIryH4zv7_ffhx4u53wg.JPEG/p_7d93e60d64fb4e00a13bf9361dfee08c.jpeg?type=m_webp">
-                                                            <source srcset="https://kream-phinf.pstatic.net/MjAyMjEyMDZfMTgw/MDAxNjcwMzM2MTMyNTM2.ifIbxJlLvb9sG2gme5ni75KuAGCERnTBjJzCX5v1FR0g._NdRhSxQgy7nUfKNz6eBy7ZAQIryH4zv7_ffhx4u53wg.JPEG/p_7d93e60d64fb4e00a13bf9361dfee08c.jpeg?type=m">
-                                                            <img alt="소셜이미지" src="https://kream-phinf.pstatic.net/MjAyMjEyMDZfMTgw/MDAxNjcwMzM2MTMyNTM2.ifIbxJlLvb9sG2gme5ni75KuAGCERnTBjJzCX5v1FR0g._NdRhSxQgy7nUfKNz6eBy7ZAQIryH4zv7_ffhx4u53wg.JPEG/p_7d93e60d64fb4e00a13bf9361dfee08c.jpeg?type=m" loading="lazy" class="image"></picture>
-                                                    </div>
-                                                    <div class="card_detail">
-                                                        <div class="user_box">
-                                                            <picture class="picture img_profile">
-                                                                <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMTEyMjBfMjA5/MDAxNjM5OTI3NzY5MDI4.iUf2nNBkGkIy8nEPp6ZHr5epFf6C3sKD2GIUVY1qQBIg.JVBG8WXwU8NT7n0j8Yb0PX3hye8h2l1BGyRH5bDmbHYg.JPEG/p_5eaffae3c6b04615bc0650820accd18a.jpeg?type=s_webp">
-                                                                <source srcset="https://kream-phinf.pstatic.net/MjAyMTEyMjBfMjA5/MDAxNjM5OTI3NzY5MDI4.iUf2nNBkGkIy8nEPp6ZHr5epFf6C3sKD2GIUVY1qQBIg.JVBG8WXwU8NT7n0j8Yb0PX3hye8h2l1BGyRH5bDmbHYg.JPEG/p_5eaffae3c6b04615bc0650820accd18a.jpeg?type=s">
-                                                                <img alt="사용자 프로필 이미지" src="https://kream-phinf.pstatic.net/MjAyMTEyMjBfMjA5/MDAxNjM5OTI3NzY5MDI4.iUf2nNBkGkIy8nEPp6ZHr5epFf6C3sKD2GIUVY1qQBIg.JVBG8WXwU8NT7n0j8Yb0PX3hye8h2l1BGyRH5bDmbHYg.JPEG/p_5eaffae3c6b04615bc0650820accd18a.jpeg?type=s" loading="lazy" class="image"></picture>
-                                                            <p class="user_name">2.m.y_</p>
-                                                            <span aria-label="좋아요" role="button" class="btn like">
-                                                                <img src="/img/smile.png" class="icon sprite-icons social-like-gray-sm"></img>
-                                                                <span class="like_count">32</span>
-                                                            </span>
-                                                        </div>
-                                                        <p class="text_box">나도 있다 시카고 #시카고2022 #시카고 #서울덩크 #조던1</p>
-                                                        <!---->
-                                                    </div>
-                                                </div>
-                                                <!---->
-                                            </a>
-                                        </div>
-                                        <div class="feed_card item square" style="position: absolute; left: 614px; top: 353px;">
-                                            <a href="#">
-                                                <div class="card_box">
-                                                    <div class="social_img_box square">
-                                                        <picture class="picture social_img">
-                                                            <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMjEyMDZfMTc1/MDAxNjcwMzI3NzczODU2.hkObROxZdvnwwHgeRUQXOG9jU4ht1rLwSYOej39pBcMg.Wm3mH05_1AswFxYH0ewfEElWVbaKpgPkOiy75_MZO90g.JPEG/p_0455c9e00ef64994905078db0e9a4537.jpg?type=m_webp">
-                                                            <source srcset="https://kream-phinf.pstatic.net/MjAyMjEyMDZfMTc1/MDAxNjcwMzI3NzczODU2.hkObROxZdvnwwHgeRUQXOG9jU4ht1rLwSYOej39pBcMg.Wm3mH05_1AswFxYH0ewfEElWVbaKpgPkOiy75_MZO90g.JPEG/p_0455c9e00ef64994905078db0e9a4537.jpg?type=m">
-                                                            <img alt="소셜이미지" src="https://kream-phinf.pstatic.net/MjAyMjEyMDZfMTc1/MDAxNjcwMzI3NzczODU2.hkObROxZdvnwwHgeRUQXOG9jU4ht1rLwSYOej39pBcMg.Wm3mH05_1AswFxYH0ewfEElWVbaKpgPkOiy75_MZO90g.JPEG/p_0455c9e00ef64994905078db0e9a4537.jpg?type=m" loading="lazy" class="image"></picture>
-                                                    </div>
-                                                    <div class="card_detail">
-                                                        <div class="user_box">
-                                                            <picture class="picture img_profile">
-                                                                <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMjEyMDRfMjA3/MDAxNjcwMTM5ODI4OTEx.sColZGKuT6RDb2YNniKtu4JSOesfPCaUOl4sDmbtZ8wg.U5v5z_5BDs0VDd_bQhnf1qVfSenoq9S-Y0w9tslMAMcg.JPEG/p_477d300ea22546008cae20195edb0be1.jpg?type=s_webp">
-                                                                <source srcset="https://kream-phinf.pstatic.net/MjAyMjEyMDRfMjA3/MDAxNjcwMTM5ODI4OTEx.sColZGKuT6RDb2YNniKtu4JSOesfPCaUOl4sDmbtZ8wg.U5v5z_5BDs0VDd_bQhnf1qVfSenoq9S-Y0w9tslMAMcg.JPEG/p_477d300ea22546008cae20195edb0be1.jpg?type=s">
-                                                                <img alt="사용자 프로필 이미지" src="https://kream-phinf.pstatic.net/MjAyMjEyMDRfMjA3/MDAxNjcwMTM5ODI4OTEx.sColZGKuT6RDb2YNniKtu4JSOesfPCaUOl4sDmbtZ8wg.U5v5z_5BDs0VDd_bQhnf1qVfSenoq9S-Y0w9tslMAMcg.JPEG/p_477d300ea22546008cae20195edb0be1.jpg?type=s" loading="lazy" class="image"></picture>
-                                                            <p class="user_name">hx__kim</p>
-                                                            <span aria-label="좋아요" role="button" class="btn like">
-                                                                <img src="/img/smile.png" class="icon sprite-icons social-like-gray-sm"></img>
-                                                                <span class="like_count">35</span>
-                                                            </span>
-                                                        </div>
-                                                        <p class="text_box">😎</p>
-                                                        <!---->
-                                                    </div>
-                                                </div>
-                                                <!---->
-                                            </a>
-                                        </div>
-                                        <div class="feed_card item square" style="position: absolute; left: 921px; top: 333px;">
-                                            <a href="#">
-                                                <div class="card_box">
-                                                    <div class="social_img_box square">
-                                                        <picture class="picture social_img">
-                                                            <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMjEyMDVfNzMg/MDAxNjcwMjA0MzEyOTcz.FjD6grFu5_01kZ_B2U8ovFEHad2DqdlWiMCr5ayYaB8g.PEe_QzR5xDmNZOBEB-sLRlZqJxKROOuvqlnwqDUI6zwg.JPEG/p_ce80b1a89ea64333abe527860a6583f7.jpeg?type=m_webp">
-                                                            <source srcset="https://kream-phinf.pstatic.net/MjAyMjEyMDVfNzMg/MDAxNjcwMjA0MzEyOTcz.FjD6grFu5_01kZ_B2U8ovFEHad2DqdlWiMCr5ayYaB8g.PEe_QzR5xDmNZOBEB-sLRlZqJxKROOuvqlnwqDUI6zwg.JPEG/p_ce80b1a89ea64333abe527860a6583f7.jpeg?type=m">
-                                                            <img alt="소셜이미지" src="https://kream-phinf.pstatic.net/MjAyMjEyMDVfNzMg/MDAxNjcwMjA0MzEyOTcz.FjD6grFu5_01kZ_B2U8ovFEHad2DqdlWiMCr5ayYaB8g.PEe_QzR5xDmNZOBEB-sLRlZqJxKROOuvqlnwqDUI6zwg.JPEG/p_ce80b1a89ea64333abe527860a6583f7.jpeg?type=m" loading="lazy" class="image"></picture>
-                                                    </div>
-                                                    <div class="card_detail">
-                                                        <div class="user_box">
-                                                            <picture class="picture img_profile">
-                                                                <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMjExMzBfMTE0/MDAxNjY5NzQ3NDY0NTMz.clvsWLw6keBeTuG6WyTP7awEjhUrZ6ilsiiPctkqNBUg.7kGqYc0497QI7voFWH8_c7BLgg5g4sAyqBkFJGibbkQg.JPEG/p_f45378cd7199400f9a70ff4d17dd8cf6.jpeg?type=s_webp">
-                                                                <source srcset="https://kream-phinf.pstatic.net/MjAyMjExMzBfMTE0/MDAxNjY5NzQ3NDY0NTMz.clvsWLw6keBeTuG6WyTP7awEjhUrZ6ilsiiPctkqNBUg.7kGqYc0497QI7voFWH8_c7BLgg5g4sAyqBkFJGibbkQg.JPEG/p_f45378cd7199400f9a70ff4d17dd8cf6.jpeg?type=s">
-                                                                <img alt="사용자 프로필 이미지" src="https://kream-phinf.pstatic.net/MjAyMjExMzBfMTE0/MDAxNjY5NzQ3NDY0NTMz.clvsWLw6keBeTuG6WyTP7awEjhUrZ6ilsiiPctkqNBUg.7kGqYc0497QI7voFWH8_c7BLgg5g4sAyqBkFJGibbkQg.JPEG/p_f45378cd7199400f9a70ff4d17dd8cf6.jpeg?type=s" loading="lazy" class="image"></picture>
-                                                            <p class="user_name">ni.__.ke</p>
-                                                            <span aria-label="좋아요" role="button" class="btn like">
-                                                                <img src="/img/smile.png" class="icon sprite-icons social-like-gray-sm"></img>
-                                                                <span class="like_count">30</span>
-                                                            </span>
-                                                        </div>
-                                                        <p class="text_box">대한민국 가즈아!🇰🇷 #워밍업챌린지 #할로윈은신지도못하고 #나이키덩크서울</p>
-                                                        <!---->
-                                                    </div>
-                                                </div>
-                                                <!---->
                                             </a>
                                         </div>
                                     </div>
                                     <div class="more_btn_box">
-                                        <button type="button" class="btn outlinegrey medium" onclick="location.href='/social/social_product'">더보기</button>
-                                    </div>
-                                    <div class="list_loading" style="display: none;">
-                                        <img src="/_nuxt/img/loading.410eb77.gif" loading="lazy" alt="리스트 로딩중입니다." class="loading_img">
+                                        <button type="button" class="btn outlinegrey medium" onclick="tagPage()">더보기</button>
                                     </div>
                                 </div>
                             </div>
@@ -1076,221 +881,32 @@
                                 <h3 class="more_title">
                                     <span class="owner">Nike</span>
                                     <span class="title_txt">의 다른 상품</span>
-                                    <a href="/brand" class="btn_more">
+                                    <a class="btn_more">
                                         <span class="btn_txt">더보기</span>
-                                        <img src="/img/right_arrow.png" class="icon sprite-icons arr-right-gray"></img>
+                                        <img src="/img/right_arrow.png" class="icon sprite-icons arr-right-gray">
                                     </a>
                                 </h3>
                                 <div class="other_products">
                                     <div class="product_list">
                                         <div class="product_item">
-                                            <a href="/products/38818" class="item_inner">
+                                            <a href="" class="item_inner">
                                                 <div class="thumb_box">
                                                     <div class="product" style="background-color:#ebf0f5;">
                                                         <picture class="picture product_img">
-                                                            <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMTA4MTJfMjg0/MDAxNjI4Njk3NTY5MDM5.XiS_mZT40dF3VtWjbL4-Jld1gh0DhIHh5t7fJN7BSbgg.oO21T0PYLF-Gi20BItv1aOMRX3IYAbKIiXGTpjPf8ZUg.PNG/a_7581fe9df78d4fd488547a854e9dba3f.png?type=m_webp">
-                                                            <source srcset="https://kream-phinf.pstatic.net/MjAyMTA4MTJfMjg0/MDAxNjI4Njk3NTY5MDM5.XiS_mZT40dF3VtWjbL4-Jld1gh0DhIHh5t7fJN7BSbgg.oO21T0PYLF-Gi20BItv1aOMRX3IYAbKIiXGTpjPf8ZUg.PNG/a_7581fe9df78d4fd488547a854e9dba3f.png?type=m">
-                                                            <img alt="나이키 덩크 로우 SE 서울 (스페셜 기프트)" src="https://kream-phinf.pstatic.net/MjAyMTA4MTJfMjg0/MDAxNjI4Njk3NTY5MDM5.XiS_mZT40dF3VtWjbL4-Jld1gh0DhIHh5t7fJN7BSbgg.oO21T0PYLF-Gi20BItv1aOMRX3IYAbKIiXGTpjPf8ZUg.PNG/a_7581fe9df78d4fd488547a854e9dba3f.png?type=m" loading="lazy" class="image">
+                                                            <img src="" loading="lazy" class="image">
                                                         </picture>
                                                     </div>
                                                 </div>
                                                 <div class="info_box">
                                                     <div class="brand">
-                                                        <p class="brand-text without-wish">Nike</p>
+                                                        <a href="" class="brand_link">
+                                                            <p class="brand-text without-wish brand">Nike</p>
+                                                        </a>
                                                     </div>
                                                     <p class="name">Nike Dunk Low SE Seoul (with Special Gift)</p>
                                                     <div class="price">
                                                         <div class="amount lg">
-                                                            <em class="num">265,000원</em>
-                                                        </div>
-                                                        <div class="desc">
-                                                            <p>즉시 구매가</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="product_item">
-                                            <a href="/products/37182" class="item_inner">
-                                                <div class="thumb_box">
-                                                    <div class="product" style="background-color:#ebf0f5;">
-                                                        <picture class="picture product_img">
-                                                            <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMTA2MjlfMjQw/MDAxNjI0OTMxODU1NDQ2.tL0PGdV5LLEZSyBVVAkos9u5ZvcKoC_ElVC04DF9Uy8g.tDYEcKxnrrFD9U_is5nHFCswAi3Wjz1ClAaPR5l8JOwg.PNG/p_bc83b9c0af7148e08fcb72b09d70f36b.png?type=m_webp">
-                                                            <source srcset="https://kream-phinf.pstatic.net/MjAyMTA2MjlfMjQw/MDAxNjI0OTMxODU1NDQ2.tL0PGdV5LLEZSyBVVAkos9u5ZvcKoC_ElVC04DF9Uy8g.tDYEcKxnrrFD9U_is5nHFCswAi3Wjz1ClAaPR5l8JOwg.PNG/p_bc83b9c0af7148e08fcb72b09d70f36b.png?type=m">
-                                                            <img alt="(W) 나이키 덩크 로우 디스럽트 멀티컬러" src="https://kream-phinf.pstatic.net/MjAyMTA2MjlfMjQw/MDAxNjI0OTMxODU1NDQ2.tL0PGdV5LLEZSyBVVAkos9u5ZvcKoC_ElVC04DF9Uy8g.tDYEcKxnrrFD9U_is5nHFCswAi3Wjz1ClAaPR5l8JOwg.PNG/p_bc83b9c0af7148e08fcb72b09d70f36b.png?type=m" loading="lazy" class="image">
-                                                        </picture>
-                                                    </div>
-                                                </div>
-                                                <div class="info_box">
-                                                    <div class="brand">
-                                                        <p class="brand-text without-wish">Nike</p>
-                                                    </div>
-                                                    <p class="name">(W) Nike Dunk Low Disrupt Multi-Color</p>
-                                                    <div class="price">
-                                                        <div class="amount lg">
-                                                            <em class="num">199,000원</em>
-                                                        </div>
-                                                        <div class="desc">
-                                                            <p>즉시 구매가</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="product_item">
-                                            <a href="/products/87356" class="item_inner">
-                                                <div class="thumb_box">
-                                                    <div class="product" style="background-color:#ebf0f5;">
-                                                        <picture class="picture product_img">
-                                                            <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMjExMjhfMjQy/MDAxNjY5NjE5MTMxODUw.MJ89C8cWUdbpnAeEhVNv92CBicu0WHeXFEy8H3RaKRAg.AeXiG-sHfaYL5jcrlLw8oD6OuqQJZgBify6_XYOE_MMg.PNG/a_c518461fac2340a788f02ab486f6a8d3.png?type=m_webp">
-                                                            <source srcset="https://kream-phinf.pstatic.net/MjAyMjExMjhfMjQy/MDAxNjY5NjE5MTMxODUw.MJ89C8cWUdbpnAeEhVNv92CBicu0WHeXFEy8H3RaKRAg.AeXiG-sHfaYL5jcrlLw8oD6OuqQJZgBify6_XYOE_MMg.PNG/a_c518461fac2340a788f02ab486f6a8d3.png?type=m">
-                                                            <img alt="(W) 나이키 덩크 로우 SE 라이트 소프트 핑크" src="https://kream-phinf.pstatic.net/MjAyMjExMjhfMjQy/MDAxNjY5NjE5MTMxODUw.MJ89C8cWUdbpnAeEhVNv92CBicu0WHeXFEy8H3RaKRAg.AeXiG-sHfaYL5jcrlLw8oD6OuqQJZgBify6_XYOE_MMg.PNG/a_c518461fac2340a788f02ab486f6a8d3.png?type=m" loading="lazy" class="image">
-                                                        </picture>
-                                                    </div>
-                                                </div>
-                                                <div class="info_box">
-                                                    <div class="brand">
-                                                        <p class="brand-text without-wish">Nike</p>
-                                                    </div>
-                                                    <p class="name">(W) Nike Dunk Low SE Light Soft Pink</p>
-                                                    <div class="price">
-                                                        <div class="amount lg">
-                                                            <em class="num">151,000원</em>
-                                                        </div>
-                                                        <div class="desc">
-                                                            <p>즉시 구매가</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="product_item">
-                                            <a href="/products/85125" class="item_inner">
-                                                <div class="thumb_box">
-                                                    <div class="product" style="background-color:#ebf0f5;">
-                                                        <picture class="picture product_img">
-                                                            <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMjExMTRfMjkw/MDAxNjY4Mzg5Mjg1MzQz.Oz3i4qr5WNM52pbBPmc2Yji9GbkMzpNlcQaM7pPf_HYg.B7dJ83f_PgAL-qAhgymCTK0YQyPORB2RU1QSWm-kl00g.PNG/a_476a7652024b49a4abafbbd383d19962.png?type=m_webp">
-                                                            <source srcset="https://kream-phinf.pstatic.net/MjAyMjExMTRfMjkw/MDAxNjY4Mzg5Mjg1MzQz.Oz3i4qr5WNM52pbBPmc2Yji9GbkMzpNlcQaM7pPf_HYg.B7dJ83f_PgAL-qAhgymCTK0YQyPORB2RU1QSWm-kl00g.PNG/a_476a7652024b49a4abafbbd383d19962.png?type=m">
-                                                            <img alt="나이키 덩크 로우 SE 프랄린 데저트 오커" src="https://kream-phinf.pstatic.net/MjAyMjExMTRfMjkw/MDAxNjY4Mzg5Mjg1MzQz.Oz3i4qr5WNM52pbBPmc2Yji9GbkMzpNlcQaM7pPf_HYg.B7dJ83f_PgAL-qAhgymCTK0YQyPORB2RU1QSWm-kl00g.PNG/a_476a7652024b49a4abafbbd383d19962.png?type=m" loading="lazy" class="image">
-                                                        </picture>
-                                                    </div>
-                                                </div>
-                                                <div class="info_box">
-                                                    <div class="brand">
-                                                        <p class="brand-text without-wish">Nike</p>
-                                                    </div>
-                                                    <p class="name">Nike Dunk Low SE Praline Desert Ochre</p>
-                                                    <div class="price">
-                                                        <div class="amount lg">
-                                                            <em class="num">130,000원</em>
-                                                        </div>
-                                                        <div class="desc">
-                                                            <p>즉시 구매가</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="product_item">
-                                            <a href="/products/83384" class="item_inner">
-                                                <div class="thumb_box">
-                                                    <div class="product" style="background-color:#ebf0f5;">
-                                                        <picture class="picture product_img">
-                                                            <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMjExMDFfOTcg/MDAxNjY3MjgxMzYwNDM3.HVg-mHb3qyVtniobSQ7pU8EaQbdzsrolqVwL-_Vm1Cog.uo4dQvbTeTKwQymJdi3EXeK3W6_Lz31RjtcuuVUip9gg.PNG/a_1925ee6152924a29a7cf94a4005cc356.png?type=m_webp">
-                                                            <source srcset="https://kream-phinf.pstatic.net/MjAyMjExMDFfOTcg/MDAxNjY3MjgxMzYwNDM3.HVg-mHb3qyVtniobSQ7pU8EaQbdzsrolqVwL-_Vm1Cog.uo4dQvbTeTKwQymJdi3EXeK3W6_Lz31RjtcuuVUip9gg.PNG/a_1925ee6152924a29a7cf94a4005cc356.png?type=m">
-                                                            <img alt="(W) 나이키 덩크 로우 SE 버건디 크러쉬" src="https://kream-phinf.pstatic.net/MjAyMjExMDFfOTcg/MDAxNjY3MjgxMzYwNDM3.HVg-mHb3qyVtniobSQ7pU8EaQbdzsrolqVwL-_Vm1Cog.uo4dQvbTeTKwQymJdi3EXeK3W6_Lz31RjtcuuVUip9gg.PNG/a_1925ee6152924a29a7cf94a4005cc356.png?type=m" loading="lazy" class="image">
-                                                        </picture>
-                                                    </div>
-                                                </div>
-                                                <div class="info_box">
-                                                    <div class="brand">
-                                                        <p class="brand-text without-wish">Nike</p>
-                                                    </div>
-                                                    <p class="name">(W) Nike Dunk Low SE Burgundy Crush</p>
-                                                    <div class="price">
-                                                        <div class="amount lg">
-                                                            <em class="num">109,000원</em>
-                                                        </div>
-                                                        <div class="desc">
-                                                            <p>즉시 구매가</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="product_item">
-                                            <a href="/products/83386" class="item_inner">
-                                                <div class="thumb_box">
-                                                    <div class="product" style="background-color:#ebf0f5;">
-                                                        <picture class="picture product_img">
-                                                            <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMjExMDFfMjI3/MDAxNjY3MjgxMzc4NDQx.4ucgcMsztUSBzgx8dSrUN1oZoE9p7O4fc_LlvLrAl2sg.HYvnluN-a8MgrracMVWwB6rTQp7EGLsUnzCBafTEmfAg.PNG/a_1cdf33359f85443d8cb13997c964f7da.png?type=m_webp">
-                                                            <source srcset="https://kream-phinf.pstatic.net/MjAyMjExMDFfMjI3/MDAxNjY3MjgxMzc4NDQx.4ucgcMsztUSBzgx8dSrUN1oZoE9p7O4fc_LlvLrAl2sg.HYvnluN-a8MgrracMVWwB6rTQp7EGLsUnzCBafTEmfAg.PNG/a_1cdf33359f85443d8cb13997c964f7da.png?type=m">
-                                                            <img alt="(W) 나이키 덩크 로우 SE 허니듀 팬텀" src="https://kream-phinf.pstatic.net/MjAyMjExMDFfMjI3/MDAxNjY3MjgxMzc4NDQx.4ucgcMsztUSBzgx8dSrUN1oZoE9p7O4fc_LlvLrAl2sg.HYvnluN-a8MgrracMVWwB6rTQp7EGLsUnzCBafTEmfAg.PNG/a_1cdf33359f85443d8cb13997c964f7da.png?type=m" loading="lazy" class="image">
-                                                        </picture>
-                                                    </div>
-                                                </div>
-                                                <div class="info_box">
-                                                    <div class="brand">
-                                                        <p class="brand-text without-wish">Nike</p>
-                                                    </div>
-                                                    <p class="name">(W) Nike Dunk Low SE Honeydew Phantom</p>
-                                                    <div class="price">
-                                                        <div class="amount lg">
-                                                            <em class="num">139,000원</em>
-                                                        </div>
-                                                        <div class="desc">
-                                                            <p>즉시 구매가</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="product_item">
-                                            <a href="/products/80589" class="item_inner">
-                                                <div class="thumb_box">
-                                                    <div class="product" style="background-color:#ebf0f5;">
-                                                        <picture class="picture product_img">
-                                                            <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMjEwMTJfMjQ3/MDAxNjY1NTY4Mjk2NzQ2.MnC7IN6xaUhmgelESxjYtgLq7CI7xKAWbp0PCPJeM7Mg.mLjetEwQvewJyMcUxQG3TC1YY08HHDf4gJjWS2VxBmMg.PNG/a_9197dd68c2ff486eb283275c7a117180.png?type=m_webp">
-                                                            <source srcset="https://kream-phinf.pstatic.net/MjAyMjEwMTJfMjQ3/MDAxNjY1NTY4Mjk2NzQ2.MnC7IN6xaUhmgelESxjYtgLq7CI7xKAWbp0PCPJeM7Mg.mLjetEwQvewJyMcUxQG3TC1YY08HHDf4gJjWS2VxBmMg.PNG/a_9197dd68c2ff486eb283275c7a117180.png?type=m">
-                                                            <img alt="(GS) 나이키 덩크 로우 SE 할로윈" src="https://kream-phinf.pstatic.net/MjAyMjEwMTJfMjQ3/MDAxNjY1NTY4Mjk2NzQ2.MnC7IN6xaUhmgelESxjYtgLq7CI7xKAWbp0PCPJeM7Mg.mLjetEwQvewJyMcUxQG3TC1YY08HHDf4gJjWS2VxBmMg.PNG/a_9197dd68c2ff486eb283275c7a117180.png?type=m" loading="lazy" class="image">
-                                                        </picture>
-                                                    </div>
-                                                </div>
-                                                <div class="info_box">
-                                                    <div class="brand">
-                                                        <p class="brand-text without-wish">Nike</p>
-                                                    </div>
-                                                    <p class="name">(GS) Nike Dunk Low SE Halloween</p>
-                                                    <div class="price">
-                                                        <div class="amount lg">
-                                                            <em class="num">84,000원</em>
-                                                        </div>
-                                                        <div class="desc">
-                                                            <p>즉시 구매가</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="product_item">
-                                            <a href="/products/81173" class="item_inner">
-                                                <div class="thumb_box">
-                                                    <div class="product" style="background-color:#ebf0f5;">
-                                                        <picture class="picture product_img">
-                                                            <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMjEwMTRfMjY0/MDAxNjY1NzQ1MTkzOTgy.X_ft3QkExZUvxXV8YKcxQ3AJmE77953zPkmiQ9AnoKYg.9NJvpyoxfKhBjzTqC3bQWe0739qtCqqlRNMbIc7Lnfkg.PNG/a_caa7b7abc66545558d634fb80ddf2f5e.png?type=m_webp">
-                                                            <source srcset="https://kream-phinf.pstatic.net/MjAyMjEwMTRfMjY0/MDAxNjY1NzQ1MTkzOTgy.X_ft3QkExZUvxXV8YKcxQ3AJmE77953zPkmiQ9AnoKYg.9NJvpyoxfKhBjzTqC3bQWe0739qtCqqlRNMbIc7Lnfkg.PNG/a_caa7b7abc66545558d634fb80ddf2f5e.png?type=m">
-                                                            <img alt="(PS) 나이키 덩크 로우 SE 할로윈" src="https://kream-phinf.pstatic.net/MjAyMjEwMTRfMjY0/MDAxNjY1NzQ1MTkzOTgy.X_ft3QkExZUvxXV8YKcxQ3AJmE77953zPkmiQ9AnoKYg.9NJvpyoxfKhBjzTqC3bQWe0739qtCqqlRNMbIc7Lnfkg.PNG/a_caa7b7abc66545558d634fb80ddf2f5e.png?type=m" loading="lazy" class="image">
-                                                        </picture>
-                                                    </div>
-                                                </div>
-                                                <div class="info_box">
-                                                    <div class="brand">
-                                                        <p class="brand-text without-wish">Nike</p>
-                                                    </div>
-                                                    <p class="name">(PS) Nike Dunk Low SE Halloween</p>
-                                                    <div class="price">
-                                                        <div class="amount lg">
-                                                            <em class="num">88,000원</em>
+                                                            <em class="num nowBuy">265,000원</em>
                                                         </div>
                                                         <div class="desc">
                                                             <p>즉시 구매가</p>
@@ -1305,155 +921,17 @@
                         </div>
                     </div>
                     <!-- 브랜드 다른 상품 끝 -->
-
-                    <!-- 모든 사이즈 버튼 클릭시 팝업 레이어창 시작 -->
-<!--                    <div size-select="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]" all-size-option="[object Object]" show-all-size-option="true">-->
-<!--                        <div class="lg layer_detail_size_select select_only_size">-->
-<!--                            <div class="layer_container">-->
-<!--                                <a class="btn_layer_close" onclick="everysizePopdown()">-->
-<!--                                    <img src="/img/close.png" class="ico-close icon sprite-icons"></img>-->
-<!--                                </a>-->
-<!--                                <div class="layer_header">-->
-<!--                                    <h2 class="title">-->
-<!--                                        <span>사이즈</span>-->
-<!--                                    </h2>-->
-<!--                                </div>-->
-<!--                                <div class="layer_content">-->
-<!--                                    <div class="select_area lg" showlayer="true" optiontitle="사이즈" >-->
-<!--                                        &lt;!&ndash;&ndash;&gt;-->
-<!--                                        <ul class="select_list">-->
-<!--                                            <li class="select_item active">-->
-<!--                                                <button role="button" aria-selected="true" class="select_link buy">-->
-<!--                                                    <div class="link_inner">-->
-<!--                                                        <span class="size sss">-->
-<!--                                                            &lt;!&ndash;&ndash;&gt;-->
-<!--                                                            모든 사이즈-->
-<!--                                                        </span>-->
-<!--                                                        <span class="price">210,000</span>-->
-<!--                                                    </div>-->
-<!--                                                </button>-->
-<!--                                            </li>-->
-<!--                                            <li class="select_item">-->
-<!--                                                <button role="button" aria-selected="false" class="select_link buy">-->
-<!--                                                    <div class="link_inner"><span class="size">230</span><span class="price">470,000</span></div>-->
-<!--                                                </button>-->
-<!--                                            </li>-->
-<!--                                            <li class="select_item">-->
-<!--                                                <button role="button" aria-selected="false" class="select_link buy">-->
-<!--                                                    <div class="link_inner"><span class="size">240</span><span class="price">689,000</span></div>-->
-<!--                                                </button>-->
-<!--                                            </li>-->
-<!--                                            <li class="select_item">-->
-<!--                                                <button role="button" aria-selected="false" class="select_link buy">-->
-<!--                                                    <div class="link_inner"><span class="size">250</span><span class="price">304,000</span></div>-->
-<!--                                                </button>-->
-<!--                                            </li>-->
-<!--                                            <li class="select_item">-->
-<!--                                                <button role="button" aria-selected="false" class="select_link buy">-->
-<!--                                                    <div class="link_inner"><span class="size">260</span><span class="price">230,000</span></div>-->
-<!--                                                </button>-->
-<!--                                            </li>-->
-<!--                                            <li class="select_item">-->
-<!--                                                <button role="button" aria-selected="false" class="select_link buy">-->
-<!--                                                    <div class="link_inner"><span class="size">270</span><span class="price">220,000</span></div>-->
-<!--                                                </button>-->
-<!--                                            </li>-->
-<!--                                            <li class="select_item">-->
-<!--                                                <button role="button" aria-selected="false" class="select_link buy">-->
-<!--                                                    <div class="link_inner"><span class="size">280</span><span class="price">280,000</span></div>-->
-<!--                                                </button>-->
-<!--                                            </li>-->
-<!--                                        </ul>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        &lt;!&ndash;&ndash;&gt;-->
-<!--                    </div>-->
-                    <!-- 모든 사이즈 버튼 클릭시 팝업 레이어창 끝 -->
-
-                    <!---->
-                    <!---->
-                    <!-- 관심 상품 클릭시 팝업 레이어창 시작 -->
-<!--                    <div class="layer_interest lg">-->
-<!--                        <div class="layer_container">-->
-<!--                            <a class="btn_layer_close">-->
-<!--                                <svg xmlns="http://www.w3.org/2000/svg" class="ico-close icon sprite-icons">-->
-<!--                                    <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-close" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-close"></use>-->
-<!--                                </svg>-->
-<!--                            </a>-->
-<!--                            <div class="layer_header">-->
-<!--                                <h2 class="title">관심 상품 추가</h2>-->
-<!--                            </div>-->
-<!--                            <div class="layer_content">-->
-<!--                                <div class="suggest_list lg">-->
-<!--                                    <div class="suggest_item">-->
-<!--                                        <div class="suggest_link">-->
-<!--                                            <div class="suggest_thumb">-->
-<!--                                                <picture class="picture thumb_img">-->
-<!--                                                    <img alt="상품 이미지" src="" loading="lazy" class="image img" id="previewImg5">-->
-<!--                                                </picture>-->
-<!--                                            </div>-->
-<!--                                            <div class="suggest_info">-->
-<!--                                                <p class="model_title name">상품명</p>-->
-<!--                                                <p class="model_sub_info nameKor">상품명(kor)</p>-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div class="lg interest_list">-->
-<!--                                    <div class="interest_btn_box">-->
-<!--                                        <a class="btn outlinegrey medium btn_interest">-->
-<!--                                            <p class="info_txt">230</p>-->
-<!--                                            <img src="/img/select_mark_off.PNG" class="icon sprite-icons wish-onoff"/>-->
-<!--                                        </a>-->
-<!--                                    </div>-->
-<!--                                    <div class="interest_btn_box">-->
-<!--                                        <a class="btn outlinegrey medium btn_interest">-->
-<!--                                            <p class="info_txt">240</p>-->
-<!--                                            <img src="/img/select_mark_off.PNG" class="icon sprite-icons wish-onoff"/>-->
-<!--                                        </a>-->
-<!--                                    </div>-->
-<!--                                    <div class="interest_btn_box">-->
-<!--                                        <a class="btn outlinegrey medium btn_interest">-->
-<!--                                            <p class="info_txt">250</p>-->
-<!--                                            <img src="/img/select_mark_off.PNG" class="icon sprite-icons wish-onoff"/>-->
-<!--                                        </a>-->
-<!--                                    </div>-->
-<!--                                    <div class="interest_btn_box">-->
-<!--                                        <a class="btn outlinegrey medium btn_interest">-->
-<!--                                            <p class="info_txt">260</p>-->
-<!--                                            <img src="/img/select_mark_off.PNG" class="icon sprite-icons wish-onoff"/>-->
-<!--                                        </a>-->
-<!--                                    </div>-->
-<!--                                    <div class="interest_btn_box">-->
-<!--                                        <a class="btn outlinegrey medium btn_interest">-->
-<!--                                            <p class="info_txt">270</p>-->
-<!--                                            <img src="/img/select_mark_off.PNG" class="icon sprite-icons wish-onoff"/>-->
-<!--                                        </a>-->
-<!--                                    </div>-->
-<!--                                    <div class="interest_btn_box">-->
-<!--                                        <a class="btn outlinegrey medium btn_interest">-->
-<!--                                            <p class="info_txt">280</p>-->
-<!--                                            <img src="/img/select_mark_off.PNG" class="icon sprite-icons wish-onoff"/>-->
-<!--                                        </a>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div class="layer_btn">-->
-<!--                                    <a class="btn outline medium" onclick="wishPopdown()">확인</a>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
                 
-                    <!-- 푸터 -->
+                    <!-- 푸터 시작 -->
                     <footer th:replace="/fragment/footer.html :: footer"></footer>
-                    <!-- 푸터 -->
+                    <!-- 푸터 끝 -->
                 </div>
             </div>
         </div>
 </body>
     <script src="/js/product/product.js"></script>
+    <script src="/js/social/product_boards.js"></script>
+    <script src="/js/social/like.js"></script>
     <script th:inline="javascript">
         /*<![CDATA[*/
         let conclusion = [[${conclusion}]];

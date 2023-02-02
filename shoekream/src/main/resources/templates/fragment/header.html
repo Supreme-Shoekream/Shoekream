@@ -29,7 +29,7 @@
             <li class="top_item" >
               <a href="/login" id="login" class="top_link"> 로그인 </a>
             </li>
-            <li class="top_item" >
+            <li class="top_item" style="margin-left: 0px">
               <a href="https://kauth.kakao.com/oauth2/logout?client_id=0182fe07c3e1633bed37de399a271dd8&logout_redirect_uri=localhost:8889" id="logout" class="top_link" > 로그아웃 </a>
             </li>
           </ul>
@@ -126,24 +126,39 @@
                     <div   class="search_wrap">
                       <div   class="search_area"
                              value="" >
-                        <div  class="search1"><input
-                                type="text" placeholder="브랜드명, 모델명, 모델번호 등" title="검색창"
-                                class="input_search show_placeholder_on_focus"><button
-                                class="btn_search_delete"
-                                style="display: none;"><svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="ico-delete-circle icon sprite-icons">
-                          <use
-                                  href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-delete-circle"
-                                  xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-delete-circle">
-                          </use>
-                        </svg></button></div>
+
+                        <form action="/searchs" method="GET">
+                          <div  class="search1">
+                            <input
+                                  type="text" placeholder="브랜드명, 상품명 등" title="검색창"
+                                  class="input_search show_placeholder_on_focus" name="keyword">
+                            <input type="button"  class="btn_search_delete" style="display: none;">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="ico-delete-circle icon sprite-icons">
+                              <use
+                                      href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-delete-circle"
+                                      xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-delete-circle">
+                              </use>
+                              </svg>
+                            </input>
+                          <button type="submit" ></button></div>
+                        </form>
                       </div><button
                             class="btn_close">취소</button>
                     </div>
                   </div>
                   <div   class="search_content_wrap">
                     <!---->
+                    <!-- 검색 리스트 영역-->
+                    <div class="search_layer_wrap">
+                      <div class="suggest_wrap">
+                        <div class="suggest_area">
+                          <div class="suggest_list lg" >
+                            <!-- 검색리스트 영역-->
+                          </div>
+                        </div>
+                      </div>
+                    </div> <!--.search_layer_wrap -->
+
                     <div   class="search_card_items">
                       <div
                               class="layer_search_item tag" >
