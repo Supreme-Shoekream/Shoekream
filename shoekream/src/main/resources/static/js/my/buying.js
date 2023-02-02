@@ -38,7 +38,7 @@ tab_items.forEach((item) => {
             document.querySelector('.status_box.field_price').style.display='none';    
             document.querySelector('.status_box.field_expires_at').style.display='none';
             document.querySelector('.status_box.field_date_paid').style.display='none';
-            document.querySelector('.status_box.field_date_purchased').style.display='block';
+            document.querySelector('.status_box.field_date_purchased').style.display='none';
             document.querySelector('.status_box.field_status').style.display='block';
             document.querySelector('#bidding').style.display='none';
             document.querySelector('#progressing').style.display='block';
@@ -61,3 +61,8 @@ tab_items.forEach((item) => {
 //     $(".status_layer").css('display', 'none'); // 팝업 닫고
 //     $(".status").val(document.querySelector('.status_item.active .btn').text.trim());
 // });
+
+// 상세페이지
+function buyDetail(idx){
+    location.href='/my/buying/'+ idx
+}

@@ -58,9 +58,9 @@ public class SellService {
 
     //사용자페이지 전체
     @Transactional(readOnly = true)
-    public List<SellDTO> myselllist(Long memberIdx){
+    public List<SellDTO> mysellList(Long memberIdx){
         Member member = memberRepository.findById(memberIdx).get();
-        return sellRepository.findByMember(member)
+        return sellRepository.findTop3ByMember(member)
                 .stream().map(SellDTO::fromEntity).toList();
     }
 
@@ -69,6 +69,13 @@ public class SellService {
         Member member = memberRepository.findById(memberIdx).get();
         return sellRepository.findByMemberAndStatus(member, orderStatus, pageable)
                 .map(SellDTO::fromEntity);
+    }
+
+    @Transactional(readOnly = true)
+    public List<SellDTO> myPageSellListByStatus(Long memberIdx, OrderStatus orderStatus){
+        Member member = memberRepository.findById(memberIdx).get();
+        return sellRepository.findByMemberAndStatus(member, orderStatus)
+                .stream().map(SellDTO::fromEntity).toList();
     }
 
     @Transactional(readOnly = true)
