@@ -10,6 +10,8 @@ import com.supreme.shoekream.model.entity.Member;
 import com.supreme.shoekream.model.entity.Product;
 import com.supreme.shoekream.model.entity.Sell;
 import com.supreme.shoekream.model.enumclass.OrderStatus;
+import com.supreme.shoekream.model.enumclass.Progress;
+import com.supreme.shoekream.model.enumclass.SellProgress;
 import com.supreme.shoekream.model.network.Header;
 import com.supreme.shoekream.repository.*;
 import lombok.RequiredArgsConstructor;
@@ -24,6 +26,7 @@ import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @Transactional
@@ -138,6 +141,60 @@ public class SellService {
             conclusionRepository.save(conclusionDTO.toEntity(product));
         }
         return Header.OK(response);
+    }
+
+    public Header delete(Long idx){
+        Optional<Sell> sells = sellRepository.findById(idx);
+        return sells.map(sell ->{
+            sellRepository.delete(sell);
+            return Header.OK();
+        }).orElseGet(() -> Header.ERROR("데이터 없음"));
+    }
+
+    public Header<SellDTO> update(Long idx, SellProgress sellProgress){
+        Optional<Sell> sells = sellRepository.findById(idx);
+        if(sellProgress == SellProgress.CALCULATE_COMPLETE){
+            return sells.map(
+                            sell -> {
+                                sell.setProgress(sellProgress);
+                                sell.setStatus(OrderStatus.END);
+                                sell.setProgress(SellProgress.CALCULATE_COMPLETE);
+                                sell.setStatus(OrderStatus.END);
+                                return sell;
+                            }).map(sell -> sellRepository.save(sell))
+                    .map(sell -> SellDTO.fromEntity(sell))
+                    .map(Header::OK)
+                    .orElseGet(()->Header.ERROR("데이터 없음"));
+        }else if(sellProgress == SellProgress.EXAMINATION_PASS){
+            return sells.map(
+                            sell -> {
+                                sell.setProgress(sellProgress);
+                                sell.setProgress(SellProgress.EXAMINATION_PASS);
+                                return sell;
+                            }).map(sell -> sellRepository.save(sell))
+                    .map(sell -> SellDTO.fromEntity(sell))
+                    .map(Header::OK)
+                    .orElseGet(()->Header.ERROR("데이터 없음"));
+        }else if(sellProgress == SellProgress.RECEIVING_COMPLETE){
+            return sells.map(
+                            sell -> {
+                                sell.setProgress(sellProgress);
+                                sell.setProgress(SellProgress.RECEIVING_COMPLETE);
+                                return sell;
+                            }).map(sell -> sellRepository.save(sell))
+                    .map(sell -> SellDTO.fromEntity(sell))
+                    .map(Header::OK)
+                    .orElseGet(()->Header.ERROR("데이터 없음"));
+        }else{
+            return sells.map(
+                            sell -> {
+                                sell.setProgress(sellProgress);
+                                return sell;
+                            }).map(sell -> sellRepository.save(sell))
+                    .map(sell -> SellDTO.fromEntity(sell))
+                    .map(Header::OK)
+                    .orElseGet(()->Header.ERROR("데이터 없음"));
+        }
     }
 
 }

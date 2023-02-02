@@ -5,10 +5,12 @@ import com.supreme.shoekream.model.dto.ProductDTO;
 import com.supreme.shoekream.model.dto.SellDTO;
 import com.supreme.shoekream.model.entity.Buy;
 import com.supreme.shoekream.model.enumclass.Progress;
+import com.supreme.shoekream.model.enumclass.SellProgress;
 import com.supreme.shoekream.model.network.Header;
 import com.supreme.shoekream.model.network.request.BuyRequest;
 import com.supreme.shoekream.model.network.request.SellRequest;
 import com.supreme.shoekream.model.network.response.BuyResponse;
+import com.supreme.shoekream.model.network.response.SellResponse;
 import com.supreme.shoekream.model.network.security.KreamPrincipal;
 import com.supreme.shoekream.repository.BuyRepository;
 import com.supreme.shoekream.repository.SellRepository;
@@ -76,6 +78,32 @@ public class OrderApiController {
             case 3 -> progress=Progress.DELIVERY_COMPLETE;
         }
         return buyService.update(idx, progress);
+    }
+
+    @GetMapping("sell/{idx}")
+    public SellResponse sellRead(@PathVariable(name="idx")Long idx){
+        SellDTO sell = sellService.sellDetail(idx);
+        return SellResponse.from(sell);
+    }
+
+    @DeleteMapping("sell/{idx}")
+    public Header<SellDTO> sellDelete(@PathVariable(name="idx")Long idx){
+        return sellService.delete(idx);
+    }
+
+
+    @PutMapping("sell/{idx}")
+    public Header<SellDTO> sellUpdate(@PathVariable(name="idx")Long idx
+            , @RequestBody Header<SellRequest> request){
+        int progressNum = request.getData().progressNum();
+        SellProgress sellProgress = null;
+        switch (progressNum){
+            case 0 -> sellProgress=SellProgress.SHIPMENT_REQUEST;
+            case 1 -> sellProgress=SellProgress.RECEIVING_COMPLETE;
+            case 2 -> sellProgress=SellProgress.EXAMINATION_PASS;
+            case 3 -> sellProgress=SellProgress.CALCULATE_COMPLETE;
+        }
+        return sellService.update(idx, sellProgress);
     }
 
 }
