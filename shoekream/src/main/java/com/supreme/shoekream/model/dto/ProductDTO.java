@@ -46,6 +46,25 @@ public record ProductDTO(
         );
     }
 
+    public static Product fromEntity2(Product entity){
+        return new Product(
+                entity.getIdx(),
+                entity.getImg(),
+                entity.getBrand(),
+                entity.getName(),
+                entity.getNameKor(),
+                entity.getSize(),
+                entity.getWishCount(),
+                entity.getModelNum(),
+                entity.getReleaseDate(),
+                entity.getColor(),
+                entity.getFirstPrice(),
+                entity.getCategory(),
+                entity.getGender(),
+                entity.getCollection()
+        );
+    }
+
     // dto -> entity 저장 또는 업데이트시
     public Product toEntity(){
         return Product.of(idx, img, brand, name, nameKor, size, wishCount, modelNum, releaseDate, color, firstPrice, category, gender, collection);
