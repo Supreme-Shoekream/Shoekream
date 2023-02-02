@@ -67,14 +67,14 @@ public class ShopApiLogicService extends BaseService<ProductApiRequest, ProductA
 
     @Override
     public Header<ProductApiResponse> read(Long idx) {
-        return productRepository.findByIdx(idx).map(product-> response(product))
+        return productRepository.findById(idx).map(product-> response(product))
                 .map(Header::OK).orElseGet(() -> Header.ERROR("상품 없음!"));
     }
 
     @Override
     public Header<ProductApiResponse> update(Header<ProductApiRequest> request) {
         ProductApiRequest productApiRequest = request.getData();
-        Optional<Product> products = productRepository.findByIdx(productApiRequest.getIdx());
+        Optional<Product> products = productRepository.findById(productApiRequest.getIdx());
         return products.map(
                         product -> {
                             product.setBrand(productApiRequest.getBrand());
@@ -99,7 +99,7 @@ public class ShopApiLogicService extends BaseService<ProductApiRequest, ProductA
 
     @Override
     public Header delete(Long idx) {
-        Optional<Product> products = productRepository.findByIdx(idx);
+        Optional<Product> products = productRepository.findById(idx);
         return products.map(product->{
             productRepository.delete(product);
             return Header.OK();
@@ -154,12 +154,16 @@ public class ShopApiLogicService extends BaseService<ProductApiRequest, ProductA
                 size,brand,category,collection,gender,keyword,pageable).map(ProductDTO::fromEntity);
     }
 
-//    0131
-    public List<String> getBrands(){
+
+      public List<String> getBrands(){
         List<String> brands = productRepository.findAllDistinctBrands();
         Collections.sort(brands);
         return brands;
     }
+        @Transactional(readOnly = true)
+    public Page<ProductDTO> brand(String brandName, Pageable pageable){
+        return productRepository.findByBrand(brandName,pageable).map(ProductDTO::fromEntity);
 
+    }
 }
 

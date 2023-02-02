@@ -21,7 +21,9 @@ public interface ProductRepository extends
         QuerydslPredicateExecutor<Product>,
         QuerydslBinderCustomizer<QProduct>
 {
-    Optional<Product> findByIdx(Long idx);
+//    Optional<Product> findByIdx(Long idx);
+
+    Product findByIdx(Long idx);
 
     List<Product> findByOrderByIdxDesc();
     List<Product> findByCollection(String collection);
@@ -35,7 +37,6 @@ public interface ProductRepository extends
                                                                                        String category, String collection,
                                                                                        String gender, String keyword, Pageable pageable);
     Page<Product> findBySize(String size, Pageable pageable);
-
     Page<Product> findByBrandContainingOrNameKorContaining(String searchWord , String searchWord2, Pageable pageable);
 
     @Override

@@ -30,4 +30,14 @@ public class Conclusion {
     private String price;
 
     private LocalDateTime createdAt; // 체결 날짜
+
+    private Conclusion(Product product,String price,LocalDateTime createdAt){
+        this.product = product;
+        this.price =price;
+        this.createdAt=createdAt;
+    }
+
+    public static Conclusion of(Product product,String price,LocalDateTime createdAt){
+        return new Conclusion(product,price,createdAt);
+    }
 }

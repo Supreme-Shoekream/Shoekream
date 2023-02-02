@@ -50,26 +50,26 @@
                     </div>
                 </div>
             </div>
-            <div class="user_bind img">
-                <div class="uploadImg">
-                    <div class="filebox">
-                        <input class="upload-name" value="선택된 파일 없음" disabled="disabled">
-                        <input type="file" id="file1" class="upload-hidden" name="file1">
-                        <label for="file1">이미지 첨부</label>
-                    </div>
-                    <img id="previewImg10" class="edit_img img" src="" onclick="popImage(this.src)">
-                </div>
-            </div>
-<!--            <div class="form_section" style="width: 50%">-->
-<!--                <div class="form_section_content">-->
+<!--            <div class="user_bind img">-->
+<!--                <div class="uploadImg">-->
 <!--                    <div class="filebox">-->
-<!--                        <input class="upload-name" value="첨부파일" style="color: #FFF">-->
-<!--                        <label for="fileItem">파일찾기</label>-->
-<!--                        <input type="file" id ="fileItem" name="uploadFile2">-->
+<!--                        <input class="upload-name" value="선택된 파일 없음" disabled="disabled">-->
+<!--                        <input type="file" id="file1" class="upload-hidden" name="file1">-->
+<!--                        <label for="file1">이미지 첨부</label>-->
 <!--                    </div>-->
-<!--                    <img src="" id="previewImg2" class="edit_img img" style="display: none">-->
+<!--                    <img id="previewImg10" class="edit_img img" src="" onclick="popImage(this.src)">-->
 <!--                </div>-->
 <!--            </div>-->
+            <div class="form_section" style="width: 50%">
+                <div class="form_section_content">
+                    <div class="filebox">
+                        <input class="upload-name" value="첨부파일" style="color: #FFF">
+                        <label for="fileItem">파일찾기</label>
+                        <input type="file" id ="fileItem" name="uploadFile2" accept="image/*">
+                    </div>
+                    <img src="" id="previewImgEdit">
+                </div>
+            </div>
         </div>
         <div class="center" style="border: none;">
             <div class="user_bind">
@@ -130,8 +130,7 @@
                         <h4 class="input_title">컬렉션</h4>
                         <div class="input_item">
                             <select name="collection" id="edit_collection" class="input_item_selectbox">
-
-                                <option value="collection">- 컬렉션을 선택하세요 -</option>
+                                <option value="null">- 컬렉션을 선택하세요 -</option>
                                 <option value="JUST_DROP">Just Dropped(발매상품)</option>
                                 <option value="MOST_POPULAR">Most Popular(인기 상품)</option>
                                 <option value="NEW_IN">New In(신규등록상품)</option>
@@ -145,7 +144,6 @@
                                 <option value="BEST_COLLECTIBLES">BEST Collectibles(키덜트들 취향저격 200%)</option>
                                 <option value="BEST_JEWELRY_WATCHES">BEST jewelry&Watches(올해를 빛내준 액세서리)</option>
                                 <option value="BEST_CAMPING_GEAR">BEST Camping Gear(캠핑의 매력에 빠진 한해)</option>
-     
                             </select>
                         </div>
                     </div>
@@ -153,93 +151,13 @@
             </div>
         </div>
         <div class="layer_btn">
-            <a id="productCreateBtn" class="btn btn_edit btn_save solid medium" style="color: white">수정</a>
+            <a id="productEditBtn" class="btn btn_edit btn_save solid medium" style="color: white">수정</a>
         </div>
         </div>
     </div>
 </div>
 <!--<script>-->
-<!--    // ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️-->
-<!--    // 파일첨부-->
-<!--    // 이미지 업로드-->
-<!--    $("input[type='file']").on("change", function(e){-->
-<!--        //alert("동작"); // 파일 속성에 접근되는지 확인-->
 
-<!--        let formData = new FormData();-->
-<!--        // 화면 이동없이 첨부파일을 서버로 전송해야함-->
-<!--        // 폼태그와 같은 역할을 해주는 formData 객체를 생성해 첨부파일을 formData에 저장하고 formData 자체를 서버로 전송해야함-->
-
-<!--        let fileInput = $('input[name="uploadFile2"]');-->
-<!--        let fileList = fileInput[0].files;-->
-<!--        //console.log("fileList : " + fileList); // 해당 객체가 파일리스트인지 확인-->
-
-<!--        let fileObj = fileList[0]; // file 객체를 담기 위한 변수를 선언하여 file 객체로 초기화해줌-->
-<!--        //console.log("fileObj : " + fileObj);  // 해당 객체가 어떠한 객체인지 확인-->
-
-<!--        alert("에디트!!!!! fileName : " + fileObj.name);-->
-<!--        // console.log("fileName : " + fileObj.name); // 파일 이름 확인-->
-<!--        // console.log("fileSize : " + fileObj.size); // 파일 사이즈 확인-->
-<!--        // console.log("fileType(MimeType) : " + fileObj.type); // 파일 타입 확인-->
-
-<!--        if(!fileCheck(fileObj.name, fileObj.size)){-->
-<!--            return false;-->
-<!--        }-->
-<!--        //alert("통과"); // 파일 타입, 크기 조건 둘 다 만족하면 뜸-->
-
-<!--        formData.append("uploadFile2", fileObj); // 첨부한 파일을 폼데이터에 업로드파일이라는 이름으로 추가해줌 (input name과 같아야함)-->
-
-<!--        // let resultData = "";-->
-
-<!--        // ajax를 사용하여 서버로 전송-->
-<!--        $.ajax({-->
-<!--            url: '/admin/products', // 서버로 요청을 보낼 url-->
-<!--            processData : false, // 서버로 전송할 데이터를 queryStirng 형태로 변환할지 여부-->
-<!--            contentType : false, // 서버로 전송되는 데이터의 content-type-->
-<!--            data : formData, // 서버로 전송할 데이터-->
-<!--            type : 'POST', // 서버 요청 타입(GET, POST)-->
-<!--            dataType : 'json' // 서버로부터 반환받을 데이터 타입-->
-<!--            // async : false,-->
-<!--            // success : function (data){-->
-<!--            //     alert(data);-->
-<!--            //     resultData = data;-->
-<!--            //     alert(resultData);-->
-<!--            // },-->
-<!--            // error: function(e) {-->
-<!--            //     alert("값을 가져오지 못했습니다.");-->
-<!--            // }-->
-<!--        });-->
-
-<!--        // return resultData;-->
-<!--        // console.log(resultData);-->
-
-<!--        const previewImg2 = document.querySelector("#previewImg2");-->
-<!--        console.log(fileObj.name.replace(" ", "_"));-->
-<!--        console.log("/img/product/" +fileObj.name.replace(" ", "_"));-->
-
-<!--        previewImg2.src = "/img/product/" + fileObj.name;-->
-<!--        previewImg2.style.display = "block";-->
-<!--    });-->
-
-<!--    // 파일 타입, 크기 제한-->
-<!--    let regex = new RegExp("(.*?)\.(jpg|png)$"); // 이미지 파일 타입 png, jpg만 허용-->
-<!--    let maxSize = 1048576; // 1MB 제한-->
-<!--    let blankPattern = /[\s]/g;-->
-<!--    function fileCheck(fileName, fileSize){-->
-<!--        if(fileSize >= maxSize){-->
-<!--            alert("파일 업로드 가능한 사이즈를 초과하였습니다.");-->
-<!--            return false;-->
-<!--        }-->
-<!--        if(!regex.test(fileName)){-->
-<!--            alert("해당 종류의 파일은 업로드할 수 없습니다.");-->
-<!--            return false;-->
-<!--        }-->
-<!--        if(blankPattern.test(fileName)){-->
-<!--            alert("파일명에는 공백이 포함될 수 없습니다.");-->
-<!--            // return fileName.replaceAll(" ", "_");-->
-<!--            return false;-->
-<!--        }-->
-<!--        return true;-->
-<!--    }-->
 <!--</script>-->
 </html>
 

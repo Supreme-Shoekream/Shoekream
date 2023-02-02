@@ -13,6 +13,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -75,5 +76,21 @@ public class ShopController {
         map.addAttribute("brands", brands);
         System.out.println("🤍🤍"+products+"❤❤"+prices+"🤍🤍"+barNumbers+"❤❤브랜드"+brands);
         return "shop/shop_searchs";
+    }
+
+    @GetMapping(path="brand/{brandName}") //http://localhost:8888/brand
+    public String brand(@PathVariable(name="brandName") String brandName,
+                        @PageableDefault(size = 20, sort = "idx", direction = Sort.Direction.DESC)Pageable pageable,
+                        ModelMap map){
+        Page<ProductDTO> products = shopApiLogicService.brand(brandName,pageable);
+        List<String> prices = sellService.buyNowPrices(products.stream().map(ProductDTO::toEntity).toList());
+        List<Integer> barNumbers = paginationService.getPaginationBarNumbers(pageable.getPageNumber(), products.getTotalPages());
+        int count = products.stream().toList().size();
+        map.addAttribute("products",products);
+        map.addAttribute("prices",prices);
+        map.addAttribute("barNumbers",barNumbers);
+        map.addAttribute("count",count);
+        map.addAttribute("brandName",products.stream().findAny().get().brand());
+        return "/product/brand";
     }
 }

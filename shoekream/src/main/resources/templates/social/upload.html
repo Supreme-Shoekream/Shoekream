@@ -32,7 +32,8 @@
             <img src="/img/4781857_arrow_arrows_back_direction_left_icon.png" alt="취소 이미지" class="close_icon">
           </a>
           <h3>STYLE UPLOAD</h3>
-          <button type="submit" class="submit" disabled="disabled" onclick="sendit">업로드</button>
+<!--          <button type="submit" class="submit" disabled="disabled" onclick="styleBoardSend()">업로드</button>-->
+          <a id="submit" class="submit" style="color: white">전송</a>
         </div>
 
         <div style="margin-top: 200px;">
@@ -41,12 +42,11 @@
             <h3 class="input_title ess ph">사진 추가하기</h3>
             <div class="input_item" style="border: none; height: 400px;
                       border-bottom: 0.1rem solid #ebebeb;">
-              <input id="imgUpload" style="border: none; 
-                      margin-top: 0.1rem solid #ebebeb;" type="file" accept="image/*" class="input_txt in_essValue"
-                name="photo">
+              <input id="imgUpload" type="file" name="imgUpload"
+                     style="border: none;, margin-top: 0.1rem solid #ebebeb;" accept="image/*" class="input_txt in_essValue">
               <div class="preview">
-                <img src="https://dummyimage.com/400x400/ffffff/000000.png&text=preview+image" style="width: 300px;"
-                  alt="" id="previewImage">
+                <img src="https://dummyimage.com/400x400/ffffff/000000.png&text=preview+image" style="width: 300px; display: block;"
+                  alt="" id="previewImage" >
               </div>
             </div>
           </div>
@@ -62,6 +62,17 @@
             </div>
           </div>
           <!-- 글 내용 끝 -->
+
+          <!-- 해시태그 내용 시작 -->
+          <div class="input_box">
+            <h3 class="input_title ess">해시태그</h3>
+            <h3 class="input_title ess">('#'을 제외하고 작성해 주세요.)</h3>
+            <div class="input_items">
+              <textarea resize="none" rows="1" oninput="resize(this)" name="content" id="hashtag_input"
+                        class="input_txt in_essValue" cols="30" row="1" placeholder="# "></textarea>
+            </div>
+          </div>
+          <!-- 해시태그 내용 끝 -->
 
           <div class="input_box">
             <h3 class="input_title ess" style="margin-bottom: 10px;">상품 태그 추가하기</h3>

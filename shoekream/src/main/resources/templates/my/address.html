@@ -488,7 +488,7 @@
         postForm2.addEventListener('keyup', activeEvent2);
         addrForm2.addEventListener('keyup', activeEvent2);
         detailForm2.addEventListener('keyup', activeEvent2);
-        fetch('http://localhost:8989/api/my/address/'+idx)
+        fetch('http://localhost:8889/api/my/address/'+idx)
             .then((response) => response.json())
             .then((data) => {
                 console.log(data.data)
@@ -523,7 +523,7 @@
         const editAddress1 = document.querySelector('#sample6_address2');
         const editAddress2 = document.querySelector('#sample6_detailAddress2')
         const editAddressBasic = document.querySelector('#check2').checked;
-        fetch('http://localhost:8989/api/my/address/'+idx, {
+        fetch('http://localhost:8889/api/my/address/'+idx, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -557,7 +557,7 @@
             const createAddress1 = document.querySelector('#sample6_address');
             const createAddress2 = document.querySelector('#sample6_detailAddress')
             const createAddressBasic = document.querySelector('#check1').checked;
-            fetch('http://localhost:8989/api/my/address', {
+            fetch('http://localhost:8889/api/my/address', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -592,7 +592,7 @@
     //         const editAddress1 = document.querySelector('#sample6_address2');
     //         const editAddress2 = document.querySelector('#sample6_detailAddress2');
     //         const editAddressBasic = document.querySelector('#check2');
-    //         fetch('http://localhost:8989/api/my/address', {
+    //         fetch('http://localhost:8889/api/my/address', {
     //             method: 'PUT',
     //             headers: { 'Content-Type': 'application/json' },
     //             body: JSON.stringify({
@@ -722,7 +722,7 @@
 
     // 삭제 버튼
     function delete_address(idx){
-        fetch('http://localhost:8989/api/my/address/delete/'+idx, {
+        fetch('http://localhost:8889/api/my/address/delete/'+idx, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

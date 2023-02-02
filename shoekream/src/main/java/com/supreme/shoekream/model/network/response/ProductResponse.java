@@ -9,13 +9,13 @@ public record ProductResponse(
         String img,
         String brand,
         String size,
-        Long wishCount,
+        int wishCount,
         String modelNum,
         String releaseDate,
         String color,
         String firstPrice
 ) {
-    public static ProductResponse of(Long idx, String name, String nameKor, String img, String brand, String size, Long wishCount, String modelNum, String releaseDate, String color, String firstPrice) {
+    public static ProductResponse of(Long idx, String name, String nameKor, String img, String brand, String size, int wishCount, String modelNum, String releaseDate, String color, String firstPrice) {
         return new ProductResponse(idx, name, nameKor, img, brand, size, wishCount, modelNum, releaseDate, color, firstPrice);
     }
 

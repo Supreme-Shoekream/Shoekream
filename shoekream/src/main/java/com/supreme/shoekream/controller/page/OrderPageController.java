@@ -1,5 +1,9 @@
 package com.supreme.shoekream.controller.page;
 
+import com.supreme.shoekream.model.dto.AddressDTO;
+import com.supreme.shoekream.model.dto.MemberDTO;
+import com.supreme.shoekream.model.entity.Address;
+import com.supreme.shoekream.model.entity.Card;
 import com.supreme.shoekream.model.network.Header;
 import com.supreme.shoekream.model.network.response.MemberApiResponse;
 import com.supreme.shoekream.model.network.response.ProductApiResponse;
@@ -16,6 +20,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/")
@@ -62,11 +68,22 @@ public class OrderPageController {
         Header<MemberApiResponse> member = memberApiLogicService.read(memberIdx);
         map.addAttribute("point",member.getData().getPoint());
 
-//        List<Address> basicAddress = addressApiLogicService.list(memberIdx,true);
-//        map.addAttribute("basicAddress",basicAddress);
+        List<Address> basicAddress = addressApiLogicService.list(memberIdx,true);
+        System.out.println("👀"+basicAddress);
+        if(basicAddress == null || basicAddress.isEmpty()){
+            map.addAttribute("basicAddress",null);
+        }else{
+            map.addAttribute("basicAddress",basicAddress.get(0));
+        }
+
 //
-//        List<Card> basicCard = cardApiLogicService.list(memberIdx);
-//        map.addAttribute("basicCard", basicCard);
+        List<Card> basicCard = cardApiLogicService.list(memberIdx,true);
+        if(basicCard == null || basicCard.isEmpty()){
+            map.addAttribute("basicCard",null);
+        }else{
+            map.addAttribute("basicCard", basicCard.get(0));
+        }
+
 
         return "/order/buy";
 
@@ -108,15 +125,24 @@ public class OrderPageController {
         map.addAttribute("sellNowPrice",sellNowPrice);
         System.out.println(buyNowPrice +""+sellNowPrice);
 
-        Long memberIdx = kreamPrincipal.idx();
-        Header<MemberApiResponse> member = memberApiLogicService.read(memberIdx);
-        map.addAttribute("member",member.getData());
+        Optional<MemberDTO> member = memberApiLogicService.searchUser(kreamPrincipal.email());
+        map.addAttribute("member",member.get());
 
-//        List<Address> basicAddress = addressApiLogicService.list(memberIdx,true);
-//        map.addAttribute("basicAddress",basicAddress);
-//
-//        List<Card> basicCard = cardApiLogicService.list(memberIdx);
-//        map.addAttribute("basicCard", basicCard);return new ModelAndView("/order/sell");
+        Long memberIdx = kreamPrincipal.idx();
+        List<Address> basicAddress = addressApiLogicService.list(memberIdx,true);
+        System.out.println("👀"+basicAddress);
+        if(basicAddress == null || basicAddress.isEmpty()){
+            map.addAttribute("basicAddress",null);
+        }else{
+            map.addAttribute("basicAddress",basicAddress.get(0));
+        }
+
+        List<Card> basicCard = cardApiLogicService.list(memberIdx,true);
+        if(basicCard == null || basicCard.isEmpty()){
+            map.addAttribute("basicCard",null);
+        }else{
+            map.addAttribute("basicCard", basicCard.get(0));
+        }
         return "/order/sell";
     }
 

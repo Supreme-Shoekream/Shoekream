@@ -35,8 +35,6 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
                 .status(member.getStatus())
                 .shoeSize(member.getShoeSize())
                 .point(member.getPoint())
-                .createdAt(member.getCreatedAt())
-                .modifiedAt(member.getModifiedAt())
                 .profileMemo(member.getProfileMemo())
                 .imgUrl(member.getImgUrl())
                 .bank(member.getBank())
@@ -49,16 +47,31 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
     public Header<MemberApiResponse> create(Header<MemberApiRequest> request) {
         MemberApiRequest memberApiRequest = request.getData();
         MemberDTO memberDTO = memberApiRequest.toDTO();
-        Member member = Member.builder()
-                .memberPw(memberDTO.memberPw())
-                .name(memberDTO.name())
-                .hp(memberDTO.hp())
-                .email(memberDTO.email())
-                .shoeSize(memberDTO.shoeSize())
-                .build();
-        Member newMember = memberRepository.save(member);
+//        Member member = Member.builder()
+//                .memberPw(memberDTO.memberPw())
+//                .name(memberDTO.name())
+//                .hp(memberDTO.hp())
+//                .email(memberDTO.email())
+//                .shoeSize(memberDTO.shoeSize())
+//                .build();
+        Member newMember = memberRepository.save(memberDTO.toEntity());
+
+        //memberRepository.save(Member.of(password, name, hp, email, shoeSize))
         return Header.OK(response(newMember));
     }
+//@Override
+//public Header<MemberApiResponse> create(Header<MemberApiRequest> request) {
+//    MemberApiRequest memberApiRequest = request.getData();
+//    Member member = Member.builder()
+//            .memberPw(memberApiRequest.memberPw())
+//            .name(memberApiRequest.name())
+//            .hp(memberApiRequest.hp())
+//            .email(memberApiRequest.email())
+//            .shoeSize(memberApiRequest.shoeSize())
+//            .build();
+//    Member newMember = memberRepository.save(member);
+//    return Header.OK(response(newMember));
+//}
 
     @Override
     public Header<MemberApiResponse> read(Long idx) {
@@ -66,9 +79,13 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
                 .map(Header::OK).orElseGet(()->Header.ERROR("데이터 없음"));
     }
 
-    public MemberDTO read2(Long idx){
+    public MemberDTO readProfile(Long idx){
         Member member = memberRepository.findByIdx(idx);
-        return MemberDTO.fromEntity(member);
+        String pwNum = "";
+        for(int i=0; i<member.getMemberPw().substring(6).length();i++){pwNum += "•";}
+        MemberDTO dto = MemberDTO.of(member.getNickname(),pwNum,member.getName(),
+                member.getHp(),member.getEmail(),member.getShoeSize());
+        return dto;
     }
 
     public Header<MemberApiResponse> read(String email, String memberPw) {
@@ -112,6 +129,16 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
                 newMember -> response(newMember)).map(Header::OK).orElseGet(()->Header.ERROR("데이터없음"));
     }
 
+    public Header<MemberApiResponse> updateProfile(MemberDTO dto, Long idx){
+        Optional<Member> member = memberRepository.findById(idx);
+        Member newMember = member.get();
+        if(dto.email() != null) newMember.setEmail(dto.email());
+        if(dto.memberPw() != null) newMember.setMemberPw("{noop}"+dto.memberPw());
+        if(dto.nickname() != null) newMember.setNickname(dto.nickname());
+        if(dto.hp() != null) newMember.setHp(dto.hp());
+        if(dto.shoeSize() != null) newMember.setShoeSize(dto.shoeSize());
+        return Header.OK();
+    }
     @Override
     public Header delete(Long idx) {
 //        Optional<Member> members = baseRepository.findById(idx);

@@ -189,7 +189,6 @@ function step2(){
         document.querySelector('.product_price').innerHTML = wish_price.toLocaleString('ko-KR') + "원"
     }else{
         if(Number(period) == 0) { period=30; }  // 설정 클릭 안하면 30일로 세팅!
-        console.log(period);
         wish_price = Number(bid_input.value.replaceAll(',', ''));
         console.log("wish_price:"+wish_price)
         document.querySelector('.product_price').innerHTML = bid_input.value+"원"
@@ -205,17 +204,72 @@ function step2(){
 
 /**
  * 🤍 기능6 새 주소 추가
+ * 주소에 필요한 element 선언
  * 열고닫기
  * 유효성검사
  * create를 위한 fetch
  * */
-document.querySelector('.layer_delivery .btn_layer_close').addEventListener('click', close_new_delivery)
-document.querySelector('.layer_delivery .btn_delete').addEventListener('click', close_new_delivery)
+const receiver_dd = document.getElementById('receiver')
+const receiverHp_dd = document.getElementById('receiverHp')
+const receiverAddress_dd = document.getElementById('receiverAddress')
+new_address_open_btn=document.querySelector('.layer_delivery .btn_layer_close');
+new_address_open_btn.addEventListener('click', pop_new_delivery)
 function close_new_delivery(){
     document.querySelector('.layer_delivery').style.display="none"
 }
 function pop_new_delivery(){
     document.querySelector('.layer_delivery').style.display="block"
+}
+new_address_send_btn=document.querySelector('.layer_delivery #submit_btn')
+new_address_send_btn.addEventListener('click',send_create)
+function send_create(){
+    const createName = document.querySelector('#name_input');
+    const createHp = document.querySelector('#hp_input');
+    const createZipcode = document.querySelector('#sample6_postcode');
+    const createAddress1 = document.querySelector('#sample6_address');
+    const createAddress2 = document.querySelector('#sample6_detailAddress')
+    const createAddressBasic = document.querySelector('#check1').checked;
+    fetch('/api/my/address', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            "transaction_time":`${new Date()}`,
+            "resultCode":"ok",
+            "description":"정상",
+            "data":{
+                "name": `${createName.value}`,
+                "hp": `${createHp.value}`,
+                "zipcode": `${createZipcode.value}`,
+                "address1": `${createAddress1.value}`,
+                "address2": `${createAddress2.value}`,
+                "addressBasic": `${createAddressBasic}`
+            }
+        }),
+    }).then((res)=>{
+        // 주소가 아예 등록되지 않았더라면 주소창이 닫혀있기때문에, 열어주고, 빈주소창은 닫아준다.
+        empty_delivery_info = document.querySelector('.empty_delivery_info')
+        delivery_info = document.querySelector('.delivery_info')
+        if(delivery_info.style.display=='none'){
+            delivery_info.style.display='block'
+            empty_delivery_info.style.display='none'
+        }
+        //레이어창 닫고 새로운 정보 반영
+        close_new_delivery()
+        receiver_dd.innerHTML=createName.value
+        receiverHp_dd.innerHTML=hp_decode(createHp.value.toString())
+        receiverAddress_dd.innerHTML='('+createZipcode.value+') '+createAddress1.value+" "+createAddress2.value
+        //레이어창 비워주기
+        createName.value=''
+        createHp.value=''
+        createZipcode.value=''
+        createAddress1.value=''
+        createAddress2.value=''
+        document.querySelector('#check1').checked = false
+        return;
+    })
+}
+function hp_decode(hp){
+    return hp.substring(0,3)+"-"+hp.substring(4,5)+"***-*"+hp.substring(8,11)
 }
 
 function maxLengthCheck(object){
@@ -318,30 +372,98 @@ document.querySelectorAll('#hp_input').forEach((item) =>{
  * 🤍 기능7 주소 변경
  * 열고 닫기
  * 사용자의 주소 리스트를 불러오는 fetch
+ * await async를 사용하지 않으면 addressList 빈 값이 나옴
  * 주소리스트 클릭시 내용 반영 및 닫기
  */
 function close_address(){
     document.querySelector('.layer_address').style.display="none"
 }
 function pop_address(){
+    address_list()
     document.querySelector('.layer_address').style.display="block"
 }
-
-// 주소 리스트중 하나 클릭시 레이어창 닫고 내용 반영
-const address = document.querySelectorAll('.select');
-address.forEach((item) => {
-    item.addEventListener('click', () => {
-        address.forEach((e) => {
-            // console.log(e.childNodes[3].childNodes[0]);
-            e.childNodes[3].style.display='none';
+async function address_list(){
+    let addressList="";
+    try{
+        const response_basic = await fetch(`/api/my/address/basic`);
+        const data_basic = await response_basic.json();
+        console.log(data_basic);
+        data_basic.forEach(dto=>{
+            let dto_hp = hp_decode(dto.hp)
+            addressList+=`
+                <div class="my_item is_active select">
+                    <div class="info_bind">
+                        <!---->
+                        <div class="address_info">
+                            <div class="name_box"><span class="name">${dto.name}</span><span class="mark">기본
+                배송지</span></div>
+                            <p class="phone">`+dto_hp+`</p>
+                            <div class="address_box"><span class="zipcode">${'('+dto.zipcode+') '}</span><span
+                                    class="address">${dto.address1+' '+dto.address2}</span></div>
+                        </div>
+                    </div>`
+            if(receiverHp_dd.innerHTML.trim()==dto_hp){
+                addressList+=`<div class="btn_bind" style="display: block;"><img src="/img/wcheck.png"></div>
+                </div>`
+            }else{
+                addressList+=`<div class="btn_bind" style="display: none;"><img src="/img/wcheck.png"></div>
+                </div>`
+            }
         })
-        let edit_address=item.childNodes[1].childNodes[3].childNodes[5].childNodes[1].innerHTML
-        // console.log(edit_address)
-        item.childNodes[3].style.display='block';
-        close_address();
-        document.querySelector('.address_info .address_txt').innerHTML= edit_address
-    })
-})
+        const response_other = await fetch(`/api/my/address/other`);
+        const data_other = await response_other.json();
+        console.log(data_other);
+        data_other.forEach(dto=>{
+            let dto_hp = hp_decode(dto.hp)
+            addressList+=`
+                <div class="my_item select">
+                    <div class="info_bind">
+                        <!---->
+                        <div class="address_info">
+                            <div class="name_box"><span class="name">${dto.name}</span><!----></div>
+                            <p class="phone">`+dto_hp+`</p>
+                            <div class="address_box"><span class="zipcode">${'('+dto.zipcode+') '}</span><span
+                                    class="address">${dto.address1+' '+dto.address2}</span></div>
+                        </div>
+                    </div>`
+
+            if(receiverHp_dd.innerHTML.trim()==dto_hp){
+                addressList+=`<div class="btn_bind" style="display: block;"><img src="/img/wcheck.png"></div>
+                </div>`
+            }else{
+                addressList+=`<div class="btn_bind" style="display: none;"><img src="/img/wcheck.png"></div>
+                </div>`
+            }
+        })
+        console.log('addressList'+addressList)
+        document.querySelector('.layer_address .other_list').innerHTML=addressList
+        const address = document.querySelectorAll('.select');
+
+        // 주소 리스트중 하나 클릭시 레이어창 닫고 내용 반영
+        address.forEach((item) => {
+            item.addEventListener('click', () => {
+                address.forEach((e) => {
+                    const img = e.childNodes[2]
+                    img.style.display='none';
+                })
+                const address_info = item.childNodes[1].childNodes[3]
+                let edit_name = address_info.childNodes[1].childNodes[0].innerHTML
+                let edit_hp = address_info.childNodes[3].innerHTML
+                let edit_address=address_info.childNodes[5].childNodes[1].innerHTML
+
+                item.childNodes[2].style.display='block';
+                close_address();
+                receiver_dd.innerHTML= edit_name;
+                receiverHp_dd.innerHTML = edit_hp;
+                receiverAddress_dd.innerHTML = edit_address;
+            })
+        })
+    }catch(error){
+        console.log(error)
+    }
+}
+
+
 
 /**
  * 🤍 기능8 배송 요청사항
@@ -518,6 +640,50 @@ function close_card(){
 function pop_card(){
     document.querySelector('.layer_card').style.display="block"
 }
+function close_card_create_layer(){document.querySelector('.card_create_layer').style.display="none"}
+function cardBasicOk(){document.querySelector('.card_create_layer').style.display="block"}
+function createCard(isBasic) {
+    let cardBasic = isBasic
+    btnSave = document.querySelector('#submit_card_btn')
+    if (btnSave.classList.contains('disabled')) {
+
+    } else {
+        let cardNumber = document.querySelector('#cc-1').value +
+            document.querySelector('#cc-2').value +
+            document.querySelector('#cc-3').value +
+            document.querySelector('#cc-4').value
+        console.log(cardNumber)
+        let dateMm = document.querySelector('#expiration-month').value;
+        let dateYy = document.querySelector('#expiration-year').value;
+        let birthday = document.querySelector('#birthday_input').value;
+        let pin = document.querySelector('#pin_input').value;
+        console.log(cardNumber, dateMm, dateYy, birthday, pin)
+        fetch('/api/my/payment', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                "transaction_time": `${new Date()}`,
+                "resultCode": "ok",
+                "description": "정상",
+                "data": {
+                    "cardNumber": `${cardNumber}`,
+                    "cardMm": `${dateMm}`,
+                    "cardYy": `${dateYy}`,
+                    "birthDate": `${birthday}`,
+                    "cardPw": `${pin}`,
+                    "cardBasic": `${cardBasic}`
+                }
+            }),
+        }).then((res) => {
+            close_card_create_layer()
+            close_card()
+            document.querySelector('.regist_link').style.display='none'
+            document.querySelector('.main_card').style.display='block'
+            document.getElementById('cardInfo').innerHTML=document.querySelector('#cc-4').value;
+            return;
+        })
+    }
+}
 // 카드 번호 정규 표현식
 function validateCc1(strCc1){
     const reg_cc1 = /^[0-9]{4}$/;
@@ -596,11 +762,11 @@ document.querySelectorAll('.input_card').forEach((item) =>{
     item.addEventListener('blur', e=>{
         strCc1=e.target.value;
         if((validateCc1(strCc1))&&(validateBirthday(strBirthday))&&(validatePin(strPin))){
-            $("#submit_btn").removeClass("active");
-            $("#submit_btn").removeClass("disabled")
+            $("#submit_card_btn").addClass("active");
+            $("#submit_card_btn").removeClass("disabled")
         }else{
-            $("#submit_btn").addClass("active");
-            $("#submit_btn").addClass("disabled")
+            $("#submit_card_btn").removeClass("active");
+            $("#submit_card_btn").addClass("disabled")
         }
     })
 })
@@ -609,11 +775,11 @@ document.querySelectorAll('#birthday_input').forEach((item) =>{
     item.addEventListener('blur', e=>{
         strBirthday=e.target.value;
         if((validateCc1(strCc1))&&(validateBirthday(strBirthday))&&(validatePin(strPin))){
-            $("#submit_btn").removeClass("active");
-            $("#submit_btn").removeClass("disabled")
+            $("#submit_card_btn").addClass("active");
+            $("#submit_card_btn").removeClass("disabled")
         }else{
-            $("#submit_btn").addClass("active");
-            $("#submit_btn").addClass("disabled")
+            $("#submit_card_btn").removeClass("active");
+            $("#submit_card_btn").addClass("disabled")
         }
     })
 })
@@ -622,18 +788,14 @@ document.querySelectorAll('#pin_input').forEach((item) =>{
     item.addEventListener('blur', e=>{
         strPin=e.target.value;
         if((validateCc1(strCc1))&&(validateBirthday(strBirthday))&&(validatePin(strPin))){
-            $("#submit_btn").removeClass("active");
-            $("#submit_btn").removeClass("disabled")
+            $("#submit_card_btn").addClass("active");
+            $("#submit_card_btn").removeClass("disabled")
         }else{
-            $("#submit_btn").addClass("active");
-            $("#submit_btn").addClass("disabled")
+            $("#submit_card_btn").removeClass("active");
+            $("#submit_card_btn").addClass("disabled")
         }
     })
 });
-
-
-
-// 새 카드 저장 시 레이어 창
 
 
 
@@ -643,24 +805,54 @@ document.querySelectorAll('#pin_input').forEach((item) =>{
  * 클릭시 fetch 비동기 리스트 출력
  * 선택시 반영하고 닫기
  */
-const card_drop_btn = document.querySelector('.clickable_card img')
+const card_drop_btn = document.querySelector('.clickable_card')
 const main_card = document.querySelector('.main_card .clickable_card')
 console.log(card_drop_btn)
 const card_drop_div = document.querySelector('.other_card')
 card_drop_btn.addEventListener('click',()=>{
     if(card_drop_div.style.display=='none'){
+        card_list()
         card_drop_div.style.display='block'
     }else{
         card_drop_div.style.display='none'
     }
 })
-const cards = document.querySelectorAll('.other_card_item')
-cards.forEach((card)=>{
-    card.addEventListener('click',()=>{
-        main_card.childNodes[1].innerHTML = card.childNodes[1].innerHTML
-        card_drop_div.style.display='none'
-    })
-})
+async function card_list() {
+    let cardList = "";
+    try {
+        const response_basic = await fetch(`/api/my/payment`);
+        const data_basic = await response_basic.json();
+        console.log(data_basic);
+        data_basic.forEach(dto => {
+            let last_num= dto.cardNumber.substring(12,16)
+            cardList += `
+                <li class="other_card_item">
+                    <div class="card_info"><span class="card_name"> BC</span>
+                        <div class="card_num">
+                            <span class="num_bind">
+                                <span class="dot"><span class="dot"></span></span><span class="hyphen"></span>
+                                <span class="dot"><span class="dot"></span></span><span class="hyphen"></span>
+                                <span class="dot"><span class="dot"></span></span><span class="hyphen"></span>
+                                <div class="last_num_box"><span class="last_num">${last_num}</span></div>
+                            </span><!---->
+                        </div>
+                    </div>
+                </li>`
+        })
+        document.querySelector('.other_card .other_card_list').innerHTML = cardList
+        const cards = document.querySelectorAll('.other_card_item')
+        cards.forEach((card)=>{
+            card.addEventListener('click',()=>{
+                let last_number = card.childNodes[1].childNodes[2].childNodes[1].childNodes[10].childNodes[0].innerHTML
+                document.getElementById('cardInfo').innerHTML=last_number
+                card_drop_div.style.display='none'
+            })
+        })
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 
 //결재 방법 선택시 테두리 효과
 const items = document.querySelectorAll(".method");

@@ -2125,7 +2125,7 @@ svg:not(:root) {
 }
 
 .social-like-gray-sm {
-    width: 22px;
+    width: 20px;
     height: 20px;
 }
 
@@ -2208,7 +2208,7 @@ svg:not(:root) {
     font-size: 13px;
     letter-spacing: -.07px;
     font-weight: 400;
-    color: rgba(34,34,34,.5);
+    color: rgba(34,34,34,.8);
 }
 
 .more_title .arr-right-gray {
@@ -3096,9 +3096,20 @@ svg:not(:root) {
 
 
 
+/*게시글 없을 때*/
+.empty_box{
+    margin: 55px auto;
+    text-align: center;
+    /*margin: 90px auto 200px;*/
+    max-width: 275px;
+}
 
-
-
+.feed_area .empty_txt {
+    padding-top: 16px;
+    font-size: 14px;
+    letter-spacing: -.21px;
+    color: rgba(34,34,34,.8);
+}
 
 
 

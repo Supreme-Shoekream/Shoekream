@@ -2,6 +2,7 @@ package com.supreme.shoekream.service;
 
 import com.querydsl.core.types.Order;
 import com.supreme.shoekream.model.dto.BuyDTO;
+import com.supreme.shoekream.model.dto.ConclusionDTO;
 import com.supreme.shoekream.model.dto.ProductDTO;
 import com.supreme.shoekream.model.dto.SellDTO;
 import com.supreme.shoekream.model.entity.Buy;
@@ -12,10 +13,7 @@ import com.supreme.shoekream.model.enumclass.OrderStatus;
 import com.supreme.shoekream.model.enumclass.Progress;
 import com.supreme.shoekream.model.enumclass.SellProgress;
 import com.supreme.shoekream.model.network.Header;
-import com.supreme.shoekream.repository.BuyRepository;
-import com.supreme.shoekream.repository.MemberRepository;
-import com.supreme.shoekream.repository.ProductRepository;
-import com.supreme.shoekream.repository.SellRepository;
+import com.supreme.shoekream.repository.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -25,6 +23,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
 import java.text.DecimalFormat;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -35,10 +34,10 @@ import java.util.Optional;
 @Service
 public class SellService {
     private final BuyRepository buyRepository;
-
     private final SellRepository sellRepository;
     private final MemberRepository memberRepository;
     private final ProductRepository productRepository;
+    private final ConclusionRepository conclusionRepository;
 
     //사용자이메일로 검색 or 상품이름으로 검색
     @Transactional(readOnly = true)
@@ -46,7 +45,6 @@ public class SellService {
         if(searchKeyword == null || searchKeyword.isBlank()){
             return sellRepository.findAll(pageable).map(SellDTO::fromEntity);
         }
-
         return null;
     }
 
@@ -81,7 +79,7 @@ public class SellService {
             return " - ";
         }else{
             DecimalFormat format = new DecimalFormat("###,###");
-            return format.format(price.getPrice());
+            return format.format(price.getPrice()) ;
         }
     }
 
@@ -98,7 +96,7 @@ public class SellService {
                         price = " - ";
                     }else{
                         DecimalFormat format = new DecimalFormat("###,###");
-                        price = format.format(lowerPrice.getPrice());
+                        price = format.format(lowerPrice.getPrice()) ;
                     }
                     prices.add(price);
                 }
@@ -134,10 +132,14 @@ public class SellService {
             System.out.println("즉시💨💨"+newSell);
             buy.setSell(newSell);
             response = SellDTO.fromEntity(newSell);
-//            ConclusionDTO conclusionDTO = ConclusionDTO.of();
-//            conclusionRepository.save(conclusionDTO.toEntity());
-        }
 
+            //채결내역 등록
+            String price;
+            DecimalFormat format = new DecimalFormat("###,###");
+            price = format.format(sellDTO.price())+"원";
+            ConclusionDTO conclusionDTO = ConclusionDTO.of(price, LocalDateTime.now(),sellDTO.productDTO());
+            conclusionRepository.save(conclusionDTO.toEntity(product));
+        }
         return Header.OK(response);
     }
 

@@ -27,9 +27,10 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class ProductApiLogicService {
-    @Autowired ProductRepository productRepository;
-    @Autowired WishRepository wishRepository;
+    private final ProductRepository productRepository;
+    private final WishRepository wishRepository;
 
     private ProductApiResponse response(Product product){
         ProductApiResponse productApiResponse = ProductApiResponse.builder()
@@ -39,6 +40,7 @@ public class ProductApiLogicService {
                 .name(product.getName())
                 .nameKor(product.getNameKor())
                 .size(product.getSize())
+                .wishCount(product.getWishCount())
                 .modelNum(product.getModelNum())
                 .releaseDate(product.getReleaseDate())
                 .color(product.getColor())
@@ -51,7 +53,7 @@ public class ProductApiLogicService {
     }
 
     public Header<ProductApiResponse> read(Long idx) {
-        return productRepository.findByIdx(idx)
+        return productRepository.findById(idx)
                 .map(product-> response(product))
                 .map(Header::OK).orElseGet(() -> Header.ERROR("상품 없음!"));
     }
