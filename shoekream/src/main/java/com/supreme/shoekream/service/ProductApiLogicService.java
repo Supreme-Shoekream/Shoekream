@@ -60,10 +60,26 @@ public class ProductApiLogicService {
                 .map(Header::OK).orElseGet(() -> Header.ERROR("상품 없음!"));
     }
 
+
     public List<Product> brandOtherProduct(String brandName){
         return productRepository.findBrandByBrand(brandName).stream()
                 .map(ProductDTO::fromEntity2).collect(Collectors.toCollection(LinkedList::new));
     }
+
+
+    public Header<List<ProductApiResponse>> searchKeyword(String keyword, Pageable pageable){
+        Page<Product> products = productRepository.findByBrandContainingOrNameKorContaining(keyword , keyword, pageable);
+        List<ProductApiResponse> productApiResponses = products.stream().map(
+                product -> response(product)).collect(Collectors.toList());
+        Pagination pagination = Pagination.builder()
+                .totalPages(products.getTotalPages())
+                .totalElements(products.getTotalElements())
+                .currentPage(products.getNumber())
+                .currentElements(products.getNumberOfElements())
+                .build();
+        return Header.OK(productApiResponses, pagination);
+    }
+
 
 
 }

@@ -34,8 +34,8 @@ public record SellDTO(
                              String deliveryMemo, LocalDateTime createdAt,
                              SellProgress progress, OrderStatus status, Long buyIdx)
     {
-        return new SellDTO(idx, productDTO,memberDTO, type, price,period,cardInfo,accountInfo,
-                sender,senderHp,senderAddress, deliveryMemo,createdAt,progress,status,buyIdx);
+        return new SellDTO(idx, productDTO, memberDTO, type, price, period, cardInfo, accountInfo,
+                sender, senderHp, senderAddress, deliveryMemo, createdAt, progress, status, buyIdx);
     }
     public static SellDTO of(ProductDTO productDTO, MemberDTO memberDTO, Type type, Long price,
                              int period, String cardInfo, String accountInfo,

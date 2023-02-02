@@ -14,6 +14,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -154,7 +155,12 @@ public class ShopApiLogicService extends BaseService<ProductApiRequest, ProductA
     }
 
 
-    @Transactional(readOnly = true)
+      public List<String> getBrands(){
+        List<String> brands = productRepository.findAllDistinctBrands();
+        Collections.sort(brands);
+        return brands;
+    }
+        @Transactional(readOnly = true)
     public Page<ProductDTO> brand(String brandName, Pageable pageable){
         return productRepository.findByBrand(brandName,pageable).map(ProductDTO::fromEntity);
 
