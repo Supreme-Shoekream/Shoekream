@@ -14,6 +14,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -151,6 +152,13 @@ public class ShopApiLogicService extends BaseService<ProductApiRequest, ProductA
         if (keyword == null) keyword="";
         return productRepository.findBySizeContainingAndBrandContainingAndCategoryContainingAndCollectionContainingAndGenderContainingAndNameContaining(
                 size,brand,category,collection,gender,keyword,pageable).map(ProductDTO::fromEntity);
+    }
+
+//    0131
+    public List<String> getBrands(){
+        List<String> brands = productRepository.findAllDistinctBrands();
+        Collections.sort(brands);
+        return brands;
     }
 
 }

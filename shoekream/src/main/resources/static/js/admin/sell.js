@@ -22,17 +22,15 @@ function layer_sell_view(idx){
             document.querySelector('.layer_sell_view .productImg').src=data.productImg;
             document.querySelector('.layer_sell_view .productSize').innerHTML=data.productSize;
             document.querySelector('.layer_sell_view .sender').innerHTML=data.sender;
-            document.querySelector('.layer_sell_view .sellName').innerHTML=data.sellName;
             document.querySelector('.layer_sell_view .type').innerHTML=data.type;
             document.querySelector('.layer_sell_view .createdAt').innerHTML=data.createdAt;
-            document.querySelector('.layer_sell_view .deposit').innerHTML=data.deposit;
             document.querySelector('.layer_sell_view .status').innerHTML=data.status;
             document.querySelector('.layer_sell_view .period').innerHTML=data.period;
             document.querySelector('.layer_sell_view .name').innerHTML=data.name;
-            document.querySelector('.layer_sell_view .progress_class').innerHTML=data.progress_class
-            document.querySelector('.layer_sell_view .deleDate').innerHTML=data.deleDate;
-            document.querySelector('.layer_sell_view .depositR').innerHTML=data.depositR;
-            document.querySelector('.layer_sell_view .total_money').innerHTML=data.total_money;
+            document.querySelector('.layer_sell_view .totalPrice').innerHTML=data.totalPrice;
+            document.querySelector('.layer_sell_view .fees').innerHTML=data.fees;
+            document.querySelector('.layer_sell_view .account_idx').innerHTML=data.cardInfo;
+
         })
     //미리 내용 채우고나서
     document.querySelector(".layer_sell_view").style.display = "block";
@@ -46,7 +44,7 @@ function close_sell_view(){
 
 function pop_sell_delete(idx){
     document.querySelector(".sell_delete").style.display = "block";
-    const btn_delete = document.querySelector('.sell_delete');
+    const btn_delete = document.querySelector('.btn_delete');
     btn_delete.addEventListener('click',()=>{
         selldelete(idx)
     });
@@ -67,6 +65,6 @@ function selldelete(idx){
             alert(err);
         })
 }
-function close_buy_delete() {
+function close_sell_delete() {
     document.querySelector(".sell_delete").style.display = "none";
 }

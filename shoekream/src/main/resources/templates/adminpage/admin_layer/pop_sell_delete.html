@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="./src/styles/pop_delete.css">
 <html xmlns:th="http://www.thymeleaf.org">
-<div th:fragment="sell_delete" class="pop_sell_delete layer lg" style="display: none">
+<div th:fragment="sell_delete" class="sell_delete layer lg" style="display: none;">
     <div class="layer_container">
         <a href="#" class="btn_layer_close">
             <div>
@@ -30,8 +30,8 @@
         </div>
 
         <div class="layer_btn">
-            <a href="#" class="btn btn_save solid medium">확인</a>
-            <a href="#" class="btn btn_save solid medium "> 취소 </a>
+            <a href="#" class="btn btn_save btn_delete solid medium">확인</a>
+            <a href="#" class="btn btn_save solid medium" onclick="close_sell_delete()"> 취소 </a>
         </div>
         </div>
     </div>

@@ -19,7 +19,7 @@
 		<div class="min-height-200px">
 			<!-- Simple Datatable start -->
 			<div class="card-box mb-30" >
-				<div class="pd-20"style="display:flex; justify-content: space-between">
+				<div class="pd-20">
 					<h4 class="text-blue h4">판매 내역</h4>
 				</div>
 				<div class="pb-20" id="sell_table">
@@ -59,8 +59,8 @@
 						</thead>
 						<tbody>
 						<tr>
-							<td class="product_code">B10548</td>
 							<td class="order_num">56876-56454</td>
+							<td class="product_code">B10548</td>
 							<td class="name">김사과</td>
 							<td class="size">270</td>
 							<td class="progress_status">즉시구매</td>
@@ -82,11 +82,10 @@
 									<div
 											class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
 									>
-										<a class="dropdown-item" id="view_btn" onclick="pop_sell_view()"
-										><i class="dw dw-eye"></i> View</a
-										>
+										<a class="dropdown-item" id="view_btn" onclick="layer_sell_view()" style="cursor:pointer"
+										><i class="dw dw-eye"></i> View</a>
 
-										<a class="dropdown-item" id="delete_btn" onclick="pop_sell_delete()"
+										<a class="dropdown-item" id="delete_btn" onclick="pop_sell_delete()" style="cursor:pointer"
 										><i class="dw dw-delete-3"></i> Delete</a
 										>
 									</div>

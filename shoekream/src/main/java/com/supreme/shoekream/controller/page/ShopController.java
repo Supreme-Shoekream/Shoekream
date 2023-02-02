@@ -1,9 +1,7 @@
 package com.supreme.shoekream.controller.page;
 
 import com.supreme.shoekream.model.dto.ProductDTO;
-import com.supreme.shoekream.model.entity.Product;
 import com.supreme.shoekream.model.enumclass.SearchType;
-import com.supreme.shoekream.model.network.response.ProductResponse;
 import com.supreme.shoekream.service.PaginationService;
 import com.supreme.shoekream.service.SellService;
 import com.supreme.shoekream.service.ShopApiLogicService;
@@ -30,14 +28,6 @@ public class ShopController {
     private final PaginationService paginationService;
     private final SellService sellService;
 
-//    @GetMapping("shop_search")   //http://localhost:8889/shop_search
-//    public ModelAndView shop_search() { return new ModelAndView("/shop/shop_search"); }
-
-    @GetMapping(path="searchTest")    // http://localhost:8889/searchTest
-    public ModelAndView mypage(){
-        return new ModelAndView("/shop/searchTest");
-    }
-
     @GetMapping("search")
     public String products(
             @RequestParam(required = false) SearchType searchType,
@@ -49,11 +39,15 @@ public class ShopController {
         List<Integer> barNumbers = paginationService.getPaginationBarNumbers(pageable.getPageNumber(), products.getTotalPages());  // 현재 페이지를 가져올 수 있음. List<Integer> barNumbers 숫자가 들어있는 리스트
         List<ProductDTO> shoes = shopApiLogicService.categoryList("신발");
         List<String> shoeprice = sellService.buyNowPrices(products.stream().map(ProductDTO::toEntity).toList());
+        //0131
+        List<String> brands = shopApiLogicService.getBrands();
+
 
         map.addAttribute("products", products);
         map.addAttribute("paginationBarNumbers", barNumbers);
         map.addAttribute("searchTypes", SearchType.values());
         map.addAttribute("shoeprice", shoeprice);
+        map.addAttribute("brands", brands);
 
         return "shop/shop_search";
     }
@@ -73,10 +67,13 @@ public class ShopController {
         Page<ProductDTO> products = shopApiLogicService.searchsProduct(size,brand,category,collection,gender, keyword, pageable);
         List<String> prices = sellService.buyNowPrices(products.stream().map(ProductDTO::toEntity).toList());
         List<Integer> barNumbers = paginationService.getPaginationBarNumbers(pageable.getPageNumber(), products.getTotalPages());
+        List<String> brands = shopApiLogicService.getBrands();
+
         map.addAttribute("products",products);
         map.addAttribute("prices",prices);
         map.addAttribute("barNumbers",barNumbers);
-        System.out.println("🤍🤍"+products+"❤❤"+prices+"🤍🤍"+barNumbers);
+        map.addAttribute("brands", brands);
+        System.out.println("🤍🤍"+products+"❤❤"+prices+"🤍🤍"+barNumbers+"❤❤브랜드"+brands);
         return "shop/shop_searchs";
     }
 }

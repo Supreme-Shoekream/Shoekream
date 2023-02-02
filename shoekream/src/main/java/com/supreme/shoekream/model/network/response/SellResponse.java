@@ -19,7 +19,7 @@ public record SellResponse(
         String productName, // 상품 이름
         String productSize, // 상품 사이즈
         String memberEmail, // 이메일주소
-        String type,        //
+        String type,
         Long price,
         int period,
         String cardInfo,
