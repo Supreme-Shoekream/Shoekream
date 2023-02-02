@@ -65,6 +65,9 @@ public class ProductPageController {
         List<ConclusionDTO> conclusion = conclusionApiLogicService.conclusionList(idx);
         modelmap.addAttribute("conclusion", conclusion); // "conclusion" 이름의 modelmap 객체를 view에서 사용하기위해 저장함
 
+//        List<ConclusionDTO> conclusion1month = conclusionApiLogicService.conclusion1monthList(idx);
+//        modelmap.addAttribute("conclusion1month", conclusion1month);
+
         String sell = sellService.buyNowPrice(idx);
         modelmap.addAttribute("sell", sell);
 
@@ -76,7 +79,6 @@ public class ProductPageController {
         List<String> brandOtherProductSell = sellService.buyNowPrices(brandOtherProduct);
         modelmap.addAttribute("brandOtherProduct", brandOtherProduct);
         modelmap.addAttribute("brandOtherProductSell", brandOtherProductSell);
-
 
         Conclusion recentPrice = conclusionApiLogicService.recentPrice(idx);
         if (recentPrice == null) {

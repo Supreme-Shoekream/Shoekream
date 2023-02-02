@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <thlogic>
     <!-- 상품 사진 -->
+<!--    <attr sel="img#previewImg2" th:object="${product.data}" th:src="*{'/img/product/' + name.replace(' ', '_')} + '.png' "/>-->
     <attr sel="img#previewImg2" th:object="${product.data}" th:src="*{img}"/>
     <!-- 브랜드명, 상품명 -->
     <attr sel=".main_title_box" th:object="${product.data}">
@@ -87,6 +88,7 @@
                 <attr sel="img.image" th:src="${brandOtherProduct.img}"/>
                 <attr sel="p.brand" th:text="${brandOtherProduct.brand}"/>
                 <attr sel="p.name" th:text="${brandOtherProduct.name}"/>
+                <attr sel="p.size" th:text="${brandOtherProduct.size}"/>
                 <attr sel="em.nowBuy" th:text="${brandOtherProductSell[index.index]+'원'}"/>
                 <attr sel="a.item_inner" th:href="@{/product/{proIdx}(proIdx=${brandOtherProduct.idx})}"/>
                 <attr sel="a.brand_link" th:href="@{/brand/{brandName}(brandName=${brandOtherProduct.brand})}"/>

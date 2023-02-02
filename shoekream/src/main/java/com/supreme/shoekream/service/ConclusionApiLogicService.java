@@ -26,6 +26,12 @@ public class ConclusionApiLogicService {
         // Collectors: Stream을 일반적인 List, Set등으로 변경시키는 Stream 메서드
     }
 
+//    public List<ConclusionDTO> conclusion1monthList(Long productIdx){
+//        Product product = productRepository.findById(productIdx).get();
+//        return conclusionRepository.findAllByProductOrderByCreatedAtDesc(product).stream()
+//                .map(ConclusionDTO::fromEntity).collect(Collectors.toCollection(LinkedList::new));
+//    }
+
     public Conclusion recentPrice(Long productIdx){
         return conclusionRepository.findTop1ByProductIdxOrderByCreatedAtDesc(productIdx);
     }
