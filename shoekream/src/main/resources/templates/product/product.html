@@ -97,7 +97,7 @@
                                                     </div>
                                                     <div class="price">
                                                         <div class="amount">
-                                                            <span class="num recentPrice">320,000원</span>
+                                                            <span class="num recentPrice">230,000</span>
                                                         </div>
                                                         <div class="fluctuation">
                                                             <p class="fluctuation" style="margin: 0;">가격변동</p>
@@ -190,7 +190,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="wrap_sales">
+                                                <!-- 시세 = 그래프 있을때 -->
+                                                <div class="wrap_sales"  th:if="${!#lists.isEmpty(conclusion)}">
                                                     <div class="tab_area">
                                                         <ul role="tablist" class="tab_list">
                                                             <li  role="tab" aria-selected="true" aria-controls="sales_panel1" class="date item on">
@@ -236,7 +237,19 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="wrap_bids">
+                                                <!-- 시세 = 그래프 없을때 -->
+<!--                                                <div class="wrap_sales" th:if="${#lists.isEmpty(conclusion)}">-->
+<!--                                                    <div class="table_wrap lg">-->
+<!--                                                        <div class="empty_content lg">-->
+<!--                                                            <div class="empty_bg">-->
+<!--                                                                <span class="blind">빈 데이터 이미지</span>-->
+<!--                                                            </div>-->
+<!--                                                            <p class="empty_text">체결된 거래가 아직 없습니다</p>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+                                                <!-- 시세 - 거래 내역 있을때 -->
+                                                <div class="wrap_bids" th:if="${!#lists.isEmpty(conclusion)}">
                                                     <div class="tab_area">
                                                         <ul role="tablist" class="tab_list">
                                                             <li role="tab" aria-selected="true" aria-controls="panel1" class="conclusion item on">
@@ -378,7 +391,131 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- 시세 - 로그인 안했을 때 -->
+                                                <!-- 시세 - 거래 내역 없을때 -->
+<!--                                                <div class="wrap_bids" th:if="${#lists.isEmpty(conclusion)}" style="dis: hidden">-->
+<!--                                                    <div class="tab_area">-->
+<!--                                                        <ul role="tablist" class="tab_list">-->
+<!--                                                            <li role="tab" aria-selected="true" aria-controls="panel1" class="conclusion item on">-->
+<!--                                                                <a class="item_link">체결 거래</a>-->
+<!--                                                            </li>-->
+<!--                                                            <li role="tab" aria-selected="false" aria-controls="panel2" class="conclusion item">-->
+<!--                                                                <a class="item_link">판매 입찰</a>-->
+<!--                                                            </li>-->
+<!--                                                            <li role="tab" aria-selected="false" aria-controls="panel3" class="conclusion item">-->
+<!--                                                                <a class="item_link">구매 입찰</a>-->
+<!--                                                            </li>-->
+<!--                                                        </ul>-->
+<!--                                                        <div id="panel1" role="tabpanel" span="sales" class="tab_content">-->
+<!--                                                            <div class="table_wrap lg">-->
+<!--                                                                <div class="empty_content lg">-->
+<!--                                                                    <div class="empty_bg">-->
+<!--                                                                        <span class="blind">빈 데이터 이미지</span>-->
+<!--                                                                    </div>-->
+<!--                                                                    <p class="empty_text">체결된 거래가 아직 없습니다</p>-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                        </div>-->
+<!--                                                        <div id="panel2" role="tabpanel" span="asks" class="tab_content">-->
+<!--                                                            <div class="table_wrap lg">-->
+<!--                                                                <table>-->
+<!--                                                                    <caption>-->
+<!--                                                                        <span class="blind">데이터 테이블</span>-->
+<!--                                                                    </caption>-->
+<!--                                                                    <colgroup>-->
+<!--                                                                        <col style="width:29.76%;">-->
+<!--                                                                        <col style="width:36.52%;">-->
+<!--                                                                        <col style="width:33.72%;">-->
+<!--                                                                    </colgroup>-->
+<!--                                                                    <thead>-->
+<!--                                                                    <tr>-->
+<!--                                                                        <th class="table_th">사이즈</th>-->
+<!--                                                                        <th class="table_th align_right">판매 희망가</th>-->
+<!--                                                                        <th class="table_th align_right">수량</th>-->
+<!--                                                                    </tr>-->
+<!--                                                                    </thead>-->
+<!--                                                                    <tbody>-->
+<!--                                                                    <tr>-->
+<!--                                                                        <td class="table_td">260</td>-->
+<!--                                                                        <td class="table_td align_right">214,000원</td>-->
+<!--                                                                        <td class="table_td align_right">1</td>-->
+<!--                                                                    </tr>-->
+<!--                                                                    <tr>-->
+<!--                                                                        <td class="table_td">260</td>-->
+<!--                                                                        <td class="table_td align_right">217,000원</td>-->
+<!--                                                                        <td class="table_td align_right">1</td>-->
+<!--                                                                    </tr>-->
+<!--                                                                    <tr>-->
+<!--                                                                        <td class="table_td">270</td>-->
+<!--                                                                        <td class="table_td align_right">219,000원</td>-->
+<!--                                                                        <td class="table_td align_right">1</td>-->
+<!--                                                                    </tr>-->
+<!--                                                                    <tr>-->
+<!--                                                                        <td class="table_td">240</td>-->
+<!--                                                                        <td class="table_td align_right">220,000원</td>-->
+<!--                                                                        <td class="table_td align_right">2</td>-->
+<!--                                                                    </tr>-->
+<!--                                                                    <tr>-->
+<!--                                                                        <td class="table_td">250</td>-->
+<!--                                                                        <td class="table_td align_right">223,000원</td>-->
+<!--                                                                        <td class="table_td align_right">1</td>-->
+<!--                                                                    </tr>-->
+<!--                                                                    </tbody>-->
+<!--                                                                </table>-->
+<!--                                                            </div>-->
+<!--                                                            <a class="btn outlinegrey full medium">입찰 내역 더보기</a>-->
+<!--                                                        </div>-->
+<!--                                                        <div id="panel3" role="tabpanel" span="bids" class="tab_content">-->
+<!--                                                            <div class="table_wrap lg">-->
+<!--                                                                <table>-->
+<!--                                                                    <caption>-->
+<!--                                                                        <span class="blind">데이터 테이블</span>-->
+<!--                                                                    </caption>-->
+<!--                                                                    <colgroup>-->
+<!--                                                                        <col style="width:29.76%;">-->
+<!--                                                                        <col style="width:36.52%;">-->
+<!--                                                                        <col style="width:33.72%;">-->
+<!--                                                                    </colgroup>-->
+<!--                                                                    <thead>-->
+<!--                                                                    <tr>-->
+<!--                                                                        <th class="table_th">사이즈</th>-->
+<!--                                                                        <th class="table_th align_right">구매 희망가</th>-->
+<!--                                                                        <th class="table_th align_right">수량</th>-->
+<!--                                                                    </tr>-->
+<!--                                                                    </thead>-->
+<!--                                                                    <tbody>-->
+<!--                                                                    <tr>-->
+<!--                                                                        <td class="table_td">280</td>-->
+<!--                                                                        <td class="table_td align_right">303,000원</td>-->
+<!--                                                                        <td class="table_td align_right">1</td>-->
+<!--                                                                    </tr>-->
+<!--                                                                    <tr>-->
+<!--                                                                        <td class="table_td">230</td>-->
+<!--                                                                        <td class="table_td align_right">300,000원</td>-->
+<!--                                                                        <td class="table_td align_right">1</td>-->
+<!--                                                                    </tr>-->
+<!--                                                                    <tr>-->
+<!--                                                                        <td class="table_td">240</td>-->
+<!--                                                                        <td class="table_td align_right">290,000원</td>-->
+<!--                                                                        <td class="table_td align_right">1</td>-->
+<!--                                                                    </tr>-->
+<!--                                                                    <tr>-->
+<!--                                                                        <td class="table_td">280</td>-->
+<!--                                                                        <td class="table_td align_right">286,000원</td>-->
+<!--                                                                        <td class="table_td align_right">1</td>-->
+<!--                                                                    </tr>-->
+<!--                                                                    <tr>-->
+<!--                                                                        <td class="table_td">240</td>-->
+<!--                                                                        <td class="table_td align_right">281,000원</td>-->
+<!--                                                                        <td class="table_td align_right">1</td>-->
+<!--                                                                    </tr>-->
+<!--                                                                    </tbody>-->
+<!--                                                                </table>-->
+<!--                                                            </div>-->
+<!--                                                            <a class="btn outlinegrey full medium">입찰 내역 더보기</a>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+                                                <!-- 시세 - 로그인 안했을때 -->
                                                 <!-- <div class="layer_alert_login">
                                                     <div class="layer_content">
                                                         <p class="notice">모든 체결 거래는<br>로그인 후 확인 가능합니다.</p>
@@ -651,7 +788,7 @@
                                                 <div class="product_area">
                                                     <div class="product_thumb" style="background-color: rgb(235, 240, 245);">
                                                         <picture class="picture product_img">
-                                                            <img alt="상품 이미지" src="" loading="lazy" class="image img" id="previewImg3" style="width: 64px; height: 64px; margin-left: 40px; margin-bottom: 15px;">
+                                                            <img alt="상품 이미지" src="" loading="lazy" class="image img" id="previewImg3" style="width: 64px; height: 64px; margin-left: 40px;">
                                                         </picture>
                                                     </div>
                                                     <div class="product_info">
@@ -744,7 +881,7 @@
                                 <h3 class="more_title">
                                     <span class="owner">Nike</span>
                                     <span class="title_txt">의 다른 상품</span>
-                                    <a th:href="@{/brand/{brandName}(brandName=${product.data.brand})}" class="btn_more">
+                                    <a class="btn_more">
                                         <span class="btn_txt">더보기</span>
                                         <img src="/img/right_arrow.png" class="icon sprite-icons arr-right-gray">
                                     </a>
@@ -752,51 +889,24 @@
                                 <div class="other_products">
                                     <div class="product_list">
                                         <div class="product_item">
-                                            <a href="/products/38818" class="item_inner">
+                                            <a href="" class="item_inner">
                                                 <div class="thumb_box">
                                                     <div class="product" style="background-color:#ebf0f5;">
                                                         <picture class="picture product_img">
-                                                            <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMTA4MTJfMjg0/MDAxNjI4Njk3NTY5MDM5.XiS_mZT40dF3VtWjbL4-Jld1gh0DhIHh5t7fJN7BSbgg.oO21T0PYLF-Gi20BItv1aOMRX3IYAbKIiXGTpjPf8ZUg.PNG/a_7581fe9df78d4fd488547a854e9dba3f.png?type=m_webp">
-                                                            <source srcset="https://kream-phinf.pstatic.net/MjAyMTA4MTJfMjg0/MDAxNjI4Njk3NTY5MDM5.XiS_mZT40dF3VtWjbL4-Jld1gh0DhIHh5t7fJN7BSbgg.oO21T0PYLF-Gi20BItv1aOMRX3IYAbKIiXGTpjPf8ZUg.PNG/a_7581fe9df78d4fd488547a854e9dba3f.png?type=m">
-                                                            <img alt="나이키 덩크 로우 SE 서울 (스페셜 기프트)" src="https://kream-phinf.pstatic.net/MjAyMTA4MTJfMjg0/MDAxNjI4Njk3NTY5MDM5.XiS_mZT40dF3VtWjbL4-Jld1gh0DhIHh5t7fJN7BSbgg.oO21T0PYLF-Gi20BItv1aOMRX3IYAbKIiXGTpjPf8ZUg.PNG/a_7581fe9df78d4fd488547a854e9dba3f.png?type=m" loading="lazy" class="image">
+                                                            <img src="" loading="lazy" class="image">
                                                         </picture>
                                                     </div>
                                                 </div>
                                                 <div class="info_box">
                                                     <div class="brand">
-                                                        <p class="brand-text without-wish">Nike</p>
+                                                        <a href="" class="brand_link">
+                                                            <p class="brand-text without-wish brand">Nike</p>
+                                                        </a>
                                                     </div>
                                                     <p class="name">Nike Dunk Low SE Seoul (with Special Gift)</p>
                                                     <div class="price">
                                                         <div class="amount lg">
-                                                            <em class="num">265,000원</em>
-                                                        </div>
-                                                        <div class="desc">
-                                                            <p>즉시 구매가</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="product_item">
-                                            <a href="/products/37182" class="item_inner">
-                                                <div class="thumb_box">
-                                                    <div class="product" style="background-color:#ebf0f5;">
-                                                        <picture class="picture product_img">
-                                                            <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMTA2MjlfMjQw/MDAxNjI0OTMxODU1NDQ2.tL0PGdV5LLEZSyBVVAkos9u5ZvcKoC_ElVC04DF9Uy8g.tDYEcKxnrrFD9U_is5nHFCswAi3Wjz1ClAaPR5l8JOwg.PNG/p_bc83b9c0af7148e08fcb72b09d70f36b.png?type=m_webp">
-                                                            <source srcset="https://kream-phinf.pstatic.net/MjAyMTA2MjlfMjQw/MDAxNjI0OTMxODU1NDQ2.tL0PGdV5LLEZSyBVVAkos9u5ZvcKoC_ElVC04DF9Uy8g.tDYEcKxnrrFD9U_is5nHFCswAi3Wjz1ClAaPR5l8JOwg.PNG/p_bc83b9c0af7148e08fcb72b09d70f36b.png?type=m">
-                                                            <img alt="(W) 나이키 덩크 로우 디스럽트 멀티컬러" src="https://kream-phinf.pstatic.net/MjAyMTA2MjlfMjQw/MDAxNjI0OTMxODU1NDQ2.tL0PGdV5LLEZSyBVVAkos9u5ZvcKoC_ElVC04DF9Uy8g.tDYEcKxnrrFD9U_is5nHFCswAi3Wjz1ClAaPR5l8JOwg.PNG/p_bc83b9c0af7148e08fcb72b09d70f36b.png?type=m" loading="lazy" class="image">
-                                                        </picture>
-                                                    </div>
-                                                </div>
-                                                <div class="info_box">
-                                                    <div class="brand">
-                                                        <p class="brand-text without-wish">Nike</p>
-                                                    </div>
-                                                    <p class="name">(W) Nike Dunk Low Disrupt Multi-Color</p>
-                                                    <div class="price">
-                                                        <div class="amount lg">
-                                                            <em class="num">199,000원</em>
+                                                            <em class="num nowBuy">265,000원</em>
                                                         </div>
                                                         <div class="desc">
                                                             <p>즉시 구매가</p>

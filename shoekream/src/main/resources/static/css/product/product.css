@@ -1509,6 +1509,28 @@ svg:not(:root) {
     padding: 20px 0 20px;
 }
 
+.empty_content {
+    text-align: center;
+    padding: 22px 0 22px;
+}
+
+.empty_bg {
+    display: inline-block;
+    vertical-align: top;
+    width: 58px;
+    height: 58px;
+    background-image: url('/img/conclusion_empty.png');
+    background-repeat: no-repeat;
+    background-size: 58px 58px;
+}
+
+.empty_text {
+    margin-top: 8px;
+    font-size: 13px;
+    letter-spacing: -.07px;
+    color: rgba(34,34,34,.3);
+}
+
 .blind, .u_skip {
     overflow: hidden!important;
     position: absolute!important;
@@ -2499,14 +2521,6 @@ svg:not(:root) {
 
 .select_link.bid .price {
     color: #222;
-}
-
-.price {
-    display: block;
-    line-height: 14px;
-    margin-top: 1px;
-    font-size: 12px;
-    /* color: #222; */
 }
 
 /* 관심 상품 클릭시 팝업 레이어창 */

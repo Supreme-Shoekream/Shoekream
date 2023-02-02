@@ -34,7 +34,7 @@ class ConclusionTest {
     @Test
     void conTest2(){
         Long proudctIdx = 106L;
-        Product product = productRepository.findByIdx(proudctIdx).get();
+        Product product = productRepository.findByIdx(proudctIdx);
         conclusionRepository.findAllByProduct(product);
     }
 }
