@@ -238,16 +238,16 @@
                                                     </div>
                                                 </div>
                                                 <!-- 시세 = 그래프 없을때 -->
-<!--                                                <div class="wrap_sales" th:if="${#lists.isEmpty(conclusion)}">-->
-<!--                                                    <div class="table_wrap lg">-->
-<!--                                                        <div class="empty_content lg">-->
-<!--                                                            <div class="empty_bg">-->
-<!--                                                                <span class="blind">빈 데이터 이미지</span>-->
-<!--                                                            </div>-->
-<!--                                                            <p class="empty_text">체결된 거래가 아직 없습니다</p>-->
-<!--                                                        </div>-->
-<!--                                                    </div>-->
-<!--                                                </div>-->
+                                                <div class="wrap_sales" th:if="${#lists.isEmpty(conclusion)}">
+                                                    <div class="table_wrap lg">
+                                                        <div class="empty_content lg">
+                                                            <div class="empty_bg">
+                                                                <span class="blind">빈 데이터 이미지</span>
+                                                            </div>
+                                                            <p class="empty_text">체결된 거래가 아직 없습니다</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <!-- 시세 - 거래 내역 있을때 -->
                                                 <div class="wrap_bids" th:if="${!#lists.isEmpty(conclusion)}">
                                                     <div class="tab_area">
@@ -535,7 +535,7 @@
                                                                 <div class="dropdown">
                                                                     <div class="dropdown_head">
                                                                         <p class="title">배송 기간 안내</p>
-                                                                        <img src="/img/down.png" class="icon sprite-icons ico-arr-down-gray"></img>
+                                                                        <img src="/img/down.png" class="icon sprite-icons ico-arr-down-gray">
                                                                     </div>
                                                                     <div class="dropdown_content dc">
                                                                         <div class="content">
@@ -666,7 +666,7 @@
                                                         </li>
                                                     </ul>
                                                 </div>
-                                                <p class="meditaion_notice_product"> 크림(주)는 통신판매 중개자로서 통신판매의 당사자가 아닙니다. 본 상품은 개별판매자가 등록한 상품으로 상품, 상품정보, 거래에 관한 의무와 책임은 각 판매자에게 있습니다. 단, 거래과정에서 검수하고 보증하는 내용에 대한 책임은 크림(주)에 있습니다.</p>
+                                                <p class="meditaion_notice_product" id="meditaion_notice_product"> 크림(주)는 통신판매 중개자로서 통신판매의 당사자가 아닙니다. 본 상품은 개별판매자가 등록한 상품으로 상품, 상품정보, 거래에 관한 의무와 책임은 각 판매자에게 있습니다. 단, 거래과정에서 검수하고 보증하는 내용에 대한 책임은 크림(주)에 있습니다.</p>
                                             </div>
                                         </div>
                                         <!-- 구매전 확인사항 끝 -->
@@ -833,7 +833,7 @@
 
                         <!-- 스타일 시작 -->
                         <div>
-                            <div class="feed_area">
+                            <div class="feed_area" id="feed_area">
                                 <h2 class="feed_title">
                                     <span class="title">스타일</span>
                                     <span class="num" id="style_cnt">1145</span>
@@ -904,6 +904,7 @@
                                                         </a>
                                                     </div>
                                                     <p class="name">Nike Dunk Low SE Seoul (with Special Gift)</p>
+                                                    <p class="size" style="margin-top: 5px">240</p>
                                                     <div class="price">
                                                         <div class="amount lg">
                                                             <em class="num nowBuy">265,000원</em>
@@ -935,30 +936,141 @@
     <script th:inline="javascript">
         /*<![CDATA[*/
         let conclusion = [[${conclusion}]];
-        // console.log(conclusion);
+        console.log(conclusion);
+
+        let now = new Date();	// 현재 날짜
+        let now1 = new Date();	// 한달전 현재 날짜
+        let now3 = new Date();	// 세달전 현재 날짜
+        let now6 = new Date();	// 여섯달전 현재 날짜
+        let now12 = new Date();	// 일년전 현재 날짜
+
+        function dateFormat(date) {
+            let dateFormat2 = date.getFullYear() +
+                '-' + ( (date.getMonth()+1) < 9 ? "0" + (date.getMonth()+1) : (date.getMonth()+1) )+
+                '-' + ( (date.getDate()) < 9 ? "0" + (date.getDate()) : (date.getDate()) );
+            return dateFormat2;
+        }
+
+        let nowDate = dateFormat(new Date());
+        console.log("현재: " + nowDate);
+
+        let oneMonthAgo = dateFormat(new Date(now1.setMonth(now1.getMonth() - 1)));
+        console.log("한달전: " + oneMonthAgo);
+
+        let threeMonthAgo = dateFormat(new Date(now3.setMonth(now3.getMonth() - 3)));
+        console.log("세달전: " + threeMonthAgo);
+
+        let sixMonthAgo = dateFormat(new Date(now6.setMonth(now6.getMonth() - 6)));
+        console.log("여섯달전: " + sixMonthAgo);
+
+        let oneYearAgo = dateFormat(new Date(now12.setFullYear(now12.getFullYear() - 1)));
+        console.log("일년전: " + oneYearAgo);
+
+
+
+
+
+        let arr = [];
+        for(let key in conclusion) {
+            arr.push([conclusion[key].createdAt.replace("T00:00:00",""), conclusion[key].price.replace(",","").replace("원","")]);
+        }
+        console.log(arr);
+
+        // 위와 같은 뜻
+        // conclusion.slice().forEach(
+        //     function(c) {
+        //         console.log(c.createdAt + ", "+ c.price);
+        //         labels.push([c.createdAt, c.price]);
+        // });
+        // console.log(labels);
 
         // x축 (체결날짜)
-        let labels = [];
-        for(let key in conclusion) {
-            labels.push(conclusion[key].createdAt.replace("T00:00:00",""));
+        let lables = [];
+        for(let key in arr) {
+            lables.push(conclusion[key].createdAt.replace("T00:00:00",""));
         }
-        // console.log(labels);
+        // console.log(lables);
 
         // y축 (가격)
         let data = [];
-        for(let key in conclusion) {
+        for(let key in arr) {
             data.push(conclusion[key].price.replace(",","").replace("원",""));
         }
         // console.log(data);
+
+        //⚪️ 전체 데이터
+        let oysDate = [];
+        let oysPrice = [];
+        for(let i in arr){
+                console.log("전체 데이터");
+                oysDate.push(arr[i][0]);
+                oysPrice.push(arr[i][1]);
+        }
+        console.log(oysDate);
+        console.log(oysPrice);
+
+        //⚪️ 1년전 데이터
+        // let oysDate = [];
+        // let oysPrice = [];
+        // for(let i in arr){
+        //         console.log("1년전 데이터");
+        //     if(arr[i][0] > oneYearAgo){
+        //         oysDate.push(arr[i][0]);
+        //         oysPrice.push(arr[i][1]);
+        //     }
+        // }
+        // console.log(oysDate);
+        // console.log(oysPrice);
+
+        //⚪️ 6개월전 데이터
+        // let oysDate = [];
+        // let oysPrice = [];
+        // for(let i in arr){
+        //         console.log("6개월전 데이터");
+        //     if(arr[i][0] > sixMonthAgo){
+        //         oysDate.push(arr[i][0]);
+        //         oysPrice.push(arr[i][1]);
+        //     }
+        // }
+        // console.log(oysDate);
+        // console.log(oysPrice);
+
+        //⚪️ 3개월전 데이터
+        // let oysDate = [];
+        // let oysPrice = [];
+        // for(let i in arr){
+        //         console.log("3개월전 데이터");
+        //     if(arr[i][0] > threeMonthAgo){
+        //         oysDate.push(arr[i][0]);
+        //         oysPrice.push(arr[i][1]);
+        //     }
+        // }
+        // console.log(oysDate);
+        // console.log(oysPrice);
+
+        //⚪️ 1개월전 데이터
+        // let oysDate = [];
+        // let oysPrice = [];
+        // for(let i in arr){
+        //     console.log("1개월전 데이터");
+        //     if(arr[i][0] > oneMonthAgo){
+        //         oysDate.push(arr[i][0]);
+        //         oysPrice.push(arr[i][1]);
+        //     }
+        // }
+        // console.log(oysDate);
+        // console.log(oysPrice);
+
+
 
         let ctx = document.getElementById("graph1m").getContext("2d");
         let myChart = new Chart(ctx, {
             type: "line",
             data: {
-                labels: labels, // x축
+                labels: oysDate, // x축
                 datasets: [{
                     // label: "시세",
-                    data: data, // y축
+                    data: oysPrice, // y축
                     backgroundColor: 'rgb(206,39,35)', // 차트 배경 색
                     borderColor: 'rgb(206,39,35)', // 라인 색
                     borderWidth: 1, // 라인 넓이

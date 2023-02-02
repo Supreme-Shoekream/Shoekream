@@ -2,15 +2,11 @@
 // 스크롤시 왼쪽 상품 사진 이동후 멈춤
 const is_fixed = document.querySelector(".is_fixed"); // 왼쪽 상품 사진
 window.addEventListener('scroll', function () {
-    // console.log(y2);
     // console.log(window.scrollY);
     if (window.scrollY >= 1240) {
-
         // window.scrollY: 브라우저 최상단에서 현재까지 스크롤 된 좌표값 구함
-        // 좌표값이 1240인 곳에서 멈춰야함
         is_fixed.classList.remove('is_fixed');
-        is_fixed.classList.add('is_absolute');
-        // css에서 position:absolute , top:1250px으로 지정해줬음
+        is_fixed.classList.add('is_absolute'); // 좌표값이 1245인 곳에서 멈춰야함
     } else {
         is_fixed.classList.remove('is_absolute');
         is_fixed.classList.add('is_fixed');
