@@ -252,17 +252,17 @@
                                                 <div class="wrap_bids" th:if="${!#lists.isEmpty(conclusion)}">
                                                     <div class="tab_area">
                                                         <ul role="tablist" class="tab_list">
-                                                            <li role="tab" aria-selected="false" aria-controls="panel1" class="conclusion item">
+                                                            <li role="tab" aria-selected="true" aria-controls="panel1" class="conclusion item on">
                                                                 <a class="item_link">체결 거래</a>
                                                             </li>
                                                             <li role="tab" aria-selected="false" aria-controls="panel2" class="conclusion item">
                                                                 <a class="item_link">판매 입찰</a>
                                                             </li>
-                                                            <li role="tab" aria-selected="true" aria-controls="panel3" class="conclusion item on">
+                                                            <li role="tab" aria-selected="false" aria-controls="panel3" class="conclusion item">
                                                                 <a class="item_link">구매 입찰</a>
                                                             </li>
                                                         </ul>
-                                                        <div id="panel1 " role="tabpanel" span="sales" class="panel1 tab_content show">
+                                                        <div id="panel1" role="tabpanel" span="sales" class="tw panel1 tab_content show">
                                                             <div class="table_wrap lg">
                                                                 <table>
                                                                     <caption>
@@ -289,9 +289,9 @@
                                                                     </tbody>
                                                                 </table>
                                                             </div>
-                                                            <a class="btn outlinegrey full medium" style="color: rgba(34,34,34,.8);" onclick="conPopup()">체결 내역 더보기</a>
+                                                            <a class="plusbtn btn outlinegrey full medium">체결 내역 더보기</a>
                                                         </div>
-                                                        <div id="panel2" role="tabpanel" span="asks" class="tab_content">
+                                                        <div id="panel2" role="tabpanel" span="asks" class="tw tab_content">
                                                             <div class="table_wrap lg">
                                                                 <table>
                                                                     <caption>
@@ -338,9 +338,9 @@
                                                                     </tbody>
                                                                 </table>
                                                             </div>
-                                                            <a class="btn outlinegrey full medium">입찰 내역 더보기</a>
+                                                            <a class="plusbtn btn outlinegrey full medium">판매 입찰 내역 더보기</a>
                                                         </div>
-                                                        <div id="panel3" role="tabpanel" span="bids" class="tab_content">
+                                                        <div id="panel3" role="tabpanel" span="bids" class="tw tab_content">
                                                             <div class="table_wrap lg">
                                                                 <table>
                                                                     <caption>
@@ -387,7 +387,7 @@
                                                                     </tbody>
                                                                 </table>
                                                             </div>
-                                                            <a class="btn outlinegrey full medium">입찰 내역 더보기</a>
+                                                            <a class="plusbtn btn outlinegrey full medium">구매 입찰 내역 더보기</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -706,17 +706,17 @@
                                                     <div class="tab_info">
                                                         <div class="tab_area" id="user_conclusion">
                                                             <ul role="tablist" class="tab_list">
-                                                                <li role="tab" aria-selected="true" aria-controls="panel1" class="conclusion item on">
+                                                                <li id="plus1" role="tab" aria-selected="true" aria-controls="panel1" class="plus conclusion item on">
                                                                     <a class="item_link">체결 거래</a>
                                                                 </li>
-                                                                <li role="tab" aria-selected="false" aria-controls="panel2" class="conclusion item">
+                                                                <li id="plus2" role="tab" aria-selected="false" aria-controls="panel2" class="plus conclusion item">
                                                                     <a class="item_link">판매 입찰</a>
                                                                 </li>
-                                                                <li role="tab" aria-selected="false" aria-controls="panel3" class="conclusion item">
+                                                                <li id="plus3" role="tab" aria-selected="false" aria-controls="panel3" class="plus conclusion item">
                                                                     <a class="item_link">구매 입찰</a>
                                                                 </li>
                                                             </ul>
-                                                            <div id="panel1" role="tabpanel" class="tab_content show" span="sales">
+                                                            <div id="panel11" role="tabpanel" class="tcl tab_content show" span="sales">
                                                                 <div class="price_table">
                                                                     <div class="market_price_table" style="">
                                                                         <div class="price_head">
@@ -739,7 +739,7 @@
                                                                     <!---->
                                                                 </div>
                                                             </div>
-                                                            <div id="panel2" role="tabpanel" class="tab_content" span="asks">
+                                                            <div id="panel22" role="tabpanel" class="tcl tab_content" span="asks">
                                                                 <div class="price_table">
                                                                     <div class="market_price_table" style="display: none;">
                                                                         <div class="price_head">
@@ -749,7 +749,15 @@
                                                                                 <div class="head_sort"><a href="#" class="sort_link"><span class="sort_txt">수량</span></a></div>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="price_body"></div>
+                                                                        <div class="sell_price_body">
+                                                                            <div class="price_body">
+                                                                                <div class="body_list">
+                                                                                    <div class="list_txt size">270</div>
+                                                                                    <div class="list_txt price">218,000원</div>
+                                                                                    <div class="list_txt is_active createdAt"><time>22/12/31</time></div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
                                                                     <div class="empty_content lg" style="display: none;">
                                                                         <div class="empty_bg"><span class="blind">빈 데이터 이미지</span></div>
@@ -757,7 +765,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div id="panel3" role="tabpanel" class="tab_content" span="bids">
+                                                            <div id="panel33" role="tabpanel" class="tcl tab_content" span="bids">
                                                                 <div class="price_table">
                                                                     <div class="market_price_table" style="display: none;">
                                                                         <div class="price_head">
@@ -767,7 +775,15 @@
                                                                                 <div class="head_sort"><a href="#" class="sort_link"><span class="sort_txt">수량</span></a></div>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="price_body"></div>
+                                                                        <div class="buy_price_body">
+                                                                            <div class="price_body">
+                                                                                <div class="body_list">
+                                                                                    <div class="list_txt size">270</div>
+                                                                                    <div class="list_txt price">218,000원</div>
+                                                                                    <div class="list_txt is_active createdAt"><time>22/12/31</time></div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
                                                                     <div class="empty_content lg" style="display: none;">
                                                                         <div class="empty_bg"><span class="blind">빈 데이터 이미지</span></div>

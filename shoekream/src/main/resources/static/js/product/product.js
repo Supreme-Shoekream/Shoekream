@@ -18,7 +18,6 @@ window.addEventListener('scroll', function () {
 // 시세 - 개월 버튼
 const dates = document.querySelectorAll(".tab_list .date");
 const tces = document.querySelectorAll(".tc");
-console.log(tces);
 //배열로 저장되기 때문에 forEach로 하나씩 이벤트를 등록해준다.
 dates.forEach((date) => {
     date.addEventListener('click', () => {
@@ -65,23 +64,89 @@ dates.forEach((date) => {
 
 
 
-
-
-
-
 // ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
 // 시세 - 체결내역
 const conclusiones = document.querySelectorAll(".tab_list .conclusion");
+const twes = document.querySelectorAll(".tw");
+const tcl = document.querySelectorAll(".tcl");
 conclusiones.forEach((conclusion) => {
     conclusion.addEventListener("click", () => {
         conclusiones.forEach((e) => {
             e.classList.remove("on");
             e.setAttribute("aria-selected", "false");
         });
+        twes.forEach((e) => {
+            e.classList.remove("show");
+        });
+        tcl.forEach((e) => {
+            e.classList.remove("show");
+        });
+
         conclusion.classList.add("on");
         conclusion.setAttribute("aria-selected", "true");
+
+        let con = conclusion.childNodes[1].innerHTML;
+        console.log(con);
+        switch (con){
+            case "체결 거래":
+                document.getElementById("panel1").classList.add("show");
+                document.getElementById("panel11").classList.add("show");
+                break;
+            case "판매 입찰":
+                document.getElementById("panel2").classList.add("show");
+                document.getElementById("panel22").classList.add("show");
+                break;
+            case "구매 입찰":
+                document.getElementById("panel3").classList.add("show");
+                document.getElementById("panel33").classList.add("show");
+                break;
+        }
     });
 });
+
+// ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+// 체결 내역 더보기 - 열고닫기
+const plusList = document.querySelectorAll(".plus");
+const plustbtn = document.querySelectorAll(".plusbtn");
+plustbtn.forEach((pb) => {
+    pb.addEventListener("click", () => {
+        const layer = document.querySelector(".layer_market_price");
+        layer.style.display = "block";
+        const body = document.querySelector("body");
+        body.style.overflow = "hidden";
+
+        plusList.forEach((e) => {
+            e.classList.remove("on");
+        });
+
+        let plus = pb.innerHTML;
+        switch (plus){
+            case "체결 내역 더보기":
+                document.getElementById("plus1").classList.add("on");
+                // document.getElementById("panel11").classList.add("show");
+                break;
+            case "판매 입찰 내역 더보기":
+                document.getElementById("plus2").classList.add("on");
+                // document.getElementById("panel22").classList.add("show");
+                break;
+            case "구매 입찰 내역 더보기":
+                document.getElementById("plus3").classList.add("on");
+                // document.getElementById("panel33").classList.add("show");
+                break;
+            }
+        });
+    });
+
+
+
+
+function conPopdown() {
+    const layer = document.querySelector(".layer_market_price");
+    layer.style.display = "none";
+
+    const body = document.querySelector("body");
+    body.style.overflow = "";
+}
 
 
 // ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
@@ -133,25 +198,6 @@ items.forEach((item) => {
         }
     });
 });
-
-
-// ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
-// 체결 내역 더보기 - 열고닫기
-function conPopup() {
-    const layer = document.querySelector(".layer_market_price");
-    layer.style.display = "block";
-
-    const body = document.querySelector("body");
-    body.style.overflow = "hidden";
-}
-
-function conPopdown() {
-    const layer = document.querySelector(".layer_market_price");
-    layer.style.display = "none";
-
-    const body = document.querySelector("body");
-    body.style.overflow = "";
-}
 
 
 // ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️

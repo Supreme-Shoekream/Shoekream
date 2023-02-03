@@ -24,8 +24,10 @@ import javax.persistence.EntityNotFoundException;
 
 import java.text.DecimalFormat;
 import java.time.LocalDateTime;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import static java.time.LocalDateTime.now;
 
@@ -206,6 +208,15 @@ public class BuyService {
                     .map(Header::OK)
                     .orElseGet(()->Header.ERROR("데이터 없음"));
         }
+    }
+
+    public List<BuyDTO> buyList(Long productIdx){
+        Buy buy = buyRepository.findById(productIdx).get();
+        if(buy.getIdx() == null){
+            return null;
+        }
+        return buyRepository.findAllByProductOrderByCreatedAtDesc(buy).stream()
+                .map(BuyDTO::fromEntity).collect(Collectors.toCollection(LinkedList::new));
     }
 
 
