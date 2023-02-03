@@ -17,7 +17,8 @@ public interface BuyRepository extends JpaRepository<Buy,Long> {
     // 한 사용자가 구입한 내역
     List<Buy> findTop3ByMember(Member member);
     Page<Buy> findByMemberAndStatus(Member member, OrderStatus status, Pageable pageable); //입찰/진행중/종료
-
+    //기간 추가
+    Page<Buy> findByMemberAndStatusAndCreatedAtAfter(Member member, OrderStatus status,LocalDateTime localDateTime, Pageable pageable);
     // 마이페이지 매인 구매 summary
     List<Buy> findByMemberAndStatus(Member member, OrderStatus status); //입찰/진행중/종료
     // 한 제품에 한해서 즉시판매가에 들어갈 구매입찰로 올려놓은 가격중 가장 큰 제품 = 즉시판매가

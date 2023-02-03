@@ -3,7 +3,15 @@
     <attr sel="#bindCount" th:text="${bidCount}"/>
     <attr sel="#continueCount" th:text="${proCount}"/>
     <attr sel="#endCount" th:text="${endCount}"/>
-
+    <attr sel=".month_list">
+        <attr sel="li[0]" th:classappend="${param.month} != null?(${param.month.toString}=='2' ? 'is_active':''):''"/>
+        <attr sel="li[1]" th:classappend="${param.month} != null?(${param.month.toString}=='4' ? 'is_active':''):''"/>
+        <attr sel="li[2]" th:classappend="${param.month} != null?(${param.month.toString}=='6' ? 'is_active':''):''"/>
+    </attr>
+    <attr sel=".period_calendar">
+        <attr sel="#datepicker1" th:value="${param.month} != null?(${#temporals.format( before, 'yyyy-MM-dd')}):_"/>
+        <attr sel="#datepicker2" th:value="${param.month} != null?(${#temporals.format( today, 'yyyy-MM-dd')}):_"/>
+    </attr>
     <attr sel=".head_status">
         <attr sel="#wish_price">
             <attr sel="a" th:text="'구매 희망가'" th:href="@{/my/buying(page=${biddings.number},
