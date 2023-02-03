@@ -19,8 +19,7 @@ public record MemberApiRequest(
         String email,
         String shoeSize,
         String accNumber,
-        String bank,
-        KreamPrincipal.RoleType roletype
+        String bank
 ) {
 
     public MemberDTO toDTO(){
@@ -32,8 +31,7 @@ public record MemberApiRequest(
                 email,
                 shoeSize,
                 bank,
-                accNumber,
-                roletype
+                accNumber
         );
     }
 }

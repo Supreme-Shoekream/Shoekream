@@ -1,0 +1,54 @@
+<link rel="stylesheet" href="/src/styles/layer.css">
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="admin_view" class="layer_admin_view layer lg" style="display: none; ">
+    <div class="layer_container" style="height: auto">
+        <a onclick="close_admin_view()" class="btn_layer_close">
+            <div>
+                <img src="/img/close_white.png">
+            </div>
+        </a>
+        <div class="layer_header">
+            <h2 class="title"> 관리자 수정페이지 </h2>
+        </div>
+        <div class="layer_content">
+        <div class="bottom">
+            <div class="user_bind">
+                <div class="user_input">
+                    <div class="input_box" id="id_input_box">
+                        <h4 class="input_title">관리자 아이디</h4>
+                        <div class="input_item">
+                            <p class="adminid">sample</p>
+                        </div>
+                    </div>
+                    <div class="input_box" id="password_input_box">
+                        <h4 class="input_title">관리자 비밀번호</h4>
+                        <div class="input_item">
+                            <p class="status">sample</p>
+                        </div>
+                    </div>
+                    <div class="input_box" id="name_input_box">
+                        <h4 class="input_title">관리자 이름</h4>
+                        <div class="input_item">
+                        <p class="name">sample</p>
+                        </div>
+                    </div>
+                    <div class="input_box" id="hp_input_box">
+                        <h4 class="input_title">관리자 전화번호</h4>
+                        <div class="input_item">
+                        <p class="hp">sample</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="layer_btn">
+            <a href="#" class="btn outlinegrey medium" onclick="close_admin_view()"> 취소 </a>
+        </div>
+        </div>
+    </div>
+</div>
+</div>
+</html>

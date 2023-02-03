@@ -41,6 +41,7 @@ public class QMember extends EntityPathBase<Member> {
 
     public final StringPath profileMemo = createString("profileMemo");
 
+
     public final EnumPath<com.supreme.shoekream.model.network.security.KreamPrincipal.RoleType> roleType = createEnum("roleType", com.supreme.shoekream.model.network.security.KreamPrincipal.RoleType.class);
 
     public final StringPath shoeSize = createString("shoeSize");

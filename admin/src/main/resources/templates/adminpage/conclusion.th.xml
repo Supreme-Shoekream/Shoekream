@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<thlogic>
+    <attr sel="#admin_conclusion">
+        <attr sel="tbody" th:remove="all-but-first">
+            <attr sel="tr[0]" th:each="list : ${list}">
+                <attr sel="td.con_idx" th:text="${list.idx}"/>
+                <attr sel="td.con_img/img" th:src="${list.product.img}"/>
+                <attr sel="td.con_pro_idx" th:text="${list.product.idx}"/>
+                <attr sel="td.con_modelNum" th:text="${list.product.modelNum}"/>
+                <attr sel="td.con_name" th:text="${list.product.name}"/>
+                <attr sel="td.con_size" th:text="${list.product.size}"/>
+<!--                <attr sel="td.con_buyer" th:text="${list.buy}"/>-->
+<!--                <attr sel="td.con_seller" th:text="${list.sell}"/>-->
+                <attr sel="td.con_price" th:text="${list.price}"/>
+                <attr sel="td.con_createdAt/time" th:datetime="${list.createdAt}" th:text="${#temporals.format(list.createdAt, 'yy/MM/dd')}"/>
+            </attr>
+        </attr>
+    </attr>
+</thlogic>
