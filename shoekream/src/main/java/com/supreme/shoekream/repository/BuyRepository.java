@@ -1,6 +1,7 @@
 package com.supreme.shoekream.repository;
 
 import com.supreme.shoekream.model.entity.Buy;
+import com.supreme.shoekream.model.entity.Conclusion;
 import com.supreme.shoekream.model.entity.Member;
 import com.supreme.shoekream.model.entity.Product;
 import com.supreme.shoekream.model.enumclass.OrderStatus;
@@ -40,7 +41,7 @@ public interface BuyRepository extends JpaRepository<Buy,Long> {
     List<Buy> findByCreatedAtAfter(LocalDateTime createdAt);
 
 
-
+    List<Buy> findAllByProductOrderByCreatedAtDesc(Buy buy);
 
 
 }
