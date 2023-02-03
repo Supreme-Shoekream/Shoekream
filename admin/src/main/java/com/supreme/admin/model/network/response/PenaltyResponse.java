@@ -22,11 +22,11 @@ public record PenaltyResponse(
         String productSize,
         String productModelNum,
         String productReleaseDate,
-        String productFirstPrice,
+        Long productFirstPrice,
         LocalDateTime createdAt
 ) {
     public static PenaltyResponse of(Long idx, String reason, Long memberIdx, String memberName, String memberHp, String memberEmail, String memberStatus,
-                                     Long productIdx, String productName, String productNameKor, String productSize, String productModelNum, String productReleaseDate, String productFirstPrice, LocalDateTime createdAt) {
+                                     Long productIdx, String productName, String productNameKor, String productSize, String productModelNum, String productReleaseDate, Long productFirstPrice, LocalDateTime createdAt) {
         return new PenaltyResponse(idx, reason, memberIdx, memberName, memberHp, memberEmail, memberStatus, productIdx, productName, productNameKor,
                 productSize, productModelNum, productReleaseDate, productFirstPrice, createdAt);
     }
