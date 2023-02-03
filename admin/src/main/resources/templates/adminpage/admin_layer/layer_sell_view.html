@@ -1,0 +1,140 @@
+<link rel="stylesheet" href="/src/styles/layer.css">
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="sell_view" class="layer_sell_view layer lg" style="display: none">
+    <div class="layer_container">
+        <a href="#" class="btn_layer_close" onclick="close_sell_view()">
+            <div>
+                <img src="/img/close_white.png">
+            </div>
+        </a>
+        <div class="layer_header">
+            <h2 class="title"> 판매내역 상세 페이지 </h2>
+        </div>
+        <div class="layer_content">
+        <div class="top">
+            <div class="user_bind">
+                <div class="user_input">
+                    <div class="input_box ">
+                        <h4 class="input_title">상품코드</h4>
+                        <div class="input_item">
+                            <p class="productIdx">B10538</p>
+                        </div>
+                    </div>
+                    <div class="input_box">
+                        <h4 class="input_title">주문번호</h4>
+                        <div class="input_item">
+                            <p class="idx">56365-52312</p>
+                        </div>
+                    </div>
+                    <div class="input_box">
+                        <h4 class="input_title">상품명</h4>
+                        <div class="input_item">
+                            <p class="productName">피그먼트 스웨트 셔츠</p>
+                        </div>
+                    </div>
+                    <div class="input_box">
+                        <h4 class="input_title">가격</h4>
+                        <div class="input_item">
+                            <p class="price">300,000원</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="user_bind img">
+                <img class="productImg" src="/admin/src/images/admin_example_product.png">
+            </div>
+        </div>
+        <div class="center">
+            <div class="user_bind">
+                <div class="user_input">
+                    <div class="input_box">
+                        <h4 class="input_title">사이즈</h4>
+                        <div class="input_item">
+                            <p class="productSize">XL</p>
+                        </div>
+                    </div>
+                    <div class="input_box">
+                        <h4 class="input_title">구매자(ID)</h4>
+                        <div class="input_item">
+                            <p class="name">김사과(apple)</p>
+                        </div>
+                    </div>
+                    <div class="input_box ">
+                        <h4 class="input_title">판매 유형</h4>
+                        <div class="input_item">
+                            <p class="type">즉시 판매</p>
+                        </div>
+                    </div>
+                    <div class="input_box">
+                        <h4 class="input_title">등록 날짜</h4>
+                        <div class="input_item">
+                            <p class="createdAt">2022-12-16</p>
+                        </div>
+                    </div>
+                    <div class="input_box">
+                        <h4 class="input_title">보증금</h4>
+                        <div class="input_item">
+                            <p class="fees">30,000원</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="user_bind">
+                <div class="user_input">
+                    <div class="input_box">
+                        <h4 class="input_title">입찰 마감기한</h4>
+                        <div class="input_item">
+                            <p class="period">30일</p>
+                        </div>
+                    </div>
+                    <div class="input_box">
+                        <h4 class="input_title">판매자(ID)</h4>
+                        <div class="input_item">
+                            <p class="sender">이메론(melon)</p>
+                        </div>
+                    </div>
+                    <div class="input_box">
+                        <h4 class="input_title">배송 상태</h4>
+                        <div class="input_item">
+                            <p class="progress_classA">배송 완료</p>
+                        </div>
+                    </div>
+<!--                    <div class="input_box">-->
+<!--                        <h4 class="input_title">배송 날짜</h4>-->
+<!--                        <div class="input_item">-->
+<!--                            <p class="dDay">2022-12-18</p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+                    <div class="input_box ">
+                        <h4 class="input_title">판매 상태</h4>
+                        <div class="input_item">
+                            <p class="status">종료</p>
+                        </div>
+                    </div>
+                    <div class="input_box">
+                        <h4 class="input_title">정산액</h4>
+                        <div class="input_item">
+                            <p class="totalPrice">330,000원</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="user_bind">
+                <div class="user_input">
+                    <div class="input_box">
+                        <h4 class="input_title">계좌 번호</h4>
+                        <div class="input_item">
+                            <p class="account_idx">우리 1002-123-456789</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="layer_btn">
+            <a href="#" class="btn btn_save solid medium" onclick="close_sell_view()">확인</a>
+        </div>
+        </div>
+    </div>
+</div>
