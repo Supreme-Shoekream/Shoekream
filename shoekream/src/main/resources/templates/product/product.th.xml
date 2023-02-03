@@ -33,7 +33,7 @@
         <attr sel="dd.modelNum" th:text="*{modelNum}"/>
         <attr sel="dd.releaseDate" th:text="*{releaseDate}"/>
         <attr sel="dd.color" th:text="*{color}"/>
-        <attr sel="dd.firstPrice" th:text="*{firstPrice}"/>
+        <attr sel="dd.firstPrice" th:text="${#numbers.formatInteger(product.data.firstPrice, 0, 'COMMA')} + '원'"/>
     </attr>
     <!-- 스크롤시 상단바 고정 -->
     <attr sel=".floating_price" th:object ="${product.data}">
