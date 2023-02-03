@@ -17,7 +17,8 @@ window.addEventListener('scroll', function () {
 // ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
 // 시세 - 개월 버튼
 const dates = document.querySelectorAll(".tab_list .date");
-// console.log(items);
+const tces = document.querySelectorAll(".tc");
+console.log(tces);
 //배열로 저장되기 때문에 forEach로 하나씩 이벤트를 등록해준다.
 dates.forEach((date) => {
     date.addEventListener('click', () => {
@@ -25,13 +26,47 @@ dates.forEach((date) => {
             //하나만 선택되도록 기존의 효과를 지워준다.
             e.classList.remove('on');
             e.setAttribute('aria-selected', 'false');
-        })
+        });
+        tces.forEach((e)=>{
+            e.setAttribute("width", "0");
+            e.setAttribute("height", "0");
+        });
 
         // 선택한 그 아이만 효과를 추가해준다.
         date.classList.add('on');
         date.setAttribute('aria-selected', 'true');
+
+        let month = date.childNodes[1].innerHTML;
+        // console.log(months);
+        switch (month){
+            case "1개월":
+                document.getElementById("graph1m").setAttribute("width", "560");
+                document.getElementById("graph1m").setAttribute("height", "200");
+                break;
+            case "3개월":
+                document.getElementById("graph3m").setAttribute("width", "560");
+                document.getElementById("graph3m").setAttribute("height", "200");
+                break;
+            case "6개월":
+                document.getElementById("graph6m").setAttribute("width", "560");
+                document.getElementById("graph6m").setAttribute("height", "200");
+                break;
+            case "1년":
+                document.getElementById("graph1y").setAttribute("width", "560");
+                document.getElementById("graph1y").setAttribute("height", "200");
+                break;
+            case "전체":
+                document.getElementById("graphall").setAttribute("width", "560");
+                document.getElementById("graphall").setAttribute("height", "200");
+                break;
+        }
     })
 });
+
+
+
+
+
 
 
 // ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
