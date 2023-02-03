@@ -11,7 +11,6 @@ import com.supreme.shoekream.model.enumclass.OrderStatus;
 
 import com.supreme.shoekream.model.network.Header;
 import com.supreme.shoekream.model.network.response.BuyResponse;
-import com.supreme.shoekream.model.network.response.ProductApiResponse;
 import com.supreme.shoekream.model.network.response.SellResponse;
 import com.supreme.shoekream.model.network.response.WishApiResponse;
 import com.supreme.shoekream.model.network.security.KreamPrincipal;
@@ -49,8 +48,34 @@ public class MypageController {
     @Autowired WishApiLogicService wishApiLogicService;
     @Autowired PointApiLogicService pointApiLogicService;
 
+//    @GetMapping(path="")
+//    public ModelAndView mypage(){
+//        return new ModelAndView("/my/mypage");
+//    }
+
     @GetMapping(path="")
-    public String mypage(){
+    public String mypage(ModelMap modelmap, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        if(kreamPrincipal == null){
+            return "login/login";
+        }
+        MemberDTO memberDTO = kreamPrincipal.toFullDto();
+        List<BuyResponse> buyDisplay = buyService. myBuyList(memberDTO.idx()).stream().map(BuyResponse::from).toList();
+        List<SellResponse> sellDisplay = sellService. mysellList(memberDTO.idx()).stream().map(SellResponse::from).toList();
+        List<BuyResponse> biddings = buyService. myPageBuyListByStatus(memberDTO.idx(), OrderStatus.BIDDING).stream().map(BuyResponse::from).toList();
+        List<BuyResponse> progressings = buyService. myPageBuyListByStatus(memberDTO.idx(), OrderStatus.PROGRESSING).stream().map(BuyResponse::from).toList();
+        List<BuyResponse> ends = buyService. myPageBuyListByStatus(memberDTO.idx(), OrderStatus.END).stream().map(BuyResponse::from).toList();
+        List<SellResponse> biddingsSell = sellService. myPageSellListByStatus(memberDTO.idx(), OrderStatus.BIDDING).stream().map(SellResponse::from).toList();
+        List<SellResponse> progressingsSell = sellService. myPageSellListByStatus(memberDTO.idx(), OrderStatus.PROGRESSING).stream().map(SellResponse::from).toList();
+        List<SellResponse> endsSell = sellService. myPageSellListByStatus(memberDTO.idx(), OrderStatus.END).stream().map(SellResponse::from).toList();
+        modelmap.addAttribute("buyDisplay", buyDisplay);
+        modelmap.addAttribute("sellDisplay", sellDisplay);
+        modelmap.addAttribute("member", memberApiLogicService.list(memberDTO.idx()));
+        modelmap.addAttribute("bidCount",biddings.stream().toList().size());
+        modelmap.addAttribute("proCount",progressings.stream().toList().size());
+        modelmap.addAttribute("endCount",ends.stream().toList().size());
+        modelmap.addAttribute("bidCountSell",biddingsSell.stream().toList().size());
+        modelmap.addAttribute("proCountSell",progressingsSell.stream().toList().size());
+        modelmap.addAttribute("endCountSell",endsSell.stream().toList().size());
         return "/my/mypage";
     }
 

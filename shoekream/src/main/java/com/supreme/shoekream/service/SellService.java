@@ -39,13 +39,13 @@ public class SellService {
     private final ProductRepository productRepository;
     private final ConclusionRepository conclusionRepository;
 
-    //사용자이메일로 검색 or 상품이름으로 검색
+    //판매자로 검색
     @Transactional(readOnly = true)
     public Page<SellDTO> searchSell(String searchKeyword, Pageable pageable){
         if(searchKeyword == null || searchKeyword.isBlank()){
             return sellRepository.findAll(pageable).map(SellDTO::fromEntity);
         }
-        return null;
+        return sellRepository.findBySender(searchKeyword, pageable).map(SellDTO::fromEntity);
     }
 
     //관리자페이지/사용자페이지 detail
@@ -58,9 +58,9 @@ public class SellService {
 
     //사용자페이지 전체
     @Transactional(readOnly = true)
-    public List<SellDTO> myselllist(Long memberIdx){
+    public List<SellDTO> mysellList(Long memberIdx){
         Member member = memberRepository.findById(memberIdx).get();
-        return sellRepository.findByMember(member)
+        return sellRepository.findTop3ByMember(member)
                 .stream().map(SellDTO::fromEntity).toList();
     }
 
@@ -69,6 +69,13 @@ public class SellService {
         Member member = memberRepository.findById(memberIdx).get();
         return sellRepository.findByMemberAndStatus(member, orderStatus, pageable)
                 .map(SellDTO::fromEntity);
+    }
+
+    @Transactional(readOnly = true)
+    public List<SellDTO> myPageSellListByStatus(Long memberIdx, OrderStatus orderStatus){
+        Member member = memberRepository.findById(memberIdx).get();
+        return sellRepository.findByMemberAndStatus(member, orderStatus)
+                .stream().map(SellDTO::fromEntity).toList();
     }
 
     @Transactional(readOnly = true)

@@ -1,5 +1,6 @@
 package com.supreme.shoekream.service;
 
+import com.supreme.shoekream.model.dto.ProductDTO;
 import com.supreme.shoekream.model.dto.WishDTO;
 import com.supreme.shoekream.model.entity.Member;
 import com.supreme.shoekream.model.entity.Product;
@@ -22,6 +23,8 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -57,6 +60,14 @@ public class ProductApiLogicService {
                 .map(product-> response(product))
                 .map(Header::OK).orElseGet(() -> Header.ERROR("상품 없음!"));
     }
+
+
+    public List<Product> brandOtherProduct(String brandName){
+        List<Product> products = productRepository.findBrandByBrand(brandName).stream().map(ProductDTO::fromEntity2).collect(Collectors.toCollection(LinkedList::new));
+        Collections.shuffle(products); // 랜덤한 값 추출하게 만듦
+        return products;
+    }
+
 
     public Header<List<ProductApiResponse>> searchKeyword(String keyword, Pageable pageable){
         Page<Product> products = productRepository.findByBrandContainingOrNameKorContaining(keyword , keyword, pageable);

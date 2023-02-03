@@ -95,6 +95,9 @@ window.onload = function(){
                                 `
                     }
                     document.getElementById('masonry_posts').innerHTML = feedList;
+                    document.querySelector('.footer').style.position= 'absolute';
+                    document.querySelector('.footer').style.width= '100%';
+                    document.querySelector('.footer').style.top= (Math.floor(((dat.length)/4)+1)*465+300)+'px';
                     // }
                 })
                 .catch((err)=>{

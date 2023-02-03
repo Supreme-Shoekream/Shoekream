@@ -65,7 +65,7 @@ public class BuyService {
     public List<BuyDTO> myBuyList(Long memberIdx){
         Member member = memberRepository.findById(memberIdx).get();
 //        System.out.println(buyRepository.findByMember(member));
-        return buyRepository.findByMember(member)
+        return buyRepository.findTop3ByMember(member)
                 .stream().map(BuyDTO::fromEntity).toList();
     }
 
@@ -75,6 +75,13 @@ public class BuyService {
         Member member = memberRepository.findById(memberIdx).get();
         return buyRepository.findByMemberAndStatus(member, orderStatus, pageable)
                 .map(BuyDTO::fromEntity);
+    }
+
+    @Transactional(readOnly = true)
+    public List<BuyDTO> myPageBuyListByStatus(Long memberIdx, OrderStatus orderStatus){
+        Member member = memberRepository.findById(memberIdx).get();
+        return buyRepository.findByMemberAndStatus(member, orderStatus)
+                .stream().map(BuyDTO::fromEntity).toList();
     }
 
     @Transactional(readOnly = true)

@@ -89,9 +89,15 @@ function styleBoardSend(){
     const content = document.getElementById("content_input").value; // 게시글 내용
     const hashtag = document.getElementById("hashtag_input").value; // 해시태그 내용
     const img2 = document.getElementById("previewImage").src; // 게시글 사진
-        const img = img2.replaceAll("http://localhost:8889", "");
-    // const hashtag = document.getElementById("brand").value; // 해시태그
-    // const tag = document.getElementById("brand").value; // 상품 태그
+    const img = img2.replaceAll("http://localhost:8889", "");
+    let tags = document.getElementById('selected_product_list').childNodes; // 상품 태그
+    let tagIds = '';// 상품태그들의 productIdx 목록. ','로 구분해 보낸 뒤 split해서 사용함
+
+    for(let i=0;i<tags.length;i++){
+        tagIds += (tags[i].id+',')
+    }
+
+    console.log(tagIds)
 
     if(img === ""){
         alert("게시글 이미지를 넣어주세요");
@@ -109,8 +115,8 @@ function styleBoardSend(){
             "data":{
                 "content":`${content}`,
                 "img":`${img}`,
-                "hashtag":`${hashtag}`
-                // "tag":`${tag}`
+                "hashtag":`${hashtag}`,
+                "tag":`${tagIds}`
             }
         }),
     })
@@ -132,37 +138,78 @@ function styleBoardSend(){
 
 
 
-// onintut
+// oninput
+// let bef_timeout;
 function search(){
-    const lists=document.getElementById('lists');
-    lists.style.display='block';
+    // const lists=document.getElementById('lists');
+    // lists.style.display='block';
 
+
+    let txt = document.querySelector('.tag_search').value.trim();
+    if(txt){
+        clearTimeout(bef_timeout);
+        bef_timeout = setTimeout(show_tag_search_layer, 500, txt);
+    }else reset_tag_search();
+
+}
+
+async function show_tag_search_layer(keyword){
+    console.log(keyword);
+    return new Promise(async function(resolve, reject){
+        const result = await fetch(`/api/shop/searchWord?keyword=${keyword}`).then((response)=>response.json());
+        const res = result.data;
+        console.log(res);
+
+        let tagList = '';
+        for(let i=0;i<res.length;i++){
+            tagList +=`<li class="product_item" id="before ${res[i].idx}" onclick="tagThis(this)"><a
+                     class="product_link">
+                     <div  class="product" style="background-color: rgb(244, 244, 244);">
+                       <picture class="picture product_img">
+                         <source type="image/webp"
+                           srcset="">
+                         <source
+                           srcset="">
+                         <img alt="Arc'teryx Zeta SL Jacket Black"
+                           src="${res[i].img}"
+                           loading="lazy" class="image">
+                       </picture>
+                     </div>
+                     <div  class="product_desc">
+                       <p  class="product_name">${res[i].name}</p>
+                       <div  class="price_box"><span
+                           class="amount">${res[i].firstPrice}</span><span  class="unit">원</span></div>
+                     </div>
+                   </a></li>`
+        }
+
+        document.getElementById('search_tag_list').innerHTML = tagList;
+        document.getElementById('lists').style.display = 'block';
+    })
 }
 
 function isNull(input){
-    const lists = document.getElementById('lists');
-    if(input.value==""){
+    let lists = document.getElementById('lists');
+
+    if(input.value=="" || input.value==" "){
         lists.style.display='none';
+        document.getElementById('search_tag_list').innerHTML = "";
     }
+}
+function reset_tag_search(){
+    document.getElementById('lists').style.display='none';
+    document.getElementById('.search_tag_list').innerHTML='';
 }
 
 
-// 선택된 태그 추가
-// $('li.product_item').click(function(e){
-//     e.preventDefault();
-// });
+function tagThis(th){
+    const productIdx = Number(th.id.split(' ')[1].trim());
+    let inner = `<li class="product_item" id="${productIdx}" onclick="removeTag(this)">`
+        +th.innerHTML + `</li>`
+    document.getElementById('selected_product_list').innerHTML =  document.getElementById('selected_product_list').innerHTML+ inner;
+}
 
-const items = document.querySelectorAll(".product_item");
-    //배열로 저장되기 때문에 forEach로 하나씩 이벤트를 등록해준다.
-    items.forEach((item)=>{
-
-
-        item.addEventListener('click',()=>{
-            // const ch=item.childNodes;
-
-            console.log(item);
-            const parent = document.getElementById('selected_product_list');
-            parent.appendChild(item);
-            
-        })
-    })
+function removeTag(th){
+    let list = document.getElementById('selected_product_list');
+    list.removeChild(th)
+}

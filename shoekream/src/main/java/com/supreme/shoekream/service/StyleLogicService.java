@@ -21,9 +21,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 
 @Service
@@ -423,13 +421,37 @@ public List<FollowDTO> countFollowers(Long memberIdx){//내가 팔로우하고 �
 
     public BoardStyleApiResponse create(Header<BoardStyleApiRequest> request, MemberDTO memberDTO){
         BoardStyleApiRequest boardStyleApiRequest = request.getData();
-        Board board = Board.builder()
-                .content(boardStyleApiRequest.content())
-                .img(boardStyleApiRequest.img())
-                .member(memberDTO.toEntity())
-                .hashtag(boardStyleApiRequest.hashtag())
-                .build();
-        Board newBoard = boardRepository.save(board);
+        Board newBoard;
+        if((boardStyleApiRequest.hashtag() == null) || (boardStyleApiRequest.hashtag()=="")){
+            Board board = Board.builder()
+                    .content(boardStyleApiRequest.content())
+                    .img(boardStyleApiRequest.img())
+                    .member(memberDTO.toEntity())
+                    .build();
+            newBoard = boardRepository.save(board);
+        }else{
+            Board board = Board.builder()
+                    .content(boardStyleApiRequest.content())
+                    .img(boardStyleApiRequest.img())
+                    .member(memberDTO.toEntity())
+                    .hashtag(boardStyleApiRequest.hashtag())
+                    .build();
+            newBoard = boardRepository.save(board);
+        }
+        if(boardStyleApiRequest.tag() != null && boardStyleApiRequest.tag()!=""){
+            List<String> tagString = Arrays.stream(boardStyleApiRequest.tag().split(",")).toList();
+            List<Long> tags = new ArrayList<>();
+            for(int i=0;i<tagString.size();i++){
+                tags.add(Long.parseLong(tagString.get(i)));
+            }
+            for(int i=0;i<tags.size();i++){
+                Tag tag = Tag.builder()
+                        .product(productRepository.getReferenceById(tags.get(i)))
+                        .board(newBoard)
+                        .build();
+                Tag newTag = tagRepository.save(tag);
+            }
+        }
         return null;
     }
 }

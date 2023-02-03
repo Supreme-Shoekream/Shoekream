@@ -142,7 +142,7 @@ public class ShopApiLogicService extends BaseService<ProductApiRequest, ProductA
     public Page<ProductDTO> searchsProduct(String size, String brand, String category, String collection,
                                            String gender, String keyword, Pageable pageable){
         if (size==null && brand==null && category==null && collection==null && gender==null && keyword==null ){
-            return productRepository.findBySize("230", pageable).map(ProductDTO::fromEntity);
+            return productRepository.findBySizeContaining(" ", pageable).map(ProductDTO::fromEntity);
         }
         if (size == null) size="";
         if (brand == null) brand="";

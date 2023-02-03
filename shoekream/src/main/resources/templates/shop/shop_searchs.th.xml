@@ -192,9 +192,7 @@
         </attr>
 
         <!-- 검색한 제품 상세페이지이동 -->
-        <attr sel=".suggest_list" th:text="${'/product/' + ${product.idx}}">
-            <attr sel=".suggest_item" th:text="@{product.name}"/>
-        </attr>
+
 
         <!--            <attr sel=".suggest_item" th:action="@{/product}" th:method="get"/>-->
         <!--            <attr sel=".suggest_item" th:text="@{product.name}"/> -->
