@@ -34,6 +34,8 @@ public interface ProductRepository extends JpaRepository<Product, Long>, Queryds
     List<Product> findAllByName(String name);
 
     Page<Product> findByBrand(String brand, Pageable pageable);
+    long countBy();
+    List<Product> findTop10ByOrderByWishCountDesc();
 }
 
 
