@@ -47,7 +47,9 @@ public class SellService {
         if(searchKeyword == null || searchKeyword.isBlank()){
             return sellRepository.findAll(pageable).map(SellDTO::fromEntity);
         }
-        return sellRepository.findBySender(searchKeyword, pageable).map(SellDTO::fromEntity);
+
+        return sellRepository.findBySenderContaining(searchKeyword, pageable).map(SellDTO::fromEntity);
+
     }
 
     //관리자페이지/사용자페이지 detail
