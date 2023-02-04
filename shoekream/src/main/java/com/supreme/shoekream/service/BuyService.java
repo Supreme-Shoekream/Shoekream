@@ -211,11 +211,11 @@ public class BuyService {
     }
 
     public List<BuyDTO> buyList(Long productIdx){
-        Buy buy = buyRepository.findById(productIdx).get();
-        if(buy.getIdx() == null){
+        Product product = productRepository.findById(productIdx).get();
+        if(product.getIdx() == null){
             return null;
         }
-        return buyRepository.findAllByProductOrderByCreatedAtDesc(buy).stream()
+        return buyRepository.findAllByProductOrderByCreatedAtDesc(product).stream()
                 .map(BuyDTO::fromEntity).collect(Collectors.toCollection(LinkedList::new));
     }
 
