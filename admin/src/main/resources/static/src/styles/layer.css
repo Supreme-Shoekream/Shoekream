@@ -134,6 +134,7 @@ input, textarea {
 
 .layer_btn .btn+.btn{
     margin-left: 8px;
+    color:white;
 }
 .outlinegrey {
     border: 1px solid #d3d3d3;

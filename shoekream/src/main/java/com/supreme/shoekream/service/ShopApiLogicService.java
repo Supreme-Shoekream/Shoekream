@@ -160,10 +160,12 @@ public class ShopApiLogicService extends BaseService<ProductApiRequest, ProductA
         Collections.sort(brands);
         return brands;
     }
-        @Transactional(readOnly = true)
+    @Transactional(readOnly = true)
     public Page<ProductDTO> brand(String brandName, Pageable pageable){
         return productRepository.findByBrand(brandName,pageable).map(ProductDTO::fromEntity);
 
     }
+
+
 }
 
