@@ -15,4 +15,21 @@
             </attr>
         </attr>
     </attr>
+
+    <!-- 페이지처리 -->
+    <attr sel=".pagination_box">
+        <attr sel=".prev_btn_box/a" th:href="@{/searchs(page=${products.number - 1},sort=${param.sort},size=${param.size},brand=${param.brand},
+            category=${param.category},collection=${param.collection},gender=${param.gender},keyword=${param.keyword})}"
+              th:style="(${products.number} <=0 ? 'display:none':'display:block')"/>
+        <attr sel=".page_bind" th:each="pageNumber : ${barNumbers}">
+            <attr sel="a" th:text="${pageNumber + 1}"
+                  th:href="@{/searchs(page=${pageNumber},sort=${param.sort},size=${param.size},brand=${param.brand},
+            category=${param.category},collection=${param.collection},gender=${param.gender},keyword=${param.keyword})}"
+                  th:class="'btn_page'+(${pageNumber}==${products.number}? ' active':'')"/>
+        </attr>
+        <attr sel=".next_btn_box/a" th:href="@{/searchs(page=${products.number + 1},sort=${param.sort},size=${param.size},brand=${param.brand},
+            category=${param.category},collection=${param.collection},gender=${param.gender},keyword=${param.keyword})}"
+              th:style="(${products.number} >= ${products.totalPages -1}  ? 'display:none':'display:block')"/>
+    </attr>
+
 </thlogic>

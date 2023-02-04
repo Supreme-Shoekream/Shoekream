@@ -43,6 +43,47 @@ let collection = searchParams.get('collection')
 let gender = searchParams.get('gender')
 let keyword = searchParams.get('keyword')
 
+
+let sort_str = ''
+let page_str =''
+let size_str= ''
+let brand_str = ''
+let category_str = ''
+let collection_str =''
+let gender_str = ''
+let keyword_str = ''
+
+// 주소창 정리
+function size_check(size){
+    if(size==null) return ''
+    return "&size="+size
+}
+
+function brand_check(brand){
+    if(brand==null) return ''
+    return "&brand="+brand
+}
+
+function collection_check(collection){
+    if(collection==null) return ''
+    return "&collection="+collection
+}
+
+function gender_check(gender){
+    if(gender==null) return ''
+    return "&gender="+gender
+}
+
+function keyword_check(keyword){
+    if(keyword==null) return ''
+    return "&keyword="+keyword
+}
+
+function category_check(category){
+    if(category==null) return ''
+    return "&category="+category
+}
+
 // 카테고리
 
 const category_menus = document.querySelectorAll('#category_filter .menu')
@@ -59,16 +100,21 @@ category_menus.forEach((tab)=>{
         })
     }
 })
+
 function category_reload(category_txt){
+
     if(sort==null) sort='idx'
     if(page==null) page=0
-    if(size==null) size=''
-    if(brand==null) brand=''
-    if(collection==null) collection=''
-    if(gender==null) gender=''
-    if(keyword==null) keyword=''
-    location.href="/searchs?sort="+sort+"&page="+page+"&size="+size+"&brand="+brand
-        +"&category="+category_txt+"&collection="+collection+"&gender="+gender+"&keyword="+keyword
+
+    size_str = size_check(size)
+    brand_str = brand_check(brand)
+    collection_str = collection_check(collection)
+    gender_str = gender_check(gender)
+    keyword_str = keyword_check(keyword)
+    category_str = category_check(category)
+
+    location.href="/searchs?sort="+sort+"&page="+page+size_str+brand_str
+        +"&category="+category_txt+collection_str+gender_str+keyword_str
 }
 
 // 브랜드
@@ -88,16 +134,21 @@ brand_menus.forEach((tab)=>{
     }
 })
 function brand_reload(brand_txt){
+
     if(sort==null) sort='idx'
     if(page==null) page=0
-    if(size==null) size=''
-    if(category==null) category=''
-    if(collection==null) collection=''
-    if(gender==null) gender=''
-    if(keyword==null) keyword=''
-    location.href="/searchs?sort="+sort+"&page="+page+"&size="+size+
-        "&brand="+brand_txt+"&category="+category+"&collection="+collection+"&gender="+gender+"&keyword="+keyword
+
+    size_str = size_check(size)
+    brand_str = brand_check(brand)
+    collection_str = collection_check(collection)
+    gender_str = gender_check(gender)
+    keyword_str = keyword_check(keyword)
+    category_str = category_check(category)
+
+    location.href="/searchs?sort="+sort+"&page="+page+size_str+"&brand="+brand_txt
+        +category_str+collection_str+gender_str+keyword_str
 }
+
 
 // 성별
 
@@ -116,15 +167,19 @@ gender_menus.forEach((tab)=>{
     }
 })
 function gender_reload(gender_txt){
+
     if(sort==null) sort='idx'
     if(page==null) page=0
-    if(size==null) size=''
-    if(category==null) category=''
-    if(collection==null) collection=''
-    if(gender==null) gender=''
-    if(keyword==null) keyword=''
-    location.href="/searchs?sort="+sort+"&page="+page+"&size="+size+
-        "&brand="+brand+"&category="+category+"&collection="+collection+"&gender="+gender_txt+"&keyword="+keyword
+
+    size_str = size_check(size)
+    brand_str = brand_check(brand)
+    collection_str = collection_check(collection)
+    gender_str = gender_check(gender)
+    keyword_str = keyword_check(keyword)
+    category_str = category_check(category)
+
+    location.href="/searchs?sort="+sort+"&page="+page+size_str+brand_str
+        +category_str+collection_str+"&gender="+gender_txt+keyword_str
 }
 
 // 컬렉션
@@ -144,15 +199,19 @@ collection_menus.forEach((tab)=>{
     }
 })
 function collection_reload(collection_txt){
+
     if(sort==null) sort='idx'
     if(page==null) page=0
-    if(size==null) size=''
-    if(category==null) category=''
-    if(collection==null) collection=''
-    if(gender==null) gender=''
-    if(keyword==null) keyword=''
-    location.href="/searchs?sort="+sort+"&page="+page+"&size="+size+
-        "&brand="+brand+"&category="+category+"&collection="+collection_txt+"&gender="+gender+"&keyword="+keyword
+
+    size_str = size_check(size)
+    brand_str = brand_check(brand)
+    collection_str = collection_check(collection)
+    gender_str = gender_check(gender)
+    keyword_str = keyword_check(keyword)
+    category_str = category_check(category)
+
+    location.href="/searchs?sort="+sort+"&page="+page+size_str+brand_str
+        +category_str+"&collection="+collection_txt+gender_str+keyword_str
 }
 
 // 사이즈
@@ -172,15 +231,19 @@ size_menus.forEach((tab)=>{
     }
 })
 function size_reload(size_txt){
+
     if(sort==null) sort='idx'
     if(page==null) page=0
-    if(size==null) size=''
-    if(category==null) category=''
-    if(collection==null) collection=''
-    if(gender==null) gender=''
-    if(keyword==null) keyword=''
-    location.href="/searchs?sort="+sort+"&page="+page+"&size="+size_txt+
-        "&brand="+brand+"&category="+category+"&collection="+collection+"&gender="+gender+"&keyword="+keyword
+
+    size_str = size_check(size)
+    brand_str = brand_check(brand)
+    collection_str = collection_check(collection)
+    gender_str = gender_check(gender)
+    keyword_str = keyword_check(keyword)
+    category_str = category_check(category)
+
+    location.href="/searchs?sort="+sort+"&page="+page+"&size="+size_txt+brand_str
+        +category_str+collection_str+gender_str+keyword_str
 }
 
 /**
@@ -194,3 +257,7 @@ function sort_list() {
         click.style.display = "none";
     }
 }
+
+// shop 클릭시 폰트변경
+const item = document.getElementById('sh_gnb');
+item.classList.add('gnb_on');
