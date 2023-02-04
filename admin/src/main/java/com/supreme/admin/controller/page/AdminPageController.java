@@ -66,10 +66,11 @@ public class AdminPageController {
     }
 
     @GetMapping(path="")   //http://localhost:8889/
-    public ModelAndView index(HttpServletRequest request){
+    public String index(HttpServletRequest request, ModelMap map){
         String session = sessionCheck(request);
-        if(session == null)  return new ModelAndView( "/adminpage/login.html");
-        return new ModelAndView("/adminpage/index").addObject("sessionInfo",session);
+        if(session == null) return "redirect:/login";
+        map.addAttribute("sessionInfo",session);
+        return "/adminpage/index";
     }   //viewName: 페이지이름이랑 같아야함
 
     @GetMapping(path="users")   //http://localhost:8889//users
@@ -193,6 +194,10 @@ public class AdminPageController {
         HttpSession session = request.getSession();
         session.invalidate();
         return "redirect:/login";
+    }
+    @GetMapping("/login")
+    public ModelAndView login(){
+        return new ModelAndView("adminpage/login");
     }
 
 }
