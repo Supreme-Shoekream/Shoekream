@@ -68,7 +68,6 @@ dates.forEach((date) => {
 // 시세 - 체결내역
 const conclusiones = document.querySelectorAll(".tab_list .conclusion");
 const twes = document.querySelectorAll(".tw");
-const tcl = document.querySelectorAll(".tcl");
 conclusiones.forEach((conclusion) => {
     conclusion.addEventListener("click", () => {
         conclusiones.forEach((e) => {
@@ -78,9 +77,7 @@ conclusiones.forEach((conclusion) => {
         twes.forEach((e) => {
             e.classList.remove("show");
         });
-        tcl.forEach((e) => {
-            e.classList.remove("show");
-        });
+
 
         conclusion.classList.add("on");
         conclusion.setAttribute("aria-selected", "true");
@@ -90,15 +87,15 @@ conclusiones.forEach((conclusion) => {
         switch (con){
             case "체결 거래":
                 document.getElementById("panel1").classList.add("show");
-                document.getElementById("panel11").classList.add("show");
+                // document.getElementById("panel11").classList.add("show");
                 break;
             case "판매 입찰":
                 document.getElementById("panel2").classList.add("show");
-                document.getElementById("panel22").classList.add("show");
+                // document.getElementById("panel22").classList.add("show");
                 break;
             case "구매 입찰":
                 document.getElementById("panel3").classList.add("show");
-                document.getElementById("panel33").classList.add("show");
+                // document.getElementById("panel33").classList.add("show");
                 break;
         }
     });
@@ -106,8 +103,9 @@ conclusiones.forEach((conclusion) => {
 
 // ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
 // 체결 내역 더보기 - 열고닫기
-const plusList = document.querySelectorAll(".plus");
-const plustbtn = document.querySelectorAll(".plusbtn");
+const plusList = document.querySelectorAll(".plus"); // 팝업창 안에 있는 체결내역 버튼
+const plustbtn = document.querySelectorAll(".plusbtn"); // 체결 내역 더보기 버튼
+const tcl = document.querySelectorAll(".tcl"); // 팝업창 안에 리스트 출력되는 영역
 plustbtn.forEach((pb) => {
     pb.addEventListener("click", () => {
         const layer = document.querySelector(".layer_market_price");
@@ -119,23 +117,57 @@ plustbtn.forEach((pb) => {
             e.classList.remove("on");
         });
 
+        tcl.forEach((e) => {
+            e.classList.remove("show");
+        });
+
+
         let plus = pb.innerHTML;
         switch (plus){
             case "체결 내역 더보기":
-                document.getElementById("plus1").classList.add("on");
-                // document.getElementById("panel11").classList.add("show");
+                document.getElementById("plus1").classList.add("on"); // 팝업창 안에 있는 체결내역 버튼 on
+                document.getElementById("panel11").classList.add("show");
                 break;
             case "판매 입찰 내역 더보기":
-                document.getElementById("plus2").classList.add("on");
-                // document.getElementById("panel22").classList.add("show");
+                document.getElementById("plus2").classList.add("on"); // 팝업창 안에 있는 판매입찰 버튼 on
+                document.getElementById("panel22").classList.add("show");
                 break;
             case "구매 입찰 내역 더보기":
-                document.getElementById("plus3").classList.add("on");
-                // document.getElementById("panel33").classList.add("show");
+                document.getElementById("plus3").classList.add("on"); // 팝업창 안에 있는 구매입찰 버튼 on
+                document.getElementById("panel33").classList.add("show");
                 break;
             }
         });
     });
+
+plusList.forEach((pL) => {
+    pL.addEventListener("click", () => {
+        plusList.forEach((e) => {
+            e.classList.remove("on");
+        });
+        tcl.forEach((e) => {
+            e.classList.remove("show");
+        });
+
+
+        let pluslist = pL.childNodes[1].innerHTML;
+        switch (pluslist){
+            case "체결 거래":
+                document.getElementById("plus1").classList.add("on"); // 팝업창 안에 있는 체결내역 버튼 on
+                document.getElementById("panel11").classList.add("show");
+                break;
+            case "판매 입찰":
+                document.getElementById("plus2").classList.add("on"); // 팝업창 안에 있는 판매입찰 버튼 on
+                document.getElementById("panel22").classList.add("show");
+                break;
+            case "구매 입찰":
+                document.getElementById("plus3").classList.add("on"); // 팝업창 안에 있는 구매입찰 버튼 on
+                document.getElementById("panel33").classList.add("show");
+                break;
+        }
+
+    })
+})
 
 
 

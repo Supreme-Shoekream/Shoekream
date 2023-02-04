@@ -62,17 +62,17 @@ public class ProductPageController {
         List<ConclusionDTO> conclusions = conclusionApiLogicService.conclusionList(idx);
         modelmap.addAttribute("conclusion", conclusions); // "conclusion" 이름의 modelmap 객체를 view에서 사용하기위해 저장함
 
-//        List<SellDTO> sellList = sellService.sellList(idx);
-//        if(sellList == null){
-//            modelmap.addAttribute("sellList", "-");
-//        }
-//        modelmap.addAttribute("sellList", sellList);
-//
-//        List<BuyDTO> buyList = buyService.buyList(idx);
-//        if(buyList == null){
-//            modelmap.addAttribute("buyList", "-");
-//        }
-//        modelmap.addAttribute("buyList", buyList);
+        List<SellDTO> sellList = sellService.sellList(idx);
+        if(sellList == null){
+            modelmap.addAttribute("sellList", "-");
+        }
+        modelmap.addAttribute("sellList", sellList);
+
+        List<BuyDTO> buyList = buyService.buyList(idx);
+        if(buyList == null){
+            modelmap.addAttribute("buyList", "-");
+        }
+        modelmap.addAttribute("buyList", buyList);
 
         String sell = sellService.buyNowPrice(idx);
         modelmap.addAttribute("sell", sell);
