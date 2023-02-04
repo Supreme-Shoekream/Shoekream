@@ -29,6 +29,7 @@ $("input[type='file']").on("change", function(e){
     // <input name="uploadFile" value="fileObj"> 와 같은 뜻
 
     // let resultData = "";
+    const file = URL.createObjectURL(fileObj);
 
 
     const previewImg = document.getElementById("previewImg"); // 생성시 레이어창 사진 부분
@@ -44,12 +45,15 @@ $("input[type='file']").on("change", function(e){
     if(isExist === "true"){
         // console.log(fileObj.name.replace(" ", "_"));
         // console.log("/img/product/" +fileObj.name.replace(" ", "_"));
-        previewImg.src = "/img/product/" + fileObj.name;
+        previewImg.src = file;
+        previewImg.setAttribute("value", fileObj.name);
+        // previewImg.src = "/img/product/" + fileObj.name;
         // previewImg.style.display = "block";
     }else{
         // console.log(fileObj.name.replace(" ", "_"));
         // console.log("/img/product/" +fileObj.name.replace(" ", "_"));
-        previewImgEdit.src = "/img/product/" + fileObj.name;
+        previewImgEdit.src = file;
+        // previewImgEdit.src = "/img/product/" + fileObj.name;
         // previewImgEdit.style.display = "block";
         console.log(previewImgEdit.src);
     }
@@ -114,8 +118,13 @@ function sendit(){
     const name = document.getElementById("name").value; // 상품명
     const nameKor = document.getElementById("nameKor").value; // 상품명(kor)
     const size = document.getElementById("size").value; // 사이즈
-    const img2 = document.getElementById("previewImg").src; // 상품사진
-        const img = img2.replaceAll("http://localhost:8889", "");
+    const img = document.getElementById("previewImg").src; // 상품사진
+    //     const img = img2.replaceAll("http://localhost:8889", "");
+
+    // const img = document.querySelector("#previewImg"); // 상품사진
+    // console.log(img);
+    // const img2 = "/img/product/" + img.getAttribute("value");
+
     const modelNum = document.getElementById("modelNum").value; // 모델번호
     const releaseDate = document.getElementById("releaseDate").value; // 출시일
     const color = document.getElementById("color").value; // 컬러
@@ -149,6 +158,7 @@ function sendit(){
         img.focus();
         return false;
     }
+
 
     fetch("http://localhost:8889/api/admin/products", {
         method: "POST",

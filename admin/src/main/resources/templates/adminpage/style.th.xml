@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<thlogic>
+    <attr sel="#social_admin_table">
+        <attr sel="tbody" th:remove="all-but-first">
+            <attr sel="tr[0]" th:each="feed : ${feed}">
+                <attr sel="td.feed_img/img" th:src="${feed.img}"/>
+                <attr sel="td.feed_nickname/h5" th:text="${feed.memberDTO.nickname}"/>
+                                <attr sel="td.feed_tags" th:text="${feed.tags.size()}"/>
+                                <attr sel="td.feed_likes" th:text="${feed.lks.size()}"/>
+                                <attr sel="td.feed_comments" th:text="${feed.replies.size()}"/>
+                <attr sel="td.feed_comments" th:text="0"/>
+                <attr sel="td.feed_date/time" th:datetime="${feed.createdAt}" th:text="${#temporals.format(feed.createdAt, 'yyyy-MM-dd')}"/>
+
+                <attr sel="td.more">
+<!--                    <attr sel="#view_btn" th:href="@{'javascript:pop_style_view('+${feed.idx}+')'}"/>-->
+                    <attr sel="#view_btn" th:onclick="'javascript:pop_style_view('+ ${feed.idx} + ');'"/>
+                    <attr sel="#delete_btn" th:onclick="'javascript:pop_style_delete(' + ${feed.idx} + ');'"/>
+                </attr>
+
+
+            </attr>
+        </attr>
+    </attr>
+</thlogic>

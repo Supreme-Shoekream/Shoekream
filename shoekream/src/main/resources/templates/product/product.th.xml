@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <thlogic>
     <!-- 상품 사진 -->
+<!--    <attr sel="img#previewImg2" th:object="${product.data}" th:src="*{'/img/product/' + name.replace(' ', '_')} + '.png' "/>-->
     <attr sel="img#previewImg2" th:object="${product.data}" th:src="*{img}"/>
     <!-- 브랜드명, 상품명 -->
     <attr sel=".main_title_box" th:object="${product.data}">
@@ -32,7 +33,7 @@
         <attr sel="dd.modelNum" th:text="*{modelNum}"/>
         <attr sel="dd.releaseDate" th:text="*{releaseDate}"/>
         <attr sel="dd.color" th:text="*{color}"/>
-        <attr sel="dd.firstPrice" th:text="*{firstPrice}"/>
+        <attr sel="dd.firstPrice" th:text="${#numbers.formatInteger(product.data.firstPrice, 0, 'COMMA')} + '원'"/>
     </attr>
     <!-- 스크롤시 상단바 고정 -->
     <attr sel=".floating_price" th:object ="${product.data}">
@@ -71,6 +72,20 @@
                 <attr sel="div.createdAt/time" th:datetime="${con_product.createdAt}"  th:text="${#temporals.format(con_product.createdAt, 'yy/MM/dd')}"/>
             </attr>
         </attr>
+<!--        <attr sel=".sell_price_body" th:remove="all-but-first">-->
+<!--            <attr sel="div.body_list[0]" th:each="con_product : ${conclusion}">-->
+<!--                <attr sel="div.size" th:text="${con_product.productDTO.size}"/>-->
+<!--                <attr sel="div.price" th:text="${con_product.price}"/>-->
+<!--                <attr sel="div.createdAt/time" th:datetime="${con_product.createdAt}"  th:text="${#temporals.format(con_product.createdAt, 'yy/MM/dd')}"/>-->
+<!--            </attr>-->
+<!--        </attr>-->
+<!--        <attr sel=".buy_price_body" th:remove="all-but-first">-->
+<!--            <attr sel="div.body_list[0]" th:each="con_product : ${conclusion}">-->
+<!--                <attr sel="div.size" th:text="${con_product.productDTO.size}"/>-->
+<!--                <attr sel="div.price" th:text="${con_product.price}"/>-->
+<!--                <attr sel="div.createdAt/time" th:datetime="${con_product.createdAt}"  th:text="${#temporals.format(con_product.createdAt, 'yy/MM/dd')}"/>-->
+<!--            </attr>-->
+        </attr>
     </attr>
 <!--    &lt;!&ndash; 관심 상품 추가 &ndash;&gt;-->
 <!--    <attr sel=".layer_interest" th:object ="${product.data}">-->
@@ -87,6 +102,7 @@
                 <attr sel="img.image" th:src="${brandOtherProduct.img}"/>
                 <attr sel="p.brand" th:text="${brandOtherProduct.brand}"/>
                 <attr sel="p.name" th:text="${brandOtherProduct.name}"/>
+                <attr sel="p.size" th:text="${brandOtherProduct.size}"/>
                 <attr sel="em.nowBuy" th:text="${brandOtherProductSell[index.index]+'원'}"/>
                 <attr sel="a.item_inner" th:href="@{/product/{proIdx}(proIdx=${brandOtherProduct.idx})}"/>
                 <attr sel="a.brand_link" th:href="@{/brand/{brandName}(brandName=${brandOtherProduct.brand})}"/>

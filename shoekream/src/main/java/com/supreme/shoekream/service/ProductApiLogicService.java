@@ -23,6 +23,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -62,8 +63,9 @@ public class ProductApiLogicService {
 
 
     public List<Product> brandOtherProduct(String brandName){
-        return productRepository.findBrandByBrand(brandName).stream()
-                .map(ProductDTO::fromEntity2).collect(Collectors.toCollection(LinkedList::new));
+        List<Product> products = productRepository.findBrandByBrand(brandName).stream().map(ProductDTO::fromEntity2).collect(Collectors.toCollection(LinkedList::new));
+        Collections.shuffle(products); // 랜덤한 값 추출하게 만듦
+        return products;
     }
 
 

@@ -24,8 +24,10 @@ import javax.persistence.EntityNotFoundException;
 
 import java.text.DecimalFormat;
 import java.time.LocalDateTime;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import static java.time.LocalDateTime.now;
 
@@ -71,10 +73,20 @@ public class BuyService {
 
     //사용자의 구매내역 (입찰/진행중/종료)에 따라 리스트 출력 필요할 때
     @Transactional(readOnly = true)
-    public Page<BuyDTO> myBuyListByStatus(Long memberIdx, OrderStatus orderStatus, Pageable pageable){
+    public Page<BuyDTO> myBuyListByStatus(Long memberIdx, OrderStatus orderStatus,Long months, Pageable pageable){
         Member member = memberRepository.findById(memberIdx).get();
-        return buyRepository.findByMemberAndStatus(member, orderStatus, pageable)
-                .map(BuyDTO::fromEntity);
+
+        if(months == null){
+            return buyRepository.findByMemberAndStatus(member, orderStatus, pageable)
+                    .map(BuyDTO::fromEntity);
+        }else {
+            LocalDateTime createdAt = LocalDateTime.now();
+            createdAt = createdAt.minusMonths(months);
+            return buyRepository.findByMemberAndStatusAndCreatedAtAfter(member, orderStatus, createdAt, pageable)
+                    .map(BuyDTO::fromEntity);
+        }
+
+
     }
 
     @Transactional(readOnly = true)
@@ -196,6 +208,15 @@ public class BuyService {
                     .map(Header::OK)
                     .orElseGet(()->Header.ERROR("데이터 없음"));
         }
+    }
+
+    public List<BuyDTO> buyList(Long productIdx){
+        Buy buy = buyRepository.findById(productIdx).get();
+        if(buy.getIdx() == null){
+            return null;
+        }
+        return buyRepository.findAllByProductOrderByCreatedAtDesc(buy).stream()
+                .map(BuyDTO::fromEntity).collect(Collectors.toCollection(LinkedList::new));
     }
 
 

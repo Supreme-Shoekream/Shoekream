@@ -162,8 +162,7 @@ public record KreamPrincipal(
                 profileMemo,
                 imgUrl,
                 bank,
-                accountNumber,
-                roleType
+                accountNumber
 
         );
     }

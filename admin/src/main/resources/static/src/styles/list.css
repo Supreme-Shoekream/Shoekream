@@ -1,0 +1,13 @@
+#showPage{
+    /*text-align: center;*/
+    padding: 10px;
+}
+#pageNum{
+    text-align: center;
+    /*padding: 10px;*/
+    padding: 30px;
+}
+#top{
+    display: flex;
+    justify-content: space-between;
+}

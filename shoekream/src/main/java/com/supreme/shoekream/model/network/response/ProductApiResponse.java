@@ -23,7 +23,7 @@ public class ProductApiResponse {
     private String modelNum;
     private String releaseDate;
     private String color;
-    private String firstPrice;
+    private Long firstPrice;
     private String category;
     private String gender;
     private String collection;
