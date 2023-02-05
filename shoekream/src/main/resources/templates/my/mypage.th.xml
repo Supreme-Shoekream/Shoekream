@@ -2,7 +2,7 @@
 <thlogic>
 <!--프로필-->
     <attr sel=".user_thumb">
-        <attr sel=".thumb_img" th:src="${member.imgUrl == ''} ? '/img/profile.png' : ${member.imgUrl}"/>
+        <attr sel=".thumb_img" th:src="${member.imgUrl == '' || member.imgUrl == null} ? '/img/profile.png' : ${member.imgUrl}"/>
     </attr>
     <attr sel=".user_info">
         <attr sel=".name" th:text="${member.nickname}"/>
