@@ -197,6 +197,16 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
         );
     }
 
+    public boolean userEmailCheck(String email, String name) {
+
+        Optional<Member> member = memberRepository.findByEmail(email);
+        if(member!=null && member.get().getName().equals(name)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 }
 
 

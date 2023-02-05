@@ -47,7 +47,7 @@
         <attr sel="span.size" th:text="*{size}"/>
     </attr>
     <!-- 체결 거래 -->
-    <attr sel=".panel1">
+    <attr sel="#panel1">
         <attr sel=".panel1_tbody" th:remove="all-but-first">
             <attr sel=".panel1_tr[0]" th:each="con_product,index : ${conclusion}" th:if="${index.index} < 5">
                 <attr sel="td.size" th:text="${con_product.productDTO.size}"/>
@@ -56,7 +56,25 @@
             </attr>
         </attr>
     </attr>
-    <!-- 체결 내역 더보기 -->
+    <attr sel="#panel2">
+        <attr sel=".panel2_tbody" th:remove="all-but-first">
+            <attr sel=".panel2_tr[0]" th:each="sell_product,index : ${sellList}" th:if="${index.index} < 5">
+                <attr sel="td.size" th:text="${sell_product.productDTO.size}"/>
+                <attr sel="td.price" th:text="${#numbers.formatInteger(sell_product.price, 3, 'COMMA') + '원'}"/>
+                <attr sel="td.createdAt/time" th:datetime="${sell_product.createdAt}"  th:text="${#temporals.format(sell_product.createdAt, 'yy/MM/dd')}"/>
+            </attr>
+        </attr>
+    </attr>
+    <attr sel="#panel3">
+        <attr sel=".panel3_tbody" th:remove="all-but-first">
+            <attr sel=".panel3_tr[0]" th:each="buy_product,index : ${buyList}" th:if="${index.index} < 5">
+                <attr sel="td.size" th:text="${buy_product.productDTO.size}"/>
+                <attr sel="td.price" th:text="${#numbers.formatInteger(buy_product.price, 3, 'COMMA') + '원'}"/>
+                <attr sel="td.createdAt/time" th:datetime="${buy_product.createdAt}"  th:text="${#temporals.format(buy_product.createdAt, 'yy/MM/dd')}"/>
+            </attr>
+        </attr>
+    </attr>
+    <!-- 체결 내역 더보기(레이어창) 상품 정보 -->
     <attr sel=".layer_market_price" th:object ="${product.data}">
         <attr sel="img#previewImg4" th:src="*{img}"/>
         <attr sel="p.name" th:text="*{name}"/>
@@ -64,15 +82,29 @@
         <attr sel="span.size" th:text="*{size}"/>
     </attr>
     <!-- 체결 내역 더보기(레이어창) -->
-    <attr sel="#user_conclusion">
-        <attr sel=".con_price_body" th:remove="all-but-first">
-            <attr sel="div.body_list[0]" th:each="con_product : ${conclusion}">
-                <attr sel="div.size" th:text="${con_product.productDTO.size}"/>
-                <attr sel="div.price" th:text="${con_product.price}"/>
-                <attr sel="div.createdAt/time" th:datetime="${con_product.createdAt}"  th:text="${#temporals.format(con_product.createdAt, 'yy/MM/dd')}"/>
-            </attr>
+<!--    <attr sel="#user_conclusion">-->
+    <attr sel=".con_price_body" th:remove="all-but-first">
+        <attr sel="div.body_list[0]" th:each="con_product : ${conclusion}">
+            <attr sel="div.size" th:text="${con_product.productDTO.size}"/>
+            <attr sel="div.price" th:text="${con_product.price}"/>
+            <attr sel="div.createdAt/time" th:datetime="${con_product.createdAt}"  th:text="${#temporals.format(con_product.createdAt, 'yy/MM/dd')}"/>
         </attr>
     </attr>
+    <attr sel=".sell_price_body" th:remove="all-but-first">
+        <attr sel="div.body_list[0]" th:each="sell_product : ${sellList}">
+            <attr sel="div.size" th:text="${sell_product.productDTO.size}"/>
+            <attr sel="div.price" th:text="${#numbers.formatInteger(sell_product.price, 3, 'COMMA') + '원'}"/>
+            <attr sel="div.createdAt/time" th:datetime="${sell_product.createdAt}"  th:text="${#temporals.format(sell_product.createdAt, 'yy/MM/dd')}"/>
+        </attr>
+    </attr>
+    <attr sel=".buy_price_body" th:remove="all-but-first">
+        <attr sel="div.body_list[0]" th:each="buy_product : ${buyList}">
+            <attr sel="div.size" th:text="${buy_product.productDTO.size}"/>
+            <attr sel="div.price" th:text="${#numbers.formatInteger(buy_product.price, 3, 'COMMA') + '원'}"/>
+            <attr sel="div.createdAt/time" th:datetime="${buy_product.createdAt}"  th:text="${#temporals.format(buy_product.createdAt, 'yy/MM/dd')}"/>
+        </attr>
+    </attr>
+<!--    </attr>-->
 <!--    &lt;!&ndash; 관심 상품 추가 &ndash;&gt;-->
 <!--    <attr sel=".layer_interest" th:object ="${product.data}">-->
 <!--        <attr sel="img#previewImg5" th:src="*{img}"/>-->

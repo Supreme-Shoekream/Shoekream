@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<thlogic>
+    <attr sel ="img#img_info" th:src ="${event.img}"/>
+    <attr sel="#drawProduct" th:remove="all-but-first">
+        <attr sel=".drawProduct" >
+            <attr sel="p.eventProName" th:text="${event.productDTO.name}"/>
+            <attr sel="img.drawproimg" th:src="${event.productDTO.img}"/>
+        </attr>
+    </attr>
+</thlogic>

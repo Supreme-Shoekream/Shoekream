@@ -1,9 +1,6 @@
 package com.supreme.shoekream.controller.page;
 
-import com.supreme.shoekream.model.dto.ConclusionDTO;
-import com.supreme.shoekream.model.dto.ProductDTO;
-import com.supreme.shoekream.model.dto.SellDTO;
-import com.supreme.shoekream.model.dto.WishDTO;
+import com.supreme.shoekream.model.dto.*;
 import com.supreme.shoekream.model.entity.Conclusion;
 import com.supreme.shoekream.model.entity.Product;
 import com.supreme.shoekream.model.entity.Sell;
@@ -62,11 +59,20 @@ public class ProductPageController {
             modelmap.addAttribute("isWish", isWish);
         }
 
-        List<ConclusionDTO> conclusion = conclusionApiLogicService.conclusionList(idx);
-        modelmap.addAttribute("conclusion", conclusion); // "conclusion" 이름의 modelmap 객체를 view에서 사용하기위해 저장함
+        List<ConclusionDTO> conclusions = conclusionApiLogicService.conclusionList(idx);
+        modelmap.addAttribute("conclusion", conclusions); // "conclusion" 이름의 modelmap 객체를 view에서 사용하기위해 저장함
 
-//        List<ConclusionDTO> conclusion1month = conclusionApiLogicService.conclusion1monthList(idx);
-//        modelmap.addAttribute("conclusion1month", conclusion1month);
+        List<SellDTO> sellList = sellService.sellList(idx);
+        if(sellList == null){
+            modelmap.addAttribute("sellList", "-");
+        }
+        modelmap.addAttribute("sellList", sellList);
+
+        List<BuyDTO> buyList = buyService.buyList(idx);
+        if(buyList == null){
+            modelmap.addAttribute("buyList", "-");
+        }
+        modelmap.addAttribute("buyList", buyList);
 
         String sell = sellService.buyNowPrice(idx);
         modelmap.addAttribute("sell", sell);

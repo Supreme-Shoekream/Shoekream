@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<thlogic>
+    <attr sel="#userCount" th:text="${userCount}"/>
+    <attr sel="#productCount" th:text="${productCount}"/>
+    <attr sel="#feedCount" th:text="${feedCount}"/>
+    <attr sel="#conclusionCount" th:text="${conclusionCount}"/>
+
+
+    <attr sel="tbody" th:remove="all-but-first">
+        <attr sel="tr[0]" th:each="product : ${products}">
+            <attr sel="td[0]/img" th:src="${product.img}"/>
+            <attr sel="td[1]" th:text="${product.nameKor}"/>
+            <attr sel="td[2]" th:text="${product.size}"/>
+            <attr sel="td[3]" th:text="${totalDealCount[productStat.index]}"/>
+            <attr sel="td[4]" th:text="${#numbers.formatInteger(totalDealPrice[productStat.index], 0, 'COMMA')}+'원'"/>
+        </attr>
+    </attr>
+</thlogic>
