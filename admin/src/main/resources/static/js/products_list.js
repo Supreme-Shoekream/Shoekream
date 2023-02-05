@@ -30,8 +30,6 @@
                             <h5 class="font-16">${dto.name}</h5>
                             ${dto.nameKor}
                         </td>
-        <!--                <td>{{dto.size}}</td>-->
-        <!--                <td>{{dto.category}}</td>-->
                         <td>${dto.modelNum}</td>
                         <td>${dto.releaseDate}</td>
                         <td>${dto.color}</td>
@@ -60,22 +58,39 @@
 
             let lastPage = data.pagination.totalPages;
 
+            let pageGroup = Math.ceil(currentPage / 10);
+
+            let last = pageGroup * 10;
+            if (last > lastPage) last = totalPages;
+            let first = last - (10 - 1) <= 0 ? 1 : last - (10 - 1);
+
+
             let pageStr = "";
             if(lastPage != 0){
-                pageStr += "<<";
+                pageStr += " <li class=\"paginate_button page-item previous disabled\" id=\"DataTables_Table_0_previous\">\n" +
+                    "                                        <a href=\"#\" aria-controls=\"DataTables_Table_0\" data-dt-idx=\"0\" tabindex=\"0\" class=\"page-link\">\n" +
+                    "                                            <i class=\"ion-chevron-left\"></i>\n" +
+                    "                                        </a>\n" +
+                    "                                    </li>";
             }
-            for(let i = 0; i < lastPage; i++){
-                pageStr += "&nbsp;&nbsp; <span class='pages' id='" + i + "'>" + (i+1) + " </span> &nbsp;&nbsp;";
+            for(let i = first-1; i < last; i++){
+                pageStr += "<li class='page-item '>\n" +
+                    "<a aria-controls=\"DataTables_Table_0\" id='" + i + "' class=\"page-link pages\">" + (i+1) + " </a> \n" +
+                    "</li>";
             }
             if(lastPage != 0){
-                pageStr += ">>";
+                pageStr += "<li class=\"paginate_button page-item next disabled\" id=\"DataTables_Table_0_next\">\n" +
+                    "                                        <a href=\"#\" aria-controls=\"DataTables_Table_0\" data-dt-idx=\"2\" tabindex=\"0\" class=\"page-link\">\n" +
+                    "                                            <i class=\"ion-chevron-right\"></i>\n" +
+                    "                                        </a>\n" +
+                    "                                    </li>";
             }
-            // document.querySelector("#showPage").innerHTML = "총 "+ totalPages+" 페이지 중 " +currentPage+" 페이지"
-            // document.querySelector("#pageNum").innerHTML = pageStr;
+            document.querySelector(".pagination").innerHTML = pageStr;
         }catch (error){
             console.log(error)
         }
     }
+
     document.addEventListener("click", event => {
         if (event.target.matches(".pages")) {
             let pageId = event.target.id;

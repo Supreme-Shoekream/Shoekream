@@ -41,8 +41,7 @@
             <h3 class="input_title ess ph">사진 추가하기</h3>
             <div class="input_item" style="border: none; height: 400px;
                       border-bottom: 0.1rem solid #ebebeb;">
-              <input id="imgUpload" type="file" name="imgUpload"
-                     style="border: none; margin-top: 0.1rem solid #ebebeb;" accept="image/*" class="input_txt in_essValue">
+              <input id="imgUpload" type="file" name="imgUpload" onchange="readImage(this)" style="border: none; margin-top: 0.1rem solid #ebebeb;" accept="image/*" class="input_txt in_essValue">
               <div class="preview">
                 <img src="https://dummyimage.com/400x400/ffffff/000000.png&text=preview+image" style="width: 300px; display: block;"
                   alt="" id="previewImage" >

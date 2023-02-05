@@ -177,17 +177,13 @@ public class BoardApiController {
         logger.info("⚠️파일 타입 : " + uploadFile.getContentType());
         logger.info("⚠️파일 크기 : " + uploadFile.getSize());
         // 파일 저장 폴더 경로
-//        String uploadFilePath = "/Users/oyun-yeong/Desktop/Shoekream/publising/Shoekream/shoekream/src/main/resources/static/img/styleImg/";
-        String uploadFilePath = "E:/Kream_project/Shoekream/shoekream/src/main/resources/static/img/styleImg/";
+        String uploadFilePath = "/Users/oyun-yeong/img"; // 로컬주소 -> img폴더 생성한것
         // 폴더 생성
         File uploadPath = new File(uploadFilePath);
         if(!uploadPath.exists()) {
             uploadPath.mkdirs();
         }
         String uploadFileName = uploadFile.getOriginalFilename(); // 파일 이름
-//        uploadFileName = uploadFileName.replace(" ", "_"); // 파일 이름에 띄어쓰기가 있으면 언더바로 변경하기
-//        System.out.println("🔵" + uploadFileName);
-//        File saveFile = new File(uploadPath, uploadFileName); // 파일 위치, 파일 이름을 합친 File 객체
         File saveFile = new File(uploadFilePath, uploadFileName); // 파일 위치, 파일 이름을 합친 File 객체
         try { // 파일 저장
             uploadFile.transferTo(saveFile);
