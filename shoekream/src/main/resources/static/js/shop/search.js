@@ -36,7 +36,7 @@ const url = new URL(urlStr)
 const searchParams = url.searchParams
 let sort = searchParams.get('sort')
 let page = searchParams.get('page')
-let size = searchParams.get('size')
+let psize = searchParams.get('psize')
 let brand = searchParams.get('brand')
 let category = searchParams.get('category')
 let collection = searchParams.get('collection')
@@ -46,7 +46,7 @@ let keyword = searchParams.get('keyword')
 
 let sort_str = ''
 let page_str =''
-let size_str= ''
+let psize_str= ''
 let brand_str = ''
 let category_str = ''
 let collection_str =''
@@ -54,9 +54,9 @@ let gender_str = ''
 let keyword_str = ''
 
 // 주소창 정리
-function size_check(size){
-    if(size==null) return ''
-    return "&size="+size
+function psize_check(psize){
+    if(psize==null) return ''
+    return "&psize="+psize
 }
 
 function brand_check(brand){
@@ -106,14 +106,14 @@ function category_reload(category_txt){
     if(sort==null) sort='idx'
     if(page==null) page=0
 
-    size_str = size_check(size)
+    psize_str = psize_check(psize)
     brand_str = brand_check(brand)
     collection_str = collection_check(collection)
     gender_str = gender_check(gender)
     keyword_str = keyword_check(keyword)
     category_str = category_check(category)
 
-    location.href="/searchs?sort="+sort+"&page="+page+size_str+brand_str
+    location.href="/searchs?sort="+sort+"&page="+page+psize_str+brand_str
         +"&category="+category_txt+collection_str+gender_str+keyword_str
 }
 
@@ -138,14 +138,14 @@ function brand_reload(brand_txt){
     if(sort==null) sort='idx'
     if(page==null) page=0
 
-    size_str = size_check(size)
+    psize_str = psize_check(psize)
     brand_str = brand_check(brand)
     collection_str = collection_check(collection)
     gender_str = gender_check(gender)
     keyword_str = keyword_check(keyword)
     category_str = category_check(category)
 
-    location.href="/searchs?sort="+sort+"&page="+page+size_str+"&brand="+brand_txt
+    location.href="/searchs?sort="+sort+"&page="+page+psize_str+"&brand="+brand_txt
         +category_str+collection_str+gender_str+keyword_str
 }
 
@@ -171,14 +171,14 @@ function gender_reload(gender_txt){
     if(sort==null) sort='idx'
     if(page==null) page=0
 
-    size_str = size_check(size)
+    psize_str = psize_check(psize)
     brand_str = brand_check(brand)
     collection_str = collection_check(collection)
     gender_str = gender_check(gender)
     keyword_str = keyword_check(keyword)
     category_str = category_check(category)
 
-    location.href="/searchs?sort="+sort+"&page="+page+size_str+brand_str
+    location.href="/searchs?sort="+sort+"&page="+page+psize_str+brand_str
         +category_str+collection_str+"&gender="+gender_txt+keyword_str
 }
 
@@ -203,14 +203,14 @@ function collection_reload(collection_txt){
     if(sort==null) sort='idx'
     if(page==null) page=0
 
-    size_str = size_check(size)
+    psize_str = psize_check(psize)
     brand_str = brand_check(brand)
     collection_str = collection_check(collection)
     gender_str = gender_check(gender)
     keyword_str = keyword_check(keyword)
     category_str = category_check(category)
 
-    location.href="/searchs?sort="+sort+"&page="+page+size_str+brand_str
+    location.href="/searchs?sort="+sort+"&page="+page+psize_str+brand_str
         +category_str+"&collection="+collection_txt+gender_str+keyword_str
 }
 
@@ -219,30 +219,30 @@ function collection_reload(collection_txt){
 const size_menus = document.querySelectorAll('#size_filter .menu')
 size_menus.forEach((tab)=>{
     let checkbox = tab.childNodes[1]
-    let size_txt= tab.childNodes[3].childNodes[0].innerHTML
+    let psize_txt= tab.childNodes[3].childNodes[0].innerHTML
     if(checkbox.checked){
         tab.addEventListener('click',()=>{
             size_reload('')
         })
     }else{
         tab.addEventListener('click',()=>{
-            size_reload(size_txt)
+            size_reload(psize_txt)
         })
     }
 })
-function size_reload(size_txt){
+function size_reload(psize_txt){
 
     if(sort==null) sort='idx'
     if(page==null) page=0
 
-    size_str = size_check(size)
+    psize_str = psize_check(psize)
     brand_str = brand_check(brand)
     collection_str = collection_check(collection)
     gender_str = gender_check(gender)
     keyword_str = keyword_check(keyword)
     category_str = category_check(category)
 
-    location.href="/searchs?sort="+sort+"&page="+page+"&size="+size_txt+brand_str
+    location.href="/searchs?sort="+sort+"&page="+page+"&psize="+psize_txt+brand_str
         +category_str+collection_str+gender_str+keyword_str
 }
 
