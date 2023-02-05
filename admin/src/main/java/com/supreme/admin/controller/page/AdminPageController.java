@@ -6,6 +6,7 @@ import com.supreme.admin.model.entity.Conclusion;
 import com.supreme.admin.model.entity.Product;
 import com.supreme.admin.model.network.Pagination;
 import com.supreme.admin.model.network.response.BuyResponse;
+import com.supreme.admin.model.network.response.ConclusionResponse;
 import com.supreme.admin.model.network.response.SellResponse;
 import com.supreme.admin.repository.ConclusionRepository;
 import com.supreme.admin.service.*;
@@ -40,6 +41,7 @@ public class AdminPageController {
     private final PaginationService paginationService;
     private final AdminApiLogicService adminApiLogicService;
     private final DashboardService dashboardService;
+    private final ConclusionService conclusionService;
 
     @PostMapping(path="/loginOkYeah")   //http://localhost:8889/loginOk
     public String loginOk(HttpServletRequest request, String userid, String userpw){
@@ -135,17 +137,18 @@ public class AdminPageController {
     }
 
 
-    private final ConclusionRepository conclusionRepository;
-    @GetMapping(path="conclusion")   //http://localhost:8889/conclusion
-    public ModelAndView conclusion(ModelMap modelMap,HttpServletRequest request){
-        List<Conclusion> list = conclusionRepository.findAll();
-        modelMap.addAttribute("list", list);
-
+    @GetMapping(path="conclusion") //http://localhost:8889/conclusion
+    public String conclusion(@RequestParam(required = false) String searchKeyword,
+                      @PageableDefault(size = 10, sort = "idx", direction = Sort.Direction.DESC) Pageable pageable,
+                      ModelMap modelMap,HttpServletRequest request){
+        Page<ConclusionResponse> conclusion = conclusionService.searchConclusion(searchKeyword, pageable).map(ConclusionResponse::from);
+        List<Integer> barNumbers = paginationService.getPaginationBarNumbers(pageable.getPageNumber(),conclusion.getTotalPages());
         String session = sessionCheck(request);
-//        if(session == null)  return new ModelAndView( "/adminpage/login.html");
+    //        if(session == null) return "redirect:/login";
         modelMap.addAttribute("sessionInfo",session);
-//        System.out.println(list);
-        return new ModelAndView("/adminpage/conclusion.html");
+        modelMap.addAttribute("conclusion",conclusion);
+        modelMap.addAttribute("barNumbers",barNumbers);
+        return("/adminpage/conclusion");
     }
 
     @GetMapping(path="notice")   //http://localhost:8889/notice
