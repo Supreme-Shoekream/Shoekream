@@ -20,6 +20,7 @@ public record MemberApiRequest(
         String shoeSize,
         String accNumber,
         String bank,
+        String imgUrl,
         KreamPrincipal.RoleType roletype
 ) {
 
@@ -33,6 +34,7 @@ public record MemberApiRequest(
                 shoeSize,
                 bank,
                 accNumber,
+                imgUrl,
                 roletype
         );
     }

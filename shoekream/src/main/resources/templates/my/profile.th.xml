@@ -1,4 +1,5 @@
 <thlogic>
+    <attr sel="#profile_img" th:src="${profile.imgUrl == ''} ? '/img/profile.png' : ${profile.imgUrl}"/>
     <attr sel="#profile_name" th:text="${profile.nickname}"/>
     <attr sel="#profile_email" th:text="${profile.email}"/>
     <attr sel="#change_email" th:placeholder="${profile.email}"/>

@@ -28,13 +28,13 @@ public record MemberDTO(
         return new MemberDTO(idx, nickname, memberPw, name, hp, email,status, shoeSize,point, profileMemo, imgUrl, bank, accNumber, roleType);
     }
     public static MemberDTO of(String nickname, String memberPw, String name,
-                               String hp, String email,String shoeSize){
-        return new MemberDTO(null, nickname, memberPw, name, hp, email,Status.MEMBER, shoeSize,0L, null, null, null, null,null);
+                               String hp, String email,String shoeSize, String imgUrl){
+        return new MemberDTO(null, nickname, memberPw, name, hp, email,Status.MEMBER, shoeSize,0L, null, imgUrl, null, null,null);
     }
     public static MemberDTO of(String memberPw, String name, String nickname,
                                String hp, String email, String shoeSize,
-                               String bank, String accNumber,KreamPrincipal.RoleType roleType){
-        return new MemberDTO(null, nickname, memberPw, name, hp, email,null, shoeSize,null, null, null, bank, accNumber, roleType);
+                               String bank, String accNumber,String imgUrl,KreamPrincipal.RoleType roleType){
+        return new MemberDTO(null, nickname, memberPw, name, hp, email,null, shoeSize,null, null, imgUrl, bank, accNumber, roleType);
     }
 
     public static MemberDTO fromEntity(Member member){

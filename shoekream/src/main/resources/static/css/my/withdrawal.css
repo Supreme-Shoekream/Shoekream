@@ -211,3 +211,16 @@ input[type="checkbox" i] {
     width: 22px;
     height: 22px;
 }
+.layer_container{
+    padding: 20px;
+    text-align: center;
+}
+.layer_header{
+    margin-bottom: 20px;
+}
+.withdrawal_desc{
+    font-size: 15px;
+}
+.draw-check{
+    margin: 15px !important;
+}

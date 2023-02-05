@@ -31,7 +31,7 @@ public class ProfileApiController {
             String password2 = memberApiLogicService.read(kreamPrincipal.idx()).getData().getMemberPw(); // 확인할 번호
             System.out.println(password1[0] + "@@@@@" + password2.substring(6));
             if (password1[0].equals(password2.substring(6))){
-                MemberDTO dto = MemberDTO.of(null, password1[1], null, null, null, null);
+                MemberDTO dto = MemberDTO.of(null, password1[1], null, null, null, null,null);
                 memberApiLogicService.updateProfile(dto, kreamPrincipal.idx());
                 return true;
             }else {

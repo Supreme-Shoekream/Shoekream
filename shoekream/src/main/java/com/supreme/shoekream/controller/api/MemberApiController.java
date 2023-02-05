@@ -1,15 +1,23 @@
 package com.supreme.shoekream.controller.api;
 
 import com.supreme.shoekream.controller.CrudController;
+import com.supreme.shoekream.model.dto.BuyDTO;
+import com.supreme.shoekream.model.dto.SellDTO;
+import com.supreme.shoekream.model.entity.Buy;
 import com.supreme.shoekream.model.entity.Member;
 import com.supreme.shoekream.model.network.Header;
 import com.supreme.shoekream.model.network.request.MemberApiRequest;
 import com.supreme.shoekream.model.network.response.MemberApiResponse;
+import com.supreme.shoekream.model.network.security.KreamPrincipal;
+import com.supreme.shoekream.service.BuyService;
 import com.supreme.shoekream.service.MemberApiLogicService;
+import com.supreme.shoekream.service.SellService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.autoconfigure.kafka.KafkaAutoConfiguration;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,6 +27,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MemberApiController extends CrudController<MemberApiRequest, MemberApiResponse, Member> {
     private final MemberApiLogicService memberApiLogicService;
+    private final BuyService buyService;
+    private final SellService sellService;
 
 //    @Override
 //    @PostMapping("join")    // http://localhost:9999/api/admin/users/create (post)
@@ -41,6 +51,22 @@ public class MemberApiController extends CrudController<MemberApiRequest, Member
     @PostMapping("/join")    // http://localhost:9999/api/join (post)
     public Header<MemberApiResponse> create(@RequestBody Header<MemberApiRequest> request) {
         return memberApiLogicService.create(request);
+    }
+
+    @PostMapping("/member/delete")
+    public boolean delete(@AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        boolean buyCheck = buyService.buyListCheck(kreamPrincipal.idx());
+        boolean sellCheck = sellService.sellListCheck(kreamPrincipal.idx());
+        if(buyCheck && sellCheck){
+            buyService.deleteMember(kreamPrincipal.idx());
+            sellService.deleteMember(kreamPrincipal.idx());
+            memberApiLogicService.delete(kreamPrincipal.idx());
+            System.out.println("@@");
+            return true;
+        }else{
+            System.out.println("123123");
+            return false;
+        }
     }
 //    @Override
 //    @GetMapping("{idx}") //http://localhost:9999/member/{idx} get호출 read하기

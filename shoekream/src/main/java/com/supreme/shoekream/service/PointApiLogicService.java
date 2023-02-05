@@ -13,6 +13,7 @@ import com.supreme.shoekream.repository.AdminRepository;
 import com.supreme.shoekream.repository.MemberRepository;
 import com.supreme.shoekream.repository.PointRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -37,6 +38,10 @@ public class PointApiLogicService {
     @Transactional
     public List<Point> list(Long idx){
         return pointRepository.findByMemberIdx(idx);
+    }
+
+    public List<Point> listAll(){
+        return pointRepository.findAll(Sort.by(Sort.Direction.DESC,"idx"));
     }
 
 

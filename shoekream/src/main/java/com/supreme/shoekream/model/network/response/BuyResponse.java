@@ -67,7 +67,6 @@ public record BuyResponse(
         String fees = format.format(Math.floor(price*0.015/100)*100);
         String totalPrice = format.format(price+3000L+Math.floor(price*0.015/100)*100);
 
-
         SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd");
         Calendar c = Calendar.getInstance();
         try{
