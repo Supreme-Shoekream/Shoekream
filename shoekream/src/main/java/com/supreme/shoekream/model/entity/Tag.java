@@ -13,19 +13,14 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-//@EqualsAndHashCode
 @EntityListeners(AuditingEntityListener.class)
 public class Tag{
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idx;
-    //    private Long boardIdx;      // ManyToOne
     @ManyToOne
     @JoinColumn(name = "board_idx")
     private Board board;
-//    private Long productIdx;    // OneToOne
-
     @ManyToOne
     @JoinColumn(name="product_idx")
     private Product product;
