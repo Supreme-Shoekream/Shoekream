@@ -1,6 +1,7 @@
 package com.supreme.shoekream.controller.api;
 
 import com.supreme.shoekream.controller.CrudController;
+import com.supreme.shoekream.model.dto.EventDTO;
 import com.supreme.shoekream.model.entity.Admin;
 import com.supreme.shoekream.model.network.Header;
 import com.supreme.shoekream.model.network.request.AdminApiRequest;

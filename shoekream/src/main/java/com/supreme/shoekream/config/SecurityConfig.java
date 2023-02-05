@@ -5,15 +5,11 @@ import com.supreme.shoekream.model.network.security.KakaoOAuth2Response;
 import com.supreme.shoekream.model.network.security.KreamPrincipal;
 import com.supreme.shoekream.repository.MemberRepository;
 import com.supreme.shoekream.service.MemberApiLogicService;
-import org.aspectj.bridge.MessageUtil;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -48,6 +44,7 @@ public class SecurityConfig{
                                 "/join",
                                 "/api/**",
                                 "/find",
+                                "/check/**",
                                 "/product/**",
                                 "/brand/**",
                                 "/searchs/**",

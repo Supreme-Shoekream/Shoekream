@@ -16,7 +16,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("")    // http://localhost:9999
 @RequiredArgsConstructor
 public class JoinApiController extends CrudController<MemberApiRequest, MemberApiResponse, Member> {
-    private final MemberApiLogicService memberApiLogicService;
-
 
 }

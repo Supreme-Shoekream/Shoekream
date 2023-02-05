@@ -80,12 +80,12 @@ public class MemberPageController {
         }
     }
 
-    @GetMapping(path="find_email")   //http://localhost:8889/find_email
+    @GetMapping(path="/login/find_email")   //http://localhost:8889/find_email
     public ModelAndView find_email(){
         return new ModelAndView("/login/find_email");
     }
 
-    @GetMapping(path="find_password")   //http://localhost:9999/find_password
+    @GetMapping(path="/login/find_password")   //http://localhost:9999/find_password
     public ModelAndView find_password(){
         return new ModelAndView("/login/find_password");
     }
