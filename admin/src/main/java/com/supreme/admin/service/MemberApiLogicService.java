@@ -174,6 +174,12 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
                 memberRepository.save(Member.of(password, name, hp, email, shoeSize))
         );
     }
+    public Page<MemberDTO> searchMember(String searchKeyword, Pageable pageable){
+        if(searchKeyword == null || searchKeyword.isBlank()){
+            return memberRepository.findAll(pageable).map(MemberDTO::fromEntity);
+        }
+        return memberRepository.findByEmailContaining(searchKeyword,pageable).map(MemberDTO::fromEntity);
+    }
 
 }
 
