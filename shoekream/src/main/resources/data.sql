@@ -382,8 +382,7 @@ insert into board(hashtag, member_idx, content, img, created_at) values('SHOEKRE
 insert into board(hashtag, member_idx, content, img, created_at) values('SHOEKREAM',14, '🏍️🏍️
 
 
-#KREAM #kreamchallenge #KREAM챌린지
-#KREAM스타일 #스타일챌린지 #스타일컬렉터
+
 #떠그클럽 #떠그팬츠 #나이키 #에어포스1
 #크림챌린지 #크림스타일챌린지', '/img/styleImg/feed14.jpeg', '2023-01-11 02:39:03');
 insert into board(hashtag, member_idx, content, img, created_at) values('나이키', 15, '#결산템챌린지 #ootd #데일리룩 #아웃핏 #KREAM스타일 #겨울여자코디 #보헤미안서울 #노스페이스눕시 #패딩추천 #스트릿룩 #무채색룩', '/img/styleImg/feed15.jpeg', '2022-01-26 00:40:23');

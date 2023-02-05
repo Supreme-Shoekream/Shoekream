@@ -23,12 +23,8 @@ public class Board extends BaseEntity implements Auditable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idx;
-
-    //    private Long memberIdx;     // ManyToOne
     private String content;
     private String img;
-//    private LocalDateTime createdAt;
-//    private LocalDateTime modifiedAt;
     private String hashtag;
 
     @ManyToOne
