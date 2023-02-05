@@ -1142,3 +1142,8 @@ insert into wish (idx, member_idx, product_idx) values (3, 1, 3);
 insert into wish (idx, member_idx, product_idx) values (4, 1, 4);
 insert into wish (idx, member_idx, product_idx) values (5, 1, 5);
 
+-- penalty
+insert into penalty(sell_idx, reason, created_at) values(3,1,'2023-02-05');
+insert into penalty(sell_idx, reason, created_at) values(4,2,'2023-02-05');
+insert into penalty(sell_idx, reason, created_at) values(5,3,'2023-02-05');
+

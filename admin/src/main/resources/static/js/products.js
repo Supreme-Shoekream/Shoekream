@@ -2,81 +2,110 @@
 // 파일첨부
 // 이미지 업로드
 $("input[type='file']").on("change", function(e){
-    //alert("동작"); // 파일 속성에 접근되는지 확인
-
-    let formData = new FormData();
-    // 화면 이동없이 첨부파일을 서버로 전송해야함
-    // 폼태그와 같은 역할을 해주는 formData 객체를 생성해 첨부파일을 formData에 저장하고 formData 자체를 서버로 전송해야함
-
-    let fileInput = $('input[name="uploadFile"]');
-    let fileList = fileInput[0].files;
-    //console.log("fileList : " + fileList); // 해당 객체가 파일리스트인지 확인
-
-    let fileObj = fileList[0]; // file 객체를 담기 위한 변수를 선언하여 file 객체로 초기화해줌
-    //console.log("fileObj : " + fileObj);  // 해당 객체가 어떠한 객체인지 확인
-
-    console.log("fileName : " + fileObj.name); // 파일 이름 확인
-    console.log("fileSize : " + fileObj.size); // 파일 사이즈 확인
-    // console.log("fileType(MimeType) : " + fileObj.type); // 파일 타입 확인
-
-    if(!fileCheck(fileObj.name, fileObj.size)){
-        return false;
-    }
-    alert("사진 파일 이름, 크기 통과"); // 파일 타입, 크기 조건 둘 다 만족하면 뜸
-
-    formData.append("uploadFile", fileObj);
-    // 첨부한 파일을 폼데이터에 업로드파일이라는 이름으로 추가해줌 (input name과 같아야함)
-    // <input name="uploadFile" value="fileObj"> 와 같은 뜻
-
-    // let resultData = "";
-
-
-    const previewImg = document.getElementById("previewImg"); // 생성시 레이어창 사진 부분
-    // previewImg.src = "/img/product/" + fileObj.name;
-    // previewImg.style.display = "block";
-
-    const previewImgEdit = document.getElementById("previewImgEdit"); // 업데이트 사진
-    // previewImgEdit.src = "/img/product/" + fileObj.name;
-    // previewImgEdit.style.display = "block";
-
     let isExist = document.getElementById("previewImg").getAttribute("create");
+    if(isExist == "true"){
+        let formData = new FormData();
+        // 화면 이동없이 첨부파일을 서버로 전송해야함
+        // 폼태그와 같은 역할을 해주는 formData 객체를 생성해 첨부파일을 formData에 저장하고 formData 자체를 서버로 전송해야함
 
-    if(isExist === "true"){
-        // console.log(fileObj.name.replace(" ", "_"));
-        // console.log("/img/product/" +fileObj.name.replace(" ", "_"));
-        previewImg.src = "/img/product/" + fileObj.name;
-        // previewImg.style.display = "block";
-    }else{
-        // console.log(fileObj.name.replace(" ", "_"));
-        // console.log("/img/product/" +fileObj.name.replace(" ", "_"));
-        previewImgEdit.src = "/img/product/" + fileObj.name;
-        // previewImgEdit.style.display = "block";
-        console.log(previewImgEdit.src);
-    }
+        let fileInput = $('input[name="uploadFile"]');
+        let fileList = fileInput[0].files;
 
+        let fileObj = fileList[0]; // file 객체를 담기 위한 변수를 선언하여 file 객체로 초기화해줌
 
-
-
-    // ajax를 사용하여 서버로 전송
-    $.ajax({
-        url: '/api/admin/products/uploadFile', // 서버로 요청을 보낼 url
-        processData : false, // 서버로 전송할 데이터를 queryStirng 형태로 변환할지 여부
-        contentType : false, // 서버로 전송되는 데이터의 content-type
-        data : formData, // 서버로 전송할 데이터
-        type : 'POST', // 서버 요청 타입(GET, POST)
-        dataType : 'text', // 서버로부터 반환받을 데이터 타입
-        async : false,
-        success : function (data){
-            alert(data);
-        },
-        error: function(e) {
-            alert("값을 가져오지 못했습니다.");
+        if(!fileCheck(fileObj.name, fileObj.size)){
+            return false;
         }
-    });
+
+        formData.append("uploadFile", fileObj);
+        // 첨부한 파일을 폼데이터에 업로드파일이라는 이름으로 추가해줌 (input name과 같아야함)
+        // <input name="uploadFile" value="fileObj"> 와 같은 뜻
+
+        // ajax를 사용하여 서버로 전송
+        $.ajax({
+            url: '/api/admin/products/uploadFile', // 서버로 요청을 보낼 url
+            processData : false, // 서버로 전송할 데이터를 queryStirng 형태로 변환할지 여부
+            contentType : false, // 서버로 전송되는 데이터의 content-type
+            data : formData, // 서버로 전송할 데이터
+            type : 'POST', // 서버 요청 타입(GET, POST)
+            dataType : 'text', // 서버로부터 반환받을 데이터 타입
+            success : function (data){
+                //alert(data);
+                document.getElementById("previewImg").value = "/images/" + data;
+                //alert("create success");
+            },
+            error: function(e) {
+                //alert("값을 가져오지 못했습니다.");
+            }
+        });
+    }
+    else if(isExist == null) {
+        let formData2 = new FormData();
+
+        let fileInput2 = $('input[name="uploadFile2"]');
+        let fileList2 = fileInput2[0].files;
+
+        let fileObj2 = fileList2[0]; // file 객체를 담기 위한 변수를 선언하여 file 객체로 초기화해줌
+
+        if(!fileCheck(fileObj2.name, fileObj2.size)){
+            return false;
+        }
+        alert("사진 파일 이름, 크기 통과"); // 파일 타입, 크기 조건 둘 다 만족하면 뜸
+
+        formData2.append("uploadFile", fileObj2);
+        // 첨부한 파일을 폼데이터에 업로드파일이라는 이름으로 추가해줌 (input name과 같아야함)
+        // <input name="uploadFile" value="fileObj"> 와 같은 뜻
+
+
+        // ajax를 사용하여 서버로 전송
+        $.ajax({
+            url: '/api/admin/products/uploadFile', // 서버로 요청을 보낼 url
+            processData : false, // 서버로 전송할 데이터를 queryStirng 형태로 변환할지 여부
+            contentType : false, // 서버로 전송되는 데이터의 content-type
+            data : formData2, // 서버로 전송할 데이터
+            type : 'POST', // 서버 요청 타입(GET, POST)
+            dataType : 'text', // 서버로부터 반환받을 데이터 타입
+            success : function (data){
+                alert(data);
+                document.getElementById("previewImgEdit").value = "/images/" + data;
+                alert("edit success");
+            },
+            error: function(e) {
+                alert("값을 가져오지 못했습니다.");
+            }
+        });
+    }
 });
 
+
+function load_img_create(input){
+    if(input.files && input.files[0]){
+        const file = new FileReader();
+        file.onload = function (e) {
+            document.getElementById("previewImg").src = e.target.result;
+        }
+        file.readAsDataURL(input.files[0]);
+    }
+    else{
+        document.getElementById("previewImg").src = "";
+    }
+}
+
+function load_img_edit(input){
+    if(input.files && input.files[0]){
+        const file = new FileReader();
+        file.onload = function (e) {
+            document.getElementById("previewImgEdit").src = e.target.result;
+        }
+        file.readAsDataURL((input.files[0]));
+    }
+    else{
+        document.getElementById("previewImgEdit").src = "";
+    }
+}
+
 // 파일 타입, 크기 제한
-let regex = new RegExp("(.*?)\.(jpg|png)$"); // 이미지 파일 타입 png, jpg만 허용
+let regex = new RegExp("(.*?)\.(jpg|jpeg|png)$"); // 이미지 파일 타입 png, jpg, jpeg만 허용
 let maxSize = 1048576; // 1MB 제한
 let blankPattern = /[\s]/g;
 function fileCheck(fileName, fileSize){
@@ -90,7 +119,6 @@ function fileCheck(fileName, fileSize){
     }
     if(blankPattern.test(fileName)){
         alert("파일명에는 공백이 포함될 수 없습니다.");
-        // return fileName.replaceAll(" ", "_");
         return false;
     }
     return true;
@@ -103,10 +131,7 @@ function fileCheck(fileName, fileSize){
 function productcreate_popup(){
     document.querySelector(".product_create").style.display = "block";
     document.getElementById("previewImg").setAttribute("create", "true");
-    // const btn_save = document.querySelector('.btn_save');
-    // btn_save.addEventListener("click",sendit);
     document.getElementById('productCreateBtn').onclick = function(){sendit()};
-
 }
 
 function sendit(){
@@ -114,7 +139,7 @@ function sendit(){
     const name = document.getElementById("name").value; // 상품명
     const nameKor = document.getElementById("nameKor").value; // 상품명(kor)
     const size = document.getElementById("size").value; // 사이즈
-    const img2 = document.getElementById("previewImg").src; // 상품사진
+    const img2 = document.getElementById("previewImg").value; // 상품사진
         const img = img2.replaceAll("http://localhost:8889", "");
     const modelNum = document.getElementById("modelNum").value; // 모델번호
     const releaseDate = document.getElementById("releaseDate").value; // 출시일
@@ -192,6 +217,7 @@ function sendit(){
 function productcreate_popdown(){
     document.querySelector(".product_create").style.display = "none";
     document.getElementById("previewImg").removeAttribute("create");
+    location.reload();
 }
 
 
@@ -262,8 +288,14 @@ function productedit_popup(idx){
         const name2 = document.getElementById('edit_name').value;
         const nameKor2 = document.getElementById('edit_nameKor').value;
         const size2 = document.getElementById('edit_size').value;
-        const img = document.getElementById('previewImgEdit').src;
-            const img2 = img.replaceAll("http://localhost:8889", "");
+        let img2="";
+        if(document.getElementById('previewImgEdit').value == null){
+            const img = document.getElementById('previewImgEdit').src;
+            img2 = img.replaceAll("http://localhost:8889", "");
+        }else {
+            const img = document.getElementById('previewImgEdit').value;
+            img2 = img.replaceAll("http://localhost:8889", "");
+        }
         const modelNum2 = document.getElementById('edit_modelNum').value;
         const releaseDate2 = document.getElementById('edit_releaseDate').value;
         const color2 = document.getElementById('edit_color').value;
@@ -317,6 +349,7 @@ function productedit_popup(idx){
 
 function productedit_popdown() {
     document.querySelector(".product_edit").style.display = "none";
+    location.reload();
 }
 
 

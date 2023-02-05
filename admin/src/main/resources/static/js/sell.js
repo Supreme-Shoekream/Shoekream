@@ -9,7 +9,7 @@ function search_buy(){
 
 function layer_sell_view(idx){
 
-    fetch('http://localhost:8889/api/order/sell/'+idx)
+    fetch('http://localhost:8899/api/order/sell/'+idx)
         .then((response) => response.json())
         .then((data) => {
             console.log(data)
@@ -50,7 +50,7 @@ function pop_sell_delete(idx){
     });
 }
 function selldelete(idx){
-    fetch('http://localhost:8889/api/order/sell/'+idx, {
+    fetch('http://localhost:8899/api/order/sell/'+idx, {
         method: "DELETE",
     })
         .then((res) => {

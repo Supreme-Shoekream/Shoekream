@@ -43,7 +43,6 @@ public class StyleLogicService {
     }
 
     @Transactional(readOnly = true)
-
     public List<BoardWithLikeListResponse> unlog_trend(){
         List<BoardWithLikeListResponse> trend = BoardWithLikeListResponse.fromEntity(boardRepository.findAll());
         for(int i=0;i<trend.size()-1;i++){
@@ -57,6 +56,8 @@ public class StyleLogicService {
         }
         return trend;
     }
+
+
 
     @Transactional(readOnly = true)
     public List<BoardWithLikeListResponse> unlog_newest(){

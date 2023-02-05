@@ -13,7 +13,6 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Builder
 @ToString
-//@EqualsAndHashCode(callSuper = true)
 @EntityListeners(AuditingEntityListener.class)
 public class Follow{
 

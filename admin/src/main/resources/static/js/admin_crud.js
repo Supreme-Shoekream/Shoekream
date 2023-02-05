@@ -11,7 +11,7 @@ function sendit() {
     const name = document.getElementById('name_input');
     const hp = document.getElementById('hp_input');
 
-    fetch('http://localhost:8889/api/admin', {
+    fetch('http://localhost:8899/api/admin', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -212,7 +212,7 @@ function pop_admin_edit(idx){
     document.querySelector(".layer_admin_edit").style.display = "block";
     //adminid를 찍어줘야함
     const adminid2 =document.getElementById('adminid_edit')
-    fetch('http://localhost:8889/api/admin/'+idx)
+    fetch('http://localhost:8899/api/admin/'+idx)
         .then((response) => response.json())
         .then((data) => {
             adminid2.innerHTML=data.data.adminid;
@@ -229,7 +229,7 @@ function sendedit(idx) {
     const name2 = document.getElementById('name_edit')
     const hp2 = document.getElementById('hp_edit')
 
-    fetch('http://localhost:8889/api/admin', {
+    fetch('http://localhost:8899/api/admin', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -348,7 +348,7 @@ function close_admin_edit() {
 ////관리자 조회👀👀👀👀👀👀👀👀
 function pop_admin_view(idx){
 
-    fetch('http://localhost:8889/api/admin/'+idx)
+    fetch('http://localhost:8899/api/admin/'+idx)
         .then((response) => response.json())
         .then((data) => {
             console.log(data)
@@ -374,7 +374,7 @@ function pop_admin_delete(idx){
     });
 }
 function admindelete(idx){
-    fetch('http://localhost:8889/api/admin/'+idx, {
+    fetch('http://localhost:8899/api/admin/'+idx, {
         method: "DELETE",
 
     })

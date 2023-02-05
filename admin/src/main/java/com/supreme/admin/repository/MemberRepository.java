@@ -1,6 +1,8 @@
 package com.supreme.admin.repository;
 
 import com.supreme.admin.model.entity.Member;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
@@ -11,6 +13,8 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
     Member findByIdx(Long idx);
     Optional<Member> deleteByIdx(Long idx);
     Member getReferenceByIdx(Long idx);
+
+    Page<Member> findByEmailContaining(String email, Pageable pageable);
 
     long countBy();
 }
