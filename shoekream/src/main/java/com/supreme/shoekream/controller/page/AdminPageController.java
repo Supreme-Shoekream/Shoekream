@@ -6,10 +6,7 @@ import com.supreme.shoekream.model.network.Pagination;
 import com.supreme.shoekream.model.network.response.BuyResponse;
 import com.supreme.shoekream.model.network.response.SellResponse;
 import com.supreme.shoekream.repository.ConclusionRepository;
-import com.supreme.shoekream.service.BuyService;
-import com.supreme.shoekream.service.PaginationService;
-import com.supreme.shoekream.service.SellService;
-import com.supreme.shoekream.service.StyleLogicService;
+import com.supreme.shoekream.service.*;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -143,9 +140,13 @@ public class AdminPageController {
         return new ModelAndView("/adminpage/notice.html");
     }
 
+    private final EventApiService eventApiService;
     @GetMapping(path="event")   //http://localhost:8889/admin/event
-    public ModelAndView event(){
-        return new ModelAndView("/adminpage/event.html");
+    public ModelAndView event(ModelMap map){
+        map.addAttribute("event", eventApiService.list());
+        System.out.println(eventApiService.list());
+        return new ModelAndView("adminpage/event");
+
     }
 
     @GetMapping(path="brandcreate")   //http://localhost:8889/admin/brandcreate

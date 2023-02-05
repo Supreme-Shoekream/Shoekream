@@ -346,31 +346,29 @@
     const wish_onoff2 = document.querySelector(".btn_wish_simple .wish-onoff"); // 상단 고정 배너 관심상품
     let isWish = document.getElementById("wishCount").getAttribute("value");
     wishes.forEach((wish) => {
-
-        const ch = wish.childNodes;
-        console.log(ch);
-
-        if(isWish == ""){
-            location.href = "http://localhost:8889/login";
-        }else {
-            if(isWish == "true") {
-                if (ch[1].getAttribute("src") == "/img/select_mark_off.PNG") {
-                    wish_onoff.setAttribute("src", "/img/select_mark_on.png");
-                    wish_onoff2.setAttribute("src", "/img/select_mark_on.png");
-                }else {
-                    wish_onoff.setAttribute("src", "/img/select_mark_on.png");
-                    wish_onoff2.setAttribute("src", "/img/select_mark_on.png");
-                }
-            }else{
-                if (ch[1].getAttribute("src") == "/img/select_mark_off.PNG") {
-                    wish_onoff.setAttribute("src", "/img/select_mark_off.PNG");
-                    wish_onoff2.setAttribute("src", "/img/select_mark_off.PNG");
-                }else {
-                    wish_onoff.setAttribute("src", "/img/select_mark_on.png");
-                    wish_onoff2.setAttribute("src", "/img/select_mark_on.png");
+            const ch = wish.childNodes;
+            console.log(ch);
+            if (isWish == "") {
+                location.href = "http://localhost:8889/login";
+            } else {
+                if (isWish == "true") {
+                    if (ch[1].getAttribute("src") == "/img/select_mark_off.PNG") {
+                        wish_onoff.setAttribute("src", "/img/select_mark_on.png");
+                        wish_onoff2.setAttribute("src", "/img/select_mark_on.png");
+                    } else {
+                        wish_onoff.setAttribute("src", "/img/select_mark_on.png");
+                        wish_onoff2.setAttribute("src", "/img/select_mark_on.png");
+                    }
+                } else {
+                    if (ch[1].getAttribute("src") == "/img/select_mark_off.PNG") {
+                        wish_onoff.setAttribute("src", "/img/select_mark_off.PNG");
+                        wish_onoff2.setAttribute("src", "/img/select_mark_off.PNG");
+                    } else {
+                        wish_onoff.setAttribute("src", "/img/select_mark_on.png");
+                        wish_onoff2.setAttribute("src", "/img/select_mark_on.png");
+                    }
                 }
             }
-        }
     });
 
 

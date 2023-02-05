@@ -49,6 +49,9 @@ dependencies {
 	// 카카오
 //	implementation 'com.google.code.gson:gson:2.8.7'
 	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+
+	// 회원가입 이메일인증
+	implementation 'org.springframework.boot:spring-boot-starter-mail'
 }
 
 tasks.named('test') {

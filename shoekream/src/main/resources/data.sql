@@ -1,6 +1,6 @@
 
 insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url, bank, acc_number) values ('root', '{noop}root1234!', '박수성', '010-795-9985', 'root@root.com', 0, 240, 5100, 'Red', '/img/kream_empty_img.png', '하나은행' , '1238008829271');
-insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('hsd_09_', '{noop}PtLR!@0aXZKp', '박서준', '010-877-1330', 'zkrochmann1@ft.com', 0, 240, 200, 'Goldenrod', '/img/styleImg/profile1.jpeg');
+insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('hsd_09_', '{noop}PtLR!@0aXZKp', '박서준', '010-877-1330', 'jj2221@naver.com', 0, 240, 200, 'Goldenrod', '/img/styleImg/profile1.jpeg');
 insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('i.tohewa', 'YB6P!@BcWrzC', '신동열', '010-450-0814', 'smaffioni2@unicef.org', 0, 230, 300, 'Mauv', '/img/styleImg/profile2.jpeg');
 insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('this_is_me_dew', 'SMWl!@rG', '박준영', '010-272-0199', 'tconrard3@si.edu', 0, 270, 400, 'Aquamarine', '/img/styleImg/profile3.jpeg');
 insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('rldaldwkd', 'TTxnmU!@2W', '임성빈', '010-174-7922', 'sbates4@scribd.com', 0, 270, 500, 'Turquoise', '/img/styleImg/profile4.jpeg');
@@ -324,6 +324,11 @@ INSERT INTO product (img, brand, name, name_kor, size, wish_count, model_num, re
 INSERT INTO product (img, brand, name, name_kor, size, wish_count, model_num, release_date, color, first_price, category, gender, collection) VALUES ( '/img/product/Nike_x_Supreme_Air_Force_1_Low_White.png', 'Nike', 'Nike x Supreme Air Force 1 Low White', '나이키 x 슈프림 에어포스 1 로우 화이트', '270', 0, 'CU9225-100', '20/03/05', 'WHITE/WHITE-WHITE', '$118 (약 146,200원)', '신발', 'M W', '-');
 INSERT INTO product (img, brand, name, name_kor, size, wish_count, model_num, release_date, color, first_price, category, gender, collection) VALUES ( '/img/product/Nike_x_Supreme_Air_Force_1_Low_White.png', 'Nike', 'Nike x Supreme Air Force 1 Low White', '나이키 x 슈프림 에어포스 1 로우 화이트', '280', 0, 'CU9225-100', '20/03/05', 'WHITE/WHITE-WHITE', '$118 (약 146,200원)', '신발', 'M W', '-');
 
+-- 이벤트 상품
+INSERT INTO product (img, brand, name, name_kor, size, wish_count, model_num, release_date, color, first_price, category, gender, collection) VALUES ( '/img/product/1week.webp', null, 'Ader Error x Converse Jacket + Chuck Taylor 70', '아더에러 x 컨버스 자켓 + 척 테일러 70', null, 0, 'null', '23/02/06', null, null, null, null, null);
+INSERT INTO product (img, brand, name, name_kor, size, wish_count, model_num, release_date, color, first_price, category, gender, collection) VALUES ( '/img/product/2week.webp', null, 'Louis Vuitton Palm Springs Mini Backpack Monogram', '루이비통 팜 스프링스 미니 백팩 모노그램', null, 0, 'null', '23/02/13', null, null, null, null, null);
+INSERT INTO product (img, brand, name, name_kor, size, wish_count, model_num, release_date, color, first_price, category, gender, collection) VALUES ( '/img/product/3week.webp', null, 'Jordan 1 x Dior Low OG', '조던 1 x 디올 로우 OG', null, 0, 'null', '23/02/20', null, null, null, null, null);
+INSERT INTO product (img, brand, name, name_kor, size, wish_count, model_num, release_date, color, first_price, category, gender, collection) VALUES ( '/img/product/4week.webp', null, 'Apple 2022 MacBook Pro 13 + AirPods Max', '애플 2022 맥북 프로 13 + 에어팟 맥스', null, 0, 'null', '23/02/27', null, null, null, null, null);
 
 
 
@@ -1133,3 +1138,7 @@ insert into wish (idx, member_idx, product_idx) values (3, 1, 3);
 insert into wish (idx, member_idx, product_idx) values (4, 1, 4);
 insert into wish (idx, member_idx, product_idx) values (5, 1, 5);
 
+-- event_product
+insert into event_product(idx,end_time, img,  start_time,title,product_idx  ) values (1,"2023-02-06",'/img/event/event2.gif', "2023-02-04","test",110 );
+insert into event_member(idx, event_product_idx, member_idx) values (1,1,1);
+insert into event_member(idx, event_product_idx, member_idx) values (2,1,2);

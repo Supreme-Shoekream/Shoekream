@@ -1,16 +1,29 @@
 package com.supreme.shoekream.model.network.response;
 
-import com.supreme.shoekream.model.dto.ProductDTO;
 
+import com.supreme.shoekream.model.dto.EventDTO;
 import java.time.LocalDateTime;
+
 
 public record EventApiResponse(
         Long idx,
         String title,
         String img,
-        ProductDTO productDTO,
+        Long productIdx,
+        String productName,
         LocalDateTime startTime,
         LocalDateTime endTime
 
 ) {
+    public static EventApiResponse from(EventDTO dto){
+        return new EventApiResponse(
+                dto.idx(),
+                dto.title(),
+                dto.img(),
+                dto.productDTO().idx(),
+                dto.productDTO().name(),
+                dto.startTime(),
+                dto.endTime()
+        );
+    }
 }
