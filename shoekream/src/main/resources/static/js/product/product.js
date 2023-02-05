@@ -2,15 +2,11 @@
 // 스크롤시 왼쪽 상품 사진 이동후 멈춤
 const is_fixed = document.querySelector(".is_fixed"); // 왼쪽 상품 사진
 window.addEventListener('scroll', function () {
-    // console.log(y2);
     // console.log(window.scrollY);
     if (window.scrollY >= 1240) {
-
         // window.scrollY: 브라우저 최상단에서 현재까지 스크롤 된 좌표값 구함
-        // 좌표값이 1240인 곳에서 멈춰야함
         is_fixed.classList.remove('is_fixed');
-        is_fixed.classList.add('is_absolute');
-        // css에서 position:absolute , top:1250px으로 지정해줬음
+        is_fixed.classList.add('is_absolute'); // 좌표값이 1245인 곳에서 멈춰야함
     } else {
         is_fixed.classList.remove('is_absolute');
         is_fixed.classList.add('is_fixed');
@@ -21,7 +17,7 @@ window.addEventListener('scroll', function () {
 // ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
 // 시세 - 개월 버튼
 const dates = document.querySelectorAll(".tab_list .date");
-// console.log(items);
+const tces = document.querySelectorAll(".tc");
 //배열로 저장되기 때문에 forEach로 하나씩 이벤트를 등록해준다.
 dates.forEach((date) => {
     date.addEventListener('click', () => {
@@ -29,28 +25,160 @@ dates.forEach((date) => {
             //하나만 선택되도록 기존의 효과를 지워준다.
             e.classList.remove('on');
             e.setAttribute('aria-selected', 'false');
-        })
+        });
+        tces.forEach((e)=>{
+            e.setAttribute("width", "0");
+            e.setAttribute("height", "0");
+        });
 
         // 선택한 그 아이만 효과를 추가해준다.
         date.classList.add('on');
         date.setAttribute('aria-selected', 'true');
+
+        let month = date.childNodes[1].innerHTML;
+        // console.log(months);
+        switch (month){
+            case "1개월":
+                document.getElementById("graph1m").setAttribute("width", "560");
+                document.getElementById("graph1m").setAttribute("height", "200");
+                break;
+            case "3개월":
+                document.getElementById("graph3m").setAttribute("width", "560");
+                document.getElementById("graph3m").setAttribute("height", "200");
+                break;
+            case "6개월":
+                document.getElementById("graph6m").setAttribute("width", "560");
+                document.getElementById("graph6m").setAttribute("height", "200");
+                break;
+            case "1년":
+                document.getElementById("graph1y").setAttribute("width", "560");
+                document.getElementById("graph1y").setAttribute("height", "200");
+                break;
+            case "전체":
+                document.getElementById("graphall").setAttribute("width", "560");
+                document.getElementById("graphall").setAttribute("height", "200");
+                break;
+        }
     })
 });
+
 
 
 // ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
 // 시세 - 체결내역
 const conclusiones = document.querySelectorAll(".tab_list .conclusion");
+const twes = document.querySelectorAll(".tw");
 conclusiones.forEach((conclusion) => {
     conclusion.addEventListener("click", () => {
         conclusiones.forEach((e) => {
             e.classList.remove("on");
             e.setAttribute("aria-selected", "false");
         });
+        twes.forEach((e) => {
+            e.classList.remove("show");
+        });
+
+
         conclusion.classList.add("on");
         conclusion.setAttribute("aria-selected", "true");
+
+        let con = conclusion.childNodes[1].innerHTML;
+        console.log(con);
+        switch (con){
+            case "체결 거래":
+                document.getElementById("panel1").classList.add("show");
+                // document.getElementById("panel11").classList.add("show");
+                break;
+            case "판매 입찰":
+                document.getElementById("panel2").classList.add("show");
+                // document.getElementById("panel22").classList.add("show");
+                break;
+            case "구매 입찰":
+                document.getElementById("panel3").classList.add("show");
+                // document.getElementById("panel33").classList.add("show");
+                break;
+        }
     });
 });
+
+// ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+// 체결 내역 더보기 - 열고닫기
+const plusList = document.querySelectorAll(".plus"); // 팝업창 안에 있는 체결내역 버튼
+const plustbtn = document.querySelectorAll(".plusbtn"); // 체결 내역 더보기 버튼
+const tcl = document.querySelectorAll(".tcl"); // 팝업창 안에 리스트 출력되는 영역
+plustbtn.forEach((pb) => {
+    pb.addEventListener("click", () => {
+        const layer = document.querySelector(".layer_market_price");
+        layer.style.display = "block";
+        const body = document.querySelector("body");
+        body.style.overflow = "hidden";
+
+        plusList.forEach((e) => {
+            e.classList.remove("on");
+        });
+
+        tcl.forEach((e) => {
+            e.classList.remove("show");
+        });
+
+
+        let plus = pb.innerHTML;
+        switch (plus){
+            case "체결 내역 더보기":
+                document.getElementById("plus1").classList.add("on"); // 팝업창 안에 있는 체결내역 버튼 on
+                document.getElementById("panel11").classList.add("show");
+                break;
+            case "판매 입찰 내역 더보기":
+                document.getElementById("plus2").classList.add("on"); // 팝업창 안에 있는 판매입찰 버튼 on
+                document.getElementById("panel22").classList.add("show");
+                break;
+            case "구매 입찰 내역 더보기":
+                document.getElementById("plus3").classList.add("on"); // 팝업창 안에 있는 구매입찰 버튼 on
+                document.getElementById("panel33").classList.add("show");
+                break;
+            }
+        });
+    });
+
+plusList.forEach((pL) => {
+    pL.addEventListener("click", () => {
+        plusList.forEach((e) => {
+            e.classList.remove("on");
+        });
+        tcl.forEach((e) => {
+            e.classList.remove("show");
+        });
+
+
+        let pluslist = pL.childNodes[1].innerHTML;
+        switch (pluslist){
+            case "체결 거래":
+                document.getElementById("plus1").classList.add("on"); // 팝업창 안에 있는 체결내역 버튼 on
+                document.getElementById("panel11").classList.add("show");
+                break;
+            case "판매 입찰":
+                document.getElementById("plus2").classList.add("on"); // 팝업창 안에 있는 판매입찰 버튼 on
+                document.getElementById("panel22").classList.add("show");
+                break;
+            case "구매 입찰":
+                document.getElementById("plus3").classList.add("on"); // 팝업창 안에 있는 구매입찰 버튼 on
+                document.getElementById("panel33").classList.add("show");
+                break;
+        }
+
+    })
+})
+
+
+
+
+function conPopdown() {
+    const layer = document.querySelector(".layer_market_price");
+    layer.style.display = "none";
+
+    const body = document.querySelector("body");
+    body.style.overflow = "";
+}
 
 
 // ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
@@ -102,25 +230,6 @@ items.forEach((item) => {
         }
     });
 });
-
-
-// ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
-// 체결 내역 더보기 - 열고닫기
-function conPopup() {
-    const layer = document.querySelector(".layer_market_price");
-    layer.style.display = "block";
-
-    const body = document.querySelector("body");
-    body.style.overflow = "hidden";
-}
-
-function conPopdown() {
-    const layer = document.querySelector(".layer_market_price");
-    layer.style.display = "none";
-
-    const body = document.querySelector("body");
-    body.style.overflow = "";
-}
 
 
 // ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️

@@ -25,8 +25,10 @@ import javax.persistence.EntityNotFoundException;
 import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Transactional
@@ -39,13 +41,15 @@ public class SellService {
     private final ProductRepository productRepository;
     private final ConclusionRepository conclusionRepository;
 
-    //사용자이메일로 검색 or 상품이름으로 검색
+    //판매자로 검색
     @Transactional(readOnly = true)
     public Page<SellDTO> searchSell(String searchKeyword, Pageable pageable){
         if(searchKeyword == null || searchKeyword.isBlank()){
             return sellRepository.findAll(pageable).map(SellDTO::fromEntity);
         }
-        return null;
+
+        return sellRepository.findBySenderContaining(searchKeyword, pageable).map(SellDTO::fromEntity);
+
     }
 
     //관리자페이지/사용자페이지 detail
@@ -202,6 +206,15 @@ public class SellService {
                     .map(Header::OK)
                     .orElseGet(()->Header.ERROR("데이터 없음"));
         }
+    }
+
+    public List<SellDTO> sellList(Long productIdx){
+        Product product = productRepository.findById(productIdx).get();
+        if(product.getIdx() == null){
+            return null;
+        }
+        return sellRepository.findAllByProductOrderByCreatedAtDesc(product).stream()
+                .map(SellDTO::fromEntity).collect(Collectors.toCollection(LinkedList::new));
     }
 
 }

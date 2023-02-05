@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org/">
+<!--head 시작 -->
+<div th:replace="fragment/adminhead :: head"></div>
+<!--head 끝 -->
+<body>
+<!-- header 시작 -->
+<div th:replace="fragment/adminheader :: header(${sessionInfo})"></div>
+<!-- header 끝 -->
+<!-- right-sidebar 시작 -->
+<div th:replace="fragment/adminrightsidebar :: rightsidebar"></div>
+<!-- right-sidebar 끝 -->
+<!-- left-side-bar 시작 -->
+<div th:replace="fragment/adminnavbar :: navbar"></div>
+<!-- left-side-bar 끝 -->
+<div class="main-container">
+  <div class="pd-ltr-20 xs-pd-20-10">
+    <div class="min-height-200px">
+
+      <!-- Simple Datatable start -->
+      <div class="card-box mb-30">
+        <div class="pd-20" id="top">
+          <h4 class="text-blue h4">사용자 리스트</h4>
+        </div>
+        <div class="pb-20">
+          <div class="row">
+            <div class="col-sm-12 col-md-6">
+              <div class="dataTables_length" id="DataTables_Table_0_length">
+                <label style=" font-weight: normal; white-space: nowrap; text-align: left;">Show
+                  <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="custom-select custom-select-sm form-control form-control-sm">
+                    <option value="10">10</option><option value="25">25</option><option value="50">50</option>
+                  </select> entries
+                </label>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+              <div id="DataTables_Table_0_filter" class="dataTables_filter" style="text-align: right;padding-left: 15px; padding-right: 15px;">
+                <label style=" font-weight: normal; white-space: nowrap; text-align: left; display: flex; align-items: center; justify-content: flex-end;">search:
+                  <input id="search_box" type="search" class="form-control form-control-sm" aria-controls="DataTables_Table_0" style="margin-left: 0.5em; width: auto;">
+                </label>
+              </div>
+            </div>
+          </div>
+          <table class="data-table table stripe hover nowrap">
+            <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone Number</th>
+              <th>Shoe Size</th>
+              <th class="datatable-nosort">Action</th>
+            </tr>
+            </thead>
+            <tbody id="itemList">
+            <tr class="bg-pink">
+              <td>name</td>
+              <td>email</td>
+              <td>hp</td>
+              <td>shoeSize</td>
+              <td>
+                <div class="dropdown">
+                  <a
+                          class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
+                          href="#"
+                          role="button"
+                          data-toggle="dropdown"
+                  >
+                    <i class="dw dw-more"></i>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                    <a class="dropdown-item" href="#" onclick="pop_member_view()"
+                    ><i class="dw dw-eye"></i> View</a>
+
+                    <a class="dropdown-item" href="#"
+                    ><i class="bi bi-hand-thumbs-up"></i> Point</a>
+
+                    <a class="dropdown-item" href="#"
+                    ><i class="bi bi-x-octagon-fill"></i> Penalty</a>
+
+                    <a class="dropdown-item" href="#"
+                    ><i class="bi bi-people-fill"></i> Blacklist</a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+          <div class="row">
+            <div class="col-sm-12 col-md-4"><div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite"></div></div>
+            <div class="col-sm-12 col-md-7">
+              <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
+                <ul class="pagination">
+                  <li class="paginate_button page-item previous disabled" id="DataTables_Table_0_previous">
+                    <a href="#" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0" class="page-link">
+                      <i class="ion-chevron-left"></i>
+                    </a>
+                  </li>
+                  <li class="paginate_button page-item active">
+                    <a href="#" aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0" class="page-link">1</a>
+                  </li>
+                  <li class="paginate_button page-item next disabled" id="DataTables_Table_0_next">
+                    <a href="#" aria-controls="DataTables_Table_0" data-dt-idx="2" tabindex="0" class="page-link">
+                      <i class="ion-chevron-right"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div id="showPage" class="card-box">총 {{totalPages}}페이지 중 {{currentPage}}페이지</div>
+          <div id="pageNum" class="dataTables_info" role="status"></div>
+        </div>
+      </div>
+      <!-- Simple Datatable End -->
+    </div>
+  </div>
+</div>
+<div th:replace="adminpage/admin_layer/pop_point :: point"></div>
+<div th:replace="adminpage/admin_layer/layer_user_view :: member_view"></div>
+
+<!-- js -->
+<div th:replace="fragment/adminjs :: js"></div>
+<script src="/js/member_list.js"></script>
+<script src="/js/point.js"></script>
+<script src="/js/member_crud.js"></script>
+
+<!-- js -->
+
+</body>
+</html>

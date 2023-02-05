@@ -6,6 +6,11 @@
     <attr sel="#sell_table" th:object="${sells}">
         <attr sel="thead/tr">
 
+            <attr sel="th.seller/a" th:href="@{/admin/sell(page=${sells.number},sort='sender'+
+                (*{sort.getOrderFor('sender')} != null ? (*{sort.getOrderFor('sender').direction.name} != 'DESC' ? ',desc' : '') : ''),
+                searchKeyword=${param.searchValue}
+                )}"/>
+
             <attr sel="th.order_num/a" th:href="@{/admin/sell(page=${sells.number},sort='idx'+
                 (*{sort.getOrderFor('idx')} != null ? (*{sort.getOrderFor('idx').direction.name} != 'DESC' ? ',desc' : '') : ''),
                 searchKeyword=${param.searchValue}

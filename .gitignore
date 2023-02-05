@@ -1,5 +1,6 @@
 shoekream/src/main/resources/application.yml
-
+admin/src/main/resources/application.yml
+crawling/src/main/resources/application.yml
 # Created by https://www.toptal.com/developers/gitignore/api/java,intellij+all,macos,windows
 # Edit at https://www.toptal.com/developers/gitignore?templates=java,intellij+all,macos,windows
 

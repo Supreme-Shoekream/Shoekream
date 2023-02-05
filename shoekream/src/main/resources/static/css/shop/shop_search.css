@@ -11,8 +11,6 @@ div {
     display: block;
 } */
 
-/* 140, 187 확인할 것 */
-
 /*프리미엄 업*/
 
 .status_value{
@@ -291,6 +289,7 @@ a { text-decoration:none }
 }
 
 .filter_list{
+    cursor: pointer;
     width: 20rem;
     border-bottom:  0.1px solid lightgray;
 }
@@ -347,6 +346,16 @@ a:visited{
     width: 100%;
     margin: 0;
 }
+
+.search_area .input_search {
+    width: 100%;
+    height: 100%;
+    transition: all .1s;
+    font-size: 14px;
+    letter-spacing: -.21px;
+    border: 0;
+}
+
 .search2{
     width: 500px;
     flex: none;
@@ -362,7 +371,7 @@ a:visited{
 }
 
 .input_shop_search{
-    height: 30px;
+    height: 35px;
     width: 500px;
     text-align: center;
     border: 0;
@@ -1726,9 +1735,14 @@ input:focus{
     color: #000;
 }
 
+/*검색창 리스트 부분*/
 .suggest_list {
-    max-height: 420px;
+    max-height: 480px;
     padding-right: 40px;
+    border: 1px solid silver;
+    background: mintcream;
+    font-size: 15px;
+    overflow-y: scroll;
 }
 
 .suggest_item {
@@ -1896,6 +1910,65 @@ input:focus{
     padding: 0.8rem 0 1.15rem;
     border:1px solid black;
     border-radius: 13px;
+}
+
+/* 페이지네이션 */
+.pagination {
+    padding: 28px 0;
+}
+.pagination_box{
+    position: relative;
+    font-size: 0;
+    text-align: center;
+}
+
+.pagination{
+    padding: 28px 0;
+}
+/* .prev_btn_box {
+    margin-right: 25px;
+} */
+.next_btn_box, .prev_btn_box{
+    display: inline-block;
+    vertical-align: top;
+}
+.next_btn_box .btn_arr, .prev_btn_box .btn_arr {
+    padding: 3px;
+    width: 24px;
+    height: 24px;
+}
+.btn_arr img{
+    /* width: 18px; */
+    height: 22px;
+}
+.page_bind {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.btn_page{
+    display: inline-block;
+    padding: 0 8px;
+    font-size: 16px;
+    color: rgba(34,34,34,.5);
+}
+.btn_page+.btn_page{
+    margin-left: 12px;
+}
+.btn_page.active{
+    font-weight: 700;
+    color: #222;
+}
+.menu_item.active {
+    font-weight: 700;
+    color: #222;
+}
+.menu_item:not(.active) {
+    border-color: #ebebeb;
+}
+
+span.wish_pro_size {
+    margin-top: 25px;
 }
 
 

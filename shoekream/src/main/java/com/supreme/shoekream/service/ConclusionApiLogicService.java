@@ -21,7 +21,7 @@ public class ConclusionApiLogicService {
     public List<ConclusionDTO> conclusionList(Long productIdx){
         Product product = productRepository.findById(productIdx).get();
         return conclusionRepository.findAllByProductOrderByCreatedAtDesc(product).stream()
-//              .map(ConclusionDTO::fromEntity).collect(Collectors.toList());
+        // .map(ConclusionDTO::fromEntity).collect(Collectors.toList());
                 .map(ConclusionDTO::fromEntity).collect(Collectors.toCollection(LinkedList::new));
         // Collectors: Stream을 일반적인 List, Set등으로 변경시키는 Stream 메서드
     }

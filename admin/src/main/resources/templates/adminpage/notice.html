@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--head 시작 -->
+<div th:replace="fragment/adminhead :: head"></div>
+<!--head 끝 -->
+<body>
+
+<!-- header 시작 -->
+<div th:replace="fragment/adminheader :: header(${sessionInfo})"></div>
+<!-- header 끝 -->
+<!-- right-sidebar 시작 -->
+<div th:replace="fragment/adminrightsidebar :: rightsidebar"></div>
+<!-- right-sidebar 끝 -->
+<!-- left-side-bar 시작 -->
+<div th:replace="fragment/adminnavbar :: navbar"></div>
+<!-- left-side-bar 끝 -->
+<div class="main-container">
+  <div class="pd-ltr-20 xs-pd-20-10">
+    <div class="min-height-200px">
+
+      <!-- Simple Datatable start -->
+      <div class="card-box mb-30">
+        <div style="display: flex;" class="pd-20">
+          <h4 class="text-blue h4">공지사항 리스트</h4>
+<!--          <h4 class="text-blue h4">공지사항 리스트</h4>-->
+          <a href="/admin/notice_create"
+             style="width: 130px; height: 30px; background-color: #1b00ff; color: white;
+             border-radius: 10px; margin-left: 10px;
+              text-align: center; align-items: center;"
+          >공지사항 추가</a>
+<!--          <div th:replace="/admin_layer/layer_notice_create :: notice_create"></div>-->
+          <!--이름/아이디/전화번호/주소/회원상태/포인트-->
+        </div>
+        <div class="pb-20">
+          <div class="row">
+            <div class="col-sm-12 col-md-6">
+              <div class="dataTables_length" id="DataTables_Table_0_length">
+                <label style=" font-weight: normal; white-space: nowrap; text-align: left;">Show
+                  <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="custom-select custom-select-sm form-control form-control-sm">
+                    <option value="10">10</option><option value="25">25</option><option value="50">50</option>
+                  </select> entries
+                </label>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+              <div id="DataTables_Table_0_filter" class="dataTables_filter" style="text-align: right;padding-left: 15px; padding-right: 15px;">
+                <label style=" font-weight: normal; white-space: nowrap; text-align: left; display: flex; align-items: center; justify-content: flex-end;">search:
+                  <input id="search_box" type="search" class="form-control form-control-sm" aria-controls="DataTables_Table_0" style="margin-left: 0.5em; width: auto;">
+                </label>
+              </div>
+            </div>
+          </div>
+          <table class="data-table table stripe hover nowrap">
+            <thead>
+            <tr>
+              <th class="table-plus datatable-nosort">Writer</th>
+              <th>Title</th>
+              <th>Date</th>
+
+              <th class="datatable-nosort">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="table-plus">김사과</td>
+              <td>[이벤트 발표] LUCKY DRAW - 조던 1 레트로 하이 OG 시카고 2015</td>
+              <td>2022-12-15</td>
+
+              <td>
+                <div class="dropdown">
+                  <a
+                          class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
+                          href="#"
+                          role="button"
+                          data-toggle="dropdown"
+                  >
+                    <i class="dw dw-more"></i>
+                  </a>
+                  <div
+                          class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
+                  >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-eye"></i> View</a
+                    >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-edit2"></i> Edit</a
+                    >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-delete-3"></i> Delete</a
+                    >
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="table-plus">반하나</td>
+
+
+              <td>[이벤트 발표] LUCKY DRAW - 어그 클래식 울트라 미니 & 미니 플랫폼 부츠 체스트넛</td>
+              <td>2022-12-15</td>
+
+              <td>
+                <div class="dropdown">
+                  <a
+                          class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
+                          href="#"
+                          role="button"
+                          data-toggle="dropdown"
+                  >
+                    <i class="dw dw-more"></i>
+                  </a>
+                  <div
+                          class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
+                  >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-eye"></i> View</a
+                    >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-edit2"></i> Edit</a
+                    >
+                    <a class="dropdown-item" href="#"
+                    ><i class="dw dw-delete-3"></i> Delete</a
+                    >
+                  </div>
+                </div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+          <div class="row">
+            <div class="col-sm-12 col-md-4"><div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite"></div></div>
+            <div class="col-sm-12 col-md-7">
+              <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
+                <ul class="pagination">
+                  <li class="paginate_button page-item previous disabled" id="DataTables_Table_0_previous">
+                    <a href="#" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0" class="page-link">
+                      <i class="ion-chevron-left"></i>
+                    </a>
+                  </li>
+                  <li class="paginate_button page-item active">
+                    <a href="#" aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0" class="page-link">1</a>
+                  </li>
+                  <li class="paginate_button page-item next disabled" id="DataTables_Table_0_next">
+                    <a href="#" aria-controls="DataTables_Table_0" data-dt-idx="2" tabindex="0" class="page-link">
+                      <i class="ion-chevron-right"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Simple Datatable End -->
+    </div>
+  </div>
+</div>
+<!-- js -->
+<div th:replace="fragment/adminjs :: js"></div>
+<!-- js -->
+
+</body>
+</html>

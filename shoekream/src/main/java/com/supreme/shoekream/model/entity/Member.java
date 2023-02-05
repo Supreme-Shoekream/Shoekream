@@ -37,7 +37,6 @@ public class Member {
     private String bank;
     private String accNumber;
 
-    private KreamPrincipal.RoleType roleType;
 
     public Member(Long idx, String nickname, String memberPw, String name, String hp, String email, String shoeSize, String profileMemo, String imgUrl, String bank, String accNumber) {
         this.idx = idx;
