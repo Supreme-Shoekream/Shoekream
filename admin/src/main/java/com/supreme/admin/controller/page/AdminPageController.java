@@ -41,7 +41,7 @@ public class AdminPageController {
     private final AdminApiLogicService adminApiLogicService;
     private final DashboardService dashboardService;
 
-    @PostMapping(path="/loginOk")   //http://localhost:8889/loginOk
+    @PostMapping(path="/loginOkYeah")   //http://localhost:8889/loginOk
     public String loginOk(HttpServletRequest request, String userid, String userpw){
         if(adminApiLogicService.read(userid, userpw).getData() != null){
             HttpSession session = request.getSession();
@@ -71,7 +71,7 @@ public class AdminPageController {
     @GetMapping(path="")   //http://localhost:8889/
     public String index(HttpServletRequest request, ModelMap map){
         String session = sessionCheck(request);
-        if(session == null) return "redirect:/login";
+//        if(session == null) return "redirect:/login";
 //        List<Product> products = dashboardService.popularProducts();
         List<Product> products = dashboardService.bestSeller();
         List<Long> totalDealPrice = dashboardService.totalDealPrice(products);
@@ -91,14 +91,14 @@ public class AdminPageController {
     @GetMapping(path="users")   //http://localhost:8889//users
     public ModelAndView users(HttpServletRequest request){
         String session = sessionCheck(request);
-        if(session == null)  return new ModelAndView( "/adminpage/login.html");
+//        if(session == null)  return new ModelAndView( "/adminpage/login.html");
         return new ModelAndView("/adminpage/users.html").addObject("sessionInfo",session);
     }
 
     @GetMapping(path="products")   //http://localhost:8889//products
     public ModelAndView products(HttpServletRequest request){
         String session = sessionCheck(request);
-        if(session == null)  return new ModelAndView( "/adminpage/login.html");
+//        if(session == null)  return new ModelAndView( "/adminpage/login.html");
         return new ModelAndView("/adminpage/products.html").addObject("sessionInfo",session);
     }
 
@@ -111,7 +111,7 @@ public class AdminPageController {
         Page<BuyResponse> buys = buyService.searchBuy(searchKeyword, pageable).map(BuyResponse::from);
         List<Integer> barNumbers = paginationService.getPaginationBarNumbers(pageable.getPageNumber(),buys.getTotalPages());
         String session = sessionCheck(request);
-        if(session == null) return "redirect:/login";
+//        if(session == null) return "redirect:/login";
         map.addAttribute("sessionInfo",session);
         map.addAttribute("buys",buys);
         map.addAttribute("barNumbers",barNumbers);
@@ -127,7 +127,7 @@ public class AdminPageController {
         Page<SellResponse> sells = sellService.searchSell(searchKeyword, pageable).map(SellResponse::from);
         List<Integer> barNumbers = paginationService.getPaginationBarNumbers(pageable.getPageNumber(),sells.getTotalPages());
         String session = sessionCheck(request);
-        if(session == null) return "redirect:/login";
+//        if(session == null) return "redirect:/login";
         map.addAttribute("sessionInfo",session);
         map.addAttribute("sells", sells);
         map.addAttribute("barNumbers",barNumbers);
@@ -142,7 +142,7 @@ public class AdminPageController {
         modelMap.addAttribute("list", list);
 
         String session = sessionCheck(request);
-        if(session == null)  return new ModelAndView( "/adminpage/login.html");
+//        if(session == null)  return new ModelAndView( "/adminpage/login.html");
         modelMap.addAttribute("sessionInfo",session);
 //        System.out.println(list);
         return new ModelAndView("/adminpage/conclusion.html");
