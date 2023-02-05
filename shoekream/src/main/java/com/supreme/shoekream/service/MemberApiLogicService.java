@@ -184,8 +184,6 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
         blacklistRepository.deleteByMemberIdx(idx);
         // 게시판삭제
         boardRepository.deleteByMemberIdx(idx);
-        // 패널티삭제
-        penaltyRepository.deleteByMemberIdx(idx);
         // 좋아요삭제
         likeRepository.deleteByMemberIdx(idx);
 

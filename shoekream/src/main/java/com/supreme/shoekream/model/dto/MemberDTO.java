@@ -28,12 +28,12 @@ public record MemberDTO(
     }
     public static MemberDTO of(String nickname, String memberPw, String name,
                                String hp, String email,String shoeSize, String imgUrl){
-        return new MemberDTO(null, nickname, memberPw, name, hp, email,Status.MEMBER, shoeSize,0L, null, imgUrl, null, null,null);
+        return new MemberDTO(null, nickname, memberPw, name, hp, email,Status.MEMBER, shoeSize,0L, null, imgUrl, null, null);
     }
     public static MemberDTO of(String memberPw, String name, String nickname,
                                String hp, String email, String shoeSize,
-                               String bank, String accNumber,String imgUrl,KreamPrincipal.RoleType roleType){
-        return new MemberDTO(null, nickname, memberPw, name, hp, email,null, shoeSize,null, null, imgUrl, bank, accNumber, roleType);
+                               String bank, String accNumber,String imgUrl){
+        return new MemberDTO(null, nickname, memberPw, name, hp, email,null, shoeSize,null, null, imgUrl, bank, accNumber);
     }
 
     public static MemberDTO fromEntity(Member member){
