@@ -1,7 +1,9 @@
 package com.supreme.shoekream.controller.page;
 
+import com.supreme.shoekream.model.network.security.KreamPrincipal;
 import com.supreme.shoekream.service.MemberApiLogicService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -17,8 +19,9 @@ public class MemberPageController {
     private MemberApiLogicService memberApiLogicService;
 
     @GetMapping(path="login")   // http://localhost:8889/login
-    public ModelAndView login(){
-        return new ModelAndView("/login/login.html");
+    public String login(@AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        if(kreamPrincipal!= null) return "redirect:/";
+        return "/login/login";
     }
 
 //    @PostMapping(path="/loginOk")   // http://localhost:8889/loginOk
