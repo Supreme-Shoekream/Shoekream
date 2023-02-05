@@ -9,107 +9,17 @@
     <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://kream.co.kr/favicon.ico">
     <link rel="stylesheet" href="/css/notice/notice.css">
     <link rel="stylesheet" href="/css/fragment/footer.css">
-    <head th:replace="/fragment/footer_head :: head"></head>
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"
     integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 </head>
-
 <!--header 넣을곳-->
-
 <header th:replace="/fragment/header.html :: header"></header>
+<head th:replace="/fragment/footer_head :: head"></head>
 <!--header 넣을곳-->
 <body>
     <div id="__layout">
         <div tabindex="0" class="wrap snb"><!---->
             <div class="wrap_inner">
-                <div class="header lg">
-                    <div class="header_top">
-                        <div class="top_inner">
-                            <ul class="top_list">
-                                <li class="top_item"><a href="/notice"
-                                        class="top_link nuxt-link-exact-active nuxt-link-active" aria-current="page">
-                                        고객센터 </a></li>
-                                <li class="top_item"><a href="/my/wish"
-                                        class="top_link"> 관심상품 </a></li>
-                                <li class="top_item"><a href="/my"
-                                        class="top_link"> 마이페이지 </a></li>
-                                <li class="top_item" style="display: none;"><a 
-                                        href="/login" class="top_link"> 로그인 </a></li>
-                                <li class="top_item"><a href="/" class="top_link">
-                                        로그아웃 </a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="header_main">
-                        <div class="main_inner">
-                            <h1 ><a href="/" aria-label="홈" class="logo">
-                                <img src="../../img/logo.png">
-                            </a></h1>
-                            <div class="gnb_area">
-                                <nav class="gnb">
-                                    <ul class="gnb_list">
-                                        <li class="gnb_item"><a 
-                                                href="/social/trending" class="gnb_link"> STYLE </a></li>
-                                        <li class="gnb_item"><a href="#"
-                                                class="gnb_link"> SHOP </a></li>
-                                        <li class="gnb_item"><a href="/about"
-                                                target="_blank" class="gnb_link"> ABOUT </a></li>
-                                    </ul>
-                                </nav>
-                                <div class="search_btn_box">
-                                    <a aria-label="검색" href="#" class="btn_search">
-                                        <img src="../../asset/search.png">
-                                    </a></div>
-                            </div>
-                            <div style="display: none;">
-                                <div class="search_area" value="">
-                                    <div class="search"><input type="text" placeholder="" title="검색창"
-                                            class="input_search show_placeholder_on_focus">
-                                            <button class="btn_search_delete" style="display: none;"><img>
-                                        </button></div>
-                                </div>
-                            </div>
-                            <div class="nav_btn_box" style="display: none;"><button type="button"
-                                    aria-label="검색" class="btn_search"><img>
-                                </button><button type="button" aria-label="메뉴"
-                                    class="btn_menu"><img>
-                                </button></div>
-                            <div style="display: none;">
-                                <div class="navigation_wrap">
-                                    <div class="navigation">
-                                        <div class="navigation_inner">
-                                            <ul class="nav_list">
-                                                <li class="nav_item"><a href="#"
-                                                        class="nav_link"> STYLE </a></li>
-                                                <li class="nav_item"><a href="#"
-                                                        class="nav_link"> SHOP </a></li>
-                                                <li class="nav_item"><a href="#"
-                                                        class="nav_link"> 자주 묻는 질문 </a></li>
-                                                <li class="nav_item"><a href="#"
-                                                        class="nav_link"> 공지사항 </a></li>
-                                                <li class="nav_item" style="display: none;"><a
-                                                        href="#" class="nav_link"> 로그인 </a></li>
-                                                <li class="nav_item"><a href="#"
-                                                        class="nav_link"> 마이 페이지 </a></li>
-                                            </ul>
-                                            <div class="nav_logout"><button 
-                                                    class="btn_logout">로그아웃</button>
-                                                <p class="text_mail"></p>
-                                            </div>
-                                            <div class="nav_download">
-                                                <p class="download_txt">KREAM 앱 설치 후 사용해 보세요!</p>
-                                                <div class="btn_appdown"><a 
-                                                        href="#" class="btn outline medium"> 앱 다운로드
-                                                    </a></div>
-                                            </div>
-                                        </div><button type="button" aria-label="닫기"
-                                            class="btn_nav_close"><img></button>
-                                    </div>
-                                </div>
-                            </div><!---->
-                        </div>
-                    </div>
-                </div>
                 <div class="container customer lg">
                     <div>
                         <div class="snb_area"><a href="/notice"
@@ -361,14 +271,11 @@
                     </div>
                 </div>
             </div>
-            <!--footer-->                
         </div>
     </div>
 <!--footer 넣을곳-->
-
     <footer th:replace="/fragment/footer :: footer"></footer>
 <!--footer 넣을곳-->
-
 </body>
 </html>
 <script src="/js/notice/notice.js"></script>
