@@ -18,27 +18,19 @@ import java.time.LocalDateTime;
 @EqualsAndHashCode(callSuper = true)
 @EntityListeners(AuditingEntityListener.class)
 public class Reply extends BaseEntity implements Auditable {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idx;
-
-//    private Long memberIdx;     //ManyToOne
     @OneToOne
     @JsonIgnore
     private Member member;
     private String content;
-//    private Long boardIdx;      // ManyToOne
     private LocalDateTime createdAt;
 
     @ManyToOne
     @JsonIgnore
     @JoinColumn(name="board_idx")
     private Board board;
-
-//    @ManyToMany
-//    private Member member;
-
 
     private Reply(Member member, String content, Board board, LocalDateTime createdAt){
         this.member = member;
