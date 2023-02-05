@@ -15,13 +15,13 @@ public record ProductDTO(
         String modelNum,
         String releaseDate,
         String color,
-        String firstPrice,
+        Long firstPrice,
         String category,
         String gender,
         String collection
 ) {
 
-    public static ProductDTO of(Long idx, String img, String brand, String name, String nameKor, String size, int wishCount, String modelNum, String releaseDate, String color, String firstPrice, String category, String gender, String collection ){
+    public static ProductDTO of(Long idx, String img, String brand, String name, String nameKor, String size, int wishCount, String modelNum, String releaseDate, String color, Long firstPrice, String category, String gender, String collection ){
         return new ProductDTO(idx, img, brand, name, nameKor, size, wishCount, modelNum, releaseDate, color, firstPrice, category, gender, collection);
     }
 

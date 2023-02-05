@@ -21,7 +21,6 @@ public record MemberApiRequest(
         String accNumber,
         String bank,
         String imgUrl,
-        KreamPrincipal.RoleType roletype
 ) {
 
     public MemberDTO toDTO(){
@@ -35,7 +34,6 @@ public record MemberApiRequest(
                 bank,
                 accNumber,
                 imgUrl,
-                roletype
         );
     }
 }

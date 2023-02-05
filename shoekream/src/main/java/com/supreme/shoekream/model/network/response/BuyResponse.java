@@ -39,7 +39,6 @@ public record BuyResponse(
     String status,
     Long sellIdx,
     LocalDateTime deadline,
-    String dDay,
     String fees,
     String totalPrice
 ) {
@@ -47,11 +46,11 @@ public record BuyResponse(
                                  String productSize, String memberEmail, String type, Long price, int period, String cardInfo,
                                  String receiver, String receiverHp, String receiverAddress, String deliveryMemo,
                                  LocalDateTime createdAt, String progress, String status,
-                                 Long sellIdx,LocalDateTime deadline, String dDay, String fees,
+                                 Long sellIdx,LocalDateTime deadline, String fees,
                                  String totalPrice){
         return new BuyResponse(idx,productIdx,productImg,productName,productSize,memberEmail,
         type,price,period,cardInfo,receiver,receiverHp,receiverAddress,deliveryMemo
-        ,createdAt,progress,status,sellIdx,deadline,dDay,fees,totalPrice);
+        ,createdAt,progress,status,sellIdx,deadline,fees,totalPrice);
     }
     public static BuyResponse from(BuyDTO dto){
         String progress = "-";
@@ -67,6 +66,7 @@ public record BuyResponse(
         String fees = format.format(Math.floor(price*0.015/100)*100);
         String totalPrice = format.format(price+3000L+Math.floor(price*0.015/100)*100);
 
+
         SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd");
         Calendar c = Calendar.getInstance();
         try{
@@ -76,8 +76,6 @@ public record BuyResponse(
         }
         c.add(Calendar.DAY_OF_MONTH, 10);
         String dDay = df.format(c.getTime());
-
-
 
         return new BuyResponse(
                 dto.idx(),
@@ -99,7 +97,6 @@ public record BuyResponse(
                 dto.status().getDescription(),
                 dto.sellIdx(),
                 deadline,
-                dDay,
                 fees,
                 totalPrice
         );

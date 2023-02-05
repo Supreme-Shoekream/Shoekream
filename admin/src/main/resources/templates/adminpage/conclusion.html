@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--head 시작 -->
+<div th:replace="fragment/adminhead :: head"></div>
+<!--head 끝 -->
+<body>
+
+<!-- header 시작 -->
+<div th:replace="fragment/adminheader :: header(${sessionInfo})"></div>
+<!-- header 끝 -->
+<!-- right-sidebar 시작 -->
+<div th:replace="fragment/adminrightsidebar :: rightsidebar"></div>
+<!-- right-sidebar 끝 -->
+<!-- left-side-bar 시작 -->
+<div th:replace="fragment/adminnavbar :: navbar"></div>
+<!-- left-side-bar 끝 -->
+
+<div class="main-container">
+    <div class="pd-ltr-20 xs-pd-20-10">
+        <div class="min-height-200px">
+            <!-- Simple Datatable start -->
+            <div class="card-box mb-30">
+                <div class="pd-20" >
+                    <h4 class="text-blue h4">체결 내역</h4>
+                </div>
+                <div class="pb-20">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <div class="dataTables_length" id="DataTables_Table_0_length">
+                                <label style=" font-weight: normal; white-space: nowrap; text-align: left;">Show
+                                    <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="custom-select custom-select-sm form-control form-control-sm">
+                                        <option value="10">10</option><option value="25">25</option><option value="50">50</option>
+                                    </select> entries
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div id="DataTables_Table_0_filter" class="dataTables_filter" style="text-align: right;padding-left: 15px; padding-right: 15px;">
+                                <label style=" font-weight: normal; white-space: nowrap; text-align: left; display: flex; align-items: center; justify-content: flex-end;">search:
+                                    <input id="search_box" type="search" class="form-control form-control-sm" aria-controls="DataTables_Table_0" style="margin-left: 0.5em; width: auto;">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="data-table table stripe hover nowrap" id="admin_conclusion">
+                        <thead>
+                            <tr>
+                                <th class="idx"><a>번호</a></th>
+                                <th>상품사진</th>
+                                <th class="proIdx"><a>상품번호</a></th>
+                                <th class="proModelNum"><a>모델번호</a></th>
+                                <th>상품명</th>
+                                <th>사이즈</th>
+                                <th class="price" style="color: #212529;"><a>거래가</a></th>
+                                <th class="createdAt"><a>거래일</a></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="con_idx table-plus">1</td>
+                                <td class="con_img"><img src="" width="80" height="80" alt=""/></td>
+                                <td class="con_pro_idx">5</td>
+                                <td class="con_modelNum">FV1198</td>
+                                <td class="con_name">Adidas Padiham Black Green 아디다스 패디햄 블랙 그린</td>
+                                <td class="con_size">270</td>
+                                <td class="con_price">170000</td>
+                                <td class="con_createdAt"><time>2022-12-19</time></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4"><div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite"></div></div>
+                        <div class="col-sm-12 col-md-7">
+                            <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
+                                <ul class="pagination">
+                                    <li class="paginate_button page-item previous disabled" id="DataTables_Table_0_previous">
+                                        <a href="#" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0" class="page-link">
+                                            <i class="ion-chevron-left"></i>
+                                        </a>
+                                    </li>
+                                    <li class="paginate_button page-item active">
+                                        <a href="#" aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0" class="page-link">1</a>
+                                    </li>
+                                    <li class="paginate_button page-item next disabled" id="DataTables_Table_0_next">
+                                        <a href="#" aria-controls="DataTables_Table_0" data-dt-idx="2" tabindex="0" class="page-link">
+                                            <i class="ion-chevron-right"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Simple Datatable End -->
+        </div>
+    </div>
+</div>
+<!-- js -->
+<div th:replace="fragment/adminjs :: js"></div>
+<!-- js -->
+</body>
+</html>

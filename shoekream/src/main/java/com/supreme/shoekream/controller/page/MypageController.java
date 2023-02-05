@@ -28,10 +28,12 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Controller
@@ -81,17 +83,25 @@ public class MypageController {
 
     @GetMapping(path = "buying")
     public String buying(ModelMap map, @PageableDefault(size = 10, sort = "createdAt", direction = Sort.Direction.DESC) Pageable pageable
-            , @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+            , @AuthenticationPrincipal KreamPrincipal kreamPrincipal, @RequestParam(required = false) Long month){
+
         MemberDTO memberDTO = kreamPrincipal.toFullDto();
-        Page<BuyResponse> biddings = buyService.myBuyListByStatus(memberDTO.idx(), OrderStatus.BIDDING, pageable).map(BuyResponse::from);
-        Page<BuyResponse> progressings = buyService.myBuyListByStatus(memberDTO.idx(), OrderStatus.PROGRESSING, pageable).map(BuyResponse::from);
-        Page<BuyResponse> ends = buyService.myBuyListByStatus(memberDTO.idx(), OrderStatus.END, pageable).map(BuyResponse::from);
+        Page<BuyResponse> biddings = buyService.myBuyListByStatus(memberDTO.idx(), OrderStatus.BIDDING, month,pageable).map(BuyResponse::from);
+        Page<BuyResponse> progressings = buyService.myBuyListByStatus(memberDTO.idx(), OrderStatus.PROGRESSING, month,pageable).map(BuyResponse::from);
+        Page<BuyResponse> ends = buyService.myBuyListByStatus(memberDTO.idx(), OrderStatus.END, month,pageable).map(BuyResponse::from);
         map.addAttribute("biddings", biddings);
         map.addAttribute("progressings", progressings);
         map.addAttribute("ends", ends);
         map.addAttribute("bidCount",biddings.stream().toList().size());
         map.addAttribute("proCount",progressings.stream().toList().size());
         map.addAttribute("endCount",ends.stream().toList().size());
+        if(month != null){
+            map.addAttribute("today", LocalDateTime.now());
+            map.addAttribute("before", LocalDateTime.now().minusMonths(month));
+        }else{
+            map.addAttribute("today", null);
+            map.addAttribute("before", null);
+        }
         return ("/my/buying");
     }
 

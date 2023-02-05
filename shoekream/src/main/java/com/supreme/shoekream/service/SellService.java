@@ -25,8 +25,10 @@ import javax.persistence.EntityNotFoundException;
 import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Transactional
@@ -45,7 +47,9 @@ public class SellService {
         if(searchKeyword == null || searchKeyword.isBlank()){
             return sellRepository.findAll(pageable).map(SellDTO::fromEntity);
         }
-        return sellRepository.findBySender(searchKeyword, pageable).map(SellDTO::fromEntity);
+
+        return sellRepository.findBySenderContaining(searchKeyword, pageable).map(SellDTO::fromEntity);
+
     }
 
     //관리자페이지/사용자페이지 detail
@@ -215,9 +219,18 @@ public class SellService {
         }
     }
 
+
     // 회원 탈퇴시 해당 멤버 데이터 전부 삭제
     public void deleteMember(Long idx){
-        sellRepository.deleteByMemberIdx(idx);
+        sellRepository.deleteByMemberIdx(idx);}
+
+    public List<SellDTO> sellList(Long productIdx){
+        Product product = productRepository.findById(productIdx).get();
+        if(product.getIdx() == null){
+            return null;
+        }
+        return sellRepository.findAllByProductOrderByCreatedAtDesc(product).stream()
+                .map(SellDTO::fromEntity).collect(Collectors.toCollection(LinkedList::new));
     }
 
 }

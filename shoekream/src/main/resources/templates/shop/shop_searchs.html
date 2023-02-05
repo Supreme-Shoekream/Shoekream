@@ -27,8 +27,10 @@
 
 <!--content 시작-->
 <div id="qf_box">
+
     <div class="hb_fixed_box">
         <div class="header lg no_line">
+
             <div>
             <div th:replace="/fragment/header :: header"></div>
             </div>
@@ -40,6 +42,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="search_suggests">
             </div>
 <!--            <div id="fixed2"></div>-->
@@ -57,8 +60,11 @@
                 </div>
             </div>
         </div>
+
     </div>
+
     <div class="container_search_md">
+
         <!-- container -->
         <!-- search-top 시작 -->
         <div class="search_top">
@@ -221,7 +227,7 @@
                     <div class="filter_menu" style="display:none" id="drop-brand">
                         <ul class="menu_list" id="brand_filter">
                             <li class="menu checkMenu checkbox_item" id="brandCheckList">
-                                <input type="checkbox" name="check" id="input5" class="check">
+                                <input type="checkbox" name="check" id="input5" class="check" >
                                 <label class="check_label" for="input5"><span class="label_txt" id="brandNameInfo">A Cold Wall</span></label>
                             </li>
 <!--                            <li class="menu checkMenu checkbox_item">-->
@@ -364,56 +370,8 @@
                         </ul>
                     </div>
 
-<!--                    <div class="filter_menu_size" id="drop-size" style="display:none">-->
-<!--                        <div class="column_list has_more" id="size_filter">-->
-<!--                            <a href="" class="column_menu"> 230 </a>-->
-<!--                            <a href="" class="column_menu"> 240 </a>-->
-<!--                            <a href="" class="column_menu"> 250 </a>-->
-<!--                            <a href="searchs?sort=idx&page=0&size=260&brand=&category=&collection=&gender=&keyword=" class="column_menu"> 260 </a>-->
-<!--                            <a href="searchs?sort=idx&page=0&size=270&brand=&category=&collection=&gender=&keyword=" class="column_menu"> 270 </a>-->
-<!--                            <a href="searchs?sort=idx&page=0&size=280&brand=&category=&collection=&gender=&keyword=" class="column_menu"> 280 </a>-->
-<!--                            <a href="searchs?sort=idx&page=0&size=S&brand=&category=&collection=&gender=&keyword=" class="column_menu1"> S </a>-->
-<!--                            <a href="searchs?sort=idx&page=0&size=M&brand=&category=&collection=&gender=&keyword=" class="column_menu1"> M </a>-->
-<!--                            <a href="searchs?sort=idx&page=0&size=L&brand=&category=&collection=&gender=&keyword=" class="column_menu1"> L </a>-->
-<!--                        </div>-->
-<!--                    </div>-->
                 </div>
-                <!-- 사이드바 7번 항목 -->
-<!--                <div class="filter_list" id="price_list">-->
-<!--                    <div class="filter_title">-->
-<!--                        <div class="title_box">-->
-<!--                            <span class="main_title">가격</span>-->
-<!--                            <span class="placeholder" id="price_title">모든 가격</span>-->
-<!--                        </div>-->
-<!--                        <div class="dropdown">-->
-<!--                            <button class="side_btn1">-->
-<!--                                <img class="side_btn" id="price_btn_on" src="/img/shopimg/side_btn1.png" alt="">-->
-<!--                                <img class="side_btn" id="price_btn_off" src="/img/shopimg/side_btn0.png" alt="">-->
-<!--                            </button>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="filter_menu" id="drop-content7" style="display:none">-->
-<!--                        <ul class="menu_list" id="price_filter">-->
-<!--                            <li class="menu checkMenu checkbox_item">-->
-<!--                                <input type="checkbox" name="check" id="input41" class="check">-->
-<!--                                <label class="check_label" for="input41"><span class="label_txt">10만원 이하</span></label>-->
 
-<!--                            </li>-->
-<!--                            <li class="menu checkMenu checkbox_item">-->
-<!--                                <input type="checkbox" name="check" id="input42" class="check">-->
-<!--                                <label class="check_label" for="input42"><span class="label_txt">10만원 - 30만원 이하</span></label>-->
-<!--                            </li>-->
-<!--                            <li class="menu checkMenu checkbox_item">-->
-<!--                                <input type="checkbox" name="check" id="input43" class="check">-->
-<!--                                <label class="check_label" for="input43"><span class="label_txt">30만원 - 50만원 이하</span></label>-->
-<!--                            </li>-->
-<!--                            <li class="menu checkMenu checkbox_item">-->
-<!--                                <input type="checkbox" name="check" id="input44" class="check">-->
-<!--                                <label class="check_label" for="input44"><span class="label_txt">50만원 이상</span></label>-->
-<!--                            </li>-->
-<!--                        </ul>-->
-<!--                    </div>-->
-<!--                </div>-->
             </div>
             <!-- content -->
             <div class="search_content">
@@ -425,7 +383,7 @@
                     </div>
                     <div>
                         <div class="filter_sorting">
-                            <button type="button" onclick="sort_list()" class="sorting_title">발매일순
+                            <button type="button" onclick="sort_list()" class="sorting_title">인기순
                                 <img class="desc_logo" src="/img/shopimg/desc_logo_b.png">
                             </button>
                             <div class="filter_menu" id="sort_list" style="display: none">
@@ -434,7 +392,7 @@
                                         <a class="sorting_link" id="sort_by_wish_desc">
                                             <div class="sorting_desc">
                                                 <p class="main_desc">인기순</p>
-                                                <p class="sub_desc">관심상품 수가 많은 순서대로 정렬합니다.</p>
+                                                <p class="sub_desc">관심상품이 많은 순서대로 정렬합니다.</p>
                                                 <img src="/img/wcheck.png" class="sorting_img">
                                             </div>
                                         </a>
@@ -506,15 +464,16 @@
                                 <div class="action_wish_review">
                                         <span class="wish_figure">
                                             <span aria-label="관심상품" role="button" class="btn_wish" icon-name="ico-wish-grey">
-                                                <img width="14" height="16" src="/img/brands_wish.png" class="icon sprite-icons">
+                                                <img width="14" height="16" src="/img/wish_on.PNG" class="icon sprite-icons is_wish_on">
+                                                <img width="14" height="16" src="/img/brands_wish.png" class="icon sprite-icons is_wish_off">
                                             </span>
-                                            <span class="text">3.1만</span>
+                                            <span class="text wish_count">3.1만</span>
                                         </span>
                                     <span class="review_figure">
                                             <span class="review_link" aria-label="조던 1 레트로 하이 OG 시카고 2022 리뷰" role="button">
                                                 <img width="15" height="15" src="/img/brands_hashtag.png" class="icon sprite-icons">
                                             </span>
-                                            <span class="text">2,306</span>
+                                            <span class="text tag_count">2,306</span>
                                         </span>
                                 </div>
                             </div>
@@ -522,6 +481,7 @@
                         <!-- product 끝-->
                     </div>
                 </div>
+
                 <div class="pagination">
                     <div class="pagination_box first">
                         <div class="prev_btn_box">

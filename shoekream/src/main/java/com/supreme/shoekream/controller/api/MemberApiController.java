@@ -4,6 +4,7 @@ import com.supreme.shoekream.controller.CrudController;
 import com.supreme.shoekream.model.dto.BuyDTO;
 import com.supreme.shoekream.model.dto.SellDTO;
 import com.supreme.shoekream.model.entity.Buy;
+import com.supreme.shoekream.model.dto.EventDTO;
 import com.supreme.shoekream.model.entity.Member;
 import com.supreme.shoekream.model.network.Header;
 import com.supreme.shoekream.model.network.request.MemberApiRequest;
@@ -12,6 +13,7 @@ import com.supreme.shoekream.model.network.security.KreamPrincipal;
 import com.supreme.shoekream.service.BuyService;
 import com.supreme.shoekream.service.MemberApiLogicService;
 import com.supreme.shoekream.service.SellService;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.kafka.KafkaAutoConfiguration;
 import org.springframework.data.domain.Pageable;
@@ -20,7 +22,9 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api")    // http://localhost:9999/api/admin/users
@@ -68,6 +72,7 @@ public class MemberApiController extends CrudController<MemberApiRequest, Member
             return false;
         }
     }
+
 //    @Override
 //    @GetMapping("{idx}") //http://localhost:9999/member/{idx} get호출 read하기
 //    public Header<MemberApiResponse> read(@PathVariable(name = "idx") Long idx) {
@@ -94,6 +99,25 @@ public class MemberApiController extends CrudController<MemberApiRequest, Member
 //    @PostMapping("/login")  //http://localhost:9999/member/login
 //    public Header<MemberApiResponse> login(@RequestBody Header<MemberApiRequest> request) {
 //        return memberApiLogicService.login(request);
+//    }
+
+//    @GetMapping("/check/findPw")
+//    public @ResponseBody Map<String, Boolean> pw_find(String userEmail, String userName){
+//        Map<String,Boolean> json = new HashMap<>();
+//        boolean pwFindCheck = memberApiLogicService.userEmailCheck(userEmail,userName);
+//
+//        System.out.println(pwFindCheck);
+//        json.put("check", pwFindCheck);
+//        return json;
+//    }
+//    private final SendEmailService sendEmailService;
+
+    //등록된 이메일로 임시비밀번호를 발송하고 발송된 임시비밀번호로 사용자의 pw를 변경하는 컨트롤러
+//    @PostMapping("/check/findPw/sendEmail")
+//    public @ResponseBody void sendEmail(String userEmail, String userName){
+//        MailDTO dto = sendEmailService.createMailAndChangePassword(userEmail, userName);
+//        sendEmailService.mailSend(dto);
+//
 //    }
 }
 

@@ -36,9 +36,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class SocialPageController {
     private final BoardRepository boardRepository;
-
     private final MemberRepository memberRepository;
-
     private final FollowRepository followRepository;
     private final StyleLogicService styleLogicService;
     private final ProductRepository productRepository;

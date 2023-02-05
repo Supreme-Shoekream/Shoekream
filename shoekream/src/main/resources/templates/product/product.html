@@ -191,65 +191,67 @@
                                                     </div>
                                                 </div>
                                                 <!-- 시세 = 그래프 있을때 -->
-                                                <div class="wrap_sales"  th:if="${!#lists.isEmpty(conclusion)}">
+<!--                                                <div class="wrap_sales"  th:if="${!#lists.isEmpty(conclusion)}">-->
+                                                <div class="wrap_sales">
                                                     <div class="tab_area">
                                                         <ul role="tablist" class="tab_list">
-                                                            <li  role="tab" aria-selected="true" aria-controls="sales_panel1" class="date item on">
+                                                            <li id="graph1mm" role="tab" aria-selected="false" aria-controls="sales_panel1" class="date item">
                                                                 <a class="item_link">1개월</a>
                                                             </li>
-                                                            <li  role="tab" aria-selected="false" aria-controls="sales_panel2" class="date item">
+                                                            <li id="graph3mm" role="tab" aria-selected="false" aria-controls="sales_panel2" class="date item">
                                                                 <a class="item_link">3개월</a>
                                                             </li>
-                                                            <li  role="tab" aria-selected="false" aria-controls="sales_panel3" class="date item">
+                                                            <li id="graph6mm" role="tab" aria-selected="false" aria-controls="sales_panel3" class="date item">
                                                                 <a class="item_link">6개월</a>
                                                             </li>
-                                                            <li  role="tab" aria-selected="false" aria-controls="sales_panel4" class="date item">
+                                                            <li id="graph1yy" role="tab" aria-selected="false" aria-controls="sales_panel4" class="date item">
                                                                 <a class="item_link">1년</a>
                                                             </li>
-                                                            <li  role="tab" aria-selected="false" aria-controls="sales_panel5" class="date item">
+                                                            <li id="graphallall" role="tab" aria-selected="true" aria-controls="sales_panel5" class="date item on">
                                                                 <a class="item_link">전체</a>
                                                             </li>
                                                         </ul>
-                                                        <div id="sales_panel1" role="tabpanel" span="1m" class="tab_content show">
+                                                        <div id="sales_panel1" role="tabpanel" span="1m" class="tab_content">
                                                             <div class="graph">
-                                                                <canvas id="graph1m" height="200" style="display: block; box-sizing: border-box; height: 200px; width: 560px;" width="560"></canvas>
+                                                                <canvas id="graph1m" class="tc" width="0" height="0" style="display: none; box-sizing: border-box; height: 200px; width: 560px;"></canvas>
                                                             </div>
                                                         </div>
                                                         <div id="sales_panel2" role="tabpanel" span="3m" class="tab_content">
                                                             <div class="graph">
-                                                                <canvas id="graph3m" height="0" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0"></canvas>
+                                                                <canvas id="graph3m" class="tc" width="0" height="0" style="display: none; box-sizing: border-box; height: 200px; width: 560px;"></canvas>
                                                             </div>
                                                         </div>
                                                         <div id="sales_panel3" role="tabpanel" span="6m" class="tab_content">
                                                             <div class="graph">
-                                                                <canvas id="graph6m" height="0" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0"></canvas>
+                                                                <canvas id="graph6m" class="tc" width="0" height="0" style="display: none; box-sizing: border-box; height: 200px; width: 560px;"></canvas>
                                                             </div>
                                                         </div>
                                                         <div id="sales_panel4" role="tabpanel" span="1y" class="tab_content">
                                                             <div class="graph">
-                                                                <canvas id="graph1y" height="0" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0"></canvas>
+                                                                <canvas id="graph1y" class="tc" width="0" height="0" style="display: none; box-sizing: border-box; height: 200px; width:560px;"></canvas>
                                                             </div>
                                                         </div>
-                                                        <div id="sales_panel5" role="tabpanel" span="all" class="tab_content">
+                                                        <div id="sales_panel5" role="tabpanel" span="all" class="tab_content show">
                                                             <div class="graph">
-                                                                <canvas id="graphall" width="1120" height="400" style="display: block; box-sizing: border-box; height: 200px; width: 560px;"></canvas>
+                                                                <canvas id="graphall" class="tc" width="560" height="200" style="display: block; box-sizing: border-box; height: 200px; width: 560px;"></canvas>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <!-- 시세 = 그래프 없을때 -->
-                                                <div class="wrap_sales" th:if="${#lists.isEmpty(conclusion)}">
-                                                    <div class="table_wrap lg">
-                                                        <div class="empty_content lg">
-                                                            <div class="empty_bg">
-                                                                <span class="blind">빈 데이터 이미지</span>
-                                                            </div>
-                                                            <p class="empty_text">체결된 거래가 아직 없습니다</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
+<!--                                                <div class="wrap_sales" th:if="${#lists.isEmpty(conclusion)}">-->
+<!--                                                    <div class="table_wrap lg">-->
+<!--                                                        <div class="empty_content lg">-->
+<!--                                                            <div class="empty_bg">-->
+<!--                                                                <span class="blind">빈 데이터 이미지</span>-->
+<!--                                                            </div>-->
+<!--                                                            <p class="empty_text">체결된 거래가 아직 없습니다</p>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
                                                 <!-- 시세 - 거래 내역 있을때 -->
-                                                <div class="wrap_bids" th:if="${!#lists.isEmpty(conclusion)}">
+<!--                                                <div class="wrap_bids" th:if="${!#lists.isEmpty(conclusion)}">-->
+                                                <div class="wrap_bids">
                                                     <div class="tab_area">
                                                         <ul role="tablist" class="tab_list">
                                                             <li role="tab" aria-selected="true" aria-controls="panel1" class="conclusion item on">
@@ -262,7 +264,7 @@
                                                                 <a class="item_link">구매 입찰</a>
                                                             </li>
                                                         </ul>
-                                                        <div id="panel1 " role="tabpanel" span="sales" class="panel1 tab_content show">
+                                                        <div id="panel1" role="tabpanel" span="sales" class="tw tab_content show">
                                                             <div class="table_wrap lg">
                                                                 <table>
                                                                     <caption>
@@ -289,9 +291,9 @@
                                                                     </tbody>
                                                                 </table>
                                                             </div>
-                                                            <a class="btn outlinegrey full medium" style="color: rgba(34,34,34,.8);" onclick="conPopup()">체결 내역 더보기</a>
+                                                            <a class="plusbtn btn outlinegrey full medium">체결 내역 더보기</a>
                                                         </div>
-                                                        <div id="panel2" role="tabpanel" span="asks" class="tab_content">
+                                                        <div id="panel2" role="tabpanel" span="asks" class="tw tab_content">
                                                             <div class="table_wrap lg">
                                                                 <table>
                                                                     <caption>
@@ -306,41 +308,21 @@
                                                                         <tr>
                                                                             <th class="table_th">사이즈</th>
                                                                             <th class="table_th align_right">판매 희망가</th>
-                                                                            <th class="table_th align_right">수량</th>
+                                                                            <th class="table_th align_right">입찰일</th>
                                                                         </tr>
                                                                     </thead>
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td class="table_td">260</td>
-                                                                            <td class="table_td align_right">214,000원</td>
-                                                                            <td class="table_td align_right">1</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="table_td">260</td>
-                                                                            <td class="table_td align_right">217,000원</td>
-                                                                            <td class="table_td align_right">1</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="table_td">270</td>
-                                                                            <td class="table_td align_right">219,000원</td>
-                                                                            <td class="table_td align_right">1</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="table_td">240</td>
-                                                                            <td class="table_td align_right">220,000원</td>
-                                                                            <td class="table_td align_right">2</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="table_td">250</td>
-                                                                            <td class="table_td align_right">223,000원</td>
-                                                                            <td class="table_td align_right">1</td>
+                                                                    <tbody class="panel2_tbody">
+                                                                        <tr class="panel2_tr">
+                                                                            <td class="table_td size">260</td>
+                                                                            <td class="table_td align_right price">214,000원</td>
+                                                                            <td class="table_td align_right createdAt"><time>22/12/22</time></td>
                                                                         </tr>
                                                                     </tbody>
                                                                 </table>
                                                             </div>
-                                                            <a class="btn outlinegrey full medium">입찰 내역 더보기</a>
+                                                            <a class="plusbtn btn outlinegrey full medium">판매 입찰 내역 더보기</a>
                                                         </div>
-                                                        <div id="panel3" role="tabpanel" span="bids" class="tab_content">
+                                                        <div id="panel3" role="tabpanel" span="bids" class="tw tab_content">
                                                             <div class="table_wrap lg">
                                                                 <table>
                                                                     <caption>
@@ -355,39 +337,19 @@
                                                                         <tr>
                                                                             <th class="table_th">사이즈</th>
                                                                             <th class="table_th align_right">구매 희망가</th>
-                                                                            <th class="table_th align_right">수량</th>
+                                                                            <th class="table_th align_right">입찰일</th>
                                                                         </tr>
                                                                     </thead>
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td class="table_td">280</td>
-                                                                            <td class="table_td align_right">303,000원</td>
-                                                                            <td class="table_td align_right">1</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="table_td">230</td>
-                                                                            <td class="table_td align_right">300,000원</td>
-                                                                            <td class="table_td align_right">1</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="table_td">240</td>
-                                                                            <td class="table_td align_right">290,000원</td>
-                                                                            <td class="table_td align_right">1</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="table_td">280</td>
-                                                                            <td class="table_td align_right">286,000원</td>
-                                                                            <td class="table_td align_right">1</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="table_td">240</td>
-                                                                            <td class="table_td align_right">281,000원</td>
-                                                                            <td class="table_td align_right">1</td>
+                                                                    <tbody class="panel3_tbody">
+                                                                        <tr class="panel3_tr">
+                                                                            <td class="table_td size">280</td>
+                                                                            <td class="table_td align_right price">303,000원</td>
+                                                                            <td class="table_td align_right createdAt"><time>23/01/22</time></td>
                                                                         </tr>
                                                                     </tbody>
                                                                 </table>
                                                             </div>
-                                                            <a class="btn outlinegrey full medium">입찰 내역 더보기</a>
+                                                            <a class="plusbtn btn outlinegrey full medium">구매 입찰 내역 더보기</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -706,24 +668,24 @@
                                                     <div class="tab_info">
                                                         <div class="tab_area" id="user_conclusion">
                                                             <ul role="tablist" class="tab_list">
-                                                                <li role="tab" aria-selected="true" aria-controls="panel1" class="conclusion item on">
+                                                                <li id="plus1" role="tab" aria-selected="true" aria-controls="panel1" class="plus item on">
                                                                     <a class="item_link">체결 거래</a>
                                                                 </li>
-                                                                <li role="tab" aria-selected="false" aria-controls="panel2" class="conclusion item">
+                                                                <li id="plus2" role="tab" aria-selected="false" aria-controls="panel2" class="plus item">
                                                                     <a class="item_link">판매 입찰</a>
                                                                 </li>
-                                                                <li role="tab" aria-selected="false" aria-controls="panel3" class="conclusion item">
+                                                                <li id="plus3" role="tab" aria-selected="false" aria-controls="panel3" class="plus item">
                                                                     <a class="item_link">구매 입찰</a>
                                                                 </li>
                                                             </ul>
-                                                            <div id="panel1" role="tabpanel" class="tab_content show" span="sales">
+                                                            <div id="panel11" role="tabpanel" class="tcl tab_content show" span="sales">
                                                                 <div class="price_table">
-                                                                    <div class="market_price_table" style="">
+                                                                    <div class="market_price_table">
                                                                         <div class="price_head">
                                                                             <div class="head_box hb1">
-                                                                                <div class="head_sort"><a href="#" class="sort_link sort"><span class="sort_txt">사이즈</span></a></div>
-                                                                                <div class="head_sort"><a href="#" class="sort_link sort"><span class="sort_txt">거래가</span></a></div>
-                                                                                <div class="head_sort is_active descending"><a href="#" class="sort_link sort"><span class="sort_txt">거래일</span></a></div>
+                                                                                <div class="head_sort"><a class="sort_link sort"><span class="sort_txt">사이즈</span></a></div>
+                                                                                <div class="head_sort"><a  class="sort_link sort"><span class="sort_txt" style="margin-right: 10px;">거래가</span></a></div>
+                                                                                <div class="head_sort"><a class="sort_link sort"><span class="sort_txt" style="margin-right: 15px;">거래일</span></a></div>
                                                                             </div>
                                                                         </div>
                                                                         <div class="con_price_body">
@@ -731,7 +693,7 @@
                                                                                 <div class="body_list">
                                                                                     <div class="list_txt size">270</div>
                                                                                     <div class="list_txt price">218,000원</div>
-                                                                                    <div class="list_txt is_active createdAt"><time>22/12/31</time></div>
+                                                                                    <div class="list_txt createdAt"><time>22/12/31</time></div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -739,17 +701,25 @@
                                                                     <!---->
                                                                 </div>
                                                             </div>
-                                                            <div id="panel2" role="tabpanel" class="tab_content" span="asks">
+                                                            <div id="panel22" role="tabpanel" class="tcl tab_content" span="asks">
                                                                 <div class="price_table">
-                                                                    <div class="market_price_table" style="display: none;">
+                                                                    <div class="market_price_table">
                                                                         <div class="price_head">
                                                                             <div class="head_box">
-                                                                                <div class="head_sort"><a href="#" class="sort_link sort"><span class="sort_txt">사이즈</span></a></div>
-                                                                                <div class="head_sort"><a href="#" class="sort_link sort"><span class="sort_txt">판매 희망가</span></a></div>
-                                                                                <div class="head_sort"><a href="#" class="sort_link"><span class="sort_txt">수량</span></a></div>
+                                                                                <div class="head_sort"><a class="sort_link sort"><span class="sort_txt">사이즈</span></a></div>
+                                                                                <div class="head_sort"><a class="sort_link sort"><span class="sort_txt">판매 희망가</span></a></div>
+                                                                                <div class="head_sort"><a class="sort_link sort"><span class="sort_txt">입찰일</span></a></div>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="price_body"></div>
+                                                                        <div class="sell_price_body">
+                                                                            <div class="price_body">
+                                                                                <div class="body_list">
+                                                                                    <div class="list_txt size">270</div>
+                                                                                    <div class="list_txt price">218,000원</div>
+                                                                                    <div class="list_txt createdAt"><time>22/12/31</time></div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
                                                                     <div class="empty_content lg" style="display: none;">
                                                                         <div class="empty_bg"><span class="blind">빈 데이터 이미지</span></div>
@@ -757,17 +727,25 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div id="panel3" role="tabpanel" class="tab_content" span="bids">
+                                                            <div id="panel33" role="tabpanel" class="tcl tab_content" span="bids">
                                                                 <div class="price_table">
-                                                                    <div class="market_price_table" style="display: none;">
+                                                                    <div class="market_price_table">
                                                                         <div class="price_head">
                                                                             <div class="head_box">
-                                                                                <div class="head_sort"><a href="#" class="sort_link sort"><span class="sort_txt">사이즈</span></a></div>
-                                                                                <div class="head_sort"><a href="#" class="sort_link sort"><span class="sort_txt">구매 희망가</span></a></div>
-                                                                                <div class="head_sort"><a href="#" class="sort_link"><span class="sort_txt">수량</span></a></div>
+                                                                                <div class="head_sort"><a class="sort_link sort"><span class="sort_txt">사이즈</span></a></div>
+                                                                                <div class="head_sort"><a class="sort_link sort"><span class="sort_txt">구매 희망가</span></a></div>
+                                                                                <div class="head_sort"><a class="sort_link sort"><span class="sort_txt">입찰일</span></a></div>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="price_body"></div>
+                                                                        <div class="buy_price_body">
+                                                                            <div class="price_body">
+                                                                                <div class="body_list">
+                                                                                    <div class="list_txt size">270</div>
+                                                                                    <div class="list_txt price">218,000원</div>
+                                                                                    <div class="list_txt createdAt"><time>23/01/22</time></div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
                                                                     <div class="empty_content lg" style="display: none;">
                                                                         <div class="empty_bg"><span class="blind">빈 데이터 이미지</span></div>
@@ -966,15 +944,11 @@
         let oneYearAgo = dateFormat(new Date(now12.setFullYear(now12.getFullYear() - 1)));
         console.log("일년전: " + oneYearAgo);
 
-
-
-
-
         let arr = [];
         for(let key in conclusion) {
             arr.push([conclusion[key].createdAt.replace("T00:00:00",""), conclusion[key].price.replace(",","").replace("원","")]);
         }
-        console.log(arr);
+        // console.log(arr);
 
         // 위와 같은 뜻
         // conclusion.slice().forEach(
@@ -984,137 +958,483 @@
         // });
         // console.log(labels);
 
-        // x축 (체결날짜)
-        let lables = [];
-        for(let key in arr) {
-            lables.push(conclusion[key].createdAt.replace("T00:00:00",""));
-        }
-        // console.log(lables);
 
-        // y축 (가격)
-        let data = [];
-        for(let key in arr) {
-            data.push(conclusion[key].price.replace(",","").replace("원",""));
-        }
-        // console.log(data);
-
-        //⚪️ 전체 데이터
-        let oysDate = [];
-        let oysPrice = [];
+        //⚪️ 1개월 그래프 데이터
+        let Date1 = [];
+        let Price1 = [];
         for(let i in arr){
-                console.log("전체 데이터");
-                oysDate.push(arr[i][0]);
-                oysPrice.push(arr[i][1]);
+            console.log("1개월전 데이터");
+            if(arr[i][0] > oneMonthAgo){
+                Date1.push(arr[i][0]);
+                Price1.push(arr[i][1]);
+            }
         }
-        console.log(oysDate);
-        console.log(oysPrice);
 
-        //⚪️ 1년전 데이터
-        // let oysDate = [];
-        // let oysPrice = [];
-        // for(let i in arr){
-        //         console.log("1년전 데이터");
-        //     if(arr[i][0] > oneYearAgo){
-        //         oysDate.push(arr[i][0]);
-        //         oysPrice.push(arr[i][1]);
-        //     }
-        // }
-        // console.log(oysDate);
-        // console.log(oysPrice);
+        //⚪️ 3개월 그래프 데이터
+        let Date2 = [];
+        let Price2 = [];
+        for(let i in arr){
+            console.log("3개월전 데이터");
+            if(arr[i][0] > threeMonthAgo){
+                Date2.push(arr[i][0]);
+                Price2.push(arr[i][1]);
+            }
+        }
 
-        //⚪️ 6개월전 데이터
-        // let oysDate = [];
-        // let oysPrice = [];
-        // for(let i in arr){
-        //         console.log("6개월전 데이터");
-        //     if(arr[i][0] > sixMonthAgo){
-        //         oysDate.push(arr[i][0]);
-        //         oysPrice.push(arr[i][1]);
-        //     }
-        // }
-        // console.log(oysDate);
-        // console.log(oysPrice);
+        //⚪️ 6개월 그래프 데이터
+        let Date3 = [];
+        let Price3 = [];
+        for(let i in arr){
+                console.log("6개월전 데이터");
+            if(arr[i][0] > sixMonthAgo){
+                Date3.push(arr[i][0]);
+                Price3.push(arr[i][1]);
+            }
+        }
 
-        //⚪️ 3개월전 데이터
-        // let oysDate = [];
-        // let oysPrice = [];
-        // for(let i in arr){
-        //         console.log("3개월전 데이터");
-        //     if(arr[i][0] > threeMonthAgo){
-        //         oysDate.push(arr[i][0]);
-        //         oysPrice.push(arr[i][1]);
-        //     }
-        // }
-        // console.log(oysDate);
-        // console.log(oysPrice);
+        //⚪️ 1년 그래프 데이터
+        let Date4 = [];
+        let Price4 = [];
+        for(let i in arr){
+            console.log("1년전 데이터");
+            if(arr[i][0] > oneYearAgo){
+                Date4.push(arr[i][0]);
+                Price4.push(arr[i][1]);
+            }
+        }
 
-        //⚪️ 1개월전 데이터
-        // let oysDate = [];
-        // let oysPrice = [];
-        // for(let i in arr){
-        //     console.log("1개월전 데이터");
-        //     if(arr[i][0] > oneMonthAgo){
-        //         oysDate.push(arr[i][0]);
-        //         oysPrice.push(arr[i][1]);
-        //     }
-        // }
-        // console.log(oysDate);
-        // console.log(oysPrice);
+        //⚪️ 전체 그래프 데이터
+        let Date5 = [];
+        let Price5 = [];
+        for(let i in arr){
+            console.log("전체 데이터");
+            Date5.push(arr[i][0]);
+            Price5.push(arr[i][1]);
+        }
 
-
-
-        let ctx = document.getElementById("graph1m").getContext("2d");
-        let myChart = new Chart(ctx, {
-            type: "line",
-            data: {
-                labels: oysDate, // x축
-                datasets: [{
-                    // label: "시세",
-                    data: oysPrice, // y축
-                    backgroundColor: 'rgb(206,39,35)', // 차트 배경 색
-                    borderColor: 'rgb(206,39,35)', // 라인 색
-                    borderWidth: 1, // 라인 넓이
-                    pointRadius: 0 // 포인터 없애기
-                }]
-            },
-            options: {
-                responsive: false,
-                // tooltips: {
-                //     callbacks: {
-                //         label: function(tooltipItem, data) {
-                //             let label = data.datasets[tooltipItem.datasetIndex].label;
-                //             label += (tooltipItem.yLabel) + "won";
-                //             return label;
-                //         }
-                //     }
-                // },
-                scales: {
-                    xAxes:{
-                        ticks: {
-                            display : false // x축 라벨 숨김
+        // 로드시 전체 그래프 출력
+        let myChart;
+        window.addEventListener('DOMContentLoaded', function() {
+            let ctx = document.getElementById("graphall").getContext("2d");
+            myChart = new Chart(ctx, {
+                type: "line",
+                data: {
+                    labels: Date5, // x축
+                    datasets: [{
+                        data: Price5, // y축
+                        backgroundColor: 'rgb(206,39,35)', // 차트 배경 색
+                        borderColor: 'rgb(206,39,35)', // 라인 색
+                        borderWidth: 1, // 라인 넓이
+                        pointRadius: 0 // 포인터 없애기
+                    }]
+                },
+                options: {
+                    responsive: false,
+                    scales: {
+                        xAxes: {
+                            ticks: {
+                                display: false // x축 라벨 숨김
+                            },
+                            grid: {
+                                display: false // x축 눈금선 숨김
+                            }
                         },
-                        grid: {
-                            display: false // x축 눈금선 숨김
-                        }
+                        yAxes: {
+                            beginAtZero: true, // y축 0부터 시작
+                            position: 'right', // 축 라벨이 왼쪽에 표시될지, 오른쪽에 표시될지 정함
+                            grid: {
+                                display: false // y축 눈금선 숨김
+                            }
+                        },
                     },
-                    yAxes: {
-                        beginAtZero: true, // y축 0부터 시작
-                        position: 'right', // 축 라벨이 왼쪽에 표시될지, 오른쪽에 표시될지 정함
-                        grid: {
-                            display: false // y축 눈금선 숨김
+                    plugins: {
+                        datalabels: {
+                            display: false
+                        },
+                        legend: {
+                            display: false // 라벨 없애기(그래프제목)
                         }
                     },
                 },
-                plugins: {
-                    datalabels: {
-                        display: false
-                    },
-                    legend: {
-                        display: false // 라벨 없애기(그래프제목)
-                    }
-                },
-            },
+            });
         });
+
+        // 1개월 그래프
+        let myChart1;
+        const oneMonth = document.getElementById("graph1mm");
+        const sales_panel1 = document.getElementById("sales_panel1");
+        const graph1m = document.getElementById("graph1m");
+        oneMonth.addEventListener("click", () => {
+            graph3m.style.display = "none";
+            graph6m.style.display = "none";
+            graph1y.style.display = "none";
+            graphall.style.display = "none";
+            graph1m.style.display = "block";
+            if (myChart !== undefined) {
+                myChart.destroy();
+                console.log("myChart 삭제");
+            }
+            if (myChart1 !== undefined) {
+                myChart1.destroy();
+                console.log("내꺼 삭제");
+            }
+            check();
+            sales_panel2.classList.remove("show");
+            sales_panel3.classList.remove("show");
+            sales_panel4.classList.remove("show");
+            sales_panel5.classList.remove("show");
+            sales_panel1.classList.add("show");
+            let ctx = document.getElementById("graph1m").getContext("2d");
+            myChart1 = new Chart(ctx, {
+                type: "line",
+                data: {
+                    labels: Date1, // x축
+                    datasets: [{
+                        data: Price1, // y축
+                        backgroundColor: 'rgb(206,39,35)', // 차트 배경 색
+                        borderColor: 'rgb(206,39,35)', // 라인 색
+                        borderWidth: 1, // 라인 넓이
+                        pointRadius: 0 // 포인터 없애기
+                    }]
+                },
+                options: {
+                    responsive: false,
+                    // tooltips: {
+                    //     callbacks: {
+                    //         label: function(tooltipItem, data) {
+                    //             let label = data.datasets[tooltipItem.datasetIndex].label;
+                    //             label += (tooltipItem.yLabel) + "won";
+                    //             return label;
+                    //         }
+                    //     }
+                    // },
+                    scales: {
+                        xAxes: {
+                            ticks: {
+                                display: false // x축 라벨 숨김
+                            },
+                            grid: {
+                                display: false // x축 눈금선 숨김
+                            }
+                        },
+                        yAxes: {
+                            beginAtZero: true, // y축 0부터 시작
+                            position: 'right', // 축 라벨이 왼쪽에 표시될지, 오른쪽에 표시될지 정함
+                            grid: {
+                                display: false // y축 눈금선 숨김
+                            }
+                        },
+                    },
+                    plugins: {
+                        datalabels: {
+                            display: false
+                        },
+                        legend: {
+                            display: false // 라벨 없애기(그래프제목)
+                        }
+                    },
+                },
+            });
+        });
+
+        // 3개월 그래프
+        let myChart2;
+        const threeMonth = document.getElementById("graph3mm");
+        const sales_panel2 = document.getElementById("sales_panel2");
+        const graph3m = document.getElementById("graph3m");
+        threeMonth.addEventListener("click", () => {
+            graph1m.style.display = "none";
+            graph6m.style.display = "none";
+            graph1y.style.display = "none";
+            graphall.style.display = "none";
+            graph3m.style.display = "block";
+            if (myChart !== undefined) {
+                myChart.destroy();
+                console.log("myChart 삭제");
+            }
+            if (myChart2 !== undefined) {
+                myChart2.destroy();
+                console.log("내꺼 삭제");
+            }
+            check();
+            sales_panel1.classList.remove("show");
+            sales_panel3.classList.remove("show");
+            sales_panel4.classList.remove("show");
+            sales_panel5.classList.remove("show");
+            sales_panel2.classList.add("show");
+            let ctx = document.getElementById("graph3m").getContext("2d");
+            myChart2 = new Chart(ctx, {
+                type: "line",
+                data: {
+                    labels: Date2, // x축
+                    datasets: [{
+                        data: Price2, // y축
+                        backgroundColor: 'rgb(206,39,35)', // 차트 배경 색
+                        borderColor: 'rgb(206,39,35)', // 라인 색
+                        borderWidth: 1, // 라인 넓이
+                        pointRadius: 0 // 포인터 없애기
+                    }]
+                },
+                options: {
+                    responsive: false,
+                    scales: {
+                        xAxes: {
+                            ticks: {
+                                display: false // x축 라벨 숨김
+                            },
+                            grid: {
+                                display: false // x축 눈금선 숨김
+                            }
+                        },
+                        yAxes: {
+                            beginAtZero: true, // y축 0부터 시작
+                            position: 'right', // 축 라벨이 왼쪽에 표시될지, 오른쪽에 표시될지 정함
+                            grid: {
+                                display: false // y축 눈금선 숨김
+                            }
+                        },
+                    },
+                    plugins: {
+                        datalabels: {
+                            display: false
+                        },
+                        legend: {
+                            display: false // 라벨 없애기(그래프제목)
+                        }
+                    },
+                },
+            });
+        });
+
+        // 6개월 그래프
+        let myChart3;
+        const sixMonth = document.getElementById("graph6mm");
+        const sales_panel3 = document.getElementById("sales_panel3");
+        const graph6m = document.getElementById("graph6m");
+        sixMonth.addEventListener("click", () => {
+            graph1m.style.display = "none";
+            graph3m.style.display = "none";
+            graph1y.style.display = "none";
+            graphall.style.display = "none";
+            graph6m.style.display = "block";
+            if (myChart !== undefined) {
+                myChart.destroy();
+                console.log("myChart 삭제");
+            }
+            if (myChart3 !== undefined) {
+                myChart3.destroy();
+                console.log("내꺼 삭제");
+            }
+            check();
+            sales_panel1.classList.remove("show");
+            sales_panel2.classList.remove("show");
+            sales_panel4.classList.remove("show");
+            sales_panel5.classList.remove("show");
+            sales_panel3.classList.add("show");
+            let ctx = document.getElementById("graph6m").getContext("2d");
+            myChart3 = new Chart(ctx, {
+                type: "line",
+                data: {
+                    labels: Date3, // x축
+                    datasets: [{
+                        data: Price3, // y축
+                        backgroundColor: 'rgb(206,39,35)', // 차트 배경 색
+                        borderColor: 'rgb(206,39,35)', // 라인 색
+                        borderWidth: 1, // 라인 넓이
+                        pointRadius: 0 // 포인터 없애기
+                    }]
+                },
+                options: {
+                    responsive: false,
+                    scales: {
+                        xAxes: {
+                            ticks: {
+                                display: false // x축 라벨 숨김
+                            },
+                            grid: {
+                                display: false // x축 눈금선 숨김
+                            }
+                        },
+                        yAxes: {
+                            beginAtZero: true, // y축 0부터 시작
+                            position: 'right', // 축 라벨이 왼쪽에 표시될지, 오른쪽에 표시될지 정함
+                            grid: {
+                                display: false // y축 눈금선 숨김
+                            }
+                        },
+                    },
+                    plugins: {
+                        datalabels: {
+                            display: false
+                        },
+                        legend: {
+                            display: false // 라벨 없애기(그래프제목)
+                        }
+                    },
+                },
+            });
+        });
+
+        // 1년 그래프
+        let myChart4;
+        const oneYear = document.getElementById("graph1yy");
+        const sales_panel4 = document.getElementById("sales_panel4");
+        const graph1y = document.getElementById("graph1y");
+        oneYear.addEventListener("click", () => {
+            graph1m.style.display = "none";
+            graph3m.style.display = "none";
+            graph6m.style.display = "none";
+            graphall.style.display = "none";
+            graph1y.style.display = "block";
+            if (myChart !== undefined) {
+                myChart.destroy();
+                console.log("myChart 삭제");
+            }
+            if (myChart4 !== undefined) {
+                myChart4.destroy();
+                console.log("내꺼 삭제");
+            }
+            check();
+            sales_panel1.classList.remove("show");
+            sales_panel2.classList.remove("show");
+            sales_panel3.classList.remove("show");
+            sales_panel5.classList.remove("show");
+            sales_panel4.classList.add("show");
+            let ctx = document.getElementById("graph1y").getContext("2d");
+            myChart4 = new Chart(ctx, {
+                type: "line",
+                data: {
+                    labels: Date4, // x축
+                    datasets: [{
+                        data: Price4, // y축
+                        backgroundColor: 'rgb(206,39,35)', // 차트 배경 색
+                        borderColor: 'rgb(206,39,35)', // 라인 색
+                        borderWidth: 1, // 라인 넓이
+                        pointRadius: 0 // 포인터 없애기
+                    }]
+                },
+                options: {
+                    responsive: false,
+                    scales: {
+                        xAxes: {
+                            ticks: {
+                                display: false // x축 라벨 숨김
+                            },
+                            grid: {
+                                display: false // x축 눈금선 숨김
+                            }
+                        },
+                        yAxes: {
+                            beginAtZero: true, // y축 0부터 시작
+                            position: 'right', // 축 라벨이 왼쪽에 표시될지, 오른쪽에 표시될지 정함
+                            grid: {
+                                display: false // y축 눈금선 숨김
+                            }
+                        },
+                    },
+                    plugins: {
+                        datalabels: {
+                            display: false
+                        },
+                        legend: {
+                            display: false // 라벨 없애기(그래프제목)
+                        }
+                    },
+                },
+            });
+        });
+
+        // 전체 그래프
+        let myChart5;
+        const allall = document.getElementById("graphallall");
+        const sales_panel5 = document.getElementById("sales_panel5");
+        const graphall = document.getElementById("graphall");
+        allall.addEventListener("click", () => {
+            graph1m.style.display = "none";
+            graph3m.style.display = "none";
+            graph6m.style.display = "none";
+            graph1y.style.display = "none";
+            graphall.style.display = "block";
+            if (myChart !== undefined) {
+                myChart.destroy();
+                console.log("myChart 삭제");
+            }
+            if (myChart5 !== undefined) {
+                myChart5.destroy();
+                console.log("내꺼 삭제");
+            }
+            check();
+            sales_panel1.classList.remove("show");
+            sales_panel2.classList.remove("show");
+            sales_panel3.classList.remove("show");
+            sales_panel4.classList.remove("show");
+            sales_panel5.classList.add("show");
+            let ctx = document.getElementById("graphall").getContext("2d");
+            myChart5 = new Chart(ctx, {
+                type: "line",
+                data: {
+                    labels: Date5, // x축
+                    datasets: [{
+                        data: Price5, // y축
+                        backgroundColor: 'rgb(206,39,35)', // 차트 배경 색
+                        borderColor: 'rgb(206,39,35)', // 라인 색
+                        borderWidth: 1, // 라인 넓이
+                        pointRadius: 0 // 포인터 없애기
+                    }]
+                },
+                options: {
+                    responsive: false,
+                    scales: {
+                        xAxes: {
+                            ticks: {
+                                display: false // x축 라벨 숨김
+                            },
+                            grid: {
+                                display: false // x축 눈금선 숨김
+                            }
+                        },
+                        yAxes: {
+                            beginAtZero: true, // y축 0부터 시작
+                            position: 'right', // 축 라벨이 왼쪽에 표시될지, 오른쪽에 표시될지 정함
+                            grid: {
+                                display: false // y축 눈금선 숨김
+                            }
+                        },
+                    },
+                    plugins: {
+                        datalabels: {
+                            display: false
+                        },
+                        legend: {
+                            display: false // 라벨 없애기(그래프제목)
+                        }
+                    },
+                },
+            });
+        });
+
+        function check(){
+            if (myChart1 !== undefined) {
+                myChart1.destroy();
+                console.log("myChart1 삭제");
+            }
+            else if (myChart2 !== undefined) {
+                myChart2.destroy();
+                console.log("myChart2 삭제");
+            }
+            else if (myChart3 !== undefined) {
+                myChart3.destroy();
+                console.log("myChart3 삭제");
+            }
+            else if (myChart4 !== undefined) {
+                myChart4.destroy();
+                console.log("myChart4 삭제");
+            }
+            else if (myChart5 !== undefined) {
+                myChart5.destroy();
+                console.log("myChart5 삭제");
+            }
+        }
         /*]]>*/
     </script>
 </html>

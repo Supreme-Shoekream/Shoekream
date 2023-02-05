@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+
+<thlogic>
+
+<!--  오름차순/내림차순 정의  -->
+
+    <attr sel="tbody" th:remove="all-but-first">
+        <attr sel="tr[0]" th:each="penalty : ${penaltys}">
+            <attr sel="td.idx" th:text="${penalty.idx}"/>
+            <attr sel="td.sell_idx" th:text="${penalty.sellIdx}"/>
+            <attr sel="td.member_email" th:text="${penalty.sellDTO.memberDTO.email}"/>
+            <attr sel="td.product_name" th:text="${penalty.sellDTO.productDTO.name}"/>
+            <attr sel="td.sell_price" th:text="${#numbers.formatInteger(penalty.sellDTO.price, 0, 'COMMA')}"/>
+            <attr sel="td.reason" th:text="${penalty.reason.description}"/>
+            <attr sel="td.reg_data" th:datetime="${penalty.createdAt}" th:text="${#temporals.format(penalty.createdAt, 'yyyy-MM-dd')}"/>
+
+<!-- View, Delete 부분 -->
+            <attr sel=".dropdown">
+                <attr sel="#view_btn" th:onclick="'javascript:layer_penalty_view('+ ${penalty.idx} + ');'"/>
+                <attr sel="#delete_btn" th:onclick="'javascript:pop_penalty_delete(' + ${penalty.idx} + ');'"/>
+            </attr>
+        </attr>
+    </attr>
+
+        <attr sel=".pagination">
+            <attr sel="li[0]/a" th:text="'◀'"
+                  th:href="@{/penalty(page=${penaltys.number - 1}, searchKeyword=${param.searchKeyword})}"
+                  th:class="'page-link'+(${penaltys.number}<=0 ? ' disabled' : '')"/>
+            <attr sel="li[1]" th:class="page-item" th:each="pageNumber : ${barNumbers}">
+                <attr sel="a" th:text="${pageNumber + 1}"
+                      th:href="@{/penalty(page=${pageNumber}, searchKeyword=${param.searchKeyword})}"
+                      th:class="'page-link'+(${pageNumber}==${penaltys.number} ? ' disabled' : '')"/>
+            </attr>
+            <attr sel="li[2]/a" th:text="'▶'"
+                  th:href="@{/penalty(page=${penaltys.number + 1}, searchKeyword=${param.searchKeyword})}"
+                  th:class="'page-link'+(${penaltys.number}>=${penaltys.totalPages -1} ? ' disabled' : '')"/>
+        </attr>
+
+</thlogic>

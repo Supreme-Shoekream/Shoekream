@@ -36,12 +36,53 @@ const url = new URL(urlStr)
 const searchParams = url.searchParams
 let sort = searchParams.get('sort')
 let page = searchParams.get('page')
-let size = searchParams.get('size')
+let psize = searchParams.get('psize')
 let brand = searchParams.get('brand')
 let category = searchParams.get('category')
 let collection = searchParams.get('collection')
 let gender = searchParams.get('gender')
 let keyword = searchParams.get('keyword')
+
+
+let sort_str = ''
+let page_str =''
+let psize_str= ''
+let brand_str = ''
+let category_str = ''
+let collection_str =''
+let gender_str = ''
+let keyword_str = ''
+
+// 주소창 정리
+function psize_check(psize){
+    if(psize==null) return ''
+    return "&psize="+psize
+}
+
+function brand_check(brand){
+    if(brand==null) return ''
+    return "&brand="+brand
+}
+
+function collection_check(collection){
+    if(collection==null) return ''
+    return "&collection="+collection
+}
+
+function gender_check(gender){
+    if(gender==null) return ''
+    return "&gender="+gender
+}
+
+function keyword_check(keyword){
+    if(keyword==null) return ''
+    return "&keyword="+keyword
+}
+
+function category_check(category){
+    if(category==null) return ''
+    return "&category="+category
+}
 
 // 카테고리
 
@@ -59,16 +100,21 @@ category_menus.forEach((tab)=>{
         })
     }
 })
+
 function category_reload(category_txt){
+
     if(sort==null) sort='idx'
     if(page==null) page=0
-    if(size==null) size=''
-    if(brand==null) brand=''
-    if(collection==null) collection=''
-    if(gender==null) gender=''
-    if(keyword==null) keyword=''
-    location.href="/searchs?sort="+sort+"&page="+page+"&size="+size+"&brand="+brand
-        +"&category="+category_txt+"&collection="+collection+"&gender="+gender+"&keyword="+keyword
+
+    psize_str = psize_check(psize)
+    brand_str = brand_check(brand)
+    collection_str = collection_check(collection)
+    gender_str = gender_check(gender)
+    keyword_str = keyword_check(keyword)
+    category_str = category_check(category)
+
+    location.href="/searchs?sort="+sort+"&page="+page+psize_str+brand_str
+        +"&category="+category_txt+collection_str+gender_str+keyword_str
 }
 
 // 브랜드
@@ -88,16 +134,21 @@ brand_menus.forEach((tab)=>{
     }
 })
 function brand_reload(brand_txt){
+
     if(sort==null) sort='idx'
     if(page==null) page=0
-    if(size==null) size=''
-    if(category==null) category=''
-    if(collection==null) collection=''
-    if(gender==null) gender=''
-    if(keyword==null) keyword=''
-    location.href="/searchs?sort="+sort+"&page="+page+"&size="+size+
-        "&brand="+brand_txt+"&category="+category+"&collection="+collection+"&gender="+gender+"&keyword="+keyword
+
+    psize_str = psize_check(psize)
+    brand_str = brand_check(brand)
+    collection_str = collection_check(collection)
+    gender_str = gender_check(gender)
+    keyword_str = keyword_check(keyword)
+    category_str = category_check(category)
+
+    location.href="/searchs?sort="+sort+"&page="+page+psize_str+"&brand="+brand_txt
+        +category_str+collection_str+gender_str+keyword_str
 }
+
 
 // 성별
 
@@ -116,15 +167,19 @@ gender_menus.forEach((tab)=>{
     }
 })
 function gender_reload(gender_txt){
+
     if(sort==null) sort='idx'
     if(page==null) page=0
-    if(size==null) size=''
-    if(category==null) category=''
-    if(collection==null) collection=''
-    if(gender==null) gender=''
-    if(keyword==null) keyword=''
-    location.href="/searchs?sort="+sort+"&page="+page+"&size="+size+
-        "&brand="+brand+"&category="+category+"&collection="+collection+"&gender="+gender_txt+"&keyword="+keyword
+
+    psize_str = psize_check(psize)
+    brand_str = brand_check(brand)
+    collection_str = collection_check(collection)
+    gender_str = gender_check(gender)
+    keyword_str = keyword_check(keyword)
+    category_str = category_check(category)
+
+    location.href="/searchs?sort="+sort+"&page="+page+psize_str+brand_str
+        +category_str+collection_str+"&gender="+gender_txt+keyword_str
 }
 
 // 컬렉션
@@ -144,15 +199,19 @@ collection_menus.forEach((tab)=>{
     }
 })
 function collection_reload(collection_txt){
+
     if(sort==null) sort='idx'
     if(page==null) page=0
-    if(size==null) size=''
-    if(category==null) category=''
-    if(collection==null) collection=''
-    if(gender==null) gender=''
-    if(keyword==null) keyword=''
-    location.href="/searchs?sort="+sort+"&page="+page+"&size="+size+
-        "&brand="+brand+"&category="+category+"&collection="+collection_txt+"&gender="+gender+"&keyword="+keyword
+
+    psize_str = psize_check(psize)
+    brand_str = brand_check(brand)
+    collection_str = collection_check(collection)
+    gender_str = gender_check(gender)
+    keyword_str = keyword_check(keyword)
+    category_str = category_check(category)
+
+    location.href="/searchs?sort="+sort+"&page="+page+psize_str+brand_str
+        +category_str+"&collection="+collection_txt+gender_str+keyword_str
 }
 
 // 사이즈
@@ -160,27 +219,31 @@ function collection_reload(collection_txt){
 const size_menus = document.querySelectorAll('#size_filter .menu')
 size_menus.forEach((tab)=>{
     let checkbox = tab.childNodes[1]
-    let size_txt= tab.childNodes[3].childNodes[0].innerHTML
+    let psize_txt= tab.childNodes[3].childNodes[0].innerHTML
     if(checkbox.checked){
         tab.addEventListener('click',()=>{
             size_reload('')
         })
     }else{
         tab.addEventListener('click',()=>{
-            size_reload(size_txt)
+            size_reload(psize_txt)
         })
     }
 })
-function size_reload(size_txt){
+function size_reload(psize_txt){
+
     if(sort==null) sort='idx'
     if(page==null) page=0
-    if(size==null) size=''
-    if(category==null) category=''
-    if(collection==null) collection=''
-    if(gender==null) gender=''
-    if(keyword==null) keyword=''
-    location.href="/searchs?sort="+sort+"&page="+page+"&size="+size_txt+
-        "&brand="+brand+"&category="+category+"&collection="+collection+"&gender="+gender+"&keyword="+keyword
+
+    psize_str = psize_check(psize)
+    brand_str = brand_check(brand)
+    collection_str = collection_check(collection)
+    gender_str = gender_check(gender)
+    keyword_str = keyword_check(keyword)
+    category_str = category_check(category)
+
+    location.href="/searchs?sort="+sort+"&page="+page+"&psize="+psize_txt+brand_str
+        +category_str+collection_str+gender_str+keyword_str
 }
 
 /**
@@ -193,4 +256,63 @@ function sort_list() {
     } else {
         click.style.display = "none";
     }
+}
+
+// shop 클릭시 폰트변경
+const item = document.getElementById('sh_gnb');
+item.classList.add('gnb_on');
+
+
+
+
+/**
+ * 🤍 기능4: 관심상품
+ */
+function wishCreate(product_idx) {
+    // console.log(proIdx);
+    fetch("http://localhost:8889/api/product", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+            "productIdx": product_idx
+        }),
+    })
+        .then((res) => {
+            let wish_on_img = document.getElementById(product_idx).childNodes[1].childNodes[1].childNodes[1]
+            wish_on_img.style.display='block'
+            let wish_off_img = document.getElementById(product_idx).childNodes[1].childNodes[1].childNodes[3]
+            wish_off_img.style.display='none'
+            let wish_count =document.getElementById(product_idx).childNodes[1].childNodes[3]
+            wish_count.innerHTML =Number(wish_count.innerHTML) + 1
+        })
+        .then((data) => {
+            console.log(data);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+}
+
+function wishDelete(product_idx) {
+    fetch('http://localhost:8889/api/product/' + product_idx, {
+        method: "DELETE"
+    })
+        .then((res) => {
+            let wish_on_img = document.getElementById(product_idx).childNodes[1].childNodes[1].childNodes[1]
+            wish_on_img.style.display='none'
+            let wish_off_img = document.getElementById(product_idx).childNodes[1].childNodes[1].childNodes[3]
+            wish_off_img.style.display='block'
+            let wish_count =document.getElementById(product_idx).childNodes[1].childNodes[3]
+            wish_count.innerHTML = Number(wish_count.innerHTML) - 1
+        })
+        .then((data) => {
+            console.log(data);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+}
+
+function tag_href(product_idx){
+    location.href = '/social/social_product/'+product_idx;
 }

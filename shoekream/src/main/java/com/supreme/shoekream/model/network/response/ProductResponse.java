@@ -13,9 +13,9 @@ public record ProductResponse(
         String modelNum,
         String releaseDate,
         String color,
-        String firstPrice
+        Long firstPrice
 ) {
-    public static ProductResponse of(Long idx, String name, String nameKor, String img, String brand, String size, int wishCount, String modelNum, String releaseDate, String color, String firstPrice) {
+    public static ProductResponse of(Long idx, String name, String nameKor, String img, String brand, String size, int wishCount, String modelNum, String releaseDate, String color, Long firstPrice) {
         return new ProductResponse(idx, name, nameKor, img, brand, size, wishCount, modelNum, releaseDate, color, firstPrice);
     }
 

@@ -1,0 +1,153 @@
+<!--<link rel="stylesheet" href="/src/styles/layer.css">-->
+<!--<script src="https://code.jquery.com/jquery-3.6.3.min.js"-->
+<!--        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>-->
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="product_edit" class="product_edit layer lg" style="display: none;" >
+<!--<div class="layer_name layer lg">-->
+    <div class="layer_container">
+<!--        <a onclick="history.back()" class="btn_layer_close">-->
+        <a onclick="productedit_popdown()" class="btn_layer_close">
+            <div>
+                <img src="/img/close_white.png">
+            </div>
+        </a>
+        <div class="layer_header">
+            <h2 class="title"> 상품 수정 페이지 </h2>
+        </div>
+        <div class="layer_content">
+        <div class="top">
+            <div class="user_bind">
+                <div class="user_input">
+                    <div class="input_box">
+                        <h4 class="input_title">상품 번호</h4>
+                        <div class="input_item">
+                            <p id="edit_idx">1</p>
+                        </div>
+                    </div>
+                    <div class="input_box">
+                        <h4 class="input_title">브랜드명</h4>
+                        <div class="input_item">
+                            <input type="text" name="brand_name" id="edit_brand" placeholder="브랜드명(ENG)">
+                        </div>
+                    </div>
+                    <div class="input_box">
+                        <h4 class="input_title">상품명</h4>
+                        <div class="input_item">
+                            <input type="text" name="product_name" id="edit_name" placeholder="상품명">
+                        </div>
+                    </div>
+                    <div class="input_box">
+                        <h4 class="input_title">상품명(KOR)</h4>
+                        <div class="input_item">
+                            <input type="text" name="product_name_kor" id="edit_nameKor" placeholder="상품명(KOR)">
+                        </div>
+                    </div>
+                    <div class="input_box">
+                        <h4 class="input_title">사이즈</h4>
+                        <div class="input_item">
+                            <input type="text" name="size" id="edit_size" placeholder="사이즈">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form_section" style="width: 50%">
+                <div class="form_section_content">
+                    <div class="filebox">
+                        <input class="upload-name" value="첨부파일" style="color: #FFF">
+                        <label for="fileItem2">파일찾기</label>
+                        <input type="file" id ="fileItem2" name="uploadFile2" onchange="load_img_edit(this)">
+                    </div>
+                    <img src="" id="previewImgEdit">
+                </div>
+            </div>
+        </div>
+        <div class="center" style="border: none;">
+            <div class="user_bind">
+                <div class="user_input">
+                    <div class="input_box">
+                        <h4 class="input_title">모델번호</h4>
+                        <div class="input_item">
+                            <input type="text" name="model_num" id="edit_modelNum" placeholder="모델번호">
+                        </div>
+                    </div>
+                    <div class="input_box">
+                        <h4 class="input_title">출시일</h4>
+                        <div class="input_item">
+                            <input type="text" name="release_date" id="edit_releaseDate" placeholder="출시일">
+                        </div>
+                    </div>
+                    <div class="input_box">
+                        <h4 class="input_title">성별</h4>
+                        <div class="input_item">
+                            <select name="gender" id="edit_gender" class="input_item_selectbox">
+                                <option value="null">- 성별을 선택하세요 -</option>
+                                <option value="남여공용">남여공용</option>
+                                <option value="남자">남자</option>
+                                <option value="여자">여자</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="input_box">
+                        <h4 class="input_title">카테고리</h4>
+                        <div class="input_item">
+                            <select name="category" id="edit_category" class="input_item_selectbox">
+                                <option value="null">- 카테고리를 선택하세요 -</option>
+                                <option value="신발">신발</option>
+                                <option value="의류">의류</option>
+                                <option value="패션잡화">패션잡화</option>
+                                <option value="라이프">라이프</option>
+                                <option value="테크">테크</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="user_bind">
+                <div class="user_input">
+                    <div class="input_box">
+                        <h4 class="input_title">컬러</h4>
+                        <div class="input_item">
+                            <input type="text" name="color" id="edit_color" placeholder="컬러">
+                        </div>
+                    </div>
+                    <div class="input_box">
+                        <h4 class="input_title">발매가</h4>
+                        <div class="input_item">
+                            <input type="text" name="first_price" id="edit_firstPrice" placeholder="발매가">
+                        </div>
+                    </div>
+                    <div class="input_box">
+                        <h4 class="input_title">컬렉션</h4>
+                        <div class="input_item">
+                            <select name="collection" id="edit_collection" class="input_item_selectbox">
+                                <option value="null">- 컬렉션을 선택하세요 -</option>
+                                <option value="JUST_DROP">Just Dropped(발매상품)</option>
+                                <option value="MOST_POPULAR">Most Popular(인기 상품)</option>
+                                <option value="NEW_IN">New In(신규등록상품)</option>
+                                <option value="SHOPPIING_WISELY">Shopping Wisely(정가보다 저렴한 가격)</option>
+                                <option value="BRAND_MD_PICK">Brand MD's pick(브랜드관 베스트아이템)</option>
+                                <option value="SIMPLE_CHIC">Simple&Chic(심플한 로고 플레이의 매력)</option>
+                                <option value="BEST_APPAREL_COLLABS">BEST Apparel Collabs(의류에도 불었던 콜라보 열풍)</option>
+                                <option value="NEW_LOWEST_ASKS">New Lowest Asks(새로운 즉시 구매가)</option>
+                                <option value="NEW_HIGHEST_BIDS">New Highest Bids(새로운 즉시판매가)</option>
+                                <option value="UPCOMING_RELEASE">Upcoming Release(발매예정)</option>
+                                <option value="BEST_COLLECTIBLES">BEST Collectibles(키덜트들 취향저격 200%)</option>
+                                <option value="BEST_JEWELRY_WATCHES">BEST jewelry&Watches(올해를 빛내준 액세서리)</option>
+                                <option value="BEST_CAMPING_GEAR">BEST Camping Gear(캠핑의 매력에 빠진 한해)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="layer_btn">
+            <a id="productEditBtn" class="btn btn_edit btn_save solid medium" style="color: white">수정</a>
+        </div>
+        </div>
+    </div>
+</div>
+<!--<script>-->
+
+<!--</script>-->
+</html>
+

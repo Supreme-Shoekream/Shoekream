@@ -24,7 +24,7 @@
             <attr sel=".product_desc">
                 <attr sel=".product_name" th:text="${product.name}"/>
                 <attr sel=".price_box">
-                    <attr sel=".amount" th:text="${product.firstPrice}"/>
+                    <attr sel=".amount" th:text="${#numbers.formatInteger(product.firstPrice, 0, 'COMMA')} + '원'"/>
                 </attr>
             </attr>
         </attr>

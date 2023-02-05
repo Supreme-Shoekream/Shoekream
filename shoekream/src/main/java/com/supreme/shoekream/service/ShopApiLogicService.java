@@ -1,19 +1,24 @@
 package com.supreme.shoekream.service;
 
 import com.supreme.shoekream.model.dto.ProductDTO;
+import com.supreme.shoekream.model.entity.Member;
 import com.supreme.shoekream.model.entity.Product;
 import com.supreme.shoekream.model.enumclass.SearchType;
 import com.supreme.shoekream.model.network.Header;
 import com.supreme.shoekream.model.network.Pagination;
 import com.supreme.shoekream.model.network.request.ProductApiRequest;
 import com.supreme.shoekream.model.network.response.ProductApiResponse;
+import com.supreme.shoekream.repository.MemberRepository;
 import com.supreme.shoekream.repository.ProductRepository;
+import com.supreme.shoekream.repository.TagRepository;
+import com.supreme.shoekream.repository.WishRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -23,6 +28,9 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class ShopApiLogicService extends BaseService<ProductApiRequest, ProductApiResponse, Product> {
     private final ProductRepository productRepository;
+    private final MemberRepository memberRepository;
+    private final WishRepository wishRepository;
+    private final TagRepository tagRepository;
 
     private ProductApiResponse response(Product product){
         ProductApiResponse productApiResponse = ProductApiResponse.builder()
@@ -160,10 +168,45 @@ public class ShopApiLogicService extends BaseService<ProductApiRequest, ProductA
         Collections.sort(brands);
         return brands;
     }
-        @Transactional(readOnly = true)
+    @Transactional(readOnly = true)
     public Page<ProductDTO> brand(String brandName, Pageable pageable){
         return productRepository.findByBrand(brandName,pageable).map(ProductDTO::fromEntity);
+    }
 
+
+
+    public List<Boolean> isWish(List<Product> products, Long memberIdx){
+        Member member = memberRepository.findById(memberIdx).get();
+        List<Boolean> isWish = new ArrayList<>();
+        products.forEach(
+                product -> {
+                    isWish.add(wishRepository.existsByMemberAndProduct(member,product));
+                }
+        );
+        return isWish;
+    }
+
+    public List<Long> wishCount(List<Product> products){
+        List<Long> wishCount = new ArrayList<>();
+        products.forEach(
+                product -> {
+                    wishCount.add(wishRepository.countByProduct(product));
+                }
+        );
+        return wishCount;
+    }
+
+    public List<Long> tagCount(List<Product> products){
+        List<Long> tagCount = new ArrayList<>();
+        products.forEach(
+                product -> {
+                    final long[] totalCount = {0L};
+                    List<Product> sameNameProducts = productRepository.findAllByName(product.getName());
+                    sameNameProducts.stream().mapToLong(tagRepository::countByProduct
+                    ).forEach(count -> totalCount[0] +=count);
+                    tagCount.add(totalCount[0]);
+                });
+        return tagCount;
     }
 }
 

@@ -1,6 +1,7 @@
 package com.supreme.shoekream.controller;
 
 import com.supreme.shoekream.ifs.CrudInterface;
+import com.supreme.shoekream.model.dto.EventDTO;
 import com.supreme.shoekream.model.network.Header;
 import org.springframework.stereotype.Component;
 

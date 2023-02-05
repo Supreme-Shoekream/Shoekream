@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<thlogic>
+    <attr sel="tbody" th:remove="all-but-first">
+        <attr sel="tr[0]" th:each="event : ${event}">
+            <attr sel="td.eventTitle" th:text="${event.title}"/>
+            <attr sel="td.eventImg/img" th:src="${event.img}"/>
+            <attr sel="td.eventStartTime" th:text="${event.startTime}"/>
+            <attr sel="td.eventEndTime" th:text="${event.endTime}"/>
+            <attr sel="td.more">
+                 <attr sel="#view_btn1" th:onclick="'javascript:pop_event_view('+${event.idx}+');'"/>
+                <attr sel="#edit_btn1" th:onclick="'javascript:pop_event_edit('+ ${event.idx} + ');'"/>
+<!--                <attr sel="#delete_btn" th:onclick="'javascript:pop_style_delete(' + ${feed.idx} + ');'"/>-->
+            </attr>
+        </attr>
+    </attr>
+</thlogic>

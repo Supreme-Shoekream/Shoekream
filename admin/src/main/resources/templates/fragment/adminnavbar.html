@@ -1,0 +1,111 @@
+<html lang="ko"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org/">
+<div th:fragment="navbar">
+
+
+  <div class="left-side-bar">
+    <div class="brand-logo">
+      <a href="/">
+        <img src="/vendors/images/adminlogo.png" alt="" class="dark-logo" />
+        <img
+                src="/vendors/images/deskapp-logo-white.svg"
+                alt=""
+                class="light-logo"
+        />
+      </a>
+      <div class="close-sidebar" data-toggle="left-sidebar-close">
+        <i class="ion-close-round"></i>
+      </div>
+    </div>
+    <!--왼쪽 나브바-->
+    <div class="menu-block customscroll">
+      <div class="sidebar-menu">
+        <ul id="accordion-menu">
+
+          <li class="dropdown">
+            <a href="javascript:;" class="dropdown-toggle">
+								<span class="micon bi">
+									<i class="icon-copy fa fa-shopping-bag" aria-hidden="true"></i>
+								</span>
+              <span class="mtext">order</span>
+            </a>
+            <ul class="submenu">
+                <li><a href="/buy">구매내역</a></li>
+                <li><a href="/sell">판매내역</a></li>
+                <li><a href="/conclusion">체결내역</a></li>
+<!--                <li><a href="/statusedit">진행상황</a></li>-->
+            </ul>
+          </li>
+            <li class="dropdown">
+                <a href="javascript:;" class="dropdown-toggle">
+								<span class="micon bi">
+									<i class="icon-copy fa fa-users" aria-hidden="true"></i>
+								</span>
+                    <span class="mtext">users</span>
+                </a>
+                <ul class="submenu">
+                    <li><a href="/users">사용자 리스트</a></li>
+                    <li><a href="/point">포인트 리스트</a></li>
+                    <li><a href="/penalty">패널티 리스트</a></li>
+<!--                    <li><a href="#">정지/영구정지</a></li>-->
+                </ul>
+            </li>
+<!--          <li>-->
+<!--            <a href="/admin/brands" class="dropdown-toggle no-arrow">-->
+<!--								<span class="micon bi">-->
+<!--									<i class="icon-copy fi-crown"></i>-->
+<!--								</span>-->
+<!--              <span class="mtext"> brand </span>-->
+<!--            </a>-->
+<!--          </li>-->
+          <li>
+            <a href="/products" class="dropdown-toggle no-arrow">
+								<span class="micon bi">
+									<i class="icon-copy fi-price-tag"></i>
+								</span>
+              <span class="mtext"> product </span>
+            </a>
+          </li>
+
+
+          <li>
+            <a href="/event" class="dropdown-toggle no-arrow">
+								<span class="micon bi">
+									<i class="icon-copy bi bi-gift"></i>
+								</span>
+              <span class="mtext"> event </span>
+            </a>
+          </li>
+          <li>
+            <a href="/notice" class="dropdown-toggle no-arrow">
+								<span class="micon bi">
+									<i class="icon-copy fi-megaphone"></i>
+								</span>
+              <span class="mtext"> notice </span>
+            </a>
+          </li>
+          <li>
+            <a href="/style" class="dropdown-toggle no-arrow">
+								<span class="micon bi">
+									<i class="icon-copy fi-social-instagram"></i>
+								</span>
+              <span class="mtext"> style </span>
+            </a>
+          </li>
+            <li>
+                <a href="/admin" class="dropdown-toggle no-arrow">
+								<span class="micon bi">
+                                    <i class="icon-copy fi-torso-business"></i>
+								</span>
+                    <span class="mtext"> Admin </span>
+                </a>
+            </li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-menu-overlay"></div>
+</div>
+</html>
