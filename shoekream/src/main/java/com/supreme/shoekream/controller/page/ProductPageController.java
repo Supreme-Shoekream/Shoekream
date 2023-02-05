@@ -93,7 +93,6 @@ public class ProductPageController {
             modelmap.addAttribute("recentPrice", recentPrice.getPrice());
         }
 
-
         return "product/product";
     }
 }

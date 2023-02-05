@@ -84,7 +84,7 @@ function load_img_create(input){
         file.onload = function (e) {
             document.getElementById("previewImg").src = e.target.result;
         }
-        file.readAsDataURL((input.files[0]));
+        file.readAsDataURL(input.files[0]);
     }
     else{
         document.getElementById("previewImg").src = "";
@@ -131,10 +131,7 @@ function fileCheck(fileName, fileSize){
 function productcreate_popup(){
     document.querySelector(".product_create").style.display = "block";
     document.getElementById("previewImg").setAttribute("create", "true");
-    // const btn_save = document.querySelector('.btn_save');
-    // btn_save.addEventListener("click",sendit);
     document.getElementById('productCreateBtn').onclick = function(){sendit()};
-
 }
 
 function sendit(){
