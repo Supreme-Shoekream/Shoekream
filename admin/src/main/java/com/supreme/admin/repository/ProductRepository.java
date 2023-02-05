@@ -2,6 +2,7 @@ package com.supreme.admin.repository;
 
 import com.supreme.admin.model.dto.ProductDTO;
 import com.supreme.admin.model.entity.Admin;
+import com.supreme.admin.model.entity.Buy;
 import com.supreme.admin.model.entity.Follow;
 import com.supreme.admin.model.entity.Product;
 import org.springframework.data.domain.Page;
@@ -34,6 +35,8 @@ public interface ProductRepository extends JpaRepository<Product, Long>, Queryds
     List<Product> findAllByName(String name);
 
     Page<Product> findByBrand(String brand, Pageable pageable);
+
+    Page<Product> findByIdxContainingOrBrandContainingOrFirstPriceContaining(Long idx, String brand, Long firstPrice, Pageable pageable);
 }
 
 

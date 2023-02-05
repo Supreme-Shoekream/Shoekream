@@ -38,11 +38,13 @@
 <!--              text-align: center; align-items: center;">상품 추가</a>-->
                     <button type="button" class="btn btn-primary m-t-15 waves-effect" onclick="productcreate_popup()">상품 추가</button>
                 </div>
-                <div class="pb-20">
+
+<!--                <div class="pb-20">-->
 <!--                    <div id="showPage" class="card-header">-->
 <!--                        &lt;!&ndash;            <i class="fas fa-table me-1"></i>&ndash;&gt;-->
 <!--                        총 {{totalPages}}페이지 중 {{currentPage}}페이지-->
 <!--                    </div>-->
+
                     <div class="row">
                         <div class="col-sm-12 col-md-6">
                             <div class="dataTables_length" id="DataTables_Table_0_length">
@@ -68,8 +70,6 @@
                             <th>상품사진</th>
                             <th>브랜드</th>
                             <th>상품명</th>
-                <!--              <th>사이즈</th>-->
-                <!--              <th>카테고리</th>-->
                             <th>모델번호</th>
                             <th>출시일</th>
                             <th>컬러</th>
@@ -90,23 +90,15 @@
                             </td>
                             <td>brand</td>
                             <td>
-                                <h5 class="font-16">name</h5>
-                                nameKor
+                                <h5 class="font-16">name</h5>nameKor
                             </td>
-            <!--                <td>{{dto.size}}</td>-->
-            <!--                <td>{{dto.category}}</td>-->
                             <td>modelNum</td>
                             <td>releaseDate</td>
                             <td>color</td>
                             <td>firstPrice</td>
                             <td>
                                 <div class="dropdown">
-                                    <a
-                                            class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
-                                            href="#"
-                                            role="button"
-                                            data-toggle="dropdown"
-                                    >
+                                    <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
                                         <i class="dw dw-more"></i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
@@ -142,12 +134,8 @@
                         </div>
                     </div>
                     <div class="row">
-<!--                        <div class="col-sm-5" style="max-width: 100%; flex: auto;">-->
-<!--                            <div id="pageNum" class="dataTables_info" role="status"></div>-->
-<!--                        </div>-->
                     </div>
-                </div>
-                <!-- Simple Datatable End -->
+<!--                </div>-->
             </div>
         </div>
     </div>
