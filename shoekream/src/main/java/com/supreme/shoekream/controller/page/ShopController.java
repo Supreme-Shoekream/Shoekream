@@ -58,7 +58,7 @@ public class ShopController {
 
     @GetMapping("searchs")
     public String search(
-            @RequestParam(required = false) String size,
+            @RequestParam(required = false) String psize,
             @RequestParam(required = false) String brand,
             @RequestParam(required = false) String category,
             @RequestParam(required = false) String collection,
@@ -68,7 +68,7 @@ public class ShopController {
             @AuthenticationPrincipal KreamPrincipal kreamPrincipal,
             ModelMap map
     ){
-        Page<ProductDTO> products = shopApiLogicService.searchsProduct(size,brand,category,collection,gender, keyword, pageable);
+        Page<ProductDTO> products = shopApiLogicService.searchsProduct(psize,brand,category,collection,gender, keyword, pageable);
         List<String> prices = sellService.buyNowPrices(products.stream().map(ProductDTO::toEntity).toList());
         List<Integer> barNumbers = paginationService.getPaginationBarNumbers(pageable.getPageNumber(), products.getTotalPages());
         List<String> brands = shopApiLogicService.getBrands();

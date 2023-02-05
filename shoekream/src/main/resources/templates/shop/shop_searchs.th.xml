@@ -7,47 +7,47 @@
         </attr>
         <!--/*기능1: 해당 이름으로 검색 및 조건부 class 추가*/-->
         <attr sel=".quick_filter">
-            <attr sel=".filter_box/a[1]" th:href="@{/searchs(page='0',sort=${param.sort},size=${param.size},
+            <attr sel=".filter_box/a[1]" th:href="@{/searchs(page='0',sort=${param.sort},psize=${param.psize},
             brand=${param.brand},category=${param.category},collection='luxury',gender=${param.gender}
             ,keyword=${param.keyword})}" th:classappend="${param.collction} != null?(${param.collection.toString}=='luxury' ? 'clicked':''):''"/>
-            <attr sel=".filter_box/a[2]" th:href="@{/searchs(page='0',sort=${param.sort},size=${param.size},
+            <attr sel=".filter_box/a[2]" th:href="@{/searchs(page='0',sort=${param.sort},psize=${param.psize},
             brand=${param.brand},category='신발',collection=${param.collection},gender=${param.gender}
             ,keyword=${param.keyword})}" th:classappend="${param.category} != null ?(${param.category.toString}=='신발'? 'clicked':''):''"/>
-            <attr sel=".filter_box/a[3]" th:href="@{/searchs(page='0',sort=${param.sort},size=${param.size},
+            <attr sel=".filter_box/a[3]" th:href="@{/searchs(page='0',sort=${param.sort},psize=${param.psize},
             brand=${param.brand},category='의류',collection=${param.collection},gender=${param.gender}
             ,keyword=${param.keyword})}" th:classappend="${param.category} != null ?(${param.category.toString}=='의류'? 'clicked':''):''"/>
-            <attr sel=".filter_box/a[4]" th:href="@{/searchs(page='0',sort=${param.sort},size=${param.size},
+            <attr sel=".filter_box/a[4]" th:href="@{/searchs(page='0',sort=${param.sort},psize=${param.psize},
             brand=${param.brand},category='패션잡화',collection=${param.collection},gender=${param.gender}
             ,keyword=${param.keyword})}" th:classappend="${param.category} != null ?(${param.category.toString}=='패션잡화'? 'clicked':''):''"/>
-            <attr sel=".filter_box/a[5]" th:href="@{/searchs(page='0',sort=${param.sort},size=${param.size},
+            <attr sel=".filter_box/a[5]" th:href="@{/searchs(page='0',sort=${param.sort},psize=${param.psize},
             brand=${param.brand},category='라이프',collection=${param.collection},gender=${param.gender}
             ,keyword=${param.keyword})}" th:classappend="${param.category} != null ?(${param.category.toString}=='라이프'? 'clicked':''):''"/>
-            <attr sel=".filter_box/a[6]" th:href="@{/searchs(page='0',sort=${param.sort},size=${param.size},
+            <attr sel=".filter_box/a[6]" th:href="@{/searchs(page='0',sort=${param.sort},psize=${param.psize},
             brand=${param.brand},category='테크',collection=${param.collection},gender=${param.gender}
             ,keyword=${param.keyword})}" th:classappend="${param.category} != null ?(${param.category.toString}=='테크'? 'clicked':''):''"/>
         </attr>
 
         <!--/*기능2: 사진 클릭시 해당 키워드로 검색? */-->
         <attr sel=".brand_list">
-            <attr sel="li[0]/a" th:href="@{/searchs(page='0',sort=${param.sort},size=${param.size},brand=${param.brand},
+            <attr sel="li[0]/a" th:href="@{/searchs(page='0',sort=${param.sort},psize=${param.psize},brand=${param.brand},
             category=${param.category},collection=${param.collection},gender=${param.gender},keyword='wallet')}"/>
-            <attr sel="li[1]/a" th:href="@{/searchs(page='0',sort=${param.sort},size=${param.size},brand=${param.brand},
+            <attr sel="li[1]/a" th:href="@{/searchs(page='0',sort=${param.sort},psize=${param.psize},brand=${param.brand},
             category=${param.category},collection=${param.collection},gender=${param.gender},keyword='ugg')}"/>
-            <attr sel="li[2]/a" th:href="@{/searchs(page='0',sort=${param.sort},size=${param.size},
+            <attr sel="li[2]/a" th:href="@{/searchs(page='0',sort=${param.sort},psize=${param.psize},
             brand=${param.brand},category=${param.category},collection=${param.collection},gender=${param.gender},keyword='jewelry')}"/>
-            <attr sel="li[3]/a" th:href="@{/searchs(page='0',sort=${param.sort},size=${param.size},
+            <attr sel="li[3]/a" th:href="@{/searchs(page='0',sort=${param.sort},psize=${param.psize},
             brand=${param.brand},category=${param.category},collection=${param.collection},gender=${param.gender},keyword='Nuptse')}"/>
-            <attr sel="li[4]/a" th:href="@{/searchs(page='0',sort=${param.sort},size=${param.size},
+            <attr sel="li[4]/a" th:href="@{/searchs(page='0',sort=${param.sort},psize=${param.psize},
             brand=${param.brand},category=${param.category},collection=${param.collection},gender=${param.gender},keyword='Vivienne Westwood')}"/>
-            <attr sel="li[5]/a" th:href="@{/searchs(page='0',sort=${param.sort},size=${param.size},
+            <attr sel="li[5]/a" th:href="@{/searchs(page='0',sort=${param.sort},psize=${param.psize},
             brand=${param.brand},category=${param.category},collection=${param.collection},gender=${param.gender},keyword=${'Asics'})}"/>
-            <attr sel="li[6]/a" th:href="@{/searchs(page='0',sort=${param.sort},size=${param.size},
+            <attr sel="li[6]/a" th:href="@{/searchs(page='0',sort=${param.sort},psize=${param.psize},
             brand=${param.brand},category=${param.category},collection=${param.collection},gender=${param.gender},keyword=${'Apple'})}"/>
-            <attr sel="li[7]/a" th:href="@{/searchs(page='0',sort=${param.sort},size=${param.size},
+            <attr sel="li[7]/a" th:href="@{/searchs(page='0',sort=${param.sort},psize=${param.psize},
             brand=${param.brand},category=${param.category},collection=${param.collection},gender=${param.gender},keyword='scott')}"/>
-            <attr sel="li[8]/a" th:href="@{/searchs(page='0',sort=${param.sort},size=${param.size},
+            <attr sel="li[8]/a" th:href="@{/searchs(page='0',sort=${param.sort},psize=${param.psize},
             brand=${param.brand},category=${param.category},collection=${param.collection},gender=${param.gender},keyword=${'chanel'})}"/>
-            <attr sel="li[9]/a" th:href="@{/searchs(page='0',sort=${param.sort},size=${param.size},
+            <attr sel="li[9]/a" th:href="@{/searchs(page='0',sort=${param.sort},psize=${param.psize},
             brand=${param.brand},category=${param.category},collection=${param.collection},gender=${param.gender},keyword=${'dyson'})}"/>
         </attr>
 
@@ -128,22 +128,22 @@
         </attr>
 
         <!-- 사이즈 -->
-        <attr sel="#size_list" th:classappend="${param.size} != null?(${param.size.toString}==''? '':'selected'):''">
-            <attr sel="#size_title" th:text="${param.size} != null ?(${param.size.toString}==''? '모든 사이즈' : ${param.size.toString}):'모든 사이즈'"
-                  th:style="${param.size} != null ?(${param.size.toString}==''? 'display:block' : 'display:none'):'display:block'"/>
-            <attr sel="#size_btn_on"  th:if="${param.size} == null or ${param.size.toString}=='' "/>
-            <attr sel="#size_btn_off"  th:if="${param.size} != null and ${param.size.toString}!=''"/>
-            <attr sel="#drop-size" th:style="${param.size} != null ?(${param.size.toString}==''? 'display:none':'display:block'):'display:none'">
+        <attr sel="#size_list" th:classappend="${param.psize} != null?(${param.psize.toString}==''? '':'selected'):''">
+            <attr sel="#size_title" th:text="${param.psize} != null ?(${param.psize.toString}==''? '모든 사이즈' : ${param.psize.toString}):'모든 사이즈'"
+                  th:style="${param.psize} != null ?(${param.psize.toString}==''? 'display:block' : 'display:none'):'display:block'"/>
+            <attr sel="#size_btn_on"  th:if="${param.psize} == null or ${param.psize.toString}=='' "/>
+            <attr sel="#size_btn_off"  th:if="${param.psize} != null and ${param.psize.toString}!=''"/>
+            <attr sel="#drop-size" th:style="${param.psize} != null ?(${param.psize.toString}==''? 'display:none':'display:block'):'display:none'">
                 <attr sel="#size_filter">
-                    <attr sel="li[0]/.check" th:checked="${param.size} != null ?(${param.size.toString}=='230'? 'true' : 'false'):'false'"/>
-                    <attr sel="li[1]/.check" th:checked="${param.size} != null ?(${param.size.toString}=='240'? 'true' : 'false'):'false'"/>
-                    <attr sel="li[2]/.check" th:checked="${param.size} != null ?(${param.size.toString}=='250'? 'true' : 'false'):'false'"/>
-                    <attr sel="li[3]/.check" th:checked="${param.size} != null ?(${param.size.toString}=='260'? 'true' : 'false'):'false'"/>
-                    <attr sel="li[4]/.check" th:checked="${param.size} != null ?(${param.size.toString}=='270'? 'true' : 'false'):'false'"/>
-                    <attr sel="li[5]/.check" th:checked="${param.size} != null ?(${param.size.toString}=='280'? 'true' : 'false'):'false'"/>
-                    <attr sel="li[6]/.check" th:checked="${param.size} != null ?(${param.size.toString}=='S'? 'true' : 'false'):'false'"/>
-                    <attr sel="li[7]/.check" th:checked="${param.size} != null ?(${param.size.toString}=='M'? 'true' : 'false'):'false'"/>
-                    <attr sel="li[8]/.check" th:checked="${param.size} != null ?(${param.size.toString}=='L'? 'true' : 'false'):'false'"/>
+                    <attr sel="li[0]/.check" th:checked="${param.psize} != null ?(${param.psize.toString}=='230'? 'true' : 'false'):'false'"/>
+                    <attr sel="li[1]/.check" th:checked="${param.psize} != null ?(${param.psize.toString}=='240'? 'true' : 'false'):'false'"/>
+                    <attr sel="li[2]/.check" th:checked="${param.psize} != null ?(${param.psize.toString}=='250'? 'true' : 'false'):'false'"/>
+                    <attr sel="li[3]/.check" th:checked="${param.psize} != null ?(${param.psize.toString}=='260'? 'true' : 'false'):'false'"/>
+                    <attr sel="li[4]/.check" th:checked="${param.psize} != null ?(${param.psize.toString}=='270'? 'true' : 'false'):'false'"/>
+                    <attr sel="li[5]/.check" th:checked="${param.psize} != null ?(${param.psize.toString}=='280'? 'true' : 'false'):'false'"/>
+                    <attr sel="li[6]/.check" th:checked="${param.psize} != null ?(${param.psize.toString}=='S'? 'true' : 'false'):'false'"/>
+                    <attr sel="li[7]/.check" th:checked="${param.psize} != null ?(${param.psize.toString}=='M'? 'true' : 'false'):'false'"/>
+                    <attr sel="li[8]/.check" th:checked="${param.psize} != null ?(${param.psize.toString}=='L'? 'true' : 'false'):'false'"/>
                 </attr>
             </attr>
         </attr>
@@ -154,13 +154,13 @@
                                             (${products.sort.getOrderFor('name')}!=null?'이름순':
                                             (${products.sort.getOrderFor('firstPrice')}!=null?
                                                         (${products.sort.getOrderFor('firstPrice').direction.name} == 'DESC'?'발매가 높은순':'발매가 낮은순'):'발매가 낮은순'))"/>
-        <attr sel="#sort_by_wish_desc" th:href="@{/searchs(page=${products.number},sort='name',size=${param.size},brand=${param.brand},
+        <attr sel="#sort_by_wish_desc" th:href="@{/searchs(page=${products.number},sort='name',psize=${param.psize},brand=${param.brand},
             category=${param.category},collection=${param.collection},gender=${param.gender},keyword=${param.keyword})}"/>
-        <attr sel="#sort_by_price_asc" th:href="@{/searchs(page=${products.number},sort='firstPrice,asc',size=${param.size},brand=${param.brand},
+        <attr sel="#sort_by_price_asc" th:href="@{/searchs(page=${products.number},sort='firstPrice,asc',psize=${param.psize},brand=${param.brand},
             category=${param.category},collection=${param.collection},gender=${param.gender},keyword=${param.keyword})}"/>
-        <attr sel="#sort_by_price_desc" th:href="@{/searchs(page=${products.number},sort='firstPrice,desc',size=${param.size},brand=${param.brand},
+        <attr sel="#sort_by_price_desc" th:href="@{/searchs(page=${products.number},sort='firstPrice,desc',psize=${param.psize},brand=${param.brand},
             category=${param.category},collection=${param.collection},gender=${param.gender},keyword=${param.keyword})}"/>
-        <attr sel="#sort_by_idx_desc" th:href="@{/searchs(page=${products.number},sort='idx',size=${param.size},brand=${param.brand},
+        <attr sel="#sort_by_idx_desc" th:href="@{/searchs(page=${products.number},sort='idx',psize=${param.psize},brand=${param.brand},
             category=${param.category},collection=${param.collection},gender=${param.gender},keyword=${param.keyword})}"/>
 
         <!--/*기능5: 제품 리스트*/-->
@@ -177,9 +177,9 @@
                 </attr>
                 <attr sel=".action_wish_review" th:id="${product.idx}">
                     <attr sel=".is_wish_on" th:style="(${isWish}!=null and ${isWish[i.index]})? 'display:block':'display:none'" th:onclick="'javascript:wishDelete('+ ${product.idx} + ');'"/>
-<!--                    <attr sel=".is_wish_off" th:if="${isWish}==null or ${!isWish[i.index]}" th:onclick="'javascript:wishCreate('+ ${product.idx} + ');'"/>-->
                     <attr sel=".is_wish_off" th:style="(${isWish}==null or ${!isWish[i.index]})? 'display:block':'display:none'" th:onclick="'javascript:wishCreate('+ ${product.idx} + ');'"/>
                     <attr sel=".wish_count" th:text="${wishCount[i.index]}"/>
+                    <attr sel=".review_link" th:onclick="'javascript:tag_href('+ ${product.idx} + ');'"/>
                     <attr sel=".tag_count" th:text="${tagCount[i.index]}"/>
                 </attr>
             </attr>
@@ -189,16 +189,16 @@
 
         <!-- 페이지처리 -->
         <attr sel=".pagination_box">
-            <attr sel=".prev_btn_box/a" th:href="@{/searchs(page=${products.number - 1},sort=${param.sort},size=${param.size},brand=${param.brand},
+            <attr sel=".prev_btn_box/a" th:href="@{/searchs(page=${products.number - 1},sort=${param.sort},psize=${param.psize},brand=${param.brand},
             category=${param.category},collection=${param.collection},gender=${param.gender},keyword=${param.keyword})}"
             th:style="(${products.number} <=0 ? 'display:none':'display:block')"/>
             <attr sel=".page_bind" th:each="pageNumber : ${barNumbers}">
                 <attr sel="a" th:text="${pageNumber + 1}"
-                th:href="@{/searchs(page=${pageNumber},sort=${param.sort},size=${param.size},brand=${param.brand},
+                th:href="@{/searchs(page=${pageNumber},sort=${param.sort},psize=${param.psize},brand=${param.brand},
             category=${param.category},collection=${param.collection},gender=${param.gender},keyword=${param.keyword})}"
                 th:class="'btn_page'+(${pageNumber}==${products.number}? ' active':'')"/>
             </attr>
-            <attr sel=".next_btn_box/a" th:href="@{/searchs(page=${products.number + 1},sort=${param.sort},size=${param.size},brand=${param.brand},
+            <attr sel=".next_btn_box/a" th:href="@{/searchs(page=${products.number + 1},sort=${param.sort},psize=${param.psize},brand=${param.brand},
             category=${param.category},collection=${param.collection},gender=${param.gender},keyword=${param.keyword})}"
             th:style="(${products.number} >= ${products.totalPages -1}  ? 'display:none':'display:block')"/>
         </attr>
