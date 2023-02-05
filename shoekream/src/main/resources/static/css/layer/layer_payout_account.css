@@ -18,6 +18,19 @@ button {
     appearance: none;
     border-radius: 0;
 }
+.layer_payout_account .layer_container{
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    background-color: #fff;
+    width: 448px;
+    border-radius: 16px;
+    -webkit-box-shadow: 0 4px 10px 0 rgba(0,0,0,.1);
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,.1);
+}
 /* .btn {
     display: inline-flex;
     cursor: pointer;
@@ -30,9 +43,10 @@ button {
     color: rgba(34,34,34,.8);
     background-color: #fff;
 } */
-.layer_payout_account>.layer_container>.layer_content {
+.layer_payout_account .layer_container .layer_content {
     padding: 0 20px 20px;
 }
+
 .registered_account_box{
     overflow: hidden;
     margin-top: 21px;

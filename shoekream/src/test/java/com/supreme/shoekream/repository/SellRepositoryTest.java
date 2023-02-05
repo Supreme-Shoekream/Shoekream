@@ -28,7 +28,7 @@ class SellRepositoryTest extends ShoekreamApplicationTests {
 
         Member member = memberRepository.findById(1L).get();
         System.out.println("한 사람이 구매한 상품");
-        System.out.println(sellRepository.findByMember(member));
+//        System.out.println(sellRepository.findByMember(member));
 //        System.out.println(sellRepository.findByMemberAndStatus(member, OrderStatus.BIDDING));
         System.out.println("입찰중인거");
 

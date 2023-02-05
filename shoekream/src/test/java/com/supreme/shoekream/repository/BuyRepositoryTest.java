@@ -27,21 +27,21 @@ class BuyRepositoryTest extends ShoekreamApplicationTests {
         System.out.println(buyRepository.findById(1L));
 
         Member member = memberRepository.findById(1L).get();
-        System.out.println("한 사람이 구매한 상품들");
-        System.out.println(buyRepository.findByMember(member));
+        System.out.println("한 사람이 구매한 상품들🎈🎈");
+        System.out.println(buyRepository.findTop3ByMember(member));
 //        System.out.println(buyRepository.findByMemberAndStatus(member, OrderStatus.BIDDING));
 
-        Product product = productRepository.findById(66L).get();
-        System.out.println("즉시 판매가");
-        System.out.println(buyRepository.findFirstByProductOrderByPriceDesc(product));
-        System.out.println(buyRepository.findFirstByProductAndStatusOrderByPriceDesc(product,null));
-        //941000
-        //orderstatus test
-        System.out.println("입찰중");
-        System.out.println(buyRepository.findByStatus(OrderStatus.BIDDING));
-
-        System.out.println("검색을 위한");
-        System.out.println(buyRepository.findByMember_EmailContaining("root", Pageable.unpaged()).get().toList());
+//        Product product = productRepository.findById(66L).get();
+//        System.out.println("즉시 판매가");
+//        System.out.println(buyRepository.findFirstByProductOrderByPriceDesc(product));
+//        System.out.println(buyRepository.findFirstByProductAndStatusOrderByPriceDesc(product,null));
+//        //941000
+//        //orderstatus test
+//        System.out.println("입찰중");
+//        System.out.println(buyRepository.findByStatus(OrderStatus.BIDDING));
+//
+//        System.out.println("검색을 위한");
+//        System.out.println(buyRepository.findByMember_EmailContaining("root", Pageable.unpaged()).get().toList());
     }
 
 

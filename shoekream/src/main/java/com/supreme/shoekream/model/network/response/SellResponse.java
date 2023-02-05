@@ -16,9 +16,9 @@ public record SellResponse(
         Long idx,           // 번호
         Long productIdx,    // 판매 상품 번호
         String productImg,  // 제품 사진
-        String productName, //
-        String productSize,
-        String memberEmail,
+        String productName, // 상품 이름
+        String productSize, // 상품 사이즈
+        String memberEmail, // 이메일주소
         String type,
         Long price,
         int period,

@@ -444,6 +444,10 @@ button {
     background: url(/lib/img구매내역_상태.svg) no-repeat;
 }
 
+#wish_price_arrow:after, #purchase_date_arrow:after {
+    background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAxNiAyNCI+PHBhdGggZmlsbD0iI0QzRDNEMyIgZD0iTTEyIDEzbC00IDUtNC01aDh6bS04LTJsNC01IDQgNUg0eiIvPjwvc3ZnPg==) no-repeat;
+}
+
 .select_status { padding: .4rem 2.6rem 2.6rem; }
 
 .status_item { margin: .3rem; display: inline-block; width: calc(33.33333% - 12px); }
@@ -498,15 +502,7 @@ button {
 .head_status .status_link:after {
     right: 0;
 }
-.head_status .status_link:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: -4px;
-    width: 16px;
-    height: 24px;
-    background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAxNiAyNCI+PHBhdGggZmlsbD0iI0QzRDNEMyIgZD0iTTEyIDEzbC00IDUtNC01aDh6bS04LTJsNC01IDQgNUg0eiIvPjwvc3ZnPg==) no-repeat;
-}
+
 /*상품 부분*/
 .purchase_list_display_item {
     padding: 12px;

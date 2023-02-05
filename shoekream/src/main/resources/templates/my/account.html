@@ -190,7 +190,7 @@
         if (!submitButton.classList.contains('disabled')) {
             let bankName = document.querySelector('#input_bank').placeholder
             let accNum = document.querySelector('#input_acc').value
-            fetch('http://localhost:8989/api/my/account', {
+            fetch('http://localhost:8889/api/my/account', {
                 method: 'PUT',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({

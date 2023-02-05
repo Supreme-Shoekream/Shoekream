@@ -20,7 +20,35 @@ function pop_style_view(idx){
             document.getElementById("info_info_hashtag").innerHTML=data.hashtag;
             document.getElementById("info_info_created").innerHTML=data.createdAt;
             // document.getElementById("info_info_modified").innerHTML=data.modifiedAt;
+            let list = "";
+            console.log(data.tags.length)
+            for(let i=0;i<data.tags.length;i++){
+                list = list + `
+                <li  class="product_item">
+                    <a class="product_link">
+                         <div  class="product" style="background-color: rgb(244, 244, 244);">
+                             <picture class="picture product_img">
+                                <source type="image/webp" srcset="">
+                                <source srcset="">
+                                <img alt="Arc'teryx Zeta SL Jacket Black"
+                                     src="${data.tags[i].productDTO.img}"
+                                     loading="lazy" class="image">
+                             </picture>
+                         </div>
+                         <div  class="product_desc">
+                             <p  class="product_name">${data.tags[i].productDTO.name}</p>
+                             <div  class="price_box">
+                                <span class="amount">${data.tags[i].productDTO.firstPrice}</span>
+                                <span class="unit">원</span>
+                             </div>
+                         </div>
+                    </a>
+                </li>
+                `
+            }
+            document.querySelector('.product_list').innerHTML = list;
         })
+
 
 
     document.querySelector('.pop_style_view').style.display="block";

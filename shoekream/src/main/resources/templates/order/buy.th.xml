@@ -19,7 +19,19 @@
     <attr sel=".info_point">
         <attr sel=".value_current/span[0]" th:text="${point}!=null ? ${#numbers.formatInteger(point, 0, 'COMMA')} : '0'"/>
     </attr>
-
+    <attr sel=".step-2">
+        <attr sel=".empty_delivery_info" th:style="(${basicAddress}==null) ?'display:flex' :'display:none' "/>
+        <attr sel=".delivery_info" th:style="(${basicAddress}!=null) ?'display:block' :'display:none'"/>
+        <attr sel=".address_info">
+            <attr sel="#receiver" th:text="${basicAddress}!=null ? ${basicAddress.name} : ''"/>
+            <attr sel="#receiverHp" th:text="${basicAddress}!=null ? ${#strings.substring(basicAddress.hp,0,3)+'-'+#strings.substring(basicAddress.hp,4,5)+'***-*'+#strings.substring(basicAddress.hp,8,11)} : '등록된 주소가 없습니다'"/>
+            <attr sel="#receiverAddress" th:text="${basicAddress}!=null ? ${'('+basicAddress.zipcode+') '+basicAddress.address1+' '+basicAddress.address2} : ''"/>
+        </attr>
+        <attr sel=".regist_link" th:style="(${basicCard}==null) ?'display:flex' :'display:none' "/>
+        <attr sel=".main_card" th:style="(${basicCard}!=null) ?'display:block' :'display:none'">
+            <attr sel="#cardInfo" th:text="${basicCard}!=null ? ${#strings.substring(basicCard.cardNumber,12,16)} :''"/>
+        </attr>
+    </attr>
     <attr sel=".step-3">
         <attr sel=".image" th:src="${product.data.img}"></attr>
     </attr>

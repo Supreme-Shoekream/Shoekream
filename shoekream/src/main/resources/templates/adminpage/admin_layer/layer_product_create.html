@@ -53,9 +53,9 @@
                             <div class="filebox">
                                 <input class="upload-name" value="첨부파일" style="color: #FFF">
                                 <label for="fileItem">파일찾기</label>
-                                <input type="file" id ="fileItem" name="uploadFile">
+                                <input type="file" id ="fileItem" name="uploadFile" accept="image/*">
+                                <img src="" id="previewImg">
                             </div>
-                            <img src="" id="previewImg" style="display: none">
                         </div>
                     </div>
                 </div>
@@ -119,19 +119,19 @@
                                 <div class="input_item">
                                     <select name="collection" id="collection" class="input_item_selectbox">
                                         <option value="null">- 컬렉션을 선택하세요 -</option>
-                                        <option value="발매상품">Just Dropped(발매상품)</option>
-                                        <option value="인기 상품">Most Popular(인기 상품)</option>
-                                        <option value="신규등록상품">New In(신규등록상품)</option>
-                                        <option value="정가보다 저렴한 가격">Shopping Wisely(정가보다 저렴한 가격)</option>
-                                        <option value="브랜드관 베스트아이템">Brand MD's pick(브랜드관 베스트아이템)</option>
-                                        <option value="심플한 로고 플레이의 매력">Simple&Chic(심플한 로고 플레이의 매력)</option>
-                                        <option value="의류에도 불었던 콜라보 열품">BEST Apparel Collabs(의류에도 불었던 콜라보 열풍)</option>
-                                        <option value="새로운 즉시 구매가">New Lowest Asks(새로운 즉시 구매가)</option>
-                                        <option value="새로운 즉시판매가">New Highest Bids(새로운 즉시판매가)</option>
-                                        <option value="발매예정">Upcoming Release(발매예정)</option>
-                                        <option value="키덜트들 취향저격 200%">BEST Collectibles(키덜트들 취향저격 200%)</option>
-                                        <option value="올해를 빛내준 액세서리">BEST jewelry&Watches(올해를 빛내준 액세서리)</option>
-                                        <option value="캠핑의 매력에 빠진 한해">BEST Camping Gear(캠핑의 매력에 빠진 한해)</option>
+                                        <option value="JUST_DROP">Just Dropped(발매상품)</option>
+                                        <option value="MOST_POPULAR">Most Popular(인기 상품)</option>
+                                        <option value="NEW_IN">New In(신규등록상품)</option>
+                                        <option value="SHOPPIING_WISELY">Shopping Wisely(정가보다 저렴한 가격)</option>
+                                        <option value="BRAND_MD_PICK">Brand MD's pick(브랜드관 베스트아이템)</option>
+                                        <option value="SIMPLE_CHIC">Simple&Chic(심플한 로고 플레이의 매력)</option>
+                                        <option value="BEST_APPAREL_COLLABS">BEST Apparel Collabs(의류에도 불었던 콜라보 열풍)</option>
+                                        <option value="NEW_LOWEST_ASKS">New Lowest Asks(새로운 즉시 구매가)</option>
+                                        <option value="NEW_HIGHEST_BIDS">New Highest Bids(새로운 즉시판매가)</option>
+                                        <option value="UPCOMING_RELEASE">Upcoming Release(발매예정)</option>
+                                        <option value="BEST_COLLECTIBLES">BEST Collectibles(키덜트들 취향저격 200%)</option>
+                                        <option value="BEST_JEWELRY_WATCHES">BEST jewelry&Watches(올해를 빛내준 액세서리)</option>
+                                        <option value="BEST_CAMPING_GEAR">BEST Camping Gear(캠핑의 매력에 빠진 한해)</option>
                                     </select>
                                 </div>
                             </div>
@@ -147,87 +147,7 @@
 </div>
 </body>
 <!--<script>-->
-<!--    // ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️-->
-<!--    // 파일첨부-->
-<!--    // 이미지 업로드-->
-<!--    $("input[type='file']").on("change", function(e){-->
-<!--        //alert("동작"); // 파일 속성에 접근되는지 확인-->
 
-<!--        let formData = new FormData();-->
-<!--        // 화면 이동없이 첨부파일을 서버로 전송해야함-->
-<!--        // 폼태그와 같은 역할을 해주는 formData 객체를 생성해 첨부파일을 formData에 저장하고 formData 자체를 서버로 전송해야함-->
-
-<!--        let fileInput = $('input[name="uploadFile"]');-->
-<!--        let fileList = fileInput[0].files;-->
-<!--        //console.log("fileList : " + fileList); // 해당 객체가 파일리스트인지 확인-->
-
-<!--        let fileObj = fileList[0]; // file 객체를 담기 위한 변수를 선언하여 file 객체로 초기화해줌-->
-<!--        //console.log("fileObj : " + fileObj);  // 해당 객체가 어떠한 객체인지 확인-->
-
-<!--        alert("크리에이트!!!!! fileName : " + fileObj.name);-->
-<!--        // console.log("fileName : " + fileObj.name); // 파일 이름 확인-->
-<!--        // console.log("fileSize : " + fileObj.size); // 파일 사이즈 확인-->
-<!--        // console.log("fileType(MimeType) : " + fileObj.type); // 파일 타입 확인-->
-
-<!--        if(!fileCheck(fileObj.name, fileObj.size)){-->
-<!--            return false;-->
-<!--        }-->
-<!--        //alert("통과"); // 파일 타입, 크기 조건 둘 다 만족하면 뜸-->
-
-<!--        formData.append("uploadFile", fileObj); // 첨부한 파일을 폼데이터에 업로드파일이라는 이름으로 추가해줌 (input name과 같아야함)-->
-
-<!--        // let resultData = "";-->
-
-<!--        // ajax를 사용하여 서버로 전송-->
-<!--        $.ajax({-->
-<!--            url: '/admin/products', // 서버로 요청을 보낼 url-->
-<!--            processData : false, // 서버로 전송할 데이터를 queryStirng 형태로 변환할지 여부-->
-<!--            contentType : false, // 서버로 전송되는 데이터의 content-type-->
-<!--            data : formData, // 서버로 전송할 데이터-->
-<!--            type : 'POST', // 서버 요청 타입(GET, POST)-->
-<!--            dataType : 'json' // 서버로부터 반환받을 데이터 타입-->
-<!--            // async : false,-->
-<!--            // success : function (data){-->
-<!--            //     alert(data);-->
-<!--            //     resultData = data;-->
-<!--            //     alert(resultData);-->
-<!--            // },-->
-<!--            // error: function(e) {-->
-<!--            //     alert("값을 가져오지 못했습니다.");-->
-<!--            // }-->
-<!--        });-->
-
-<!--        // return resultData;-->
-<!--        // console.log(resultData);-->
-
-<!--        const previewImg = document.querySelector("#previewImg");-->
-<!--        console.log(fileObj.name.replace(" ", "_"));-->
-<!--        console.log("/img/product/" +fileObj.name.replace(" ", "_"));-->
-
-<!--        previewImg.src = "/img/product/" + fileObj.name;-->
-<!--        previewImg.style.display = "block";-->
-<!--    });-->
-
-<!--    // 파일 타입, 크기 제한-->
-<!--    let regex = new RegExp("(.*?)\.(jpg|png)$"); // 이미지 파일 타입 png, jpg만 허용-->
-<!--    let maxSize = 1048576; // 1MB 제한-->
-<!--    let blankPattern = /[\s]/g;-->
-<!--    function fileCheck(fileName, fileSize){-->
-<!--        if(fileSize >= maxSize){-->
-<!--            alert("파일 업로드 가능한 사이즈를 초과하였습니다.");-->
-<!--            return false;-->
-<!--        }-->
-<!--        if(!regex.test(fileName)){-->
-<!--            alert("해당 종류의 파일은 업로드할 수 없습니다.");-->
-<!--            return false;-->
-<!--        }-->
-<!--        if(blankPattern.test(fileName)){-->
-<!--            alert("파일명에는 공백이 포함될 수 없습니다.");-->
-<!--            // return fileName.replaceAll(" ", "_");-->
-<!--            return false;-->
-<!--        }-->
-<!--        return true;-->
-<!--    }-->
 <!--</script>-->
 </html>
 

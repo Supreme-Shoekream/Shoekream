@@ -1,0 +1,40 @@
+<!--<link rel="stylesheet" href="/src/styles/pop_delete.css">-->
+<!--<script src="https://code.jquery.com/jquery-3.6.3.min.js"-->
+<!--        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>-->
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="product_delete" class="product_delete layer lg pop" style="display: none;">
+<!--<div class="layer_name layer lg">-->
+    <div class="layer_container">
+<!--        <a onclick="history.back()" class="btn_layer_close">-->
+        <a onclick="productdelete_popdown()" class="btn_layer_close">
+            <div>
+                <img src="/img/close_white.png">
+            </div>
+        </a>
+        <div class="layer_header">
+            <h2 class="title">상품 삭제 페이지</h2>
+        </div>
+        <div class="layer_content">
+            <div class="top">
+                <div class="user_bind">
+                    <div class="user_input">
+                        <div class="input_box">
+                            <h4 class="input_title" style="color: red;">경고</h4>
+                            <div class="input_item">
+                                <p>해당 상품을</p>
+                                    <h3>삭제</h3>
+                                <p>하시겠습니까?</p>
+                            </div>
+                            <div class="layer_btn">
+                                <a id="productCreateBtn" class="btn btn_delete btn_save solid medium">확인</a>
+<!--                                <a onclick="history.back()" class="btn btn_save solid medium">취소</a>-->
+                                <a onclick="productdelete_popdown()" class="btn btn_save solid medium">취소</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</html>

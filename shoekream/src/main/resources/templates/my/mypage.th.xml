@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<thlogic>
+<!--프로필-->
+    <attr sel=".user_thumb">
+        <attr sel=".thumb_img" th:src="${member.imgUrl}"/>
+    </attr>
+    <attr sel=".user_info">
+        <attr sel=".name" th:text="${member.nickname}"/>
+        <attr sel=".email" th:text="${member.email}"/>
+    </attr>
+    <attr sel=".membership_item">
+        <attr sel="#point" th:text="${member.point}"/>
+    </attr>
+<!--hidden-->
+    <attr sel=".empty_area" th:if="${bidCount+proCount} == 0"></attr>
+<!--구매-->
+    <attr sel=".recent_purchase">
+        <attr sel="#purchaseAllCount" th:text="${bidCount+proCount}"/>
+        <attr sel="#purchaseBindCount" th:text="${bidCount}"/>
+        <attr sel="#purchaseContinueCount" th:text="${proCount}"/>
+    </attr>
+    <attr sel="#buyDisplay">
+        <attr sel=".purchase_list_display_item" th:each="buyDisplay : ${buyDisplay}">
+            <attr sel=".purchase_list_product" th:onclick="'javascript:buyDetail('+ ${buyDisplay.idx} + ');'">
+                <attr sel=".list_item_img" th:src="${buyDisplay.productImg}"/>
+                <attr sel=".list_item_title" th:text="${buyDisplay.productName}"/>
+                <attr sel=".list_item_description" th:text="${buyDisplay.productSize}"/>
+            </attr>
+            <attr sel=".list_item_status">
+                <attr sel=".secondary_title" th:text="${#numbers.formatInteger(buyDisplay.price, 0, 'COMMA')} + '원'"/>
+                <attr sel=".last_title/time" th:datetime="${buyDisplay.createdAt}" th:text="${#temporals.format(buyDisplay.createdAt, 'yyyy/MM/dd')}"/>
+            </attr>
+        </attr>
+    </attr>
+<!--판매-->
+    <attr sel=".recent_purchase">
+        <attr sel="#salesAllCount" th:text="${bidCountSell+proCountSell}"/>
+        <attr sel="#salesBindCount" th:text="${bidCountSell}"/>
+        <attr sel="#salesContinueCount" th:text="${proCountSell}"/>
+    </attr>
+    <attr sel="#sellDisplay">
+        <attr sel=".purchase_list_display_item" th:each="sellDisplay : ${sellDisplay}">
+            <attr sel=".purchase_list_product" th:onclick="'javascript:sellDetail('+ ${sellDisplay.idx} + ');'">
+                <attr sel=".list_item_img" th:src="${sellDisplay.productImg}"/>
+                <attr sel=".list_item_title" th:text="${sellDisplay.productName}"/>
+                <attr sel=".list_item_description" th:text="${sellDisplay.productSize}"/>
+            </attr>
+            <attr sel=".list_item_status">
+                <attr sel=".secondary_title" th:text="${#numbers.formatInteger(sellDisplay.price, 0, 'COMMA')} + '원'"/>
+                <attr sel=".last_title/time" th:datetime="${sellDisplay.createdAt}" th:text="${#temporals.format(sellDisplay.createdAt, 'yyyy/MM/dd')}"/>
+            </attr>
+        </attr>
+    </attr>
+</thlogic>

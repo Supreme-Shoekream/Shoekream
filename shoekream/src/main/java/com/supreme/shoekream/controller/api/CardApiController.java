@@ -13,6 +13,8 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("api/my/payment")
@@ -20,7 +22,7 @@ public class CardApiController  extends CrudController<CardApiRequest, CardApiRe
     private final CardApiLogicService cardApiLogicService;
 
     @PostMapping("")
-    public Header<CardApiResponse> create(@RequestBody Header<CardApiRequest> request, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+    public Header<CardDTO> create(@RequestBody Header<CardApiRequest> request, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
         CardApiRequest cardApiRequest = request.getData();
         CardDTO cardDTO = cardApiRequest.toDTO(kreamPrincipal.toFullDto());
         return cardApiLogicService.create(cardDTO);
@@ -34,5 +36,10 @@ public class CardApiController  extends CrudController<CardApiRequest, CardApiRe
     @PostMapping("/{idx}")
     public void deleteCard(@PathVariable Long idx){
         cardApiLogicService.delete(idx);
+    }
+
+    @GetMapping("")
+    public List<Card> list(@AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        return cardApiLogicService.listAll(kreamPrincipal.idx());
     }
 }

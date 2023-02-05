@@ -46,6 +46,7 @@ public class SecurityConfig{
                                 "/find",
                                 "/check/**",
                                 "/product/**",
+                                "/brand/**",
                                 "/searchs/**",
                                 "/social",
                                 "/social/newest",

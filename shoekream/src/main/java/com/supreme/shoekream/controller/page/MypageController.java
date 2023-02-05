@@ -11,7 +11,6 @@ import com.supreme.shoekream.model.enumclass.OrderStatus;
 
 import com.supreme.shoekream.model.network.Header;
 import com.supreme.shoekream.model.network.response.BuyResponse;
-import com.supreme.shoekream.model.network.response.ProductApiResponse;
 import com.supreme.shoekream.model.network.response.SellResponse;
 import com.supreme.shoekream.model.network.response.WishApiResponse;
 import com.supreme.shoekream.model.network.security.KreamPrincipal;
@@ -29,10 +28,12 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Controller
@@ -49,24 +50,58 @@ public class MypageController {
     @Autowired WishApiLogicService wishApiLogicService;
     @Autowired PointApiLogicService pointApiLogicService;
 
+//    @GetMapping(path="")
+//    public ModelAndView mypage(){
+//        return new ModelAndView("/my/mypage");
+//    }
+
     @GetMapping(path="")
-    public String mypage(){
+    public String mypage(ModelMap modelmap, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        if(kreamPrincipal == null){
+            return "login/login";
+        }
+        MemberDTO memberDTO = kreamPrincipal.toFullDto();
+        List<BuyResponse> buyDisplay = buyService. myBuyList(memberDTO.idx()).stream().map(BuyResponse::from).toList();
+        List<SellResponse> sellDisplay = sellService. mysellList(memberDTO.idx()).stream().map(SellResponse::from).toList();
+        List<BuyResponse> biddings = buyService. myPageBuyListByStatus(memberDTO.idx(), OrderStatus.BIDDING).stream().map(BuyResponse::from).toList();
+        List<BuyResponse> progressings = buyService. myPageBuyListByStatus(memberDTO.idx(), OrderStatus.PROGRESSING).stream().map(BuyResponse::from).toList();
+        List<BuyResponse> ends = buyService. myPageBuyListByStatus(memberDTO.idx(), OrderStatus.END).stream().map(BuyResponse::from).toList();
+        List<SellResponse> biddingsSell = sellService. myPageSellListByStatus(memberDTO.idx(), OrderStatus.BIDDING).stream().map(SellResponse::from).toList();
+        List<SellResponse> progressingsSell = sellService. myPageSellListByStatus(memberDTO.idx(), OrderStatus.PROGRESSING).stream().map(SellResponse::from).toList();
+        List<SellResponse> endsSell = sellService. myPageSellListByStatus(memberDTO.idx(), OrderStatus.END).stream().map(SellResponse::from).toList();
+        modelmap.addAttribute("buyDisplay", buyDisplay);
+        modelmap.addAttribute("sellDisplay", sellDisplay);
+        modelmap.addAttribute("member", memberApiLogicService.list(memberDTO.idx()));
+        modelmap.addAttribute("bidCount",biddings.stream().toList().size());
+        modelmap.addAttribute("proCount",progressings.stream().toList().size());
+        modelmap.addAttribute("endCount",ends.stream().toList().size());
+        modelmap.addAttribute("bidCountSell",biddingsSell.stream().toList().size());
+        modelmap.addAttribute("proCountSell",progressingsSell.stream().toList().size());
+        modelmap.addAttribute("endCountSell",endsSell.stream().toList().size());
         return "/my/mypage";
     }
 
     @GetMapping(path = "buying")
     public String buying(ModelMap map, @PageableDefault(size = 10, sort = "createdAt", direction = Sort.Direction.DESC) Pageable pageable
-            , @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+            , @AuthenticationPrincipal KreamPrincipal kreamPrincipal, @RequestParam(required = false) Long month){
+
         MemberDTO memberDTO = kreamPrincipal.toFullDto();
-        Page<BuyResponse> biddings = buyService.myBuyListByStatus(memberDTO.idx(), OrderStatus.BIDDING, pageable).map(BuyResponse::from);
-        Page<BuyResponse> progressings = buyService.myBuyListByStatus(memberDTO.idx(), OrderStatus.PROGRESSING, pageable).map(BuyResponse::from);
-        Page<BuyResponse> ends = buyService.myBuyListByStatus(memberDTO.idx(), OrderStatus.END, pageable).map(BuyResponse::from);
+        Page<BuyResponse> biddings = buyService.myBuyListByStatus(memberDTO.idx(), OrderStatus.BIDDING, month,pageable).map(BuyResponse::from);
+        Page<BuyResponse> progressings = buyService.myBuyListByStatus(memberDTO.idx(), OrderStatus.PROGRESSING, month,pageable).map(BuyResponse::from);
+        Page<BuyResponse> ends = buyService.myBuyListByStatus(memberDTO.idx(), OrderStatus.END, month,pageable).map(BuyResponse::from);
         map.addAttribute("biddings", biddings);
         map.addAttribute("progressings", progressings);
         map.addAttribute("ends", ends);
         map.addAttribute("bidCount",biddings.stream().toList().size());
         map.addAttribute("proCount",progressings.stream().toList().size());
         map.addAttribute("endCount",ends.stream().toList().size());
+        if(month != null){
+            map.addAttribute("today", LocalDateTime.now());
+            map.addAttribute("before", LocalDateTime.now().minusMonths(month));
+        }else{
+            map.addAttribute("today", null);
+            map.addAttribute("before", null);
+        }
         return ("/my/buying");
     }
 
@@ -118,8 +153,7 @@ public class MypageController {
         if(kreamPrincipal == null){
             return "login/login";
         }
-        System.out.println(memberApiLogicService.read2(kreamPrincipal.idx()));
-        map.addAttribute("profile", memberApiLogicService.read2(kreamPrincipal.idx()));
+        map.addAttribute("profile", memberApiLogicService.readProfile(kreamPrincipal.idx()));
         return "/my/profile";
     }
 

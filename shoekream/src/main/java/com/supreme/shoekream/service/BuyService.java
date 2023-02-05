@@ -5,6 +5,7 @@ import com.supreme.shoekream.model.dto.*;
 import com.supreme.shoekream.model.entity.*;
 import com.supreme.shoekream.model.enumclass.OrderStatus;
 
+import com.supreme.shoekream.model.enumclass.PointType;
 import com.supreme.shoekream.model.enumclass.Progress;
 import com.supreme.shoekream.model.enumclass.SellProgress;
 import com.supreme.shoekream.model.network.Header;
@@ -22,8 +23,11 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityNotFoundException;
 
 import java.text.DecimalFormat;
+import java.time.LocalDateTime;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import static java.time.LocalDateTime.now;
 
@@ -63,16 +67,33 @@ public class BuyService {
     public List<BuyDTO> myBuyList(Long memberIdx){
         Member member = memberRepository.findById(memberIdx).get();
 //        System.out.println(buyRepository.findByMember(member));
-        return buyRepository.findByMember(member)
+        return buyRepository.findTop3ByMember(member)
                 .stream().map(BuyDTO::fromEntity).toList();
     }
 
     //사용자의 구매내역 (입찰/진행중/종료)에 따라 리스트 출력 필요할 때
     @Transactional(readOnly = true)
-    public Page<BuyDTO> myBuyListByStatus(Long memberIdx, OrderStatus orderStatus, Pageable pageable){
+    public Page<BuyDTO> myBuyListByStatus(Long memberIdx, OrderStatus orderStatus,Long months, Pageable pageable){
         Member member = memberRepository.findById(memberIdx).get();
-        return buyRepository.findByMemberAndStatus(member, orderStatus, pageable)
-                .map(BuyDTO::fromEntity);
+
+        if(months == null){
+            return buyRepository.findByMemberAndStatus(member, orderStatus, pageable)
+                    .map(BuyDTO::fromEntity);
+        }else {
+            LocalDateTime createdAt = LocalDateTime.now();
+            createdAt = createdAt.minusMonths(months);
+            return buyRepository.findByMemberAndStatusAndCreatedAtAfter(member, orderStatus, createdAt, pageable)
+                    .map(BuyDTO::fromEntity);
+        }
+
+
+    }
+
+    @Transactional(readOnly = true)
+    public List<BuyDTO> myPageBuyListByStatus(Long memberIdx, OrderStatus orderStatus){
+        Member member = memberRepository.findById(memberIdx).get();
+        return buyRepository.findByMemberAndStatus(member, orderStatus)
+                .stream().map(BuyDTO::fromEntity).toList();
     }
 
     @Transactional(readOnly = true)
@@ -106,6 +127,9 @@ public class BuyService {
         Product product = productRepository.findById(buyDTO.productDTO().idx()).get();
         Member member = memberRepository.findById(buyDTO.memberDTO().idx()).get();
         BuyDTO response;
+        String price;
+        DecimalFormat format = new DecimalFormat("###,###");
+        price = format.format(buyDTO.price())+"원";
         // sell != null -> 판매자 progress null->0(발송요청), status 0->1(진행중) update + 채결내역 등록
         if(buyDTO.sellIdx() == null){
             Buy newBuy = buyRepository.save(buyDTO.toEntity(product,member,null));
@@ -119,14 +143,14 @@ public class BuyService {
             System.out.println("즉시💨💨"+newBuy);
             sell.setBuy(newBuy);
             response = BuyDTO.fromEntity(newBuy);
-//            ConclusionDTO conclusionDTO = ConclusionDTO.of();
-//            conclusionRepository.save(conclusionDTO.toEntity());
+            ConclusionDTO conclusionDTO = ConclusionDTO.of(price, LocalDateTime.now(),buyDTO.productDTO());
+            conclusionRepository.save(conclusionDTO.toEntity(product));
         }
 
         // buyDTO.usepoint != 0 -> 포인트 테이블에 등록 + 사용자가 사용한 포인트 만큼 차감
         if(buyDTO.usePoint() != 0){
-//            PointDTO pointDTO = PointDTO.of(...);
-//            pointRepository.save(pointDTO.toEntity(member));
+            PointDTO pointDTO = PointDTO.of((long)buyDTO.usePoint(), PointType.BUY_USE,LocalDateTime.now());
+            pointRepository.save(pointDTO.toEntity(member));
             member.setPoint(member.getPoint()- buyDTO.usePoint());
         }
         return Header.OK(response);
@@ -184,6 +208,15 @@ public class BuyService {
                     .map(Header::OK)
                     .orElseGet(()->Header.ERROR("데이터 없음"));
         }
+    }
+
+    public List<BuyDTO> buyList(Long productIdx){
+        Product product = productRepository.findById(productIdx).get();
+        if(product.getIdx() == null){
+            return null;
+        }
+        return buyRepository.findAllByProductOrderByCreatedAtDesc(product).stream()
+                .map(BuyDTO::fromEntity).collect(Collectors.toCollection(LinkedList::new));
     }
 
 

@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<thlogic>
+<!--    아이디  -->
+    <attr sel=".productIdx" th:value="${product.idx}"/>
+<!--    아이디 끝-->
+<!--    브랜드 스크롤-->
+    <attr sel=".social_header">
+        <attr sel=".feed_product" th:href="'/product/'+ ${product.idx}">
+            <attr sel=".product">
+                <attr sel=".scroll_product_img" th:src="${product.img}"/>
+            </attr>
+            <attr sel=".scroll_product_name" th:text="${product.name}"/>
+        </attr>
+
+    </attr>
+
+<!--    컨테이너 -->
+<!--    브랜드 카드-->
+    <attr sel=".social_feed_product">
+        <attr sel=".product_box" th:href="'/product/'+ ${product.idx}">
+            <attr sel=".product">
+                <attr sel=".image" th:src="${product.img}"/>
+            </attr>
+            <attr sel=".product_desc">
+                <attr sel=".product_name" th:text="${product.name}"/>
+                <attr sel=".price_box">
+                    <attr sel=".amount" th:text="${#numbers.formatInteger(product.firstPrice, 0, 'COMMA')} + '원'"/>
+                </attr>
+            </attr>
+        </attr>
+    </attr>
+<!--    브랜드 카드 끝-->
+    <!--컨테이너 끝-->
+</thlogic>

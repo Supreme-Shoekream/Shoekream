@@ -31,13 +31,22 @@
     <div class="hb_fixed_box">
         <div class="header lg no_line">
 
+            <div>
+            <div th:replace="/fragment/header :: header"></div>
+            </div>
             <div class="search_title no_input">
                 <h2 class="title_txt">SHOP</h2>
+                <div class="shop_search1" style="display: none">
+                    <div class="search2">
+                        <input type="text" placeholder="브랜드명 또는 상품명을 입력하세요." title="검색창" class="input_shop_search show_placeholder_on_focus">
+                    </div>
+                </div>
             </div>
 
             <div class="search_suggests">
             </div>
-            <div id="fixed2"></div>
+<!--            <div id="fixed2"></div>-->
+<!--            <div id="fixed3"></div>-->
             <div class="quick_filter">
                 <div class="filter_box">
                     <a href="#" class="btn_quick_filter"><img src="/img/shopimg/tune.png" alt="" style="width: 20px; height: 20px;"></a>
@@ -50,7 +59,6 @@
                     <a href="#" class="btn_quick_filter btn_quick1">테크</a>
                 </div>
             </div>
-            <div id="fixed3"></div>
         </div>
 
     </div>
@@ -172,7 +180,8 @@
                         </div>
                         <div class="dropdown">
                             <button class="side_btn1">
-                                <img class="side_btn" src="/img/shopimg/side_btn1.png" alt="">
+                                <img class="side_btn" id="category_btn_on" src="/img/shopimg/side_btn1.png" alt="">
+                                <img class="side_btn" id="category_btn_off" src="/img/shopimg/side_btn0.png" alt="">
                             </button>
                         </div>
                     </div>
@@ -206,32 +215,33 @@
                     <div class="filter_title">
                         <div class="title_box">
                             <span class="main_title">브랜드</span>
-                            <span class="placeholder">모든 브랜드</span>
+                            <span class="placeholder" id="brand_title">모든 브랜드</span>
                         </div>
                         <div class="dropdown">
                             <button class="side_btn1">
-                                <img class="side_btn" src="/img/shopimg/side_btn1.png" alt="">
+                                <img class="side_btn" id="brand_btn_on" src="/img/shopimg/side_btn1.png" alt="">
+                                <img class="side_btn" id="brand_btn_off" src="/img/shopimg/side_btn0.png" alt="">
                             </button>
                         </div>
                     </div>
                     <div class="filter_menu" style="display:none" id="drop-brand">
                         <ul class="menu_list" id="brand_filter">
-                            <li class="menu checkMenu checkbox_item">
-                                <input type="checkbox" name="check" id="input5" class="check">
-                                <label class="check_label" for="input5"><span class="label_txt">A Cold Wall</span></label>
+                            <li class="menu checkMenu checkbox_item" id="brandCheckList">
+                                <input type="checkbox" name="check" id="input5" class="check" >
+                                <label class="check_label" for="input5"><span class="label_txt" id="brandNameInfo">A Cold Wall</span></label>
                             </li>
-                            <li class="menu checkMenu checkbox_item">
-                                <input type="checkbox" name="check" id="input6" class="check">
-                                <label class="check_label" for="input6"><span class="label_txt">A.P.C</span></label>
-                            </li>
-                            <li class="menu checkMenu checkbox_item">
-                                <input type="checkbox" name="check" id="input7" class="check">
-                                <label class="check_label" for="input7"><span class="label_txt">Adidas</span></label>
-                            </li>
-                            <li class="menu checkMenu checkbox_item">
-                                <input type="checkbox" name="check" id="input8" class="check">
-                                <label class="check_label" for="input8"><span class="label_txt">Aesop</span></label>
-                            </li>
+<!--                            <li class="menu checkMenu checkbox_item">-->
+<!--                                <input type="checkbox" name="check" id="input6" class="check">-->
+<!--                                <label class="check_label" for="input6"><span class="label_txt">A.P.C</span></label>-->
+<!--                            </li>-->
+<!--                            <li class="menu checkMenu checkbox_item">-->
+<!--                                <input type="checkbox" name="check" id="input7" class="check">-->
+<!--                                <label class="check_label" for="input7"><span class="label_txt">Adidas</span></label>-->
+<!--                            </li>-->
+<!--                            <li class="menu checkMenu checkbox_item">-->
+<!--                                <input type="checkbox" name="check" id="input8" class="check">-->
+<!--                                <label class="check_label" for="input8"><span class="label_txt">Aesop</span></label>-->
+<!--                            </li>-->
                         </ul>
                     </div>
 
@@ -241,27 +251,28 @@
                     <div class="filter_title">
                         <div class="title_box">
                             <span class="main_title">성별</span>
-                            <span class="placeholder">모든 성별</span>
+                            <span class="placeholder" id="gender_title">모든 성별</span>
                         </div>
                         <div class="dropdown">
                             <button class="side_btn1">
-                                <img class="side_btn" src="/img/shopimg/side_btn1.png" alt="">
+                                <img class="side_btn" id="gender_btn_on" src="/img/shopimg/side_btn1.png" alt="">
+                                <img class="side_btn" id="gender_btn_off" src="/img/shopimg/side_btn0.png" alt="">
                             </button>
                         </div>
                     </div>
                     <div class="filter_menu" id="drop-gender" style="display:none">
                         <ul class="menu_list" id="gender_filter">
                             <li class="menu checkMenu checkbox_item">
-                                <input type="checkbox" name="check" id="input25" class="check">
-                                <label class="check_label" for="input25"><span class="label_txt">남성</span></label>
+                                <input type="checkbox" name="check" id="input71" class="check">
+                                <label class="check_label" for="input71"><span class="label_txt">남성</span></label>
                             </li>
                             <li class="menu checkMenu checkbox_item">
-                                <input type="checkbox" name="check" id="input26" class="check">
-                                <label class="check_label" for="input26"><span class="label_txt">여성</span></label>
+                                <input type="checkbox" name="check" id="input72" class="check">
+                                <label class="check_label" for="input72"><span class="label_txt">여성</span></label>
                             </li>
                             <li class="menu checkMenu checkbox_item">
-                                <input type="checkbox" name="check" id="input27" class="check">
-                                <label class="check_label" for="input27"><span class="label_txt">키즈</span></label>
+                                <input type="checkbox" name="check" id="input73" class="check">
+                                <label class="check_label" for="input73"><span class="label_txt">키즈</span></label>
                             </li>
                         </ul>
                     </div>
@@ -271,34 +282,35 @@
                     <div class="filter_title">
                         <div class="title_box">
                             <span class="main_title">컬렉션</span>
-                            <span class="placeholder">모든 컬렉션</span>
+                            <span class="placeholder" id="collection_title">모든 컬렉션</span>
                         </div>
                         <div class="dropdown">
                             <button class="side_btn1">
-                                <img class="side_btn" src="/img/shopimg/side_btn1.png" alt="">
+                                <img class="side_btn" id="collection_btn_on" src="/img/shopimg/side_btn1.png" alt="">
+                                <img class="side_btn" id="collection_btn_off" src="/img/shopimg/side_btn0.png" alt="">
                             </button>
                         </div>
                     </div>
                     <div class="filter_menu" id="drop-collection" style="display:none">
                         <ul class="menu_list" id="collection_filter">
                             <li class="menu checkMenu checkbox_item">
-                                <input type="checkbox" name="check" id="input28" class="check">
-                                <label class="check_label" for="input28"><span class="label_txt">Luxury</span></label>
+                                <input type="checkbox" name="check" id="input74" class="check">
+                                <label class="check_label" for="input74"><span class="label_txt">Luxury</span></label>
 
                             </li>
                             <li class="menu checkMenu checkbox_item">
-                                <input type="checkbox" name="check" id="input29" class="check">
-                                <label class="check_label" for="input29"><span class="label_txt">Contemporary</span></label>
+                                <input type="checkbox" name="check" id="input75" class="check">
+                                <label class="check_label" for="input75"><span class="label_txt">Contemporary</span></label>
 
                             </li>
                             <li class="menu checkMenu checkbox_item">
-                                <input type="checkbox" name="check" id="input30" class="check">
-                                <label class="check_label" for="input30"><span class="label_txt">Jordan 1</span></label>
+                                <input type="checkbox" name="check" id="input76" class="check">
+                                <label class="check_label" for="input76"><span class="label_txt">Jordan 1</span></label>
 
                             </li>
                             <li class="menu checkMenu checkbox_item">
-                                <input type="checkbox" name="check" id="input31" class="check">
-                                <label class="check_label" for="input31"><span class="label_txt">Jordan 3</span></label>
+                                <input type="checkbox" name="check" id="input77" class="check">
+                                <label class="check_label" for="input77"><span class="label_txt">Jordan 3</span></label>
                             </li>
                         </ul>
                     </div>
@@ -308,63 +320,58 @@
                     <div class="filter_title">
                         <div class="title_box">
                             <span class="main_title">사이즈</span>
-                            <span class="placeholder">모든 사이즈</span>
+                            <span class="placeholder" id="size_title">모든 사이즈</span>
                         </div>
                         <div class="dropdown">
                             <button class="side_btn1">
-                                <img class="side_btn" src="/img/shopimg/side_btn1.png" alt="">
+                                <img class="side_btn" id="size_btn_on" src="/img/shopimg/side_btn1.png" alt="">
+                                <img class="side_btn" id="size_btn_off" src="/img/shopimg/side_btn0.png" alt="">
                             </button>
                         </div>
                     </div>
-                    <div class="filter_menu_size" id="drop-size" style="display:none">
-                        <div class="column_list has_more" id="size_filter">
-                            <a href="#" class="column_menu"> 230 </a>
-                            <a href="#" class="column_menu"> 240 </a>
-                            <a href="#" class="column_menu"> 250 </a>
-                            <a href="#" class="column_menu"> 260 </a>
-                            <a href="#" class="column_menu"> 270 </a>
-                            <a href="#" class="column_menu"> 280 </a>
-                            <a href="#" class="column_menu1"> S </a>
-                            <a href="#" class="column_menu1"> M </a>
-                            <a href="#" class="column_menu1"> L </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- 사이드바 7번 항목 -->
-                <div class="filter_list">
-                    <div class="filter_title">
-                        <div class="title_box">
-                            <span class="main_title">가격</span>
-                            <span class="placeholder">모든 가격</span>
-                        </div>
-                        <div class="dropdown">
-                            <button class="side_btn1">
-                                <img class="side_btn" src="/img/shopimg/side_btn1.png" alt="">
-                            </button>
-                        </div>
-                    </div>
-                    <div class="filter_menu" id="drop-content7" style="display:none">
-                        <ul class="menu_list">
+                    <div class="filter_menu" id="drop-size" style="display:none">
+                        <ul class="menu_list" id="size_filter">
                             <li class="menu checkMenu checkbox_item">
-                                <input type="checkbox" name="check" id="input41" class="check">
-                                <label class="check_label" for="input41"><span class="label_txt">10만원 이하</span></label>
-
+                                <input type="checkbox" name="check" id="input78" class="check">
+                                <label class="check_label" for="input78"><span class="label_txt">230</span></label>
                             </li>
                             <li class="menu checkMenu checkbox_item">
-                                <input type="checkbox" name="check" id="input42" class="check">
-                                <label class="check_label" for="input42"><span class="label_txt">10만원 - 30만원 이하</span></label>
+                                <input type="checkbox" name="check" id="input79" class="check">
+                                <label class="check_label" for="input79"><span class="label_txt">240</span></label>
                             </li>
                             <li class="menu checkMenu checkbox_item">
-                                <input type="checkbox" name="check" id="input43" class="check">
-                                <label class="check_label" for="input43"><span class="label_txt">30만원 - 50만원 이하</span></label>
+                                <input type="checkbox" name="check" id="input80" class="check">
+                                <label class="check_label" for="input80"><span class="label_txt">250</span></label>
                             </li>
                             <li class="menu checkMenu checkbox_item">
-                                <input type="checkbox" name="check" id="input44" class="check">
-                                <label class="check_label" for="input44"><span class="label_txt">50만원 이상</span></label>
+                                <input type="checkbox" name="check" id="input81" class="check">
+                                <label class="check_label" for="input81"><span class="label_txt">260</span></label>
+                            </li>
+                            <li class="menu checkMenu checkbox_item">
+                                <input type="checkbox" name="check" id="input82" class="check">
+                                <label class="check_label" for="input82"><span class="label_txt">270</span></label>
+                            </li>
+                            <li class="menu checkMenu checkbox_item">
+                                <input type="checkbox" name="check" id="input83" class="check">
+                                <label class="check_label" for="input83"><span class="label_txt">280</span></label>
+                            </li>
+                            <li class="menu checkMenu checkbox_item">
+                                <input type="checkbox" name="check" id="input84" class="check">
+                                <label class="check_label" for="input84"><span class="label_txt">S</span></label>
+                            </li>
+                            <li class="menu checkMenu checkbox_item">
+                                <input type="checkbox" name="check" id="input85" class="check">
+                                <label class="check_label" for="input85"><span class="label_txt">M</span></label>
+                            </li>
+                            <li class="menu checkMenu checkbox_item">
+                                <input type="checkbox" name="check" id="input86" class="check">
+                                <label class="check_label" for="input86"><span class="label_txt">L</span></label>
                             </li>
                         </ul>
                     </div>
+
                 </div>
+
             </div>
             <!-- content -->
             <div class="search_content">
@@ -384,8 +391,8 @@
                                     <li class="sorting_item">
                                         <a class="sorting_link" id="sort_by_wish_desc">
                                             <div class="sorting_desc">
-                                                <p class="main_desc">인기순</p>
-                                                <p class="sub_desc">관심상품 수가 많은 순서대로 정렬합니다.</p>
+                                                <p class="main_desc">이름순</p>
+                                                <p class="sub_desc">이름 순서대로 정렬합니다.</p>
                                                 <img src="/img/wcheck.png" class="sorting_img">
                                             </div>
                                         </a>
@@ -457,15 +464,16 @@
                                 <div class="action_wish_review">
                                         <span class="wish_figure">
                                             <span aria-label="관심상품" role="button" class="btn_wish" icon-name="ico-wish-grey">
-                                                <img width="14" height="16" src="/img/brands_wish.png" class="icon sprite-icons">
+                                                <img width="14" height="16" src="/img/wish_on.PNG" class="icon sprite-icons is_wish_on">
+                                                <img width="14" height="16" src="/img/brands_wish.png" class="icon sprite-icons is_wish_off">
                                             </span>
-                                            <span class="text">3.1만</span>
+                                            <span class="text wish_count">3.1만</span>
                                         </span>
                                     <span class="review_figure">
                                             <span class="review_link" aria-label="조던 1 레트로 하이 OG 시카고 2022 리뷰" role="button">
                                                 <img width="15" height="15" src="/img/brands_hashtag.png" class="icon sprite-icons">
                                             </span>
-                                            <span class="text">2,306</span>
+                                            <span class="text tag_count">2,306</span>
                                         </span>
                                 </div>
                             </div>
@@ -473,6 +481,7 @@
                         <!-- product 끝-->
                     </div>
                 </div>
+
                 <div class="pagination">
                     <div class="pagination_box first">
                         <div class="prev_btn_box">
@@ -491,23 +500,23 @@
         </div>
     </div>
     <!-- Layer content-->
-    <div class="layer_container">
-        <div class="layer_content">
-            <div class="interest_header">
-                <h2 class="interest_title">관심 상품 추가</h2>
-            </div>
-            <div class="pop_close" onclick="comment_down()"></div>
-            <div class="interest_list">
-                <div class="interest_item"></div>
-                <div class="interest_un_list_box">
-                    <div class="interest_un_list"></div>
-                </div>
-                <div class="interest_layer_btn">
-                    <a href="#a" class="interest_check_btn" onclick="comment_down()"> 확인</a>
-                </div>
-            </div>
-        </div>
-    </div>
+<!--    <div class="layer_container">-->
+<!--        <div class="layer_content">-->
+<!--            <div class="interest_header">-->
+<!--                <h2 class="interest_title">관심 상품 추가</h2>-->
+<!--            </div>-->
+<!--            <div class="pop_close" onclick="comment_down()"></div>-->
+<!--            <div class="interest_list">-->
+<!--                <div class="interest_item"></div>-->
+<!--                <div class="interest_un_list_box">-->
+<!--                    <div class="interest_un_list"></div>-->
+<!--                </div>-->
+<!--                <div class="interest_layer_btn">-->
+<!--                    <a href="#a" class="interest_check_btn" onclick="comment_down()"> 확인</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
 </div>
     <!-- dropmenu -->
     <!-- Layer content 끝-->
@@ -515,6 +524,7 @@
     <footer th:replace="/fragment/footer.html :: footer"></footer>
     <!-- footer 끝 -->
     <script src="/js/shop/search.js"></script>
+    <script src="/js/header/header.js"></script>
 </body>
 
 </html>

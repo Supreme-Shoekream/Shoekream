@@ -32,7 +32,7 @@
             <img src="/img/4781857_arrow_arrows_back_direction_left_icon.png" alt="취소 이미지" class="close_icon">
           </a>
           <h3>STYLE UPLOAD</h3>
-          <button type="submit" class="submit" disabled="disabled" onclick="sendit">업로드</button>
+          <a id="submit" class="submit" style="color: white; font-size: 20px; text-align: center;" >전송</a>
         </div>
 
         <div style="margin-top: 200px;">
@@ -41,12 +41,11 @@
             <h3 class="input_title ess ph">사진 추가하기</h3>
             <div class="input_item" style="border: none; height: 400px;
                       border-bottom: 0.1rem solid #ebebeb;">
-              <input id="imgUpload" style="border: none; 
-                      margin-top: 0.1rem solid #ebebeb;" type="file" accept="image/*" class="input_txt in_essValue"
-                name="photo">
+              <input id="imgUpload" type="file" name="imgUpload"
+                     style="border: none; margin-top: 0.1rem solid #ebebeb;" accept="image/*" class="input_txt in_essValue">
               <div class="preview">
-                <img src="https://dummyimage.com/400x400/ffffff/000000.png&text=preview+image" style="width: 300px;"
-                  alt="" id="previewImage">
+                <img src="https://dummyimage.com/400x400/ffffff/000000.png&text=preview+image" style="width: 300px; display: block;"
+                  alt="" id="previewImage" >
               </div>
             </div>
           </div>
@@ -56,20 +55,28 @@
           <div class="input_box">
             <h3 class="input_title ess">글 내용</h3>
             <div class="input_items">
-              <!-- <input type="text" id="content_input" class="input_txt in_essValue" name="content" placeholder="아이템과 스타일을 자랑해보세요..."> -->
               <textarea resize="none" rows="1" oninput="resize(this)" name="content" id="content_input"
                 class="input_txt in_essValue" cols="30" row="1" placeholder="아이템과 스타일을 자랑해보세요..."></textarea>
             </div>
           </div>
           <!-- 글 내용 끝 -->
 
+          <!-- 해시태그 내용 시작 -->
+          <div class="input_box">
+            <h3 class="input_title ess">해시태그</h3>
+            <h3 class="input_title ess">('#'을 제외하고 작성해 주세요.)</h3>
+            <div class="input_items">
+              <textarea resize="none" rows="1" oninput="resize(this)" name="content" id="hashtag_input"
+                        class="input_txt in_essValue" cols="30" row="1" placeholder="# "></textarea>
+            </div>
+          </div>
+          <!-- 해시태그 내용 끝 -->
+
           <div class="input_box">
             <h3 class="input_title ess" style="margin-bottom: 10px;">상품 태그 추가하기</h3>
             <div class="input_item add_tag">
               <!-- 선택된 태그 들어올 자리 시작 -->
-              <ul id="selected_product_list">
-
-              </ul>
+              <ul id="selected_product_list"></ul>
               <!-- 선택된 태그 들어올 자리 끝 -->
             </div>
           </div>
@@ -83,7 +90,6 @@
           <div id="tag_text">상품 태그를 추가해 보세요!</div>
         </div>
         <!-- 상품태그 추가 버튼 끝 -->
-        <!-- <button type="submit" disabled="disabled" class="btn btn_join full solid disabled" onclick="sendit()"> 가입하기 </button> -->
       </div>
 
 
@@ -95,27 +101,29 @@
             <img src="/img/search.png" alt="돋보기 아이콘" class="ico-close icon sprite-icons" id="search_icon">
             <input 
             style="border: none; border-bottom: 1px solid black; 
-            margin-top: 25px; margin-left: 100px; width: 250px;" type="text" oninput="search()" onkeyup="isNull(this)">
+            margin-top: 25px; margin-left: 100px; width: 250px;" type="text" onkeyup="search()" onkeydown="isNull(this)" class="tag_search">
             <a class="btn_layer_close" onclick="closeSearch()">
               <img src="/img/x.png" class="ico-close icon sprite-icons">
             </a>
           </div>
           <div class="layer_content" style="margin-top: 50px;margin-top: 25px;
                 margin-left: 70px;
-                width: 300px;">
+                width: 300px;
+                overflow-y: scroll"
+                >
                 <!-- 상품 리스트 시작 -->
             <div id="lists" style="display: none;">
-              <ul  class="product_list">
+              <ul  class="product_list" id="search_tag_list">
                 <li class="product_item"><a
                     class="product_link">
                     <div  class="product" style="background-color: rgb(244, 244, 244);">
                       <picture class="picture product_img">
                         <source type="image/webp"
-                          srcset="https://kream-phinf.pstatic.net/MjAyMTEwMDZfMTQ4/MDAxNjMzNTIyMDM5NzU5.eUn6XN8tURKKvgXvI4rctyH0A_zEw20vnbLKSNWVq50g.-UFhiggBfGucxWg9epEsFzH3Ib3_iX1Crk4wu1BXzOcg.JPEG/a_cf38ac4233bf4dc39d0bce472218b77f.jpg?type=m_webp">
+                          srcset="">
                         <source
-                          srcset="https://kream-phinf.pstatic.net/MjAyMTEwMDZfMTQ4/MDAxNjMzNTIyMDM5NzU5.eUn6XN8tURKKvgXvI4rctyH0A_zEw20vnbLKSNWVq50g.-UFhiggBfGucxWg9epEsFzH3Ib3_iX1Crk4wu1BXzOcg.JPEG/a_cf38ac4233bf4dc39d0bce472218b77f.jpg?type=m">
+                          srcset="">
                         <img alt="Arc'teryx Zeta SL Jacket Black"
-                          src="https://kream-phinf.pstatic.net/MjAyMTEwMDZfMTQ4/MDAxNjMzNTIyMDM5NzU5.eUn6XN8tURKKvgXvI4rctyH0A_zEw20vnbLKSNWVq50g.-UFhiggBfGucxWg9epEsFzH3Ib3_iX1Crk4wu1BXzOcg.JPEG/a_cf38ac4233bf4dc39d0bce472218b77f.jpg?type=m"
+                          src=""
                           loading="lazy" class="image">
                       </picture>
                     </div>
@@ -130,11 +138,11 @@
                     <div  class="product" style="background-color: rgb(244, 244, 244);">
                       <picture class="picture product_img">
                         <source type="image/webp"
-                          srcset="https://kream-phinf.pstatic.net/MjAyMDEwMjJfMjY0/MDAxNjAzMzM0MDAyMjkz.wFUvINtdW_HtWw_dT93iON6PHbdGH6z_2MwUIyl3Uhog.h2DQIPhdatdIih9yvHtenOjPoS825NR_w0Fbx8ZoVZQg.PNG/p_25672_0_001365ad1ca1402ea03e6b9e0f6ae500.png?type=m_webp">
+                          srcset="">
                         <source
-                          srcset="https://kream-phinf.pstatic.net/MjAyMDEwMjJfMjY0/MDAxNjAzMzM0MDAyMjkz.wFUvINtdW_HtWw_dT93iON6PHbdGH6z_2MwUIyl3Uhog.h2DQIPhdatdIih9yvHtenOjPoS825NR_w0Fbx8ZoVZQg.PNG/p_25672_0_001365ad1ca1402ea03e6b9e0f6ae500.png?type=m">
+                          srcset="">
                         <img alt="Salomon XT-6 ADV White"
-                          src="https://kream-phinf.pstatic.net/MjAyMDEwMjJfMjY0/MDAxNjAzMzM0MDAyMjkz.wFUvINtdW_HtWw_dT93iON6PHbdGH6z_2MwUIyl3Uhog.h2DQIPhdatdIih9yvHtenOjPoS825NR_w0Fbx8ZoVZQg.PNG/p_25672_0_001365ad1ca1402ea03e6b9e0f6ae500.png?type=m"
+                          src=""
                           loading="lazy" class="image">
                       </picture>
                     </div>
@@ -149,11 +157,11 @@
                     <div  class="product" style="background-color: rgb(241, 241, 234);">
                       <picture class="picture product_img">
                         <source type="image/webp"
-                          srcset="https://kream-phinf.pstatic.net/MjAyMjA4MThfMjI5/MDAxNjYwNzk3NTE1OTgx.PIl1nZ-_EhAoytfkTem0L7vuNWvDise9DI1cPUSrK7Ag.xtPv15NnoMHGmygFr_n-5I_dt4UhWhK4IlPcmPHPaoYg.PNG/a_33ff4989dff04f66b485b0933136bb4e.png?type=m_webp">
+                          srcset="">
                         <source
-                          srcset="https://kream-phinf.pstatic.net/MjAyMjA4MThfMjI5/MDAxNjYwNzk3NTE1OTgx.PIl1nZ-_EhAoytfkTem0L7vuNWvDise9DI1cPUSrK7Ag.xtPv15NnoMHGmygFr_n-5I_dt4UhWhK4IlPcmPHPaoYg.PNG/a_33ff4989dff04f66b485b0933136bb4e.png?type=m">
+                          srcset="">
                         <img alt="Adidas Superstar Golden Beige"
-                          src="https://kream-phinf.pstatic.net/MjAyMjA4MThfMjI5/MDAxNjYwNzk3NTE1OTgx.PIl1nZ-_EhAoytfkTem0L7vuNWvDise9DI1cPUSrK7Ag.xtPv15NnoMHGmygFr_n-5I_dt4UhWhK4IlPcmPHPaoYg.PNG/a_33ff4989dff04f66b485b0933136bb4e.png?type=m"
+                          src=""
                           loading="lazy" class="image">
                       </picture>
                     </div>

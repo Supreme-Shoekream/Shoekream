@@ -15,10 +15,13 @@ window.onload=function(){
                                             <a>
                                                 <div class="card_box">
                                                     <div class="social_img_box square">
-                                                        <picture class="picture social_img">
-                                                            <source type="image/webp" srcset="">
-                                                            <source srcset="">
-                                                            <img alt="소셜이미지" src="${data[i].img}" loading="lazy" class="image"></picture>
+                                                        <a href="/social/details#${data[i].idx}">
+                                                            <picture class="picture social_img">
+                                                                <source type="image/webp" srcset="">
+                                                                <source srcset="">
+                                                                <img alt="소셜이미지" src="${data[i].img}" loading="lazy" class="image">
+                                                            </picture>
+                                                        </a>
                                                     </div>
                                                     <div class="card_detail">
                                                         <div class="user_box">
@@ -55,10 +58,13 @@ window.onload=function(){
                                             <a>
                                                 <div class="card_box">
                                                     <div class="social_img_box square">
-                                                        <picture class="picture social_img">
-                                                            <source type="image/webp" srcset="">
-                                                            <source srcset="">
-                                                            <img alt="소셜이미지" src="${data[i].img}" loading="lazy" class="image"></picture>
+                                                        <a href="/social/details#${data[i].idx}">
+                                                            <picture class="picture social_img">
+                                                                <source type="image/webp" srcset="">
+                                                                <source srcset="">
+                                                                <img alt="소셜이미지" src="${data[i].img}" loading="lazy" class="image">
+                                                            </picture>
+                                                        </a>
                                                     </div>
                                                     <div class="card_detail">
                                                         <div class="user_box">
@@ -79,10 +85,14 @@ window.onload=function(){
                     }
                     feedList +=  `<span class="like_count">${data[i].lks.length}</span>
                                                             </span>
-                                                        </div>
-                                                        <p class="text_box">${data[i].content}` + `  #` + `
-                                                ${data[i].hashtag}</p>
-                                                    </div>
+                                                        </div>`
+                    if(data[i].hashtag != null){
+                        feedList += `<p className="text_box">${data[i].content}` + ` #` +
+                            `${data[i].hashtag}</p>`
+                    }else{
+                        feedList += `<p className="text_box">${data[i].content}</p>`
+                    }
+                    feedList += `</div>
                                                 </div>
                                             </a>
                                         </div>
@@ -106,4 +116,10 @@ window.onload=function(){
             document.querySelector('.masonry_posts').innerHTML = empty;
             document.querySelector('.more_btn_box').style.display='none';
         })
+}
+
+function tagPage(){
+    const productIdx = document.getElementById('wish_proIdx').getAttribute('value');
+    console.log(productIdx)
+    location.href='/social/social_product/'+productIdx;
 }

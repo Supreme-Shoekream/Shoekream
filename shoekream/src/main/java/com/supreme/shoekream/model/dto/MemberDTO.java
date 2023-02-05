@@ -20,21 +20,20 @@ public record MemberDTO(
         String profileMemo,
         String imgUrl,
         String bank,
-        String accNumber,
-        KreamPrincipal.RoleType roleType
+        String accNumber
 ) {
     public static MemberDTO of(Long idx, String nickname, String memberPw, String name,
-                               String hp, String email,Status status, String shoeSize,Long point, String profileMemo, String imgUrl, String bank, String accNumber, KreamPrincipal.RoleType roleType){
-        return new MemberDTO(idx, nickname, memberPw, name, hp, email,status, shoeSize,point, profileMemo, imgUrl, bank, accNumber, roleType);
+                               String hp, String email,Status status, String shoeSize,Long point, String profileMemo, String imgUrl, String bank, String accNumber){
+        return new MemberDTO(idx, nickname, memberPw, name, hp, email,status, shoeSize,point, profileMemo, imgUrl, bank, accNumber);
     }
     public static MemberDTO of(String nickname, String memberPw, String name,
                                String hp, String email,String shoeSize){
-        return new MemberDTO(null, nickname, memberPw, name, hp, email,Status.MEMBER, shoeSize,0L, null, null, null, null,null);
+        return new MemberDTO(null, nickname, memberPw, name, hp, email,Status.MEMBER, shoeSize,0L, null, null, null, null);
     }
-    public static MemberDTO of(String memberPw, String name,
+    public static MemberDTO of(String memberPw, String name, String nickname,
                                String hp, String email, String shoeSize,
-                               String bank, String accNumber,KreamPrincipal.RoleType roleType){
-        return new MemberDTO(null, null, memberPw, name, hp, email,null, shoeSize,null, null, null, bank, accNumber, roleType);
+                               String bank, String accNumber){
+        return new MemberDTO(null, nickname, memberPw, name, hp, email,null, shoeSize,null, null, null, bank, accNumber);
     }
 
     public static MemberDTO fromEntity(Member member){
@@ -51,8 +50,7 @@ public record MemberDTO(
                 member.getProfileMemo(),
                 member.getImgUrl(),
                 member.getBank(),
-                member.getAccNumber(),
-                null
+                member.getAccNumber()
         );
     }
 

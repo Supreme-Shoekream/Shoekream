@@ -16,10 +16,8 @@
 </head>
 <body style="">
     <div id="__nuxt">
-        <!---->
         <div id="__layout">
             <div tabindex="0" class="wrap etc">
-                <!---->
                 <!-- 헤더 시작 -->
                 <header th:replace="/fragment/header.html :: header"></header>
                 <!-- 헤더 끝 -->
@@ -76,9 +74,7 @@
                             <div class="content_title border">
                                 <div class="title">
                                     <h3>관심 상품</h3>
-                                    <!---->
                                 </div>
-                                <!---->
                             </div>
                             <ul class="wish_list">
                                 <li class="wish_list_li">
@@ -86,23 +82,27 @@
                                         <div class="wish_product">
                                             <div class="product_box">
                                                 <div class="product" style="background-color: rgb(244, 244, 244);">
-                                                    <picture class="picture product_img">
-                                                        <img class="image wish_pro_img" src="" loading="lazy" alt="상품 이미지">
-                                                    </picture>
+                                                    <a class="wish_pro_img_link">
+                                                        <picture class="picture product_img">
+                                                            <img class="image wish_pro_img" src="" loading="lazy" alt="상품 이미지">
+                                                        </picture>
+                                                    </a>
                                                 </div>
                                             </div>
                                             <div class="product_detail">
                                                 <div>
-                                                    <a class="brand-text wish_pro_brand"> Asics </a>
+                                                    <a class="brand-text wish_pro_brand">Asics</a>
                                                 </div>
-                                                <p class="name wish_pro_name">Asics Gel-Venture 6 SPS Birch French Blue</p>
-                                                <span class="size wish_pro_size">245</span>
+                                                <a class="wish_pro_name_size_link">
+                                                    <p class="name wish_pro_name">Asics Gel-Venture 6 SPS Birch French Blue</p>
+                                                    <span class="size wish_pro_size">245</span>
+                                                </a>
                                             </div>
                                         </div>
                                         <div class="wish_buy">
                                             <div>
                                                 <div class="division_btn_box lg">
-                                                    <a href="#" class="btn_division buy">
+                                                    <a class="btn_division buy">
                                                         <strong class="title">구매</strong>
                                                         <div class="price">
                                                             <span class="amount">

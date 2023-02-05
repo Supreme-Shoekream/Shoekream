@@ -14,24 +14,24 @@ import lombok.NoArgsConstructor;
 public record MemberApiRequest(
         String memberPw,
         String name,
+        String nickname,
         String hp,
         String email,
         String shoeSize,
         String accNumber,
-        String bank,
-        KreamPrincipal.RoleType roletype
+        String bank
 ) {
 
     public MemberDTO toDTO(){
         return MemberDTO.of(
                 memberPw,
                 name,
+                nickname,
                 hp,
                 email,
                 shoeSize,
                 bank,
-                accNumber,
-                roletype
+                accNumber
         );
     }
 }

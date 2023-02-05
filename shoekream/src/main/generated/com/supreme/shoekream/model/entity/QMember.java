@@ -1,3 +1,4 @@
+
 package com.supreme.shoekream.model.entity;
 
 import static com.querydsl.core.types.PathMetadataFactory.*;
@@ -40,8 +41,6 @@ public class QMember extends EntityPathBase<Member> {
     public final NumberPath<Long> point = createNumber("point", Long.class);
 
     public final StringPath profileMemo = createString("profileMemo");
-
-    public final EnumPath<com.supreme.shoekream.model.network.security.KreamPrincipal.RoleType> roleType = createEnum("roleType", com.supreme.shoekream.model.network.security.KreamPrincipal.RoleType.class);
 
     public final StringPath shoeSize = createString("shoeSize");
 

@@ -1,3 +1,4 @@
+
 package com.supreme.shoekream.model.entity;
 
 import static com.querydsl.core.types.PathMetadataFactory.*;
@@ -27,7 +28,7 @@ public class QProduct extends EntityPathBase<Product> {
 
     public final StringPath color = createString("color");
 
-    public final StringPath firstPrice = createString("firstPrice");
+    public final NumberPath<Long> firstPrice = createNumber("firstPrice", Long.class);
 
     public final StringPath gender = createString("gender");
 
@@ -60,4 +61,5 @@ public class QProduct extends EntityPathBase<Product> {
     }
 
 }
+
 

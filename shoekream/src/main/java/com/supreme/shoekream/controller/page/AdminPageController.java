@@ -55,33 +55,38 @@ public class AdminPageController {
         return new ModelAndView("adminpage/products.html");
     }
 
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
-    /* 첨부 파일 업로드 */
-    @PostMapping("products") // 파일 1개 업로드 //http://localhost:8889/admin/products
-    public void uploadAjaxActionPOST(MultipartFile uploadFile) {
-        logger.info("⚠️uploadAjaxActionPOST..........");
-        logger.info("⚠️파일 이름 : " + uploadFile.getOriginalFilename());
-        logger.info("⚠️파일 타입 : " + uploadFile.getContentType());
-        logger.info("⚠️파일 크기 : " + uploadFile.getSize());
-        // 저장 폴더 경로
-        String uploadFolder = "/Users/oyun-yeong/Desktop/Shoekream/publising/Shoekream/shoekream/src/main/resources/static/img/product/";
+//    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+//    /* 첨부 파일 업로드 */
+//    @PostMapping("products") // 파일 1개 업로드 //http://localhost:8889/admin/products
+//    public String uploadAjaxActionPOST(MultipartFile uploadFile) {
+//        logger.info("⚠️uploadAjaxActionPOST..........");
+//        logger.info("⚠️파일 이름 : " + uploadFile.getOriginalFilename());
+//        logger.info("⚠️파일 타입 : " + uploadFile.getContentType());
+//        logger.info("⚠️파일 크기 : " + uploadFile.getSize());
+//        // 파일 저장 폴더 경로
+//        String uploadFilePath = "/Users/oyun-yeong/Desktop/Shoekream/publising/Shoekream/shoekream/src/main/resources/static/img/product/";
 //        // 폴더 생성
-        File uploadPath = new File(uploadFolder);
-        if(!uploadPath.exists()) {
-            uploadPath.mkdirs();
-        }
+//        File uploadPath = new File(uploadFilePath);
+//        if(!uploadPath.exists()) {
+//            uploadPath.mkdirs();
+//        }
 ////        logger.info("-----------------------------------------------");
-        String uploadFileName = uploadFile.getOriginalFilename(); // 파일 이름
+//        String uploadFileName = uploadFile.getOriginalFilename(); // 파일 이름
 ////        uploadFileName = uploadFileName.replace(" ", "_"); // 파일 이름에 띄어쓰기가 있으면 언더바로 변경하기
 ////        System.out.println("🔵" + uploadFileName);
-       File saveFile = new File(uploadPath, uploadFileName); // 파일 위치, 파일 이름을 합친 File 객체
-        try { // 파일 저장
-            uploadFile.transferTo(saveFile);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-//        return uploadFileName;
-    }
+////        File saveFile = new File(uploadPath, uploadFileName); // 파일 위치, 파일 이름을 합친 File 객체
+//        File saveFile = new File(uploadFilePath, uploadFileName); // 파일 위치, 파일 이름을 합친 File 객체
+//        try { // 파일 저장
+//            uploadFile.transferTo(saveFile);
+//            logger.info("🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢");
+//            logger.info("이미지 파일 저장 완료");
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+////        return uploadFileName;
+////        return "redirect:/admin/products";
+//        return ("/adminpage/layer_product_create");
+//    }
 
     @GetMapping(path="login")   //http://localhost:8889/admin/login
     public ModelAndView loginadmin(){
@@ -121,6 +126,7 @@ public class AdminPageController {
         List<Integer> barNumbers = paginationService.getPaginationBarNumbers(pageable.getPageNumber(),sells.getTotalPages());
         map.addAttribute("sells", sells);
         map.addAttribute("barNumbers",barNumbers);
+        System.out.println(barNumbers);
         return("adminpage/sell");
     }
 

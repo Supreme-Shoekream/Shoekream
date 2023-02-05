@@ -1509,6 +1509,28 @@ svg:not(:root) {
     padding: 20px 0 20px;
 }
 
+.empty_content {
+    text-align: center;
+    padding: 22px 0 22px;
+}
+
+.empty_bg {
+    display: inline-block;
+    vertical-align: top;
+    width: 58px;
+    height: 58px;
+    background-image: url('/img/conclusion_empty.png');
+    background-repeat: no-repeat;
+    background-size: 58px 58px;
+}
+
+.empty_text {
+    margin-top: 8px;
+    font-size: 13px;
+    letter-spacing: -.07px;
+    color: rgba(34,34,34,.3);
+}
+
 .blind, .u_skip {
     overflow: hidden!important;
     position: absolute!important;
@@ -2125,7 +2147,7 @@ svg:not(:root) {
 }
 
 .social-like-gray-sm {
-    width: 22px;
+    width: 20px;
     height: 20px;
 }
 
@@ -2208,7 +2230,7 @@ svg:not(:root) {
     font-size: 13px;
     letter-spacing: -.07px;
     font-weight: 400;
-    color: rgba(34,34,34,.5);
+    color: rgba(34,34,34,.8);
 }
 
 .more_title .arr-right-gray {
@@ -2499,14 +2521,6 @@ svg:not(:root) {
 
 .select_link.bid .price {
     color: #222;
-}
-
-.price {
-    display: block;
-    line-height: 14px;
-    margin-top: 1px;
-    font-size: 12px;
-    /* color: #222; */
 }
 
 /* 관심 상품 클릭시 팝업 레이어창 */
@@ -3012,15 +3026,15 @@ svg:not(:root) {
     cursor: default;
 }
 
-.sort_link.sort:after {
-    content: "";
-    margin-left: 4px;
-    display: -webkit-inline-box;
-    display: inline-flex;
-    width: 16px;
-    height: 24px;
-    background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAxNiAyNCI+PHBhdGggZmlsbD0iI0QzRDNEMyIgZD0iTTEyIDEzbC00IDUtNC01aDh6bS04LTJsNC01IDQgNUg0eiIvPjwvc3ZnPg==) no-repeat;
-}
+/*.sort_link.sort:after {*/
+/*    content: "";*/
+/*    margin-left: 4px;*/
+/*    display: -webkit-inline-box;*/
+/*    display: inline-flex;*/
+/*    width: 16px;*/
+/*    height: 24px;*/
+/*    background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAxNiAyNCI+PHBhdGggZmlsbD0iI0QzRDNEMyIgZD0iTTEyIDEzbC00IDUtNC01aDh6bS04LTJsNC01IDQgNUg0eiIvPjwvc3ZnPg==) no-repeat;*/
+/*}*/
 
 .head_sort:nth-child(2), .list_txt:nth-child(2) {
     flex-basis: 36%;

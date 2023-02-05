@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<thlogic>
+    <attr sel=".brand_name" th:text="${brandName}"/>
+    <attr sel=".brand_total" th:text="${count}"/>
+    <attr sel=".brand_products" th:remove="all-but-first">
+        <attr sel=".product_card" th:each= "product, i : ${products}" >
+            <attr sel=".item_inner" th:href="@{'/product/' + ${product.idx}}">
+                <attr sel=".product_img/img" th:src="${product.img}"/>
+                <attr sel=".product_info_area" >
+                    <attr sel=".product_info_brand" th:text="${product.brand}"/>
+                    <attr sel=".product_info_product_name/p[0]" th:text="${product.name}"/>
+                    <attr sel=".product_info_product_name/p[1]" th:text="${product.nameKor}"/>
+                </attr>
+                <attr sel=".amount" th:text="${prices[i.index]}"/>
+            </attr>
+        </attr>
+    </attr>
+
+    <!-- 페이지처리 -->
+    <attr sel=".pagination_box">
+        <attr sel=".prev_btn_box/a" th:href="@{/searchs(page=${products.number - 1},sort=${param.sort},size=${param.size},brand=${param.brand},
+            category=${param.category},collection=${param.collection},gender=${param.gender},keyword=${param.keyword})}"
+              th:style="(${products.number} <=0 ? 'display:none':'display:block')"/>
+        <attr sel=".page_bind" th:each="pageNumber : ${barNumbers}">
+            <attr sel="a" th:text="${pageNumber + 1}"
+                  th:href="@{/searchs(page=${pageNumber},sort=${param.sort},size=${param.size},brand=${param.brand},
+            category=${param.category},collection=${param.collection},gender=${param.gender},keyword=${param.keyword})}"
+                  th:class="'btn_page'+(${pageNumber}==${products.number}? ' active':'')"/>
+        </attr>
+        <attr sel=".next_btn_box/a" th:href="@{/searchs(page=${products.number + 1},sort=${param.sort},size=${param.size},brand=${param.brand},
+            category=${param.category},collection=${param.collection},gender=${param.gender},keyword=${param.keyword})}"
+              th:style="(${products.number} >= ${products.totalPages -1}  ? 'display:none':'display:block')"/>
+    </attr>
+
+</thlogic>
