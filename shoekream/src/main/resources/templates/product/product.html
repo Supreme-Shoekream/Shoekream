@@ -191,7 +191,8 @@
                                                     </div>
                                                 </div>
                                                 <!-- 시세 = 그래프 있을때 -->
-                                                <div class="wrap_sales"  th:if="${!#lists.isEmpty(conclusion)}">
+<!--                                                <div class="wrap_sales"  th:if="${!#lists.isEmpty(conclusion)}">-->
+                                                <div class="wrap_sales">
                                                     <div class="tab_area">
                                                         <ul role="tablist" class="tab_list">
                                                             <li id="graph1mm" role="tab" aria-selected="false" aria-controls="sales_panel1" class="date item">
@@ -238,18 +239,19 @@
                                                     </div>
                                                 </div>
                                                 <!-- 시세 = 그래프 없을때 -->
-                                                <div class="wrap_sales" th:if="${#lists.isEmpty(conclusion)}">
-                                                    <div class="table_wrap lg">
-                                                        <div class="empty_content lg">
-                                                            <div class="empty_bg">
-                                                                <span class="blind">빈 데이터 이미지</span>
-                                                            </div>
-                                                            <p class="empty_text">체결된 거래가 아직 없습니다</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
+<!--                                                <div class="wrap_sales" th:if="${#lists.isEmpty(conclusion)}">-->
+<!--                                                    <div class="table_wrap lg">-->
+<!--                                                        <div class="empty_content lg">-->
+<!--                                                            <div class="empty_bg">-->
+<!--                                                                <span class="blind">빈 데이터 이미지</span>-->
+<!--                                                            </div>-->
+<!--                                                            <p class="empty_text">체결된 거래가 아직 없습니다</p>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
                                                 <!-- 시세 - 거래 내역 있을때 -->
-                                                <div class="wrap_bids" th:if="${!#lists.isEmpty(conclusion)}">
+<!--                                                <div class="wrap_bids" th:if="${!#lists.isEmpty(conclusion)}">-->
+                                                <div class="wrap_bids">
                                                     <div class="tab_area">
                                                         <ul role="tablist" class="tab_list">
                                                             <li role="tab" aria-selected="true" aria-controls="panel1" class="conclusion item on">
@@ -262,7 +264,7 @@
                                                                 <a class="item_link">구매 입찰</a>
                                                             </li>
                                                         </ul>
-                                                        <div id="panel1" role="tabpanel" span="sales" class="tw panel1 tab_content show">
+                                                        <div id="panel1" role="tabpanel" span="sales" class="tw tab_content show">
                                                             <div class="table_wrap lg">
                                                                 <table>
                                                                     <caption>
@@ -306,34 +308,14 @@
                                                                         <tr>
                                                                             <th class="table_th">사이즈</th>
                                                                             <th class="table_th align_right">판매 희망가</th>
-                                                                            <th class="table_th align_right">수량</th>
+                                                                            <th class="table_th align_right">입찰일</th>
                                                                         </tr>
                                                                     </thead>
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td class="table_td">260</td>
-                                                                            <td class="table_td align_right">214,000원</td>
-                                                                            <td class="table_td align_right">1</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="table_td">260</td>
-                                                                            <td class="table_td align_right">217,000원</td>
-                                                                            <td class="table_td align_right">1</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="table_td">270</td>
-                                                                            <td class="table_td align_right">219,000원</td>
-                                                                            <td class="table_td align_right">1</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="table_td">240</td>
-                                                                            <td class="table_td align_right">220,000원</td>
-                                                                            <td class="table_td align_right">2</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="table_td">250</td>
-                                                                            <td class="table_td align_right">223,000원</td>
-                                                                            <td class="table_td align_right">1</td>
+                                                                    <tbody class="panel2_tbody">
+                                                                        <tr class="panel2_tr">
+                                                                            <td class="table_td size">260</td>
+                                                                            <td class="table_td align_right price">214,000원</td>
+                                                                            <td class="table_td align_right createdAt"><time>22/12/22</time></td>
                                                                         </tr>
                                                                     </tbody>
                                                                 </table>
@@ -355,34 +337,14 @@
                                                                         <tr>
                                                                             <th class="table_th">사이즈</th>
                                                                             <th class="table_th align_right">구매 희망가</th>
-                                                                            <th class="table_th align_right">수량</th>
+                                                                            <th class="table_th align_right">입찰일</th>
                                                                         </tr>
                                                                     </thead>
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td class="table_td">280</td>
-                                                                            <td class="table_td align_right">303,000원</td>
-                                                                            <td class="table_td align_right">1</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="table_td">230</td>
-                                                                            <td class="table_td align_right">300,000원</td>
-                                                                            <td class="table_td align_right">1</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="table_td">240</td>
-                                                                            <td class="table_td align_right">290,000원</td>
-                                                                            <td class="table_td align_right">1</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="table_td">280</td>
-                                                                            <td class="table_td align_right">286,000원</td>
-                                                                            <td class="table_td align_right">1</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="table_td">240</td>
-                                                                            <td class="table_td align_right">281,000원</td>
-                                                                            <td class="table_td align_right">1</td>
+                                                                    <tbody class="panel3_tbody">
+                                                                        <tr class="panel3_tr">
+                                                                            <td class="table_td size">280</td>
+                                                                            <td class="table_td align_right price">303,000원</td>
+                                                                            <td class="table_td align_right createdAt"><time>23/01/22</time></td>
                                                                         </tr>
                                                                     </tbody>
                                                                 </table>
@@ -706,24 +668,24 @@
                                                     <div class="tab_info">
                                                         <div class="tab_area" id="user_conclusion">
                                                             <ul role="tablist" class="tab_list">
-                                                                <li id="plus1" role="tab" aria-selected="true" aria-controls="panel1" class="plus conclusion item on">
+                                                                <li id="plus1" role="tab" aria-selected="true" aria-controls="panel1" class="plus item on">
                                                                     <a class="item_link">체결 거래</a>
                                                                 </li>
-                                                                <li id="plus2" role="tab" aria-selected="false" aria-controls="panel2" class="plus conclusion item">
+                                                                <li id="plus2" role="tab" aria-selected="false" aria-controls="panel2" class="plus item">
                                                                     <a class="item_link">판매 입찰</a>
                                                                 </li>
-                                                                <li id="plus3" role="tab" aria-selected="false" aria-controls="panel3" class="plus conclusion item">
+                                                                <li id="plus3" role="tab" aria-selected="false" aria-controls="panel3" class="plus item">
                                                                     <a class="item_link">구매 입찰</a>
                                                                 </li>
                                                             </ul>
                                                             <div id="panel11" role="tabpanel" class="tcl tab_content show" span="sales">
                                                                 <div class="price_table">
-                                                                    <div class="market_price_table" style="">
+                                                                    <div class="market_price_table">
                                                                         <div class="price_head">
                                                                             <div class="head_box hb1">
-                                                                                <div class="head_sort"><a href="#" class="sort_link sort"><span class="sort_txt">사이즈</span></a></div>
-                                                                                <div class="head_sort"><a href="#" class="sort_link sort"><span class="sort_txt">거래가</span></a></div>
-                                                                                <div class="head_sort is_active descending"><a href="#" class="sort_link sort"><span class="sort_txt">거래일</span></a></div>
+                                                                                <div class="head_sort"><a class="sort_link sort"><span class="sort_txt">사이즈</span></a></div>
+                                                                                <div class="head_sort"><a  class="sort_link sort"><span class="sort_txt" style="margin-right: 10px;">거래가</span></a></div>
+                                                                                <div class="head_sort"><a class="sort_link sort"><span class="sort_txt" style="margin-right: 15px;">거래일</span></a></div>
                                                                             </div>
                                                                         </div>
                                                                         <div class="con_price_body">
@@ -731,7 +693,7 @@
                                                                                 <div class="body_list">
                                                                                     <div class="list_txt size">270</div>
                                                                                     <div class="list_txt price">218,000원</div>
-                                                                                    <div class="list_txt is_active createdAt"><time>22/12/31</time></div>
+                                                                                    <div class="list_txt createdAt"><time>22/12/31</time></div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -741,12 +703,12 @@
                                                             </div>
                                                             <div id="panel22" role="tabpanel" class="tcl tab_content" span="asks">
                                                                 <div class="price_table">
-                                                                    <div class="market_price_table" style="display: none;">
+                                                                    <div class="market_price_table">
                                                                         <div class="price_head">
                                                                             <div class="head_box">
-                                                                                <div class="head_sort"><a href="#" class="sort_link sort"><span class="sort_txt">사이즈</span></a></div>
-                                                                                <div class="head_sort"><a href="#" class="sort_link sort"><span class="sort_txt">판매 희망가</span></a></div>
-                                                                                <div class="head_sort"><a href="#" class="sort_link"><span class="sort_txt">수량</span></a></div>
+                                                                                <div class="head_sort"><a class="sort_link sort"><span class="sort_txt">사이즈</span></a></div>
+                                                                                <div class="head_sort"><a class="sort_link sort"><span class="sort_txt">판매 희망가</span></a></div>
+                                                                                <div class="head_sort"><a class="sort_link sort"><span class="sort_txt">입찰일</span></a></div>
                                                                             </div>
                                                                         </div>
                                                                         <div class="sell_price_body">
@@ -754,7 +716,7 @@
                                                                                 <div class="body_list">
                                                                                     <div class="list_txt size">270</div>
                                                                                     <div class="list_txt price">218,000원</div>
-                                                                                    <div class="list_txt is_active createdAt"><time>22/12/31</time></div>
+                                                                                    <div class="list_txt createdAt"><time>22/12/31</time></div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -767,12 +729,12 @@
                                                             </div>
                                                             <div id="panel33" role="tabpanel" class="tcl tab_content" span="bids">
                                                                 <div class="price_table">
-                                                                    <div class="market_price_table" style="display: none;">
+                                                                    <div class="market_price_table">
                                                                         <div class="price_head">
                                                                             <div class="head_box">
-                                                                                <div class="head_sort"><a href="#" class="sort_link sort"><span class="sort_txt">사이즈</span></a></div>
-                                                                                <div class="head_sort"><a href="#" class="sort_link sort"><span class="sort_txt">구매 희망가</span></a></div>
-                                                                                <div class="head_sort"><a href="#" class="sort_link"><span class="sort_txt">수량</span></a></div>
+                                                                                <div class="head_sort"><a class="sort_link sort"><span class="sort_txt">사이즈</span></a></div>
+                                                                                <div class="head_sort"><a class="sort_link sort"><span class="sort_txt">구매 희망가</span></a></div>
+                                                                                <div class="head_sort"><a class="sort_link sort"><span class="sort_txt">입찰일</span></a></div>
                                                                             </div>
                                                                         </div>
                                                                         <div class="buy_price_body">
@@ -780,7 +742,7 @@
                                                                                 <div class="body_list">
                                                                                     <div class="list_txt size">270</div>
                                                                                     <div class="list_txt price">218,000원</div>
-                                                                                    <div class="list_txt is_active createdAt"><time>22/12/31</time></div>
+                                                                                    <div class="list_txt createdAt"><time>23/01/22</time></div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>

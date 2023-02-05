@@ -1,0 +1,161 @@
+<link rel="stylesheet" href="/src/styles/layer.css">
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+<div class="layer_name layer lg">
+    <div class="layer_container">
+        <a href="#" class="btn_layer_close">
+            <div>
+                <img src="/img/close_white.png">
+            </div>
+        </a>
+        <div class="layer_header">
+            <h2 class="title"> 이벤트 수정 페이지 </h2>
+        </div>
+        <div class="layer_content">
+        <div class="top">
+            <div class="user_bind">
+                <div class="user_input">
+                    <div class="input_box">
+                        <h4 class="input_title">작성 날짜</h4>
+                        <div class="input_item">
+                            <input type="date" name="reg_date" placeholder="작성 날짜">
+                        </div>
+                    </div>
+                    <div class="input_box">
+                        <h4 class="input_title">상품명</h4>
+                        <div class="input_item">
+                            <input type="text" name="product_name" placeholder="상품명">
+                        </div>
+                    </div>
+                    <div class="input_box">
+                        <h4 class="input_title">상품 코드</h4>
+                        <div class="input_item">
+                            <p>B10538</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="user_bind img">
+                <div class="uploadImg">
+                    <div class="filebox">
+                        <input class="upload-name" value="선택된 파일 없음" disabled="disabled">
+                        <input type="file" id="file1" class="upload-hidden" name="file1">
+                        <label for="file1">이미지 첨부</label>
+                    </div>
+                    <img id="previewImg" onclick="popImage(this.src)">
+                </div>
+            </div>
+        </div>
+        <div class="center">
+            <div class="user_bind">
+                <div class="user_input">
+                    <div class="input_box">
+                        <h4 class="input_title">이벤트 시작 날짜/시간</h4>
+                        <div class="input_item">
+                            <input type="datetime-local" name="event_start"  placeholder="이벤트 시작 날짜/시간">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="user_bind">
+                <div class="user_input">
+                    <div class="input_box">
+                        <h4 class="input_title">이벤트 마감 날짜/시간</h4>
+                        <div class="input_item">
+                            <input type="datetime-local" name="event_end" placeholder="이벤트 시작 날짜/시간">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="user_bind">
+                <div class="user_input">
+                    <div class="input_box">
+                        <h4 class="input_title">수정한 관리자</h4>
+                        <div class="input_item">
+                            <p>김사과</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="layer_btn">
+            <a href="#" class="btn btn_save solid medium">수정</a>
+        </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+        //파일첨부 이벤트
+        $('.filebox .upload-hidden').on('change', function(){  			
+            if(window.FileReader){
+                var filename = $(this)[0].files[0].name;
+                if(!validFileType(filename)){
+                    alert("허용하지 않는 확장자 파일입니다.");
+                    return false;
+                }else{
+                    if(!validFileSize($(this)[0].files[0])){
+                        alert("파일 사이즈가 10MB를 초과합니다.");
+                        return false;
+                    }else{
+                        if(!validFileNameSize(filename)){
+                            alert("파일명이 30자를 초과합니다.");
+                            return false;
+                        }
+                    }
+                }
+            } else {
+                var filename = $(this).val().split('/').pop().split('\\').pop();
+            }
+            $(this).prev().val(filename); //input upload-name 에 파일명 설정해주기
+
+            readImage($(this)[0]); //미리보기
+        });
+    });
+
+    function validFileType(filename) {
+        const fileTypes = ["png", "jpg", "jpeg"];
+		return fileTypes.indexOf(filename.substring(filename.lastIndexOf(".")+1, filename.length).toLowerCase()) >= 0;
+	}
+    function validFileSize(file){
+        if(file.size > 10000000){ //10MB
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+    function validFileNameSize(filename){
+        if(filename.length > 30){ //30자
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+    //이미지 띄우기
+    function readImage(input) {
+	    if(input.files && input.files[0]) {
+	        const reader = new FileReader();
+	        reader.onload = function(e){
+	            const previewImage = document.getElementById("previewImg");
+	            previewImage.src = e.target.result;
+	        }
+	        // reader가 이미지 읽도록 하기
+	        reader.readAsDataURL(input.files[0]);
+	    }
+	}
+    //이미지 원본 팝업 띄우기
+    function popImage(url) {
+        var img = new Image();
+        img.src = url;
+        var img_width = img.width;
+        var win_width = img.width + 25;
+        var img_height = img.height;
+        var win = img.height + 30;
+        var popup = window.open('', '_blank', 'width=' + img_width + ', height=' + img_height + ', menubars=no, scrollbars=auto');
+        popup.document.write("<style>body{margin:0px;}</style><img src='"+url+"' width='"+win_width+"'>");
+    }
+</script>

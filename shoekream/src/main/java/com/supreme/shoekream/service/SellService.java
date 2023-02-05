@@ -209,11 +209,11 @@ public class SellService {
     }
 
     public List<SellDTO> sellList(Long productIdx){
-        Sell sell = sellRepository.findById(productIdx).get();
-        if(sell.getIdx() == null){
+        Product product = productRepository.findById(productIdx).get();
+        if(product.getIdx() == null){
             return null;
         }
-        return sellRepository.findAllByProductOrderByCreatedAtDesc(sell).stream()
+        return sellRepository.findAllByProductOrderByCreatedAtDesc(product).stream()
                 .map(SellDTO::fromEntity).collect(Collectors.toCollection(LinkedList::new));
     }
 
