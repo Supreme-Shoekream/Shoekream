@@ -200,9 +200,12 @@ public class ShopApiLogicService extends BaseService<ProductApiRequest, ProductA
         List<Long> tagCount = new ArrayList<>();
         products.forEach(
                 product -> {
-                    tagCount.add(tagRepository.countByProduct(product));
-                }
-        );
+                    final long[] totalCount = {0L};
+                    List<Product> sameNameProducts = productRepository.findAllByName(product.getName());
+                    sameNameProducts.stream().mapToLong(tagRepository::countByProduct
+                    ).forEach(count -> totalCount[0] +=count);
+                    tagCount.add(totalCount[0]);
+                });
         return tagCount;
     }
 }

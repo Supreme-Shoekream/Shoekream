@@ -312,3 +312,7 @@ function wishDelete(product_idx) {
             console.log(err);
         })
 }
+
+function tag_href(product_idx){
+    location.href = '/social/social_product/'+product_idx;
+}
