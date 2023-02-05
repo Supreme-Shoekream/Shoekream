@@ -1,11 +1,13 @@
 package com.supreme.admin.service;
 
+import com.supreme.admin.model.dto.ProductDTO;
 import com.supreme.admin.model.entity.Product;
 import com.supreme.admin.model.network.Header;
 import com.supreme.admin.model.network.Pagination;
 import com.supreme.admin.model.network.request.ProductApiRequest;
 import com.supreme.admin.model.network.response.ProductApiResponse;
 import com.supreme.admin.repository.ProductRepository;
+import com.supreme.admin.repository.SellRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -19,6 +21,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class AdminProductApiLogicService extends BaseService<ProductApiRequest, ProductApiResponse, Product> {
     private final ProductRepository productRepository;
+    private final SellRepository sellRepository;
 
     private ProductApiResponse response(Product product){
         ProductApiResponse productApiResponse = ProductApiResponse.builder()
@@ -28,14 +31,13 @@ public class AdminProductApiLogicService extends BaseService<ProductApiRequest, 
                 .name(product.getName())
                 .nameKor(product.getNameKor())
                 .size(product.getSize())
-//                .wishCount(product.getWishCount())
                 .modelNum(product.getModelNum())
                 .releaseDate(product.getReleaseDate())
                 .color(product.getColor())
                 .firstPrice(product.getFirstPrice())
-                .category(product.getCategory())
                 .gender(product.getGender())
                 .collection(product.getCollection())
+                .category(product.getCategory())
                 .build();
         return productApiResponse;
     }
@@ -44,19 +46,18 @@ public class AdminProductApiLogicService extends BaseService<ProductApiRequest, 
     public Header<ProductApiResponse> create(Header<ProductApiRequest> request) {
         ProductApiRequest productApiRequest = request.getData();
         Product product = Product.builder()
-                .name(productApiRequest.getName())
-                .nameKor(productApiRequest.getNameKor())
                 .img(productApiRequest.getImg())
                 .brand(productApiRequest.getBrand())
+                .name(productApiRequest.getName())
+                .nameKor(productApiRequest.getNameKor())
                 .size(productApiRequest.getSize())
-                .wishCount(productApiRequest.getWishCount())
-                .category(productApiRequest.getCategory())
                 .modelNum(productApiRequest.getModelNum())
                 .releaseDate(productApiRequest.getReleaseDate())
                 .color(productApiRequest.getColor())
                 .firstPrice(productApiRequest.getFirstPrice())
                 .gender(productApiRequest.getGender())
                 .collection(productApiRequest.getCollection())
+                .category(productApiRequest.getCategory())
                 .build();
         Product newProduct = baseRepository.save(product);
         return Header.OK(response(newProduct));
@@ -81,14 +82,13 @@ public class AdminProductApiLogicService extends BaseService<ProductApiRequest, 
                             product.setName(productApiRequest.getName());
                             product.setNameKor(productApiRequest.getNameKor());
                             product.setSize(productApiRequest.getSize());
-                            product.setWishCount(productApiRequest.getWishCount());
                             product.setModelNum(productApiRequest.getModelNum());
                             product.setReleaseDate(productApiRequest.getReleaseDate());
-                            product.setFirstPrice(productApiRequest.getFirstPrice());
                             product.setColor(productApiRequest.getColor());
-                            product.setCategory(productApiRequest.getCategory());
+                            product.setFirstPrice(productApiRequest.getFirstPrice());
                             product.setGender(productApiRequest.getGender());
                             product.setCollection(productApiRequest.getCollection());
+                            product.setCategory(productApiRequest.getCategory());
                             return product;
                         }).map(product -> productRepository.save(product))
                 .map(product -> response(product))
@@ -119,5 +119,13 @@ public class AdminProductApiLogicService extends BaseService<ProductApiRequest, 
                 .build();
         return Header.OK(productApiResponses, pagination);
     }
+
+//    public Page<ProductDTO> search(Long searchKeyword, String searchKeyword2, Pageable pageable){
+//        if(searchKeyword == null || searchKeyword2 == null || searchKeyword2.isBlank()){
+//            return productRepository.findAll(pageable).map(ProductDTO::fromEntity);
+//        }
+//        // idx, brand, firstPrice
+//        return productRepository.findByIdxContainingOrBrandContainingOrFirstPriceContaining(searchKeyword, searchKeyword2, searchKeyword, pageable).map(ProductDTO::fromEntity);
+//    }
 
 }
