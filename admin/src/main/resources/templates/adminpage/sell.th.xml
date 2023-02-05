@@ -6,22 +6,22 @@
     <attr sel="#sell_table" th:object="${sells}">
         <attr sel="thead/tr">
 
-            <attr sel="th.order_num/a" th:href="@{/admin/sell(page=${sells.number},sort='idx'+
+            <attr sel="th.order_num/a" th:href="@{/sell(page=${sells.number},sort='idx'+
                 (*{sort.getOrderFor('idx')} != null ? (*{sort.getOrderFor('idx').direction.name} != 'DESC' ? ',desc' : '') : ''),
                 searchKeyword=${param.searchValue}
                 )}"/>
 
-            <attr sel="th.size/a" th:href="@{/admin/sell(page=${sells.number},sort='product.size'+
+            <attr sel="th.size/a" th:href="@{/sell(page=${sells.number},sort='product.size'+
                 (*{sort.getOrderFor('product.size')} != null ? (*{sort.getOrderFor('product.size').direction.name} != 'DESC' ? ',desc' : '') : ''),
                 searchKeyword=${param.searchValue}
                 )}"/>
 
-            <attr sel="th.price/a" th:href="@{/admin/sell(page=${sells.number},sort='price'+
+            <attr sel="th.price/a" th:href="@{/sell(page=${sells.number},sort='price'+
                 (*{sort.getOrderFor('price')} != null ? (*{sort.getOrderFor('price').direction.name} != 'DESC' ? ',desc' : '') : ''),
                 searchKeyword=${param.searchValue}
                 )}"/>
 
-            <attr sel="th.period/a" th:href="@{/admin/sell(page=${sells.number},sort='period'+
+            <attr sel="th.period/a" th:href="@{/sell(page=${sells.number},sort='period'+
                 (*{sort.getOrderFor('period')} != null ? (*{sort.getOrderFor('period').direction.name} != 'DESC' ? ',desc' : '') : ''),
                 searchKeyword=${param.searchValue}
                 )}"/>
@@ -51,15 +51,15 @@
 
         <attr sel=".pagination">
             <attr sel="li[0]/a" th:text="'◀'"
-                  th:href="@{/admin/sell(page=${sells.number - 1}, searchKeyword=${param.searchKeyword})}"
+                  th:href="@{/sell(page=${sells.number - 1}, searchKeyword=${param.searchKeyword})}"
                   th:class="'page-link'+(${sells.number}<=0 ? ' disabled' : '')"/>
             <attr sel="li[1]" th:class="page-item" th:each="pageNumber : ${barNumbers}">
                 <attr sel="a" th:text="${pageNumber + 1}"
-                      th:href="@{/admin/sell(page=${pageNumber}, searchKeyword=${param.searchKeyword})}"
+                      th:href="@{/sell(page=${pageNumber}, searchKeyword=${param.searchKeyword})}"
                       th:class="'page-link'+(${pageNumber}==${sells.number} ? ' disabled' : '')"/>
             </attr>
             <attr sel="li[2]/a" th:text="'▶'"
-                  th:href="@{/admin/sell(page=${sells.number + 1}, searchKeyword=${param.searchKeyword})}"
+                  th:href="@{/sell(page=${sells.number + 1}, searchKeyword=${param.searchKeyword})}"
                   th:class="'page-link'+(${sells.number}>=${sells.totalPages -1} ? ' disabled' : '')"/>
         </attr>
 

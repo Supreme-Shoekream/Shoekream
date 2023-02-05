@@ -37,6 +37,10 @@ public interface ProductRepository extends JpaRepository<Product, Long>, Queryds
     Page<Product> findByBrand(String brand, Pageable pageable);
 
     Page<Product> findByIdxContainingOrBrandContainingOrFirstPriceContaining(Long idx, String brand, Long firstPrice, Pageable pageable);
+    
+    long countBy();
+    List<Product> findTop10ByOrderByWishCountDesc();
+
 }
 
 

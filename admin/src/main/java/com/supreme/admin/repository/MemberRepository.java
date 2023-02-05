@@ -11,4 +11,6 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
     Member findByIdx(Long idx);
     Optional<Member> deleteByIdx(Long idx);
     Member getReferenceByIdx(Long idx);
+
+    long countBy();
 }

@@ -1,7 +1,9 @@
 package com.supreme.admin.controller.page;
 
 
+import com.supreme.admin.model.dto.ProductDTO;
 import com.supreme.admin.model.entity.Conclusion;
+import com.supreme.admin.model.entity.Product;
 import com.supreme.admin.model.network.Pagination;
 import com.supreme.admin.model.network.response.BuyResponse;
 import com.supreme.admin.model.network.response.SellResponse;
@@ -37,6 +39,7 @@ import java.util.List;
 public class AdminPageController {
     private final PaginationService paginationService;
     private final AdminApiLogicService adminApiLogicService;
+    private final DashboardService dashboardService;
 
     @PostMapping(path="/loginOk")   //http://localhost:8889/loginOk
     public String loginOk(HttpServletRequest request, String userid, String userpw){
@@ -69,7 +72,19 @@ public class AdminPageController {
     public String index(HttpServletRequest request, ModelMap map){
         String session = sessionCheck(request);
         if(session == null) return "redirect:/login";
+//        List<Product> products = dashboardService.popularProducts();
+        List<Product> products = dashboardService.bestSeller();
+        List<Long> totalDealPrice = dashboardService.totalDealPrice(products);
+        List<Long> totalDealCount = dashboardService.totalDealCount(products);
+        System.out.println("🍒🍒"+products +"🍕🍕"+ totalDealPrice+"🍔🍔"+totalDealCount);
         map.addAttribute("sessionInfo",session);
+        map.addAttribute("userCount",dashboardService.userCount());
+        map.addAttribute("productCount",dashboardService.productCount());
+        map.addAttribute("feedCount",dashboardService.feedCount());
+        map.addAttribute("conclusionCount",dashboardService.conclusionCount());
+        map.addAttribute("products",products);
+        map.addAttribute("totalDealPrice",totalDealPrice);
+        map.addAttribute("totalDealCount",totalDealCount);
         return "/adminpage/index";
     }   //viewName: 페이지이름이랑 같아야함
 

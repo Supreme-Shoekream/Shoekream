@@ -18,10 +18,10 @@ const debounce=(e, callback)=> {
 
 // 휴대폰 번호 정규 표현식
 function validateHp(strHp){
-    const reg_hp = /^01(?:0|1|6|7|8|9)(?:\d{3}|\d{4})\d{4}$/;
+  /*  const reg_hp = /^01(?:0|1|6|7|8|9)(?:\d{3}|\d{4})\d{4}$/;
     if(!reg_hp.test(''+strHp)){
         return false;
-    }
+    }*/
     return true;
 }
 
@@ -35,25 +35,25 @@ function validateEmail(strEmail){
 }
 
 // 휴대폰 번호 유효성 검사
-document.querySelector('#hp_input').addEventListener('input', e=>{
-    debounce(e, strHp=>{
-        let errorMsg='';
-        if(!validateHp(strHp)){
-            errorMsg='휴대폰 번호를 정확히 입력해주세요.';
-            document.querySelector('#hp_input_box').className='input_box has_error';
-            document.querySelector('#find_btn').className='btn full solid disabled';
-        } else {
-            document.querySelector('#hp_input_box').className='input_box fill';
-            if(document.querySelector('#email_input_box').classList.contains('fill')){
-                document.querySelector('#find_btn').className='btn full solid';
-                document.querySelector('#find_btn').disabled=false;
-            } else {
-                document.querySelector('#find_btn').className='btn full solid disabled';
-            }
-        }
-        document.querySelector('#hp_input_error').innerHTML=errorMsg;
-    })
-});
+// document.querySelector('#hp_input').addEventListener('input', e=>{
+//     debounce(e, strHp=>{
+//         let errorMsg='';
+//         if(!validateHp(strHp)){
+//             errorMsg='휴대폰 번호를 정확히 입력해주세요.';
+//             document.querySelector('#hp_input_box').className='input_box has_error';
+//             document.querySelector('#find_btn').className='btn full solid disabled';
+//         } else {
+//             document.querySelector('#hp_input_box').className='input_box fill';
+//             if(document.querySelector('#email_input_box').classList.contains('fill')){
+//                 document.querySelector('#find_btn').className='btn full solid';
+//                 document.querySelector('#find_btn').disabled=false;
+//             } else {
+//                 document.querySelector('#find_btn').className='btn full solid disabled';
+//             }
+//         }
+//         document.querySelector('#hp_input_error').innerHTML=errorMsg;
+//     })
+// });
 
 //이메일 유효성 검사
 document.querySelector('#email_input').addEventListener('input', e=>{
@@ -79,7 +79,7 @@ document.querySelector('#email_input').addEventListener('input', e=>{
 // 버튼 활성화
 let strHp
 let strEmail
-document.querySelectorAll('#hp_input').forEach((item) =>{
+document.querySelectorAll('#name_input').forEach((item) =>{
     item.addEventListener('blur', e=>{
         strHp=e.target.value;
         if((validateHp(strHp))&&(validateHp(strHp))){

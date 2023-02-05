@@ -4,6 +4,7 @@ import com.supreme.shoekream.model.dto.WishDTO;
 import com.supreme.shoekream.model.network.security.KreamPrincipal;
 import com.supreme.shoekream.service.ProductApiLogicService;
 import com.supreme.shoekream.service.WishApiLogicService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -12,10 +13,11 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @Slf4j
+@RequiredArgsConstructor
 @RequestMapping("/api/product") // http://localhost:8889/api/product
 public class ProductApiController {
-    @Autowired ProductApiLogicService productApiLogicService;
-    @Autowired WishApiLogicService wishApiLogicService;
+    private final ProductApiLogicService productApiLogicService;
+    private final WishApiLogicService wishApiLogicService;
 
 
     // 관심상품 생성
