@@ -13,7 +13,7 @@ function search_buy(){
  */
 function pop_buy_view(idx){
 
-    fetch('http://localhost:8889/api/order/buy/'+idx)
+    fetch('http://localhost:8899/api/order/buy/'+idx)
         .then((response) => response.json())
         .then((data) => {
             console.log(data)
@@ -49,7 +49,7 @@ function close_buy_view(){
 function pop_buy_edit(idx){
     document.querySelector(".layer_buy_edit").style.display = "block";
     //미리 찍어줘야함
-    fetch('http://localhost:8889/api/order/buy/'+idx)
+    fetch('http://localhost:8899/api/order/buy/'+idx)
         .then((response) => response.json())
         .then((data) => {
             console.log(data)
@@ -81,7 +81,7 @@ function sendedit(idx) {
     const ship_status = document.getElementById('ship_status')
     console.log(ship_status);
     console.log(ship_status.value);
-    fetch('http://localhost:8889/api/order/buy/'+idx, {
+    fetch('http://localhost:8899/api/order/buy/'+idx, {
         method: 'PUT',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -123,7 +123,7 @@ function pop_buy_delete(idx){
     });
 }
 function buydelete(idx){
-    fetch('http://localhost:8889/api/order/buy/'+idx, {
+    fetch('http://localhost:8899/api/order/buy/'+idx, {
         method: "DELETE",
     })
         .then((res) => {

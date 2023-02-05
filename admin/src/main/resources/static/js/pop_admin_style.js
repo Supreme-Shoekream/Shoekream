@@ -1,5 +1,5 @@
 function pop_style_view(idx){
-    fetch("http://localhost:8889/api/social/" +idx)
+    fetch("http://localhost:8899/api/social/" +idx)
         .then((response) => response.json())
         .then((data) => {
             console.log(data)
@@ -71,7 +71,7 @@ function pop_style_delete_down(){
 }
 
 function delete_board(idx){
-    fetch("http://localhost:8889/api/social/" +idx, {
+    fetch("http://localhost:8899/api/social/" +idx, {
         method:"DELETE"
     }).then((res)=>{
             alert('삭제 완료');

@@ -24,7 +24,7 @@
         <div class="pd-20" id="top">
           <h4 class="text-blue h4">사용자 리스트</h4>
         </div>
-        <div class="pb-20">
+        <div class="pb-20" id="users_table">
           <div class="row">
             <div class="col-sm-12 col-md-6">
               <div class="dataTables_length" id="DataTables_Table_0_length">
@@ -55,11 +55,11 @@
             </thead>
             <tbody id="itemList">
             <tr class="bg-pink">
-              <td>name</td>
-              <td>email</td>
-              <td>hp</td>
-              <td>shoeSize</td>
-              <td>
+              <td class="name">name</td>
+              <td class="email">email</td>
+              <td class="phone_number">hp</td>
+              <td class="shoe_size">shoeSize</td>
+              <td class="more">
                 <div class="dropdown">
                   <a
                           class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
@@ -70,16 +70,16 @@
                     <i class="dw dw-more"></i>
                   </a>
                   <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                    <a class="dropdown-item" href="#" onclick="pop_member_view()"
+                    <a class="dropdown-item" class="view_btn" href="#" onclick="pop_member_view()"
                     ><i class="dw dw-eye"></i> View</a>
 
-                    <a class="dropdown-item" href="#"
+                    <a class="dropdown-item" href="#" class="point_btn"
                     ><i class="bi bi-hand-thumbs-up"></i> Point</a>
 
-                    <a class="dropdown-item" href="#"
+                    <a class="dropdown-item" href="#" class="penalty_btn"
                     ><i class="bi bi-x-octagon-fill"></i> Penalty</a>
 
-                    <a class="dropdown-item" href="#"
+                    <a class="dropdown-item" href="#" class="blacklist_btn"
                     ><i class="bi bi-people-fill"></i> Blacklist</a>
                   </div>
                 </div>
@@ -109,8 +109,8 @@
               </div>
             </div>
           </div>
-          <div id="showPage" class="card-box">총 {{totalPages}}페이지 중 {{currentPage}}페이지</div>
-          <div id="pageNum" class="dataTables_info" role="status"></div>
+<!--          <div id="showPage" class="card-box">총 {{totalPages}}페이지 중 {{currentPage}}페이지</div>-->
+<!--          <div id="pageNum" class="dataTables_info" role="status"></div>-->
         </div>
       </div>
       <!-- Simple Datatable End -->
@@ -119,10 +119,66 @@
 </div>
 <div th:replace="adminpage/admin_layer/pop_point :: point"></div>
 <div th:replace="adminpage/admin_layer/layer_user_view :: member_view"></div>
+<!-- 패널티 등록 -->
+<div class="layer_penalty layer lg" style="display: none">
+  <div class="layer_container">
+    <a href="#" class="btn_layer_close">
+      <div>
+        <img src="/img/close_white.png" onclick="close_penalty()">
+      </div>
+    </a>
+
+    <div class="layer_header">
+      <h2 class="title"> 패널티 </h2>
+    </div>
+    <div class="layer_content">
+      <div class="top">
+        <div class="user_bind">
+          <div class="user_input">
+            <div class="input_box ">
+              <h4 class="input_title">패널티</h4>
+              <!-- 사용자 아이디 시작 -->
+              <div class="input_item">
+                <p class="title">사용자ID</p>
+                <p class="info">apple</p>
+              </div>
+              <!-- 사용자 아이디 끝 -->
+
+              <!-- 패널티 사유 시작 -->
+              <div class="input_item">
+                <p class="title">패널티 사유</p>
+                <select class="info" name="reason" id="select">
+                  <option value="delayed">발송 지연</option>
+                  <option value="denied">판매 거부</option>
+                  <option value="empty">미입고</option>
+                  <option value="mis">검수기준 악용</option>
+                </select>
+              </div>
+              <!-- 패널티 사유 끝 -->
+
+              <!-- 상품 코드 시작 -->
+              <div class="input_item">
+                <p class="title">상품 코드</p>
+                <p class="info">jdfljaei29</p>
+              </div>
+              <!-- 상품 코드 끝 -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="layer_btn">
+        <a href="#" class="btn btn_save_penalty solid medium">확인</a>
+        <a href="#" class="btn btn_save solid medium " onclick="close_penalty()"> 취소 </a>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- js -->
 <div th:replace="fragment/adminjs :: js"></div>
-<script src="/js/member_list.js"></script>
+<!--<script src="/js/member_list.js"></script>-->
 <script src="/js/point.js"></script>
 <script src="/js/member_crud.js"></script>
 

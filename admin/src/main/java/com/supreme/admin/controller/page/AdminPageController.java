@@ -1,6 +1,8 @@
 package com.supreme.admin.controller.page;
 
 
+import com.supreme.admin.model.dto.MemberDTO;
+import com.supreme.admin.model.dto.PenaltyDTO;
 import com.supreme.admin.model.dto.ProductDTO;
 import com.supreme.admin.model.entity.Conclusion;
 import com.supreme.admin.model.entity.Product;
@@ -41,7 +43,11 @@ public class AdminPageController {
     private final PaginationService paginationService;
     private final AdminApiLogicService adminApiLogicService;
     private final DashboardService dashboardService;
+
+    private final PenaltyApiLogicService penaltyApiLogicService;
+    private final MemberApiLogicService memberApiLogicService;
     private final ConclusionService conclusionService;
+
 
     @PostMapping(path="/loginOkYeah")   //http://localhost:8889/loginOk
     public String loginOk(HttpServletRequest request, String userid, String userpw){
@@ -91,10 +97,16 @@ public class AdminPageController {
     }   //viewName: 페이지이름이랑 같아야함
 
     @GetMapping(path="users")   //http://localhost:8889//users
-    public ModelAndView users(HttpServletRequest request){
+    public String users(@RequestParam(required = false) String searchKeyword,
+                        @PageableDefault(size = 10, sort = "idx", direction = Sort.Direction.DESC) Pageable pageable,
+                        ModelMap map,HttpServletRequest request){
         String session = sessionCheck(request);
 //        if(session == null)  return new ModelAndView( "/adminpage/login.html");
-        return new ModelAndView("/adminpage/users.html").addObject("sessionInfo",session);
+        Page<MemberDTO> members = memberApiLogicService.searchMember(searchKeyword,pageable);
+        List<Integer> barNumbers = paginationService.getPaginationBarNumbers(pageable.getPageNumber(),members.getTotalPages());
+        map.addAttribute("users",members);
+        map.addAttribute("barNumbers",barNumbers);
+        return "/adminpage/users";
     }
 
     @GetMapping(path="products")   //http://localhost:8889//products
@@ -185,4 +197,15 @@ public class AdminPageController {
         return new ModelAndView("adminpage/login");
     }
 
+
+    @GetMapping("/penalty")
+    public String penalty(@RequestParam(required = false) String searchKeyword,
+                          @PageableDefault(size = 10, sort = "idx", direction = Sort.Direction.DESC) Pageable pageable,
+                          ModelMap map,HttpServletRequest request){
+        Page<PenaltyDTO> penaltys =penaltyApiLogicService.searchPenalty(searchKeyword,pageable);
+        List<Integer> barNumbers = paginationService.getPaginationBarNumbers(pageable.getPageNumber(),penaltys.getTotalPages());
+        map.addAttribute("penaltys",penaltys);
+        map.addAttribute("barNumbers",barNumbers);
+        return "/adminpage/penalty";
+    }
 }
