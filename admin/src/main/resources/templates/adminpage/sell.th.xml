@@ -44,6 +44,7 @@
 <!-- View, Delete 부분 -->
             <attr sel=".dropdown">
                 <attr sel="#view_btn" th:onclick="'javascript:layer_sell_view('+ ${sell.idx} + ');'"/>
+                <attr sel="#penalty_btn" th:onclick="'javascript:pop_penalty(' + ${sell.idx} + ');'"/>
                 <attr sel="#delete_btn" th:onclick="'javascript:pop_sell_delete(' + ${sell.idx} + ');'"/>
             </attr>
         </attr>
