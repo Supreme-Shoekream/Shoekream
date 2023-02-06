@@ -17,6 +17,7 @@
         <attr sel="#service_charge" th:text="${sell.fees} + '원'"/>
         <attr sel="#final_price" th:text="${sell.totalPrice} + '원'"/>
         <attr sel="#regdate_txt" th:datetime="${sell.createdAt}" th:text="${#temporals.format(sell.createdAt, 'yyyy/MM/dd')}"/>
+        <attr sel="#period" th:text="${sell.period+' - '+ #temporals.format(sell.createdAt, 'yy/MM/dd')}"/>
     </attr>
     <!--배송 정보-->
     <attr sel=".shipping_address_wrap">

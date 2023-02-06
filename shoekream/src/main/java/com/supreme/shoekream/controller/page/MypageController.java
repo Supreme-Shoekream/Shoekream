@@ -114,18 +114,24 @@ public class MypageController {
 
     @GetMapping(path = "selling")
     public String selling(ModelMap map, @PageableDefault(size = 10, sort = "createdAt", direction = Sort.Direction.DESC) Pageable pageable
-            , @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+            , @AuthenticationPrincipal KreamPrincipal kreamPrincipal, @RequestParam(required = false) Long month){
         MemberDTO memberDTO = kreamPrincipal.toFullDto();
-        Page<SellResponse> biddings =sellService.mySellListByStatus(memberDTO.idx(), OrderStatus.BIDDING, pageable).map(SellResponse::from);
-        Page<SellResponse> progressings =sellService.mySellListByStatus(memberDTO.idx(), OrderStatus.PROGRESSING, pageable).map(SellResponse::from);
-        Page<SellResponse> ends =sellService.mySellListByStatus(memberDTO.idx(), OrderStatus.END, pageable).map(SellResponse::from);
+        Page<SellResponse> biddings =sellService.mySellListByStatus(memberDTO.idx(), OrderStatus.BIDDING, month, pageable).map(SellResponse::from);
+        Page<SellResponse> progressings =sellService.mySellListByStatus(memberDTO.idx(), OrderStatus.PROGRESSING, month, pageable).map(SellResponse::from);
+        Page<SellResponse> ends =sellService.mySellListByStatus(memberDTO.idx(), OrderStatus.END, month, pageable).map(SellResponse::from);
         map.addAttribute("biddings",biddings);
         map.addAttribute("progressings",progressings);
         map.addAttribute("ends",ends);
         map.addAttribute("bidCount",biddings.stream().toList().size());
         map.addAttribute("proCount",progressings.stream().toList().size());
         map.addAttribute("endCount",ends.stream().toList().size());
-        System.out.println("입찰중"+biddings+"진행중"+progressings+"종료"+ends);
+        if(month != null){
+            map.addAttribute("today", LocalDateTime.now());
+            map.addAttribute("before", LocalDateTime.now().minusMonths(month));
+        }else{
+            map.addAttribute("today", null);
+            map.addAttribute("before", null);
+        }
         return ("/my/selling");
     }
 
