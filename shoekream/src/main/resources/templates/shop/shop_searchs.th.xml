@@ -55,7 +55,7 @@
         <!-- 카테고리 -->
         <attr sel="#category_list" th:classappend="${param.category} != null ?(${param.category.toString}==''? '':'selected'):''">
             <attr sel="#category_title" th:text="${param.category} != null ?(${param.category.toString}==''? '모든 카테고리' : ${param.category.toString}):'모든 카테고리'"
-                                        th:style="${param.category} != null ?(${param.category.toString}==''? 'display:block' : 'display:none'):'display:block'"/>
+                  th:style="${param.category} != null ?(${param.category.toString}==''? 'display:block' : 'display:none'):'display:block'"/>
             <attr sel="#category_btn_on"  th:if="${param.category} == null or ${param.category.toString}=='' "/>
             <attr sel="#category_btn_off"  th:if="${param.category} != null and ${param.category.toString}!=''"/>
             <attr sel="#drop-category" th:style="${param.category} != null ?(${param.category.toString}==''? 'display:none':'display:block'):'display:none'">
@@ -72,7 +72,7 @@
         <!-- 브랜드 -->
         <attr sel="#brand_list" th:classappend="${param.brand} != null?(${param.brand.toString}==''? '':'selected'):''">
             <attr sel="#brand_title" th:text="${param.brand} != null ?(${param.brand.toString}==''? '모든 브랜드' : ${param.brand.toString}):'모든 브랜드'"
-                                     th:style="${param.brand} != null ?(${param.brand.toString}==''? 'display:block' : 'display:none'):'display:block'"/>
+                  th:style="${param.brand} != null ?(${param.brand.toString}==''? 'display:block' : 'display:none'):'display:block'"/>
             <attr sel="#brand_btn_on"  th:if="${param.brand} == null or ${param.brand.toString}=='' "/>
             <attr sel="#brand_btn_off"  th:if="${param.brand} != null and ${param.brand.toString}!=''"/>
             <attr sel="#drop-brand" th:remove="all-but-first" th:style="${param.brand} != null ?(${param.brand.toString}==''? 'display:none':'display:block'):'display:none'">
@@ -86,15 +86,15 @@
         </attr>
 
         <!-- 브랜드 리스트 출력 -->
-<!--        <attr sel="#drop-brand" th:remove="all-but-first">-->
-<!--            <attr sel="#brandCheckList" th:each="brand : ${brands}">-->
-<!--                <attr sel=".check" th:id="${'input'+(brandStat.index+5)}" />-->
-<!--                <attr sel="label" th:for="${'input'+(brandStat.index+5)}">-->
-<!--                    <attr sel="#brandNameInfo" th:text="${brand}"/>-->
-<!--                </attr>-->
-<!--            </attr>-->
-<!--        </attr>-->
-<!--        <attr sel="#input7" th:checked="true"/>-->
+        <!--        <attr sel="#drop-brand" th:remove="all-but-first">-->
+        <!--            <attr sel="#brandCheckList" th:each="brand : ${brands}">-->
+        <!--                <attr sel=".check" th:id="${'input'+(brandStat.index+5)}" />-->
+        <!--                <attr sel="label" th:for="${'input'+(brandStat.index+5)}">-->
+        <!--                    <attr sel="#brandNameInfo" th:text="${brand}"/>-->
+        <!--                </attr>-->
+        <!--            </attr>-->
+        <!--        </attr>-->
+        <!--        <attr sel="#input7" th:checked="true"/>-->
 
         <!-- 성별 -->
         <attr sel="#gender_list" th:classappend="${param.gender} != null?(${param.gender.toString}==''? '':'selected'):''">
@@ -150,12 +150,12 @@
 
 
         <!--/*기능4: 오름차순 내림차순*/-->
-        <attr sel=".sorting_title" th:text="${products.sort.getOrderFor('idx')}!=null ? '인기순':
-                                            (${products.sort.getOrderFor('name')}!=null?'인기순':
+        <attr sel=".sorting_title" th:text="${products.sort.getOrderFor('wishCount')}!=null ? '인기순':
+                                            (${products.sort.getOrderFor('idx')}!=null?'최신순':
                                             (${products.sort.getOrderFor('firstPrice')}!=null?
-                                                        (${products.sort.getOrderFor('firstPrice').direction.name} == 'DESC'?'발매가 높은순':'발매가 낮은순'):'발매가 낮은순'))"/>
+                                            (${products.sort.getOrderFor('firstPrice').direction.name} == 'DESC'?'발매가 높은순':'발매가 낮은순'):'인기순'))"/>
 
-        <attr sel="#sort_by_wish_desc" th:href="@{/searchs(page=${products.number},sort='wish',psize=${param.psize},brand=${param.brand},
+        <attr sel="#sort_by_wish_desc" th:href="@{/searchs(page=${products.number},sort='wishCount,desc',psize=${param.psize},brand=${param.brand},
             category=${param.category},collection=${param.collection},gender=${param.gender},keyword=${param.keyword})}"/>
         <attr sel="#sort_by_price_asc" th:href="@{/searchs(page=${products.number},sort='firstPrice,asc',psize=${param.psize},brand=${param.brand},
             category=${param.category},collection=${param.collection},gender=${param.gender},keyword=${param.keyword})}"/>
@@ -192,16 +192,16 @@
         <attr sel=".pagination_box">
             <attr sel=".prev_btn_box/a" th:href="@{/searchs(page=${products.number - 1},sort=${param.sort},psize=${param.psize},brand=${param.brand},
             category=${param.category},collection=${param.collection},gender=${param.gender},keyword=${param.keyword})}"
-            th:style="(${products.number} <=0 ? 'display:none':'display:block')"/>
+                  th:style="(${products.number} <=0 ? 'display:none':'display:block')"/>
             <attr sel=".page_bind" th:each="pageNumber : ${barNumbers}">
                 <attr sel="a" th:text="${pageNumber + 1}"
-                th:href="@{/searchs(page=${pageNumber},sort=${param.sort},psize=${param.psize},brand=${param.brand},
+                      th:href="@{/searchs(page=${pageNumber},sort=${param.sort},psize=${param.psize},brand=${param.brand},
             category=${param.category},collection=${param.collection},gender=${param.gender},keyword=${param.keyword})}"
-                th:class="'btn_page'+(${pageNumber}==${products.number}? ' active':'')"/>
+                      th:class="'btn_page'+(${pageNumber}==${products.number}? ' active':'')"/>
             </attr>
             <attr sel=".next_btn_box/a" th:href="@{/searchs(page=${products.number + 1},sort=${param.sort},psize=${param.psize},brand=${param.brand},
             category=${param.category},collection=${param.collection},gender=${param.gender},keyword=${param.keyword})}"
-            th:style="(${products.number} >= ${products.totalPages -1}  ? 'display:none':'display:block')"/>
+                  th:style="(${products.number} >= ${products.totalPages -1}  ? 'display:none':'display:block')"/>
         </attr>
     </attr>
 </thlogic>
