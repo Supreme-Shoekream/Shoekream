@@ -87,6 +87,8 @@ public class AdminPageController {
         map.addAttribute("products",products);
         map.addAttribute("totalDealPrice",totalDealPrice);
         map.addAttribute("totalDealCount",totalDealCount);
+        System.out.println("탑 포스팅" + styleLogicService.unlog_trend());
+        map.addAttribute("topPosting",styleLogicService.unlog_trend().get(0));
         return "/adminpage/index";
     }   //viewName: 페이지이름이랑 같아야함
 
