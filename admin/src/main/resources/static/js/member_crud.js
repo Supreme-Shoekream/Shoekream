@@ -7,8 +7,8 @@ function pop_member_view(idx){
             // console.log(data)
             // console.log(data.data.name)
             // console.log(data.data.imgUrl)
-            let img = data.data.imgUrl
-            if(img==null) img='/img/kream_empty_img.png'
+            let img = data.data.imgUrl;
+            if(img==null) img='/img/styleImg/empty_profile_img.png'
             document.querySelector(".layer_user_view .name").innerHTML=data.data.name;
             document.querySelector(".layer_user_view .nickname").innerHTML=data.data.nickname;
             document.querySelector(".layer_user_view .shoeSize").innerHTML=data.data.shoeSize;
