@@ -1,9 +1,10 @@
 package com.supreme.admin.service;
 
 import com.supreme.admin.model.dto.AddressDTO;
+import com.supreme.admin.model.dto.BuyDTO;
 import com.supreme.admin.model.dto.MemberDTO;
-import com.supreme.admin.model.entity.Address;
-import com.supreme.admin.model.entity.Member;
+import com.supreme.admin.model.entity.*;
+import com.supreme.admin.model.enumclass.OrderStatus;
 import com.supreme.admin.model.network.Header;
 import com.supreme.admin.model.network.Pagination;
 import com.supreme.admin.model.network.request.MemberApiRequest;
@@ -15,6 +16,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -180,7 +182,6 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
         }
         return memberRepository.findByEmailContaining(searchKeyword,pageable).map(MemberDTO::fromEntity);
     }
-
 }
 
 

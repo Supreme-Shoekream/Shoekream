@@ -99,7 +99,7 @@ public class AdminPageController {
 
     @GetMapping(path="users")   //http://localhost:8889//users
     public String users(@RequestParam(required = false) String searchKeyword,
-                        @PageableDefault(size = 10, sort = "idx", direction = Sort.Direction.DESC) Pageable pageable,
+                        @PageableDefault(size = 10, sort = "idx", direction = Sort.Direction.ASC) Pageable pageable,
                         ModelMap map,HttpServletRequest request){
         String session = sessionCheck(request);
 //        if(session == null)  return new ModelAndView( "/adminpage/login.html");
