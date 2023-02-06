@@ -6,7 +6,9 @@ function pop_member_view(idx){
         .then((data) => {
             console.log(data)
             console.log(data.data.name)
+            console.log(data.data.imgURL)
             document.querySelector(".layer_user_view .name").innerHTML=data.data.name;
+            document.querySelector(".layer_user_view .userImg").src=data.data.imgURL;
             document.querySelector(".layer_user_view .email").innerHTML=data.data.email;
             document.querySelector(".layer_user_view .shoeSize").innerHTML=data.data.shoeSize;
             document.querySelector(".layer_user_view .hp").innerHTML=data.data.hp;

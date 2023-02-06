@@ -388,3 +388,7 @@ input::-webkit-inner-spin-button {
 #notice_view_btn {
     padding: 0;
 }
+
+.userImg {
+    height: 160px;
+}
