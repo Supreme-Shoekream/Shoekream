@@ -2,7 +2,7 @@
 const searchInput = document.getElementById('search_box')
 searchInput.addEventListener('blur',search_buy)
 function search_buy(){
-    location.href="/admin/sell?page=0&searchKeyword="+searchInput.value;
+    location.href="/sell?page=0&searchKeyword="+searchInput.value;
 }
 
 // view
@@ -67,4 +67,13 @@ function selldelete(idx){
 }
 function close_sell_delete() {
     document.querySelector(".sell_delete").style.display = "none";
+}
+// 패널티
+function pop_penalty(idx){
+    document.querySelector(".layer_penalty").style.display = "block";
+    const btn_save = document.querySelector('.btn_save_penalty');
+    btn_save.addEventListener('click',sendit);
+}
+function close_penalty(){
+    document.querySelector(".layer_penalty").style.display = "none";
 }

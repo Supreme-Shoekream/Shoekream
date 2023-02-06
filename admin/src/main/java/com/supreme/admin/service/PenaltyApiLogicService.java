@@ -26,8 +26,8 @@ public class PenaltyApiLogicService {
         if(searchKeyword == null || searchKeyword.isBlank()){
             return penaltyRepository.findAll(pageable).map(PenaltyDTO::fromEntity);
         }
-        //아직 검색구현 안됨: sell -> member hp bank??
-        return null;
+        return penaltyRepository.findBySell_Member_Email(searchKeyword,pageable).map(PenaltyDTO::fromEntity);
+
     }
 
     @Transactional(readOnly = true)
