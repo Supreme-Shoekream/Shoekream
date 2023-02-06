@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="./src/styles/pop_point.css">
-<div class="layer_name layer lg">
+<div class="layer_name pop layer lg" id="black_list_layer" th:fragment="black_list" style="display: none">
     <div class="layer_container">
         <a href="#" class="btn_layer_close">
             <div>
@@ -19,14 +19,14 @@
                         <!-- 사용자 아이디 시작 -->
                         <div class="input_item">
                             <p class="title">사용자ID</p>
-                            <p class="info">apple</p>
+                            <p class="info" id="black_list_name">apple</p>
                         </div>
                         <!-- 사용자 아이디 끝 -->
 
                         <!-- 지급 이유 시작 -->
                         <div class="input_item">
                             <p class="title">정지 사유</p>
-                            <select class="info" name="reason" id="select">
+                            <select class="info" name="reason" id="select2">
                                 <option value="1">가품 거래 시도</option>
                                 <option value="2">부정거래</option>
                                 <option value="3">명의/결제도용</option>
@@ -38,15 +38,7 @@
                         <!-- 지급 이유 끝 -->
 
                         <!-- 정지 기간 시작 -->
-                        <div class="input_item">
-                            <p class="title">정지 사유</p>
-                            <select class="info" name="reason" id="select">
-                                <option value="warning">경고</option>
-                                <option value="7">7일 정지</option>
-                                <option value="15">15일 정지</option>
-                                <option value="permanent">영구 이용정지</option>
-                            </select>
-                        </div>
+                            <!--삭제-->
                         <!-- 정지 기간 끝 -->
                     </div>
                     
@@ -55,8 +47,8 @@
         </div>
 
         <div class="layer_btn">
-            <a href="#" class="btn btn_save solid medium">확인</a>
-            <a href="#" class="btn btn_save solid medium "> 취소 </a>
+            <a href="#" class="btn btn_save solid medium" id="black_list_submit">확인</a>
+            <a href="#" class="btn btn_save solid medium " onclick="pop_black_list_close()"> 취소 </a>
         </div>
         </div>
     </div>

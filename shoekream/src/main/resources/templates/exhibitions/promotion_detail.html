@@ -212,10 +212,10 @@
             // cd: 1 param 표기, 2 현재시간 비교
             function setTimesale(cd, param){
 
-                if(cd = 1){
+                if(cd == 1){
                     document.getElementById("timesale").innerHTML = "<div class='endtxt'>"+param+"</div>";
 
-                }else if (cd = 2){
+                }else if (cd == 2){
 
                     let days = Math.floor(param / (1000 * 60 * 60 * 24));
                     let hours = Math.floor((param % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
