@@ -68,6 +68,17 @@ public class SellService {
                 .stream().map(SellDTO::fromEntity).toList();
     }
 
+    // 회원탈퇴시 판매중인 상품 있는지 확인
+    public boolean sellListCheck(Long memberIdx){
+        List<Sell> sel1 = sellRepository.findByMemberIdxAndStatus(memberIdx, OrderStatus.PROGRESSING);
+        List<Sell> sel2 = sellRepository.findByMemberIdxAndStatus(memberIdx, OrderStatus.BIDDING);
+        if(sel1.isEmpty() && sel2.isEmpty()){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
     @Transactional(readOnly = true)
     public Page<SellDTO> mySellListByStatus(Long memberIdx, OrderStatus orderStatus, Pageable pageable){
         Member member = memberRepository.findById(memberIdx).get();
@@ -207,6 +218,11 @@ public class SellService {
                     .orElseGet(()->Header.ERROR("데이터 없음"));
         }
     }
+
+
+    // 회원 탈퇴시 해당 멤버 데이터 전부 삭제
+    public void deleteMember(Long idx){
+        sellRepository.deleteByMemberIdx(idx);}
 
     public List<SellDTO> sellList(Long productIdx){
         Product product = productRepository.findById(productIdx).get();

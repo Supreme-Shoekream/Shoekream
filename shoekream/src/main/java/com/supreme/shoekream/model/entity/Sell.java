@@ -1,5 +1,6 @@
 package com.supreme.shoekream.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.supreme.shoekream.model.enumclass.OrderStatus;
 import com.supreme.shoekream.model.enumclass.Progress;
 import com.supreme.shoekream.model.enumclass.SellProgress;
@@ -34,7 +35,6 @@ public class Sell {
     private String senderHp;
     private String senderAddress;
     private String deliveryMemo;
-
     private LocalDateTime createdAt; // 판매 날짜
     @Setter private SellProgress progress; // 진행 상황(발송완료/입고완료/검수합격/검수불합격(거래실패)/정산완료/취소완료)
     @Setter private OrderStatus status; // 구매 상태(입찰중/기한만료/진행중/종료)
