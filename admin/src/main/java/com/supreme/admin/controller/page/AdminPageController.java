@@ -169,11 +169,13 @@ public class AdminPageController {
         return new ModelAndView("/adminpage/notice.html");
     }
 
-    @GetMapping(path="event")   //http://localhost:8889/event
-    public ModelAndView event(HttpServletRequest request){
-        return new ModelAndView("/adminpage/event.html");
+    private final EventApiService eventApiService;
+    @GetMapping(path="event")   //http://localhost:8889/admin/event
+    public ModelAndView event(ModelMap map, HttpServletRequest request){
+        map.addAttribute("event", eventApiService.list());
+        System.out.println(eventApiService.list());
+        return new ModelAndView("adminpage/event");
     }
-
 
     private final StyleLogicService styleLogicService;
     @GetMapping(path="style")   //http://localhost:8889/style

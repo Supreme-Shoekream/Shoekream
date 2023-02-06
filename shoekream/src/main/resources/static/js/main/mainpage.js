@@ -231,6 +231,10 @@ $(".product_item").click(function() {
     var idx =  $(this).find(".product_idx").val();
     location.href = "/product/"+idx
 });
+$(".style_item1").click(function() {
+    var idx =  $(this).find(".style_idx").val();
+    location.href = "/social/details#"+idx
+});
 function kakaoLogout() {
     if (!Kakao.Auth.getAccessToken()) {
         alert('Not logged in.');

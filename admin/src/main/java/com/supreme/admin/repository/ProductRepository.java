@@ -20,6 +20,8 @@ public interface ProductRepository extends JpaRepository<Product, Long>, Queryds
     Product findByIdx(Long idx);
 
     List<Product> findByOrderByIdxDesc();
+    List<Product> findTop40ByGenderOrderByWishCount(String gender);
+
     List<Product> findByCollection(String collection);
     List<Product> findByCategory(String category);
     Page<Product> findByGender (String gender, Pageable pageable);
@@ -37,7 +39,7 @@ public interface ProductRepository extends JpaRepository<Product, Long>, Queryds
     Page<Product> findByBrand(String brand, Pageable pageable);
 
     Page<Product> findByIdxContainingOrBrandContainingOrFirstPriceContaining(Long idx, String brand, Long firstPrice, Pageable pageable);
-    
+
     long countBy();
     List<Product> findTop10ByOrderByWishCountDesc();
 
