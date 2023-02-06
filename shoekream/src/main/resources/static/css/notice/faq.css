@@ -130,13 +130,13 @@ tbody {
     width: 120px;
     height: 24px;
 }
-.header .logo img{
-    width:150px;
-    height: 150px;
-    position: relative;
-    top:-70px;
-    left:-20px;
-}
+/*.header .logo img{*/
+/*    width:150px;*/
+/*    height: 150px;*/
+/*    position: relative;*/
+/*    top:-70px;*/
+/*    left:-20px;*/
+/*}*/
 .header .gnb_area, .header .gnb_list{
     display: flex;
     -webkit-box-align: center;

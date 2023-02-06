@@ -80,10 +80,20 @@ public class SellService {
     }
 
     @Transactional(readOnly = true)
-    public Page<SellDTO> mySellListByStatus(Long memberIdx, OrderStatus orderStatus, Pageable pageable){
+    public Page<SellDTO> mySellListByStatus(Long memberIdx, OrderStatus orderStatus, Long months, Pageable pageable){
         Member member = memberRepository.findById(memberIdx).get();
-        return sellRepository.findByMemberAndStatus(member, orderStatus, pageable)
-                .map(SellDTO::fromEntity);
+
+        if(months == null){
+            return sellRepository.findByMemberAndStatus(member, orderStatus, pageable)
+                    .map(SellDTO::fromEntity);
+        }else {
+            LocalDateTime createdAt = LocalDateTime.now();
+            createdAt = createdAt.minusMonths(months);
+            return sellRepository.findByMemberAndStatusAndCreatedAtAfter(member, orderStatus, createdAt, pageable)
+                    .map(SellDTO::fromEntity);
+        }
+
+
     }
 
     @Transactional(readOnly = true)
