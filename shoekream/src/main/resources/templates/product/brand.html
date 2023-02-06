@@ -7,6 +7,7 @@
     <title>Nike | SHOEKRAEM</title>
     <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://kream.co.kr/favicon.ico">
     <link rel="stylesheet" href="/css/product/brand.css">
+    <link rel="stylesheet" href="/css/shop/shop_search.css">
     <link rel="stylesheet" href="/css/fragment/footer.css">
     <script defer src="/js/brand.js"></script>
 </head>
@@ -43,65 +44,53 @@
                                         </div>
                                         <!-- 정렬 기능 -->
                                         <!--content: "";-->
-                                        <div class="filter_sorting">
-                                            <button type="button" class="sorting_title">인기순</button>
-                                            <ul class="sorting_list" style="display:none;">
-                                                <li class="sorting_item item_on">
-                                                    <a href="#" class="sorting_link">
-                                                        <div class="sorting_desc">
-                                                            <p class="main_desc">인기순</p>
-                                                            <p class="sub_desc">많이 판매된 순서대로 정렬합니다.</p>
-                                                        </div>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
-                                                            <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
-                                                        </svg>
-                                                    </a>
-                                                </li>
-                                                <li class="sorting_item">
-                                                    <a href="#" class="sorting_link">
-                                                        <div class="sorting_desc">
-                                                            <p class="main_desc">프리미엄순</p>
-                                                            <p class="sub_desc">발매가 대비 가격이 높은 순서대로 정렬합니다.</p>
-                                                        </div>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
-                                                            <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
-                                                        </svg>
-                                                    </a>
-                                                </li>
-                                                <li class="sorting_item">
-                                                    <a href="#" class="sorting_link">
-                                                        <div class="sorting_desc">
-                                                            <p class="main_desc">즉시 구매가순</p>
-                                                            <p class="sub_desc">즉시 구매가가 낮은 순서대로 정렬합니다.</p>
-                                                        </div>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
-                                                            <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
-                                                        </svg>
-                                                    </a>
-                                                </li>
-                                                <li class="sorting_item">
-                                                    <a href="#" class="sorting_link">
-                                                        <div class="sorting_desc">
-                                                            <p class="main_desc">즉시 판매가순</p>
-                                                            <p class="sub_desc">즉시 판매가가 높은 순서대로 정렬합니다.</p>
-                                                        </div>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
-                                                            <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
-                                                        </svg>
-                                                    </a>
-                                                </li>
-                                                <li class="sorting_item">
-                                                    <a href="#" class="sorting_link">
-                                                        <div class="sorting_desc">
-                                                            <p class="main_desc">발매일순</p>
-                                                            <p class="sub_desc">최신 상품 순서대로 정렬합니다. 아직 발매 전인 상품이 노출될 수 있습니다.</p>
-                                                        </div>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
-                                                            <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-check-s"></use>
-                                                        </svg>
-                                                    </a>
-                                                </li>
-                                            </ul>
+                                        <div>
+                                            <div class="filter_sorting">
+                                                <button type="button" onclick="sort_list()" class="sorting_title">인기순
+                                                    <img class="desc_logo" src="/img/shopimg/desc_logo_b.png">
+                                                </button>
+                                                <div class="filter_menu" id="sort_list" style="display: none">
+                                                    <ul class="sorting_list" >
+                                                        <li class="sorting_item">
+                                                            <a class="sorting_link" id="sort_by_wish_desc">
+                                                                <div class="sorting_desc">
+                                                                    <p class="main_desc">인기순</p>
+                                                                    <p class="sub_desc">관심상품이 많은 순서대로 정렬합니다.</p>
+                                                                    <img src="/img/wcheck.png" class="sorting_img">
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="sorting_item">
+                                                            <a class="sorting_link" id="sort_by_price_asc">
+                                                                <div class="sorting_desc">
+                                                                    <p class="main_desc" >발매가 낮은순</p>
+                                                                    <p class="sub_desc">발매가가 낮은 순서대로 정렬합니다.</p>
+                                                                    <img src="/img/wcheck.png" class="sorting_img">
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="sorting_item">
+                                                            <a class="sorting_link" id="sort_by_price_desc">
+                                                                <div class="sorting_desc">
+                                                                    <p class="main_desc">발매가 높은순</p>
+                                                                    <p class="sub_desc">발매가가 높은 순서대로 정렬합니다.</p>
+                                                                    <img src="/img/wcheck.png" class="sorting_img">
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="sorting_item">
+                                                            <a class="sorting_link" id="sort_by_idx_desc">
+                                                                <div class="sorting_desc">
+                                                                    <p class="main_desc">발매일순</p>
+                                                                    <p class="sub_desc">최신 상품 순서대로 정렬합니다. 아직 발매 전인 상품이 노출될 수 있습니다.</p>
+                                                                    <img src="/img/wcheck.png" class="sorting_img">
+                                                                </div>
+                                                            </a>
+                                                        </li>
+
+                                                    </ul>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div>
@@ -462,6 +451,8 @@
                 <!-- 페이지네이션 끝 -->
                 <!-- 푸터 시작 -->
                 <footer th:replace="/fragment/footer.html :: footer"></footer>
+                <script src="/js/shop/search.js"></script>
+                <script src="/js/header/header.js"></script>
                 <!-- 푸터 끝 -->
                 <!-- <div>
                         <div class="wrap" data-v-66ae1b7c=""><svg xmlns="http://www.w3.org/2000/svg" class="icon sprite-icons toast-icon toast-success" data-v-66ae1b7c="">
