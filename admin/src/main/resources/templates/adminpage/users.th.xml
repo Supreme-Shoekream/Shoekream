@@ -10,10 +10,10 @@
                 <attr sel="td.shoe_size" th:text="${user.shoeSize}"/>
 
                 <attr sel="td.more">
-                    <attr sel=".view_btn" th:onclick="'javascript:pop_member_view('+ ${user.idx} + ');'"/>
-                    <attr sel=".point_btn" th:onclick="'javascript:openPoint('+ ${user.idx} + ');'"/>
-                    <attr sel=".penalty_btn" th:onclick="'javascript:pop_penalty(' + ${user.idx} + ');'"/>
-                    <attr sel=".blacklist_btn" th:onclick="'javascript:pop_users_blacklist(' + ${user.idx} + ');'"/>
+                    <attr sel="#view_btn" th:onclick="'javascript:pop_member_view('+ ${user.idx} + ');'"/>
+                    <attr sel="#point_btn" th:onclick="'javascript:openPoint('+ ${user.idx} + ');'"/>
+                    <attr sel="#penalty_btn" th:onclick="'javascript:pop_penalty(' + ${user.idx} + ');'"/>
+                    <attr sel="#blacklist_btn" th:onclick="'javascript:pop_users_blacklist(' + ${user.idx} + ');'"/>
                 </attr>
             </attr>
         </attr>
