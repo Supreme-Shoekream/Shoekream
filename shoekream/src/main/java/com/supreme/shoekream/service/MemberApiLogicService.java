@@ -244,6 +244,12 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
             return false;
         }
     }
+
+    public Header<MemberApiResponse> deleteProfile(Long idx){
+        Member member = memberRepository.findByIdx(idx);
+        member.setImgUrl("/img/profile.png");
+        return Header.OK();
+    }
 }
 
 
