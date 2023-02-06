@@ -33,7 +33,7 @@ public interface ProductRepository extends
     Page<Product> findByCategoryIn(List<String> catetory, Pageable pageable);
     Page<Product> findByBrandIn(List<String> brand, Pageable pageable);
     Page<Product> findByCollectionIn(List<String> collection, Pageable pageable);
-    Page<Product> findBySizeContainingAndBrandContainingAndCategoryContainingAndCollectionContainingAndGenderContainingAndNameContaining(String size, String brand,
+    Page<Product> findBySizeContainingAndBrandContainingAndCategoryContainingAndCollectionContainingAndGenderContainingAndNameKorContaining(String size, String brand,
                                                                                        String category, String collection,
                                                                                        String gender, String keyword, Pageable pageable);
     Page<Product> findBySizeContaining(String size, Pageable pageable);

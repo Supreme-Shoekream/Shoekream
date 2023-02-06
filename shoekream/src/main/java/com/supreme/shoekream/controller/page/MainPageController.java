@@ -4,6 +4,7 @@ import com.supreme.shoekream.model.dto.ProductDTO;
 import com.supreme.shoekream.model.dto.socialDTO.BoardDTO;
 import com.supreme.shoekream.model.entity.Member;
 import com.supreme.shoekream.model.entity.Product;
+import com.supreme.shoekream.model.network.response.BoardWithLikeListResponse;
 import com.supreme.shoekream.repository.MemberRepository;
 import com.supreme.shoekream.repository.SellRepository;
 import com.supreme.shoekream.service.MainService;
@@ -59,7 +60,7 @@ public class MainPageController {
         map.addAttribute("bestJewelryWatches",bestJewelryWatches);
         map.addAttribute("bestCampingGear",bestCampingGear);
 
-        List<BoardDTO> stylemost = styleLogicService.findTopSevenStylePick();
+        List<BoardWithLikeListResponse> stylemost = styleLogicService.findTopSevenStylePick();
         map.addAttribute("stylemost",stylemost);
         List<String> justDroptbuynowPrices = sellService.buyNowPrices(justDrop.stream().map(ProductDTO::toEntity).toList());
         map.addAttribute("justDroptbuynowPrices",justDroptbuynowPrices);

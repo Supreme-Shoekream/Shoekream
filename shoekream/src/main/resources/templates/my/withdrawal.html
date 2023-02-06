@@ -38,7 +38,7 @@
                                         <div class="checkbox_item"><input
                                                 id="title0" type="checkbox" name="" class="blind"
                                                ><label for="title0" class="check_label"
-                                               ><!-- checkbox --> <input class="checkbox_button" type="checkbox"><span class="label_txt">KREAM을 탈퇴하면 회원 정보 및 서비스
+                                               ><!-- checkbox --> <input id="checkbox1" class="checkbox_button check_all" type="checkbox"><span class="label_txt">KREAM을 탈퇴하면 회원 정보 및 서비스
                                                     이용 기록이 삭제됩니다.</span>
                                                 <!---->
                                             </label></div>
@@ -59,7 +59,7 @@
                                         <div class="checkbox_item"><input
                                                 id="title1" type="checkbox" name="" class="blind"
                                                ><label for="title1" class="check_label"
-                                               ><!-- checkbox --> <input class="checkbox_button" type="checkbox"><span class="label_txt">관련 법령 및 내부 기준에 따라 별도
+                                               ><!-- checkbox --> <input id="checkbox2" class="checkbox_button check_all" type="checkbox"><span class="label_txt">관련 법령 및 내부 기준에 따라 별도
                                                     보관하는 경우에는 일부 정보가 보관될 수 있습니다.</span>
                                                 <!---->
                                             </label></div>
@@ -93,7 +93,7 @@
                                         <div class="checkbox_item"><input
                                                 id="title2" type="checkbox" name="" class="blind"
                                                ><label for="title2" class="check_label"
-                                               ><!-- checkbox --> <input class="checkbox_button" type="checkbox"><span class="label_txt">KREAM 탈퇴가 제한된 경우에는 아래
+                                               ><!-- checkbox --> <input id="checkbox3" class="checkbox_button check_all" type="checkbox"><span class="label_txt">KREAM 탈퇴가 제한된 경우에는 아래
                                                     내용을 참고하시기 바랍니다.</span>
                                                 <!---->
                                             </label></div>
@@ -116,19 +116,19 @@
                             <div class="withdrawal_check">
                                 <div class="checkbox_item"><input id="check1"
                                         type="checkbox" name="" class="blind"><label for="check1"
-                                        class="check_label"><!-- checkbox --> <input class="checkbox_button" type="checkbox"><span class="label_txt">회원탈퇴 안내를 모두 확인하였으며 탈퇴에
+                                        class="check_label"><!-- checkbox --> <input onclick="allCheck()" id="checkbox_all" class="checkbox_button" type="checkbox"><span class="label_txt">회원탈퇴 안내를 모두 확인하였으며 탈퇴에
                                             동의합니다.</span>
                                         <!---->
                                     </label></div>
                             </div>
-                            <div class="withdrawal_btn_box"><a href="#"
+                            <div class="withdrawal_btn_box"><a onclick="openLayer()"
                                     class="btn outlinegrey medium"> 탈퇴하기 </a><a
                                     href="#" class="btn solid medium"> 취소하기 </a>
                             </div>
-                            <div class="layer_withdrawal layer lg" style="display:none;" 
+                            <div class="layer_withdrawal layer lg" id="draw_layer" style="display:none;"
                                 >
-                                <div class="layer_container" ><a href="#" class="btn_layer_close"
-                                         ><!-- close button--> <input type="checkbox"></a>
+                                <div class="layer_container" ><a class="btn_layer_close"
+                                         ><!-- close button--> <input id="draw-check" type="checkbox"></a>
                                     <div class="layer_header" >
                                         <h2 class="title"  >
                                             <!----> 정말 탈퇴하시겠습니까?
@@ -139,8 +139,8 @@
                                             처리됩니다.<br>탈퇴 후 14일 이내 재가입할 수 없으며,<br>재가입 시 동일 이메일을 사용할 수 없습니다.</p>
                                         <!---->
                                         <div class="withdrawal_btn_box"  >
-                                            <!----><button type="button" class="btn solid medium"
-                                                 > 취소하기 </button>
+                                            <!----><button type="button" class="btn outlinegrey medium" onclick="drawOk()"> 확인 </button>
+                                                   <button type="button" class="btn solid medium" onclick="closeLayer()"> 취소하기 </button>
                                             <!---->
                                             <!---->
                                         </div>
@@ -214,5 +214,78 @@
     </div>
     <footer th:replace="/fragment/footer::footer"></footer>
 </body>
+<script>
+// 체크버튼
+let check1 = document.querySelector('#checkbox1')
+let check2 = document.querySelector('#checkbox2')
+let check3 = document.querySelector('#checkbox3')
+// 전체 체크버튼
+function allCheck(){
+    let checkAll = document.querySelector('#checkbox_all')
+    let checks = document.querySelectorAll('check_all');
+    if(checkAll.checked){
+        check1.checked=true
+        check2.checked=true
+        check3.checked=true
+    }else{
+        check1.checked=false
+        check2.checked=false
+        check3.checked=false
+    }
+}
+// 레이어 열기
+function openLayer(){
+    if(check1.checked && check2.checked && check3.checked){
+    document.querySelector('#draw_layer').style.display="block"
+    }else {
+        alert('모두 체크해주십시오')
+    }
+}
+function closeLayer(){
+    document.querySelector('#draw_layer').style.display="none"
+}
+// 레이어 닫기
 
+// 레이어 체크버튼
+let drawCheck = document.querySelector('#draw-check')
+// 확인 func
+function drawOk(){
+    if(drawCheck.checked == true){
+        // 탈퇴 api 호출
+        if (confirm("정말 탈퇴하시겠습니까?") == true){    //확인
+            fetch('http://localhost:8889/api/member/delete', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    "transaction_time":`${new Date()}`,
+                    "resultCode":"ok",
+                    "description":"정상",
+                    "data":{
+                    }
+                }),
+            }).then((response) => response.json())
+                .then((data) => {
+                        console.log(data)
+                        if (data == true) {
+                            alert('회원탈퇴 완료')
+                            location.href = '/logout';
+                            return;
+                        } else {
+                            alert('거래중인 상품이 있습니다');
+                            location.href ="/my/withdrawal"
+                            return;
+                        }
+                    }
+                )
+        }else{   //취소
+            return false;
+        }
+    }else{
+        alert('체크 후 탈퇴 가능합니다')
+    }
+}
+function remove() {
+
+}
+</script>
 </html>

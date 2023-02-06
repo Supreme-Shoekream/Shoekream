@@ -1,7 +1,9 @@
 package com.supreme.shoekream.controller.page;
 
+import com.supreme.shoekream.model.network.security.KreamPrincipal;
 import com.supreme.shoekream.service.MemberApiLogicService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -17,8 +19,9 @@ public class MemberPageController {
     private MemberApiLogicService memberApiLogicService;
 
     @GetMapping(path="login")   // http://localhost:8889/login
-    public ModelAndView login(){
-        return new ModelAndView("/login/login.html");
+    public String login(@AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        if(kreamPrincipal!= null) return "redirect:/";
+        return "/login/login";
     }
 
 //    @PostMapping(path="/loginOk")   // http://localhost:8889/loginOk
@@ -90,19 +93,19 @@ public class MemberPageController {
         return new ModelAndView("/login/find_password");
     }
 
-    // notice controller
-//    @GetMapping(path="faq")   //http://localhost:9999/faq
-//    public ModelAndView faq(){
-//        return new ModelAndView("/notice/faq");
-//    }
-//
-//    @GetMapping(path="auth_policy")   //http://localhost:9999/auth_policy
-//    public ModelAndView auth_policy(){
-//        return new ModelAndView("/notice/auth_policy");
-//    }
-//
-//    @GetMapping(path="notice")   //http://localhost:9999/notice
-//    public ModelAndView notice(){
-//        return new ModelAndView("/notice/notice");
-//    }
+//     notice controller
+    @GetMapping(path="faq")   //http://localhost:9999/faq
+    public ModelAndView faq(){
+        return new ModelAndView("/notice/faq");
+    }
+
+    @GetMapping(path="auth_policy")   //http://localhost:9999/auth_policy
+    public ModelAndView auth_policy(){
+        return new ModelAndView("/notice/auth_policy");
+    }
+
+    @GetMapping(path="notice")   //http://localhost:9999/notice
+    public ModelAndView notice(){
+        return new ModelAndView("/notice/notice");
+    }
 }

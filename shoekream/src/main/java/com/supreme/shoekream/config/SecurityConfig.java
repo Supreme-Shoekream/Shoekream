@@ -99,11 +99,11 @@ public class SecurityConfig{
     }
 
     //세션설정 spring이 로그인 할때 자동으로 생성
-    protected void configure(HttpSecurity http) throws Exception {
-        http.sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
-                .sessionFixation().changeSessionId();
-    }
+//    protected void configure(HttpSecurity http) throws Exception {
+//        http.sessionManagement()
+//                .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
+//                .sessionFixation().changeSessionId();
+//    }
 
     /**
      * <p>

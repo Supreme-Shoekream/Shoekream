@@ -493,6 +493,7 @@ input[type="number"]::-webkit-inner-spin-button {
   background-color: #ebebeb;
   color: #fff;
   cursor: default;
+  pointer-events: none;
 }
 
 /******************step2********************/

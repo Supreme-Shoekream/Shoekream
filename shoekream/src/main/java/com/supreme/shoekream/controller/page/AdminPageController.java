@@ -1,10 +1,12 @@
 package com.supreme.shoekream.controller.page;
 
 
+import com.supreme.shoekream.model.dto.MemberDTO;
 import com.supreme.shoekream.model.entity.Conclusion;
 import com.supreme.shoekream.model.network.Pagination;
 import com.supreme.shoekream.model.network.response.BuyResponse;
 import com.supreme.shoekream.model.network.response.SellResponse;
+import com.supreme.shoekream.model.network.security.KreamPrincipal;
 import com.supreme.shoekream.repository.ConclusionRepository;
 import com.supreme.shoekream.service.*;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +18,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,6 +37,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AdminPageController {
     private final PaginationService paginationService;
+    private final PointApiLogicService pointApiLogicService;
+    private final MemberApiLogicService memberApiLogicService;
 
     @GetMapping(path="")   //http://localhost:8889/admin
     public ModelAndView index(){
@@ -55,38 +60,6 @@ public class AdminPageController {
         return new ModelAndView("adminpage/products.html");
     }
 
-//    private final Logger logger = LoggerFactory.getLogger(this.getClass());
-//    /* 첨부 파일 업로드 */
-//    @PostMapping("products") // 파일 1개 업로드 //http://localhost:8889/admin/products
-//    public String uploadAjaxActionPOST(MultipartFile uploadFile) {
-//        logger.info("⚠️uploadAjaxActionPOST..........");
-//        logger.info("⚠️파일 이름 : " + uploadFile.getOriginalFilename());
-//        logger.info("⚠️파일 타입 : " + uploadFile.getContentType());
-//        logger.info("⚠️파일 크기 : " + uploadFile.getSize());
-//        // 파일 저장 폴더 경로
-//        String uploadFilePath = "/Users/oyun-yeong/Desktop/Shoekream/publising/Shoekream/shoekream/src/main/resources/static/img/product/";
-//        // 폴더 생성
-//        File uploadPath = new File(uploadFilePath);
-//        if(!uploadPath.exists()) {
-//            uploadPath.mkdirs();
-//        }
-////        logger.info("-----------------------------------------------");
-//        String uploadFileName = uploadFile.getOriginalFilename(); // 파일 이름
-////        uploadFileName = uploadFileName.replace(" ", "_"); // 파일 이름에 띄어쓰기가 있으면 언더바로 변경하기
-////        System.out.println("🔵" + uploadFileName);
-////        File saveFile = new File(uploadPath, uploadFileName); // 파일 위치, 파일 이름을 합친 File 객체
-//        File saveFile = new File(uploadFilePath, uploadFileName); // 파일 위치, 파일 이름을 합친 File 객체
-//        try { // 파일 저장
-//            uploadFile.transferTo(saveFile);
-//            logger.info("🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢");
-//            logger.info("이미지 파일 저장 완료");
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-////        return uploadFileName;
-////        return "redirect:/admin/products";
-//        return ("/adminpage/layer_product_create");
-//    }
 
     @GetMapping(path="login")   //http://localhost:8889/admin/login
     public ModelAndView loginadmin(){
@@ -180,4 +153,11 @@ public class AdminPageController {
 
     @GetMapping(path="vue")
     public ModelAndView vue() {return new ModelAndView("/adminpage/admin_layer/vuetest");}
+
+    @GetMapping(path="point")
+    public String point(ModelMap map, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        map.addAttribute("member", memberApiLogicService.readPoint(kreamPrincipal.idx()));
+        map.addAttribute("point", pointApiLogicService.list(kreamPrincipal.idx()));
+        return "my/point";
+    }
 }

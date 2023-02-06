@@ -64,7 +64,7 @@ public class ShopController {
             @RequestParam(required = false) String collection,
             @RequestParam(required = false) String gender,
             @RequestParam(required = false) String keyword,
-            @PageableDefault(size = 20, sort = "idx", direction = Sort.Direction.DESC) Pageable pageable,
+            @PageableDefault(size = 20, sort = "wishCount", direction = Sort.Direction.DESC) Pageable pageable,
             @AuthenticationPrincipal KreamPrincipal kreamPrincipal,
             ModelMap map
     ){
@@ -90,7 +90,7 @@ public class ShopController {
 
     @GetMapping(path="brand/{brandName}") //http://localhost:8888/brand
     public String brand(@PathVariable(name="brandName") String brandName,
-                        @PageableDefault(size = 20, sort = "idx", direction = Sort.Direction.DESC)Pageable pageable,
+                        @PageableDefault(size = 20, sort = "wishCount", direction = Sort.Direction.DESC)Pageable pageable,
                         ModelMap map){
         Page<ProductDTO> products = shopApiLogicService.brand(brandName,pageable);
         List<String> prices = sellService.buyNowPrices(products.stream().map(ProductDTO::toEntity).toList());

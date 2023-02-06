@@ -2,13 +2,12 @@ package com.supreme.shoekream.service;
 
 import com.supreme.shoekream.model.dto.AddressDTO;
 import com.supreme.shoekream.model.dto.MemberDTO;
-import com.supreme.shoekream.model.entity.Address;
-import com.supreme.shoekream.model.entity.Member;
+import com.supreme.shoekream.model.entity.*;
 import com.supreme.shoekream.model.network.Header;
 import com.supreme.shoekream.model.network.Pagination;
 import com.supreme.shoekream.model.network.request.MemberApiRequest;
 import com.supreme.shoekream.model.network.response.MemberApiResponse;
-import com.supreme.shoekream.repository.MemberRepository;
+import com.supreme.shoekream.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -24,6 +23,17 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberApiResponse, Member> {
     private final MemberRepository memberRepository;
+    private final AddressRepository addressRepository;
+    private final CardRepository cardRepository;
+    private final PointRepository pointRepository;
+    private final ReplyRepository replyRepository;
+    private final SellRepository sellRepository;
+    private final BuyRepository buyRepository;
+    private final WishRepository wishRepository;
+    private final BoardRepository boardRepository;
+    private final BlacklistRepository blacklistRepository;
+    private final PenaltyRepository penaltyRepository;
+    private final LikeRepository likeRepository;
     private MemberApiResponse response(Member member){
         MemberApiResponse memberApiResponse = MemberApiResponse.builder()
                 .idx(member.getIdx())
@@ -84,7 +94,7 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
         String pwNum = "";
         for(int i=0; i<member.getMemberPw().substring(6).length();i++){pwNum += "•";}
         MemberDTO dto = MemberDTO.of(member.getNickname(),pwNum,member.getName(),
-                member.getHp(),member.getEmail(),member.getShoeSize());
+                member.getHp(),member.getEmail(),member.getShoeSize(), member.getImgUrl());
         return dto;
     }
 
@@ -147,15 +157,42 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
         if(dto.shoeSize() != null) newMember.setShoeSize(dto.shoeSize());
         return Header.OK();
     }
+
+    public Header<MemberApiResponse> updateProfileImg(MemberDTO dto, Long idx){
+        Optional<Member> member = memberRepository.findById(idx);
+        Member newMember = member.get();
+        if(dto.imgUrl() != null) newMember.setImgUrl("/img/profileImg/"+dto.imgUrl());
+        return Header.OK();
+    }
     @Override
     public Header delete(Long idx) {
-//        Optional<Member> members = baseRepository.findById(idx);
-//        return members.map(member->{
-//            baseRepository.delete(member);
-//            return Header.OK();
-//        }).orElseGet(()->Header.ERROR("데이터 없음"));
+        // 주소삭제
+        addressRepository.deleteByMemberIdx(idx);
+        // 카드삭제
+        cardRepository.deleteByMemberIdx(idx);
+        // 포인트삭제
+        pointRepository.deleteByMemberIdx(idx);
+        // 댓글삭제
+        replyRepository.deleteByMemberIdx(idx);
+        // 구매삭제
+        buyRepository.deleteByMemberIdx(idx);
+        // 판매삭제
+        sellRepository.deleteByMemberIdx(idx);
+        // 관심상품삭제
+        wishRepository.deleteByMemberIdx(idx);
+        // 블랙리스트삭제
+        blacklistRepository.deleteByMemberIdx(idx);
+        // 게시판삭제
+        boardRepository.deleteByMemberIdx(idx);
+        // 좋아요삭제
+        likeRepository.deleteByMemberIdx(idx);
 
-        return null;
+        // 멤버삭제
+        Optional<Member> members = baseRepository.findById(idx);
+        return members.map(member->{
+            baseRepository.delete(member);
+            return Header.OK();
+        }).orElseGet(()->Header.ERROR("데이터 없음"));
     }
 
     public Header<MemberApiResponse> login(Header<MemberApiRequest> request){

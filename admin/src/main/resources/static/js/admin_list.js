@@ -4,7 +4,7 @@
     async function searchStart(index) {
         console.log("index : " + index);
         try {
-            const response = await fetch(`/api/admin?page=${index}`);
+            const response = await fetch(`http://localhost:8899/api/admin?page=${index}`);
             const data = await response.json();
             console.log(data);
 

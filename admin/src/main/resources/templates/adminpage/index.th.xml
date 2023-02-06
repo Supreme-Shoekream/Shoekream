@@ -4,7 +4,9 @@
     <attr sel="#productCount" th:text="${productCount}"/>
     <attr sel="#feedCount" th:text="${feedCount}"/>
     <attr sel="#conclusionCount" th:text="${conclusionCount}"/>
-
+    <attr sel="#chart6/img" th:src="${topPosting.img}"/>
+    <attr sel=".replyCnt/div" th:text="${topPosting.replies.size}"/>
+    <attr sel=".likeCnt/div" th:text="${topPosting.lks.size}"/>
 
     <attr sel="tbody" th:remove="all-but-first">
         <attr sel="tr[0]" th:each="product : ${products}">
@@ -15,4 +17,6 @@
             <attr sel="td[4]" th:text="${#numbers.formatInteger(totalDealPrice[productStat.index], 0, 'COMMA')}+'원'"/>
         </attr>
     </attr>
+
+
 </thlogic>

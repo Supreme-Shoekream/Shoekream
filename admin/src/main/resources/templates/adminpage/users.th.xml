@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<thlogic>
+    <attr sel="#users_table" th:object="${users}">
+
+        <attr sel="tbody" th:remove="all-but-first">
+            <attr sel="tr[0]" th:each="user : ${users}">
+                <attr sel="td.name" th:text="${user.name}"/>
+                <attr sel="td.email" th:text="${user.email}"/>
+                <attr sel="td.phone_number" th:text="${user.hp}"/>
+                <attr sel="td.shoe_size" th:text="${user.shoeSize}"/>
+
+                <attr sel="td.more">
+                    <attr sel=".view_btn" th:onclick="'javascript:pop_member_view('+ ${user.idx} + ');'"/>
+                    <attr sel=".point_btn" th:onclick="'javascript:openPoint('+ ${user.idx} + ');'"/>
+                    <attr sel=".penalty_btn" th:onclick="'javascript:pop_penalty(' + ${user.idx} + ');'"/>
+                    <attr sel=".blacklist_btn" th:onclick="'javascript:pop_users_blacklist(' + ${user.idx} + ');'"/>
+                </attr>
+            </attr>
+        </attr>
+        <attr sel=".pagination">
+            <attr sel="li[0]/a" th:text="'◀'"
+                th:href="@{/users(page=${users.number - 1}, searchKeyword=${param.searchKeyword})}"
+                th:class="'page-link'+(${users.number}<=0 ? ' disabled' : '')"/>
+            <attr sel="li[1]" th:class="page-item" th:each="pageNumber : ${barNumbers}">
+                <attr sel="a" th:text="${pageNumber + 1}"
+                      th:href="@{/users(page=${pageNumber}, searchKeyword=${param.searchKeyword})}"
+                      th:class="'page-link'+(${pageNumber}==${users.number} ? ' disabled' : '')"/>
+            </attr>
+            <attr sel="li[2]/a" th:text="'▶'"
+                  th:href="@{/users(page=${users.number + 1}, searchKeyword=${param.searchKeyword})}"
+                  th:class="'page-link'+(${users.number}>=${users.totalPages -1} ? ' disabled' : '')"/>
+        </attr>
+    </attr>
+</thlogic>
