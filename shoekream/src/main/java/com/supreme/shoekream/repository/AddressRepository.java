@@ -11,4 +11,5 @@ public interface AddressRepository extends JpaRepository<Address, Long> {
     Optional<Address> findByName(String name);
     List<Address> findByMemberIdx(Long memberIdx);
     List<Address> findByMemberIdxAndAddressBasic(Long memberIdx, boolean isBasic);
+    List<Address> deleteByMemberIdx(Long idx);
 }

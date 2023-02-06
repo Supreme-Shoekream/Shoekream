@@ -71,6 +71,17 @@ public class BuyService {
                 .stream().map(BuyDTO::fromEntity).toList();
     }
 
+    // 회원탈퇴시 구매중인 상품 있는지 확인
+    public boolean buyListCheck(Long memberIdx){
+        List<Buy> buy1 = buyRepository.findByMemberIdxAndStatus(memberIdx, OrderStatus.PROGRESSING);
+        List<Buy> buy2 = buyRepository.findByMemberIdxAndStatus(memberIdx, OrderStatus.BIDDING);
+        if(buy1.isEmpty() && buy2.isEmpty()){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
     //사용자의 구매내역 (입찰/진행중/종료)에 따라 리스트 출력 필요할 때
     @Transactional(readOnly = true)
     public Page<BuyDTO> myBuyListByStatus(Long memberIdx, OrderStatus orderStatus,Long months, Pageable pageable){
@@ -210,6 +221,12 @@ public class BuyService {
         }
     }
 
+    // 회원 탈퇴시 해당 멤버 데이터 전부 삭제
+    public void deleteMember(Long idx){
+        buyRepository.deleteByMemberIdx(idx);
+    }
+
+
     public List<BuyDTO> buyList(Long productIdx){
         Product product = productRepository.findById(productIdx).get();
         if(product.getIdx() == null){
@@ -218,6 +235,5 @@ public class BuyService {
         return buyRepository.findAllByProductOrderByCreatedAtDesc(product).stream()
                 .map(BuyDTO::fromEntity).collect(Collectors.toCollection(LinkedList::new));
     }
-
 
 }

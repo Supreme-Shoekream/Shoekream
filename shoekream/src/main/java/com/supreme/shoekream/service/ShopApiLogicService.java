@@ -158,7 +158,7 @@ public class ShopApiLogicService extends BaseService<ProductApiRequest, ProductA
         if (collection == null) collection="";
         if (gender == null) gender="";
         if (keyword == null) keyword="";
-        return productRepository.findBySizeContainingAndBrandContainingAndCategoryContainingAndCollectionContainingAndGenderContainingAndNameContaining(
+        return productRepository.findBySizeContainingAndBrandContainingAndCategoryContainingAndCollectionContainingAndGenderContainingAndNameKorContaining(
                 size,brand,category,collection,gender,keyword,pageable).map(ProductDTO::fromEntity);
     }
 
