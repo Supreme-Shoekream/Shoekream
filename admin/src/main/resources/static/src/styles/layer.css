@@ -390,5 +390,15 @@ input::-webkit-inner-spin-button {
 }
 
 .userImg {
-    height: 160px;
+    width: 100%;
+    vertical-align: middle;
+    margin: 0 auto;
+}
+
+#topContent {
+    width: 50%;
+}
+
+#imageContainer {
+    width: 50%;
 }

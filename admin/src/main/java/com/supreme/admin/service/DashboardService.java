@@ -1,5 +1,6 @@
 package com.supreme.admin.service;
 
+import com.supreme.admin.model.dto.ConclusionDTO;
 import com.supreme.admin.model.entity.Conclusion;
 import com.supreme.admin.model.entity.Product;
 import com.supreme.admin.repository.*;
@@ -8,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.Map.Entry;
@@ -30,9 +32,9 @@ public class DashboardService {
     public long conclusionCount(){return conclusionRepository.countBy();}
 
     // 기간별 conclusion 총 거래액(6개월치)
-    public List<Long> sales(){
+    public List<ConclusionDTO> sales(){
         List<Long> sales = new ArrayList<>();
-
+        List<ConclusionDTO> sales2 = new ArrayList<>();
         for(int i=0; i<12; i++) {
             List<Conclusion> conclusions = conclusionRepository.findByCreatedAtAfterAndCreatedAtBefore
                     (LocalDateTime.now().minusMonths(12+i),LocalDateTime.now().minusMonths(11+i));
@@ -42,8 +44,12 @@ public class DashboardService {
                 totalDealPrice[0] += price;
             });
             sales.add(totalDealPrice[0]);
+
+            DecimalFormat format = new DecimalFormat("###,###");
+            String sale = format.format(totalDealPrice[0]);
+            sales2.add(ConclusionDTO.of(null, sale, LocalDateTime.now().minusMonths(12+i),null));
         }
-        return sales;
+        return sales2;
     }
 
     // 인기제품 10개

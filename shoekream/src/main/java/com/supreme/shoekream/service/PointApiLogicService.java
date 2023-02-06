@@ -48,7 +48,12 @@ public class PointApiLogicService {
     @Transactional
     public Header<MemberDTO> update(PointDTO dto, Long idx){
         Member member = memberRepository.findByIdx(idx);
-        Long point = member.getPoint();
+        Long point;
+        if(member.getPoint() == null){
+            point = 0L;
+        }else {
+            point = member.getPoint();
+        }
         member.setPoint(point+dto.point());
         return Header.OK();
     }
