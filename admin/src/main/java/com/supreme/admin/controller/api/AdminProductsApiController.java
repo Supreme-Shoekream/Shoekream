@@ -23,23 +23,23 @@ import java.io.File;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/admin/products") // http://localhost:8889/api/admin/products
+@RequestMapping("/api/admin/products") // http://localhost:8899/api/admin/products
 public class AdminProductsApiController extends CrudController<ProductApiRequest, ProductApiResponse, Product> {
     @Autowired AdminProductApiLogicService adminProductApiLogicService;
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     // 생성
-    @PostMapping("") // http://localhost:8889/api/admin/products
+    @PostMapping("") // http://localhost:8899/api/admin/products
     public Header<ProductApiResponse> create(@RequestBody Header<ProductApiRequest> request) {
         return adminProductApiLogicService.create(request);
     }
 
     // 리스트 출력
-    @GetMapping("") // http://localhost:8889/api/admin/products
+    @GetMapping("") // http://localhost:8899/api/admin/products
     public Header<List<ProductApiResponse>> findAll(@PageableDefault(sort = {"idx"}, direction = Sort.Direction.DESC)Pageable pageable){
         return adminProductApiLogicService.search(pageable);
     }
-//    @GetMapping("") // http://localhost:8889/api/admin/products
+//    @GetMapping("") // http://localhost:8899/api/admin/products
 //    public String findAll(
 //            @RequestParam(required = false) Long searchKeyword,
 //            @RequestParam(required = false) String searchKeyword2,
@@ -50,25 +50,25 @@ public class AdminProductsApiController extends CrudController<ProductApiRequest
 //    }
 
     // 상세 보기
-    @GetMapping("/{idx}") // http://localhost:8889/api/admin/products/{idx}
+    @GetMapping("/{idx}") // http://localhost:8899/api/admin/products/{idx}
     public Header<ProductApiResponse> read(@PathVariable(name="idx") Long idx) {
         return adminProductApiLogicService.read(idx);
     }
 
     // 수정
-    @PutMapping("/{idx}") // http://localhost:8889/api/admin/products/{idx}
+    @PutMapping("/{idx}") // http://localhost:8899/api/admin/products/{idx}
     public Header<ProductApiResponse> update(@RequestBody Header<ProductApiRequest> request) {
         return adminProductApiLogicService.update(request);
     }
 
     // 삭제
-    @DeleteMapping("/{idx}") // http://localhost:8889/api/admin/products/{idx}
+    @DeleteMapping("/{idx}") // http://localhost:8899/api/admin/products/{idx}
     public Header<ProductApiResponse> delete(@PathVariable(name="idx") Long idx) {
         return adminProductApiLogicService.delete(idx);
     }
 
     // 첨부 파일 업로드(생성)
-    @PostMapping("/uploadFile") // 파일 1개 업로드 //http://localhost:8889/api/admin/products/uploadFile
+    @PostMapping("/uploadFile") // 파일 1개 업로드 //http://localhost:8899/api/admin/products/uploadFile
     public String uploadAjaxActionPOST(@RequestParam(value = "uploadFile", required = false)MultipartFile uploadFile) {
         logger.info("⚠️uploadAjaxActionPOST..........");
         logger.info("⚠️파일 이름 : " + uploadFile.getOriginalFilename());

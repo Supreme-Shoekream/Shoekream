@@ -26,11 +26,9 @@ public class QPenalty extends EntityPathBase<Penalty> {
 
     public final NumberPath<Long> idx = createNumber("idx", Long.class);
 
-    public final QMember member;
-
-    public final QProduct product;
-
     public final EnumPath<com.supreme.shoekream.model.enumclass.Reason> reason = createEnum("reason", com.supreme.shoekream.model.enumclass.Reason.class);
+
+    public final QSell sell;
 
     public QPenalty(String variable) {
         this(Penalty.class, forVariable(variable), INITS);
@@ -50,8 +48,7 @@ public class QPenalty extends EntityPathBase<Penalty> {
 
     public QPenalty(Class<? extends Penalty> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
-        this.member = inits.isInitialized("member") ? new QMember(forProperty("member")) : null;
-        this.product = inits.isInitialized("product") ? new QProduct(forProperty("product")) : null;
+        this.sell = inits.isInitialized("sell") ? new QSell(forProperty("sell"), inits.get("sell")) : null;
     }
 
 }

@@ -2,6 +2,8 @@
 <html>
 	<!--head 시작 -->
 	<div th:replace="fragment/adminhead :: head"></div>
+	<!-- chart.js cdn -->
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
 	<!--head 끝 -->
 	<body>
 
@@ -71,12 +73,17 @@
 					</div>
 				</div>
 				<div class="row">
+					<!-- 그래프 -->
 					<div class="col-xl-8 mb-30">
 						<div class="card-box height-100-p pd-20">
 							<h2 class="h4 mb-20">sales</h2>
-							<div id="chart5"></div>
+<!--							<div id="chart5"></div>-->
+							<div class="graph">
+								<canvas id="graph" width="1000" height="550" style="display: block; margin: 0 auto;"></canvas>
+							</div>
 						</div>
 					</div>
+					<!-- 인기 스타일 게시글 -->
 					<div class="col-xl-4 mb-30">
 						<div class="card-box height-100-p pd-20">
 							<h2 class="h4 mb-20">top posting</h2>
@@ -200,5 +207,167 @@
 		<script src="vendors/scripts/layout-settings.js"></script>
 		<script src="src/plugins/apexcharts/apexcharts.min.js"></script>
 <!--		<script src="vendors/scripts/dashboard.js"></script>-->
+		<script th:inline="javascript">
+			/*<![CDATA[*/
+			let conclusion = [[${conclusion}]];
+			console.log(conclusion);
+			let sale = [[${sale}]];
+			console.log(sale);
+
+			let now = new Date();
+			let oneyear = new Date();
+
+			function dateFormat(date) {
+				let dateFormat = date.getFullYear() +
+						'-' + ( (date.getMonth()+1) < 9 ? "0" + (date.getMonth()+1) : (date.getMonth()+1) )
+				return dateFormat;
+			}
+
+			let nowDate = dateFormat(new Date());
+			console.log("현재: " + nowDate);
+
+			let oneYearAgo = dateFormat(new Date(oneyear.setFullYear(oneyear.getFullYear() - 1)));
+			console.log("일년전: " + oneYearAgo);
+
+			// 📌 date -> total count
+			let arr1 = [];
+			for(let key in conclusion) {
+				arr1.push([conclusion[key].createdAt.substring(0, 7)]); // yyyy-mm 으로 포맷 변경
+			}
+			// console.log(arr1);
+
+			let arr2 = [];
+			for(let i=0; i<arr1.length; i++){
+				if(arr1[i][0] >= oneYearAgo){ // 1년전 날짜만
+					arr2.push(arr1[i][0]);
+				}
+			}
+			// console.log(arr2);
+
+			function getCount(array) {
+				return array.reduce((pv, cv)=>{ // pv=key값으로 날짜, cv=value값으로 카운트
+					pv[cv] = (pv[cv] || 0) + 1; // 자바스크립트 단축평가
+					return pv;
+				}, {});
+			}
+			getCount(arr2);
+			// console.log(getCount(arr2));
+
+			let arr3 = [];
+			arr3 = Object.entries(getCount(arr2)); // object -> array로 변경
+
+			// 날짜 오름차순 정렬
+			arr3 = arr3.sort(function compare(a, b) {
+					let dateA = new Date(a[0]).getTime();
+					let dateB = new Date(b[0]).getTime();
+					return dateA > dateB ? 1 : -1;
+				});
+			// console.log(arr3);
+
+			let Date1 = [];
+			let Count1 = [];
+			for(let i = 0; i<arr3.length; i++){
+				Date1.push(arr3[i][0]);
+				Count1.push(arr3[i][1]);
+			}
+			console.log(Date1);
+			console.log(Count1);
+
+
+			// 📌 date -> total price
+			let arr4 = [];
+			for(let key in sale) {
+				arr4.push([sale[key].createdAt.substring(0, 7), sale[key].price.replaceAll(",","").replace("원","").substring()]); // yyyy-mm 으로 포맷 변경
+			}
+			// console.log(arr4);
+
+			let Price1  = [];
+			for(let i = 0; i<arr4.length; i++){
+				Price1.push(arr4[i][1]);
+			}
+			console.log(Price1);
+
+
+			let graphData = {
+				labels: Date1, // x축
+				datasets: [{
+					type: "bar",
+					label: "total count",
+					data: Count1, // y축 1 -> 한달 체결내역 토탈 카운트
+					yAxesID: 'y-left',
+					backgroundColor: 'rgb(21,20,189)', // 차트 배경 색
+					borderColor: 'rgb(21,20,189)', // 라인 색
+					borderWidth: 1, // 라인 넓이
+					pointRadius: 0, // 포인터 없애기,
+					// fill: false
+				},{
+					label: "total price",
+					data: Price1, // y축 2 -> 한달 체결내역 토탈 금액
+					type: "bar",
+					yAxesID: 'y-right',
+					backgroundColor: 'rgb(101,150,70)', // 차트 배경 색
+					borderColor: 'rgb(101,150,70)', // 라인 색
+					borderWidth: 1, // 라인 넓이
+					pointRadius: 0 // 포인터 없애기
+				}]
+			};
+
+			let myChart;
+			window.addEventListener('DOMContentLoaded', function() {
+				let ctx = document.getElementById("graph").getContext("2d");
+				myChart = new Chart(ctx, {
+					type: "bar",
+					data: graphData,
+					options: {
+						maxBarThickness: 30,
+						responsive: false,
+						scales: {
+							xAxes: {
+								ticks: {
+									display: true // x축 라벨 숨김
+								},
+								grid: {
+									display: true // x축 눈금선 숨김
+								}
+							},
+							'y-left': {
+								//beginAtZero: true, // y축 0부터 시작
+								position: 'left', // 축 라벨이 왼쪽에 표시될지, 오른쪽에 표시될지 정함
+								grid: {
+									display: false // y축 눈금선 숨김
+								},
+								ticks: {
+									callback: (val) => (val.toExponential())
+								},
+							},
+							'y-right': {
+								beginAtZero: true, // y축 0부터 시작
+								position: 'right', // 축 라벨이 왼쪽에 표시될지, 오른쪽에 표시될지 정함
+								grid: {
+									display: false // y축 눈금선 숨김
+								}
+							}
+							// yAxes: {
+							// 	beginAtZero: true, // y축 0부터 시작
+							// 	position: 'left', // 축 라벨이 왼쪽에 표시될지, 오른쪽에 표시될지 정함
+							// 	grid: {
+							// 		display: true // y축 눈금선 숨김
+							// 	}
+							// },
+						},
+						plugins: {
+							datalabels: {
+								display: false
+							},
+							legend: {
+								display: true // 라벨 없애기(그래프제목)
+							}
+						},
+					},
+				});
+			});
+
+			/*]]>*/
+		</script>
 	</body>
 </html>
