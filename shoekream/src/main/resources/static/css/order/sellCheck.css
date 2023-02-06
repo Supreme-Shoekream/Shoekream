@@ -282,6 +282,7 @@ input[class="check"]:checked + label {
   background-color: #ebebeb;
   color: #fff;
   cursor: default;
+  pointer-events: none;
 }
 .solid {
   font-weight: 700;
