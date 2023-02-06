@@ -11,6 +11,8 @@ import com.supreme.admin.model.network.Header;
 import com.supreme.admin.model.network.response.BoardWithLikeListResponse;
 import com.supreme.admin.repository.*;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,7 +21,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
+import lombok.extern.slf4j.Slf4j;
 
 @Service
 @RequiredArgsConstructor
@@ -33,10 +35,18 @@ public class StyleLogicService {
     private  final ProductRepository productRepository;
     private final TagRepository tagRepository;
 
+//    @Transactional(readOnly=true)
+//    public List<BoardDTO> list(){
+////        System.out.println(boardRepository.findAll());
+//        return BoardDTO.fromEntity(boardRepository.findAll());
+//    }
+
     @Transactional(readOnly=true)
-    public List<BoardDTO> list(){
-//        System.out.println(boardRepository.findAll());
-        return BoardDTO.fromEntity(boardRepository.findAll());
+    public Page<BoardDTO> list(String searchKeyowrd, Pageable pageable){
+        if(searchKeyowrd == null || searchKeyowrd.isBlank()){
+            return boardRepository.findAll(pageable).map(BoardDTO::fromEntity);
+        }
+        return boardRepository.findAllByMember_Nickname(searchKeyowrd,pageable).map(BoardDTO::fromEntity);
     }
 
     @Transactional(readOnly = true)

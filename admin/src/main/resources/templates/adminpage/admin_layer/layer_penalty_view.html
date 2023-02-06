@@ -1,9 +1,10 @@
 <link rel="stylesheet" href="./src/styles/pop_point.css">
-<div class="layer_name pop layer lg">
-    <div class="layer_container">
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="pop_penalty_view" class="pop_penalty_view layer_name pop layer lg" style="display: none">
+    <div class="layer_container" style="overflow: auto">
         <a href="#" class="btn_layer_close">
             <div>
-                <img src="/img/close_white.png">
+                <img src="/img/close_white.png" onclick="pop_penalty_view_down()">
             </div>
         </a>
 
@@ -19,38 +20,63 @@
                         <!-- 사용자 아이디 시작 -->
                         <div class="input_item">
                             <p class="title">사용자ID</p>
-                            <p class="info">apple</p>
+                            <p class="info penalty_nickname">apple</p>
                         </div>
                         <!-- 사용자 아이디 끝 -->
-
+<!--                        사용자 이름 -->
+                        <div class="input_item">
+                            <p class="title">사용자 이름</p>
+                            <p class="info penalty_name">apple</p>
+                        </div>
+<!--                        사용자 이름 끝 -->
+<!--                        사용자 이메일 -->
+                        <div class="input_item">
+                            <p class="title">사용자 email</p>
+                            <p class="info penalty_email">apple</p>
+                        </div>
+<!--                        사용자 이메일 끝 -->
                         <!-- 패널티 사유 시작 -->
                         <div class="input_item">
                             <p class="title">패널티 사유</p>
-                            <select class="info" name="reason" id="select">
-                                <option value="delayed">발송 지연</option>
-                                <option value="denied">판매 거부</option>
-                                <option value="empty">미입고</option>
-                                <option value="mis">검수기준 악용</option>
-                            </select>
+<!--                            <select class="info" name="reason" id="select">-->
+<!--                                <option value="delayed">발송 지연</option>-->
+<!--                                <option value="denied">판매 거부</option>-->
+<!--                                <option value="empty">미입고</option>-->
+<!--                                <option value="mis">검수기준 악용</option>-->
+<!--                            </select>-->
+                            <P class="info penalty_reason">aldlarh</P>
                         </div>
                         <!-- 패널티 사유 끝 -->
-
+<!--                        사용자 계좌정보-->
+                        <div class="input_item">
+                            <p class="title">계좌정보</p>
+                            <p class="info penalty_account">appleappleapple</p>
+                        </div>
+<!--                        사용자 계좌 정보 끝-->
+                        <!--                        상품 이름 -->
+                        <div class="input_item">
+                            <p class="title">상품명</p>
+                            <p class="info product_nameKor">jdfljaei29</p>
+                        </div>
+                        <!--                        상품 이름 끝 -->
                         <!-- 상품 코드 시작 -->
                         <div class="input_item">
                             <p class="title">상품 코드</p>
-                            <p class="info">jdfljaei29</p>
+                            <p class="info product_cd">jdfljaei29</p>
                         </div>
                         <!-- 상품 코드 끝 -->
+
                     </div>
                     
                 </div>
             </div>
         </div>
 
-        <div class="layer_btn">
-            <a href="#" class="btn btn_save solid medium">확인</a>
-            <a href="#" class="btn btn_save solid medium "> 취소 </a>
-        </div>
+<!--        <div class="layer_btn">-->
+<!--            <a href="#" class="btn btn_save solid medium">확인</a>-->
+<!--            <a href="#" class="btn btn_save solid medium "> 취소 </a>-->
+<!--        </div>-->
         </div>
     </div>
 </div>
+</html>

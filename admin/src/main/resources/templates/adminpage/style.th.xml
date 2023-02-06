@@ -2,7 +2,7 @@
 <thlogic>
     <attr sel="#social_admin_table">
         <attr sel="tbody" th:remove="all-but-first">
-            <attr sel="tr[0]" th:each="feed : ${feed}">
+            <attr sel="tr[0]" th:each="feed : ${feeds}">
                 <attr sel="td.feed_img/img" th:src="${feed.img}"/>
                 <attr sel="td.feed_nickname/h5" th:text="${feed.memberDTO.nickname}"/>
                                 <attr sel="td.feed_tags" th:text="${feed.tags.size()}"/>
@@ -19,6 +19,19 @@
 
 
             </attr>
+        </attr>
+        <attr sel=".pagination">
+            <attr sel="li[0]/a" th:text="'◀'"
+                  th:href="@{/style(page=${feeds.number - 1}, searchKeyword=${param.searchKeyword})}"
+                  th:class="'page-link'+(${feeds.number}<=0 ? ' disabled' : '')"/>
+            <attr sel="li[1]" th:class="page-item" th:each="pageNumber : ${barNumbers}">
+                <attr sel="a" th:text="${pageNumber + 1}"
+                      th:href="@{/style(page=${pageNumber}, searchKeyword=${param.searchKeyword})}"
+                      th:class="'page-link'+(${pageNumber}==${feeds.number} ? ' disabled' : '')"/>
+            </attr>
+            <attr sel="li[2]/a" th:text="'▶'"
+                  th:href="@{/style(page=${feeds.number + 1}, searchKeyword=${param.searchKeyword})}"
+                  th:class="'page-link'+(${feeds.number}>=${feeds.totalPages -1} ? ' disabled' : '')"/>
         </attr>
     </attr>
 </thlogic>

@@ -154,10 +154,9 @@ public class AdminPageController {
     @GetMapping(path="vue")
     public ModelAndView vue() {return new ModelAndView("/adminpage/admin_layer/vuetest");}
 
-    @GetMapping(path="point")
+    @GetMapping(path="users/point")
     public String point(ModelMap map, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
-        map.addAttribute("member", memberApiLogicService.readPoint(kreamPrincipal.idx()));
         map.addAttribute("point", pointApiLogicService.list(kreamPrincipal.idx()));
-        return "my/point";
+        return "adminpage/usersPoint";
     }
 }

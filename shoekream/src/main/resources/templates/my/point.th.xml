@@ -1,5 +1,5 @@
 <thlogic>
-    <attr sel="#member_point" th:text="${member.point}+'P'"/>
+    <attr sel="#member_point" th:text="${member.point == null}? '0P' : ${member.point}+'P'"/>
     <attr sel="#pointList" th:if="${not #strings.isEmpty(point)}" th:each="point : ${point}">
         <attr sel=".status_stamp" th:classappend="${point.point > 0} ? 'issued' : 'expired'">
             <attr sel=".text" th:text="${point.point > 0} ? '적립' : '사용'"/>

@@ -5,11 +5,13 @@ import com.supreme.admin.model.dto.ConclusionDTO;
 import com.supreme.admin.model.dto.MemberDTO;
 import com.supreme.admin.model.dto.PenaltyDTO;
 import com.supreme.admin.model.dto.ProductDTO;
+import com.supreme.admin.model.dto.socialDTO.BoardDTO;
 import com.supreme.admin.model.entity.Conclusion;
 import com.supreme.admin.model.entity.Product;
 import com.supreme.admin.model.network.Pagination;
 import com.supreme.admin.model.network.response.BuyResponse;
 import com.supreme.admin.model.network.response.ConclusionResponse;
+import com.supreme.admin.model.network.response.PenaltyResponse;
 import com.supreme.admin.model.network.response.SellResponse;
 import com.supreme.admin.repository.ConclusionRepository;
 import com.supreme.admin.service.*;
@@ -182,13 +184,19 @@ public class AdminPageController {
 
 
     private final StyleLogicService styleLogicService;
-    @GetMapping(path="style")   //http://localhost:8899/style
-    public String style(ModelMap map,HttpServletRequest request){
-        map.addAttribute("feed", styleLogicService.list());
-        System.out.println(styleLogicService.list());
+
+    @GetMapping(path="style")   //http://localhost:8889/style
+    public String style(ModelMap map,HttpServletRequest request, @PageableDefault(size = 10, sort = "idx", direction = Sort.Direction.DESC) Pageable pageable,
+                        @RequestParam(required = false) String searchKeyword){
+        Page<BoardDTO> boards= styleLogicService.list(searchKeyword, pageable);
+        List<Integer> barNumbers = paginationService.getPaginationBarNumbers(pageable.getPageNumber(),boards.getTotalPages());
+        map.addAttribute("feeds", boards);
+        map.addAttribute("barNumbers", barNumbers);
         return "adminpage/style";
     }
-    @GetMapping(path="admin")   //http://localhost:8899/admin
+
+    @GetMapping(path="admin")   //http://localhost:8889/admin
+
     public ModelAndView admin(HttpServletRequest request){
         return new ModelAndView("/adminpage/admin.html");
     }
