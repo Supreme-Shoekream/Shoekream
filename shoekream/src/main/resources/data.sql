@@ -300,6 +300,26 @@ insert into board(hashtag, member_idx, content, img, created_at) values('SHOEKRE
 insert into board(hashtag, member_idx, content, img, created_at) values('데일리룩',19, '우여곡절 많았던 내 슈노••
 #슈프림 #슈프림패딩 #슈노 #슈프림노스페이스 #프스캇 #트레비스스캇 #스트릿', '/img/styleImg/feed19.jpeg', '2022-11-21 17:42:39');
 insert into board(hashtag, member_idx, content, img, created_at) values('데일리룩',20,'포터는 개인적으로 카키색이,,,💚', '/img/styleImg/feed20.jpeg', '2022-03-11 10:20:14');
+insert into board(hashtag, member_idx, content, img, created_at) values('SHOEKREAM',2,'', '/img/styleImg/feed21.jpeg', '2022-03-11 10:21:14');
+insert into board(hashtag, member_idx, content, img, created_at) values('SHOEKREAM',40,'힙하게~~', '/img/styleImg/feed22.jpeg', '2022-01-11 10:21:14');
+insert into board(hashtag, member_idx, content, img, created_at) values('나이키',41,'✌🏻~~', '/img/styleImg/feed23.jpeg', '2022-02-01 10:21:14');
+insert into board(hashtag, member_idx, content, img, created_at) values('나이키',42,'✌🏻~~', '/img/styleImg/feed24.jpeg', '2021-02-11 10:21:14');
+insert into board(hashtag, member_idx, content, img, created_at) values('OOTD',43,'✌🏻~~', '/img/styleImg/feed25.jpeg', '2021-02-16 10:21:14');
+insert into board(hashtag, member_idx, content, img, created_at) values('OOTD',43,'초콜릿도 블랙이니까☺️', '/img/styleImg/feed26.jpeg', '2021-08-16 10:21:14');
+insert into board(hashtag, member_idx, content, img, created_at) values('OOTD',5,'☺️', '/img/styleImg/feed27.jpeg', '2021-09-16 10:21:14');
+insert into board(hashtag, member_idx, content, img, created_at) values('OOTD',3,'🍈', '/img/styleImg/feed28.jpeg', '2021-04-16 10:21:14');
+insert into board(hashtag, member_idx, content, img, created_at) values('SHOEKREAM',3,'🍎', '/img/styleImg/feed29.jpeg', '2021-03-16 10:21:14');
+insert into board(hashtag, member_idx, content, img, created_at) values('SHOEKREAM',4,'🥺', '/img/styleImg/feed30.jpeg', '2021-03-10 10:21:14');
+insert into board(hashtag, member_idx, content, img, created_at) values('SHOEKREAM',2,'😿', '/img/styleImg/feed31.jpeg', '2021-03-09 10:21:14');
+insert into board(hashtag, member_idx, content, img, created_at) values('SHOEKREAM',13,'😊', '/img/styleImg/feed32.jpeg', '2021-11-09 10:21:14');
+insert into board(hashtag, member_idx, content, img, created_at) values('OOTD',60,'😿', '/img/styleImg/feed33.jpeg', '2021-12-09 10:21:14');
+insert into board(hashtag, member_idx, content, img, created_at) values('OOTD',34,'🍓', '/img/styleImg/feed34.jpeg', '2021-12-19 10:21:14');
+insert into board(hashtag, member_idx, content, img, created_at) values('OOTD',35,'🔍', '/img/styleImg/feed35.jpeg', '2021-12-29 10:21:14');
+insert into board(hashtag, member_idx, content, img, created_at) values('outfit',35,'🥭', '/img/styleImg/feed36.jpeg', '2021-10-29 10:21:14');
+insert into board(hashtag, member_idx, content, img, created_at) values('outfit',36,'🍪', '/img/styleImg/feed37.jpeg', '2021-05-06 10:21:14');
+insert into board(hashtag, member_idx, content, img, created_at) values('outfit',37,'🛒', '/img/styleImg/feed38.jpeg', '2021-06-06 10:21:14');
+insert into board(hashtag, member_idx, content, img, created_at) values('outfit',38,'🍉', '/img/styleImg/feed39.jpeg', '2021-06-16 10:21:14');
+insert into board(hashtag, member_idx, content, img, created_at) values('나이키',40,'🍉', '/img/styleImg/feed40.jpeg', '2021-06-26 10:21:14');
 
 -- 상품태그용 피드
 insert into board(hashtag, member_idx, content, img, created_at) values('SUPREME',1, 'Long time no see','/img/styleImg/feed_tag1.jpeg', '2022-01-21 23:34:58'  );
