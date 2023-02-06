@@ -6,7 +6,7 @@
 <body>
 
 <!-- header 시작 -->
-<div th:replace="fragment/adminheader :: header"></div>
+<div th:replace="fragment/adminheader :: header(${sessionInfo})"></div>
 <!-- header 끝 -->
 <!-- right-sidebar 시작 -->
 <div th:replace="fragment/adminrightsidebar :: rightsidebar"></div>
