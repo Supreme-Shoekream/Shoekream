@@ -232,7 +232,6 @@ INSERT INTO product (img, brand, name, name_kor, size, wish_count, model_num, re
 
 
 -- 팔로우
-insert into follow(follower_idx, following_idx) values(1,1);
 insert into follow(follower_idx, following_idx) values(1,2);
 insert into follow(follower_idx, following_idx) values(1,3);
 insert into follow(follower_idx, following_idx) values(1,4);
@@ -383,16 +382,16 @@ insert into tag(board_idx, product_idx) values(1, 103);
 insert into tag(board_idx, product_idx) values(1, 102);
 insert into tag(board_idx, product_idx) values(2, 104);
 
-insert into tag(board_idx, product_idx) values(21, 104);
-insert into tag(board_idx, product_idx) values(22, 104);
-insert into tag(board_idx, product_idx) values(23, 104);
-insert into tag(board_idx, product_idx) values(24, 104);
-insert into tag(board_idx, product_idx) values(25, 104);
-insert into tag(board_idx, product_idx) values(26, 104);
-insert into tag(board_idx, product_idx) values(27, 104);
-insert into tag(board_idx, product_idx) values(28, 104);
-insert into tag(board_idx, product_idx) values(29, 104);
-insert into tag(board_idx, product_idx) values(30, 104);
+insert into tag(board_idx, product_idx) values(41, 104);
+insert into tag(board_idx, product_idx) values(42, 104);
+insert into tag(board_idx, product_idx) values(43, 104);
+insert into tag(board_idx, product_idx) values(44, 104);
+insert into tag(board_idx, product_idx) values(45, 104);
+insert into tag(board_idx, product_idx) values(46, 104);
+insert into tag(board_idx, product_idx) values(47, 104);
+insert into tag(board_idx, product_idx) values(48, 104);
+insert into tag(board_idx, product_idx) values(49, 104);
+insert into tag(board_idx, product_idx) values(50, 104);
 insert into tag(board_idx, product_idx) values(15, 100);
 
 

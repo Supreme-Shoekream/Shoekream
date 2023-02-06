@@ -19,9 +19,7 @@ function pop_style_view(idx){
             document.getElementById("info_info_id").innerHTML=data.memberDTO.nickname;
             document.getElementById("info_info_hashtag").innerHTML=data.hashtag;
             document.getElementById("info_info_created").innerHTML=data.createdAt;
-            // document.getElementById("info_info_modified").innerHTML=data.modifiedAt;
             let list = "";
-            console.log(data.tags.length)
             for(let i=0;i<data.tags.length;i++){
                 list = list + `
                 <li  class="product_item">
@@ -81,4 +79,10 @@ function delete_board(idx){
         .catch((err) => {
             alert(err);
         })
+}
+
+const searchInput = document.getElementById('search_box')
+searchInput.addEventListener('blur',search_buy)
+function search_buy(){
+    location.href="/style?page=0&searchKeyword="+searchInput.value;
 }

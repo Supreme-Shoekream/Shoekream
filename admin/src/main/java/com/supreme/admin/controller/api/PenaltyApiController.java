@@ -2,6 +2,7 @@ package com.supreme.admin.controller.api;
 
 import com.supreme.admin.model.dto.PenaltyDTO;
 import com.supreme.admin.model.network.Header;
+import com.supreme.admin.model.network.response.PenaltyResponse;
 import com.supreme.admin.service.PenaltyApiLogicService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -18,8 +19,8 @@ public class PenaltyApiController {
     }
 
     @GetMapping("{idx}")
-    public PenaltyDTO read(@PathVariable(name="idx") Long idx){
-        return penaltyApiLogicService.detail(idx);
+    public PenaltyResponse read(@PathVariable(name="idx") Long idx){
+        return PenaltyResponse.from(penaltyApiLogicService.detail(idx));
     }
 
     @DeleteMapping("{idx}")
