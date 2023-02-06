@@ -64,7 +64,7 @@ public class ShopController {
             @RequestParam(required = false) String collection,
             @RequestParam(required = false) String gender,
             @RequestParam(required = false) String keyword,
-            @PageableDefault(size = 20, sort = "idx", direction = Sort.Direction.DESC) Pageable pageable,
+            @PageableDefault(size = 20, sort = "wishCount", direction = Sort.Direction.DESC) Pageable pageable,
             @AuthenticationPrincipal KreamPrincipal kreamPrincipal,
             ModelMap map
     ){
