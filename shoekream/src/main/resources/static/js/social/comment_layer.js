@@ -82,9 +82,7 @@ function isNull(input){
 
 function comment_submit(){
     const replyContent = document.getElementById('layer_reply_content').innerText;
-    console.log(replyContent)
     const currentBoardIdx = document.getElementById('now_boardIdx').value;
-    console.log(currentBoardIdx)
     fetch('http://localhost:8889/api/social/comment_create',{
         method:"POST",
         headers:{"Content-Type": "application/json"},
@@ -100,6 +98,7 @@ function comment_submit(){
     })
         .then((res) => {
             window.location.reload();
+            // $('#reload_div').load(location.href+' #reload_div');
             return;
         })
 

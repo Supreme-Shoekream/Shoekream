@@ -179,3 +179,9 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/java,intellij+all,macos,windows
 *.yaml
+crawling/src/main/java/com/supreme/crawling/crawling/bid.java
+crawling/src/main/java/com/supreme/crawling/crawling/buyNow.java
+crawling/src/main/java/com/supreme/crawling/crawling/sellNow.java
+crawling/src/main/java/com/supreme/crawling/db/Dbconn.java
+crawling/src/main/resources/application.yml
+crawling/src/main/java/com/supreme/crawling/db/Dbconn.java

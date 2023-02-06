@@ -1,10 +1,12 @@
 package com.supreme.shoekream.controller.page;
 
 
+import com.supreme.shoekream.model.dto.MemberDTO;
 import com.supreme.shoekream.model.entity.Conclusion;
 import com.supreme.shoekream.model.network.Pagination;
 import com.supreme.shoekream.model.network.response.BuyResponse;
 import com.supreme.shoekream.model.network.response.SellResponse;
+import com.supreme.shoekream.model.network.security.KreamPrincipal;
 import com.supreme.shoekream.repository.ConclusionRepository;
 import com.supreme.shoekream.service.*;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +18,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,6 +37,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AdminPageController {
     private final PaginationService paginationService;
+    private final PointApiLogicService pointApiLogicService;
+    private final MemberApiLogicService memberApiLogicService;
 
     @GetMapping(path="")   //http://localhost:8889/admin
     public ModelAndView index(){
@@ -148,4 +153,11 @@ public class AdminPageController {
 
     @GetMapping(path="vue")
     public ModelAndView vue() {return new ModelAndView("/adminpage/admin_layer/vuetest");}
+
+    @GetMapping(path="point")
+    public String point(ModelMap map, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        map.addAttribute("member", memberApiLogicService.readPoint(kreamPrincipal.idx()));
+        map.addAttribute("point", pointApiLogicService.list(kreamPrincipal.idx()));
+        return "my/point";
+    }
 }

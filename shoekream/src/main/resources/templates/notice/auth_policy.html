@@ -12,19 +12,18 @@
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"
     integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 </head>
-
 <body>
     <div id="__layout">
         <div tabindex="0" class="wrap snb"><!---->
-                <!--header 넣을곳-->
-                <header th:replace="/fragment/header.html :: header"></header>
-                <!--header 넣을곳-->
+            <!--header 넣을곳-->
+            <header th:replace="/fragment/header.html :: header"></header>
+            <!--header 넣을곳-->
                 <div class="container customer lg" >
-                    <div >
-                        <div  class="snb_area"><a  href="/notice" class="">
+                    <div>
+                        <div class="snb_area"><a  href="/notice" class="">
                                 <h2  class="snb_main_title">고객센터</h2>
                             </a>
-                            <nav  class="snb">
+                            <nav class="snb">
                                 <div class="snb_list"><!---->
                                     <ul class="snb_menu">
                                         <li class="menu_item"><a href="/notice"
@@ -40,10 +39,10 @@
                             </nav>
                         </div>
                     </div>
-                    <div class="content_area" >
-                        <div  class="customer_content">
+                    <div class="content_area">
+                        <div class="customer_content">
                             <div  class="content_title border">
-                                <div  class="title">
+                                <div class="title">
                                     <h3 >검수기준</h3><!---->
                                 </div><!---->
                             </div>
@@ -2852,15 +2851,16 @@
                                             </div>
                                         </div>
                                     </div>
-
-
-
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+        </div>
+    </div>
 <!--footer 넣을곳-->
 <footer th:replace="fragment/footer.html :: footer"></footer>
 <!--footer 넣을곳-->
 <script src="/js/notice/auth_policy.js"></script>
+</body>
+</html>

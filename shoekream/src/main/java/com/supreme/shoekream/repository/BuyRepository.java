@@ -4,6 +4,7 @@ import com.supreme.shoekream.model.entity.Buy;
 import com.supreme.shoekream.model.entity.Conclusion;
 import com.supreme.shoekream.model.entity.Member;
 import com.supreme.shoekream.model.entity.Product;
+import com.supreme.shoekream.model.entity.Sell;
 import com.supreme.shoekream.model.enumclass.OrderStatus;
 import com.supreme.shoekream.model.enumclass.Type;
 import org.springframework.data.domain.Page;
@@ -17,6 +18,7 @@ import java.util.Optional;
 public interface BuyRepository extends JpaRepository<Buy,Long> {
     // 한 사용자가 구입한 내역
     List<Buy> findTop3ByMember(Member member);
+    List<Buy> findByMemberIdxAndStatus(Long idx, OrderStatus status);
     Page<Buy> findByMemberAndStatus(Member member, OrderStatus status, Pageable pageable); //입찰/진행중/종료
     //기간 추가
     Page<Buy> findByMemberAndStatusAndCreatedAtAfter(Member member, OrderStatus status,LocalDateTime localDateTime, Pageable pageable);
@@ -39,9 +41,6 @@ public interface BuyRepository extends JpaRepository<Buy,Long> {
     //test: data.sql에서 숫자로 두고, 가져올땐 Orderstatus.END이런식으로 가져옴
     List<Buy> findByStatus(OrderStatus orderStatus);
     List<Buy> findByCreatedAtAfter(LocalDateTime createdAt);
-
-
+    List<Sell> deleteByMemberIdx(Long idx);
     List<Buy> findAllByProductOrderByCreatedAtDesc(Product product);
-
-
 }

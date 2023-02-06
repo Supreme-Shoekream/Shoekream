@@ -584,3 +584,14 @@ button {
     word-break: keep-all;
     overflow: hidden;
 }
+
+#sell_tab_item {
+    padding: 0px 14px;
+}
+
+.title h3 {
+    line-height: 29px;
+    font-size: 24px;
+    margin: 0;
+    color: black;
+}

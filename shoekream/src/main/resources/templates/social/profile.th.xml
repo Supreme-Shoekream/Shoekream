@@ -20,9 +20,11 @@
             <attr sel="#pop_follower_cnt" th:text="${followers.size}"/>
             <attr sel="ul.user_list">
                 <attr sel="li.user_item"  th:each="follower:${followers}">
-                    <attr sel="img.profile_img" th:src="${follower.follower.imgUrl}"/>
-                    <attr sel=".user_name_text" th:text="${follower.follower.nickname}"/>
-                    <attr sel=".user_subname" th:text="${follower.follower.email}"/>
+                    <attr sel=".user_link" th:onclick="'javascript:profileCheck(' + ${follower.follower.idx} +');'">
+                        <attr sel="img.profile_img" th:src="${follower.follower.imgUrl}"/>
+                        <attr sel=".user_name_text" th:text="${follower.follower.nickname}"/>
+                        <attr sel=".user_subname" th:text="${follower.follower.email}"/>
+                    </attr>
                 </attr>
             </attr>
         </attr>
@@ -35,9 +37,11 @@
             <attr sel="#pop_following_cnt" th:text="${followings.size}"/>
             <attr sel="ul.user_list">
                 <attr sel="li.user_item"  th:each="following:${followings}">
-                    <attr sel="img.profile_img" th:src="${following.following.imgUrl}"/>
-                    <attr sel=".user_name_text" th:text="${following.following.nickname}"/>
-                    <attr sel=".user_subname" th:text="${following.following.email}"/>
+                    <attr sel=".user_link" th:onclick="'javascript:profileCheck(' + ${following.following.idx} +');'">
+                        <attr sel="img.profile_img" th:src="${following.following.imgUrl}"/>
+                        <attr sel=".user_name_text" th:text="${following.following.nickname}"/>
+                        <attr sel=".user_subname" th:text="${following.following.email}"/>
+                    </attr>
                 </attr>
             </attr>
         </attr>

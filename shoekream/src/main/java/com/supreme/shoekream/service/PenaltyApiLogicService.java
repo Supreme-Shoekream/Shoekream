@@ -1,9 +1,14 @@
 package com.supreme.shoekream.service;
 
 import com.supreme.shoekream.model.dto.PenaltyDTO;
+import com.supreme.shoekream.model.dto.PointDTO;
+import com.supreme.shoekream.model.entity.Member;
 import com.supreme.shoekream.model.entity.Penalty;
-import com.supreme.shoekream.model.entity.Sell;
 import com.supreme.shoekream.model.network.Header;
+import com.supreme.shoekream.model.network.response.PenaltyResponse;
+import com.supreme.shoekream.model.network.response.PointApiResponse;
+import com.supreme.shoekream.repository.MemberRepository;
+import com.supreme.shoekream.model.entity.Sell;
 import com.supreme.shoekream.repository.PenaltyRepository;
 import com.supreme.shoekream.repository.SellRepository;
 import lombok.RequiredArgsConstructor;
@@ -19,6 +24,8 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class PenaltyApiLogicService {
     private final PenaltyRepository penaltyRepository;
+
+    private final MemberRepository memberRepository;
     private final SellRepository sellRepository;
 
     @Transactional(readOnly = true)

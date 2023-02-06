@@ -143,7 +143,8 @@ public record KreamPrincipal(
                 name,
                 hp,
                 email,
-                shoeSize
+                shoeSize,
+                imgUrl
         );
     }
 

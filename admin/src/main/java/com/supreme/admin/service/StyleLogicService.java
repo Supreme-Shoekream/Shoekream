@@ -200,7 +200,8 @@ public class StyleLogicService {
         List<BoardDTO> boards = BoardDTO.fromEntity(bds);
         for (int i=0;i<boards.size()-1;i++){
             for(int j=1;j<boards.size();j++){
-                if(boards.get(i).lks().size() > boards.get(j).lks().size()){
+                if(boards.get(i).lks().size() + boards.get(i).replies().size() >
+                        boards.get(j).lks().size() + boards.get(j).replies().size()){
                     BoardDTO temp = BoardDTO.of(
                             boards.get(i).idx(),
                             boards.get(i).memberDTO(),

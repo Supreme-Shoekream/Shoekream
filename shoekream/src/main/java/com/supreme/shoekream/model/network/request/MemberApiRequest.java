@@ -19,7 +19,9 @@ public record MemberApiRequest(
         String email,
         String shoeSize,
         String accNumber,
-        String bank
+        String bank,
+        String imgUrl
+
 ) {
 
     public MemberDTO toDTO(){
@@ -31,7 +33,9 @@ public record MemberApiRequest(
                 email,
                 shoeSize,
                 bank,
-                accNumber
+                accNumber,
+                imgUrl
+
         );
     }
 }

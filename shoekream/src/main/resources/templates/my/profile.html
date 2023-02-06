@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="/css/fragment/mypage_navbar.css">
     <link rel="stylesheet" href="/css/fragment/footer.css">
     <script defer src="/js/fragment/mypage_navbar.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 <html>
 
@@ -35,7 +37,7 @@
                         <div class="profile_btn_box"><label href="#" class="btn outlinegrey small" for="modify_img"> 이미지 변경 </label><a href="#"
                                 class="btn outlinegrey small" onclick="delete_img()"> 삭제 </a></div>
                     </div>
-                </div><input type="file" id="modify_img" accept="image/jpeg,image/png" hidden="hidden"><canvas width="1000"
+                </div><input type="file" id="modify_img" accept="image/png, image/jpeg" hidden="hidden"><canvas width="1000"
                     height="1000" style="display: none;"></canvas>
                 <div class="profile_info">
                     <div class="profile_group">
@@ -286,24 +288,95 @@ const boxes = document.querySelectorAll(".size_item .btn");
 
 
 // 프로필 이미지 변경
-function readImage(input){
+function readImage(input) {
+
     // console.log(input);
-    if(input.files && input.files[0]){
+    if (input.files && input.files[0]) {
+
         const reader = new FileReader();
 
         reader.onload = e => {
             const newImg = document.getElementById('profile_img');
-            newImg.src=e.target.result;
+            newImg.src = '/img/profileImg/' + input.files[0].name;
         }
         reader.readAsDataURL(input.files[0]);
     }
 }
+$("input[type='file']").on("change", function(e){
+    let formData = new FormData();
+    let fileInput = $('input[type=file]');
+    console.log(fileInput)
+    let fileList = fileInput[0].files;
+    let fileObj = fileList[0];
+    console.log("fileName : " + fileObj.name); // 파일 이름 확인
+    console.log("fileSize : " + fileObj.size); // 파일 사이즈 확인
+    formData.append("imgUpload", fileObj);
 
-const modifyImg = document.getElementById('modify_img');
-modifyImg.addEventListener("change", e => {
-    // console.log(e.target);
+    // const previewImage = document.getElementById("previewImage");
+    // previewImage.src = "/img/styleImg/" + fileObj.name;
+
+    // ajax를 사용하여 서버로 전송
+    $.ajax({
+        url: "/api/my/imgUpload", // 서버로 요청을 보낼 url
+        processData : false, // 서버로 전송할 데이터를 queryStirng 형태로 변환할지 여부
+        contentType : false, // 서버로 전송되는 데이터의 content-type
+        data : formData, // 서버로 전송할 데이터
+        type : 'POST', // 서버 요청 타입(GET, POST)
+        enctype:'multipart/form-data',
+        dataType : 'text', // 서버로부터 반환받을 데이터 타입
+        async : false,
+        success : function (data){
+            alert(data);
+        },
+        error: function(e) {
+            alert("값을 가져오지 못했습니다.");
+        }
+    });
     readImage(e.target);
-})
+    profileImgSend()
+});
+
+
+function profileImgSend(){
+    const img2 = document.getElementById("modify_img").value; // 게시글 사진
+    console.log(img2)
+    const img = img2.substring(12)
+    console.log(img)
+
+    fetch("http://localhost:8889/api/my/changeUpload", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            "transaction_time":`${new Date()}`,
+            "resultCode":"ok",
+            "description":"정상",
+            "data":{
+                "imgUrl":img
+            }
+        }),
+    })
+        .then((res) => {
+            alert("프로필 사진 등록 완료")
+            location.href="/my/profile";
+            return;
+        })
+        .then((data) => {
+            console.log(data);
+            return;
+        })
+        .catch((err) => {
+            alert("프로필 사진 등록 실패");
+            location.reload();
+            return;
+        })
+}
+// const modifyImg = document.getElementById('modify_img');
+// modifyImg.addEventListener("change", e => {
+//     // console.log(e.target)
+//     readImage(e.target);
+//     alert('이미지가 수정되었습니다')
+//     // location.href='/my/profile'
+// })
 // 업데이트
 
 // 이메일

@@ -50,6 +50,9 @@ a:hover{
     letter-spacing: -.27px;
     font-weight: 600;
 }
+/*.user_link{*/
+/*    padding-left: 25%;*/
+/*}*/
 
 .lg .content, .md .content, .container{
     margin-top: 55px;

@@ -98,13 +98,14 @@ public class AdminPageController {
         map.addAttribute("totalDealCount",totalDealCount);
         map.addAttribute("conclusion", conclusions);
         map.addAttribute("sale", sales);
+        map.addAttribute("topPosting",styleLogicService.unlog_trend().get(0));
 
         return "/adminpage/index";
     }   //viewName: 페이지이름이랑 같아야함
 
     @GetMapping(path="users")   //http://localhost:8899//users
     public String users(@RequestParam(required = false) String searchKeyword,
-                        @PageableDefault(size = 10, sort = "idx", direction = Sort.Direction.DESC) Pageable pageable,
+                        @PageableDefault(size = 10, sort = "idx", direction = Sort.Direction.ASC) Pageable pageable,
                         ModelMap map,HttpServletRequest request){
         String session = sessionCheck(request);
 //        if(session == null)  return new ModelAndView( "/adminpage/login.html");

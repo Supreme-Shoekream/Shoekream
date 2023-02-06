@@ -29,10 +29,10 @@ function pop_like(idx){
                                 <span class="user_subname">${members[i].profileMemo}</span>
                             </div>
                         </a>
-                        <div class="user_box_follow">
-                            <button type="button" class="btn solid small btn_follow small"> 팔로우
-                            </button>
-                        </div>
+<!--                        <div class="user_box_follow">-->
+<!--                            <button type="button" class="btn solid small btn_follow small"> 팔로우-->
+<!--                            </button>-->
+<!--                        </div>-->
                     </div>
                 </li>
             `
