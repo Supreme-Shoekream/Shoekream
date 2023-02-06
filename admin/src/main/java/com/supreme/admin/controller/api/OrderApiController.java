@@ -1,10 +1,14 @@
 package com.supreme.admin.controller.api;
 
 import com.supreme.admin.model.dto.BuyDTO;
+import com.supreme.admin.model.dto.SellDTO;
 import com.supreme.admin.model.enumclass.Progress;
+import com.supreme.admin.model.enumclass.SellProgress;
 import com.supreme.admin.model.network.Header;
 import com.supreme.admin.model.network.request.BuyRequest;
+import com.supreme.admin.model.network.request.SellRequest;
 import com.supreme.admin.model.network.response.BuyResponse;
+import com.supreme.admin.model.network.response.SellResponse;
 import com.supreme.admin.repository.BuyRepository;
 import com.supreme.admin.repository.SellRepository;
 import com.supreme.admin.service.BuyService;
@@ -22,6 +26,7 @@ public class OrderApiController {
     private final ProductApiLogicService productApiLogicService;
     private final SellRepository sellRepository;
     private final BuyRepository buyRepository;
+
 
 
     @GetMapping("buy/{idx}")
@@ -47,6 +52,17 @@ public class OrderApiController {
             case 3 -> progress=Progress.DELIVERY_COMPLETE;
         }
         return buyService.update(idx, progress);
+    }
+
+    @GetMapping("sell/{idx}")
+    public SellResponse sellRead(@PathVariable(name="idx")Long idx){
+        SellDTO sell = sellService.sellDetail(idx);
+        return SellResponse.from(sell);
+    }
+
+    @DeleteMapping("sell/{idx}")
+    public Header<SellDTO> sellDelete(@PathVariable(name="idx")Long idx){
+        return sellService.delete(idx);
     }
 
 }
