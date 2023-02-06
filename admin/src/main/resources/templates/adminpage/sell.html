@@ -1152,7 +1152,7 @@
 <div th:replace="~{adminpage/admin_layer/pop_sell_delete::sell_delete}"></div>
 
 <!-- 패널티 등록 -->
-<div class="layer_penalty pop layer lg" style="display: none">
+<div class="layer_penalty layer lg" style="display: none">
 	<div class="layer_container">
 		<a href="#" class="btn_layer_close">
 			<div>
@@ -1168,18 +1168,17 @@
 				<div class="user_bind">
 					<div class="user_input">
 						<div class="input_box ">
-							<h4 class="input_title">패널티</h4>
+							<h4 class="input_title">사용자 Email</h4>
 							<!-- 사용자 아이디 시작 -->
 							<div class="input_item">
-								<p class="title">사용자ID</p>
-								<p class="info">apple</p>
+								<p class="info" id="panalty_email">apple@apple.com</p>
 							</div>
 							<!-- 사용자 아이디 끝 -->
 
 							<!-- 패널티 사유 시작 -->
+							<h4 class="input_title">패널티 사유</h4>
 							<div class="input_item">
-								<p class="title">패널티 사유</p>
-								<select class="info" name="reason" id="select">
+								<select class="info" name="reason" id="panalty_reson">
 									<option value="delayed">발송 지연</option>
 									<option value="denied">판매 거부</option>
 									<option value="empty">미입고</option>
@@ -1189,11 +1188,16 @@
 							<!-- 패널티 사유 끝 -->
 
 							<!-- 상품 코드 시작 -->
+							<h4 class="input_title">상품 이름</h4>
 							<div class="input_item">
-								<p class="title">상품 코드</p>
-								<p class="info">jdfljaei29</p>
+								<p class="title" style="display:none" id="panalty_productIdx"></p>
+								<p class="info" id="panalty_productName">jdfljaei29</p>
 							</div>
-							<!-- 상품 코드 끝 -->
+							<!-- 예상 패널티 금액 -->
+							<h4 class="input_title">예상 패널티 금액</h4>
+							<div class="input_item">
+								<p class="info" id="panalty_price">35,000원</p>
+							</div>
 						</div>
 
 					</div>
@@ -1210,7 +1214,7 @@
 <!-- js -->
 <div th:replace="fragment/adminjs :: js"></div>
 <!-- js -->
-<script src="/js/admin/sell.js"></script>
+<script src="/js/sell.js"></script>
 
 </body>
 </html>
