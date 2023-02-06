@@ -2,7 +2,7 @@
 
 insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url, bank, acc_number) values ('root', '{noop}root1234!', '박수성', '010-795-9985', 'root@root.com', 0, 240, 5100, 'Red', '/img/styleImg/empty_profile_img.png', '하나은행' , '1238008829271');
 insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('hsd_09_', '{noop}PtLR!@0aXZKp', '박서준', '010-877-1330', 'zkrochmann1@ft.com', 0, 240, 200, 'Goldenrod', '/img/styleImg/profile1.jpeg');
-insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('i.tohewa', '{noop}YB6P!@BcWrzC', '신동열', '010-450-0814', 'smaffioni2@unicef.org', 0, 230, 300, 'Mauv', '/img/styleImg/profile2.jpeg');
+insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('i.tohewa', '{noop}YB6P!@BcWrzC', '신동열', '010-450-0814', 'jj2221@naver.com', 0, 230, 300, 'Mauv', '/img/styleImg/profile2.jpeg');
 insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('this_is_me_dew', 'SMWl!@rG', '박준영', '010-272-0199', 'tconrard3@si.edu', 0, 270, 400, 'Aquamarine', '/img/styleImg/profile3.jpeg');
 insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('rldaldwkd', 'TTxnmU!@2W', '임성빈', '010-174-7922', 'sbates4@scribd.com', 0, 270, 500, 'Turquoise', '/img/styleImg/profile4.jpeg');
 insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('Mgocheezz', 'AgHj!@WvVI84Ya', '차지니', '010-578-3746', 'tstquintin5@bbb.org', 0, 265, 600, 'Violet', '/img/styleImg/profile5.jpeg');
@@ -2565,7 +2565,7 @@ update product set wish_count = (select count(*) from wish where product_idx="58
 update product set wish_count = (select count(*) from wish where product_idx="589" ) where idx=589;
 
 -- event_product
-insert into event_product(idx,end_time, img,  start_time,title,product_idx  ) values (1,"2023-02-06",'/img/event/event2.gif', "2023-02-04","test",110 );
+insert into event_product(idx,end_time, img,  start_time,title,product_idx  ) values (1,"2023-02-08",'/img/event/event2.gif', "2023-02-04","test",110 );
 insert into event_member(idx, event_product_idx, member_idx) values (1,1,1);
 insert into event_member(idx, event_product_idx, member_idx) values (2,1,2);
 
