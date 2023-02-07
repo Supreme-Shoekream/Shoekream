@@ -169,7 +169,7 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
     public Header<MemberApiResponse> updateProfileImg(MemberDTO dto, Long idx){
         Optional<Member> member = memberRepository.findById(idx);
         Member newMember = member.get();
-        if(dto.imgUrl() != null) newMember.setImgUrl("/img/profileImg/"+dto.imgUrl());
+        if(dto.imgUrl() != null) newMember.setImgUrl(dto.imgUrl());
         return Header.OK();
     }
     @Override
