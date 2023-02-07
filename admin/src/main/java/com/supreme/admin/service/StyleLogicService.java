@@ -46,7 +46,8 @@ public class StyleLogicService {
         if(searchKeyowrd == null || searchKeyowrd.isBlank()){
             return boardRepository.findAll(pageable).map(BoardDTO::fromEntity);
         }
-        return boardRepository.findAllByMember_Nickname(searchKeyowrd,pageable).map(BoardDTO::fromEntity);
+        return boardRepository.findAllByMember_NicknameContainingOrMember_Email(searchKeyowrd,searchKeyowrd,pageable)
+                .map(BoardDTO::fromEntity);
     }
 
     @Transactional(readOnly = true)

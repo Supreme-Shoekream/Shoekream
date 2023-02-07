@@ -19,5 +19,5 @@ public interface BoardRepository extends JpaRepository<Board, Long> {
     long countBy();
     Page<Board> findAll(Pageable pageable);
 
-    Page<Board> findAllByMember_Nickname(String nickname, Pageable pageable);
+    Page<Board> findAllByMember_NicknameContainingOrMember_Email(String nickname,String email, Pageable pageable);
 }
