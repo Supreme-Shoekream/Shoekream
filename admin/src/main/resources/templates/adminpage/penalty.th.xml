@@ -16,8 +16,8 @@
 
 <!-- View, Delete 부분 -->
             <attr sel=".dropdown">
-                <attr sel="#view_btn" th:onclick="'javascript:layer_penalty_view('+ ${penalty.idx} + ');'"/>
-                <attr sel="#delete_btn" th:onclick="'javascript:pop_penalty_delete(' + ${penalty.idx} + ');'"/>
+                <attr sel="#view_btn" th:onclick="'javascript:pop_penalty_view('+ ${penalty.idx} + ');'"/>
+                <attr sel="#delete_btn" th:onclick="'javascript:delete_penalty(' + ${penalty.idx} + ');'"/>
             </attr>
         </attr>
     </attr>
@@ -35,5 +35,4 @@
                   th:href="@{/penalty(page=${penaltys.number + 1}, searchKeyword=${param.searchKeyword})}"
                   th:class="'page-link'+(${penaltys.number}>=${penaltys.totalPages -1} ? ' disabled' : '')"/>
         </attr>
-
 </thlogic>

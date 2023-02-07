@@ -3,14 +3,16 @@ function getCheck() {
     const query = 'input[class=check]:checked';
     const selectedElements = document.querySelectorAll(query);
     const cnt = selectedElements.length;
-
+    const next = document.querySelector("#next")
     if (cnt == 5) {
         $("#next").css("background-color", "black");
-        document.querySelector("#next").disabled = false;
+        next.disabled = false;
+        next.classList.remove('disabled');
 
     } else {
         $("#next").css("background-color", "#ebebeb");
-        document.querySelector("#next").disabled = true;
+        next.disabled = true;
+        if(!(next.classList.contains('disabled'))) next.classList.add('disabled');
     }
 }
 

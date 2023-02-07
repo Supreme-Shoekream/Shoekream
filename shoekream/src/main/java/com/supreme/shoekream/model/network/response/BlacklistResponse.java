@@ -26,7 +26,7 @@ public record BlacklistResponse(
 
         return new BlacklistResponse(
                 dto.idx(),
-                dto.reason().getDescription(),
+                dto.reason(),
                 dto.memberDTO().idx(),
                 dto.memberDTO().name(),
                 dto.memberDTO().hp(),

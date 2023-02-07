@@ -7,8 +7,8 @@ function pop_member_view(idx){
             // console.log(data)
             // console.log(data.data.name)
             // console.log(data.data.imgUrl)
-            let img = data.data.imgUrl
-            if(img==null) img='/img/kream_empty_img.png'
+            let img = data.data.imgUrl;
+            if(img==null) img='/img/styleImg/empty_profile_img.png'
             document.querySelector(".layer_user_view .name").innerHTML=data.data.name;
             document.querySelector(".layer_user_view .nickname").innerHTML=data.data.nickname;
             document.querySelector(".layer_user_view .shoeSize").innerHTML=data.data.shoeSize;
@@ -25,11 +25,12 @@ function pop_member_view(idx){
 function close_member_view(){
     document.querySelector(".layer_user_view").style.display = "none";
 }
-function pop_penalty(idx){
-    document.querySelector(".layer_penalty").style.display = "block";
-    const btn_save = document.querySelector('.btn_save_penalty');
-    btn_save.addEventListener('click',sendit);
-}
-function close_penalty(){
-    document.querySelector(".layer_penalty").style.display = "none";
+function href_penalty(idx) {
+    fetch('http://localhost:8899/api/admin/users/'+idx)
+        .then((response) => response.json())
+        .then((data) => {
+            let email = data.data.email
+            location.href="/penalty?page=0&searchKeyword="+email;
+        })
+
 }

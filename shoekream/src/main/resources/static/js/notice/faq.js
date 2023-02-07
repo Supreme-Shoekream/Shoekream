@@ -24,8 +24,8 @@ $(".menu_item").click(function(){
     }); 
 
 // 테이블 선택
-$(".category_text").click(function(){
-    $(".category_text").removeClass("active");
+$(".category").click(function(){
+    $(".category").removeClass("active");
     $(this).addClass("active");
     $(".category").removeClass("category_on")
     }); 
