@@ -79,7 +79,7 @@
 							<h2 class="h4 mb-20">sales</h2>
 <!--							<div id="chart5"></div>-->
 							<div class="graph">
-								<canvas id="graph" width="1000" height="550" style="display: block; margin: 0 auto;"></canvas>
+								<canvas id="graph" width="900" height="500" style="display: block; margin: 0 auto;"></canvas>
 							</div>
 						</div>
 					</div>
@@ -220,9 +220,9 @@
 		<script th:inline="javascript">
 			/*<![CDATA[*/
 			let conclusion = [[${conclusion}]];
-			console.log(conclusion);
+			// console.log(conclusion);
 			let sale = [[${sale}]];
-			console.log(sale);
+			// console.log(sale);
 
 			let now = new Date();
 			let oneyear = new Date();
@@ -239,7 +239,7 @@
 			let oneYearAgo = dateFormat(new Date(oneyear.setFullYear(oneyear.getFullYear() - 1)));
 			console.log("일년전: " + oneYearAgo);
 
-			// 📌 date -> total count
+			// 📌 date -> conclusion total count
 			let arr1 = [];
 			for(let key in conclusion) {
 				arr1.push([conclusion[key].createdAt.substring(0, 7)]); // yyyy-mm 으로 포맷 변경
@@ -284,7 +284,7 @@
 			console.log(Count1);
 
 
-			// 📌 date -> total price
+			// 📌 date -> conclusion total price
 			let arr4 = [];
 			for(let key in sale) {
 				arr4.push([sale[key].createdAt.substring(0, 7), sale[key].price.replaceAll(",","").replace("원","").substring()]); // yyyy-mm 으로 포맷 변경
@@ -304,22 +304,58 @@
 					type: "bar",
 					label: "total count",
 					data: Count1, // y축 1 -> 한달 체결내역 토탈 카운트
-					yAxesID: 'y-left',
+					yAxisID: 'y-left',
 					backgroundColor: 'rgb(21,20,189)', // 차트 배경 색
 					borderColor: 'rgb(21,20,189)', // 라인 색
 					borderWidth: 1, // 라인 넓이
 					pointRadius: 0, // 포인터 없애기,
-					// fill: false
 				},{
 					label: "total price",
 					data: Price1, // y축 2 -> 한달 체결내역 토탈 금액
 					type: "bar",
-					yAxesID: 'y-right',
+					yAxisID: 'y-right',
 					backgroundColor: 'rgb(101,150,70)', // 차트 배경 색
 					borderColor: 'rgb(101,150,70)', // 라인 색
 					borderWidth: 1, // 라인 넓이
-					pointRadius: 0 // 포인터 없애기
+					pointRadius: 0, // 포인터 없애기
 				}]
+			};
+
+			let graphOptions = {
+				maxBarThickness: 30,
+				responsive: false, // 사이즈 자동 조절 가능 여부
+				scales: {
+					x: {
+						title: {
+							display: true,
+						}
+					},
+					"y-right": {
+						type: 'linear',
+						position: 'right',
+						title: {
+							display: true,
+						},
+						grid: {
+							display: false
+						},
+						// ticks: {
+						// 	callback: function(value, index, values) {
+						// 		return value + ' 원';
+						// 	}
+						// }
+					},
+					"y-left": {
+						type: 'linear',
+						position: 'left',
+						title: {
+							display: true,
+						},
+						grid: {
+							display: false
+						}
+					},
+				}
 			};
 
 			let myChart;
@@ -328,52 +364,7 @@
 				myChart = new Chart(ctx, {
 					type: "bar",
 					data: graphData,
-					options: {
-						maxBarThickness: 30,
-						responsive: false,
-						scales: {
-							xAxes: {
-								ticks: {
-									display: true // x축 라벨 숨김
-								},
-								grid: {
-									display: true // x축 눈금선 숨김
-								}
-							},
-							'y-left': {
-								//beginAtZero: true, // y축 0부터 시작
-								position: 'left', // 축 라벨이 왼쪽에 표시될지, 오른쪽에 표시될지 정함
-								grid: {
-									display: false // y축 눈금선 숨김
-								},
-								ticks: {
-									callback: (val) => (val.toExponential())
-								},
-							},
-							'y-right': {
-								beginAtZero: true, // y축 0부터 시작
-								position: 'right', // 축 라벨이 왼쪽에 표시될지, 오른쪽에 표시될지 정함
-								grid: {
-									display: false // y축 눈금선 숨김
-								}
-							}
-							// yAxes: {
-							// 	beginAtZero: true, // y축 0부터 시작
-							// 	position: 'left', // 축 라벨이 왼쪽에 표시될지, 오른쪽에 표시될지 정함
-							// 	grid: {
-							// 		display: true // y축 눈금선 숨김
-							// 	}
-							// },
-						},
-						plugins: {
-							datalabels: {
-								display: false
-							},
-							legend: {
-								display: true // 라벨 없애기(그래프제목)
-							}
-						},
-					},
+					options: graphOptions
 				});
 			});
 
