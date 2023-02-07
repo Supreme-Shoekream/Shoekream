@@ -1,18 +1,46 @@
 <?xml version="1.0"?>
 <thlogic>
+<!--    <attr sel=".content_area">-->
+<!--        <attr sel=".wish_list" th:remove="all-but-first">-->
+<!--            <attr sel=".wish_list_li[0]" th:each="wishProduct, i : ${wish_productList}">-->
+<!--                <attr sel="a.wish_pro_img_link" th:href="@{/product/{proIdx}(proIdx=${wishProduct.idx})}"/>-->
+<!--                <attr sel="img.wish_pro_img" th:src="${wishProduct.img}"/>-->
+<!--                <attr sel="a.wish_pro_brand" th:text="${wishProduct.brand}" th:href="@{/brand/{brandName}(brandName=${wishProduct.brand})}"/>-->
+<!--                <attr sel="a.wish_pro_name_size_link" th:href="@{/product/{proIdx}(proIdx=${wishProduct.idx})}"/>-->
+<!--                <attr sel="p.wish_pro_name" th:text="${wishProduct.name}"/>-->
+<!--                <attr sel="span.wish_pro_size" th:text="${wishProduct.size}"/>-->
+<!--                <attr sel="a.btn_division" th:href="@{/buy/check/{proIdx}(proIdx=${wishProduct.idx})}"/>-->
+<!--                <attr sel="em.wish_pro_buy" th:text="${wish_productPrice[i.index]}"/>-->
+<!--                <attr sel="a.wish_proIdx" th:value="${wishProduct.idx}"/>-->
+<!--            </attr>-->
+<!--        </attr>-->
+<!--    </attr>-->
     <attr sel=".content_area">
         <attr sel=".wish_list" th:remove="all-but-first">
-            <attr sel=".wish_list_li[0]" th:each="wishProduct, i : ${wish_productList}">
-                <attr sel="a.wish_pro_img_link" th:href="@{/product/{proIdx}(proIdx=${wishProduct.idx})}"/>
-                <attr sel="img.wish_pro_img" th:src="${wishProduct.img}"/>
-                <attr sel="a.wish_pro_brand" th:text="${wishProduct.brand}" th:href="@{/brand/{brandName}(brandName=${wishProduct.brand})}"/>
-                <attr sel="a.wish_pro_name_size_link" th:href="@{/product/{proIdx}(proIdx=${wishProduct.idx})}"/>
-                <attr sel="p.wish_pro_name" th:text="${wishProduct.name}"/>
-                <attr sel="span.wish_pro_size" th:text="${wishProduct.size}"/>
-                <attr sel="a.btn_division" th:href="@{/buy/check/{proIdx}(proIdx=${wishProduct.idx})}"/>
-                <attr sel="em.wish_pro_buy" th:text="${wish_productPrice[i.index]}"/>
-                <attr sel="a.wish_proIdx" th:value="${wishProduct.idx}"/>
+            <attr sel=".wish_list_li[0]" th:each="wishProduct, i : ${wish_productPage}">
+                <attr sel="a.wish_pro_img_link" th:href="@{/product/{proIdx}(proIdx=${wishProduct.product.idx})}"/>
+                <attr sel="img.wish_pro_img" th:src="${wishProduct.product.img}"/>
+                <attr sel="a.wish_pro_brand" th:text="${wishProduct.product.brand}" th:href="@{/brand/{brandName}(brandName=${wishProduct.product.brand})}"/>
+                <attr sel="a.wish_pro_name_size_link" th:href="@{/product/{proIdx}(proIdx=${wishProduct.product.idx})}"/>
+                <attr sel="p.wish_pro_name" th:text="${wishProduct.product.name}"/>
+                <attr sel="span.wish_pro_size" th:text="${wishProduct.product.size}"/>
+                <attr sel="a.btn_division" th:href="@{/buy/check/{proIdx}(proIdx=${wishProduct.product.idx})}"/>
+<!--                <attr sel="em.wish_pro_buy" th:text="${wish_productPrice[i.index]}"/>-->
+                <attr sel="a.wish_proIdx" th:value="${wishProduct.product.idx}"/>
             </attr>
         </attr>
+    </attr>
+    <attr sel=".pagination" th:object="${wish_productPage}">
+        <attr sel="li[0]/a" th:text="'◀'"
+              th:href="@{/my/wish(page=${wish_productPage.number - 1})}"
+              th:class="'page-link'+(${wish_productPage.number}<=0 ? ' disabled' : '')"/>
+        <attr sel="li[1]" th:class="page-item" th:each="pageNumber : ${barNumbers}">
+            <attr sel="a" th:text="${pageNumber + 1}"
+                  th:href="@{/my/wish(page=${pageNumber})}"
+                  th:class="'page-link'+(${pageNumber}==${wish_productPage.number} ? ' disabled' : '')"/>
+        </attr>
+        <attr sel="li[2]/a" th:text="'▶'"
+              th:href="@{/my/wish(page=${wish_productPage.number + 1})}"
+              th:class="'page-link'+(${wish_productPage.number}>=${wish_productPage.totalPages -1} ? ' disabled' : '')"/>
     </attr>
 </thlogic>

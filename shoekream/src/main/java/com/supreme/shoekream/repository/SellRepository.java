@@ -27,6 +27,8 @@ public interface SellRepository extends JpaRepository<Sell,Long> {
     Sell findFirstByProductOrderByPrice(Product product);
     Sell findFirstByProductAndStatusOrderByPrice(Product product, OrderStatus status);
 
+    Page<Sell> findFirstByProductAndStatusOrderByPrice(Product product, OrderStatus status, Pageable pageable);
+
     Sell findFirstByProductAndPriceOrderByCreatedAtAsc(Product product, Long price);
 
     Page<Sell> findBySender(String sender, Pageable pageable);
