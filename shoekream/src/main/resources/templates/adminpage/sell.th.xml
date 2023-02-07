@@ -11,10 +11,10 @@
                 searchKeyword=${param.searchValue}
                 )}"/>
 
-            <attr sel="th.order_num/a" th:href="@{/admin/sell(page=${sells.number},sort='idx'+
-                (*{sort.getOrderFor('idx')} != null ? (*{sort.getOrderFor('idx').direction.name} != 'DESC' ? ',desc' : '') : ''),
-                searchKeyword=${param.searchValue}
-                )}"/>
+<!--            <attr sel="th.order_num/a" th:href="@{/admin/sell(page=${sells.number},sort='idx'+-->
+<!--                (*{sort.getOrderFor('idx')} != null ? (*{sort.getOrderFor('idx').direction.name} != 'DESC' ? ',desc' : '') : ''),-->
+<!--                searchKeyword=${param.searchValue}-->
+<!--                )}"/>-->
 
             <attr sel="th.size/a" th:href="@{/admin/sell(page=${sells.number},sort='product.size'+
                 (*{sort.getOrderFor('product.size')} != null ? (*{sort.getOrderFor('product.size').direction.name} != 'DESC' ? ',desc' : '') : ''),
