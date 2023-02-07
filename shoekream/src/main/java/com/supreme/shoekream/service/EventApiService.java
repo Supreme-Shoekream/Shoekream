@@ -68,7 +68,7 @@ public class EventApiService {
         }).orElseGet(() -> Header.ERROR("데이터 없음"));
     }
     @Transactional(readOnly = true)
-    public List<ProductDTO> eventList(String brand){
-        return productRepository.findByCollection(brand).stream().map(ProductDTO::fromEntity).toList();
+    public List<ProductDTO> genderList(String gender){
+        return productRepository.findTop40ByGenderOrderByWishCount(gender).stream().map(ProductDTO::fromEntity).toList();
     }
 }

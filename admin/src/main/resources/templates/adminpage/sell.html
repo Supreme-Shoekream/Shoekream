@@ -85,7 +85,7 @@
 										<a class="dropdown-item" id="view_btn" onclick="layer_sell_view()" style="cursor:pointer"
 										><i class="dw dw-eye"></i> View</a>
 										<a class="dropdown-item" href="#" id="penalty_btn"
-										><i class="bi bi-x-octagon-fill"></i> Penalty</a>
+										><i class="icon-copy bi bi-exclamation-triangle"></i> Penalty</a>
 
 										<a class="dropdown-item" id="delete_btn" onclick="pop_sell_delete()" style="cursor:pointer"
 										><i class="dw dw-delete-3"></i> Delete</a
@@ -1174,25 +1174,26 @@
 								<p class="info" id="panalty_email">apple@apple.com</p>
 							</div>
 							<!-- 사용자 아이디 끝 -->
-
+							<br>
 							<!-- 패널티 사유 시작 -->
 							<h4 class="input_title">패널티 사유</h4>
 							<div class="input_item">
 								<select class="info" name="reason" id="panalty_reson">
-									<option value="delayed">발송 지연</option>
-									<option value="denied">판매 거부</option>
-									<option value="empty">미입고</option>
-									<option value="mis">검수기준 악용</option>
+									<option value="0">발송 지연</option>
+									<option value="1">판매 거부</option>
+									<option value="2">미입고</option>
+									<option value="3">검수기준 악용</option>
 								</select>
 							</div>
 							<!-- 패널티 사유 끝 -->
-
+							<br>
 							<!-- 상품 코드 시작 -->
 							<h4 class="input_title">상품 이름</h4>
 							<div class="input_item">
 								<p class="title" style="display:none" id="panalty_productIdx"></p>
 								<p class="info" id="panalty_productName">jdfljaei29</p>
 							</div>
+							<br>
 							<!-- 예상 패널티 금액 -->
 							<h4 class="input_title">예상 패널티 금액</h4>
 							<div class="input_item">

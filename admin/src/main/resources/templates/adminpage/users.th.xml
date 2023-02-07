@@ -13,6 +13,8 @@
                     <attr sel="#view_btn" th:onclick="'javascript:pop_member_view('+ ${user.idx} + ');'"/>
                     <attr sel="#point_btn" th:onclick="'javascript:openPoint('+ ${user.idx} + ');'"/>
                     <attr sel="#penalty_btn" th:onclick="'javascript:href_penalty(' + ${user.idx} + ');'"/>
+                    <attr sel="#buylist_btn" th:onclick="'javascript:href_buyList(' + ${user.idx} + ');'"/>
+                    <attr sel="#selllist_btn" th:onclick="'javascript:href_sellList(' + ${user.idx} + ');'"/>
                     <attr sel="#blacklist_btn" th:onclick="'javascript:pop_users_blacklist(' + ${user.idx} + ');'"/>
                 </attr>
             </attr>

@@ -1,6 +1,7 @@
 package com.supreme.shoekream.config;
 
 import com.supreme.shoekream.model.dto.MemberDTO;
+import com.supreme.shoekream.model.enumclass.Status;
 import com.supreme.shoekream.model.network.security.KakaoOAuth2Response;
 import com.supreme.shoekream.model.network.security.KreamPrincipal;
 import com.supreme.shoekream.repository.MemberRepository;
@@ -143,6 +144,7 @@ public class SecurityConfig{
                                             kakaoResponse.nickname(),
                                             null,
                                             email,
+                                            Status.MEMBER,
                                             null
                                     )
                             )

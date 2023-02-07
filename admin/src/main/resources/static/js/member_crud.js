@@ -32,5 +32,21 @@ function href_penalty(idx) {
             let email = data.data.email
             location.href="/penalty?page=0&searchKeyword="+email;
         })
+}
+function href_buyList(idx) {
+    fetch('http://localhost:8899/api/admin/users/'+idx)
+        .then((response) => response.json())
+        .then((data) => {
+            let email = data.data.email
+            location.href="/buy?page=0&searchKeyword="+email;
+        })
+
+}function href_sellList(idx) {
+    fetch('http://localhost:8899/api/admin/users/'+idx)
+        .then((response) => response.json())
+        .then((data) => {
+            let email = data.data.email
+            location.href="/sell?page=0&searchKeyword="+email;
+        })
 
 }

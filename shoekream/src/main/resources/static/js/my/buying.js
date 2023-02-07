@@ -15,7 +15,6 @@ $(".status_item").click(function(){
     });
 
 // 진행중 상태일경우
-
 const tab_items = document.querySelectorAll('.tab_item');
 tab_items.forEach((item) => {
     item.addEventListener('click', () => {
