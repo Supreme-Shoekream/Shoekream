@@ -11,59 +11,50 @@ import com.querydsl.core.types.dsl.PathInits;
 
 
 /**
- * QBoard is a Querydsl query type for Board
+ * QEventMember is a Querydsl query type for EventMember
  */
 @Generated("com.querydsl.codegen.DefaultEntitySerializer")
-public class QBoard extends EntityPathBase<Board> {
+public class QEventMember extends EntityPathBase<EventMember> {
 
-    private static final long serialVersionUID = 862600545L;
+    private static final long serialVersionUID = 1494045711L;
 
     private static final PathInits INITS = PathInits.DIRECT2;
 
-    public static final QBoard board = new QBoard("board");
+    public static final QEventMember eventMember = new QEventMember("eventMember");
 
     public final com.supreme.admin.model.config.QBaseEntity _super = new com.supreme.admin.model.config.QBaseEntity(this);
-
-    public final StringPath content = createString("content");
 
     //inherited
     public final DateTimePath<java.time.LocalDateTime> createdAt = _super.createdAt;
 
-    public final StringPath hashtag = createString("hashtag");
+    public final QEventProduct eventProduct;
 
     public final NumberPath<Long> idx = createNumber("idx", Long.class);
-
-    public final StringPath img = createString("img");
-
-    public final ListPath<Lk, QLk> lks = this.<Lk, QLk>createList("lks", Lk.class, QLk.class, PathInits.DIRECT2);
 
     public final QMember member;
 
     //inherited
     public final DateTimePath<java.time.LocalDateTime> modifiedAt = _super.modifiedAt;
 
-    public final ListPath<Reply, QReply> replies = this.<Reply, QReply>createList("replies", Reply.class, QReply.class, PathInits.DIRECT2);
-
-    public final ListPath<Tag, QTag> tags = this.<Tag, QTag>createList("tags", Tag.class, QTag.class, PathInits.DIRECT2);
-
-    public QBoard(String variable) {
-        this(Board.class, forVariable(variable), INITS);
+    public QEventMember(String variable) {
+        this(EventMember.class, forVariable(variable), INITS);
     }
 
-    public QBoard(Path<? extends Board> path) {
+    public QEventMember(Path<? extends EventMember> path) {
         this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));
     }
 
-    public QBoard(PathMetadata metadata) {
+    public QEventMember(PathMetadata metadata) {
         this(metadata, PathInits.getFor(metadata, INITS));
     }
 
-    public QBoard(PathMetadata metadata, PathInits inits) {
-        this(Board.class, metadata, inits);
+    public QEventMember(PathMetadata metadata, PathInits inits) {
+        this(EventMember.class, metadata, inits);
     }
 
-    public QBoard(Class<? extends Board> type, PathMetadata metadata, PathInits inits) {
+    public QEventMember(Class<? extends EventMember> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
+        this.eventProduct = inits.isInitialized("eventProduct") ? new QEventProduct(forProperty("eventProduct"), inits.get("eventProduct")) : null;
         this.member = inits.isInitialized("member") ? new QMember(forProperty("member")) : null;
     }
 

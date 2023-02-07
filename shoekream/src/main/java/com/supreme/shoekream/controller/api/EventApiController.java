@@ -8,7 +8,6 @@ import com.supreme.shoekream.model.dto.ProductDTO;
 import com.supreme.shoekream.model.entity.EventProduct;
 import com.supreme.shoekream.model.network.Header;
 import com.supreme.shoekream.model.network.request.EventApiRequest;
-import com.supreme.shoekream.model.network.response.BuyResponse;
 import com.supreme.shoekream.model.network.response.EventApiResponse;
 import com.supreme.shoekream.model.network.security.KreamPrincipal;
 import com.supreme.shoekream.service.BuyService;
