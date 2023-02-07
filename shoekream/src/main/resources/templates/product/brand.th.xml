@@ -25,16 +25,15 @@
         </attr>
     </attr>
 
-
-
+    <!-- http://localhost:8889/brand/Nike?page=0&sort=firstPrice,desc -->
     <!-- 오름차순/내림차순 -->
     <attr sel=".sorting_title" th:text="${products.sort.getOrderFor('wishCount')}!=null ? '인기순':
                                             (${products.sort.getOrderFor('idx')}!=null?'최신순':
                                             (${products.sort.getOrderFor('firstPrice')}!=null?
                                             (${products.sort.getOrderFor('firstPrice').direction.name} == 'DESC'?'발매가 높은순':'발매가 낮은순'):'인기순'))"/>
 
-    <attr sel="#sort_by_wish_desc" th:href="@{/searchs(page=${products.number},sort='wishCount,desc',psize=${param.psize},brand=${param.brand},
-            category=${param.category},collection=${param.collection},gender=${param.gender},keyword=${param.keyword})}"/>
+    <attr sel="#sort_by_wish_desc" th:href="@{/brand/${brand_name}}"/>
+<!--    <attr sel="#sort_by_wish_desc" th:href="@{/brand/${param.brand}(page=${products.number},sort='wishCount,desc')}"/>-->
     <attr sel="#sort_by_price_asc" th:href="@{/searchs(page=${products.number},sort='firstPrice,asc',psize=${param.psize},brand=${param.brand},
             category=${param.category},collection=${param.collection},gender=${param.gender},keyword=${param.keyword})}"/>
     <attr sel="#sort_by_price_desc" th:href="@{/searchs(page=${products.number},sort='firstPrice,desc',psize=${param.psize},brand=${param.brand},
@@ -42,19 +41,20 @@
     <attr sel="#sort_by_idx_desc" th:href="@{/searchs(page=${products.number},sort='idx',psize=${param.psize},brand=${param.brand},
             category=${param.category},collection=${param.collection},gender=${param.gender},keyword=${param.keyword})}"/>
 
+<!-- http://localhost:8889/brand/Nike?page=1&sort= -->
+<!-- @{/brand/{brandName}(brandName=${product.data.brand})} -->
+<!--    @{/brand/{brandName}(brandName=${product.data.brand})} 페이지 이동-->
+
     <!-- 페이지처리 -->
     <attr sel=".pagination_box">
-        <attr sel=".prev_btn_box/a" th:href="@{/searchs(page=${products.number - 1},sort=${param.sort},size=${param.size},brand=${param.brand},
-            category=${param.category},collection=${param.collection},gender=${param.gender},keyword=${param.keyword})}"
+        <attr sel=".prev_btn_box/a" th:href="@{/brand/(brandName=${product.data.brand})(page=${products.number - 1},sort=${param.sort})}"
               th:style="(${products.number} <=0 ? 'display:none':'display:block')"/>
         <attr sel=".page_bind" th:each="pageNumber : ${barNumbers}">
             <attr sel="a" th:text="${pageNumber + 1}"
-                  th:href="@{/searchs(page=${pageNumber},sort=${param.sort},size=${param.size},brand=${param.brand},
-            category=${param.category},collection=${param.collection},gender=${param.gender},keyword=${param.keyword})}"
+                  th:href="@{/brand/(brandName=${product.data.brand})(page=${pageNumber},sort=${param.sort})}"
                   th:class="'btn_page'+(${pageNumber}==${products.number}? ' active':'')"/>
         </attr>
-        <attr sel=".next_btn_box/a" th:href="@{/searchs(page=${products.number + 1},sort=${param.sort},size=${param.size},brand=${param.brand},
-            category=${param.category},collection=${param.collection},gender=${param.gender},keyword=${param.keyword})}"
+        <attr sel=".next_btn_box/a" th:href="@{/brand/(brandName=${product.data.brand})(page=${products.number + 1},sort=${param.sort})}"
               th:style="(${products.number} >= ${products.totalPages -1}  ? 'display:none':'display:block')"/>
     </attr>
 

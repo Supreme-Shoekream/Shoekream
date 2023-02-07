@@ -30,25 +30,25 @@
         <!--/*기능2: 사진 클릭시 해당 키워드로 검색? */-->
         <attr sel=".brand_list">
             <attr sel="li[0]/a" th:href="@{/searchs(page='0',sort=${param.sort},psize=${param.psize},brand=${param.brand},
-            category=${param.category},collection=${param.collection},gender=${param.gender},keyword='wallet')}"/>
+            category=${param.category},collection=${param.collection},gender=${param.gender},keyword='지갑')}"/>
             <attr sel="li[1]/a" th:href="@{/searchs(page='0',sort=${param.sort},psize=${param.psize},brand=${param.brand},
-            category=${param.category},collection=${param.collection},gender=${param.gender},keyword='ugg')}"/>
+            category=${param.category},collection=${param.collection},gender=${param.gender},keyword='어그')}"/>
             <attr sel="li[2]/a" th:href="@{/searchs(page='0',sort=${param.sort},psize=${param.psize},
-            brand=${param.brand},category=${param.category},collection=${param.collection},gender=${param.gender},keyword='jewelry')}"/>
+            brand=${param.brand},category=${param.category},collection=${param.collection},gender=${param.gender},keyword='후드')}"/>
             <attr sel="li[3]/a" th:href="@{/searchs(page='0',sort=${param.sort},psize=${param.psize},
-            brand=${param.brand},category=${param.category},collection=${param.collection},gender=${param.gender},keyword='Nuptse')}"/>
+            brand=${param.brand},category=${param.category},collection=${param.collection},gender=${param.gender},keyword='눕시')}"/>
             <attr sel="li[4]/a" th:href="@{/searchs(page='0',sort=${param.sort},psize=${param.psize},
-            brand=${param.brand},category=${param.category},collection=${param.collection},gender=${param.gender},keyword='Vivienne Westwood')}"/>
+            brand=${param.brand},category=${param.category},collection=${param.collection},gender=${param.gender},keyword='비비안%20웨스트우드')}"/>
             <attr sel="li[5]/a" th:href="@{/searchs(page='0',sort=${param.sort},psize=${param.psize},
-            brand=${param.brand},category=${param.category},collection=${param.collection},gender=${param.gender},keyword=${'Asics'})}"/>
+            brand=${param.brand},category=${param.category},collection=${param.collection},gender=${param.gender},keyword=${'아식스'})}"/>
             <attr sel="li[6]/a" th:href="@{/searchs(page='0',sort=${param.sort},psize=${param.psize},
-            brand=${param.brand},category=${param.category},collection=${param.collection},gender=${param.gender},keyword=${'Apple'})}"/>
+            brand=${param.brand},category=${param.category},collection=${param.collection},gender=${param.gender},keyword=${'애플'})}"/>
             <attr sel="li[7]/a" th:href="@{/searchs(page='0',sort=${param.sort},psize=${param.psize},
-            brand=${param.brand},category=${param.category},collection=${param.collection},gender=${param.gender},keyword='scott')}"/>
+            brand=${param.brand},category=${param.category},collection=${param.collection},gender=${param.gender},keyword='스캇')}"/>
             <attr sel="li[8]/a" th:href="@{/searchs(page='0',sort=${param.sort},psize=${param.psize},
-            brand=${param.brand},category=${param.category},collection=${param.collection},gender=${param.gender},keyword=${'chanel'})}"/>
+            brand=${param.brand},category=${param.category},collection=${param.collection},gender=${param.gender},keyword=${'샤넬'})}"/>
             <attr sel="li[9]/a" th:href="@{/searchs(page='0',sort=${param.sort},psize=${param.psize},
-            brand=${param.brand},category=${param.category},collection=${param.collection},gender=${param.gender},keyword=${'dyson'})}"/>
+            brand=${param.brand},category=${param.category},collection=${param.collection},gender=${param.gender},keyword=${'다이슨'})}"/>
         </attr>
 
         <!--/* 기능3: 체크박스 */-->
@@ -84,17 +84,6 @@
                 </attr>
             </attr>
         </attr>
-
-        <!-- 브랜드 리스트 출력 -->
-        <!--        <attr sel="#drop-brand" th:remove="all-but-first">-->
-        <!--            <attr sel="#brandCheckList" th:each="brand : ${brands}">-->
-        <!--                <attr sel=".check" th:id="${'input'+(brandStat.index+5)}" />-->
-        <!--                <attr sel="label" th:for="${'input'+(brandStat.index+5)}">-->
-        <!--                    <attr sel="#brandNameInfo" th:text="${brand}"/>-->
-        <!--                </attr>-->
-        <!--            </attr>-->
-        <!--        </attr>-->
-        <!--        <attr sel="#input7" th:checked="true"/>-->
 
         <!-- 성별 -->
         <attr sel="#gender_list" th:classappend="${param.gender} != null?(${param.gender.toString}==''? '':'selected'):''">
