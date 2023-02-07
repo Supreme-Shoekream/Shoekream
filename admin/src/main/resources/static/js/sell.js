@@ -2,7 +2,7 @@
 const searchInput = document.getElementById('search_box')
 searchInput.addEventListener('blur',search_buy)
 function search_buy(){
-    location.href="/admin/sell?page=0&searchKeyword="+searchInput.value;
+    location.href="/sell?page=0&searchKeyword="+searchInput.value;
 }
 
 // view
@@ -67,4 +67,62 @@ function selldelete(idx){
 }
 function close_sell_delete() {
     document.querySelector(".sell_delete").style.display = "none";
+}
+
+
+let sellIdx
+function addPenalty(){
+    send_penalty(sellIdx)
+}
+// 패널티
+function pop_penalty(idx){
+    sellIdx =idx;
+    document.querySelector(".layer_penalty").style.display = "block";
+    fetch('http://localhost:8899/api/order/sell/'+idx)
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data)
+            document.querySelector('.layer_penalty #panalty_email').innerHTML=data.memberEmail;
+            document.querySelector('.layer_penalty #panalty_productIdx').innerHTML=data.productIdx;
+            document.querySelector('.layer_penalty #panalty_productName').innerHTML=data.productName;
+            let penalrt_price = Math.floor(data.price*0.15/1000) * 1000;
+            console.log(penalrt_price)
+            document.querySelector('.layer_penalty #panalty_price').innerHTML=penalrt_price;
+
+        })
+    const btn_save = document.querySelector('.btn_save_penalty');
+    btn_save.addEventListener('click',addPenalty);
+}
+function close_penalty(){
+    document.querySelector(".layer_penalty").style.display = "none";
+}
+function send_penalty(sellIdx){
+    const reason = document.getElementById('panalty_reson');
+
+    fetch('http://localhost:8899/api/penalty', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            //우리가 만든데이터
+            "transaction_time":`${new Date()}`,
+            "resultCode":"ok",
+            "description":"정상",
+            "data":{
+                "reasonIdx":`${reason.value}`,
+                "sellIdx":`${sellIdx}`
+            }
+        }),
+    })
+        .then((res) => {
+            alert('등록성공')
+            location.href='/penalty';
+            return; //리턴을 걸어서 진행하는 것을 막는다!
+        })
+        .then((data) => {
+            console.log(data);
+            return;
+        })
+        .catch((err)=>{
+            alert(err);
+        })
 }

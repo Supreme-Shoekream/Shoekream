@@ -27,6 +27,7 @@ public interface ProductRepository extends
 
     List<Product> findByOrderByIdxDesc();
     List<Product> findByCollection(String collection);
+    List<Product> findTop40ByGenderOrderByWishCount(String gender);
     List<Product> findByCategory(String category);
     Page<Product> findByGender (String gender, Pageable pageable);
     Page<Product> findByFirstPrice (String firstPrice, Pageable pageable);

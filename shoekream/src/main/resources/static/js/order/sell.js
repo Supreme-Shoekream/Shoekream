@@ -159,7 +159,7 @@ bid_input.addEventListener("blur", (e) => {
   document.querySelector(".fees").innerHTML =
     fees.toLocaleString("ko-KR") + "원";
   //정산금액 반영
-  document.querySelector('.price_total .amount').innerHTML=(str_price-fees).toLocaleString("ko-KR") + "원";
+  document.querySelector('.price_total .step1.amount').innerHTML=(str_price+fees).toLocaleString("ko-KR") + "원";
 });
 
 /**
@@ -962,7 +962,7 @@ function sendit() {
         document.querySelector('.step-3').style.display="block"
         document.querySelector('.step-3 .wish_price').innerHTML=wish_price.toLocaleString('ko-KR');
         document.querySelector('.step-3 .final_fees').innerHTML=fees.toLocaleString('ko-KR');
-        document.querySelector('.step-3 .final_price').innerHTML = (wish_price + fees + 3000).toLocaleString('ko-KR');
+        document.querySelector('.step-3 .final_price').innerHTML = (wish_price + fees ).toLocaleString('ko-KR');
         if(is_now != true){
           document.querySelector('.step-3 .deadline').innerHTML = calc_deadline(period);
         }else{

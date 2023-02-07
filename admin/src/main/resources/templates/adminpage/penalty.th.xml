@@ -8,16 +8,16 @@
         <attr sel="tr[0]" th:each="penalty : ${penaltys}">
             <attr sel="td.idx" th:text="${penalty.idx}"/>
             <attr sel="td.sell_idx" th:text="${penalty.sellIdx}"/>
-            <attr sel="td.member_email" th:text="${penalty.sellDTO.memberDTO.email}"/>
-            <attr sel="td.product_name" th:text="${penalty.sellDTO.productDTO.name}"/>
-            <attr sel="td.sell_price" th:text="${#numbers.formatInteger(penalty.sellDTO.price, 0, 'COMMA')}"/>
-            <attr sel="td.reason" th:text="${penalty.reason.description}"/>
+            <attr sel="td.member_email" th:text="${penalty.memberEmail}"/>
+            <attr sel="td.product_name" th:text="${penalty.productName}"/>
+            <attr sel="td.penalty_price" th:text="${#numbers.formatInteger(penalty.penaltyPrice, 0, 'COMMA')}"/>
+            <attr sel="td.reason" th:text="${penalty.reason}"/>
             <attr sel="td.reg_data" th:datetime="${penalty.createdAt}" th:text="${#temporals.format(penalty.createdAt, 'yyyy-MM-dd')}"/>
 
 <!-- View, Delete 부분 -->
             <attr sel=".dropdown">
-                <attr sel="#view_btn" th:onclick="'javascript:layer_penalty_view('+ ${penalty.idx} + ');'"/>
-                <attr sel="#delete_btn" th:onclick="'javascript:pop_penalty_delete(' + ${penalty.idx} + ');'"/>
+                <attr sel="#view_btn" th:onclick="'javascript:pop_penalty_view('+ ${penalty.idx} + ');'"/>
+                <attr sel="#delete_btn" th:onclick="'javascript:delete_penalty(' + ${penalty.idx} + ');'"/>
             </attr>
         </attr>
     </attr>
@@ -35,5 +35,4 @@
                   th:href="@{/penalty(page=${penaltys.number + 1}, searchKeyword=${param.searchKeyword})}"
                   th:class="'page-link'+(${penaltys.number}>=${penaltys.totalPages -1} ? ' disabled' : '')"/>
         </attr>
-
 </thlogic>

@@ -1708,7 +1708,9 @@ input:focus{
 
 .brand_img { width: 8rem; height: 8rem; }
 
-.brand_name { max-width: 8rem; margin: -.8rem auto 0; font-size: 13px; }
+.brand_name {
+    /*max-width: 8rem;*/
+    margin: -.8rem auto 0; font-size: 13px; }
 
 .brand_item+.brand_item { margin-left: 2rem; }
 
