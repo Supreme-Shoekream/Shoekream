@@ -24,10 +24,11 @@ window.onload = function (){
                 for(let i=0;i <data.length;i++){
                     feedList +=
                         `
-                        <div class="feed_card item vertical" style="padding-top: 10px; position: absolute; left: ${(i%4)*307}px; top: ${Math.floor(i/4)*465}px">
+<!--                        <div class="feed_card item vertical" style="padding-top: 10px; position: absolute; left: ${(i%4)*307}px; top: ${Math.floor(i/4)*465}px">-->
+                        <div class="feed_card item" >
                                         <a class="feed_each">
                                             <div class="card_box">
-                                                <div class="social_img_box vertical">
+                                                <div class="social_img_box">
                                                     <a href="/social/details#${data[i].idx}" >
                                                     <picture class="picture social_img">
                                                         <source type="image/webp"
@@ -78,8 +79,9 @@ window.onload = function (){
                 }
 
                 // feedList = `<div class="gutter_item"></div>` + feedList;
-                let newList = document.createElement('span');
+                let newList = document.createElement('div');
                 newList.innerHTML = feedList;
+                newList.style.display='flex';
                 document.getElementById('masonry_posts').appendChild(newList);
                 document.querySelector('.footer').style.position= 'absolute';
                 document.querySelector('.footer').style.width= '100%';
