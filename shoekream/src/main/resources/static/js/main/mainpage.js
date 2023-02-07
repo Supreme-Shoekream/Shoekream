@@ -20,7 +20,7 @@
     });
 
         bannerResize();
-})
+});
 
 
     $(window).resize(function () {
@@ -56,24 +56,24 @@ function bannerResize(){
 // //.layer_search를 선택하고! 스타일을 줍니다! 보이도록!
 // }
     function close_auth_policy(){
-    document.querySelector('.layer_auth_policy').style.display="none"
+    document.querySelector('.layer_auth_policy').style.display="none";
     //큰애 스느롤 다시 보아가
 //.layer_auth_policy를 선택하고! 스타일을 줍니다! 안보이도록!
 
 }
     function pop_auth_policy(){
-    document.querySelector('.layer_auth_policy').style.display="block"
+    document.querySelector('.layer_auth_policy').style.display="block";
     //큰애 스크롤 없애기 -
 //.layer_auth_policy를 선택하고! 스타일을 줍니다! 보이도록!
 }
     function close_faq(){
-    document.querySelector('.layer_faq').style.display="none"
+    document.querySelector('.layer_faq').style.display="none";
     //큰애 스느롤 다시 보아가
 //.layer_auth_policy를 선택하고! 스타일을 줍니다! 안보이도록!
 
 }
     function pop_faq(){
-    document.querySelector('.layer_faq').style.display="block"
+    document.querySelector('.layer_faq').style.display="block";
     //큰애 스크롤 없애기 -
 //.layer_auth_policy를 선택하고! 스타일을 줍니다! 보이도록!
 }
@@ -96,7 +96,7 @@ function bannerResize(){
         draggable: true    //드래그 가능 여부
 
     });
-})
+});
     // 더보기 기능
     $(function(){
     $(".just_product").slice(0, 4).show(); // 초기갯수
@@ -104,8 +104,8 @@ function bannerResize(){
     e.preventDefault();
     $(".just_product:hidden").slice(0, 4).show(); // 클릭시 more 갯수 지저정
 
-    if($(".just_product:hidden").length == 0){ // 컨텐츠 남아있는지 확인
-    document.querySelector("#load1").style.display="none"
+    if($(".just_product:hidden").length === 0){ // 컨텐츠 남아있는지 확인
+    document.querySelector("#load1").style.display="none";
 }
 });
     $(".pop_product").slice(0, 4).show(); // 초기갯수
@@ -113,8 +113,8 @@ function bannerResize(){
     e.preventDefault();
     $(".pop_product:hidden").slice(0, 4).show(); // 클릭시 more 갯수 지저정
 
-    if($(".pop_product:hidden").length == 0){ // 컨텐츠 남아있는지 확인
-    document.querySelector("#load2").style.display="none"
+    if($(".pop_product:hidden").length === 0){ // 컨텐츠 남아있는지 확인
+    document.querySelector("#load2").style.display="none";
 }
 });
     $(".newin_product").slice(0, 4).show(); // 초기갯수
@@ -122,8 +122,8 @@ function bannerResize(){
     e.preventDefault();
     $(".newin_product:hidden").slice(0, 4).show(); // 클릭시 more 갯수 지저정
 
-    if($(".newin_product:hidden").length == 0){ // 컨텐츠 남아있는지 확인
-    document.querySelector("#load3").style.display="none"
+    if($(".newin_product:hidden").length === 0){ // 컨텐츠 남아있는지 확인
+    document.querySelector("#load3").style.display="none";
 }
 });
     $(".wisely_product").slice(0, 4).show(); // 초기갯수
@@ -131,8 +131,8 @@ function bannerResize(){
     e.preventDefault();
     $(".wisely_product:hidden").slice(0, 4).show(); // 클릭시 more 갯수 지저정
 
-    if($(".wisely_product:hidden").length == 0){ // 컨텐츠 남아있는지 확인
-    document.querySelector("#load4").style.display="none"
+    if($(".wisely_product:hidden").length === 0){ // 컨텐츠 남아있는지 확인
+    document.querySelector("#load4").style.display="none";
 }
 });
     $(".brandmd_product").slice(0, 4).show(); // 초기갯수
@@ -140,8 +140,8 @@ function bannerResize(){
     e.preventDefault();
     $(".brandmd_product:hidden").slice(0, 4).show(); // 클릭시 more 갯수 지저정
 
-    if($(".brandmd_product:hidden").length == 0){ // 컨텐츠 남아있는지 확인
-    document.querySelector("#load5").style.display="none"
+    if($(".brandmd_product:hidden").length === 0){ // 컨텐츠 남아있는지 확인
+    document.querySelector("#load5").style.display="none";
 }
 });
     $(".simple_product").slice(0, 4).show(); // 초기갯수
@@ -150,7 +150,7 @@ function bannerResize(){
     $(".simple_product:hidden").slice(0, 4).show(); // 클릭시 more 갯수 지저정
 
     if($(".simple_product:hidden").length == 0){ // 컨텐츠 남아있는지 확인
-    document.querySelector("#load6").style.display="none"
+    document.querySelector("#load6").style.display="none";
 }
 });
     $(".collabs_product").slice(0, 4).show(); // 초기갯수
@@ -158,8 +158,8 @@ function bannerResize(){
     e.preventDefault();
     $(".collabs_product:hidden").slice(0, 4).show(); // 클릭시 more 갯수 지저정
 
-    if($(".collabs_product:hidden").length == 0){ // 컨텐츠 남아있는지 확인
-    document.querySelector("#load7").style.display="none"
+    if($(".collabs_product:hidden").length === 0){ // 컨텐츠 남아있는지 확인
+    document.querySelector("#load7").style.display="none";
 }
 });
     $(".newlowest_product").slice(0, 4).show(); // 초기갯수
@@ -167,8 +167,8 @@ function bannerResize(){
     e.preventDefault();
     $(".newlowest_product:hidden").slice(0, 4).show(); // 클릭시 more 갯수 지저정
 
-    if($(".newlowest_product:hidden").length == 0){ // 컨텐츠 남아있는지 확인
-    document.querySelector("#load8").style.display="none"
+    if($(".newlowest_product:hidden").length === 0){ // 컨텐츠 남아있는지 확인
+    document.querySelector("#load8").style.display="none";
 }
 });
     $(".newhighest_product").slice(0, 4).show(); // 초기갯수
@@ -176,8 +176,8 @@ function bannerResize(){
     e.preventDefault();
     $(".newhighest_product:hidden").slice(0, 4).show(); // 클릭시 more 갯수 지저정
 
-    if($(".newhighest_product:hidden").length == 0){ // 컨텐츠 남아있는지 확인
-    document.querySelector("#load9").style.display="none"
+    if($(".newhighest_product:hidden").length === 0){ // 컨텐츠 남아있는지 확인
+    document.querySelector("#load9").style.display="none";
 }
 });
     $(".coming").slice(0, 4).show(); // 초기갯수
@@ -185,8 +185,8 @@ function bannerResize(){
     e.preventDefault();
     $(".coming:hidden").slice(0, 4).show(); // 클릭시 more 갯수 지저정
 
-    if($(".coming:hidden").length == 0){ // 컨텐츠 남아있는지 확인
-    document.querySelector("#load10").style.display="none"
+    if($(".coming:hidden").length === 0){ // 컨텐츠 남아있는지 확인
+    document.querySelector("#load10").style.display="none";
 }
 });
     $(".bestcol_product").slice(0, 4).show(); // 초기갯수
@@ -194,8 +194,8 @@ function bannerResize(){
     e.preventDefault();
     $(".bestcol_product:hidden").slice(0, 4).show(); // 클릭시 more 갯수 지저정
 
-    if($(".bestcol_product:hidden").length == 0){ // 컨텐츠 남아있는지 확인
-    document.querySelector("#load11").style.display="none"
+    if($(".bestcol_product:hidden").length === 0){ // 컨텐츠 남아있는지 확인
+    document.querySelector("#load11").style.display="none";
 }
 });
     $(".jew_product").slice(0, 4).show(); // 초기갯수
@@ -203,8 +203,8 @@ function bannerResize(){
     e.preventDefault();
     $(".jew_product:hidden").slice(0, 4).show(); // 클릭시 more 갯수 지저정
 
-    if($(".jew_product:hidden").length == 0){ // 컨텐츠 남아있는지 확인
-    document.querySelector("#load12").style.display="none"
+    if($(".jew_product:hidden").length === 0){ // 컨텐츠 남아있는지 확인
+    document.querySelector("#load12").style.display="none";
 }
 });
     $(".camping_product").slice(0, 4).show(); // 초기갯수
@@ -212,8 +212,8 @@ function bannerResize(){
     e.preventDefault();
     $(".camping_product:hidden").slice(0, 4).show(); // 클릭시 more 갯수 지저정
 
-    if($(".camping_product:hidden").length == 0){ // 컨텐츠 남아있는지 확인
-    document.querySelector("#load1").style.display="none"
+    if($(".camping_product:hidden").length === 0){ // 컨텐츠 남아있는지 확인
+    document.querySelector("#load13").style.display="none";
 }
 });
 });
@@ -229,11 +229,11 @@ function bannerResize(){
 
 $(".product_item").click(function() {
     var idx =  $(this).find(".product_idx").val();
-    location.href = "/product/"+idx
+    location.href = "/product/"+idx;
 });
 $(".style_item1").click(function() {
     var idx =  $(this).find(".style_idx").val();
-    location.href = "/social/details#"+idx
+    location.href = "/social/details#"+idx;
 });
 function kakaoLogout() {
     if (!Kakao.Auth.getAccessToken()) {
