@@ -320,11 +320,11 @@ tbody {
 .menu_item:not(.active) .menu_link{
     border-color: #ebebeb;
 }
-.category_text.active {
+.category.active {
     font-weight: 700;
     color: #222;
 }
-.category_text:not(.active) {
+.category:not(.active) {
     border-color: #ebebeb;
 }
 /*드롭다운*/
@@ -398,23 +398,25 @@ tbody {
 }
 
 /* page 처리 */
-.pagination{
-    padding: 28px 0;
-}
-.page_bind{
-    display: inline-block;
-    vertical-align: top;
-}
-.btn_page{
-    display: inline-block;
-    padding: 0 8px;
-    font-size: 16px;
-    color: rgba(34,34,34,.5);
-}
-.btn_page.active{
-    font-weight: 700;
-    color: #222;
-}
-.btn_page+.btn_page{
-    margin-left: 12px;
-}
+/*.pagination{*/
+/*    padding: 28px 0;*/
+/*    position: relative;*/
+/*    text-align: center;*/
+/*}*/
+/*.page_bind{*/
+/*    display: inline-block;*/
+/*    vertical-align: top;*/
+/*}*/
+/*.btn_page{*/
+/*    display: inline-block;*/
+/*    padding: 0 8px;*/
+/*    font-size: 16px;*/
+/*    color: rgba(34,34,34,.5);*/
+/*}*/
+/*.btn_page.active{*/
+/*    font-weight: 700;*/
+/*    color: #222;*/
+/*}*/
+/*.btn_page+.btn_page{*/
+/*    margin-left: 12px;*/
+/*}*/
