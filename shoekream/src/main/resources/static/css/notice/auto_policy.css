@@ -83,6 +83,11 @@ tbody {
     position: relative;
     padding-top: 90px;
 }
+.wrap_auth{
+    position: relative;
+    font-size: 14px;
+    line-height: 1.2;
+}
 .header.lg, .header.md{
     -webkit-box-shadow: 0 0 0 0 transparent;
     box-shadow: 0 0 0 0 transparent;
@@ -441,10 +446,10 @@ tbody {
 .menu_item:not(.active) .menu_link{
     border-color: #ebebeb;
 }
-.category_txt.active {
+.category.active {
     font-weight: 700;
     color: #222;
 }
-.category_txt:not(.active) {
+.category:not(.active) {
     border-color: #ebebeb;
 }

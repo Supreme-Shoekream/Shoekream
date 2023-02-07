@@ -38,35 +38,36 @@ public class MypageApiController {
 //        System.out.println(dto);
 //        return dto;
 //    }
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
-    // 첨부 파일 업로드(생성)
-    @PostMapping("/my/imgUpload") // http://localhost:8889/api/my/imgUpload
-    public String uploadAjaxActionPOST(@RequestParam(value = "imgUpload", required = false) MultipartFile uploadFile) {
-        logger.info("⚠️uploadAjaxActionPOST..........");
-        logger.info("⚠️파일 이름 : " + uploadFile.getOriginalFilename());
-        logger.info("⚠️파일 타입 : " + uploadFile.getContentType());
-        logger.info("⚠️파일 크기 : " + uploadFile.getSize());
-        // 파일 저장 폴더 경로
-//        String uploadFilePath = "/Users/oyun-yeong/Desktop/Shoekream/publising/Shoekream/shoekream/src/main/resources/static/img/styleImg/";
-        String uploadFilePath = "D:/YJH/Shoekream/shoekream/src/main/resources/static/img/profileImg/";
-        // 폴더 생성
-        File uploadPath = new File(uploadFilePath);
-        if(!uploadPath.exists()) {
-            uploadPath.mkdirs();
-        }
-        String uploadFileName = uploadFile.getOriginalFilename(); // 파일 이름
-        File saveFile = new File(uploadFilePath, uploadFileName); // 파일 위치, 파일 이름을 합친 File 객체
-        try { // 파일 저장
-            uploadFile.transferTo(saveFile);
-            logger.info("🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢");
-            logger.info("이미지 파일 저장 완료");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return uploadFileName;
-    }
 
-    @PostMapping("/my/changeUpload") // http://localhost:8889/api/social/boardcreate
+//    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+//    // 첨부 파일 업로드(생성)
+//    @PostMapping("/my/imgUpload") // http://localhost:8889/api/my/imgUpload
+//    public String uploadAjaxActionPOST(@RequestParam(value = "imgUpload", required = false) MultipartFile uploadFile) {
+//        logger.info("⚠️uploadAjaxActionPOST..........");
+//        logger.info("⚠️파일 이름 : " + uploadFile.getOriginalFilename());
+//        logger.info("⚠️파일 타입 : " + uploadFile.getContentType());
+//        logger.info("⚠️파일 크기 : " + uploadFile.getSize());
+//        // 파일 저장 폴더 경로
+////        String uploadFilePath = "/Users/oyun-yeong/Desktop/Shoekream/publising/Shoekream/shoekream/src/main/resources/static/img/styleImg/";
+//        String uploadFilePath = "D:/YJH/Shoekream/shoekream/src/main/resources/static/img/profileImg/";
+//        // 폴더 생성
+//        File uploadPath = new File(uploadFilePath);
+//        if(!uploadPath.exists()) {
+//            uploadPath.mkdirs();
+//        }
+//        String uploadFileName = uploadFile.getOriginalFilename(); // 파일 이름
+//        File saveFile = new File(uploadFilePath, uploadFileName); // 파일 위치, 파일 이름을 합친 File 객체
+//        try { // 파일 저장
+//            uploadFile.transferTo(saveFile);
+//            logger.info("🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢");
+//            logger.info("이미지 파일 저장 완료");
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return uploadFileName;
+//    }
+
+    @PostMapping("/my/changeUpload") // http://localhost:8889/api/my/changeUpload
     public Header<MemberApiResponse> profileImgUpdate(@RequestBody Header<MemberApiRequest> request, @AuthenticationPrincipal KreamPrincipal kreamPrincipal) {
         MemberApiRequest memberApiRequest = request.getData();
         MemberDTO memberDTO = memberApiRequest.toDTO();

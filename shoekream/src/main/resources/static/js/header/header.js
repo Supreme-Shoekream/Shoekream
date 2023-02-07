@@ -20,7 +20,6 @@ let bef_timeout ;
 
 document.addEventListener("DOMContentLoaded", function() {
     document.querySelector(".search1 .input_search").addEventListener("keyup" , (e) => {
-        //console.log(e.isComposing);
         let _text = document.querySelector(".search1 .input_search").value.trim();
         if(_text) {
             clearTimeout(bef_timeout);
@@ -29,6 +28,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     })
 })
+
+
 // 검색어 입력시
 // async function 함수명() {
 //     await 비동기_처리_메서드_명();
