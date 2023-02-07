@@ -1,3 +1,0 @@
-insert into address (idx, name, hp, zipcode, address1, address2, address3, addressBasic) values (1, 'Barry', '822-912-7019', '461', '2616 East Center', '11394 Granby Hill', '87 Chive Junction', true);
-insert into address (idx, name, hp, zipcode, address1, address2, address3, addressBasic) values (2, 'Lesya', '229-106-1003', '92', '4 Hoffman Terrace', '6736 Corscot Avenue', '96 Johnson Drive', true);
-insert into address (idx, name, hp, zipcode, address1, address2, address3, addressBasic) values (3, 'Ruthanne', '183-383-7720', '9309', '2303 Mendota Park', '88 Hansons Junction', '429 Del Sol Junction', true);
