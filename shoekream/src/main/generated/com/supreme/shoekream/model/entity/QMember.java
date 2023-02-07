@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package com.supreme.shoekream.model.entity;
 
 import static com.querydsl.core.types.PathMetadataFactory.*;
@@ -59,3 +60,5 @@ public class QMember extends EntityPathBase<Member> {
 
 }
 
+=======
+>>>>>>> 8eeba92b11d44f939be9ae7e16c7298338e5054a

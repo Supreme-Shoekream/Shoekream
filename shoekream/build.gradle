@@ -53,7 +53,8 @@ dependencies {
 
 // 회원가입 이메일인증
 	implementation 'org.springframework.boot:spring-boot-starter-mail'
-
+// @Nullable 어노테이션 사용시
+	implementation 'com.google.code.findbugs:jsr305:3.0.2'
 }
 
 tasks.named('test') {

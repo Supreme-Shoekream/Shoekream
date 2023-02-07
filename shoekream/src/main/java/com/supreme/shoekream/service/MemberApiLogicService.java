@@ -58,6 +58,14 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
     public Header<MemberApiResponse> create(Header<MemberApiRequest> request) {
         MemberApiRequest memberApiRequest = request.getData();
         MemberDTO memberDTO = memberApiRequest.toDTO();
+        if(memberDTO.imgUrl() == null && memberDTO.nickname() == null){
+            memberDTO = MemberDTO.of(
+                    memberDTO.idx(), memberDTO.email().split("@")[0], memberDTO.memberPw(),
+                    memberDTO.name(), memberDTO.hp(), memberDTO.email(),
+                    memberDTO.status(), memberDTO.shoeSize(), memberDTO.point(),
+                    memberDTO.profileMemo(), "/img/kream_empty_img.png", memberDTO.bank(), memberDTO.accNumber()
+            );
+        }
 //        Member member = Member.builder()
 //                .memberPw(memberDTO.memberPw())
 //                .name(memberDTO.name())
@@ -244,6 +252,12 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
         else {
             return false;
         }
+    }
+
+    public Header<MemberApiResponse> deleteProfile(Long idx){
+        Member member = memberRepository.findByIdx(idx);
+        member.setImgUrl("/img/profile.png");
+        return Header.OK();
     }
 }
 

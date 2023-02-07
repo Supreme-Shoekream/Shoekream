@@ -7,6 +7,7 @@ import com.supreme.shoekream.model.network.response.ProductApiResponse;
 import com.supreme.shoekream.model.network.security.KreamPrincipal;
 import com.supreme.shoekream.service.EventApiService;
 import com.supreme.shoekream.service.MainService;
+import com.supreme.shoekream.service.SellService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -24,6 +25,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class EventPageController {
     final EventApiService eventApiService;
+    final SellService sellService;
     @GetMapping(path="/promotion") //http://localhost:8889/
     public String event(HttpServletRequest request, ModelMap map){
         EventDTO event = eventApiService.eventDetail(1L);
@@ -37,11 +39,19 @@ public class EventPageController {
         return ("exhibitions/promotion_detail");
     }
     @GetMapping(path="/man") //http://localhost:8889/
-    public String man(){
+    public String man(HttpServletRequest request, ModelMap map){
+        List<ProductDTO> man = eventApiService.genderList("M");
+        map.addAttribute("man",man);
+        List<String> manbuynowPrices = sellService.buyNowPrices(man.stream().map(ProductDTO::toEntity).toList());
+        map.addAttribute("manbuynowPrices",manbuynowPrices);
         return ("exhibitions/man");
     }
     @GetMapping(path="/woman") //http://localhost:8889/
-    public String woman(){
+    public String woman(HttpServletRequest request, ModelMap map){
+        List<ProductDTO> woman = eventApiService.genderList("W");
+        map.addAttribute("woman",woman);
+        List<String> womanbuynowPrices = sellService.buyNowPrices(woman.stream().map(ProductDTO::toEntity).toList());
+        map.addAttribute("womanbuynowPrices",womanbuynowPrices);
         return ("exhibitions/woman");
     }
 }

@@ -5,11 +5,13 @@ import com.supreme.admin.model.dto.ConclusionDTO;
 import com.supreme.admin.model.dto.MemberDTO;
 import com.supreme.admin.model.dto.PenaltyDTO;
 import com.supreme.admin.model.dto.ProductDTO;
+import com.supreme.admin.model.dto.socialDTO.BoardDTO;
 import com.supreme.admin.model.entity.Conclusion;
 import com.supreme.admin.model.entity.Product;
 import com.supreme.admin.model.network.Pagination;
 import com.supreme.admin.model.network.response.BuyResponse;
 import com.supreme.admin.model.network.response.ConclusionResponse;
+import com.supreme.admin.model.network.response.PenaltyResponse;
 import com.supreme.admin.model.network.response.SellResponse;
 import com.supreme.admin.repository.ConclusionRepository;
 import com.supreme.admin.service.*;
@@ -44,7 +46,7 @@ public class AdminPageController {
     private final PaginationService paginationService;
     private final AdminApiLogicService adminApiLogicService;
     private final DashboardService dashboardService;
-
+    private final ProductApiLogicService productApiLogicService;
     private final PenaltyApiLogicService penaltyApiLogicService;
     private final MemberApiLogicService memberApiLogicService;
     private final ConclusionService conclusionService;
@@ -87,7 +89,7 @@ public class AdminPageController {
         List<Long> totalDealCount = dashboardService.totalDealCount(products);
         List<ConclusionDTO> conclusions = conclusionService.conclusionList();
         List<ConclusionDTO> sales = dashboardService.sales();
-        System.out.println("🍒🍒"+products +"🍕🍕"+ totalDealPrice+"🍔🍔"+totalDealCount);
+        System.out.println("🍒🍒"+products +"🍕🍕"+ totalDealPrice+"🍔🍔"+totalDealCount+"🍿🍿"+sales);
         map.addAttribute("sessionInfo",session);
         map.addAttribute("userCount",dashboardService.userCount());
         map.addAttribute("productCount",dashboardService.productCount());
@@ -105,7 +107,7 @@ public class AdminPageController {
 
     @GetMapping(path="users")   //http://localhost:8899//users
     public String users(@RequestParam(required = false) String searchKeyword,
-                        @PageableDefault(size = 10, sort = "idx", direction = Sort.Direction.ASC) Pageable pageable,
+                        @PageableDefault(size = 10, sort = "idx", direction = Sort.Direction.DESC) Pageable pageable,
                         ModelMap map,HttpServletRequest request){
         String session = sessionCheck(request);
 //        if(session == null)  return new ModelAndView( "/adminpage/login.html");
@@ -117,10 +119,17 @@ public class AdminPageController {
     }
 
     @GetMapping(path="products")   //http://localhost:8899//products
-    public ModelAndView products(HttpServletRequest request){
+    public String products(@RequestParam(required = false) String searchKeyword,
+                                 @PageableDefault(size = 10, sort = "idx", direction = Sort.Direction.DESC) Pageable pageable,
+                                 ModelMap map,HttpServletRequest request){
         String session = sessionCheck(request);
 //        if(session == null)  return new ModelAndView( "/adminpage/login.html");
-        return new ModelAndView("/adminpage/products.html").addObject("sessionInfo",session);
+        Page<ProductDTO> products = productApiLogicService.searchProduct(searchKeyword,pageable);
+        List<Integer> barNumbers = paginationService.getPaginationBarNumbers(pageable.getPageNumber(),products.getTotalPages());
+        map.addAttribute("products",products);
+        map.addAttribute("barNumbers",barNumbers);
+        System.out.println(products);
+        return "/adminpage/products";
     }
 
 
@@ -175,20 +184,30 @@ public class AdminPageController {
         return new ModelAndView("/adminpage/notice.html");
     }
 
-    @GetMapping(path="event")   //http://localhost:8899/event
-    public ModelAndView event(HttpServletRequest request){
-        return new ModelAndView("/adminpage/event.html");
-    }
 
+    private final EventApiService eventApiService;
+    @GetMapping(path="event")   //http://localhost:8889/admin/event
+    public ModelAndView event(ModelMap map, HttpServletRequest request){
+        map.addAttribute("event", eventApiService.list());
+        System.out.println(eventApiService.list());
+        return new ModelAndView("adminpage/event");
+
+    }
 
     private final StyleLogicService styleLogicService;
-    @GetMapping(path="style")   //http://localhost:8899/style
-    public String style(ModelMap map,HttpServletRequest request){
-        map.addAttribute("feed", styleLogicService.list());
-        System.out.println(styleLogicService.list());
+
+    @GetMapping(path="style")   //http://localhost:8889/style
+    public String style(ModelMap map,HttpServletRequest request, @PageableDefault(size = 10, sort = "idx", direction = Sort.Direction.DESC) Pageable pageable,
+                        @RequestParam(required = false) String searchKeyword){
+        Page<BoardDTO> boards= styleLogicService.list(searchKeyword, pageable);
+        List<Integer> barNumbers = paginationService.getPaginationBarNumbers(pageable.getPageNumber(),boards.getTotalPages());
+        map.addAttribute("feeds", boards);
+        map.addAttribute("barNumbers", barNumbers);
         return "adminpage/style";
     }
-    @GetMapping(path="admin")   //http://localhost:8899/admin
+
+    @GetMapping(path="admin")   //http://localhost:8889/admin
+
     public ModelAndView admin(HttpServletRequest request){
         return new ModelAndView("/adminpage/admin.html");
     }
@@ -209,7 +228,7 @@ public class AdminPageController {
     public String penalty(@RequestParam(required = false) String searchKeyword,
                           @PageableDefault(size = 10, sort = "idx", direction = Sort.Direction.DESC) Pageable pageable,
                           ModelMap map,HttpServletRequest request){
-        Page<PenaltyDTO> penaltys =penaltyApiLogicService.searchPenalty(searchKeyword,pageable);
+        Page<PenaltyResponse> penaltys =penaltyApiLogicService.searchPenalty(searchKeyword,pageable).map(PenaltyResponse::from);
         List<Integer> barNumbers = paginationService.getPaginationBarNumbers(pageable.getPageNumber(),penaltys.getTotalPages());
         map.addAttribute("penaltys",penaltys);
         map.addAttribute("barNumbers",barNumbers);

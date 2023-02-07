@@ -99,13 +99,15 @@ insert into member (nickname, member_pw, name, hp, email, status, shoe_size, poi
 insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('slembcke2j', 'j1jZ?@TdiXcS', '소지섭', '018-824-3558', 'cdoy2j@walmart.com', 1, 290, 100, 'Mauv', '/img/styleImg/empty_profile_img.png');
 insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('tlacase2k', 'xknqE?@wbNeAi', '정우섭', '018-321-7817', 'kfairrie2k@miitbeian.gov.cn', 0, 295, 1400, 'Violet', '/img/styleImg/empty_profile_img.png');
 insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('clettington2l', 'p3o?@jF5', '강진필', '018-744-6435', 'pmacgregor2l@nasa.gov', 0, 295, 2200, 'Aquamarine', '/img/styleImg/empty_profile_img.png');
-insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('pandric2m', 'spYvZt?@a', '김윤지', '018-739-7943', 'ccapel2m@last.fm', 0, 255, 100, 'Yellow', null);
+insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('pandric2m', 'spYvZt?@a', '김윤지', '018-739-7943', 'ccapel2m@last.fm', 0, 255, 100, 'Yellow', '/img/styleImg/empty_profile_img.png');
 insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('elathwood2n', 'GtQN?@sO', '아유미', '018-593-6365', 'mquincee2n@hugedomains.com', 0, 295, 1400, 'Yellow', '/img/styleImg/empty_profile_img.png');
 insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('otrett2o', 'AXKH9J5CP?@Q1', '이유미', '018-373-5104', 'ebodley2o@parallels.com', 1, 270, 1400, 'Aquamarine', '/img/styleImg/empty_profile_img.png');
 insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('mbunning2p', '{noop}uci8vs?@C6dc2', '차춘환', '018-493-0560', 'rclempton2p@360.cn', 1, 225, 100, 'Fuscia', '/img/styleImg/empty_profile_img.png');
 insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('lmaciaszczyk2q', '96z?@AQm', '차태현', '018-611-4312', 'bveneur2q@yale.edu', 1, 240, 2200, 'Crimson', '/img/styleImg/empty_profile_img.png');
 insert into member (nickname, member_pw, name, hp, email, status, shoe_size, point, profile_memo, img_url) values ('jlimpertz2r', 'ZyIVMV?@CSGGG', '김범수', '019-369-5837', 'edahle2r@salon.com', 0, 225, 2200, 'Puce', '/img/styleImg/empty_profile_img.png');
-
+-- 계좌번호
+update member set acc_number='1238008829271';
+update member set bank='하나은행';
 
 -- 제품
 -- INSERT INTO product (idx, brand, category, color, first_price, img, model_num, name, name_kor,  size, wish_count, gender, collection) VALUES (1, '아디다스', '스니커즈', '블랙', '150,000원', 'C:\\fakepath\\뽀로로.png', '3333', '슈퍼스타', '슈퍼스타', '2021-12-12', '240', null, null, null);
@@ -1147,3 +1149,7 @@ insert into penalty(sell_idx, reason, created_at) values(3,1,'2023-02-05');
 insert into penalty(sell_idx, reason, created_at) values(4,2,'2023-02-05');
 insert into penalty(sell_idx, reason, created_at) values(5,3,'2023-02-05');
 
+-- event_product
+insert into event_product(idx,end_time, img,  start_time,title,product_idx  ) values (1,"2023-02-08",'/img/event/event2.gif', "2023-02-04","test",110 );
+insert into event_member(idx, event_product_idx, member_idx) values (1,1,1);
+insert into event_member(idx, event_product_idx, member_idx) values (2,1,2);

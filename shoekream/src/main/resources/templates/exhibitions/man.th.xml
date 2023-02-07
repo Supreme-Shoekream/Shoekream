@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <thlogic>
     <attr sel="#man_product" th:remove="all-but-first">
-        <attr sel=".exhibition_item_products" th:each="justDrop ,i: ${justDrop}">
-            <attr sel="img.justDrop_img" th:src="${justDrop.img}"/>
-            <attr sel="p.brand-text" th:text="${justDrop.brand}"/>
-            <attr sel="p.name" th:text="${justDrop.name}"/>
-            <attr sel="em.num" th:text="${justDroptbuynowPrices[i.index]}"/>
-            <attr sel=".product_idx" th:value="${justDrop.idx}"/>
+        <attr sel=".man_product" th:each="man ,i: ${man}">
+            <attr sel="img.man_img" th:src="${man.img}"/>
+            <attr sel="p.man_name" th:text="${man.name}"/>
+            <attr sel="p.man_nameKor" th:text="${man.nameKor}"/>
+            <attr sel="p.amount" th:text="${manbuynowPrices[i.index]}"/>
+            <attr sel=".product_idx" th:value="${man.idx}"/>
 
         </attr>
     </attr>

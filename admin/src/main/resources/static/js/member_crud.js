@@ -25,11 +25,28 @@ function pop_member_view(idx){
 function close_member_view(){
     document.querySelector(".layer_user_view").style.display = "none";
 }
-function pop_penalty(idx){
-    document.querySelector(".layer_penalty").style.display = "block";
-    const btn_save = document.querySelector('.btn_save_penalty');
-    btn_save.addEventListener('click',sendit);
+function href_penalty(idx) {
+    fetch('http://localhost:8899/api/admin/users/'+idx)
+        .then((response) => response.json())
+        .then((data) => {
+            let email = data.data.email
+            location.href="/penalty?page=0&searchKeyword="+email;
+        })
 }
-function close_penalty(){
-    document.querySelector(".layer_penalty").style.display = "none";
+function href_buyList(idx) {
+    fetch('http://localhost:8899/api/admin/users/'+idx)
+        .then((response) => response.json())
+        .then((data) => {
+            let email = data.data.email
+            location.href="/buy?page=0&searchKeyword="+email;
+        })
+
+}function href_sellList(idx) {
+    fetch('http://localhost:8899/api/admin/users/'+idx)
+        .then((response) => response.json())
+        .then((data) => {
+            let email = data.data.email
+            location.href="/sell?page=0&searchKeyword="+email;
+        })
+
 }

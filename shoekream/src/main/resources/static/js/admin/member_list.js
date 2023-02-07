@@ -37,10 +37,10 @@
                   <a class="dropdown-item" href="#" onclick="openPoint(${dto.idx})"
                       ><i class="dw dw-edit2"></i> Point</a>                      
 
-                      <a class="dropdown-item" href="#"
+                      <a class="dropdown-item" href="#" 
                       ><i class="dw dw-delete-3"></i> Penalty</a>
 
-                      <a class="dropdown-item" href="#"
+                      <a class="dropdown-item" href="#" onclick="pop_black_list(${dto.idx})"
                       ><i class="dw dw-delete-3"></i> Blacklist</a>
                 </div>
               </div>

@@ -24,6 +24,7 @@ import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @Transactional
@@ -42,7 +43,8 @@ public class SellService {
         if(searchKeyword == null || searchKeyword.isBlank()){
             return sellRepository.findAll(pageable).map(SellDTO::fromEntity);
         }
-        return null;
+        return sellRepository.findByMember_EmailContainingOrProduct_NameContaining(searchKeyword,searchKeyword,pageable)
+                .map(SellDTO::fromEntity);
     }
 
     //관리자페이지/사용자페이지 detail
@@ -51,6 +53,13 @@ public class SellService {
         return sellRepository.findById(buyIdx)
                 .map(SellDTO::fromEntity)
                 .orElseThrow(() -> new EntityNotFoundException("구매내역이 없습니다 "));
+    }
+    public Header delete(Long idx){
+        Optional<Sell> sells = sellRepository.findById(idx);
+        return sells.map(sell ->{
+            sellRepository.delete(sell);
+            return Header.OK();
+        }).orElseGet(() -> Header.ERROR("데이터 없음"));
     }
 
     //사용자페이지 전체

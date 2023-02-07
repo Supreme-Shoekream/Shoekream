@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<thlogic>
+    <attr sel="#woman_product" th:remove="all-but-first">
+        <attr sel=".woman_product" th:each="woman ,i: ${woman}">
+            <attr sel="img.woman_img" th:src="${woman.img}"/>
+            <attr sel="p.man_name" th:text="${woman.name}"/>
+            <attr sel="p.man_nameKor" th:text="${woman.nameKor}"/>
+            <attr sel="p.amount" th:text="${womanbuynowPrices[i.index]}"/>
+            <attr sel=".product_idx" th:value="${woman.idx}"/>
+
+        </attr>
+    </attr>
+</thlogic>

@@ -1,3 +1,9 @@
 <thlogic>
-
+    <attr sel="#list_body" th:if="${not #strings.isEmpty(point)}" th:each="point : ${point}">
+        <attr sel="#list_name" th:text="${point.member.name}"/>
+        <attr sel="#list_email" th:text="${point.member.email}"/>
+        <attr sel="#list_hp" th:text="${point.member.hp}"/>
+        <attr sel="#list_reason" th:text="${point.reason.reason}"/>
+        <attr sel="#list_point" th:text="${point.point}"/>
+    </attr>
 </thlogic>

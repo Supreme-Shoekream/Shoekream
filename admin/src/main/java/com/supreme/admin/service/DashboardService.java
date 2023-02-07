@@ -47,7 +47,8 @@ public class DashboardService {
 
             DecimalFormat format = new DecimalFormat("###,###");
             String sale = format.format(totalDealPrice[0]);
-            sales2.add(ConclusionDTO.of(null, sale, LocalDateTime.now().minusMonths(12+i),null));
+            sales2.add(ConclusionDTO.of(null, sale, LocalDateTime.now().minusMonths(12-i),null));
+            System.out.println("매출리스트:" +sales);
         }
         return sales2;
     }
