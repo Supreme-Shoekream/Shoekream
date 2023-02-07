@@ -1,6 +1,7 @@
 package com.supreme.admin.service;
 
 
+import com.supreme.admin.model.dto.ProductDTO;
 import com.supreme.admin.model.entity.Product;
 import com.supreme.admin.model.network.Header;
 import com.supreme.admin.model.network.response.ProductApiResponse;
@@ -8,6 +9,8 @@ import com.supreme.admin.repository.ProductRepository;
 import com.supreme.admin.repository.WishRepository;
 import lombok.RequiredArgsConstructor;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 
@@ -43,5 +46,11 @@ public class ProductApiLogicService {
                 .map(Header::OK).orElseGet(() -> Header.ERROR("상품 없음!"));
     }
 
-
+    public Page<ProductDTO> searchProduct(String searchKeyword, Pageable pageable){
+        if(searchKeyword == null || searchKeyword.isBlank()){
+            return productRepository.findAll(pageable).map(ProductDTO::fromEntity);
+        }
+        return productRepository.findByNameContainingOrModelNum(searchKeyword,searchKeyword,pageable)
+                .map(ProductDTO::fromEntity);
+    }
 }

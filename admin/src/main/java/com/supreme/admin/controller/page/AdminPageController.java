@@ -46,7 +46,7 @@ public class AdminPageController {
     private final PaginationService paginationService;
     private final AdminApiLogicService adminApiLogicService;
     private final DashboardService dashboardService;
-
+    private final ProductApiLogicService productApiLogicService;
     private final PenaltyApiLogicService penaltyApiLogicService;
     private final MemberApiLogicService memberApiLogicService;
     private final ConclusionService conclusionService;
@@ -89,7 +89,7 @@ public class AdminPageController {
         List<Long> totalDealCount = dashboardService.totalDealCount(products);
         List<ConclusionDTO> conclusions = conclusionService.conclusionList();
         List<ConclusionDTO> sales = dashboardService.sales();
-        System.out.println("🍒🍒"+products +"🍕🍕"+ totalDealPrice+"🍔🍔"+totalDealCount);
+        System.out.println("🍒🍒"+products +"🍕🍕"+ totalDealPrice+"🍔🍔"+totalDealCount+"🍿🍿"+sales);
         map.addAttribute("sessionInfo",session);
         map.addAttribute("userCount",dashboardService.userCount());
         map.addAttribute("productCount",dashboardService.productCount());
@@ -119,10 +119,16 @@ public class AdminPageController {
     }
 
     @GetMapping(path="products")   //http://localhost:8899//products
-    public ModelAndView products(HttpServletRequest request){
+    public String products(@RequestParam(required = false) String searchKeyword,
+                                 @PageableDefault(size = 10, sort = "idx", direction = Sort.Direction.ASC) Pageable pageable,
+                                 ModelMap map,HttpServletRequest request){
         String session = sessionCheck(request);
 //        if(session == null)  return new ModelAndView( "/adminpage/login.html");
-        return new ModelAndView("/adminpage/products.html").addObject("sessionInfo",session);
+        Page<ProductDTO> products = productApiLogicService.searchProduct(searchKeyword,pageable);
+        List<Integer> barNumbers = paginationService.getPaginationBarNumbers(pageable.getPageNumber(),products.getTotalPages());
+        map.addAttribute("products",products);
+        map.addAttribute("barNumbers",barNumbers);
+        return "/adminpage/products";
     }
 
 
