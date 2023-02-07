@@ -107,7 +107,7 @@ public class AdminPageController {
 
     @GetMapping(path="users")   //http://localhost:8899//users
     public String users(@RequestParam(required = false) String searchKeyword,
-                        @PageableDefault(size = 10, sort = "idx", direction = Sort.Direction.ASC) Pageable pageable,
+                        @PageableDefault(size = 10, sort = "idx", direction = Sort.Direction.DESC) Pageable pageable,
                         ModelMap map,HttpServletRequest request){
         String session = sessionCheck(request);
 //        if(session == null)  return new ModelAndView( "/adminpage/login.html");
@@ -120,7 +120,7 @@ public class AdminPageController {
 
     @GetMapping(path="products")   //http://localhost:8899//products
     public String products(@RequestParam(required = false) String searchKeyword,
-                                 @PageableDefault(size = 10, sort = "idx", direction = Sort.Direction.ASC) Pageable pageable,
+                                 @PageableDefault(size = 10, sort = "idx", direction = Sort.Direction.DESC) Pageable pageable,
                                  ModelMap map,HttpServletRequest request){
         String session = sessionCheck(request);
 //        if(session == null)  return new ModelAndView( "/adminpage/login.html");
@@ -128,6 +128,7 @@ public class AdminPageController {
         List<Integer> barNumbers = paginationService.getPaginationBarNumbers(pageable.getPageNumber(),products.getTotalPages());
         map.addAttribute("products",products);
         map.addAttribute("barNumbers",barNumbers);
+        System.out.println(products);
         return "/adminpage/products";
     }
 
