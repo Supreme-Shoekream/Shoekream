@@ -97,11 +97,8 @@ function comment_submit(){
         })
     })
         .then((res) => {
-            // const popdown = document.getElementById('comment_more');
-            // popdown.style.display = "none"
-            // location.href='#'+currentBoardIdx;
-            // window.location.reload()+currentBoardIdx;
             window.location.reload();
+            // $('#reload_div').load(location.href+' #reload_div');
             return;
         })
 

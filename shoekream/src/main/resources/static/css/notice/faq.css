@@ -320,11 +320,11 @@ tbody {
 .menu_item:not(.active) .menu_link{
     border-color: #ebebeb;
 }
-.category_text.active {
+.category.active {
     font-weight: 700;
     color: #222;
 }
-.category_text:not(.active) {
+.category:not(.active) {
     border-color: #ebebeb;
 }
 /*드롭다운*/

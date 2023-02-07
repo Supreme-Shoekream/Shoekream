@@ -1,8 +1,10 @@
 package com.supreme.admin.service;
 
 import com.supreme.admin.model.dto.PenaltyDTO;
+import com.supreme.admin.model.dto.SellDTO;
 import com.supreme.admin.model.entity.Penalty;
 import com.supreme.admin.model.entity.Sell;
+import com.supreme.admin.model.enumclass.Reason;
 import com.supreme.admin.model.network.Header;
 import com.supreme.admin.repository.PenaltyRepository;
 import com.supreme.admin.repository.SellRepository;
@@ -26,8 +28,8 @@ public class PenaltyApiLogicService {
         if(searchKeyword == null || searchKeyword.isBlank()){
             return penaltyRepository.findAll(pageable).map(PenaltyDTO::fromEntity);
         }
-        //아직 검색구현 안됨: sell -> member hp bank??
-        return null;
+        return penaltyRepository.findBySell_Member_Email(searchKeyword,pageable).map(PenaltyDTO::fromEntity);
+
     }
 
     @Transactional(readOnly = true)
@@ -37,8 +39,9 @@ public class PenaltyApiLogicService {
                 .orElseThrow(()-> new EntityNotFoundException("패널티 내역 없음"));
     }
 
-    public Header<PenaltyDTO> create(PenaltyDTO penaltyDTO){
-        Sell sell  = sellRepository.findById(penaltyDTO.sellIdx()).get();
+    public Header<PenaltyDTO> create(Long sellIdx, Reason reason){
+        Sell sell  = sellRepository.findById(sellIdx).get();
+        PenaltyDTO penaltyDTO = PenaltyDTO.of(null,reason, SellDTO.fromEntity(sell),null);
         Penalty newPenalty = penaltyRepository.save(penaltyDTO.toEntity(sell));
         PenaltyDTO response = PenaltyDTO.fromEntity(newPenalty);
         return Header.OK(response);

@@ -14,7 +14,7 @@
         </div>
         <div class="layer_content">
         <div class="top">
-            <div class="user_bind">
+            <div class="user_bind" id="topContent">
                 <div class="user_input">
                     <div class="input_box">
                         <h4 class="input_title">이름</h4>
@@ -22,10 +22,28 @@
                             <p class="name">sample</p>
                         </div>
                     </div>
+                    <div class="input_box">
+                        <h4 class="input_title">닉네임</h4>
+                        <div class="input_item">
+                            <p class="nickname">sample</p>
+                        </div>
+                    </div>
+                    <div class="input_box ">
+                        <h4 class="input_title">사이즈</h4>
+                        <div class="input_item">
+                            <p class="shoeSize">sample</p>
+                        </div>
+                    </div>
+                    <div class="input_box ">
+                        <h4 class="input_title">포인트</h4>
+                        <div class="input_item">
+                            <p class="point">sample</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="user_bind img">
-                <img src="/admin/src/images/person.svg">
+            <div class="user_bind img" id="imageContainer">
+                <img class="userImg" src="/img/styleImg/empty_profile_img.png">
             </div>
         </div>
         <div class="center">
@@ -48,14 +66,29 @@
             <div class="user_bind">
                 <div class="user_input">
                     <div class="input_box ">
-                        <h4 class="input_title">사이즈</h4>
+                        <h4 class="input_title">은행</h4>
                         <div class="input_item">
-                            <p class="shoeSize">sample</p>
+                            <p class="bank">sample</p>
+                        </div>
+                    </div>
+                    <div class="input_box">
+                        <h4 class="input_title">계좌번호</h4>
+                        <div class="input_item">
+                            <p class="accountNumber">sample</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+<!--        <div class="bottom">-->
+<!--            <div class="user_bind">-->
+<!--                <div class="user_input">-->
+<!--                    -->
+<!--                    -->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
 
         <div class="layer_btn">
             <a href="#" class="btn btn_save solid medium" onclick="close_member_view()">확인</a>

@@ -261,10 +261,8 @@ function close_layer(){
     let size=document.querySelector(".size.desc");
     size.innerHTML= document.querySelector(".size_item .btn.on span").innerHTML
 }
-function pop_layer(){
-    document.querySelector('.layer_size').style.display="block"
-
-
+function pop_layer() {
+    document.querySelector('.layer_size').style.display = "block"
 }
 let shoe2
 const boxes = document.querySelectorAll(".size_item .btn");
@@ -279,14 +277,29 @@ const boxes = document.querySelectorAll(".size_item .btn");
     });
 
 
-    function delete_img(){
-    const pi = document.getElementById('profile_img');
-    console.log(pi.src);
-    pi.setAttribute('src', '/img/profile.png');
-    console.log(pi.src);
+function delete_img(){
+    fetch("http://localhost:8889/api/my/profile/delete", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            "transaction_time":`${new Date()}`,
+            "resultCode":"ok",
+            "description":"정상",
+        }),
+    })
+        .then((res) => {
+            alert("프로필 사진 삭제 완료")
+            location.href="/my/profile";
+            return;
+        })
+        .catch((err) => {
+            alert("프로필 사진 삭제 실패");
+            location.reload();
+            return;
+        })
 }
 
-
+readImage(document.querySelector('#profile_img'));
 // 프로필 이미지 변경
 function readImage(input) {
 
@@ -332,7 +345,7 @@ $("input[type='file']").on("change", function(e){
             alert("값을 가져오지 못했습니다.");
         }
     });
-    readImage(e.target);
+
     profileImgSend()
 });
 

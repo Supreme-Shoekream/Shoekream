@@ -1,3 +1,4 @@
+
 package com.supreme.shoekream.model.entity;
 
 import static com.querydsl.core.types.PathMetadataFactory.*;
@@ -28,7 +29,7 @@ public class QBlacklist extends EntityPathBase<Blacklist> {
 
     public final QMember member;
 
-    public final EnumPath<com.supreme.shoekream.model.enumclass.Reason> reason = createEnum("reason", com.supreme.shoekream.model.enumclass.Reason.class);
+    public final StringPath reason = createString("reason");
 
     public QBlacklist(String variable) {
         this(Blacklist.class, forVariable(variable), INITS);

@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
 <thlogic>
+
+    <!-- 제품리스트 -->
     <attr sel=".brand_name" th:text="${brandName}"/>
     <attr sel=".brand_total" th:text="${count}"/>
     <attr sel=".brand_products" th:remove="all-but-first">
@@ -13,8 +15,32 @@
                 </attr>
                 <attr sel=".amount" th:text="${prices[i.index]}"/>
             </attr>
+            <attr sel=".action_wish_review" th:id="${product.idx}">
+                <attr sel=".is_wish_on" th:style="(${isWish}!=null and ${isWish[i.index]})? 'display:block':'display:none'" th:onclick="'javascript:wishDelete('+ ${product.idx} + ');'"/>
+                <attr sel=".is_wish_off" th:style="(${isWish}==null or ${!isWish[i.index]})? 'display:block':'display:none'" th:onclick="'javascript:wishCreate('+ ${product.idx} + ');'"/>
+                <attr sel=".wish_count" th:text="${wishCount[i.index]}"/>
+                <attr sel=".review_link" th:onclick="'javascript:tag_href('+ ${product.idx} + ');'"/>
+                <attr sel=".tag_count" th:text="${tagCount[i.index]}"/>
+            </attr>
         </attr>
     </attr>
+
+
+
+    <!-- 오름차순/내림차순 -->
+    <attr sel=".sorting_title" th:text="${products.sort.getOrderFor('wishCount')}!=null ? '인기순':
+                                            (${products.sort.getOrderFor('idx')}!=null?'최신순':
+                                            (${products.sort.getOrderFor('firstPrice')}!=null?
+                                            (${products.sort.getOrderFor('firstPrice').direction.name} == 'DESC'?'발매가 높은순':'발매가 낮은순'):'인기순'))"/>
+
+    <attr sel="#sort_by_wish_desc" th:href="@{/searchs(page=${products.number},sort='wishCount,desc',psize=${param.psize},brand=${param.brand},
+            category=${param.category},collection=${param.collection},gender=${param.gender},keyword=${param.keyword})}"/>
+    <attr sel="#sort_by_price_asc" th:href="@{/searchs(page=${products.number},sort='firstPrice,asc',psize=${param.psize},brand=${param.brand},
+            category=${param.category},collection=${param.collection},gender=${param.gender},keyword=${param.keyword})}"/>
+    <attr sel="#sort_by_price_desc" th:href="@{/searchs(page=${products.number},sort='firstPrice,desc',psize=${param.psize},brand=${param.brand},
+            category=${param.category},collection=${param.collection},gender=${param.gender},keyword=${param.keyword})}"/>
+    <attr sel="#sort_by_idx_desc" th:href="@{/searchs(page=${products.number},sort='idx',psize=${param.psize},brand=${param.brand},
+            category=${param.category},collection=${param.collection},gender=${param.gender},keyword=${param.keyword})}"/>
 
     <!-- 페이지처리 -->
     <attr sel=".pagination_box">

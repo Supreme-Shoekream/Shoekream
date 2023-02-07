@@ -19,7 +19,7 @@ public class BoardApiController {
     private final StyleLogicService styleLogicService;
     private final BoardRepository boardRepository;
 
-    @GetMapping("{idx}")    // http://localhost:8889/api/social (post)
+    @GetMapping("{idx}")    // http://localhost:8899/api/social (post)
     public BoardDTO read(@PathVariable(name="idx") Long idx){
         return BoardDTO.fromEntity(styleLogicService.read(idx));
     }

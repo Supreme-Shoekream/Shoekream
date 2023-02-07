@@ -30,7 +30,7 @@ public interface ProductRepository extends JpaRepository<Product, Long>, Queryds
     Page<Product> findByBrandIn(List<String> brand, Pageable pageable);
     Page<Product> findByCollectionIn(List<String> collection, Pageable pageable);
     Page<Product> findBySizeContainingAndBrandContainingAndCategoryContainingAndCollectionContainingAndGenderContainingAndNameContaining(String size, String brand,
-                                                                                       String category, String collection,
+                                                                             String category, String collection,
                                                                                        String gender, String keyword, Pageable pageable);
     Page<Product> findBySize(String size, Pageable pageable);
 
@@ -42,7 +42,7 @@ public interface ProductRepository extends JpaRepository<Product, Long>, Queryds
 
     long countBy();
     List<Product> findTop10ByOrderByWishCountDesc();
-
+    Page<Product> findByNameContainingOrModelNum(String name, String modelNumg, Pageable pageable);
 }
 
 
