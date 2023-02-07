@@ -16,6 +16,9 @@ import com.supreme.shoekream.service.StyleLogicService;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -76,12 +79,12 @@ public class BoardApiController {
     }
 
     @GetMapping("/trend")
-    public List<BoardWithLikeListResponse> trend(@AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+    public Page<BoardWithLikeListResponse> trend(@AuthenticationPrincipal KreamPrincipal kreamPrincipal, @PageableDefault(size = 12)Pageable pageable){
         if(kreamPrincipal == null){
-            return styleLogicService.unlog_trend();
+            return styleLogicService.unlog_trend(pageable);
         }
         MemberDTO member = kreamPrincipal.toFullDto();
-        return styleLogicService.trendList(member);
+        return styleLogicService.trendList(member, pageable);
     }
 
     @GetMapping("/newest")
