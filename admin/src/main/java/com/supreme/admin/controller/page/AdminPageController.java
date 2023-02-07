@@ -217,7 +217,7 @@ public class AdminPageController {
     public String penalty(@RequestParam(required = false) String searchKeyword,
                           @PageableDefault(size = 10, sort = "idx", direction = Sort.Direction.DESC) Pageable pageable,
                           ModelMap map,HttpServletRequest request){
-        Page<PenaltyDTO> penaltys =penaltyApiLogicService.searchPenalty(searchKeyword,pageable);
+        Page<PenaltyResponse> penaltys =penaltyApiLogicService.searchPenalty(searchKeyword,pageable).map(PenaltyResponse::from);
         List<Integer> barNumbers = paginationService.getPaginationBarNumbers(pageable.getPageNumber(),penaltys.getTotalPages());
         map.addAttribute("penaltys",penaltys);
         map.addAttribute("barNumbers",barNumbers);
