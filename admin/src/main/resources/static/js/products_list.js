@@ -9,8 +9,8 @@
             console.log(data);
 
             let pagination = data.pagination;
-            let totalPages = pagination.totalPages;
-            let currentPage = pagination.currentPage + 1;
+            let totalPages = pagination.totalPages; // 31
+            let currentPage = pagination.currentPage + 1; // 1
             let itemList = "";
 
             data.data.forEach(dto => {
@@ -58,7 +58,7 @@
 
             let lastPage = data.pagination.totalPages;
 
-            let pageGroup = Math.ceil(currentPage / 10);
+            let pageGroup = Math.ceil(currentPage / 10); // 화면에 보여질 페이지 그룹 = 현재 페이지 / 한 화면에 나타낼 페이지 수
 
             let last = pageGroup * 10;
             if (last > lastPage) last = totalPages;

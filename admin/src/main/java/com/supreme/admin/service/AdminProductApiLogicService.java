@@ -1,13 +1,11 @@
 package com.supreme.admin.service;
 
-import com.supreme.admin.model.dto.ProductDTO;
 import com.supreme.admin.model.entity.Product;
 import com.supreme.admin.model.network.Header;
 import com.supreme.admin.model.network.Pagination;
 import com.supreme.admin.model.network.request.ProductApiRequest;
 import com.supreme.admin.model.network.response.ProductApiResponse;
 import com.supreme.admin.repository.ProductRepository;
-import com.supreme.admin.repository.SellRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -21,7 +19,6 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class AdminProductApiLogicService extends BaseService<ProductApiRequest, ProductApiResponse, Product> {
     private final ProductRepository productRepository;
-    private final SellRepository sellRepository;
 
     private ProductApiResponse response(Product product){
         ProductApiResponse productApiResponse = ProductApiResponse.builder()
