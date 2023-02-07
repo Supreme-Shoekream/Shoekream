@@ -1149,3 +1149,7 @@ insert into penalty(sell_idx, reason, created_at) values(3,1,'2023-02-05');
 insert into penalty(sell_idx, reason, created_at) values(4,2,'2023-02-05');
 insert into penalty(sell_idx, reason, created_at) values(5,3,'2023-02-05');
 
+-- event_product
+insert into event_product(idx,end_time, img,  start_time,title,product_idx  ) values (1,"2023-02-08",'/img/event/event2.gif', "2023-02-04","test",110 );
+insert into event_member(idx, event_product_idx, member_idx) values (1,1,1);
+insert into event_member(idx, event_product_idx, member_idx) values (2,1,2);

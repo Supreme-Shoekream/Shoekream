@@ -25,16 +25,38 @@ public record PenaltyResponse(
         String productModelNum,
         String productReleaseDate,
         Long productFirstPrice,
+        Long sellIdx,
         Long sellPrice,
+        Long penaltyPrice,
         LocalDateTime createdAt
 ) {
-    public static PenaltyResponse of(Long idx, String reason, Long memberIdx, String memberName,String nickname, String memberHp, String memberEmail, String memAcc, String memberStatus,
-                                     Long productIdx, String productName, String productNameKor, String productSize, String productModelNum, String productReleaseDate, Long productFirstPrice, LocalDateTime createdAt) {
+    public static PenaltyResponse of(Long idx,
+                                     String reason,
+                                     Long memberIdx,
+                                     String memberName,
+                                     String nickname,
+                                     String memberHp,
+                                     String memberEmail,
+                                     String memAcc,
+                                     String memberStatus,
+                                     Long productIdx,
+                                     String productName,
+                                     String productNameKor,
+                                     String productSize,
+                                     String productModelNum,
+                                     String productReleaseDate,
+                                     Long productFirstPrice,
+                                     Long sellIdx,
+                                     Long sellPrice,
+                                     Long penaltyPrice,
+                                     LocalDateTime createdAt) {
         return new PenaltyResponse(idx, reason, memberIdx, memberName,nickname, memberHp, memberEmail, memAcc, memberStatus, productIdx, productName, productNameKor,
-                productSize, productModelNum, productReleaseDate, productFirstPrice,productFirstPrice, createdAt);
+                productSize, productModelNum, productReleaseDate, productFirstPrice,sellIdx,sellPrice, penaltyPrice,createdAt);
     }
 
     public static PenaltyResponse from(PenaltyDTO dto) {
+        Long sellPrice = dto.sellDTO().price();
+        Long penaltyPrice = (long) (Math.floor(sellPrice*0.15/1000)*1000);
         return new PenaltyResponse(
                 dto.idx(),
                 dto.reason().getDescription(),
@@ -52,7 +74,9 @@ public record PenaltyResponse(
                 dto.sellDTO().productDTO().modelNum(),
                 dto.sellDTO().productDTO().releaseDate(),
                 dto.sellDTO().productDTO().firstPrice(),
-                dto.sellDTO().price(),
+                dto.sellDTO().idx(),
+                sellPrice,
+                penaltyPrice,
                 dto.createdAt()
         );
     }

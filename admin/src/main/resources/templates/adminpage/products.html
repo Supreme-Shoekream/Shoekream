@@ -30,7 +30,7 @@
     <div class="pd-ltr-20 xs-pd-20-10">
         <div class="min-height-200px">
             <!-- Simple Datatable start -->
-            <div class="card-box mb-30" >
+            <div class="card-box mb-30" id="products_page">
                 <div class="pd-20" id ="top" style="display: flex">
                     <h4 class="text-blue h4">상품 리스트</h4>
                     <button type="button" class="btn btn-primary m-t-15 waves-effect" onclick="productcreate_popup()">상품 추가</button>
@@ -76,22 +76,22 @@
                     </thead>
                     <tbody id="itemList">
                         <tr>
-                            <td class="table-plus">idx</td>
-                            <td><img src="img" width="80" height="80" alt=""/></td>
-                            <td>brand</td>
-                            <td><h5 class="font-16">name</h5>nameKor</td>
-                            <td>modelNum</td>
-                            <td>releaseDate</td>
-                            <td>color</td>
-                            <td>firstPrice</td>
-                            <td>
+                            <td class="table-plus td-idx">idx</td>
+                            <td class="td-img"><img src="img" width="80" height="80" alt="" /></td>
+                            <td class="td-brand">brand</td>
+                            <td class="td-name"><h5 class="font-16" td->name</h5>nameKor</td>
+                            <td class="td-modelNum">modelNum</td>
+                            <td class="td-releaseDate">releaseDate</td>
+                            <td class="td-color">color</td>
+                            <td class="td-firstPrice">firstPrice</td>
+                            <td class="more">
                                 <div class="dropdown">
                                     <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
                                         <i class="dw dw-more"></i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                        <a class="dropdown-item" onclick="productview_popup()"><i class="dw dw-eye"></i>View</a>
-                                        <a class="dropdown-item" onclick="productedit_popup()"><i class="dw dw-edit2"></i>Edit</a>
+                                        <a class="dropdown-item view_btn" onclick="productview_popup()"><i class="dw dw-eye"></i>View</a>
+                                        <a class="dropdown-item view_btn" onclick="productedit_popup()"><i class="dw dw-edit2"></i>Edit</a>
                                         <a class="dropdown-item" onclick="productdelete_popup()"><i class="dw dw-delete-3"></i>Delete</a>
                                     </div>
                                 </div>
@@ -135,6 +135,6 @@
 <!-- js -->
 <div th:replace="fragment/adminjs :: js"></div>
 <script src="/js/products.js"></script>
-<script src="/js/products_list.js"></script>
+<!--<script src="/js/products_list.js"></script>-->
 </body>
 </html>

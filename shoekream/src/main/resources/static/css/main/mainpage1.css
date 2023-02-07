@@ -743,7 +743,6 @@ img {
 .banner {
     overflow: hidden;
     vertical-align: top;
-    cursor: pointer;
     max-height: 480px;
 }
 .banner .banner_item {

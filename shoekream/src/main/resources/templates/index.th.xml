@@ -125,6 +125,7 @@
             <attr sel="img.style_img" th:src="${stylemost.img}"/>
             <attr sel="img.style_proimg" th:src="${stylemost.memberDTO.imgUrl}"/>
             <attr sel="p.user_name" th:text="${stylemost.memberDTO.nickname}"/>
+            <attr sel=".style_idx" th:value="${stylemost.idx}"/>
         </attr>
     </attr>
 </thlogic>

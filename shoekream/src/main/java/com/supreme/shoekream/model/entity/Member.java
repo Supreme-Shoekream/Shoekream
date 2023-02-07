@@ -38,28 +38,30 @@ public class Member {
     private String accNumber;
 
 
-    public Member(Long idx, String nickname, String memberPw, String name, String hp, String email, String shoeSize, String profileMemo, String imgUrl, String bank, String accNumber) {
+    public Member(Long idx, String nickname, String memberPw, String name, String hp, String email, Status status,String shoeSize, String profileMemo, String imgUrl, String bank, String accNumber) {
         this.idx = idx;
         this.nickname = nickname;
         this.memberPw = memberPw;
         this.name = name;
         this.hp = hp;
         this.email = email;
+        this.status=status;
         this.shoeSize = shoeSize;
         this.profileMemo = profileMemo;
         this.imgUrl = imgUrl;
         this.bank = bank;
         this.accNumber = accNumber;
+
     }
 
-    public static Member of(Long idx, String nickname, String memberPw, String name, String hp, String email,
+    public static Member of(Long idx, String nickname, String memberPw, String name, String hp, String email, Status status,
                             String shoeSize, String profileMemo, String imgUrl,String bank, String accNumber){
-        return new Member(idx, nickname, memberPw, name, hp, email, shoeSize, profileMemo, imgUrl, bank, accNumber);
+        return new Member(idx, nickname, memberPw, name, hp, email, status, shoeSize, profileMemo, imgUrl, bank, accNumber);
     }
 
-    public static Member of(String memberPw, String name, String hp, String email,
+    public static Member of(String memberPw, String name, String hp, String email, Status status,
                             String shoeSize){
-        return new Member(null, null, memberPw, name, hp, email, shoeSize, null, null, null, null);
+        return new Member(null, null, memberPw, name, hp, email, status, shoeSize, null, null, null, null);
     }
 
 }

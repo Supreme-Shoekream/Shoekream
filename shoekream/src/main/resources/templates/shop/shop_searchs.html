@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/css/shop/shop_search.css">
 <!--    <head th:replace="/fragment/footer_head :: head"></head>-->
     <link rel="stylesheet" href="/css/fragment/footer.css">
+    <script defer src="/js/header/header.js"></script>
     <style>
         body .hb_fixed_box .quick_filter .clicked.btn_quick_filter {
             background-color: #FEF7F6;
@@ -90,8 +91,8 @@
                     <li class="brand_item">
                         <a class="brand_box">
                             <p class="brand_name">
-                                <input type="image" src="/img/shopimg/shop_top_3.jpg" value="주얼리" alt="주얼리"
-                                       class="brand_img">주얼리
+                                <input type="image" src="/img/shopimg/shop_top_3.jpg" value="후드" alt="후드"
+                                       class="brand_img">후드
 
                             </p>
                         </a>
@@ -264,57 +265,63 @@
                         <ul class="menu_list" id="gender_filter">
                             <li class="menu checkMenu checkbox_item">
                                 <input type="checkbox" name="check" id="input71" class="check">
-                                <label class="check_label" for="input71"><span class="label_txt">남성</span></label>
+                                <label class="check_label" for="input71"><span class="label_txt" id="M">남성</span></label>
                             </li>
                             <li class="menu checkMenu checkbox_item">
                                 <input type="checkbox" name="check" id="input72" class="check">
-                                <label class="check_label" for="input72"><span class="label_txt">여성</span></label>
+                                <label class="check_label" for="input72"><span class="label_txt" id="W">여성</span></label>
                             </li>
                             <li class="menu checkMenu checkbox_item">
                                 <input type="checkbox" name="check" id="input73" class="check">
-                                <label class="check_label" for="input73"><span class="label_txt">키즈</span></label>
+                                <label class="check_label" for="input73"><span class="label_txt" id="Kid">키즈</span></label>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <!-- 사이드바 4번 항목 -->
-                <div class="filter_list" id="collection_list">
-                    <div class="filter_title">
-                        <div class="title_box">
-                            <span class="main_title">컬렉션</span>
-                            <span class="placeholder" id="collection_title">모든 컬렉션</span>
-                        </div>
-                        <div class="dropdown">
-                            <button class="side_btn1">
-                                <img class="side_btn" id="collection_btn_on" src="/img/shopimg/side_btn1.png" alt="">
-                                <img class="side_btn" id="collection_btn_off" src="/img/shopimg/side_btn0.png" alt="">
-                            </button>
-                        </div>
-                    </div>
-                    <div class="filter_menu" id="drop-collection" style="display:none">
-                        <ul class="menu_list" id="collection_filter">
-                            <li class="menu checkMenu checkbox_item">
-                                <input type="checkbox" name="check" id="input74" class="check">
-                                <label class="check_label" for="input74"><span class="label_txt">Luxury</span></label>
+<!--                <div class="filter_list" id="collection_list">-->
+<!--                    <div class="filter_title">-->
+<!--                        <div class="title_box">-->
+<!--                            <span class="main_title">컬렉션</span>-->
+<!--                            <span class="placeholder" id="collection_title">모든 컬렉션</span>-->
+<!--                        </div>-->
+<!--                        <div class="dropdown">-->
+<!--                            <button class="side_btn1">-->
+<!--                                <img class="side_btn" id="collection_btn_on" src="/img/shopimg/side_btn1.png" alt="">-->
+<!--                                <img class="side_btn" id="collection_btn_off" src="/img/shopimg/side_btn0.png" alt="">-->
+<!--                            </button>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="filter_menu" id="drop-collection" style="display:none">-->
+<!--                        <ul class="menu_list" id="collection_filter">-->
+<!--                            <li class="menu checkMenu checkbox_item">-->
+<!--                                <input type="checkbox" name="check" id="input74" class="check">-->
+<!--                                <label class="check_label" for="input74"><span class="label_txt">키덜트 취향저격</span></label>-->
 
-                            </li>
-                            <li class="menu checkMenu checkbox_item">
-                                <input type="checkbox" name="check" id="input75" class="check">
-                                <label class="check_label" for="input75"><span class="label_txt">Contemporary</span></label>
+<!--                            </li>-->
+<!--                            <li class="menu checkMenu checkbox_item">-->
+<!--                                <input type="checkbox" name="check" id="input75" class="check">-->
+<!--                                <label class="check_label" for="input75"><span class="label_txt">올해의 악세서리</span></label>-->
 
-                            </li>
-                            <li class="menu checkMenu checkbox_item">
-                                <input type="checkbox" name="check" id="input76" class="check">
-                                <label class="check_label" for="input76"><span class="label_txt">Jordan 1</span></label>
+<!--                            </li>-->
+<!--                            <li class="menu checkMenu checkbox_item">-->
+<!--                                <input type="checkbox" name="check" id="input76" class="check">-->
+<!--                                <label class="check_label" for="input76"><span class="label_txt">캠핑의 매력에 빠진한해</span></label>-->
 
-                            </li>
-                            <li class="menu checkMenu checkbox_item">
-                                <input type="checkbox" name="check" id="input77" class="check">
-                                <label class="check_label" for="input77"><span class="label_txt">Jordan 3</span></label>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+<!--                            </li>-->
+<!--                            <li class="menu checkMenu checkbox_item">-->
+<!--                                <input type="checkbox" name="check" id="input77" class="check">-->
+<!--                                <label class="check_label" for="input77"><span class="label_txt">브랜드 베스트 아이템</span></label>-->
+<!--                            </li>-->
+<!--                            <li class="menu checkMenu checkbox_item">-->
+<!--                                <input type="checkbox" name="check" id="input87" class="check">-->
+<!--                                <label class="check_label" for="input87"><span class="label_txt">심플한 로고 매력</span></label>-->
+
+<!--                            </li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                </div>-->
+
                 <!-- 사이드바 5번 항목 -->
                 <div class="filter_list" id="size_list">
                     <div class="filter_title">

@@ -62,6 +62,7 @@ public class MainPageController {
 
         List<BoardWithLikeListResponse> stylemost = styleLogicService.findTopSevenStylePick();
         map.addAttribute("stylemost",stylemost);
+
         List<String> justDroptbuynowPrices = sellService.buyNowPrices(justDrop.stream().map(ProductDTO::toEntity).toList());
         map.addAttribute("justDroptbuynowPrices",justDroptbuynowPrices);
         List<String> mostPopularbuynowPrices = sellService.buyNowPrices(mostPopular.stream().map(ProductDTO::toEntity).toList());
