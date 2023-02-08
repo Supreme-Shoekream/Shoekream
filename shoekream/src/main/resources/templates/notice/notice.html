@@ -49,7 +49,7 @@
                                 </div><!---->
                             </div>
                             <ul class="dropdown_list">
-                                <li>
+                                <li class="list-start">
                                     <div class="dropdown">
                                         <div class="dropdown_head">
                                             <div class="title_box"><!---->
@@ -277,5 +277,10 @@
     <footer th:replace="/fragment/footer :: footer"></footer>
 <!--footer 넣을곳-->
 </body>
+<script>
+    function href_detail(idx){
+        location.href="/notice/"+idx
+    }
+</script>
 </html>
 <script src="/js/notice/notice.js"></script>
