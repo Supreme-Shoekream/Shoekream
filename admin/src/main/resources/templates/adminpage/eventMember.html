@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--head 시작 -->
+<div th:replace="fragment/adminhead :: head"></div>
+<!--head 끝 -->
+<body>
+
+<!-- header 시작 -->
+<div th:replace="fragment/adminheader :: header(${sessionInfo})"></div>
+<!-- header 끝 -->
+<!-- right-sidebar 시작 -->
+<div th:replace="fragment/adminrightsidebar :: rightsidebar"></div>
+<!-- right-sidebar 끝 -->
+<!-- left-side-bar 시작 -->
+<div th:replace="fragment/adminnavbar :: navbar"></div>
+<!-- left-side-bar 끝 -->
+
+
+
+
+<div class="main-container">
+  <div class="pd-ltr-20 xs-pd-20-10">
+    <div class="min-height-200px">
+
+      <!-- Simple Datatable start -->
+      <div class="card-box mb-30">
+        <div class="pd-20">
+          <h4 class="text-blue h4">응모 인원</h4>
+          <button type="button" class="btn btn-primary m-t-15 waves-effect" onclick="">추첨 하기</button>
+        </div>
+        <div class="pb-20">
+          <table class="data-table table stripe hover nowrap">
+            <thead>
+            <tr>
+              <th class="table-plus datatable-nosort">번호</th>
+              <th>상품 사진</th>
+              <th>상품 이름</th>
+              <th>이메일</th>
+              <th>이름</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="table-plus eventMemberIdx">네이버페이 결제 시 최대 2만5천원 포인트</td>
+              <td class="eventProImg"><img src="/vendors/images/event_photo.PNG" alt=""></td>
+              <td class="eventName">2022-12-17 11:09</td>
+              <td class="eventMemberEmail">2022-12-17 11:09</td>
+              <td class="eventMemberName">2022-12-17</td>
+
+            </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- Simple Datatable End -->
+    </div>
+
+  </div>
+</div>
+
+<!-- js -->
+<div th:replace="fragment/adminjs :: js"></div>
+<script src="/js/event_crud.js"></script>
+
+<!-- js -->
+</body>
+</html>

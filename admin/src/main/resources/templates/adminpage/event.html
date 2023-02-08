@@ -26,7 +26,7 @@
       <div class="card-box mb-30">
         <div class="pd-20">
           <h4 class="text-blue h4">이벤트 리스트</h4>
-          <button type="button" class="btn btn-primary m-t-15 waves-effect" onclick="pop_event_register()">관리자 등록</button>
+          <button type="button" class="btn btn-primary m-t-15 waves-effect" onclick="pop_event_register()">이벤트 등록</button>
         </div>
         <div class="pb-20">
           <table class="data-table table stripe hover nowrap">
@@ -37,7 +37,6 @@
 
               <th>Open</th>
               <th>Close</th>
-              <th>Registration Date</th>
               <th class="datatable-nosort">Action</th>
             </tr>
             </thead>
@@ -47,7 +46,7 @@
               <td class="eventImg"><img src="/vendors/images/event_photo.PNG" alt=""></td>
               <td class="eventStartTime">2022-12-17 11:09</td>
               <td class="eventEndTime">2022-12-17 11:09</td>
-              <td class="eventRegDate">2022-12-17</td>
+
 
               <td class="more">
                 <div class="dropdown">
@@ -68,7 +67,7 @@
                     <a class="dropdown-item" id = "edit_btn1" href="#" onclick="pop_event_edit()"
                     ><i class="dw dw-edit2"></i> Edit</a
                     >
-                    <a class="dropdown-item" href="#"
+                    <a class="dropdown-item" id="delete_btn1" href="#" onclick="pop_event_delete()"
                     ><i class="dw dw-delete-3"></i> Delete</a
                     >
                   </div>
@@ -88,7 +87,7 @@
 <!--<div th:replace="adminpage/admin_layer/layer_event_create"></div>-->
 <div class="layer_event_create layer lg" style="display: none">
   <div class="layer_container">
-    <a href="#" class="btn_layer_close">
+    <a href="#" class="btn_layer_close" onclick="close_event_create()">
       <div>
         <img src="/img/close_white.png">
       </div>
@@ -166,14 +165,14 @@
         </div>
       </div>
       <div class="layer_btn">
-        <a href="#" class="btn btn_save solid medium" id="create_btn">수정</a>
+        <a href="#" class="btn btn_save solid medium" id="create_btn" onclick="close_event_create()">수정</a>
       </div>
     </div>
   </div>
 </div>
 <div class="layer_event_edit layer lg" style="display: none">
   <div class="layer_container">
-    <a href="#" class="btn_layer_close">
+    <a href="#" class="btn_layer_close" onclick="close_event_edit()">
       <div>
         <img src="/img/close_white.png">
       </div>
@@ -251,14 +250,14 @@
         </div>
       </div>
       <div class="layer_btn">
-        <a href="#" class="btn btn_save solid medium" id="edit_btn">수정</a>
+        <a href="#" class="btn btn_save solid medium" id="edit_btn" onclick="close_event_edit()">수정</a>
       </div>
     </div>
   </div>
 </div>
 <div class="layer_event_view layer lg" style="display: none">
   <div class="layer_container">
-    <a href="#" class="btn_layer_close">
+    <a href="#" class="btn_layer_close" onclick="close_event_view()">
       <div>
         <img src="/img/close_white.png">
       </div>
@@ -329,11 +328,14 @@
         </div>
       </div>
       <div class="layer_btn">
-        <a href="#" class="btn btn_save solid medium">확인</a>
+        <a href="#" class="btn btn_save solid medium" onclick="close_event_view()">확인</a>
       </div>
     </div>
   </div>
 </div>
+<div th:replace="~{adminpage/admin_layer/layer_event_delete::event_delete}"></div>
+
+
 <!--<div th:replace="adminpage/admin_layer/layer_event_view"></div>-->
 <!--<div th:replace="adminpage/admin_layer/pop_admin_delete"></div>-->
 <!-- js -->

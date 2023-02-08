@@ -195,6 +195,13 @@ public class AdminPageController {
         return new ModelAndView("adminpage/event");
 
     }
+    private final EventMemberService eventMemberService;
+    @GetMapping(path="eventMember")   //http://localhost:8889/admin/event
+    public ModelAndView eventMember(ModelMap map, HttpServletRequest request){
+        map.addAttribute("eventMember", eventMemberService.list());
+        System.out.println(eventMemberService.list());
+        return new ModelAndView("adminpage/eventMember");
+    }
 
     private final StyleLogicService styleLogicService;
 
