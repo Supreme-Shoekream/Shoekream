@@ -60,3 +60,8 @@ function href_styleList(idx) {
         })
 
 }
+const searchInput = document.getElementById('search_box')
+searchInput.addEventListener('blur',search_users)
+function search_users(){
+    location.href="/users?page=0&searchKeyword="+searchInput.value;
+}
