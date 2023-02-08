@@ -356,6 +356,10 @@ a:visited{
     border: 0;
 }
 
+.input_shop_search::placeholder {
+    font-size: 20px;
+}
+
 .search2{
     width: 500px;
     flex: none;
@@ -372,12 +376,14 @@ a:visited{
 
 .input_shop_search{
     height: 35px;
-    font-size: 24px;
     text-align: center;
     font-weight: 700;
     border: 0;
-    /*width: 500px;*/
-    /*font-size: 25px;*/
+    width: 500px;
+    font-size: 25px;
+    border-bottom: 3px solid #000;
+    padding-bottom: 10px;
+
 }
 
 /* .filter_list .filter_menu .menu_list{
@@ -1329,6 +1335,7 @@ div {
 }
 
 .sorting_title{
+    content: "";
     display: -webkit-box;
     display: flex;
     -webkit-box-align: center;
@@ -1339,6 +1346,15 @@ div {
     font-weight: 600;
     text-align: right;
     padding-right: 10px;
+}
+
+.sorting_title:after {
+    content: "";
+    margin-left: 2px;
+    display: inline-flex;
+    width: 24px;
+    height: 24px;
+    background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iIzIyMiIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNNi40NyAxOS41M2wuNTMuNTMuNTMtLjUzIDQtNC0xLjA2LTEuMDYtMi43MiAyLjcyVjVoLTEuNXYxMi4xOWwtMi43Mi0yLjcyLTEuMDYgMS4wNiA0IDR6TTE3LjUzIDQuNDdMMTcgMy45NGwtLjUzLjUzLTQgNCAxLjA2IDEuMDYgMi43Mi0yLjcyVjE5aDEuNVY2LjgxbDIuNzIgMi43MiAxLjA2LTEuMDYtNC00eiIgY2xpcC1ydWxlPSJldmVub2RkIi8+PC9zdmc+) no-repeat;
 }
 
 .desc_logo {
@@ -1706,7 +1722,7 @@ input:focus{
 
 .brand_box:hover { font-weight: bold; }
 
-.brand_img { width: 8rem; height: 8rem; }
+.brand_img { width: 8rem; height: 8rem; margin-left: 10px;}
 
 .brand_name {
     /*max-width: 8rem;*/
@@ -2251,7 +2267,7 @@ span.wish_pro_size {
 .action_wish_review .text {
     margin-left: 4px;
     color: rgba(34,34,34,.5);
-    font-size: 12px;
+    font-size: 14px;
     letter-spacing: -.06px;
 }
 .price_area {
