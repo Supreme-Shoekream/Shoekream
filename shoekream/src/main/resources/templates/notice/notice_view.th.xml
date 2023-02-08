@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<thlogic>
+    <attr sel=".content_area">
+        <attr sel=".date" th:text="${notice.createdAt}"/>
+        <attr sel=".title" th:text="${notice.title}"/>
+        <attr sel=".content" th:text="${notice.content}"/>
+    </attr>
+</thlogic>
