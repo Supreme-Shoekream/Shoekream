@@ -1,7 +1,32 @@
 <?xml version="1.0"?>
 <thlogic>
     <attr sel="#products_page" th:object="${products}">
-
+        <attr sel="thead/tr">
+            <attr sel="th.product_idx/a" th:href="@{products(page=${products.number},sort='idx'+
+                (*{sort.getOrderFor('idx')} != null ? (*{sort.getOrderFor('idx').direction.name} != 'DESC' ? ',desc' : '') : ''),
+                searchKeyword=${param.searchValue}
+                )}"/>
+            <attr sel="th.product_brand/a" th:href="@{products(page=${products.number},sort='brand'+
+                (*{sort.getOrderFor('brand')} != null ? (*{sort.getOrderFor('brand').direction.name} != 'DESC' ? ',desc' : '') : ''),
+                searchKeyword=${param.searchValue}
+                )}"/>
+            <attr sel="th.product_name/a" th:href="@{/products(page=${products.number},sort='name'+
+                (*{sort.getOrderFor('name')} != null ? (*{sort.getOrderFor('name').direction.name} != 'DESC' ? ',desc' : '') : ''),
+                searchKeyword=${param.searchValue}
+                )}"/>
+            <attr sel="th.product_modelNum/a" th:href="@{/products(page=${products.number},sort='modelNum'+
+                (*{sort.getOrderFor('modelNum')} != null ? (*{sort.getOrderFor('modelNum').direction.name} != 'DESC' ? ',desc' : '') : ''),
+                searchKeyword=${param.searchValue}
+                )}"/>
+            <attr sel="th.product_releaseDate/a" th:href="@{/products(page=${products.number},sort='releaseDate'+
+                (*{sort.getOrderFor('releaseDate')} != null ? (*{sort.getOrderFor('releaseDate').direction.name} != 'DESC' ? ',desc' : '') : ''),
+                searchKeyword=${param.searchValue}
+                )}"/>
+            <attr sel="th.product_firstPrice/a" th:href="@{/products(page=${products.number},sort='firstPrice'+
+                (*{sort.getOrderFor('firstPrice')} != null ? (*{sort.getOrderFor('firstPrice').direction.name} != 'DESC' ? ',desc' : '') : ''),
+                searchKeyword=${param.searchValue}
+                )}"/>
+        </attr>
         <attr sel="tbody" th:remove="all-but-first">
             <attr sel="tr[0]" th:each="product : ${products}">
                 <attr sel="td.td-idx" th:text="${product.idx}"/>
