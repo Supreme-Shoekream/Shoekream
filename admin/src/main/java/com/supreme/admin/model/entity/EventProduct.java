@@ -34,11 +34,11 @@ public class EventProduct extends BaseEntity implements Auditable {
     private LocalDateTime endTime;
 
     private EventProduct(Product product, String title, String img, LocalDateTime startTime, LocalDateTime endTime) {
-        this.product = product;
-        this.title = title;
-        this.img = img;
-        this.startTime = startTime;
-        this.endTime = endTime;
+      this.product = product;
+      this.title = title;
+      this.img = img;
+      this.startTime = startTime;
+      this.endTime = endTime;
     }
     public static EventProduct of(
             Product product,

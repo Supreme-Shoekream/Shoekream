@@ -1,11 +1,10 @@
 package com.supreme.admin.service;
 
-import com.supreme.admin.model.dto.*;
+import com.supreme.admin.model.dto.EventDTO;
+import com.supreme.admin.model.dto.ProductDTO;
 import com.supreme.admin.model.entity.EventProduct;
-
 import com.supreme.admin.model.network.Header;
 import com.supreme.admin.model.network.request.EventApiRequest;
-
 import com.supreme.admin.repository.EventRepository;
 import com.supreme.admin.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
@@ -27,6 +26,9 @@ public class EventApiService {
     @Transactional
     public List<EventDTO> list(){
         return  EventDTO.fromEntity(eventRepository.findAll());
+    }
+    public List<EventDTO> list(Long idx){
+        return  EventDTO.fromEntity(eventRepository.findById(idx).stream().toList());
     }
 
     @Transactional
