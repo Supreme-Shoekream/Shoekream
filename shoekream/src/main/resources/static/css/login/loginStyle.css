@@ -119,13 +119,22 @@ input {
     /* height: 50px; */
 }
 
-.solid.disabled
-/* ,
-.solid:disabled  */
-{
+.solid.disabled {
     background-color: #ebebeb;
     color: #fff;
     cursor: default;
+}
+
+#size_submit_btn.solid.disabled {
+    background-color: #fff;
+    border: 1px solid #ebebeb;
+    color: rgba(34,34,34,.3);
+    cursor: default;
+}
+
+#size_submit_btn.solid {
+    background-color: #222;
+    color: #fff;
 }
 
 .btn.btn_login_katalk {
@@ -409,7 +418,7 @@ input {
 }
 
 .size_item:not(.active) .btn{
-    border-color: #d3d3d3;
+    border-color: #ebebeb;
 }
 
 .size_item .info_txt {
@@ -451,10 +460,6 @@ a:active, a:focus {
 
 .btn_size_select {
     border: none;
-}
-
-#size_submit_btn:hover {
-    color: #fff;
 }
 
 #find_button:focus {
