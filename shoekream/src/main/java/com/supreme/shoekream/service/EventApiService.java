@@ -71,4 +71,6 @@ public class EventApiService {
     public List<ProductDTO> genderList(String gender){
         return productRepository.findTop40ByGenderOrderByWishCount(gender).stream().map(ProductDTO::fromEntity).toList();
     }
+
+
 }

@@ -16,7 +16,9 @@ window.onload = function (){
 
     async function searchStart(pageNum) {
         flag = false;
+
         fetch("http://localhost:8889/api/social/newest?page=" + pageNum)
+
             .then((response) => response.json())
             .then((data) => {
                 data = data.content;

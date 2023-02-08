@@ -61,18 +61,23 @@ input {
 }
 
 .login_title {
-    padding-bottom: 2rem;
+    padding-bottom: 50px;
     text-align: center;
     font-size: 0;
 }
 
 .login_title:before {
-    content: "";
-    display: inline-block;
-    width: 250px;
-    height: 56px;
-    background: url(https://kream.co.kr/_nuxt/img/login_title.9f9ccc8.png) no-repeat;
-    background-size: 250px 56px;
+    /*content: "";*/
+    /*display: inline-block;*/
+    /*height: 46px;*/
+    /*background: url(https://kream.co.kr/_nuxt/img/login_title.9f9ccc8.png) no-repeat;*/
+    /*background: url("/img/shoekream_logo.png") no-repeat;*/
+    /*background-size: 200px 46px;*/
+}
+
+.logo {
+    width: 200px;
+    margin-left: 100px;
 }
 
 .input_box {
@@ -404,7 +409,7 @@ input {
 }
 
 .size_item:not(.active) .btn{
-    border-color: #ebebeb;
+    border-color: #d3d3d3;
 }
 
 .size_item .info_txt {
