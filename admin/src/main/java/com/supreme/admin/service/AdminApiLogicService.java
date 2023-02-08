@@ -1,5 +1,6 @@
 package com.supreme.admin.service;
 
+import com.supreme.admin.model.dto.MemberDTO;
 import com.supreme.admin.model.entity.Admin;
 import com.supreme.admin.model.enumclass.UserStatus;
 import com.supreme.admin.model.network.Header;
@@ -116,5 +117,12 @@ public class AdminApiLogicService extends BaseService<AdminApiRequest, AdminApiR
                 .currentElements(admins.getNumberOfElements())   //현재 페이지 요소
                 .build();
         return Header.OK(adminApiResponses, pagination);
+    }
+
+    public Page<Admin> seachAdmin(String searchKeyword, Pageable pageable){
+        if(searchKeyword == null || searchKeyword.isBlank()){
+            return adminRepository.findAll(pageable);
+        }
+        return adminRepository.findByName(searchKeyword,pageable);
     }
 }

@@ -6,6 +6,7 @@ import com.supreme.admin.model.dto.MemberDTO;
 import com.supreme.admin.model.dto.PenaltyDTO;
 import com.supreme.admin.model.dto.ProductDTO;
 import com.supreme.admin.model.dto.socialDTO.BoardDTO;
+import com.supreme.admin.model.entity.Admin;
 import com.supreme.admin.model.entity.Conclusion;
 import com.supreme.admin.model.entity.Product;
 import com.supreme.admin.model.network.Pagination;
@@ -83,8 +84,7 @@ public class AdminPageController {
     @GetMapping(path="")   //http://localhost:8899/
     public String index(HttpServletRequest request, ModelMap map){
         String session = sessionCheck(request);
-//        if(session == null) return "redirect:/login";
-//        List<Product> products = dashboardService.popularProducts();
+        if(session == null) return "redirect:/login";
         List<Product> products = dashboardService.bestSeller();
         List<Long> totalDealPrice = dashboardService.totalDealPrice(products);
         List<Long> totalDealCount = dashboardService.totalDealCount(products);
@@ -111,25 +111,29 @@ public class AdminPageController {
                         @PageableDefault(size = 10, sort = "idx", direction = Sort.Direction.DESC) Pageable pageable,
                         ModelMap map,HttpServletRequest request){
         String session = sessionCheck(request);
-//        if(session == null)  return new ModelAndView( "/adminpage/login.html");
+        if(session == null)  return "redirect:/login";
         Page<MemberDTO> members = memberApiLogicService.searchMember(searchKeyword,pageable);
         List<Integer> barNumbers = paginationService.getPaginationBarNumbers(pageable.getPageNumber(),members.getTotalPages());
         map.addAttribute("users",members);
         map.addAttribute("barNumbers",barNumbers);
+        map.addAttribute("sessionInfo",session);
+
         return "/adminpage/users";
     }
 
-    @Autowired AdminProductApiLogicService adminProductApiLogicService;
+    private final AdminProductApiLogicService adminProductApiLogicService;
     @GetMapping(path="products")   //http://localhost:8899//products
     public String products(@RequestParam(required = false) String searchKeyword,
                                  @PageableDefault(size = 10, sort = "idx", direction = Sort.Direction.DESC) Pageable pageable,
                                  ModelMap map,HttpServletRequest request){
         String session = sessionCheck(request);
-//        if(session == null)  return new ModelAndView( "/adminpage/login.html");
+        if(session == null) return "redirect:/login";
         Page<ProductDTO> products = adminProductApiLogicService.searchProduct(searchKeyword,pageable);
         List<Integer> barNumbers = paginationService.getPaginationBarNumbers(pageable.getPageNumber(),products.getTotalPages());
         map.addAttribute("products",products);
         map.addAttribute("barNumbers",barNumbers);
+        map.addAttribute("sessionInfo",session);
+
         System.out.println(products);
         return "/adminpage/products";
     }
@@ -140,10 +144,10 @@ public class AdminPageController {
     public String buy(@RequestParam(required = false) String searchKeyword,
                       @PageableDefault(size = 10, sort = "idx", direction = Sort.Direction.DESC) Pageable pageable,
                       ModelMap map,HttpServletRequest request){
+        String session = sessionCheck(request);
+        if(session == null) return "redirect:/login";
         Page<BuyResponse> buys = buyService.searchBuy(searchKeyword, pageable).map(BuyResponse::from);
         List<Integer> barNumbers = paginationService.getPaginationBarNumbers(pageable.getPageNumber(),buys.getTotalPages());
-        String session = sessionCheck(request);
-//        if(session == null) return "redirect:/login";
         map.addAttribute("sessionInfo",session);
         map.addAttribute("buys",buys);
         map.addAttribute("barNumbers",barNumbers);
@@ -156,13 +160,14 @@ public class AdminPageController {
             @RequestParam(required = false) String searchKeyword,
             @PageableDefault(size = 10, sort = "idx", direction = Sort.Direction.DESC) Pageable pageable,
             ModelMap map,HttpServletRequest request){
+        String session = sessionCheck(request);
+        if(session == null) return "redirect:/login";
         Page<SellResponse> sells = sellService.searchSell(searchKeyword, pageable).map(SellResponse::from);
         List<Integer> barNumbers = paginationService.getPaginationBarNumbers(pageable.getPageNumber(),sells.getTotalPages());
-        String session = sessionCheck(request);
-//        if(session == null) return "redirect:/login";
         map.addAttribute("sessionInfo",session);
         map.addAttribute("sells", sells);
         map.addAttribute("barNumbers",barNumbers);
+
         return("adminpage/sell");
     }
 
@@ -171,10 +176,10 @@ public class AdminPageController {
     public String conclusion(@RequestParam(required = false) String searchKeyword,
                       @PageableDefault(size = 10, sort = "idx", direction = Sort.Direction.DESC) Pageable pageable,
                       ModelMap modelMap,HttpServletRequest request){
+        String session = sessionCheck(request);
+        if(session == null) return "redirect:/login";
         Page<ConclusionResponse> conclusion = conclusionService.searchConclusion(searchKeyword, pageable).map(ConclusionResponse::from);
         List<Integer> barNumbers = paginationService.getPaginationBarNumbers(pageable.getPageNumber(),conclusion.getTotalPages());
-        String session = sessionCheck(request);
-    //        if(session == null) return "redirect:/login";
         modelMap.addAttribute("sessionInfo",session);
         modelMap.addAttribute("conclusion",conclusion);
         modelMap.addAttribute("barNumbers",barNumbers);
@@ -189,18 +194,24 @@ public class AdminPageController {
 
     private final EventApiService eventApiService;
     @GetMapping(path="event")   //http://localhost:8889/admin/event
-    public ModelAndView event(ModelMap map, HttpServletRequest request){
+    public String event(ModelMap map, HttpServletRequest request){
+        String session = sessionCheck(request);
+        if(session == null) return "redirect:/login";
         map.addAttribute("event", eventApiService.list());
         System.out.println(eventApiService.list());
-        return new ModelAndView("adminpage/event");
-
+        map.addAttribute("sessionInfo",session);
+        return ("/adminpage/event");
     }
+
     private final EventMemberService eventMemberService;
     @GetMapping(path="eventMember")   //http://localhost:8889/admin/event
-    public ModelAndView eventMember(ModelMap map, HttpServletRequest request){
+    public String eventMember(ModelMap map, HttpServletRequest request){
+        String session = sessionCheck(request);
+        if(session == null) return "redirect:/login";
         map.addAttribute("eventMember", eventMemberService.list());
         System.out.println(eventMemberService.list());
-        return new ModelAndView("adminpage/eventMember");
+        map.addAttribute("sessionInfo",session);
+        return ("/adminpage/eventMember");
     }
 
     private final StyleLogicService styleLogicService;
@@ -208,17 +219,26 @@ public class AdminPageController {
     @GetMapping(path="style")   //http://localhost:8889/style
     public String style(ModelMap map,HttpServletRequest request, @PageableDefault(size = 10, sort = "idx", direction = Sort.Direction.DESC) Pageable pageable,
                         @RequestParam(required = false) String searchKeyword){
+        String session = sessionCheck(request);
+        if(session == null) return "redirect:/login";
         Page<BoardDTO> boards= styleLogicService.list(searchKeyword, pageable);
         List<Integer> barNumbers = paginationService.getPaginationBarNumbers(pageable.getPageNumber(),boards.getTotalPages());
         map.addAttribute("feeds", boards);
         map.addAttribute("barNumbers", barNumbers);
+        map.addAttribute("sessionInfo",session);
         return "adminpage/style";
     }
 
     @GetMapping(path="admin")   //http://localhost:8889/admin
-
-    public ModelAndView admin(HttpServletRequest request){
-        return new ModelAndView("/adminpage/admin.html");
+    public String admin(HttpServletRequest request, ModelMap map,
+                        @PageableDefault(size = 10, sort = "idx", direction = Sort.Direction.DESC) Pageable pageable,
+                        @RequestParam(required = false) String searchKeyword){
+        String session = sessionCheck(request);
+        if(session == null) return "redirect:/login";
+        map.addAttribute("sessionInfo",session);
+        Page<Admin> admins = adminApiLogicService.seachAdmin(searchKeyword,pageable);
+        map.addAttribute("admins",admins);
+        return"/adminpage/admin";
     }
 
     @GetMapping("/logout")
@@ -237,9 +257,12 @@ public class AdminPageController {
     public String penalty(@RequestParam(required = false) String searchKeyword,
                           @PageableDefault(size = 10, sort = "idx", direction = Sort.Direction.DESC) Pageable pageable,
                           ModelMap map,HttpServletRequest request){
+        String session = sessionCheck(request);
+        if(session == null) return "redirect:/login";
         Page<PenaltyResponse> penaltys =penaltyApiLogicService.searchPenalty(searchKeyword,pageable).map(PenaltyResponse::from);
         List<Integer> barNumbers = paginationService.getPaginationBarNumbers(pageable.getPageNumber(),penaltys.getTotalPages());
         map.addAttribute("penaltys",penaltys);
+        map.addAttribute("sessionInfo",session);
         map.addAttribute("barNumbers",barNumbers);
         return "/adminpage/penalty";
     }

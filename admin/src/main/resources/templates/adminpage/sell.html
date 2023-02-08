@@ -35,7 +35,7 @@
 						</div>
 						<div class="col-sm-12 col-md-6">
 							<div id="DataTables_Table_0_filter" class="dataTables_filter" style="text-align: right;padding-left: 15px; padding-right: 15px;">
-								<label style=" font-weight: normal; white-space: nowrap; text-align: left; display: flex; align-items: center; justify-content: flex-end;">판매자:
+								<label style=" font-weight: normal; white-space: nowrap; text-align: left; display: flex; align-items: center; justify-content: flex-end;">search:
 									<input id="search_box" type="search" class="form-control form-control-sm" aria-controls="DataTables_Table_0" style="margin-left: 0.5em; width: auto;">
 								</label>
 							</div>
@@ -44,32 +44,28 @@
 					<table class="data-table table stripe hover nowrap">
 						<thead>
 						<tr>
-							<th class="table-plus datatable-nosort"><a>상품코드</a></th>
-							<th class="order_num"><a>주문번호</a></th>
-							<th>판매자</th>
-							<th class="size"><a>사이즈</a></th>
-							<th>판매유형</th>
+							<th class="idx"><a>주문번호</a></th>
+							<th class="product_name"><a>상품명</a></th>
+							<th >상품사이즈</th>
+							<th class="member_email"><a>판매자 이메일</a></th>
 							<th class="price"><a>가격</a></th>
-							<th class="period"><a>입찰기간</a></th>
-<!--							<th>보증금환불</th>-->
-							<th>판매상태</th>
-							<th>등록날짜</th>
+							<th >입찰마감기한</th>
+							<th >판매상태</th>
+							<th >배송현황</th>
 							<th class="datatable-nosort">Action</th>
 						</tr>
 						</thead>
 						<tbody>
 						<tr>
-							<td class="order_num">56876-56454</td>
-							<td class="product_code">B10548</td>
-							<td class="name">김사과</td>
-							<td class="size">270</td>
-							<td class="progress_status">즉시구매</td>
+							<td class="idx">56876-56454</td>
+							<td class="product_name">나이키신발</td>
+							<td class="product_size">270</td>
+							<td class="member_email">root@root.com</td>
 							<td class="price">300000</td>
-							<td class="period">30일</td>
-<!--							<td class="deposit">N</td>-->
-							<td class="status">입고완료</td>
-							<td class="reg_data">2022-12-14</td>
-							<td>
+							<td class="deadline"><time>2023-01-24</time></td>
+							<td class="status">진행중</td>
+							<td class="progress_class">발송완료</td>
+							<td class="more">
 								<div class="dropdown">
 									<a
 											class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"

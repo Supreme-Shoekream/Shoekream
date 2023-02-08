@@ -137,27 +137,27 @@ public class SellService {
         return prices;
     }
 
-    @Transactional(readOnly = true)
-    public Page<String> buyNowPrices2(List<Product> products, Pageable pageable){
-        List<String> prices = new ArrayList<String>();
-
-        products.forEach(
-                product -> {
-                    String price = new String();
-                    Page<Sell> lowerPrice = sellRepository.findFirstByProductAndStatusOrderByPrice(product, OrderStatus.BIDDING, pageable);
-                    if(lowerPrice == null){
-                        price = " - ";
-                    }else{
-                        DecimalFormat format = new DecimalFormat("###,###");
-                        List<Sell> s = lowerPrice.getContent();
-                        price = format.format(s.get(0).getPrice()) ;
-                    }
-                    prices.add(price);
-                }
-        );
-        System.out.println(prices);
-        return new PageImpl<>(prices);
-    }
+//    @Transactional(readOnly = true)
+//    public Page<String> buyNowPrices2(List<Product> products, Pageable pageable){
+//        List<String> prices2 = new ArrayList<String>();
+//
+//        products.forEach(
+//                product -> {
+//                    String price2 = new String();
+//                    Page<Sell> lowerPrice = sellRepository.findFirstByProductAndStatusOrderByPrice(product, OrderStatus.BIDDING, pageable);
+//                    if(lowerPrice == null){
+//                        price2 = " - ";
+//                    }else{
+//                        DecimalFormat format = new DecimalFormat("###,###");
+//                        List<Sell> s = lowerPrice.getContent();
+//                        price2 = format.format(s.get(0).getPrice()) ;
+//                    }
+//                    prices2.add(price2);
+//                }
+//        );
+//        System.out.println(prices2);
+//        return new PageImpl<>(prices2);
+//    }
 
 
 
