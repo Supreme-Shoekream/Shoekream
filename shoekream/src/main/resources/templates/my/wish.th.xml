@@ -26,7 +26,6 @@
                 <attr sel="span.wish_pro_size" th:text="${wishProduct.product.size}"/>
                 <attr sel="a.btn_division" th:href="@{/buy/check/{proIdx}(proIdx=${wishProduct.product.idx})}"/>
                 <attr sel="em.wish_pro_buy" th:text="${wish_productPrice[i.index]}"/>
-<!--                <attr sel="em.wish_pro_buy" th:text="${wish_productPrice[i.index]}"/>-->
                 <attr sel="a.wish_proIdx" th:value="${wishProduct.product.idx}"/>
             </attr>
         </attr>

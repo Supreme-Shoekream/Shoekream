@@ -86,6 +86,14 @@ public class StyleLogicService {
         List<BoardWithLikeListResponse> newest = BoardWithLikeListResponse.fromEntity(boardRepository.findAll(Sort.by(Sort.Direction.DESC, "createdAt")));
         return newest;
     }
+    @Transactional(readOnly = true)
+    public Page<BoardWithLikeListResponse> unlog_newest(Pageable pageable){
+        List<BoardWithLikeListResponse> newest = BoardWithLikeListResponse.fromEntity(boardRepository.findAll(Sort.by(Sort.Direction.DESC, "createdAt")));
+        final int start = (int) pageable.getOffset();
+        final int end = Math.min((start + pageable.getPageSize()), newest.size());
+        PageImpl<BoardWithLikeListResponse> boards = new PageImpl<>(newest.subList(start, end), pageable, newest.size());
+        return boards;
+    }
 
     @Transactional(readOnly = true)
     public List<BoardWithLikeListResponse> trendList(MemberDTO memberDTO){
@@ -176,6 +184,31 @@ public class StyleLogicService {
             }
         }
         return newest;
+    }
+
+    @Transactional(readOnly = true)
+    public Page<BoardWithLikeListResponse> newest(MemberDTO memberDTO, Pageable pageable) {
+        List<BoardWithLikeListResponse> newest = BoardWithLikeListResponse.fromEntity(boardRepository.findAll(Sort.by(Sort.Direction.DESC, "createdAt")));
+        List<Lk> lks = likeRepository.findAllByMember(memberDTO.toEntity());
+        for(int i=0;i<newest.size();i++){
+            for(int j=0;j<lks.size();j++){
+                if(lks.get(j).getBoard().getIdx() == newest.get(i).idx()){
+                    newest.set(i,
+                            BoardWithLikeListResponse.of(newest.get(i).idx(),
+                                    newest.get(i).memberDTO(),
+                                    newest.get(i).content(),
+                                    newest.get(i).img(), newest.get(i).hashtag(),newest.get(i).lks(), newest.get(i).replies(),
+                                    newest.get(i).tags(), newest.get(i).createdAt(), newest.get(i).modifiedAt(), true)
+                    );
+
+                }
+            }
+        }
+
+        final int start = (int) pageable.getOffset();
+        final int end = Math.min((start + pageable.getPageSize()), newest.size());
+        PageImpl<BoardWithLikeListResponse> boards = new PageImpl<>(newest.subList(start, end), pageable, newest.size());
+        return boards;
     }
 
     public Board read(Long idx){
