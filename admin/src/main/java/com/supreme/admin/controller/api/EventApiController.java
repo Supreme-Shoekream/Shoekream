@@ -7,6 +7,7 @@ import com.supreme.admin.model.entity.EventProduct;
 import com.supreme.admin.model.network.Header;
 import com.supreme.admin.model.network.request.EventApiRequest;
 import com.supreme.admin.model.network.response.EventApiResponse;
+import com.supreme.admin.repository.EventMemberRepository;
 import com.supreme.admin.service.BuyService;
 import com.supreme.admin.service.EventApiService;
 import com.supreme.admin.service.EventMemberService;
@@ -24,10 +25,12 @@ import java.io.File;
 public class EventApiController extends CrudController<EventApiRequest, EventDTO, EventProduct> {
     private final EventApiService eventApiService;
     private final EventMemberService eventMemberService;
+
     private final BuyService buyService;
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
    @PostMapping("")
+
     public Header<EventDTO> create(@RequestBody Header<EventApiRequest> request){
         EventApiRequest eventApiRequest = request.getData();
         ProductDTO productDTO = buyService.findProduct(eventApiRequest.productIdx());
@@ -51,6 +54,9 @@ public class EventApiController extends CrudController<EventApiRequest, EventDTO
         eventApiService.delete(idx);
     }
 
+    public void draw(@PathVariable Long idx){
+        eventApiService.draw(idx);
+    }
 
     // 첨부 파일 업로드
     @PostMapping("/uploadFile")  //http://localhost:8899/api/admin/event/uploadFile
