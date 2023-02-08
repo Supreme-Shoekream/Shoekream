@@ -2,6 +2,7 @@
 <html lang="en">
 <!--head 시작 -->
 <div th:replace="fragment/adminhead :: head"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <!--head 끝 -->
 <body>
 
@@ -69,6 +70,9 @@
                     >
                     <a class="dropdown-item" id="delete_btn1" href="#" onclick="pop_event_delete()"
                     ><i class="dw dw-delete-3"></i> Delete</a
+                    >
+                    <a class="dropdown-item" id="draw_btn1" href="#" onclick="pop_event_draw()"
+                    ><i class="dw dw-delete-3"></i> Drawing</a
                     >
                   </div>
                 </div>
@@ -165,7 +169,7 @@
         </div>
       </div>
       <div class="layer_btn">
-        <a href="#" class="btn btn_save solid medium" id="create_btn" onclick="close_event_create()">수정</a>
+        <a href="" class="btn btn_save solid medium" id="create_btn">등록</a>
       </div>
     </div>
   </div>
@@ -250,7 +254,7 @@
         </div>
       </div>
       <div class="layer_btn">
-        <a href="#" class="btn btn_save solid medium" id="edit_btn" onclick="close_event_edit()">수정</a>
+        <a href="#" class="btn btn_save solid medium" id="edit_btn">수정</a>
       </div>
     </div>
   </div>
@@ -334,7 +338,7 @@
   </div>
 </div>
 <div th:replace="~{adminpage/admin_layer/layer_event_delete::event_delete}"></div>
-
+<div th:replace="~{adminpage/admin_layer/layer_event_draw::event_draw}"></div>
 
 <!--<div th:replace="adminpage/admin_layer/layer_event_view"></div>-->
 <!--<div th:replace="adminpage/admin_layer/pop_admin_delete"></div>-->

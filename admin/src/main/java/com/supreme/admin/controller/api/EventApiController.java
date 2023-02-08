@@ -7,6 +7,7 @@ import com.supreme.admin.model.entity.EventProduct;
 import com.supreme.admin.model.network.Header;
 import com.supreme.admin.model.network.request.EventApiRequest;
 import com.supreme.admin.model.network.response.EventApiResponse;
+import com.supreme.admin.repository.EventMemberRepository;
 import com.supreme.admin.service.BuyService;
 import com.supreme.admin.service.EventApiService;
 import com.supreme.admin.service.EventMemberService;
@@ -20,7 +21,9 @@ public class EventApiController extends CrudController<EventApiRequest, EventDTO
     private final EventApiService eventApiService;
     private final EventMemberService eventMemberService;
     private  final BuyService buyService;
-   @PostMapping("")
+    private final EventMemberRepository eventMemberRepository;
+
+    @PostMapping("")
     public Header<EventDTO> create(@RequestBody Header<EventApiRequest> request){
         EventApiRequest eventApiRequest = request.getData();
         ProductDTO productDTO = buyService.findProduct(eventApiRequest.productIdx());
@@ -44,5 +47,8 @@ public class EventApiController extends CrudController<EventApiRequest, EventDTO
         eventApiService.delete(idx);
     }
 
+    public void draw(@PathVariable Long idx){
+        eventApiService.draw(idx);
+    }
 
 }

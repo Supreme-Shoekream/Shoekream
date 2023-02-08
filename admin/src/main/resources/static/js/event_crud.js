@@ -3,6 +3,9 @@ function pop_event_register(){
     const btn_save = document.querySelector('#create_btn');
     btn_save.addEventListener('click',sendit);
 }
+function pop_event_draw(){
+    document.querySelector(".event_draw").style.display = "block";
+}
 function close_event_create() {
     document.querySelector(".layer_event_create").style.display = "none";
 }
@@ -15,6 +18,10 @@ function close_event_edit() {
 function close_event_delete() {
     document.querySelector(".event_delete").style.display = "none";
 }
+function close_event_draw() {
+    document.querySelector(".event_draw").style.display = "none";
+}
+
 function sendit() {
     // create
     //request로 필요한 DOM 객체 선택
@@ -31,7 +38,7 @@ function sendit() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
             //우리가 만든데이터
-            "transaction_time":`${new Date()}`,
+            "transaction_time": `${new Date()}`,
             "resultCode":"ok",
             "description":"정상",
             "data":{
@@ -45,7 +52,7 @@ function sendit() {
     })
         .then((res) => {
             alert('등록성공')
-            location.href='/admin/event';
+            location.href='/event';
             return; //리턴을 걸어서 진행하는 것을 막는다!
         })
         .then((data) => {
@@ -54,7 +61,7 @@ function sendit() {
         })
         .catch((err)=>{
             alert(err);
-        })
+        });
 }
 
 function pop_event_edit(idx){
