@@ -193,8 +193,8 @@ public class AdminPageController {
         map.addAttribute("event", eventApiService.list());
         System.out.println(eventApiService.list());
         return new ModelAndView("adminpage/event");
-
     }
+
     private final EventMemberService eventMemberService;
     @GetMapping(path="eventMember")   //http://localhost:8889/admin/event
     public ModelAndView eventMember(ModelMap map, HttpServletRequest request){
