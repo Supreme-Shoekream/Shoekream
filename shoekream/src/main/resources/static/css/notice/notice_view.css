@@ -406,3 +406,19 @@ table {
     border: 0;
     border-collapse: collapse;
 }
+.btn_list{
+    margin-top: 30px;
+    text-align: center;
+}
+.outlinegrey {
+    border: 1px solid #d3d3d3;
+    color: rgba(34,34,34,.8);
+}
+
+.medium {
+    padding: 0 18px;
+    height: 42px;
+    border-radius: 12px;
+    font-size: 14px;
+    letter-spacing: -.14px;
+}
