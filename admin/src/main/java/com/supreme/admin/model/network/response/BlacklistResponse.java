@@ -1,10 +1,7 @@
 package com.supreme.admin.model.network.response;
 
+
 import com.supreme.admin.model.dto.BlacklistDTO;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
@@ -26,7 +23,7 @@ public record BlacklistResponse(
 
         return new BlacklistResponse(
                 dto.idx(),
-                dto.reason().getDescription(),
+                dto.reason(),
                 dto.memberDTO().idx(),
                 dto.memberDTO().name(),
                 dto.memberDTO().hp(),

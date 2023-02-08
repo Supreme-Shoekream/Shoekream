@@ -52,4 +52,3 @@ public class QBlacklist extends EntityPathBase<Blacklist> {
     }
 
 }
-
