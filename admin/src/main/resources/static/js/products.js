@@ -361,9 +361,11 @@ function productdelete_popup(idx){
     document.querySelector(".product_delete").style.display = "block";
     const btn_delete = document.querySelector(".btn_delete");
     btn_delete.addEventListener("click",()=>{
-        admindelete(idx)
+        admindelete(idx);
     });
 }
+
+
 
 function admindelete(idx){
     fetch('http://localhost:8899/api/admin/products/'+idx, {
@@ -387,6 +389,18 @@ function admindelete(idx){
 
 function productdelete_popdown() {
     document.querySelector(".product_delete").style.display = "none";
+}
+
+
+// ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+// 키워드 검색 -> 브랜드, 모델번호
+const searchInput = document.getElementById('search_box')
+searchInput.addEventListener('blur', () => {
+    search_products();
+});
+
+function search_products(){
+    location.href="/products?page=0&searchKeyword="+searchInput.value;
 }
 
 
