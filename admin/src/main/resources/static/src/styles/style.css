@@ -2815,13 +2815,13 @@ body.IE .register-page-wrap .container{
 	font-size: 15px;
 	font-weight: 600;
 	padding-bottom: 15px;
-	color: #78909c;
+	/*color: #78909c;*/
 }
 .price ins{
 	text-decoration: none;
 	display: inline-block;
 	margin-left: 10px;
-	color: #131e22;
+	/*color: #131e22;*/
 }
 .price del{
 	font-size: 15px;

@@ -19,6 +19,7 @@ import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -118,13 +119,14 @@ public class AdminPageController {
         return "/adminpage/users";
     }
 
+    @Autowired AdminProductApiLogicService adminProductApiLogicService;
     @GetMapping(path="products")   //http://localhost:8899//products
     public String products(@RequestParam(required = false) String searchKeyword,
                                  @PageableDefault(size = 10, sort = "idx", direction = Sort.Direction.DESC) Pageable pageable,
                                  ModelMap map,HttpServletRequest request){
         String session = sessionCheck(request);
 //        if(session == null)  return new ModelAndView( "/adminpage/login.html");
-        Page<ProductDTO> products = productApiLogicService.searchProduct(searchKeyword,pageable);
+        Page<ProductDTO> products = adminProductApiLogicService.searchProduct(searchKeyword,pageable);
         List<Integer> barNumbers = paginationService.getPaginationBarNumbers(pageable.getPageNumber(),products.getTotalPages());
         map.addAttribute("products",products);
         map.addAttribute("barNumbers",barNumbers);
@@ -191,7 +193,14 @@ public class AdminPageController {
         map.addAttribute("event", eventApiService.list());
         System.out.println(eventApiService.list());
         return new ModelAndView("adminpage/event");
+    }
 
+    private final EventMemberService eventMemberService;
+    @GetMapping(path="eventMember")   //http://localhost:8889/admin/event
+    public ModelAndView eventMember(ModelMap map, HttpServletRequest request){
+        map.addAttribute("eventMember", eventMemberService.list());
+        System.out.println(eventMemberService.list());
+        return new ModelAndView("adminpage/eventMember");
     }
 
     private final StyleLogicService styleLogicService;
