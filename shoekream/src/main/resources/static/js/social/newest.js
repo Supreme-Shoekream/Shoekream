@@ -16,7 +16,7 @@ window.onload = function (){
 
     async function searchStart(pageNum) {
         flag = false;
-        fetch("http://localhost:8889/api/social/newest/")
+        fetch("http://localhost:8889/api/social/newest?page=" + pageNum)
             .then((response) => response.json())
             .then((data) => {
                 data = data.content;
@@ -103,7 +103,6 @@ window.onload = function (){
                 flag = true;
                 pageNum++;
                 if (pageNum < totPages - 1) {
-                    // document.getElementById('loading').style.display = 'block';
                     loading();
                     wait(1);
                     searchStart(pageNum);

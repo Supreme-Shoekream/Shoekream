@@ -109,7 +109,6 @@ window.onload = function () {
                 flag = true;
                 pageNum++;
                 if (pageNum < totPages - 1) {
-                    // document.getElementById('loading').style.display = 'block';
                     loading();
                     wait(1);
                     searchStart(pageNum);
