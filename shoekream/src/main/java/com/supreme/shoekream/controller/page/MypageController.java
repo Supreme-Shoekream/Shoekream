@@ -168,8 +168,8 @@ public class MypageController {
 
         List<Product> wish_productList = wishApiLogicService.productList(kreamPrincipal.idx());
         modelmap.addAttribute("wish_productList", wish_productList);
-        Page<String> wish_productPrice = sellService.buyNowPrices2(wish_productList, pageable);
-        modelmap.addAttribute("wish_productPrice", wish_productPrice);
+//        Page<String> wish_productPrice = sellService.buyNowPrices2(wish_productList, pageable);
+//        modelmap.addAttribute("wish_productPrice", wish_productPrice);
 
         return "my/wish";
     }
