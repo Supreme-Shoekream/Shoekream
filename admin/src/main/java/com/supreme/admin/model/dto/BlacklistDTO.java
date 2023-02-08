@@ -1,18 +1,18 @@
 package com.supreme.admin.model.dto;
 
 import com.supreme.admin.model.entity.Blacklist;
-import com.supreme.admin.model.enumclass.Reason;
+import com.supreme.admin.model.entity.Member;
 
 import java.time.LocalDateTime;
 
 public record BlacklistDTO(
         Long idx,
-        Reason reason,
+        String reason,
         MemberDTO memberDTO,
         LocalDateTime createdAt
 ) {
-    public static BlacklistDTO of(Long idx, Reason reason, MemberDTO memberDTO, LocalDateTime createdAt){
-        return new BlacklistDTO(idx, reason, memberDTO, createdAt);
+    public static BlacklistDTO of(Long idx, String reason){
+        return new BlacklistDTO(idx, reason, null, null);
     }
 
     public static BlacklistDTO fromEntity(Blacklist entity){
@@ -23,5 +23,13 @@ public record BlacklistDTO(
                 entity.getCreatedAt()
         );
     }
+    public Blacklist toEntity(Member member){
+        return Blacklist.of(
+                idx,
+                reason,
+                member
+        );
+    }
 
 }
+

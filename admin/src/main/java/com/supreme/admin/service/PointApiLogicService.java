@@ -13,6 +13,8 @@ import com.supreme.admin.repository.AdminRepository;
 import com.supreme.admin.repository.MemberRepository;
 import com.supreme.admin.repository.PointRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -39,6 +41,9 @@ public class PointApiLogicService {
         return pointRepository.findByMemberIdx(idx);
     }
 
+    public Page<Point> listAll(Pageable pageable){
+        return pointRepository.findAll(pageable);
+    }
 
     @Transactional
     public Header<MemberDTO> update(PointDTO dto, Long idx){

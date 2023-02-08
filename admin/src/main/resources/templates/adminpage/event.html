@@ -2,6 +2,7 @@
 <html lang="en">
 <!--head 시작 -->
 <div th:replace="fragment/adminhead :: head"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <!--head 끝 -->
 <body>
 
@@ -63,6 +64,9 @@
                     <a class="dropdown-item" id="delete_btn1" onclick="pop_event_delete()"
                     ><i class="dw dw-delete-3"></i> Delete</a
                     >
+                    <a class="dropdown-item" id="draw_btn1" href="#" onclick="pop_event_draw()"
+                    ><i class="dw dw-delete-3"></i> Drawing</a
+                    >
                   </div>
                 </div>
               </td>
@@ -75,10 +79,12 @@
     </div>
   </div>
 </div>
+
 <div th:replace="adminpage/admin_layer/layer_event_create :: event_create"></div>
 <div th:replace="adminpage/admin_layer/layer_event_view :: event_view"></div>
 <div th:replace="adminpage/admin_layer/layer_event_edit :: event_edit"></div>
 <div th:replace="adminpage/admin_layer/layer_event_delete :: event_delete"></div>
+
 
 <!-- js -->
 <div th:replace="fragment/adminjs :: js"></div>

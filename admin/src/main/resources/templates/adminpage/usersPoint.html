@@ -18,64 +18,35 @@
   <div class="pd-ltr-20 xs-pd-20-10">
     <div class="min-height-200px">
       <!-- Simple Datatable start -->
-      <div class="card-box mb-30">
+      <div class="card-box mb-30" id="point_object">
         <div class="pd-20">
-          <h4 class="text-blue h4">사용자 리스트</h4>
+          <h4 class="text-blue h4">포인트 리스트</h4>
           <!--이름/아이디/전화번호/주소/회원상태/포인트-->
         </div>
         <div class="pb-20">
-          <div class="row">
-            <div class="col-sm-12 col-md-6">
-              <div class="dataTables_length" id="DataTables_Table_0_length">
-                <label style=" font-weight: normal; white-space: nowrap; text-align: left;">Show
-                  <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="custom-select custom-select-sm form-control form-control-sm">
-                    <option value="10">10</option><option value="25">25</option><option value="50">50</option>
-                  </select> entries
-                </label>
-              </div>
-            </div>
-            <div class="col-sm-12 col-md-6">
-              <div id="DataTables_Table_0_filter" class="dataTables_filter" style="text-align: right;padding-left: 15px; padding-right: 15px;">
-                <label style=" font-weight: normal; white-space: nowrap; text-align: left; display: flex; align-items: center; justify-content: flex-end;">search:
-                  <input id="search_box" type="search" class="form-control form-control-sm" aria-controls="DataTables_Table_0" style="margin-left: 0.5em; width: auto;">
-                </label>
-              </div>
-            </div>
-          </div>
           <table class="data-table table stripe hover nowrap">
             <thead>
             <tr>
               <th class="table-plus datatable-nosort">Name</th>
-              <th>ID</th>
+              <th>Email</th>
               <th>Hp</th>
               <th>포인트 유형</th>
               <th>지급 포인트</th>
-              <th>지급</th>
             </tr>
             </thead>
-            <tbody>
-            <tr>
-              <td class="table-plus">김사과</td>
-              <td>apple</td>
-              <td>010-1111-1111</td>
-              <td>참여</td>
-              <td>정상</td>
-              <td>0</td>
-              <td><input type="checkbox"></td>
-            </tr>
-            <tr>
-              <td class="table-plus">반하나</td>
-              <td>banana</td>
-              <td>010-2222-2222</td>
-              <td>제주특별자치도 서귀포시 중산간동로 8462-2  바나나나무</td>
-              <td>정지</td>
-              <td>0</td>
-              <td><input type="checkbox"></td>
+            <tbody id="list_body">
+            <tr id="tr_list">
+              <td class="table-plus" id="list_name">김사과</td>
+              <td id="list_email">apple</td>
+              <td id="list_hp">010-1111-1111</td>
+              <td id="list_reason">참여</td>
+              <td id="list_point">정상</td>
             </tr>
             </tbody>
           </table>
+
           <div class="row">
-            <div class="col-sm-12 col-md-4"><div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite"></div></div>
+            <div class="col-sm-12 col-md-5"><div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite"></div></div>
             <div class="col-sm-12 col-md-7">
               <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
                 <ul class="pagination">
@@ -96,6 +67,7 @@
               </div>
             </div>
           </div>
+
         </div>
       </div>
       <!-- Simple Datatable End -->

@@ -24,16 +24,24 @@ public class Notice extends BaseEntity implements Auditable {
     private Long idx;
     private String title;
     private String content;
-//    private String createdBy;
+    //    private String createdBy;
     private LocalDateTime createdAt;
-//    private String modifiedBy;
+    //    private String modifiedBy;
     private LocalDateTime modifiedAt;
 
-    @ManyToOne
-    @JoinColumn(name = "created_by")
-    private Member createdBy;
+    private Notice(String title, String content, LocalDateTime createdAt, LocalDateTime modifiedAt) {
+        this.title = title;
+        this.content = content;
+        this.createdAt = createdAt;
+        this.modifiedAt = modifiedAt;
+    }
+    public static Notice of(
+            String title,
+            String content,
+            LocalDateTime createdAt,
+            LocalDateTime modifiedAt
+    ){
+        return new Notice(title, content, createdAt, modifiedAt);
+    }
 
-    @ManyToOne
-    @JoinColumn(name="modified_by")
-    private  Member modifiedBy;
 }
