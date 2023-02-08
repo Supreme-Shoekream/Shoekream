@@ -33,6 +33,7 @@ public class ConclusionService {
         if(searchKeyword == null || searchKeyword.isBlank()){
             return conclusionRepository.findAll(pageable).map(ConclusionDTO::fromEntity);
         }
+        // 검색 키워드: 상품명 또는 모델번호
         return conclusionRepository.findByProduct_ModelNumContainingOrProduct_NameContaining(searchKeyword, searchKeyword, pageable).map(ConclusionDTO::fromEntity);
     }
 
