@@ -10,9 +10,9 @@ window.onload = function () {
     })
     const item = document.getElementById('st_gnb');
     item.classList.add('gnb_on');
+
     let pageNum = Number(document.querySelector('.btn_page').innerHTML) - 1;
     let totPages = Number(document.getElementById('totPages').value)
-    console.log(totPages)
 
 
     async function searchStart(pageNum) {
@@ -21,7 +21,6 @@ window.onload = function () {
             .then((response) => response.json())
             .then((data) => {
                 data = data.content
-                console.log(document.getElementById('loading').src)
                 let feedList = "";
                 for (let i = 0; i < data.length; i++) {
                     feedList +=
@@ -99,7 +98,6 @@ window.onload = function () {
 
     if (pageNum < totPages - 1) {
         scroll();
-        console.log(pageNum)
     }
 
     function scroll() {
