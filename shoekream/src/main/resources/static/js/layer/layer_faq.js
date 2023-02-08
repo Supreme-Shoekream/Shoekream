@@ -1,6 +1,7 @@
 // 팝업창 닫기
 function closeLayer(){
     document.querySelector('.layer_faq').style.display="none"
+    document.querySelector('.layer_penalty').style.display="none"
 }
 
 // 드롭다운
