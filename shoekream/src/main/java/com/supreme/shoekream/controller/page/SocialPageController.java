@@ -129,7 +129,7 @@ public class SocialPageController {
     public String details(ModelMap map, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
         if(kreamPrincipal == null){
             map.addAttribute("feed", styleLogicService.unlog_newest());
-            map.addAttribute("sessionUser", 0);
+            map.addAttribute("sessionUser", memberRepository.getReferenceById(100L));
         }else{
             map.addAttribute("feed", styleLogicService.newest(kreamPrincipal.toFullDto()));
             map.addAttribute("sessionUser",kreamPrincipal.toFullDto());
