@@ -291,32 +291,6 @@ public class StyleLogicService {
     }
 
     public List<BoardWithLikeListResponse> findTopSevenStylePick(){
-//        List<Board> bds = boardRepository.findAll();
-//        List<BoardDTO> boards = BoardDTO.fromEntity(bds);
-//        for (int i=0;i<boards.size()-1;i++){
-//            for(int j=1;j<boards.size();j++){
-//                if(boards.get(i).lks().size() > boards.get(j).lks().size()){
-//                    BoardDTO temp = BoardDTO.of(
-//                            boards.get(i).idx(),
-//                            boards.get(i).memberDTO(),
-//                            boards.get(i).content(),
-//                            boards.get(i).hashtag(),
-//                            boards.get(i).img(),
-//                            boards.get(i).lks(),
-//                            boards.get(i).replies(),
-//                            boards.get(i).tags(),
-//                            boards.get(i).createdAt(),
-//                            boards.get(i).modifiedAt()
-//                            );
-//                    boards.set(i, boards.get(j));
-//                    boards.set(j, temp);
-//                }
-//            }
-//        }
-//        List<BoardDTO> response = new ArrayList<>();
-//        for(int i=0;i<7;i++){
-//            response.add(boards.get(i));
-//        }
         List<BoardWithLikeListResponse> trendingBoards = unlog_trend();
         List<BoardWithLikeListResponse> response = new ArrayList<>();
         for(int i=0;i<7;i++){
@@ -551,4 +525,3 @@ public List<FollowDTO> countFollowers(Long memberIdx){//내가 팔로우하고 �
         return null;
     }
 }
-
