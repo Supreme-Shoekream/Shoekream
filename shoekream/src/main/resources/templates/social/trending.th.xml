@@ -6,5 +6,18 @@
             <attr sel=".trend_keyword" th:each="hashtag : ${trendHashtags}" th:text="'#'+${hashtag}" th:onclick="'javascript:hashtag('+ this + ');'"/>
         </attr>
 
+        <attr sel=".pagination_box">
+            <attr sel=".prev_btn_box/a" th:href="@{/social(page=${pageNumber - 1})}"/>
+<!--                  th:style="(${products.number} <=0 ? 'display:none':'display:block')"-->
+            <attr sel=".page_bind">
+                <attr sel="a" th:text="${pageNumber + 1}"
+                      th:href="@{/social(page=${pageNumber})}"/>
+<!--                      th:class="'btn_page'+(${pageNumber}==${products.number}? ' active':'')"-->
+            </attr>
+            <attr sel=".next_btn_box/a" th:href="@{/social(page=${pageNumber + 1})}"/>
+<!--                  th:style="(${products.number} >= ${products.totalPages -1}  ? 'display:none':'display:block')"-->
+        </attr>
+
     </attr>
+    <attr sel="#totPages" th:value="${totalPages}"/>
 </thlogic>

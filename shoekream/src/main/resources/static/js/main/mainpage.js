@@ -100,15 +100,21 @@ function bannerResize(){
     // 더보기 기능
     $(function(){
     $(".just_product").slice(0, 4).show(); // 초기갯수
+        if($(".just_product").length <= 4){ // 컨텐츠 남아있는지 확인
+            document.querySelector("#load1").style.display="none";
+        }
     $("#load1").click(function(e){ // 클릭시 more
     e.preventDefault();
     $(".just_product:hidden").slice(0, 4).show(); // 클릭시 more 갯수 지저정
+        if($(".just_product:hidden").length === 0){ // 컨텐츠 남아있는지 확인
+            document.querySelector("#load1").style.display="none";
+        }
 
-    if($(".just_product:hidden").length === 0){ // 컨텐츠 남아있는지 확인
-    document.querySelector("#load1").style.display="none";
-}
 });
     $(".pop_product").slice(0, 4).show(); // 초기갯수
+        if($(".pop_product").length <= 4){ // 컨텐츠 남아있는지 확인
+            document.querySelector("#load2").style.display="none";
+        }
     $("#load2").click(function(e){ // 클릭시 more
     e.preventDefault();
     $(".pop_product:hidden").slice(0, 4).show(); // 클릭시 more 갯수 지저정
@@ -118,6 +124,9 @@ function bannerResize(){
 }
 });
     $(".newin_product").slice(0, 4).show(); // 초기갯수
+        if($(".newin_product").length <= 4){ // 컨텐츠 남아있는지 확인
+            document.querySelector("#load3").style.display="none";
+        }
     $("#load3").click(function(e){ // 클릭시 more
     e.preventDefault();
     $(".newin_product:hidden").slice(0, 4).show(); // 클릭시 more 갯수 지저정
@@ -127,6 +136,9 @@ function bannerResize(){
 }
 });
     $(".wisely_product").slice(0, 4).show(); // 초기갯수
+        if($(".wisely_product").length <= 4){ // 컨텐츠 남아있는지 확인
+            document.querySelector("#load4").style.display="none";
+        }
     $("#load4").click(function(e){ // 클릭시 more
     e.preventDefault();
     $(".wisely_product:hidden").slice(0, 4).show(); // 클릭시 more 갯수 지저정
@@ -136,6 +148,9 @@ function bannerResize(){
 }
 });
     $(".brandmd_product").slice(0, 4).show(); // 초기갯수
+        if($(".brandmd_product").length <= 4){ // 컨텐츠 남아있는지 확인
+            document.querySelector("#load5").style.display="none";
+        }
     $("#load5").click(function(e){ // 클릭시 more
     e.preventDefault();
     $(".brandmd_product:hidden").slice(0, 4).show(); // 클릭시 more 갯수 지저정
@@ -145,15 +160,22 @@ function bannerResize(){
 }
 });
     $(".simple_product").slice(0, 4).show(); // 초기갯수
+        if($(".simple_product").length <= 4){ // 컨텐츠 남아있는지 확인
+            document.querySelector("#load6").style.display="none";
+        }
     $("#load6").click(function(e){ // 클릭시 more
     e.preventDefault();
     $(".simple_product:hidden").slice(0, 4).show(); // 클릭시 more 갯수 지저정
 
-    if($(".simple_product:hidden").length == 0){ // 컨텐츠 남아있는지 확인
+    if($(".simple_product:hidden").length === 0){ // 컨텐츠 남아있는지 확인
     document.querySelector("#load6").style.display="none";
 }
+
 });
     $(".collabs_product").slice(0, 4).show(); // 초기갯수
+        if($(".collabs_product").length <= 4){ // 컨텐츠 남아있는지 확인
+            document.querySelector("#load7").style.display="none";
+        }
     $("#load7").click(function(e){ // 클릭시 more
     e.preventDefault();
     $(".collabs_product:hidden").slice(0, 4).show(); // 클릭시 more 갯수 지저정
@@ -161,8 +183,12 @@ function bannerResize(){
     if($(".collabs_product:hidden").length === 0){ // 컨텐츠 남아있는지 확인
     document.querySelector("#load7").style.display="none";
 }
+
 });
     $(".newlowest_product").slice(0, 4).show(); // 초기갯수
+        if($(".newlowest_product").length <= 4){ // 컨텐츠 남아있는지 확인
+            document.querySelector("#load8").style.display="none";
+        }
     $("#load8").click(function(e){ // 클릭시 more
     e.preventDefault();
     $(".newlowest_product:hidden").slice(0, 4).show(); // 클릭시 more 갯수 지저정
@@ -172,6 +198,9 @@ function bannerResize(){
 }
 });
     $(".newhighest_product").slice(0, 4).show(); // 초기갯수
+        if($(".newhighest_product").length <= 4){ // 컨텐츠 남아있는지 확인
+            document.querySelector("#load9").style.display="none";
+        }
     $("#load9").click(function(e){ // 클릭시 more
     e.preventDefault();
     $(".newhighest_product:hidden").slice(0, 4).show(); // 클릭시 more 갯수 지저정
@@ -180,7 +209,11 @@ function bannerResize(){
     document.querySelector("#load9").style.display="none";
 }
 });
+
     $(".coming").slice(0, 4).show(); // 초기갯수
+        if($(".coming").length <= 4){ // 컨텐츠 남아있는지 확인
+            document.querySelector("#load10").style.display="none";
+        }
     $("#load10").click(function(e){ // 클릭시 more
     e.preventDefault();
     $(".coming:hidden").slice(0, 4).show(); // 클릭시 more 갯수 지저정
@@ -189,7 +222,11 @@ function bannerResize(){
     document.querySelector("#load10").style.display="none";
 }
 });
+
     $(".bestcol_product").slice(0, 4).show(); // 초기갯수
+        if($(".bestcol_product").length <= 4){ // 컨텐츠 남아있는지 확인
+            document.querySelector("#load11").style.display="none";
+        }
     $("#load11").click(function(e){ // 클릭시 more
     e.preventDefault();
     $(".bestcol_product:hidden").slice(0, 4).show(); // 클릭시 more 갯수 지저정
@@ -198,7 +235,11 @@ function bannerResize(){
     document.querySelector("#load11").style.display="none";
 }
 });
+
     $(".jew_product").slice(0, 4).show(); // 초기갯수
+        if($(".jew_product").length <= 4){ // 컨텐츠 남아있는지 확인
+            document.querySelector("#load12").style.display="none";
+        }
     $("#load12").click(function(e){ // 클릭시 more
     e.preventDefault();
     $(".jew_product:hidden").slice(0, 4).show(); // 클릭시 more 갯수 지저정
@@ -206,16 +247,20 @@ function bannerResize(){
     if($(".jew_product:hidden").length === 0){ // 컨텐츠 남아있는지 확인
     document.querySelector("#load12").style.display="none";
 }
+
 });
     $(".camping_product").slice(0, 4).show(); // 초기갯수
+        if($(".camping_product").length <= 4){ // 컨텐츠 남아있는지 확인
+            document.querySelector("#load13").style.display="none";
+        }
     $("#load13").click(function(e){ // 클릭시 more
     e.preventDefault();
     $(".camping_product:hidden").slice(0, 4).show(); // 클릭시 more 갯수 지저정
-
-    if($(".camping_product:hidden").length === 0){ // 컨텐츠 남아있는지 확인
-    document.querySelector("#load13").style.display="none";
-}
+        if($(".camping_product:hidden").length === 0){ // 컨텐츠 남아있는지 확인
+            document.querySelector("#load13").style.display="none";
+        }
 });
+
 });
     // 스크롤 상하단 버튼튼
     $('.btn_top').click(function(){

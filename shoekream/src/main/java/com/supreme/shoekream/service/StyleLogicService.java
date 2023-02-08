@@ -15,6 +15,9 @@ import com.supreme.shoekream.model.network.response.BoardWithLikeListResponse;
 import com.supreme.shoekream.model.network.security.KreamPrincipal;
 import com.supreme.shoekream.repository.*;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Service;
@@ -57,6 +60,25 @@ public class StyleLogicService {
         return trend;
     }
 
+    @Transactional(readOnly = true)
+    public Page<BoardWithLikeListResponse> unlog_trend(Pageable pageable){
+        List<BoardWithLikeListResponse> trend = BoardWithLikeListResponse.fromEntity(boardRepository.findAll());
+        for(int i=0;i< trend.size()-1;i++){
+            for (int j=i+1; j<trend.size();j++){
+                if(trend.get(i).lks().size() + trend.get(i).replies().size() < trend.get(j).lks().size() + trend.get(j).replies().size()){
+                    BoardWithLikeListResponse tmp = trend.get(i);
+                    trend.set(i, trend.get(j));
+                    trend.set(j, tmp);
+                }
+            }
+        }
+
+        final int start = (int) pageable.getOffset();
+        final int end = Math.min((start + pageable.getPageSize()), trend.size());
+        PageImpl<BoardWithLikeListResponse> boards = new PageImpl<>(trend.subList(start, end), pageable, trend.size());
+        return boards;
+    }
+
 
 
     @Transactional(readOnly = true)
@@ -64,6 +86,15 @@ public class StyleLogicService {
         List<BoardWithLikeListResponse> newest = BoardWithLikeListResponse.fromEntity(boardRepository.findAll(Sort.by(Sort.Direction.DESC, "createdAt")));
         return newest;
     }
+    @Transactional(readOnly = true)
+    public Page<BoardWithLikeListResponse> unlog_newest(Pageable pageable){
+        List<BoardWithLikeListResponse> newest = BoardWithLikeListResponse.fromEntity(boardRepository.findAll(Sort.by(Sort.Direction.DESC, "createdAt")));
+        final int start = (int) pageable.getOffset();
+        final int end = Math.min((start + pageable.getPageSize()), newest.size());
+        PageImpl<BoardWithLikeListResponse> boards = new PageImpl<>(newest.subList(start, end), pageable, newest.size());
+        return boards;
+    }
+
     @Transactional(readOnly = true)
     public List<BoardWithLikeListResponse> trendList(MemberDTO memberDTO){
         List<BoardWithLikeListResponse> trend = BoardWithLikeListResponse.fromEntity(boardRepository.findAll());
@@ -96,6 +127,43 @@ public class StyleLogicService {
         return trend;
     }
 
+    @Transactional(readOnly = true)
+    public Page<BoardWithLikeListResponse> trendList(MemberDTO memberDTO, Pageable pageable){
+        List<BoardWithLikeListResponse> trend = BoardWithLikeListResponse.fromEntity(boardRepository.findAll());
+        for(int i=0;i<trend.size()-1;i++){
+            for (int j=i+1; j<trend.size();j++){
+                if(trend.get(i).lks().size() + trend.get(i).replies().size() < trend.get(j).lks().size() + trend.get(j).replies().size()){
+                    BoardWithLikeListResponse tmp = trend.get(i);
+                    trend.set(i, trend.get(j));
+                    trend .set(j, tmp);
+                }
+            }
+        }
+
+        List<Lk> lks = likeRepository.findAllByMember(memberDTO.toEntity());
+
+        for(int i=0;i<trend.size();i++){
+            for(int j=0;j<lks.size();j++){
+                if(lks.get(j).getBoard().getIdx() == trend.get(i).idx()){
+                    trend.set(i,
+                            BoardWithLikeListResponse.of(trend.get(i).idx(),
+                                    trend.get(i).memberDTO(),
+                                    trend.get(i).content(),
+                                    trend.get(i).img(), trend.get(i).hashtag(),trend.get(i).lks(), trend.get(i).replies(),
+                                    trend.get(i).tags(), trend.get(i).createdAt(), trend.get(i).modifiedAt(), true)
+                    );
+
+                }
+            }
+        }
+
+        final int start = (int) pageable.getOffset();
+        final int end = Math.min((start + pageable.getPageSize()), trend.size());
+        PageImpl<BoardWithLikeListResponse> boards = new PageImpl<>(trend.subList(start, end), pageable, trend.size());
+        return boards;
+    }
+
+
 
     @Transactional(readOnly = true)
     public List<BoardWithLikeListResponse> newest(MemberDTO memberDTO) {
@@ -116,6 +184,31 @@ public class StyleLogicService {
             }
         }
         return newest;
+    }
+
+    @Transactional(readOnly = true)
+    public Page<BoardWithLikeListResponse> newest(MemberDTO memberDTO, Pageable pageable) {
+        List<BoardWithLikeListResponse> newest = BoardWithLikeListResponse.fromEntity(boardRepository.findAll(Sort.by(Sort.Direction.DESC, "createdAt")));
+        List<Lk> lks = likeRepository.findAllByMember(memberDTO.toEntity());
+        for(int i=0;i<newest.size();i++){
+            for(int j=0;j<lks.size();j++){
+                if(lks.get(j).getBoard().getIdx() == newest.get(i).idx()){
+                    newest.set(i,
+                            BoardWithLikeListResponse.of(newest.get(i).idx(),
+                                    newest.get(i).memberDTO(),
+                                    newest.get(i).content(),
+                                    newest.get(i).img(), newest.get(i).hashtag(),newest.get(i).lks(), newest.get(i).replies(),
+                                    newest.get(i).tags(), newest.get(i).createdAt(), newest.get(i).modifiedAt(), true)
+                    );
+
+                }
+            }
+        }
+
+        final int start = (int) pageable.getOffset();
+        final int end = Math.min((start + pageable.getPageSize()), newest.size());
+        PageImpl<BoardWithLikeListResponse> boards = new PageImpl<>(newest.subList(start, end), pageable, newest.size());
+        return boards;
     }
 
     public Board read(Long idx){
@@ -190,11 +283,9 @@ public class StyleLogicService {
     }
 
     public Header<ReplyDTO> createReply(ReplyDTO replyDTO){
-//        System.out.println("============서비스============"+replyDTO);  // ✔
         Member member = memberRepository.getReferenceById(replyDTO.memberDTO().idx());
         Board board = boardRepository.getReferenceById(replyDTO.boardIdx());
         Reply newR = replyRepository.save(replyDTO.toEntity(member, board));
-//        System.out.println("저장 완료!!!!!!!!!!!!!!!!!");
         ReplyDTO response = ReplyDTO.fromEntity(newR);
         return Header.OK(response);
     }
@@ -276,7 +367,6 @@ public class StyleLogicService {
     }
 
     public List<BoardWithLikeListResponse> isBoardExist(Long memberIdx){
-        System.out.println("테스트"+boardRepository.countAllByMemberIdx(memberIdx));
         List<Lk> likes = likeRepository.findAllByMember(memberRepository.getReferenceById(memberIdx));
         if(boardRepository.countAllByMemberIdx(memberIdx) > 0){
             List<BoardWithLikeListResponse> boards = BoardWithLikeListResponse.fromEntity(boardRepository.findAllByMemberIdx(memberIdx));

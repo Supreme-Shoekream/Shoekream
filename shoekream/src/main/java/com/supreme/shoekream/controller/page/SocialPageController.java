@@ -16,6 +16,9 @@ import com.supreme.shoekream.repository.ProductRepository;
 import com.supreme.shoekream.service.StyleLogicService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -43,21 +46,23 @@ public class SocialPageController {
 
 
     @GetMapping(path="/social")    // http://localhost:8889/social
-    public ModelAndView trending(ModelMap map){
+    public ModelAndView trending(ModelMap map, @PageableDefault(size = 12)Pageable pageable){
         map.addAttribute("trendHashtags", styleLogicService.trendHashtags());
+        Page<BoardWithLikeListResponse> boards = styleLogicService.unlog_trend(pageable);
+        int pageNum = boards.getNumber();
+        map.addAttribute("pageNumber", pageNum);
+        map.addAttribute("totalPages", boards.getTotalPages());
         return new ModelAndView("social/trending");
     }
 
-//    @GetMapping(path="/social")    // http://localhost:8889/social
-//    public String trending(ModelMap map){
-//        map.addAttribute("trendHashtags", styleLogicService.trendHashtags());
-//        map.addAttribute("boards", styleLogicService.trendList());
-//        return "social/trending";
-//    }
 
     @GetMapping(path = "/social/newest")   // http://localhost:8889/social/newest
-    public ModelAndView newest(ModelMap map){
+    public ModelAndView newest(ModelMap map, @PageableDefault(size = 12)Pageable pageable){
         map.addAttribute("trendHashtags", styleLogicService.trendHashtags());
+        Page<BoardWithLikeListResponse> boards = styleLogicService.unlog_newest(pageable);
+        int pageNum = boards.getNumber();
+        map.addAttribute("pageNumber", pageNum);
+        map.addAttribute("totalPages", boards.getTotalPages());
         return new ModelAndView("social/newest");
     }
 

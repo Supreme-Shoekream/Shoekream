@@ -25,7 +25,7 @@ public class EventMember extends BaseEntity implements Auditable {
     @JoinColumn(name = "member_idx")
     private Member member;
 
-    private EventMember(Long idx, EventProduct eventProduct, Member member){
+    private EventMember(Long idx,EventProduct eventProduct,Member member){
         this.idx=idx;
         this.eventProduct=eventProduct;
         this.member=member;

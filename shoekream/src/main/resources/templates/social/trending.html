@@ -62,21 +62,37 @@
                             <div transition-duration="0" item-selector=".item" gutter=".gutter_item"
                                 horizontal-order="true" class="masonry_posts" id="masonry_posts"
                                 style="position: relative; height: 2300px;">
-                                <div class="gutter_item"></div>
+                                <div class="gutter_item" ></div>
 
 
 
 
                             </div>
+
+
                             
                         </div>
                         <!-- 피드 끝 -->
+                        <div class="pagination" style="display: none;">
+                            <div class="pagination_box first">
+                                <div class="prev_btn_box">
+                                    <a href="#" class="btn_arr" aria-label="이전 페이지"><img src="/img/left.png"></a>
+                                </div>
+                                <div class="page_bind">
+                                    <a href="#" class="btn_page " >1</a>
+                                </div>
+                                <div class="next_btn_box">
+                                    <a href="#" class="btn_arr next_page" aria-label="다음 페이지"><img src="/img/right.png"></a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- 컨테이너 끝 -->
-
+                <input id="totPages" type="hidden" value="">
                 <!-- 푸터 시작 -->
                 <div class="footer">
+                    <img src="/img/styleImg/loading.gif" style="padding-left: 50%;margin-bottom: 200px" id="loading"/>
                     <footer th:replace="/fragment/footer :: footer"></footer>
                 </div>
                 <!-- 푸터 끝 -->

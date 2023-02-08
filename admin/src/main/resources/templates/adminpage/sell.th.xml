@@ -6,23 +6,20 @@
     <attr sel="#sell_table" th:object="${sells}">
         <attr sel="thead/tr">
 
-            <attr sel="th.order_num/a" th:href="@{/sell(page=${sells.number},sort='idx'+
+            <attr sel="th.idx/a" th:href="@{sell(page=${sells.number},sort='idx'+
                 (*{sort.getOrderFor('idx')} != null ? (*{sort.getOrderFor('idx').direction.name} != 'DESC' ? ',desc' : '') : ''),
                 searchKeyword=${param.searchValue}
                 )}"/>
-
-            <attr sel="th.size/a" th:href="@{/sell(page=${sells.number},sort='product.size'+
-                (*{sort.getOrderFor('product.size')} != null ? (*{sort.getOrderFor('product.size').direction.name} != 'DESC' ? ',desc' : '') : ''),
+            <attr sel="th.product_name/a" th:href="@{/sell(page=${sells.number},sort='product.name'+
+                (*{sort.getOrderFor('product.name')} != null ? (*{sort.getOrderFor('product.name').direction.name} != 'DESC' ? ',desc' : '') : ''),
                 searchKeyword=${param.searchValue}
                 )}"/>
-
+            <attr sel="th.member_email/a" th:href="@{/sell(page=${sells.number},sort='member.email'+
+                (*{sort.getOrderFor('member.email')} != null ? (*{sort.getOrderFor('member.email').direction.name} != 'DESC' ? ',desc' : '') : ''),
+                searchKeyword=${param.searchValue}
+                )}"/>
             <attr sel="th.price/a" th:href="@{/sell(page=${sells.number},sort='price'+
                 (*{sort.getOrderFor('price')} != null ? (*{sort.getOrderFor('price').direction.name} != 'DESC' ? ',desc' : '') : ''),
-                searchKeyword=${param.searchValue}
-                )}"/>
-
-            <attr sel="th.period/a" th:href="@{/sell(page=${sells.number},sort='period'+
-                (*{sort.getOrderFor('period')} != null ? (*{sort.getOrderFor('period').direction.name} != 'DESC' ? ',desc' : '') : ''),
                 searchKeyword=${param.searchValue}
                 )}"/>
 
@@ -31,17 +28,16 @@
 
     <attr sel="tbody" th:remove="all-but-first">
         <attr sel="tr[0]" th:each="sell : ${sells}">
-            <attr sel="td.product_code" th:text="${sell.productIdx}"/>
-            <attr sel="td.order_num" th:text="${sell.idx}"/>
-            <attr sel="td.name" th:text="${sell.sender}"/>
-            <attr sel="td.size" th:text="${sell.productSize}"/>
-            <attr sel="td.progress_status" th:text="${sell.progress}"/>
-            <attr sel="td.price" th:text="${#numbers.formatInteger(sell.price, 0, 'COMMA')}"/>
-            <attr sel="td.period" th:text="${sell.period}"/>
+            <attr sel="td.idx" th:text="${sell.idx}"/>
+            <attr sel="td.product_name" th:text="${sell.productName}"/>
+            <attr sel="td.product_size" th:text="${sell.productSize}"/>
+            <attr sel="td.member_email" th:text="${sell.memberEmail}"/>
+            <attr sel="td.price" th:text="${#numbers.formatInteger(sell.price, 0, 'COMMA')}+'원'"/>
+            <attr sel="td.deadline/time" th:datetime="${sell.deadline}" th:text="${#temporals.format(sell.deadline, 'yyyy-MM-dd')}"/>
             <attr sel="td.status" th:text="${sell.status}"/>
-            <attr sel="td.reg_data" th:datetime="${sell.createdAt}" th:text="${#temporals.format(sell.createdAt, 'yyyy-MM-dd')}"/>
+            <attr sel="td.progress_class" th:text="${sell.progress}"/>
 
-<!-- View, Delete 부분 -->
+            <!-- View, Delete 부분 -->
             <attr sel=".dropdown">
                 <attr sel="#view_btn" th:onclick="'javascript:layer_sell_view('+ ${sell.idx} + ');'"/>
                 <attr sel="#penalty_btn" th:onclick="'javascript:pop_penalty(' + ${sell.idx} + ');'"/>

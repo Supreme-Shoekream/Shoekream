@@ -41,7 +41,8 @@ function href_buyList(idx) {
             location.href="/buy?page=0&searchKeyword="+email;
         })
 
-}function href_sellList(idx) {
+}
+function href_sellList(idx) {
     fetch('http://localhost:8899/api/admin/users/'+idx)
         .then((response) => response.json())
         .then((data) => {
@@ -49,4 +50,18 @@ function href_buyList(idx) {
             location.href="/sell?page=0&searchKeyword="+email;
         })
 
+}
+function href_styleList(idx) {
+    fetch('http://localhost:8899/api/admin/users/'+idx)
+        .then((response) => response.json())
+        .then((data) => {
+            let email = data.data.email
+            location.href="/style?page=0&searchKeyword="+email;
+        })
+
+}
+const searchInput = document.getElementById('search_box')
+searchInput.addEventListener('blur',search_users)
+function search_users(){
+    location.href="/users?page=0&searchKeyword="+searchInput.value;
 }

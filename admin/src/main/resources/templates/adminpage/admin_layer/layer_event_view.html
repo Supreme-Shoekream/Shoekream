@@ -1,79 +1,62 @@
 <link rel="stylesheet" href="/src/styles/layer.css">
-<div class="layer_name layer lg">
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="event_view" class="layer_event_view layer lg" style="display: none">
     <div class="layer_container">
-        <a href="#" class="btn_layer_close">
+        <a class="btn_layer_close" onclick="close_event_view()">
             <div>
                 <img src="/img/close_white.png">
             </div>
         </a>
         <div class="layer_header">
-            <h2 class="title"> 이벤트 상세 페이지 </h2>
+            <h2 class="title">이벤트 상세 페이지</h2>
         </div>
         <div class="layer_content">
-        <div class="top">
-            <div class="user_bind">
-                <div class="user_input">
-                    <div class="input_box ">
-                        <h4 class="input_title">작성 날짜</h4>
-                        <div class="input_item">
-                            <p>2022-12-21</p>
+            <div class="top">
+                <div class="user_bind">
+                    <div class="user_input">
+                        <div class="input_box ">
+                            <h4 class="input_title">이벤트명</h4>
+                            <div class="input_item">
+                                <p id ="v_event_input">멋쟁이들 다 들어와~</p>
+                            </div>
+                        </div>
+                        <div class="input_box">
+                            <h4 class="input_title">상품번호</h4>
+                            <div class="input_item">
+                                <p id ="v_pro_input">108</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="input_box">
-                        <h4 class="input_title">상품명</h4>
-                        <div class="input_item">
-                            <p>IAB Studio Pigment Sweatshirt & Mini Bag Black</p>
+                </div>
+                <div class="user_bind img">
+                    <img id = "v_file1" src="/admin/src/images/admin_example_product.png">
+                </div>
+            </div>
+            <div class="center">
+                <div class="user_bind">
+                    <div class="user_input">
+                        <div class="input_box">
+                            <h4 class="input_title">이벤트 시작 시간</h4>
+                            <div class="input_item">
+                                <p id ="v_startTime_input">2022-12-21 10:00</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="input_box">
-                        <h4 class="input_title">상품 코드</h4>
-                        <div class="input_item">
-                            <p>B10538</p>
+                </div>
+                <div class="user_bind">
+                    <div class="user_input">
+                        <div class="input_box">
+                            <h4 class="input_title">이벤트 마감 시간</h4>
+                            <div class="input_item">
+                                <p id ="v_endTime_input">2022-12-25 15:00</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="user_bind img">
-                <img src="/admin/src/images/admin_example_product.png">
+            <div class="layer_btn">
+                <a class="btn btn_save solid medium" onclick="close_event_view()" style="color: #FFFFFF">확인</a>
             </div>
-        </div>
-        <div class="center">
-            <div class="user_bind">
-                <div class="user_input">
-                    <div class="input_box">
-                        <h4 class="input_title">이벤트 시작 시간</h4>
-                        <div class="input_item">
-                            <p>2022-12-21 10:00</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="user_bind">
-                <div class="user_input">
-                    <div class="input_box">
-                        <h4 class="input_title">이벤트 마감 시간</h4>
-                        <div class="input_item">
-                            <p>2022-12-25 15:00</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="bottom">
-            <div class="user_bind">
-                <div class="user_input">
-                    <div class="input_box">
-                        <h4 class="input_title">수정한 관리자</h4>
-                        <div class="input_item">
-                            <p>김사과</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="layer_btn">
-            <a href="#" class="btn btn_save solid medium">확인</a>
-        </div>
         </div>
     </div>
 </div>

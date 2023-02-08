@@ -13,6 +13,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Slf4j
 @Transactional
 @RequiredArgsConstructor
@@ -33,6 +35,8 @@ public class EventMemberService {
             return Header.ERROR("이미 응모하셨습니다.");
         }
 
-
+    }
+    public List<EventMember> list(){
+        return  eventMemberRepository.findAll();
     }
 }
