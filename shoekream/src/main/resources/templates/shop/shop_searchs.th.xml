@@ -140,7 +140,7 @@
 
         <!--/*기능4: 오름차순 내림차순*/-->
         <attr sel=".sorting_title" th:text="${products.sort.getOrderFor('wishCount')}!=null ? '인기순':
-                                            (${products.sort.getOrderFor('idx')}!=null?'최신순':
+                                            (${products.sort.getOrderFor('idx')}!=null?'발매일순':
                                             (${products.sort.getOrderFor('firstPrice')}!=null?
                                             (${products.sort.getOrderFor('firstPrice').direction.name} == 'DESC'?'발매가 높은순':'발매가 낮은순'):'인기순'))"/>
 
@@ -172,6 +172,7 @@
                     <attr sel=".review_link" th:onclick="'javascript:tag_href('+ ${product.idx} + ');'"/>
                     <attr sel=".tag_count" th:text="${tagCount[i.index]}"/>
                 </attr>
+                <attr sel=".shoe_count" th:text="${product.size}"/>
             </attr>
         </attr>
 
