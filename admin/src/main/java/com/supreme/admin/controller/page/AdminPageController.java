@@ -7,6 +7,7 @@ import com.supreme.admin.model.dto.PenaltyDTO;
 import com.supreme.admin.model.dto.ProductDTO;
 import com.supreme.admin.model.dto.socialDTO.BoardDTO;
 import com.supreme.admin.model.entity.Conclusion;
+import com.supreme.admin.model.entity.Point;
 import com.supreme.admin.model.entity.Product;
 import com.supreme.admin.model.network.Pagination;
 import com.supreme.admin.model.network.response.BuyResponse;
@@ -50,6 +51,7 @@ public class AdminPageController {
     private final PenaltyApiLogicService penaltyApiLogicService;
     private final MemberApiLogicService memberApiLogicService;
     private final ConclusionService conclusionService;
+    private final PointApiLogicService pointApiLogicService;
 
 
     @PostMapping(path="/loginOkYeah")   //http://localhost:8899/loginOk
@@ -235,5 +237,16 @@ public class AdminPageController {
         return "/adminpage/penalty";
     }
 
+    @GetMapping(path="/point")
+    public String point(@RequestParam(required = false) String searchKeyword,
+                        @PageableDefault(size = 10, sort = "idx", direction = Sort.Direction.DESC) Pageable pageable,
+                        ModelMap map){
+        Page<Point> points = pointApiLogicService.listAll(pageable);
+        System.out.println(points.getNumber());
+        List<Integer> barNumbers = paginationService.getPaginationBarNumbers(pageable.getPageNumber(),points.getTotalPages());
+        map.addAttribute("points", points);
+        map.addAttribute("barNumbers",barNumbers);
+        return("adminpage/usersPoint");
+    }
 
 }
