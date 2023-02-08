@@ -51,6 +51,7 @@ public class SocialPageController {
         Page<BoardWithLikeListResponse> boards = styleLogicService.unlog_trend(pageable);
         int pageNum = boards.getNumber();
         map.addAttribute("pageNumber", pageNum);
+        map.addAttribute("totalPages", boards.getTotalPages());
         return new ModelAndView("social/trending");
     }
 
