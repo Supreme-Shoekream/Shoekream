@@ -353,10 +353,10 @@ function pop_admin_view(idx){
         .then((data) => {
             console.log(data)
             console.log(data.data.adminid)
-            document.querySelector(".adminid").innerHTML=data.data.adminid;
-            document.querySelector(".status").innerHTML=data.data.status;
-            document.querySelector(".name").innerHTML=data.data.name;
-            document.querySelector(".hp").innerHTML=data.data.hp;
+            document.querySelector(".layer_admin_view .adminid").innerHTML=data.data.adminid;
+            document.querySelector(".layer_admin_view .status").innerHTML=data.data.status;
+            document.querySelector(".layer_admin_view .name").innerHTML=data.data.name;
+            document.querySelector(".layer_admin_view .hp").innerHTML=data.data.hp;
         })
     //미리 내용 채우고나서
     document.querySelector(".layer_admin_view").style.display = "block";
@@ -393,4 +393,9 @@ function admindelete(idx){
 }
 function close_admin_delete(){
     document.querySelector(".layer_admin_delete").style.display = "none";
+}
+const searchInput = document.getElementById('search_box')
+searchInput.addEventListener('blur',search_admin)
+function search_admin(){
+    location.href="/admin?page=0&searchKeyword="+searchInput.value;
 }
