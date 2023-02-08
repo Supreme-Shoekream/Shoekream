@@ -35,20 +35,21 @@ public class DashboardService {
     public List<ConclusionDTO> sales(){
         List<Long> sales = new ArrayList<>();
         List<ConclusionDTO> sales2 = new ArrayList<>();
-        for(int i=0; i<12; i++) {
+        int day = LocalDateTime.now().getDayOfMonth();
+        System.out.println("오늘 일:" +day );
+        for(int i=1; i<14; i++) {
             List<Conclusion> conclusions = conclusionRepository.findByCreatedAtAfterAndCreatedAtBefore
-                    (LocalDateTime.now().minusMonths(12+i),LocalDateTime.now().minusMonths(11+i));
+                    (LocalDateTime.now().minusMonths(13-i).minusDays(day),LocalDateTime.now().minusMonths(12-i).minusDays(day));
             final long[] totalDealPrice = {0L};
             conclusions.stream().mapToLong(conclusion -> Long.parseLong(conclusion.getPrice()
                     .replace(",","").replace("원",""))).forEach(price -> {
                 totalDealPrice[0] += price;
             });
             sales.add(totalDealPrice[0]);
-
             DecimalFormat format = new DecimalFormat("###,###");
             String sale = format.format(totalDealPrice[0]);
-            sales2.add(ConclusionDTO.of(null, sale, LocalDateTime.now().minusMonths(12-i),null));
-            System.out.println("매출리스트:" +sales);
+            sales2.add(ConclusionDTO.of(null, sale, LocalDateTime.now().minusMonths(13-i),null));
+
         }
         return sales2;
     }

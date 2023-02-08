@@ -3,6 +3,7 @@ package com.supreme.shoekream.service;
 import com.supreme.shoekream.model.dto.AddressDTO;
 import com.supreme.shoekream.model.dto.MemberDTO;
 import com.supreme.shoekream.model.entity.*;
+import com.supreme.shoekream.model.enumclass.Status;
 import com.supreme.shoekream.model.network.Header;
 import com.supreme.shoekream.model.network.Pagination;
 import com.supreme.shoekream.model.network.request.MemberApiRequest;
@@ -169,7 +170,7 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
     public Header<MemberApiResponse> updateProfileImg(MemberDTO dto, Long idx){
         Optional<Member> member = memberRepository.findById(idx);
         Member newMember = member.get();
-        if(dto.imgUrl() != null) newMember.setImgUrl("/img/profileImg/"+dto.imgUrl());
+        if(dto.imgUrl() != null) newMember.setImgUrl(dto.imgUrl());
         return Header.OK();
     }
     @Override
@@ -236,9 +237,9 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
                 .map(MemberDTO::fromEntity);
     }
 
-    public MemberDTO saveUser(String password, String name, String hp, String email, String shoeSize) {
+    public MemberDTO saveUser(String password, String name, String hp, String email, Status status, String shoeSize) {
         return MemberDTO.fromEntity(
-                memberRepository.save(Member.of(password, name, hp, email, shoeSize))
+                memberRepository.save(Member.of(password, name, hp, email, status, shoeSize))
         );
     }
 

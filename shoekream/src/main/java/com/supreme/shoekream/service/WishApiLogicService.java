@@ -10,6 +10,8 @@ import com.supreme.shoekream.repository.ProductRepository;
 import com.supreme.shoekream.repository.WishRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -37,6 +39,14 @@ public class WishApiLogicService {
                 }
         );
         return products;
+    }
+
+    // 페이징
+    @Transactional(readOnly = true)
+    public Page<Wish> productListPage(Long memberIdx, Pageable pageable){
+        Member member = memberRepository.findById(memberIdx).get();
+        Page<Wish> wishes = wishRepository.findByMember(member, pageable);
+        return wishes;
     }
 
     // 로그인 한 사용자가 관심상품 했는지 안했는지 확인

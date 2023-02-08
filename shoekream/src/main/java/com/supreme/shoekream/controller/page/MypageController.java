@@ -6,6 +6,7 @@ import com.supreme.shoekream.model.dto.MemberDTO;
 
 import com.supreme.shoekream.model.entity.Product;
 
+import com.supreme.shoekream.model.entity.Wish;
 import com.supreme.shoekream.model.enumclass.OrderStatus;
 
 
@@ -142,15 +143,34 @@ public class MypageController {
         return("/my/selling_detail");
     }
 
+//    @GetMapping(path = "wish")
+//    public String wish(ModelMap modelmap, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+//        if(kreamPrincipal == null){
+//            return "login/login";
+//        }
+//        List<Product> wish_productList = wishApiLogicService.productList(kreamPrincipal.idx());
+//        modelmap.addAttribute("wish_productList", wish_productList);
+//        List<String> wish_productPrice = sellService.buyNowPrices(wish_productList);
+//        modelmap.addAttribute("wish_productPrice", wish_productPrice);
+//        return "my/wish";
+//    }
+    @Autowired PaginationService paginationService;
     @GetMapping(path = "wish")
-    public String wish(ModelMap modelmap, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+    public String wish(ModelMap modelmap, @AuthenticationPrincipal KreamPrincipal kreamPrincipal,
+                       @PageableDefault(size = 10, sort = "idx", direction = Sort.Direction.DESC) Pageable pageable){
         if(kreamPrincipal == null){
             return "login/login";
         }
+        Page<Wish> wish_productList_page= wishApiLogicService.productListPage(kreamPrincipal.idx(), pageable);
+        modelmap.addAttribute("wish_productPage", wish_productList_page);
+        List<Integer> barNumbers = paginationService.getPaginationBarNumbers(pageable.getPageNumber(),wish_productList_page.getTotalPages());
+        modelmap.addAttribute("barNumbers", barNumbers);
+
         List<Product> wish_productList = wishApiLogicService.productList(kreamPrincipal.idx());
         modelmap.addAttribute("wish_productList", wish_productList);
-        List<String> wish_productPrice = sellService.buyNowPrices(wish_productList);
+        Page<String> wish_productPrice = sellService.buyNowPrices2(wish_productList, pageable);
         modelmap.addAttribute("wish_productPrice", wish_productPrice);
+
         return "my/wish";
     }
 

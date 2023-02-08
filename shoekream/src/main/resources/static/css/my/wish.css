@@ -598,16 +598,17 @@ svg:not(:root) {
 /* 페이지네이션 */
 .pagination {
     padding: 28px 0;
+    display: flex;
+    font-size: large;
+    justify-content: center;
 }
+
 .pagination_box{
     position: relative;
     font-size: 0;
     text-align: center;
 }
 
-.pagination{
-    padding: 28px 0;
-}
 /* .prev_btn_box {
     margin-right: 25px;
 } */
@@ -652,6 +653,10 @@ svg:not(:root) {
 
 span.wish_pro_size {
     margin-top: 25px;
+}
+
+li.page-item {
+    padding: 0 10px;
 }
 
 
