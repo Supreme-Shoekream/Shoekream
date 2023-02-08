@@ -1,4 +1,3 @@
-
 package com.supreme.shoekream.model.entity;
 
 import static com.querydsl.core.types.PathMetadataFactory.*;
@@ -53,5 +52,4 @@ public class QBlacklist extends EntityPathBase<Blacklist> {
     }
 
 }
-
 
