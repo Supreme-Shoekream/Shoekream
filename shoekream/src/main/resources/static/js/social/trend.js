@@ -1,6 +1,6 @@
-
-window.onload = function (){
-    $('span.like').click(function(e){
+let flag= false;
+window.onload = function () {
+    $('span.like').click(function (e) {
         e.preventDefault();
     });
     searchStart(0);
@@ -10,25 +10,27 @@ window.onload = function (){
     })
     const item = document.getElementById('st_gnb');
     item.classList.add('gnb_on');
-    let pageNum = Number(document.querySelector('.btn_page').innerHTML)-1;
-
+    let pageNum = Number(document.querySelector('.btn_page').innerHTML) - 1;
+    let totPages = Number(document.getElementById('totPages').value)
+    console.log(totPages)
 
 
     async function searchStart(pageNum) {
-        fetch("http://localhost:8889/api/social/trend?page="+pageNum)
+        flag = false;
+        fetch("http://localhost:8889/api/social/trend?page=" + pageNum)
             .then((response) => response.json())
             .then((data) => {
                 data = data.content
-                console.log(data)
+                console.log(document.getElementById('loading').src)
                 let feedList = "";
-                for(let i=0;i <data.length;i++){
+                for (let i = 0; i < data.length; i++) {
                     feedList +=
                         `
-<!--                        <div class="feed_card item vertical" style="padding-top: 10px; position: absolute; left: ${(i%4)*307}px; top: ${Math.floor(i/4)*465}px">-->
-                        <div class="feed_card item" >
-                                        <a class="feed_each">
+                        <div class="feed_card item vertical" style="padding-top: 10px; position: absolute; left: ${(i % 4) * 307}px; top: ${Math.floor(i / 4) * 465 + pageNum * 1400}px">
+<!--                        <div class="feed_card item" >-->
+                                        <a href="/social/details#${data[i].idx}" class="feed_each">
                                             <div class="card_box">
-                                                <div class="social_img_box">
+                                                <div class="social_img_box vertical">
                                                     <a href="/social/details#${data[i].idx}" >
                                                     <picture class="picture social_img">
                                                         <source type="image/webp"
@@ -56,19 +58,19 @@ window.onload = function (){
                                                          ${data[i].memberDTO.idx})">${data[i].memberDTO.nickname}</p><span aria-label="좋아요"
                                                             role="button" class="btn like" onclick="like_clicked(${data[i].idx}, ${data[i].lks.length}, this)">
                                                             `
-                    if(data[i].islike == false){
+                    if (data[i].islike == false) {
                         feedList += `<img id="like_icon" src="/img/styleImg/like_icon.png" alt="좋아요 이미지"
                                                                 class="icon sprite-icons social-like-gray-sm">`
-                    }else{
+                    } else {
                         feedList += `<img id="like_icon" src="/img/styleImg/like_after_icon.png" alt="좋아요 이미지"
                                                                 class="icon sprite-icons social-like-gray-sm">`
                     }
-                    feedList +=  `<span class="like_count">${data[i].lks.length}</span></span>
+                    feedList += `<span class="like_count">${data[i].lks.length}</span></span>
                                                     </div>`
-                    if(data[i].hashtag != null){
+                    if (data[i].hashtag != null) {
                         feedList += `<p className="text_box">${data[i].content}` + ` #` +
                             `${data[i].hashtag}</p>`
-                    }else{
+                    } else {
                         feedList += `<p className="text_box">${data[i].content}</p>`
                     }
                     feedList += `</div>
@@ -81,52 +83,57 @@ window.onload = function (){
                 // feedList = `<div class="gutter_item"></div>` + feedList;
                 let newList = document.createElement('div');
                 newList.innerHTML = feedList;
-                newList.style.display='flex';
+                // newList.style.display='flex';
                 document.getElementById('masonry_posts').appendChild(newList);
-                document.querySelector('.footer').style.position= 'absolute';
-                document.querySelector('.footer').style.width= '100%';
-                document.querySelector('.footer').style.top= (Math.floor(((data.length)/4)+1)*465+200)+'px';
+                document.querySelector('.footer').style.position = 'absolute';
+                document.querySelector('.footer').style.width = '100%';
+                document.querySelector('.footer').style.top = (Math.floor(((data.length) / 4) + 1) * 465 + 200 + pageNum * 1300) + 'px';
+                // document.getElementById('loading').style.top = (Math.floor(((data.length) / 4) + 1) * 465 + pageNum * 1300) + 'px';
+                if (pageNum == totPages - 2) {
+                    document.getElementById('loading').style.display = 'none';
+                }
             })
-        scroll();
+        // document.getElementById('loading').style.display = 'none';
+        loading()
     }
-    function scroll() {
 
-        const fullContent = document.querySelector('.masonry_posts');
+    if (pageNum < totPages - 1) {
+        scroll();
+        console.log(pageNum)
+    }
+
+    function scroll() {
         const screenHeight = screen.height;
-        let flag = false;
         document.addEventListener('scroll', () => {
-            const fullHeight = fullContent.clientHeight;
+            flag = false;
             const scrollPosition = pageYOffset;
-            if (fullHeight - screenHeight / 2 <= scrollPosition && !flag) {
+            if (160 + (pageNum + 1) * 1300 - screenHeight / 2 <= scrollPosition && !flag) {
                 flag = true;
                 pageNum++;
-                searchStart(pageNum);
-            }
-        })
-}
-
-    function addContent(){
-        const nextLink = document.querySelector('.next_page');
-        const nextURL = nextLink.getAttribute('href');
-
-        const xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function(){
-            if(xhr.readyState == xhr.DONE){
-                if(xhr.status == 200 || xhr.status == 201){
-                    const newContent = xhr.response;
-                    const addList = newContent.querySelector('.masonry_posts');
-                    console.log(addList)
-                    fullContent.appendChild(addList);
-                    flag = false;
-                }else{
-                    console.log(xhr.response);
+                if (pageNum < totPages - 1) {
+                    // document.getElementById('loading').style.display = 'block';
+                    loading();
+                    wait(1);
+                    searchStart(pageNum);
                 }
             }
-        };
-        xhr.open('GET', nextURL);
-        xhr.send();
-        xhr.responseType = "document";
+        })
+    }
+
+
+    function wait(sec) {
+        let start = Date.now(), now = start;
+        while (now - start < sec * 1000) {
+            now = Date.now();
+        }
     }
 }
 
-
+function loading(){
+    loadimgImg = document.getElementById('loading');
+    if(loadimgImg.style.display == 'block'){
+        loadimgImg.style.display = 'none';
+    }else{
+        loadimgImg.style.display = 'block';
+    }
+}
