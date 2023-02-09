@@ -134,6 +134,7 @@ bid_input.addEventListener('blur', e=>{
     // 즉시 구매값보다 비싸게 부르면 즉시구매로 넘어간다.
     if(price_now < str_price){
         buy_now()
+        return
     }
     //1000원 단위로만 입력 가능하다.
     if(str_price!=0 && str_price%1000!=0){
@@ -957,4 +958,14 @@ function sendit() {
 }
 function close_order_price_confirm(){
     document.querySelector('.layer_order_price_confirm').style.display="none"
+}
+
+/**
+ * 기능 14 : 검수기준 레이어창
+ */
+function pop_auth_policy(){
+    document.querySelector('.layer_auth_policy').style.display="block"
+}
+function close_auth_policy(){
+    document.querySelector('.layer_auth_policy').style.display="none"
 }

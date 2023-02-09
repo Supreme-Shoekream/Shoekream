@@ -29,7 +29,7 @@ let delivery_memo ='';
 let fees = 0;    //수수료
 document.querySelector('.deadline_txt').innerHTML = calc_deadline(30)   //초기 deadline 세팅
 
-
+let now_price = document.getElementById('now_price').innerHTML
 /**
  * 🤍 기능1 입찰 <-> 즉시
  * .title_txt : 내용 "판매 입찰하기"<->"즉시 판매하기"
@@ -144,6 +144,7 @@ bid_input.addEventListener("blur", (e) => {
   // 즉시 판매값보다 싸게 부르면 즉시판매로 넘어간다.
   if (price_now >= str_price) {
     sell_now()
+    return
   }
   //1000원 단위로만 입력 가능하다.
   if (str_price != 0 && str_price % 1000 != 0) {
@@ -990,4 +991,14 @@ function sendit() {
 }
 function close_order_price_confirm(){
   document.querySelector('.layer_order_price_confirm').style.display="none"
+}
+
+/**
+ * 기능 14 : 검수기준 레이어창
+ */
+function pop_auth_policy(){
+  document.querySelector('.layer_auth_policy').style.display="block"
+}
+function close_auth_policy(){
+  document.querySelector('.layer_auth_policy').style.display="none"
 }

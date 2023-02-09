@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/order/header.css">
     <link rel="stylesheet" href="/css/order/buy.css">
     <link rel="stylesheet" href="/css/layer/layer.css">
+    <link rel="stylesheet" href="/css/layer/layer_auth_policy.css">
     <link rel="stylesheet" href="/css/layer/layer_delivery.css">
     <link rel="stylesheet" href="/css/layer/layer_address.css">
     <link rel="stylesheet" href="/css/layer/layer_shipping_memo.css">
@@ -706,9 +707,7 @@
                                 </a></li>
                         </ul>
                         <!--검수기준 있던곳🌈🌈🌈🌈-->
-                        <!--검수기준 레이어 창 layer_auth_policy-->
-                        <div th:replace="/layer/layer_auth_policy.html :: layer_auth_policy"></div>
-                        <!--검수기준 레이어창 끝 layer_auth_policy-->
+
                     </div>
                     <div class="buy_total_confirm" is-instant="true">
                         <div class="price_total">
@@ -838,6 +837,9 @@
         </div><!----><!---->
 
     </div>
+<!--검수기준 레이어 창 layer_auth_policy-->
+<div th:replace="/layer/layer_auth_policy.html :: layer_auth_policy"></div>
+<!--검수기준 레이어창 끝 layer_auth_policy-->
 <!--footer 시작-->
 <footer th:replace="/fragment/footer.html :: footer"></footer>
 <!--footer 끝-->
@@ -845,5 +847,7 @@
 
 </body>
 <script src="/js/order/buy.js"></script>
+<script src="/js/notice/auth_policy.js"></script>
+
 
 </html>
