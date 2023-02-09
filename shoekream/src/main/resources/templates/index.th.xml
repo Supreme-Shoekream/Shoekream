@@ -5,7 +5,7 @@
             <attr sel="img.justDrop_img" th:src="${justDrop.img}"/>
             <attr sel="p.brand-text" th:text="${justDrop.brand}"/>
             <attr sel="p.name" th:text="${justDrop.name}"/>
-            <attr sel="em.num" th:text="${justDroptbuynowPrices[i.index]}"/>
+            <attr sel="em.num" th:text="${justDroptbuynowPrices[i.index] +'원'}"/>
             <attr sel=".product_idx" th:value="${justDrop.idx}"/>
 
         </attr>
@@ -16,7 +16,7 @@
             <attr sel="img.pop_img" th:src="${mostPopular.img}"/>
             <attr sel="p.brand-text" th:text="${mostPopular.brand}"/>
             <attr sel="p.name" th:text="${mostPopular.name}"/>
-            <attr sel="em.num" th:text="${mostPopularbuynowPrices[i.index]}"/>
+            <attr sel="em.num" th:text="${mostPopularbuynowPrices[i.index] +'원'}"/>
             <attr sel=".product_idx" th:value="${mostPopular.idx}"/>
 
         </attr>
@@ -27,7 +27,7 @@
             <attr sel="img.newIn_img" th:src="${newIn.img}"/>
             <attr sel="p.brand-text" th:text="${newIn.brand}"/>
             <attr sel="p.name" th:text="${newIn.name}"/>
-            <attr sel="em.num" th:text="${newInbuynowPrices[i.index]}"/>
+            <attr sel="em.num" th:text="${newInbuynowPrices[i.index] +'원'}"/>
             <attr sel=".product_idx" th:value="${newIn.idx}"/>
         </attr>
     </attr>
@@ -36,7 +36,7 @@
             <attr sel="img.shoppingWisely_img" th:src="${shoppingWisely.img}"/>
             <attr sel="p.brand-text" th:text="${shoppingWisely.brand}"/>
             <attr sel="p.name" th:text="${shoppingWisely.name}"/>
-            <attr sel="em.num" th:text="${shoppingWiselybuynowPrices[i.index]}"/>
+            <attr sel="em.num" th:text="${shoppingWiselybuynowPrices[i.index] +'원'}"/>
             <attr sel=".product_idx" th:value="${shoppingWisely.idx}"/>
         </attr>
     </attr>
@@ -45,7 +45,7 @@
             <attr sel="img.brandMdPicks_img" th:src="${brandMdPicks.img}"/>
             <attr sel="p.brand-text" th:text="${brandMdPicks.brand}"/>
             <attr sel="p.name" th:text="${brandMdPicks.name}"/>
-            <attr sel="em.num" th:text="${brandMdPicksbuynowPrices[i.index]}"/>
+            <attr sel="em.num" th:text="${brandMdPicksbuynowPrices[i.index] +'원'}"/>
             <attr sel=".product_idx" th:value="${brandMdPicks.idx}"/>
         </attr>
     </attr>
@@ -54,7 +54,7 @@
             <attr sel="img.simpleChic_img" th:src="${simpleChic.img}"/>
             <attr sel="p.brand-text" th:text="${simpleChic.brand}"/>
             <attr sel="p.name" th:text="${simpleChic.name}"/>
-            <attr sel="em.num" th:text="${simpleChicbuynowPrices[i.index]}"/>
+            <attr sel="em.num" th:text="${simpleChicbuynowPrices[i.index] +'원'}"/>
             <attr sel=".product_idx" th:value="${simpleChic.idx}"/>
         </attr>
     </attr>
@@ -63,7 +63,7 @@
             <attr sel="img.bestApprelCollabs_img" th:src="${bestApprelCollabs.img}"/>
             <attr sel="p.brand-text" th:text="${bestApprelCollabs.brand}"/>
             <attr sel="p.name" th:text="${bestApprelCollabs.name}"/>
-            <attr sel="em.num" th:text="${bestApprelCollabsbuynowPrices[i.index]}"/>
+            <attr sel="em.num" th:text="${bestApprelCollabsbuynowPrices[i.index] +'원'}"/>
             <attr sel=".product_idx" th:value="${bestApprelCollabs.idx}"/>
         </attr>
     </attr>
@@ -72,7 +72,7 @@
             <attr sel="img.newLowestAsks_img" th:src="${newLowestAsks.img}"/>
             <attr sel="p.brand-text" th:text="${newLowestAsks.brand}"/>
             <attr sel="p.name" th:text="${newLowestAsks.name}"/>
-            <attr sel="em.num" th:text="${newLowestAsksbuynowPrices[i.index]}"/>
+            <attr sel="em.num" th:text="${newLowestAsksbuynowPrices[i.index] +'원'}"/>
             <attr sel=".product_idx" th:value="${newLowestAsks.idx}"/>
         </attr>
     </attr>
@@ -81,7 +81,7 @@
             <attr sel="img.newHighestBids_img" th:src="${newHighestBids.img}"/>
             <attr sel="p.brand-text" th:text="${newHighestBids.brand}"/>
             <attr sel="p.name" th:text="${newHighestBids.name}"/>
-            <attr sel="em.num" th:text="${newHighestBidsbuynowPrices[i.index]}"/>
+            <attr sel="em.num" th:text="${newHighestBidsbuynowPrices[i.index] +'원'}"/>
             <attr sel=".product_idx" th:value="${newHighestBids.idx}"/>
         </attr>
     </attr>
@@ -98,7 +98,7 @@
             <attr sel="img.bestCollectibles_img" th:src="${bestCollectibles.img}"/>
             <attr sel="p.brand-text" th:text="${bestCollectibles.brand}"/>
             <attr sel="p.name" th:text="${bestCollectibles.name}"/>
-            <attr sel="em.num" th:text="${bestCollectiblesbuynowPrices[i.index]}"/>
+            <attr sel="em.num" th:text="${bestCollectiblesbuynowPrices[i.index] +'원'}"/>
             <attr sel=".product_idx" th:value="${bestCollectibles.idx}"/>
         </attr>
     </attr>
@@ -107,7 +107,7 @@
             <attr sel="img.bestJewelryWatches_img" th:src="${bestJewelryWatches.img}"/>
             <attr sel="p.brand-text" th:text="${bestJewelryWatches.brand}"/>
             <attr sel="p.name" th:text="${bestJewelryWatches.name}"/>
-            <attr sel="em.num" th:text="${bestJewelryWatchesbuynowPrices[i.index]}"/>
+            <attr sel="em.num" th:text="${bestJewelryWatchesbuynowPrices[i.index] +'원'}"/>
             <attr sel=".product_idx" th:value="${bestJewelryWatches.idx}"/>
         </attr>
     </attr>
@@ -116,7 +116,7 @@
             <attr sel="img.bestCampingGear_img" th:src="${bestCampingGear.img}"/>
             <attr sel="p.brand-text" th:text="${bestCampingGear.brand}"/>
             <attr sel="p.name" th:text="${bestCampingGear.name}"/>
-            <attr sel="em.num" th:text="${bestCampingGearbuynowPrices[i.index]}"/>
+            <attr sel="em.num" th:text="${bestCampingGearbuynowPrices[i.index] +'원'}"/>
             <attr sel=".product_idx" th:value="${bestCampingGear.idx}"/>
         </attr>
     </attr>
