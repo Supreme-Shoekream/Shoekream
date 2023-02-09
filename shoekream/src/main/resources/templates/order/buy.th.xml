@@ -10,7 +10,7 @@
     </attr>
     <attr sel=".price_list">
         <attr sel="li[0]/span[0]" th:text="${buyNowPrice}"/>
-        <attr sel="li[1]/span[0]" th:text="${sellNowPrice}"/>
+        <attr sel="li[1]/span[0]" th:text="${#numbers.formatInteger(sellNowPrice, 3, 'COMMA')}"/>
     </attr>
     <attr sel=".price_now_box">
         <attr sel="#now_price" th:text="${buyNowPrice}"/>

@@ -22,7 +22,7 @@
     <!-- 즉시구매가, 즉시판매가 -->
     <attr sel=".division_btn_box">
         <attr sel="em.nowBuy" th:text="${sell}+'원'"/>
-        <attr sel="em.nowSell" th:text="${buy}+'원'"/>
+        <attr sel="em.nowSell" th:text="${#numbers.formatInteger(buy, 3, 'COMMA')}+'원'"/>
     </attr>
     <!-- 관심상품 -->
     <attr sel=".wish_count" th:object ="${product.data}">
