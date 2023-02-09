@@ -243,7 +243,7 @@ public class BuyService {
         if(product.getIdx() == null){
             return null;
         }
-        return buyRepository.findAllByProductOrderByCreatedAtDesc(product).stream()
+        return buyRepository.findAllByProductAndStatusOrderByCreatedAtDesc(product, OrderStatus.BIDDING).stream()
                 .map(BuyDTO::fromEntity).collect(Collectors.toCollection(LinkedList::new));
     }
 
