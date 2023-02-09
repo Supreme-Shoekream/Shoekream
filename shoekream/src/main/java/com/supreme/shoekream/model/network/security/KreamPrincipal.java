@@ -71,6 +71,7 @@ public record KreamPrincipal(
         );
     }
     public static KreamPrincipal createof(
+                                    String nickname,
                                     String memberPw,
                                     String name,
                                     String hp,
@@ -78,7 +79,7 @@ public record KreamPrincipal(
                                     String shoeSize){
         return KreamPrincipal.of(
                 null,
-                null,
+                nickname,
                 memberPw,
                 name,
                 hp,
@@ -118,6 +119,7 @@ public record KreamPrincipal(
 
     public static KreamPrincipal from(MemberDTO dto){
         return KreamPrincipal.createof(
+                dto.nickname(),
                 dto.memberPw(),
                 dto.name(),
                 dto.hp(),
@@ -128,6 +130,7 @@ public record KreamPrincipal(
 
     public static KreamPrincipal createfrom(MemberDTO dto){
         return KreamPrincipal.createof(
+                dto.nickname(),
                 dto.memberPw(),
                 dto.name(),
                 dto.hp(),

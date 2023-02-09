@@ -81,7 +81,9 @@ public class EventApiService {
         return productRepository.findTop40ByGenderOrderByWishCount(gender).stream().map(ProductDTO::fromEntity).toList();
     }
 
+
     public void draw(Long eventIdx){
+        System.out.println("@@");
         EventProduct event =eventRepository.findByIdx(eventIdx).get();
         List<EventMember> eventMembers = eventMemberRepository.findDraw(eventIdx);
         String title="[이벤트 발표]"+ event.getTitle();

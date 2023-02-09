@@ -186,6 +186,31 @@ function eventdelete(idx){
             alert(err);
         })
 }
+function pop_event_delete(idx){
+    document.querySelector(".event_delete").style.display = "block";
+    const btn_delete = document.querySelector('.btn_delete');
+    btn_delete.addEventListener('click',()=>{
+        eventdelete(idx)
+    });
+}
+function eventdelete(idx){
+    fetch('http://localhost:8899/api/event/'+idx, {
+        method: "DELETE",
+
+    })
+        .then((res) => {
+            alert('삭제 완료')
+            location.reload();
+            return;
+        })
+        .then((data) => {
+            console.log(data);
+            return;
+        })
+        .catch((err)=>{
+            alert(err);
+        })
+}
     function validFileType(filename) {
         const fileTypes = ["png", "jpg", "jpeg", "gif"];
         return fileTypes.indexOf(filename.substring(filename.lastIndexOf(".") + 1, filename.length).toLowerCase()) >= 0;
