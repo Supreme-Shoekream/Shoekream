@@ -2207,8 +2207,10 @@ span.wish_pro_size {
     overflow: hidden;
     position: relative;
     border-radius: 8px;
-    height: 230px;
-    width: 230px;
+    /*height: 230px;*/
+    /*width: 230px;*/
+    height: 100%;
+    width: 100%
 }
 
 .picture[data-v-878ec45c] {
