@@ -139,7 +139,7 @@ html {
     white-space: nowrap;
     font-size: 15px;
     letter-spacing: -.15px;
-    color: rgba(34,34,34,.8);
+    /*color: rgba(34,34,34,.8);*/
 }
 
 .like {
