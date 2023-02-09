@@ -87,13 +87,52 @@ public class EventApiService {
         EventProduct event =eventRepository.findByIdx(eventIdx).get();
         List<EventMember> eventMembers = eventMemberRepository.findDraw(eventIdx);
         String title="[이벤트 발표]"+ event.getTitle();
-        String content = "안녕하세요 슈크림입니다.🍓🍓\n"+"이번주 진행했던 "+event.getTitle()+ "당첨자를 발표합니다."
-                +"\n "+eventMembers.get(0).getMember().getEmail()
-                +"\n "+eventMembers.get(1).getMember().getEmail()
-                +"\n "+eventMembers.get(2).getMember().getEmail()
-                +"\n "+eventMembers.get(3).getMember().getEmail()
-                +"\n "+eventMembers.get(4).getMember().getEmail()
-                +"루룰루";
+        String content = "<p>안녕하세요. KREAM 입니다.</p>\n" +
+                "<p>이번주 진행되었던,"+ event.getTitle() + " "+ event.getProduct().getNameKor()+" 당첨자를 발표합니다.</p>\n" +
+                "<p>&nbsp;</p>\n" +
+                "<p>&nbsp;</p>\n" +
+                "<p><strong>[</strong><strong>"+event.getProduct().getName()+"</strong><strong style='font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;'>]</strong></p>\n" +
+                "<figure class='table'>\n" +
+                "<table>\n" +
+                "<tbody>\n" +
+                "<tr>\n" +
+                "<td>가입 이메일 주소</td>\n" +
+                "<td>이름</td>\n" +
+                "</tr>\n" +
+                "<tr>\n" +
+                "<td>\n" +
+                "<p>"+ eventMembers.get(0).getMember().getEmail().substring(0,2)+"******@"+eventMembers.get(0).getMember().getEmail().split("@")[1] +"</p>\n" +
+                "</td>\n" +
+                "<td>\n" +
+                "<p>"+eventMembers.get(0).getMember().getName().substring(0,1)+"*"+eventMembers.get(0).getMember().getName().substring(eventMembers.get(0).getMember().getName().length()-1,eventMembers.get(0).getMember().getName().length()) +"</p>\n" +
+                "</td>\n" +
+                "</tr>\n" +
+                "<tr>\n" +
+                "<td>\n" +
+                "<p>"+ eventMembers.get(1).getMember().getEmail().substring(0,2)+"******@"+eventMembers.get(1).getMember().getEmail().split("@")[1] +"</p>\n" +
+                "</td>\n" +
+                "<td>\n" +
+                "<p>"+eventMembers.get(1).getMember().getName().substring(0,1)+"*"+eventMembers.get(1).getMember().getName().substring(eventMembers.get(1).getMember().getName().length()-1,eventMembers.get(1).getMember().getName().length()) +"</p>\n" +
+                "</td>\n" +
+                "</tr>\n" +
+                "</tbody>\n" +
+                "</table>\n" +
+                "</figure>\n" +
+                "<p>총 2명의 당첨을 축하드립니다!</p>\n" +
+                "<p>&nbsp;</p>\n" +
+                "<p>당첨자에게는 오늘 중 상품 수령 시 필요한 서류를 가입하신 이메일로 요청하고 있습니다. 서류를 모두 전달받은 후 상품이 발송되는 점 유의 부탁드립니다.</p>\n" +
+                "<p>&nbsp;</p>\n" +
+                "<p>감사합니다.</p>\n" +
+                "<p>&nbsp;</p>\n" +
+                "<p>&nbsp;</p>\n" +
+                "<p><strong>유의사항</strong></p>\n" +
+                "<p><span style='font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;'>※</span><span style='font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;'> </span>당첨자에게는 가입된 회원 정보의 휴대폰 번호로 이벤트 상품의 거래 체결 알림을 드리며, 결제 수단의 문제로 인한 당첨 취소에 대해서는 당사에서 책임지지 않습니다.</p>\n" +
+                "<p><span style='font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;'>※</span><span style='font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;'> </span>응모 시 등록한 결제정보로 결제가 진행되지 않으면 당첨이 즉시 취소되며, 후 순위 당첨자로 변경될 수 있습니다.</p>\n" +
+                "<p><span style='font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;'>※</span><span style='font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;'>  </span>당첨자에 한하여 거래 체결 관련 개별 메시지를 발송 드리며, 미당첨자에게는 별도의 연락을 드리지 않습니다.</p>\n" +
+                "<p><span style='font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;'>※</span><span style='font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;'>  </span>당첨자에게는 가입된 회원 정보의 이메일로 당첨 안내와 상품 수령을 위한 서류를 요청합니다.</p>\n" +
+                "<p><span style='font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;'>※</span><span style='font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;'> > </span>이메일로 요청한 서류가(신분증/개인정보수집이용동의서) 당첨자 발표 공지 시점으로부터 72시간 내 제출되지 않는 경우 당첨이 취소되며, 재추첨은 진행되지 않습니다.</p>\n" +
+                "<p><span style='font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;'>※</span><span style='font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;'> > </span>상품은 이벤트 참여시 등록된 배송 주소로 배송됩니다.</p>\n" +
+                "<p><span style='font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;'>※</span><span style='font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;'> > </span>증정받은 상품의 색상 및 사이즈는 랜덤이며 교환이 불가능합니다.</p>";
         NoticeDTO notice = NoticeDTO.of(null,title,content, LocalDateTime.now(),LocalDateTime.now());
         noticeRepository.save(notice.toEntity());
 
