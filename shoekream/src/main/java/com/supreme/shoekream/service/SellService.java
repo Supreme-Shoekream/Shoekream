@@ -286,7 +286,7 @@ public class SellService {
         if(product.getIdx() == null){
             return null;
         }
-        return sellRepository.findAllByProductOrderByCreatedAtDesc(product).stream()
+        return sellRepository.findAllByProductAndStatusOrderByCreatedAtDesc(product, OrderStatus.BIDDING).stream()
                 .map(SellDTO::fromEntity).collect(Collectors.toCollection(LinkedList::new));
     }
 
