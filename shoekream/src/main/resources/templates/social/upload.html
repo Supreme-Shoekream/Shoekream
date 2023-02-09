@@ -27,8 +27,8 @@
 
       <div class="join_area">
 
-        <div class="upload_header scroll join_title" style="position: fixed; z-index: 999;">
-          <a href="./myprofile.html" class="close_icon">
+        <div class="upload_header scroll join_title" style="position: fixed; z-index: 999;padding-top: 20px;">
+          <a href="javascript:history.back();" class="close_icon">
             <img src="/img/4781857_arrow_arrows_back_direction_left_icon.png" alt="취소 이미지" class="close_icon">
           </a>
           <h3>STYLE UPLOAD</h3>
@@ -39,7 +39,7 @@
           <!-- 사진 박스 시작 -->
           <div class="input_box">
             <h3 class="input_title ess ph">사진 추가하기</h3>
-            <div class="input_item" style="border: none; height: 400px;
+            <div class="input_item" style="border: none; height: 500px;
                       border-bottom: 0.1rem solid #ebebeb;">
               <input id="imgUpload" type="file" name="imgUpload" onchange="readImage(this)" style="border: none; margin-top: 0.1rem solid #ebebeb;" accept="image/*" class="input_txt in_essValue">
               <div class="preview">
@@ -180,7 +180,7 @@
 
     </div>
     <!-- 푸터 -->
-    <footer th:replace="/fragment/footer :: footer"></footer>
+<!--    <footer th:replace="/fragment/footer :: footer"></footer>-->
     <!-- 푸터 끝 -->
   </div>
 

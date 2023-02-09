@@ -1,8 +1,14 @@
 package com.supreme.shoekream.controller.page;
 
+import com.supreme.shoekream.service.NoticeService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -10,7 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("") // http://localhost:8889/
 @RequiredArgsConstructor
 public class NoticePageController {
-
+    private final NoticeService noticeService;
     @GetMapping(path="faq")   //http://localhost:8889/faq
     public ModelAndView faq(){
         return new ModelAndView("/notice/faq");
@@ -22,8 +28,9 @@ public class NoticePageController {
     }
 
     @GetMapping(path="notice")   //http://localhost:8889/notice
-    public ModelAndView notice(){
-        return new ModelAndView("/notice/notice");
+    public String notice(ModelMap map,@PageableDefault(size = 20, sort = "idx", direction = Sort.Direction.DESC) Pageable pageable){
+        map.addAttribute("notices",noticeService.list(pageable));
+        return"/notice/notice";
     }
 
 //    @GetMapping(path="notice/{Idx}")
@@ -34,7 +41,8 @@ public class NoticePageController {
 
 
     @GetMapping(path="notice/{idx}")
-    public ModelAndView noticeDetail(){
-        return new ModelAndView("/notice/notice_view");
+    public String noticeDetail(ModelMap map,@PathVariable Long idx){
+        map.addAttribute("notice",noticeService.read(idx));
+        return "/notice/notice_view";
     }
 }

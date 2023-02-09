@@ -118,12 +118,12 @@
     font-size: 14px;
     letter-spacing: -.14px;
 }
-.solid {
+.layer .solid {
     background-color: #222;
     color: #fff;
 }
-.solid.disabled,
-.solid:disabled {
+.layer .solid.disabled,
+.layer .solid:disabled {
     background-color: #ebebeb;
     color: #fff;
     cursor: default;

@@ -581,7 +581,6 @@ img, video {
 }
 
 .action_wish_review>span {
-    display: -webkit-inline-box;
     display: inline-flex;
     -webkit-box-align: center;
     align-items: center;
@@ -601,7 +600,6 @@ img, video {
 }
 
 .action_wish_review .review_figure .review_link {
-    display: -webkit-inline-box;
     display: inline-flex;
 }
 
@@ -728,8 +726,17 @@ span.wish_pro_size {
     margin-top: 25px;
 }
 
+.action_wish_review .text {
+    margin-left: 4px;
+    color: rgba(34,34,34,.5);
+    font-size: 14px;
+    letter-spacing: -.06px;
+}
 
-
+.btn_wish {
+    display: flex;
+    height: inherit;
+}
 
 
 

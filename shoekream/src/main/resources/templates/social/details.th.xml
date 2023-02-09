@@ -30,7 +30,7 @@
                             <attr sel=".product_desc">
                                 <attr sel=".product_name" th:text="${tag.productDTO.name}"/>
                                 <attr sel=".price_box">
-                                    <attr sel=".amount" th:text="${tag.productDTO.firstPrice}"/><!-- !!!!!!!!!!!!!!!수정!!!!!!!!!!!!!!!-->
+                                    <attr sel=".amount" th:text="${#numbers.formatInteger(tag.productDTO.firstPrice, 3, 'COMMA')}"/><!-- !!!!!!!!!!!!!!!수정!!!!!!!!!!!!!!!-->
                                 </attr>
                             </attr>
                         </attr>

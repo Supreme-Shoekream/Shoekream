@@ -93,9 +93,9 @@
             <attr sel="#gender_btn_off"  th:if="${param.gender} != null and ${param.gender.toString}!=''"/>
             <attr sel="#drop-gender" th:style="${param.gender} != null ?(${param.gender.toString}==''? 'display:none':'display:block'):'display:none'">
                 <attr sel="#gender_filter">
-                    <attr sel="li[0]/.check" th:checked="${param.gender} != null ?(${param.gender.toString}=='남성'? 'true' : 'false'):'false'"/>
-                    <attr sel="li[1]/.check" th:checked="${param.gender} != null ?(${param.gender.toString}=='여성'? 'true' : 'false'):'false'"/>
-                    <attr sel="li[2]/.check" th:checked="${param.gender} != null ?(${param.gender.toString}=='키즈'? 'true' : 'false'):'false'"/>
+                    <attr sel="li[0]/.check" th:checked="${param.gender} != null ?(${param.gender.toString}=='M'? 'true' : 'false'):'false'"/>
+                    <attr sel="li[1]/.check" th:checked="${param.gender} != null ?(${param.gender.toString}=='W'? 'true' : 'false'):'false'"/>
+                    <attr sel="li[2]/.check" th:checked="${param.gender} != null ?(${param.gender.toString}=='Kid'? 'true' : 'false'):'false'"/>
                 </attr>
             </attr>
         </attr>
@@ -163,8 +163,9 @@
                         <attr sel=".product_info_product_name/p[0]" th:text="${product.name}"/>
                         <attr sel=".product_info_product_name/p[1]" th:text="${product.nameKor}"/>
                     </attr>
-                    <attr sel=".amount" th:text="${prices[i.index]}"/>
+                    <attr sel=".amount" th:text="${prices[i.index]+'원'}"/>
                 </attr>
+
                 <attr sel=".action_wish_review" th:id="${product.idx}">
                     <attr sel=".is_wish_on" th:style="(${isWish}!=null and ${isWish[i.index]})? 'display:block':'display:none'" th:onclick="'javascript:wishDelete('+ ${product.idx} + ');'"/>
                     <attr sel=".is_wish_off" th:style="(${isWish}==null or ${!isWish[i.index]})? 'display:block':'display:none'" th:onclick="'javascript:wishCreate('+ ${product.idx} + ');'"/>
@@ -172,7 +173,9 @@
                     <attr sel=".review_link" th:onclick="'javascript:tag_href('+ ${product.idx} + ');'"/>
                     <attr sel=".tag_count" th:text="${tagCount[i.index]}"/>
                 </attr>
+
                 <attr sel=".shoe_count" th:text="${product.size}"/>
+
             </attr>
         </attr>
 
