@@ -124,7 +124,7 @@ public class AdminPageController {
     }
 
     private final AdminProductApiLogicService adminProductApiLogicService;
-    @GetMapping(path="products")   //http://localhost:8899//products
+    @GetMapping(path="products")   // http://localhost:8899/products
     public String products(@RequestParam(required = false) String searchKeyword,
                                  @PageableDefault(size = 10, sort = "idx", direction = Sort.Direction.DESC) Pageable pageable,
                                  ModelMap map,HttpServletRequest request){

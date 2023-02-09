@@ -26,12 +26,15 @@
 				<div class="pb-20" id="buy_table">
 					<div class="row">
 						<div class="col-sm-12 col-md-6">
-							<div class="dataTables_length" id="DataTables_Table_0_length">
-								<label style=" font-weight: normal; white-space: nowrap; text-align: left;">Show
-									<select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="custom-select custom-select-sm form-control form-control-sm">
-										<option value="10">10</option><option value="25">25</option><option value="50">50</option>
-									</select> entries
-								</label>
+							<div class="dataTables_length" id="DataTables_Table_0_length" style="padding-bottom: 5px; padding-left: 20px;">
+								<div style="display: flex;">
+									<i class="icon-copy bi bi-card-list"></i>
+									<p th:text="'구매내역 ' + ${buys.totalElements} + '건'" style="margin-left: 10px;"></p>
+								</div>
+								<div style="display: flex;">
+									<i class="icon-copy bi bi-book"></i>
+									<p th:text="'총 ' + ${buys.totalPages} + '페이지 중 ' + ${(buys.number)+1} + '페이지'" style="margin-left: 10px;"></p>
+								</div>
 							</div>
 						</div>
 						<div class="col-sm-12 col-md-6">
