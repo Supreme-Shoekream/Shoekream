@@ -1,8 +1,11 @@
 <?xml version="1.0"?>
 <thlogic>
-
+    <!--브랜드이름-->
     <attr sel=".brand_name" th:text="${brandName}"/>
+    <!--카운트-->
     <attr sel=".brand_total" th:text="${count}"/>
+    <!--반복-->
+
     <attr sel=".brand_products" th:remove="all-but-first">
         <attr sel=".product_card" th:each= "product, i : ${products}" >
             <attr sel=".item_inner" th:href="@{'/product/' + ${product.idx}}">
@@ -12,13 +15,13 @@
                     <attr sel=".product_info_product_name/p[0]" th:text="${product.name}"/>
                     <attr sel=".product_info_product_name/p[1]" th:text="${product.nameKor}"/>
                 </attr>
-                <attr sel=".amount" th:text="${prices[i.index]}"/>
+                <attr sel=".amount" th:text="${prices[i.index] +'원'}"/>
             </attr>
 
             <attr sel=".action_wish_review" th:id="${product.idx}">
                 <attr sel=".is_wish_on" th:style="(${isWish}!=null and ${isWish[i.index]})? 'display:block':'display:none'" th:onclick="'javascript:wishDelete('+ ${product.idx} + ');'"/>
                 <attr sel=".is_wish_off" th:style="(${isWish}==null or ${!isWish[i.index]})? 'display:block':'display:none'" th:onclick="'javascript:wishCreate('+ ${product.idx} + ');'"/>
-                <attr sel=".wish_count" th:text="${wishCount[i.index]}"/>
+                <attr sel=".wish_count" th:text="${wishCount[product.idx]}"/>
                 <attr sel=".review_link" th:onclick="'javascript:tag_href('+ ${product.idx} + ');'"/>
                 <attr sel=".tag_count" th:text="${tagCount[i.index]}"/>
             </attr>

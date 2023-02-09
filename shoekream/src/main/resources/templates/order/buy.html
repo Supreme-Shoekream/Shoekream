@@ -265,7 +265,7 @@
                     </div>
                     <!--주소 변경 클릭시 나오는 모달창 시작-->
                     <div class="layer_address layer lg" style="display: none" >
-                        <div class="layer_container"><a href="#" class="btn_layer_close" onclick="close_address()">
+                        <div class="layer_container"><a class="btn_layer_close" onclick="close_address()">
                             <img src="/img/close.png">
                         </a>
                             <div class="layer_header">
@@ -317,7 +317,7 @@
                     <!--새 주소 추가 버튼 클릭시 나오는 모달창 시작-->
                     <div class="layer_delivery layer lg" style="display:none" >
                         <div class="layer_container"><a class="btn_layer_close" onclick="close_new_delivery()">
-                            <div><img src="/img/close.png"></div>
+                            <div><img src="/img/close.png"  onclick="close_new_delivery()"></div>
                             <!---->
                         </a>
                             <div class="layer_header">
@@ -343,7 +343,7 @@
                                             <h4 class="input_title">우편번호</h4>
                                             <div class="input_item">
                                                 <input type="text" placeholder="우편 번호를 검색하세요" readonly="readonly" autocomplete="off" class="input_txt" id="sample6_postcode">
-                                                <a href="#" class="btn btn_zipcode outline small" data-v-1c44afeb="" onclick="sample6_execDaumPostcode()"> 우편번호 </a>
+                                                <a  class="btn btn_zipcode outline small" data-v-1c44afeb="" onclick="sample6_execDaumPostcode()"> 우편번호 </a>
                                             </div>
                                         </div>
                                         <div class="input_box">
@@ -370,8 +370,8 @@
                                     </div>
                                 </div>
                                 <div class="layer_btn">
-                                    <a href="#" class="btn btn_delete outlinegrey medium" onclick="close_new_delivery()"> 취소 </a>
-                                    <a disabled="disabled" href="#" class="btn btn_save solid medium disabled" id="submit_btn"> 저장하기 </a>
+                                    <a class="btn btn_delete outlinegrey medium" onclick="close_new_delivery()"> 취소 </a>
+                                    <a disabled="disabled" class="btn btn_save solid medium disabled" id="submit_btn"> 저장하기 </a>
                                 </div>
                             </div>
                         </div>
@@ -473,7 +473,7 @@
                             </h4>
                             <!--layer_card 시작-->
                             <div class="layer_card layer lg" style="display: none;">
-                                <div class="layer_container"><a href="#" class="btn_layer_close">
+                                <div class="layer_container"><a  class="btn_layer_close">
                                     <div><img src="/img/close.png" onclick="close_card()"></div>
                                     <!---->
                                 </a>
@@ -552,8 +552,8 @@
 
                                         </div>
                                         <div class="layer_btn">
-                                            <a href="#" class="btn btn_delete outlinegrey medium" onclick="close_card()"> 취소 </a>
-                                            <a disabled="disabled" onclick="cardBasicOk()" href="#" class="btn btn_save solid medium disabled"
+                                            <a  class="btn btn_delete outlinegrey medium" onclick="close_card()"> 취소 </a>
+                                            <a disabled="disabled" onclick="cardBasicOk()"  class="btn btn_save solid medium disabled"
                                                id="submit_card_btn"> 저장하기
                                             </a>
                                         </div>
@@ -562,8 +562,8 @@
                             </div>
                             <!--layer_card 끝-->
                             <div class="card_list">
-                                <a href="#" class="regist_link">
-                                    <span class="regist_text">카드를 등록해주세요</span>
+                                <a  class="regist_link">
+                                    <span class="regist_text" onclick="pop_card()">카드를 등록해주세요</span>
                                 </a>
                                 <div class="main_card selected method">
                                     <div class="clickable_card ">

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <thlogic>
     <!-- 상품 사진 -->
-<!--    <attr sel="img#previewImg2" th:object="${product.data}" th:src="*{'/img/product/' + name.replace(' ', '_')} + '.png' "/>-->
+    <!--    <attr sel="img#previewImg2" th:object="${product.data}" th:src="*{'/img/product/' + name.replace(' ', '_')} + '.png' "/>-->
     <attr sel="img#previewImg2" th:object="${product.data}" th:src="*{img}"/>
     <!-- 브랜드명, 상품명 -->
     <attr sel=".main_title_box" th:object="${product.data}">
@@ -17,7 +17,7 @@
     <attr sel=".detail_price">
         <attr sel="span.recentPrice" th:if="${recentPrice == null}" th:text="${recentPrice}"/>
         <attr sel="span.recentPrice" th:if="${recentPrice != null}" th:text="${recentPrice}"/>
-<!--        <attr sel="p.fluctuation" th:text="*{fluctuation}"/>-->
+        <!--        <attr sel="p.fluctuation" th:text="*{fluctuation}"/>-->
     </attr>
     <!-- 즉시구매가, 즉시판매가 -->
     <attr sel=".division_btn_box">
@@ -82,7 +82,7 @@
         <attr sel="span.size" th:text="*{size}"/>
     </attr>
     <!-- 체결 내역 더보기(레이어창) -->
-<!--    <attr sel="#user_conclusion">-->
+    <!--    <attr sel="#user_conclusion">-->
     <attr sel=".con_price_body" th:remove="all-but-first">
         <attr sel="div.body_list[0]" th:each="con_product : ${conclusion}">
             <attr sel="div.size" th:text="${con_product.productDTO.size}"/>
@@ -104,13 +104,13 @@
             <attr sel="div.createdAt/time" th:datetime="${buy_product.createdAt}"  th:text="${#temporals.format(buy_product.createdAt, 'yy/MM/dd')}"/>
         </attr>
     </attr>
-<!--    </attr>-->
-<!--    &lt;!&ndash; 관심 상품 추가 &ndash;&gt;-->
-<!--    <attr sel=".layer_interest" th:object ="${product.data}">-->
-<!--        <attr sel="img#previewImg5" th:src="*{img}"/>-->
-<!--        <attr sel="p.name" th:text="*{name}"/>-->
-<!--        <attr sel="p.nameKor" th:text="*{nameKor}"/>-->
-<!--    </attr>-->
+    <!--    </attr>-->
+    <!--    &lt;!&ndash; 관심 상품 추가 &ndash;&gt;-->
+    <!--    <attr sel=".layer_interest" th:object ="${product.data}">-->
+    <!--        <attr sel="img#previewImg5" th:src="*{img}"/>-->
+    <!--        <attr sel="p.name" th:text="*{name}"/>-->
+    <!--        <attr sel="p.nameKor" th:text="*{nameKor}"/>-->
+    <!--    </attr>-->
     <!-- 브랜드 다른 상품 -->
     <attr sel=".other_product_area">
         <attr sel="span.owner" th:object="${product.data}" th:text="*{brand}"/>

@@ -179,13 +179,13 @@ public class BuyService {
         Optional<Buy> buys = buyRepository.findById(idx);
         if(progress == Progress.DELIVERY_COMPLETE){
             return buys.map(
-                    buy -> {
-                        buy.setProgress(progress);
-                        buy.setStatus(OrderStatus.END);
-                        buy.getSell().setProgress(SellProgress.CALCULATE_COMPLETE);
-                        buy.getSell().setStatus(OrderStatus.END);
-                        return buy;
-                    }).map(buy -> buyRepository.save(buy))
+                            buy -> {
+                                buy.setProgress(progress);
+                                buy.setStatus(OrderStatus.END);
+                                buy.getSell().setProgress(SellProgress.CALCULATE_COMPLETE);
+                                buy.getSell().setStatus(OrderStatus.END);
+                                return buy;
+                            }).map(buy -> buyRepository.save(buy))
                     .map(buy -> BuyDTO.fromEntity(buy))
                     .map(Header::OK)
                     .orElseGet(()->Header.ERROR("데이터 없음"));
@@ -232,7 +232,7 @@ public class BuyService {
         if(product.getIdx() == null){
             return null;
         }
-        return buyRepository.findAllByProductOrderByCreatedAtDesc(product).stream()
+        return buyRepository.findAllByProductAndStatusOrderByCreatedAtDesc(product, OrderStatus.BIDDING).stream()
                 .map(BuyDTO::fromEntity).collect(Collectors.toCollection(LinkedList::new));
     }
 

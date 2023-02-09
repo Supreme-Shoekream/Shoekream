@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<thlogic>
+    <attr sel=".content_area">
+        <attr sel=".dropdown_list" th:remove="all-but-first">
+            <attr sel=".list-start"  th:each="notice : ${notices}">
+                <attr sel=".title" th:text="${notice.title}" th:onclick="'javascript:href_detail(' + ${notice.idx} + ');'"/>
+            </attr>
+        </attr>
+        <attr sel=".pagination_box">
+            <attr sel=".prev_btn_box/a" th:href="@{/notice(page=${notices.number - 1})}"
+                  th:style="(${notices.number} <=0 ? 'display:none':'display:block')"/>
+            <attr sel=".page_bind" th:each="pageNumber : ${barNumbers}">
+                <attr sel="a" th:text="${pageNumber + 1}"
+                      th:href="@{/notice(page=${pageNumber})}"
+                      th:class="'btn_page'+(${pageNumber}==${notices.number}? ' active':'')"/>
+            </attr>
+            <attr sel=".next_btn_box/a" th:href="@{/notice(page=${notices.number + 1})}"
+                  th:style="(${notices.number} >= ${notices.totalPages -1}  ? 'display:none':'display:block')"/>
+        </attr>
+    </attr>
+</thlogic>

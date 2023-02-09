@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<thlogic>
+    <attr sel=".content_area">
+        <attr sel=".date" th:text="${#temporals.format( notice.createdAt, 'yyyy-MM-dd')}"/>
+        <attr sel=".title" th:text="${notice.title}"/>
+        <attr sel=".content" th:utext="${notice.content}"/>
+    </attr>
+</thlogic>

@@ -28,4 +28,15 @@ public record NoticeDTO(
     ){
         return new NoticeDTO(idx,title, content, createdAt, modifiedAt);
     }
+
+    public static NoticeDTO fromEntity(Notice entity){
+        return new NoticeDTO(
+                entity.getIdx(),
+                entity.getTitle(),
+                entity.getContent(),
+                entity.getCreatedAt(),
+                entity.getModifiedAt()
+        );
+    }
+
 }

@@ -3,11 +3,21 @@
     <attr sel="#woman_product" th:remove="all-but-first">
         <attr sel=".woman_product" th:each="woman ,i: ${woman}">
             <attr sel="img.woman_img" th:src="${woman.img}"/>
-            <attr sel="p.man_name" th:text="${woman.name}"/>
-            <attr sel="p.man_nameKor" th:text="${woman.nameKor}"/>
-            <attr sel="p.amount" th:text="${womanbuynowPrices[i.index]}"/>
+            <attr sel="p.product_info_brand" th:text="${woman.brand}"/>
+            <attr sel="p.woman_name" th:text="${woman.name}"/>
+            <attr sel="p.woman_nameKor" th:text="${woman.nameKor}"/>
+            <attr sel="p.amount" th:text="${womanbuynowPrices[i.index] + '원'}"/>
             <attr sel=".product_idx" th:value="${woman.idx}"/>
-
         </attr>
+
+<!--        <attr sel=".action_wish_review" th:id="${man.idx}">-->
+<!--            <attr sel=".is_wish_on" th:style="(${isWish}!=null and ${isWish[i.index]})? 'display:block':'display:none'" th:onclick="'javascript:wishDelete('+ ${man.idx} + ');'"/>-->
+<!--            <attr sel=".is_wish_off" th:style="(${isWish}==null or ${!isWish[i.index]})? 'display:block':'display:none'" th:onclick="'javascript:wishCreate('+ ${man.idx} + ');'"/>-->
+<!--            <attr sel=".wish_count" th:text="${wishCount[i.index]}"/>-->
+<!--            <attr sel=".review_link" th:onclick="'javascript:tag_href('+ ${man.idx} + ');'"/>-->
+<!--            <attr sel=".tag_count" th:text="${tagCount[i.index]}"/>-->
+<!--        </attr>-->
+
+        <attr sel=".shoe_count" th:text="${woman.size}"/>
     </attr>
 </thlogic>

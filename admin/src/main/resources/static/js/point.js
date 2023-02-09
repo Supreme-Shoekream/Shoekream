@@ -54,7 +54,7 @@ function submitPoint(idx){
                     "point" : `${point}`
                 }
             }),
-        }).then((res)=>{
+        }).then((res) =>{
             alert('포인트 지급 완료');
             location.href='users';
             return;

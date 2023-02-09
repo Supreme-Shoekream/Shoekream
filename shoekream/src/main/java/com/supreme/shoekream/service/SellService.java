@@ -140,6 +140,7 @@ public class SellService {
         return prices;
     }
 
+
     @Transactional(readOnly = true)
     public List<List<String>> buyNowTagPrices(List<BoardWithLikeListResponse> boards){
 
@@ -173,27 +174,50 @@ public class SellService {
     public Page<String> buyNowPrices2(List<Product> products, Pageable pageable){
         List<String> prices2 = new ArrayList<String>();
 
-        products.forEach(
-                product -> {
-                    String price2 = new String();
-                    Sell lowerPrice = sellRepository.findFirstByProductAndStatusOrderByPrice(product,OrderStatus.BIDDING);
+//    @Transactional(readOnly = true)
+//    public Page<String> buyNowPrices2(List<Product> products, Pageable pageable){
+//        List<String> prices2 = new ArrayList<String>();
+//        products.forEach(
+//                product -> {
+//                    String price2 = new String();
+//                    Sell lowerPrice = sellRepository.findFirstByProductAndStatusOrderByPrice(product,OrderStatus.BIDDING);
+//                    if(lowerPrice == null){
+//                        price2 = " - ";
+//                    }else{
+//                        DecimalFormat format = new DecimalFormat("###,###");
+//                        price2 = format.format(lowerPrice.getPrice()) ;
+//                    }
+//                    prices2.add(price2);
+//                }
+//        );
+//        System.out.println(prices2);
+////        PageRequest pageRequest = PageRequest.of(0, 10);
+//        int start = (int) pageable.getOffset();
+//        int end = Math.min((start + pageable.getPageSize()), prices2.size());
+//        PageImpl<String> pp = new PageImpl<>(prices2.subList(start, end), pageable, prices2.size());
+//        return pp;
+//    }
+
+
+    @Transactional(readOnly = true)
+    public List<String> buyNowPricesForWish(Page<Wish> wishes){
+        List<String> prices = new ArrayList<String>();
+
+        wishes.forEach(
+                wish -> {
+                    String price = new String();
+                    Sell lowerPrice = sellRepository.findFirstByProductAndStatusOrderByPrice(wish.getProduct(),OrderStatus.BIDDING);
                     if(lowerPrice == null){
-                        price2 = " - ";
+                        price = " - ";
                     }else{
                         DecimalFormat format = new DecimalFormat("###,###");
-                        price2 = format.format(lowerPrice.getPrice()) ;
+                        price = format.format(lowerPrice.getPrice()) ;
                     }
-                    prices2.add(price2);
+                    prices.add(price);
                 }
         );
-        System.out.println(prices2);
-
-//        PageRequest pageRequest = PageRequest.of(0, 10);
-        int start = (int) pageable.getOffset();
-        int end = Math.min((start + pageable.getPageSize()), prices2.size());
-        PageImpl<String> pp = new PageImpl<>(prices2.subList(start, end), pageable, prices2.size());
-
-        return pp;
+        System.out.println(prices);
+        return prices;
     }
 
 
@@ -299,7 +323,7 @@ public class SellService {
         if(product.getIdx() == null){
             return null;
         }
-        return sellRepository.findAllByProductOrderByCreatedAtDesc(product).stream()
+        return sellRepository.findAllByProductAndStatusOrderByCreatedAtDesc(product, OrderStatus.BIDDING).stream()
                 .map(SellDTO::fromEntity).collect(Collectors.toCollection(LinkedList::new));
     }
 

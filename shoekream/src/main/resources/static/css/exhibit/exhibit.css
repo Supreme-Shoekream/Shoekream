@@ -325,6 +325,8 @@ img, video {
     -webkit-box-direction: normal;
     flex-direction: column;
     margin-bottom: 40px;
+    margin-left: 15%;
+    margin-right: 15%;
 }
 .exhibition_items>.exhibition_item:first-child>.exhibition_item_section, .exhibition_items>.image+*>.exhibition_item_section, .exhibition_items>.product_header+.product_header>.exhibition_item_section, .exhibition_items>.product_header+.product_list>.exhibition_item_section, .exhibition_items>.youtube+*>.exhibition_item_section {
     border-top: none;
