@@ -8,6 +8,7 @@ import com.supreme.shoekream.model.network.security.KreamPrincipal;
 import com.supreme.shoekream.service.EventApiService;
 import com.supreme.shoekream.service.MainService;
 import com.supreme.shoekream.service.SellService;
+import com.supreme.shoekream.service.ShopApiLogicService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -25,6 +26,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class EventPageController {
     final EventApiService eventApiService;
+    final ShopApiLogicService shopApiLogicService;
     final SellService sellService;
     @GetMapping(path="/promotion") //http://localhost:8889/
     public String event(HttpServletRequest request, ModelMap map){
@@ -41,17 +43,25 @@ public class EventPageController {
     @GetMapping(path="/man") //http://localhost:8889/
     public String man(HttpServletRequest request, ModelMap map){
         List<ProductDTO> man = eventApiService.genderList("M");
-        map.addAttribute("man",man);
         List<String> manbuynowPrices = sellService.buyNowPrices(man.stream().map(ProductDTO::toEntity).toList());
+        List<Long> wishCount = shopApiLogicService.wishCount(man.stream().map(ProductDTO::toEntity).toList());
+        List<Long> tagCount = shopApiLogicService.tagCount(man.stream().map(ProductDTO::toEntity).toList());
+        map.addAttribute("man",man);
         map.addAttribute("manbuynowPrices",manbuynowPrices);
+        map.addAttribute("wishCount", wishCount);
+        map.addAttribute("tagCount", tagCount);
         return ("exhibitions/man");
     }
     @GetMapping(path="/woman") //http://localhost:8889/
     public String woman(HttpServletRequest request, ModelMap map){
         List<ProductDTO> woman = eventApiService.genderList("W");
-        map.addAttribute("woman",woman);
         List<String> womanbuynowPrices = sellService.buyNowPrices(woman.stream().map(ProductDTO::toEntity).toList());
+        List<Long> wishCount = shopApiLogicService.wishCount(woman.stream().map(ProductDTO::toEntity).toList());
+        List<Long> tagCount = shopApiLogicService.tagCount(woman.stream().map(ProductDTO::toEntity).toList());
+        map.addAttribute("woman",woman);
         map.addAttribute("womanbuynowPrices",womanbuynowPrices);
+        map.addAttribute("wishCount", wishCount);
+        map.addAttribute("tagCount", tagCount);
         return ("exhibitions/woman");
     }
 }

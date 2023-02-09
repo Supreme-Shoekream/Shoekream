@@ -38,7 +38,7 @@
             <attr sel="li[3]/a" th:href="@{/searchs(page='0',sort=${param.sort},psize=${param.psize},
             brand=${param.brand},category=${param.category},collection=${param.collection},gender=${param.gender},keyword='눕시')}"/>
             <attr sel="li[4]/a" th:href="@{/searchs(page='0',sort=${param.sort},psize=${param.psize},
-            brand=${param.brand},category=${param.category},collection=${param.collection},gender=${param.gender},keyword='비비안%20웨스트우드')}"/>
+            brand=${param.brand},category=${param.category},collection=${param.collection},gender=${param.gender},keyword='비비안 웨스트우드')}"/>
             <attr sel="li[5]/a" th:href="@{/searchs(page='0',sort=${param.sort},psize=${param.psize},
             brand=${param.brand},category=${param.category},collection=${param.collection},gender=${param.gender},keyword=${'아식스'})}"/>
             <attr sel="li[6]/a" th:href="@{/searchs(page='0',sort=${param.sort},psize=${param.psize},

@@ -170,10 +170,6 @@ public class SellService {
         return boardPrices;
     }
 
-    @Transactional(readOnly = true)
-    public Page<String> buyNowPrices2(List<Product> products, Pageable pageable){
-        List<String> prices2 = new ArrayList<String>();
-
 //    @Transactional(readOnly = true)
 //    public Page<String> buyNowPrices2(List<Product> products, Pageable pageable){
 //        List<String> prices2 = new ArrayList<String>();
