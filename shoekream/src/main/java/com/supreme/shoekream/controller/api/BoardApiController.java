@@ -3,6 +3,8 @@ package com.supreme.shoekream.controller.api;
 import com.supreme.shoekream.model.dto.MemberDTO;
 import com.supreme.shoekream.model.dto.socialDTO.BoardDTO;
 import com.supreme.shoekream.model.dto.socialDTO.ReplyDTO;
+import com.supreme.shoekream.model.entity.Member;
+import com.supreme.shoekream.model.entity.Product;
 import com.supreme.shoekream.model.network.Header;
 import com.supreme.shoekream.model.network.request.BoardStyleApiRequest;
 import com.supreme.shoekream.model.network.request.ReplyApiRequest;
@@ -26,6 +28,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -119,8 +122,8 @@ public class BoardApiController {
     }
 
     @GetMapping("/isBoardExist/{memberIdx}")
-    public List<BoardWithLikeListResponse> isBoardExist(@PathVariable(name = "memberIdx") Long memberIdx){
-        return styleLogicService.isBoardExist(memberIdx);
+    public List<BoardWithLikeListResponse> isBoardExist(@PathVariable(name = "memberIdx") Long memberIdx, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        return styleLogicService.isBoardExist(memberIdx, kreamPrincipal.idx());
     }
 
     @GetMapping("/like/{boardIdx}")
@@ -219,4 +222,5 @@ public class BoardApiController {
         }
 
     }
+
 }

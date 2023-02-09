@@ -7,6 +7,7 @@ import com.supreme.shoekream.model.dto.socialDTO.ReplyDTO;
 import com.supreme.shoekream.model.dto.socialDTO.TagDTO;
 import com.supreme.shoekream.model.entity.Board;
 import com.supreme.shoekream.model.entity.Lk;
+import com.supreme.shoekream.service.SellService;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
@@ -51,6 +52,7 @@ public record BoardWithLikeListResponse(
     }
 
     public static List<BoardWithLikeListResponse> fromEntity(List<Board> bds){
+
         List<BoardWithLikeListResponse> boards = new ArrayList<>();
         for (int i=0;i<bds.size();i++){
             boards.add(BoardWithLikeListResponse.fromEntity(bds.get(i)));

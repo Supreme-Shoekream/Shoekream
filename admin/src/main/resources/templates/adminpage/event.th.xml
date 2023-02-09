@@ -10,6 +10,7 @@
                  <attr sel="#view_btn1" th:onclick="'javascript:pop_event_view('+${event.idx}+');'"/>
                 <attr sel="#edit_btn1" th:onclick="'javascript:pop_event_edit('+ ${event.idx} + ');'"/>
                 <attr sel="#delete_btn1" th:onclick="'javascript:pop_event_delete('+ ${event.idx} + ');'"/>
+                <attr sel="#draw_btn1" th:onclick="'javascript:pop_event_draw('+ ${event.idx} + ');'"/>
             </attr>
         </attr>
     </attr>
