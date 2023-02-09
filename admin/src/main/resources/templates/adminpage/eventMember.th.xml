@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<thlogic>
+    <attr sel="tbody" th:remove="all-but-first">
+        <attr sel="tr[0]" th:each="eventMember : ${eventMember}">
+            <attr sel="td.eventMemberIdx" th:text="${eventMember.idx}"/>
+            <attr sel="td.eventProImg/img" th:src="${eventMember.eventProduct.product.img}"/>
+            <attr sel="td.eventName" th:text="${eventMember.eventProduct.title}"/>
+            <attr sel="td.eventMemberEmail" th:text="${eventMember.member.email}"/>
+            <attr sel="td.eventMemberName" th:text="${eventMember.member.name}"/>
+        </attr>
+    </attr>
+</thlogic>

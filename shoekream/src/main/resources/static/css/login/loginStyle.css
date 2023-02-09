@@ -61,18 +61,23 @@ input {
 }
 
 .login_title {
-    padding-bottom: 2rem;
+    padding-bottom: 50px;
     text-align: center;
     font-size: 0;
 }
 
 .login_title:before {
-    content: "";
-    display: inline-block;
-    width: 250px;
-    height: 56px;
-    background: url(https://kream.co.kr/_nuxt/img/login_title.9f9ccc8.png) no-repeat;
-    background-size: 250px 56px;
+    /*content: "";*/
+    /*display: inline-block;*/
+    /*height: 46px;*/
+    /*background: url(https://kream.co.kr/_nuxt/img/login_title.9f9ccc8.png) no-repeat;*/
+    /*background: url("/img/shoekream_logo.png") no-repeat;*/
+    /*background-size: 200px 46px;*/
+}
+
+.logo {
+    width: 200px;
+    margin-left: 100px;
 }
 
 .input_box {
@@ -114,13 +119,22 @@ input {
     /* height: 50px; */
 }
 
-.solid.disabled
-/* ,
-.solid:disabled  */
-{
+.solid.disabled {
     background-color: #ebebeb;
     color: #fff;
     cursor: default;
+}
+
+#size_submit_btn.solid.disabled {
+    background-color: #fff;
+    border: 1px solid #ebebeb;
+    color: rgba(34,34,34,.3);
+    cursor: default;
+}
+
+#size_submit_btn.solid {
+    background-color: #222;
+    color: #fff;
 }
 
 .btn.btn_login_katalk {
@@ -446,10 +460,6 @@ a:active, a:focus {
 
 .btn_size_select {
     border: none;
-}
-
-#size_submit_btn:hover {
-    color: #fff;
 }
 
 #find_button:focus {

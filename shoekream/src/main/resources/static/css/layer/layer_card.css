@@ -1,7 +1,7 @@
 .layer_card .layer_container {
     width: 300px;
 }
-.btn {
+.layer .btn {
     display: inline-flex;
     cursor: pointer;
     -webkit-box-align: center;
@@ -155,12 +155,12 @@
     font-size: 14px;
     letter-spacing: -.14px;
 }
-.solid {
+.layer .solid {
     background-color: #222;
     color: #fff;
 }
-.solid.disabled,
-.solid:disabled {
+.layer .solid.disabled,
+.layer .solid:disabled {
     background-color: #ebebeb;
     color: #fff;
     cursor: default;

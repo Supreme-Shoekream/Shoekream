@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHOEKREAM | 한정판 거래의 FLEX</title>
+    <title>공지사항 | SHOEKREAM</title>
     <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://kream.co.kr/favicon.ico">
     <link rel="stylesheet" href="/css/notice/notice.css">
     <link rel="stylesheet" href="/css/fragment/footer.css">
@@ -49,7 +49,7 @@
                                 </div><!---->
                             </div>
                             <ul class="dropdown_list">
-                                <li>
+                                <li class="list-start">
                                     <div class="dropdown">
                                         <div class="dropdown_head">
                                             <div class="title_box"><!---->
@@ -277,5 +277,10 @@
     <footer th:replace="/fragment/footer :: footer"></footer>
 <!--footer 넣을곳-->
 </body>
+<script>
+    function href_detail(idx){
+        location.href="/notice/"+idx
+    }
+</script>
 </html>
 <script src="/js/notice/notice.js"></script>

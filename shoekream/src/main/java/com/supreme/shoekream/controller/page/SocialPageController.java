@@ -51,19 +51,18 @@ public class SocialPageController {
         Page<BoardWithLikeListResponse> boards = styleLogicService.unlog_trend(pageable);
         int pageNum = boards.getNumber();
         map.addAttribute("pageNumber", pageNum);
+        map.addAttribute("totalPages", boards.getTotalPages());
         return new ModelAndView("social/trending");
     }
 
-//    @GetMapping(path="/social")    // http://localhost:8889/social
-//    public String trending(ModelMap map){
-//        map.addAttribute("trendHashtags", styleLogicService.trendHashtags());
-//        map.addAttribute("boards", styleLogicService.trendList());
-//        return "social/trending";
-//    }
 
     @GetMapping(path = "/social/newest")   // http://localhost:8889/social/newest
-    public ModelAndView newest(ModelMap map){
+    public ModelAndView newest(ModelMap map, @PageableDefault(size = 12)Pageable pageable){
         map.addAttribute("trendHashtags", styleLogicService.trendHashtags());
+        Page<BoardWithLikeListResponse> boards = styleLogicService.unlog_newest(pageable);
+        int pageNum = boards.getNumber();
+        map.addAttribute("pageNumber", pageNum);
+        map.addAttribute("totalPages", boards.getTotalPages());
         return new ModelAndView("social/newest");
     }
 
@@ -130,7 +129,7 @@ public class SocialPageController {
     public String details(ModelMap map, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
         if(kreamPrincipal == null){
             map.addAttribute("feed", styleLogicService.unlog_newest());
-            map.addAttribute("sessionUser", memberRepository.getReferenceById(1L));
+            map.addAttribute("sessionUser", memberRepository.getReferenceById(100L));
         }else{
             map.addAttribute("feed", styleLogicService.newest(kreamPrincipal.toFullDto()));
             map.addAttribute("sessionUser",kreamPrincipal.toFullDto());

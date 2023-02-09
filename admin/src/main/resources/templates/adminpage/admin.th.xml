@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<thlogic>
+    <attr sel="tbody" th:remove="all-but-first">
+        <attr sel="tr[0]" th:each="admin : ${admins}">
+            <attr sel="td.idx" th:text="${admin.idx}"/>
+            <attr sel="td.adminid" th:text="${admin.adminid}"/>
+            <attr sel="td.name" th:text="${admin.name}"/>
+            <attr sel="td.hp" th:text="${admin.hp}"/>
+            <!-- View, Delete 부분 -->
+            <attr sel=".dropdown">
+                <attr sel="#view_btn" th:onclick="'javascript:pop_admin_view('+ ${admin.idx} + ');'"/>
+                <attr sel="#edit_btn" th:onclick="'javascript:pop_admin_edit(' + ${admin.idx} + ');'"/>
+                <attr sel="#delete_btn" th:onclick="'javascript:pop_admin_delete(' + ${admin.idx} + ');'"/>
+            </attr>
+        </attr>
+    </attr>
+    <attr sel=".pagination">
+        <attr sel="li[0]/a" th:text="'◀'"
+              th:href="@{/admin(page=${admins.number - 1}, searchKeyword=${param.searchKeyword})}"
+              th:class="'page-link'+(${admins.number}<=0 ? ' disabled' : '')"/>
+        <attr sel="li[1]" th:class="page-item" th:each="pageNumber : ${barNumbers}">
+            <attr sel="a" th:text="${pageNumber + 1}"
+                  th:href="@{/admin(page=${pageNumber}, searchKeyword=${param.searchKeyword})}"
+                  th:class="'page-link'+(${pageNumber}==${admins.number} ? ' disabled' : '')"/>
+        </attr>
+        <attr sel="li[2]/a" th:text="'▶'"
+              th:href="@{/admin(page=${admins.number + 1}, searchKeyword=${param.searchKeyword})}"
+              th:class="'page-link'+(${admins.number}>=${admins.totalPages -1} ? ' disabled' : '')"/>
+    </attr>
+</thlogic>

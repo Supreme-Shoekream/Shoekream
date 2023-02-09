@@ -86,6 +86,14 @@ public class StyleLogicService {
         List<BoardWithLikeListResponse> newest = BoardWithLikeListResponse.fromEntity(boardRepository.findAll(Sort.by(Sort.Direction.DESC, "createdAt")));
         return newest;
     }
+    @Transactional(readOnly = true)
+    public Page<BoardWithLikeListResponse> unlog_newest(Pageable pageable){
+        List<BoardWithLikeListResponse> newest = BoardWithLikeListResponse.fromEntity(boardRepository.findAll(Sort.by(Sort.Direction.DESC, "createdAt")));
+        final int start = (int) pageable.getOffset();
+        final int end = Math.min((start + pageable.getPageSize()), newest.size());
+        PageImpl<BoardWithLikeListResponse> boards = new PageImpl<>(newest.subList(start, end), pageable, newest.size());
+        return boards;
+    }
 
     @Transactional(readOnly = true)
     public List<BoardWithLikeListResponse> trendList(MemberDTO memberDTO){
@@ -178,6 +186,31 @@ public class StyleLogicService {
         return newest;
     }
 
+    @Transactional(readOnly = true)
+    public Page<BoardWithLikeListResponse> newest(MemberDTO memberDTO, Pageable pageable) {
+        List<BoardWithLikeListResponse> newest = BoardWithLikeListResponse.fromEntity(boardRepository.findAll(Sort.by(Sort.Direction.DESC, "createdAt")));
+        List<Lk> lks = likeRepository.findAllByMember(memberDTO.toEntity());
+        for(int i=0;i<newest.size();i++){
+            for(int j=0;j<lks.size();j++){
+                if(lks.get(j).getBoard().getIdx() == newest.get(i).idx()){
+                    newest.set(i,
+                            BoardWithLikeListResponse.of(newest.get(i).idx(),
+                                    newest.get(i).memberDTO(),
+                                    newest.get(i).content(),
+                                    newest.get(i).img(), newest.get(i).hashtag(),newest.get(i).lks(), newest.get(i).replies(),
+                                    newest.get(i).tags(), newest.get(i).createdAt(), newest.get(i).modifiedAt(), true)
+                    );
+
+                }
+            }
+        }
+
+        final int start = (int) pageable.getOffset();
+        final int end = Math.min((start + pageable.getPageSize()), newest.size());
+        PageImpl<BoardWithLikeListResponse> boards = new PageImpl<>(newest.subList(start, end), pageable, newest.size());
+        return boards;
+    }
+
     public Board read(Long idx){
         Board board = boardRepository.findByIdx(idx);
         return board;
@@ -258,32 +291,6 @@ public class StyleLogicService {
     }
 
     public List<BoardWithLikeListResponse> findTopSevenStylePick(){
-//        List<Board> bds = boardRepository.findAll();
-//        List<BoardDTO> boards = BoardDTO.fromEntity(bds);
-//        for (int i=0;i<boards.size()-1;i++){
-//            for(int j=1;j<boards.size();j++){
-//                if(boards.get(i).lks().size() > boards.get(j).lks().size()){
-//                    BoardDTO temp = BoardDTO.of(
-//                            boards.get(i).idx(),
-//                            boards.get(i).memberDTO(),
-//                            boards.get(i).content(),
-//                            boards.get(i).hashtag(),
-//                            boards.get(i).img(),
-//                            boards.get(i).lks(),
-//                            boards.get(i).replies(),
-//                            boards.get(i).tags(),
-//                            boards.get(i).createdAt(),
-//                            boards.get(i).modifiedAt()
-//                            );
-//                    boards.set(i, boards.get(j));
-//                    boards.set(j, temp);
-//                }
-//            }
-//        }
-//        List<BoardDTO> response = new ArrayList<>();
-//        for(int i=0;i<7;i++){
-//            response.add(boards.get(i));
-//        }
         List<BoardWithLikeListResponse> trendingBoards = unlog_trend();
         List<BoardWithLikeListResponse> response = new ArrayList<>();
         for(int i=0;i<7;i++){
@@ -518,4 +525,3 @@ public List<FollowDTO> countFollowers(Long memberIdx){//내가 팔로우하고 �
         return null;
     }
 }
-

@@ -1,24 +1,32 @@
+let flag= false;
 window.onload = function (){
     $('span.like').click(function(e){
         e.preventDefault();
     });
-
+    searchStart(0);
     const items = document.querySelectorAll('gnb_item');
     items.forEach((it) => {
         it.classList.remove('gnb_on');
     })
     const item = document.getElementById('st_gnb');
     item.classList.add('gnb_on');
-    // console.log("in")
-    fetch("http://localhost:8889/api/social/newest/")
-        .then((response) => response.json())
-        .then((data) => {
-            console.log(data)
-            let feedList = "";
-            for(let i=0;i <data.length;i++){
-                feedList +=
-                    `
-                    <div class="feed_card item vertical"" style="padding-top: 10px; position: absolute;  left: ${(i%4)*307}px; top: ${Math.floor(i/4)*465}px">
+
+    let pageNum = Number(document.querySelector('.btn_page').innerHTML) - 1;
+    let totPages = Number(document.getElementById('totPages').value)
+
+    async function searchStart(pageNum) {
+        flag = false;
+
+        fetch("http://localhost:8889/api/social/newest?page=" + pageNum)
+
+            .then((response) => response.json())
+            .then((data) => {
+                data = data.content;
+                let feedList = "";
+                for (let i = 0; i < data.length; i++) {
+                    feedList +=
+                        `
+                    <div class="feed_card item vertical"" style="padding-top: 10px; position: absolute;  left: ${(i % 4) * 307}px; top: ${Math.floor(i / 4) * 465+ pageNum * 1400}px">
                                     <a href="/social/details#${data[i].idx}" class="feed_each">
                                         <div class="card_box">
                                             <div class="social_img_box vertical">
@@ -49,35 +57,75 @@ window.onload = function (){
                                                         role="button" class="btn like" onclick="like_clicked(${data[i].idx}, ${data[i].lks.length}, this)">
 `
 
-                if(data[i].islike == false){
-                    feedList += `<img id="like_icon" src="/img/styleImg/like_icon.png" alt="좋아요 이미지"
+                    if (data[i].islike == false) {
+                        feedList += `<img id="like_icon" src="/img/styleImg/like_icon.png" alt="좋아요 이미지"
                                                             class="icon sprite-icons social-like-gray-sm">`
-                }else{
-                    feedList += `<img id="like_icon" src="/img/styleImg/like_after_icon.png" alt="좋아요 이미지"
+                    } else {
+                        feedList += `<img id="like_icon" src="/img/styleImg/like_after_icon.png" alt="좋아요 이미지"
                                                             class="icon sprite-icons social-like-gray-sm">`
-                }
-                feedList +=  `<span class="like_count">${data[i].lks.length}</span></span>
+                    }
+                    feedList += `<span class="like_count">${data[i].lks.length}</span></span>
                                                 </div>`
-                if(data[i].hashtag != null){
-                    feedList += `<p className="text_box">${data[i].content}` + ` #` +
-                        `${data[i].hashtag}</p>`
-                }else{
-                    feedList += `<p className="text_box">${data[i].content}</p>`
-                }
-                feedList += `</div>
+                    if (data[i].hashtag != null) {
+                        feedList += `<p className="text_box">${data[i].content}` + ` #` +
+                            `${data[i].hashtag}</p>`
+                    } else {
+                        feedList += `<p className="text_box">${data[i].content}</p>`
+                    }
+                    feedList += `</div>
                                         </div>
                                     </a>
                                 </div>
                     `
-            }
+                }
+                let newList = document.createElement('div');
+                newList.innerHTML = feedList;
+                // feedList = `<div class="gutter_item"></div>` + feedList;
+                // document.getElementById('masonry_posts').innerHTML = feedList;
+                document.getElementById('masonry_posts').appendChild(newList);
+                document.querySelector('.footer').style.position = 'absolute';
+                document.querySelector('.footer').style.width = '100%';
+                document.querySelector('.footer').style.top = (Math.floor(((data.length) / 4) + 1) * 465 + 200 + pageNum*1300) + 'px';
+                if(pageNum == totPages -2){
+                    document.getElementById('loading').style.display = 'none';
+                }
+            })
+           loading()
+    }
+    if(pageNum < totPages - 1){
+        scroll();
+    }
 
-            feedList = `<div class="gutter_item"></div>` + feedList;
-            document.getElementById('masonry_posts').innerHTML = feedList;
-            document.querySelector('.footer').style.position= 'absolute';
-            document.querySelector('.footer').style.width= '100%';
-            document.querySelector('.footer').style.top= (Math.floor(((data.length)/4)+1)*465+300)+'px';
+    function scroll() {
+        const screenHeight = screen.height;
+        document.addEventListener('scroll', () => {
+            flag = false;
+            const scrollPosition = pageYOffset;
+            if (160 + (pageNum + 1) * 1300 - screenHeight / 2 <= scrollPosition && !flag) {
+                flag = true;
+                pageNum++;
+                if (pageNum < totPages - 1) {
+                    loading();
+                    wait(1);
+                    searchStart(pageNum);
+                }
+            }
         })
-        .catch((err) => {
-            console.log(err)
-        })
+    }
+
+    function wait(sec) {
+        let start = Date.now(), now = start;
+        while (now - start < sec * 1000) {
+            now = Date.now();
+        }
+    }
+
+}
+function loading(){
+    loadimgImg = document.getElementById('loading');
+    if(loadimgImg.style.display == 'block'){
+        loadimgImg.style.display = 'none';
+    }else{
+        loadimgImg.style.display = 'block';
+    }
 }

@@ -53,7 +53,10 @@ public class SecurityConfig{
                                 "/social/newest",
                                 "/social/hashtag/**",
                                 "/social/details",
-                                "/joinOk"
+                                "/joinOk",
+                                "/notice",
+                                "/faq",
+                                "/auth_policy"
                         ).permitAll()
                    .anyRequest().authenticated()
                 )
