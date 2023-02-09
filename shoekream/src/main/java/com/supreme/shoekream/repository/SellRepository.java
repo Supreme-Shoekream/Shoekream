@@ -37,4 +37,5 @@ public interface SellRepository extends JpaRepository<Sell,Long> {
 
     Page<Sell> findBySenderContaining(String sender, Pageable pageable);
     List<Sell> findAllByProductOrderByCreatedAtDesc(Product product);
+    List<Sell> findAllByProductAndStatusOrderByCreatedAtDesc(Product product, OrderStatus status);
 }

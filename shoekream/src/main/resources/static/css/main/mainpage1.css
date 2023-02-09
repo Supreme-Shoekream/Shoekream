@@ -974,6 +974,7 @@ img {
     margin: 20px 0;
     padding: 0 12px;
     width: 24%;
+    cursor: pointer;
 }
 .product_item .item_inner{
     display: block;
