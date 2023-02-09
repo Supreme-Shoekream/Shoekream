@@ -21,9 +21,29 @@
       <div class="card-box mb-30" id="point_object">
         <div class="pd-20">
           <h4 class="text-blue h4">포인트 리스트</h4>
-          <!--이름/아이디/전화번호/주소/회원상태/포인트-->
         </div>
         <div class="pb-20">
+          <div class="row">
+            <div class="col-sm-12 col-md-6">
+              <div class="dataTables_length" id="DataTables_Table_0_length" style="padding-bottom: 5px; padding-left: 20px;">
+                <div style="display: flex;">
+                  <i class="icon-copy bi bi-card-list"></i>
+                  <p th:text="'사용자 포인트 ' + ${points.totalElements} + '건'" style="margin-left: 10px;"></p>
+                </div>
+                <div style="display: flex;">
+                  <i class="icon-copy bi bi-book"></i>
+                  <p th:text="'총 ' + ${points.totalPages} + '페이지 중 ' + ${(points.number)+1} + '페이지'" style="margin-left: 10px;"></p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+              <div id="DataTables_Table_0_filter" class="dataTables_filter" style="text-align: right;padding-left: 15px; padding-right: 15px;">
+                <label style=" font-weight: normal; white-space: nowrap; text-align: left; display: flex; align-items: center; justify-content: flex-end;">search:
+                  <input id="search_box" type="search" class="form-control form-control-sm" aria-controls="DataTables_Table_0" style="margin-left: 0.5em; width: auto;">
+                </label>
+              </div>
+            </div>
+          </div>
           <table class="data-table table stripe hover nowrap">
             <thead>
             <tr>
