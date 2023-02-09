@@ -56,7 +56,8 @@ public class SecurityConfig{
                                 "/joinOk",
                                 "/notice",
                                 "/faq",
-                                "/auth_policy"
+                                "/auth_policy",
+                                "/images/**"
                         ).permitAll()
                    .anyRequest().authenticated()
                 )
