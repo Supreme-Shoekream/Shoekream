@@ -65,7 +65,9 @@ a:-webkit-any-link{
 .like_count:hover{
     cursor: pointer;
 }
-
+a:hover{
+    cursor: pointer;
+}
 .profile_img_box {
     overflow: hidden;
     position: relative;

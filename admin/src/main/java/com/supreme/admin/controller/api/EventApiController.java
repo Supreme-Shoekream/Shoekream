@@ -2,10 +2,12 @@ package com.supreme.admin.controller.api;
 
 import com.supreme.admin.controller.CrudController;
 import com.supreme.admin.model.dto.EventDTO;
+import com.supreme.admin.model.dto.NoticeDTO;
 import com.supreme.admin.model.dto.ProductDTO;
 import com.supreme.admin.model.entity.EventProduct;
 import com.supreme.admin.model.network.Header;
 import com.supreme.admin.model.network.request.EventApiRequest;
+import com.supreme.admin.model.network.request.NoticeApiRequest;
 import com.supreme.admin.model.network.response.EventApiResponse;
 import com.supreme.admin.repository.EventMemberRepository;
 import com.supreme.admin.service.BuyService;
@@ -54,7 +56,9 @@ public class EventApiController extends CrudController<EventApiRequest, EventDTO
         eventApiService.delete(idx);
     }
 
-    public void draw(@PathVariable Long idx){
+    @PostMapping("/{idx}")
+    public void draw(@RequestBody Header<EventApiRequest> request){
+        Long idx = request.getData().idx();
         eventApiService.draw(idx);
     }
 

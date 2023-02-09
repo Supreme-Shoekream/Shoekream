@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 
 
 public record EventApiRequest(
+        Long idx,
         Long productIdx,
         String title,
         String img,

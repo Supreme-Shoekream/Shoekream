@@ -332,3 +332,41 @@ function eventdelete(idx){
 function close_event_delete() {
     document.querySelector(".event_delete").style.display = "none";
 }
+
+// ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+let eventIdx
+function addPointEvent(){
+    eventdraw(eventIdx)
+}
+function pop_event_draw(idx){
+    eventIdx =idx
+    document.querySelector(".event_draw").style.display = "block";
+    const btn_draw = document.querySelector('.btn_draw');
+    btn_draw.addEventListener('click', addPointEvent)
+}
+function eventdraw(idx){
+    fetch('http://localhost:8899/api/admin/event/'+idx, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            "transaction_time": `${new Date()}`,
+            "resultCode": "ok",
+            "description": "정상",
+            "data": {
+                "idx": `${idx}`
+            }
+        }),})
+            .then((res) => {
+                alert(" 성공!")
+                location.reload();
+            })
+            .catch((err) => {
+                alert("에러! 에러!!");
+                location.reload();
+                return;
+            })
+}
+function close_event_draw() {
+    document.querySelector(".event_draw").style.display = "none";
+    document.querySelector('.btn_draw').removeEventListener('click', addPointEvent)
+}

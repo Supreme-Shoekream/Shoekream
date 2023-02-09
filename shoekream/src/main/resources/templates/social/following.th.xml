@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <thlogic>
     <attr sel=".feed">
+        <attr sel="#feed_cnt" th:value="${feed.size()}"/>
         <attr sel=".social_post_detail" th:each="detail : ${feed}">
             <attr sel=".social_user_state" th:onclick="'javascript:profileCheck(' + ${detail.memberDTO.idx} +');'">
                 <attr sel=".profile_img_box/img" th:src="${detail.memberDTO.imgUrl}"/>
@@ -28,7 +29,7 @@
                             <attr sel=".product_desc">
                                 <attr sel=".product_name" th:text="${tag.productDTO.name}"/>
                                 <attr sel=".price_box">
-                                    <attr sel=".amount" th:text="${tag.productDTO.firstPrice}"/><!-- !!!!!!!!!!!!!!!수정!!!!!!!!!!!!!!!-->
+                                    <attr sel=".amount" th:text="${prices[detailStat.index][tagStat.index]}"/>
                                 </attr>
                             </attr>
                         </attr>
@@ -59,7 +60,9 @@
                     <attr sel=".comment_list">
                         <attr sel=".comment_unit" th:each="comment : ${detail.replies}">
                             <attr sel=".comment_box">
-                                <attr sel=".profile_link/img" th:src="${comment.memberDTO.imgUrl}"/>
+                                <attr sel=".profile_link" th:onclick="'javascript:profileCheck(' + ${comment.memberDTO.idx} +');'">
+                                    <attr sel="img" th:src="${comment.memberDTO.imgUrl}"/>
+                                </attr>
                                 <attr sel=".comment_detail">
                                     <attr sel=".main">
                                         <attr sel=".user_name" th:text="${comment.memberDTO.nickname}"/>
@@ -75,6 +78,11 @@
                     </attr>
                 </attr>
             </attr>
+            <attr sel="#comment_more">
+                <attr sel="#content_profile" th:onclick="'javascript:profileCheck(' + ${detail.memberDTO.idx} +');'"/>
+            </attr>
         </attr>
+        <attr sel=".social_feeds_empty" th:if="${feed.size()} == 0"/>
     </attr>
+
 </thlogic>

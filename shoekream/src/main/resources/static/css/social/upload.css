@@ -614,7 +614,7 @@ textarea{
     align-items: center;
     position: fixed;
     bottom: 6rem;
-    left: 25rem;
+    right: 25rem;
 }
 #tag_btn{
     width: 70px;
