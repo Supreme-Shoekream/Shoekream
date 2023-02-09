@@ -44,6 +44,8 @@
             <div social class="container social lg">
                 <div class="content">
                     <div class="feed">
+<!--                         피드 개수 넣어주기-->
+                        <input type="hidden" value="" id="feed_cnt">
                         <!--                            게시글 하나 시작-->
                         <div id="p650880" class="social_post_detail">
                             <div class="social_user_state">
@@ -137,7 +139,7 @@
                                     <!---->
                                 </div>
                                 <div class="social_text">
-                                        <span href="#" class="text_link" >
+                                        <span class="text_link" >
                                             <span class="text">뿡
                                                 <!--                                            <a class="hashtag" href="https://kream.co.kr/social/tags/미리메리챌린지">#미리메리챌린지</a>-->
                                             </span>
@@ -146,38 +148,7 @@
                                         </span>
                                     <!---->
                                 </div>
-                                <div class="social_comment">
-                                    <div class="comment_area" >
-                                        <a class="comment_count" > 댓글 <strong >4</strong>개 </a>
-                                        <div class="comment_list" >
-                                            <div class="comment_unit">
-                                                <div class="comment_box" >
-                                                    <a href="#" class="profile_link" >
-                                                        <img src="/img/kream_empty_img.png" alt="KREAM 프로필 이미지" class="profile_img" >
-                                                    </a>
-                                                    <div class="comment_detail" >
-                                                        <div class="main">
-                                                            <span class="user_name" >svn3g8</span>
-                                                            <span class="comment_txt" >스택.사이즈  궁금합니닷!!</span>
-                                                        </div>
-                                                        <div class="sub" >
-                                                            <span class="upload_time" ><time>2022년 12월 14일</time></span>
-                                                            <!---->
-                                                            <!---->
-                                                            <!---->
-                                                            <!---->
-                                                        </div>
-                                                    </div>
-                                                    <!--                                                        <a href="#" class="btn_like" >-->
-                                                    <!--                                                            <img src="../../static/lib/styleImg/like_icon.png" class="icon sprite-icons social-like-gray-sm">-->
-                                                    <!--                                                        </a>-->
-                                                </div>
-                                            </div>
 
-                                            <a style="cursor: pointer;" class="btn_more"  onclick="comment_more()">댓글 더 보기...</a>
-                                        </div>
-                                    </div>
-                                </div>
 
                                 <!--                                    댓글 더보기 시작-->
                                 <div style="display: none;" id="comment_more" class="layer_social_comment layer lg">
@@ -193,7 +164,7 @@
                                                 <div class="comment_top_scroll">
                                                     <div class="comment_unit" >
                                                         <div class="comment_box">
-                                                            <a href="#" class="profile_link">
+                                                            <a class="profile_link" id="content_profile">
                                                                 <img  src=""
                                                                       alt="KREAM 프로필 이미지" class="profile_img" id="layer_board_member_profile">
                                                             </a>
@@ -217,14 +188,14 @@
                                                     <!---->
                                                     <div class="social_comment_input">
                                                         <div  class="comment_input">
-                                                            <a  href="#" class="profile_link">
+                                                            <a class="profile_link">
                                                                 <img  src="" alt="KREAM 프로필 이미지" class="profile_img" id="layer_commment_create_profile">
                                                             </a>
                                                             <div class="wrap_input" style="height: 41px;">
                                                                 <div placeholder="댓글을 남기세요…"contenteditable="true"
                                                                      oninput="inputReply(this)" onkeyup="isNull(this)" class="input_txt origin" id="layer_reply_content"></div>
                                                                 <!--                                                                    <div  placeholder="댓글을 남기세요…" class="input_txt dummy"></div>-->
-                                                                <a  href="#" class="btn_regist" style="display: none;" id="reply_submit_btn" onclick="comment_submit()"> 등록 </a>
+                                                                <a class="btn_regist" style="display: none;" id="reply_submit_btn" onclick="comment_submit()"> 등록 </a>
                                                                 <input type="hidden" id="now_boardIdx">
                                                             </div>
                                                         </div>
@@ -236,7 +207,7 @@
                                             <div class="comment_group" id="comment_group">
                                                 <div class="comment_unit" >
                                                     <div class="comment_box">
-                                                        <a  href="#" class="profile_link">
+                                                        <a class="profile_link">
                                                             <img  src="" alt="KREAM 프로필 이미지" class="profile_img layer_unit">
                                                         </a>
                                                         <div class="comment_detail">
@@ -264,6 +235,30 @@
                             </div>
                         </div>
                         <!--                            게시글 하나 끝-->
+                        <!--            비었을 때 -->
+                        <div   class="social_feeds_empty">
+                            <div class="empty_box" style="margin: 90px auto 200px;
+                                                          max-width: 275px;
+                                                          text-align: center;">
+                                <img src="/img/styleImg/empty_following.png" style="width: 90px;
+                                                                                    margin-bottom: 10px;
+                                                                                    padding-top: 150px;">
+                                <strong class="empty_title" style="padding-top: 5px;
+                                                                   display: block;
+                                                                   font-size: 15px;
+                                                                   letter-spacing: -.15px;">팔로잉</strong>
+                                <p class="empty_txt" style="padding-top: 11px;
+                                                            font-size: 13px;
+                                                            letter-spacing: -.07px;
+                                                            /*color: rgba(34,34,34,.5);*/
+                                                            word-break: keep-all;
+                                        margin-bottom: 10px">팔로우한 사용자가 없거나 사용자들의 게시글이 없습니다.</p>
+                                <a href="/social" type="button" class="btn outline small" style="border: 1px solid #d3d3d3;
+                                                                                                    margin-top: 16px;padding: 5px;
+                                                                                                    font-weight: 600;color: gray;"> 인기글 보기 </a>
+                            </div>
+                        </div>
+                        <!--             비었을 때 끝-->
                     </div>
 
                     <!--                    위아래 버튼 시작 -->
@@ -297,7 +292,7 @@
                 <ul class="user_list" id="layer_like_user_list">
                     <li class="user_item">
                         <div class="user_box">
-                            <a href="#" class="user_link">
+                            <a class="user_link">
                                 <div class="img_box">
                                     <img src="/img/styleImg/empty_profile_img.png"
                                          alt="KREAM 프로필 이미지" class="profile_img">
@@ -318,6 +313,9 @@
                 </ul>
                 <!---->
             </div>
+
+
+
         </div>
     </div>
 </div>
@@ -334,6 +332,7 @@
 <script src="/js/social/like.js"></script>
 <script src="/js/social/like_users.js"/>
     <link rel="stylesheet" href="/css/social/following.css">
+
 </body>
 
 

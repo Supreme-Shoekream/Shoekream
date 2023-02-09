@@ -13,6 +13,7 @@ import com.supreme.shoekream.repository.BoardRepository;
 import com.supreme.shoekream.repository.FollowRepository;
 import com.supreme.shoekream.repository.MemberRepository;
 import com.supreme.shoekream.repository.ProductRepository;
+import com.supreme.shoekream.service.SellService;
 import com.supreme.shoekream.service.StyleLogicService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +44,7 @@ public class SocialPageController {
     private final FollowRepository followRepository;
     private final StyleLogicService styleLogicService;
     private final ProductRepository productRepository;
+    private final SellService sellService;
 
 
     @GetMapping(path="/social")    // http://localhost:8889/social
@@ -51,19 +53,18 @@ public class SocialPageController {
         Page<BoardWithLikeListResponse> boards = styleLogicService.unlog_trend(pageable);
         int pageNum = boards.getNumber();
         map.addAttribute("pageNumber", pageNum);
+        map.addAttribute("totalPages", boards.getTotalPages());
         return new ModelAndView("social/trending");
     }
 
-//    @GetMapping(path="/social")    // http://localhost:8889/social
-//    public String trending(ModelMap map){
-//        map.addAttribute("trendHashtags", styleLogicService.trendHashtags());
-//        map.addAttribute("boards", styleLogicService.trendList());
-//        return "social/trending";
-//    }
 
     @GetMapping(path = "/social/newest")   // http://localhost:8889/social/newest
-    public ModelAndView newest(ModelMap map){
+    public ModelAndView newest(ModelMap map, @PageableDefault(size = 12)Pageable pageable){
         map.addAttribute("trendHashtags", styleLogicService.trendHashtags());
+        Page<BoardWithLikeListResponse> boards = styleLogicService.unlog_newest(pageable);
+        int pageNum = boards.getNumber();
+        map.addAttribute("pageNumber", pageNum);
+        map.addAttribute("totalPages", boards.getTotalPages());
         return new ModelAndView("social/newest");
     }
 
@@ -71,9 +72,9 @@ public class SocialPageController {
     @GetMapping(path = "/social/following")    // http://localhost:8889/social/following
     public String following(@AuthenticationPrincipal KreamPrincipal kreamPrincipal, ModelMap map){
         MemberDTO sessionMember = kreamPrincipal.toFullDto();
-//        List<BoardDTO> feed = BoardDTO.fromEntity(styleLogicService.getFollowingFeeds(sessionMember.idx()));
         map.addAttribute("feed", styleLogicService.getFollowingFeeds(sessionMember.idx()));
         map.addAttribute("sessionUser",sessionMember);
+        map.addAttribute("prices",sellService.buyNowTagPrices(styleLogicService.getFollowingFeeds(sessionMember.idx())));
         return "social/following";
 
     }
@@ -130,7 +131,7 @@ public class SocialPageController {
     public String details(ModelMap map, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
         if(kreamPrincipal == null){
             map.addAttribute("feed", styleLogicService.unlog_newest());
-            map.addAttribute("sessionUser", memberRepository.getReferenceById(1L));
+            map.addAttribute("sessionUser", memberRepository.getReferenceById(100L));
         }else{
             map.addAttribute("feed", styleLogicService.newest(kreamPrincipal.toFullDto()));
             map.addAttribute("sessionUser",kreamPrincipal.toFullDto());

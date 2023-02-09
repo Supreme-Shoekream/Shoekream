@@ -51,6 +51,7 @@ function buy_now() {    //즉시 구매 버튼 클릭
     $(".step-1 .btn_confirm a").html("즉시 구매 계속");
     $(".step-1 .btn_confirm a").removeClass("disabled")
     $(".is_dark span").html("즉시 구매가")
+    $(".step-3 .main_title").html('즉시 구매가 완료되었습니다.')
     // 만약 에러메세지가 있을 때 없애기 위해
     price_box.classList.remove('has_warning')
     price_box.classList.remove('has_danger')
@@ -71,6 +72,7 @@ function buy_bid() {  // 구매 입찰 버튼 클릭
     $(".step-1 .btn_confirm a").html("구매 입찰 계속");
     $(".step-1 .btn_confirm a").addClass("disabled")
     $(".is_dark span").html("구매 희망가")
+    $(".step-3 .main_title").html('구매 입찰이 완료되었습니다.')
     document.getElementById("bid_input").value=''; // bid_input value 값 초기화
     is_now=false;
     period=30;
@@ -878,7 +880,10 @@ function getCheck() {
     const query = 'input[class=check]:checked';
     const selectedElements = document.querySelectorAll(query);
     const cnt = selectedElements.length;
-    if (cnt == 4) {
+    // 조건 추가 카드랑 주소
+    const delivery_empty = document.querySelector('.empty_delivery_info')
+    const card_empty =document.querySelector('.regist_link')
+    if (cnt === 4 && delivery_empty.style.display==='none'&& card_empty.style.display==='none') {
         document.querySelector('#submit').classList.remove('disabled')
     } else {
         document.querySelector('#submit').className = 'btn full solid disabled';
@@ -930,9 +935,9 @@ function sendit() {
         .then((res) => {
             document.querySelector('.step-2').style.display="none"
             document.querySelector('.step-3').style.display="block"
-            document.querySelector('.step-3 .wish_price').innerHTML=wish_price.toLocaleString('ko-KR');
-            document.querySelector('.step-3 .final_fees').innerHTML=fees.toLocaleString('ko-KR');
-            document.querySelector('.step-3 .use_point').innerHTML = use_point.toLocaleString('ko-KR');
+            document.querySelector('.step-3 .wish_price').innerHTML=wish_price.toLocaleString('ko-KR')+"원";
+            document.querySelector('.step-3 .final_fees').innerHTML=fees.toLocaleString('ko-KR')+"원";
+            document.querySelector('.step-3 .use_point').innerHTML = use_point.toLocaleString('ko-KR')+"원";
             document.querySelector('.step-3 .final_price').innerHTML = (wish_price + fees + 3000 - use_point).toLocaleString('ko-KR');
             if(is_now != true){
                 document.querySelector('.step-3 .deadline').innerHTML = calc_deadline(period);

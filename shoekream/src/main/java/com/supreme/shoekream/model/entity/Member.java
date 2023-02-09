@@ -63,5 +63,8 @@ public class Member {
                             String shoeSize){
         return new Member(null, null, memberPw, name, hp, email, status, shoeSize, null, null, null, null);
     }
-
+    public static Member kakaoof(String nickname, String memberPw, String name, String hp, String email, Status status,
+                            String shoeSize){
+        return new Member(null, nickname, memberPw, name, hp, email, status, shoeSize, null, null, null, null);
+    }
 }

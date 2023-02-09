@@ -6,16 +6,19 @@ import com.supreme.shoekream.model.dto.BuyDTO;
 import com.supreme.shoekream.model.dto.ConclusionDTO;
 import com.supreme.shoekream.model.dto.ProductDTO;
 import com.supreme.shoekream.model.dto.SellDTO;
+import com.supreme.shoekream.model.dto.socialDTO.TagDTO;
 import com.supreme.shoekream.model.entity.*;
 import com.supreme.shoekream.model.enumclass.OrderStatus;
 import com.supreme.shoekream.model.enumclass.Progress;
 import com.supreme.shoekream.model.enumclass.SellProgress;
 import com.supreme.shoekream.model.network.Header;
+import com.supreme.shoekream.model.network.response.BoardWithLikeListResponse;
 import com.supreme.shoekream.repository.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -137,26 +140,80 @@ public class SellService {
         return prices;
     }
 
+
     @Transactional(readOnly = true)
-    public Page<String> buyNowPrices2(List<Product> products, Pageable pageable){
+    public List<List<String>> buyNowTagPrices(List<BoardWithLikeListResponse> boards){
+
+        List<List<String>> boardPrices = new ArrayList<>();
+        boards.forEach(
+                board -> {
+                    List<String> tagPrices = new ArrayList<String>();
+                    List<TagDTO> tags = board.tags();
+                    tags.forEach(
+                            tag ->{
+                                Sell lowerPrice = sellRepository.findFirstByProductAndStatusOrderByPrice(tag.productDTO().toEntity(),OrderStatus.BIDDING);
+                                String price ;
+                                if(lowerPrice == null){
+                                    price = " - ";
+                                }else{
+                                    DecimalFormat format = new DecimalFormat("###,###");
+                                    price = format.format(lowerPrice.getPrice()) ;
+                                }
+                                tagPrices.add(price);
+                            }
+                    );
+                    boardPrices.add(tagPrices);
+                }
+
+        );
+        System.out.println(boardPrices);
+        return boardPrices;
+    }
+
+//    @Transactional(readOnly = true)
+//    public Page<String> buyNowPrices2(List<Product> products, Pageable pageable){
+//        List<String> prices2 = new ArrayList<String>();
+//        products.forEach(
+//                product -> {
+//                    String price2 = new String();
+//                    Sell lowerPrice = sellRepository.findFirstByProductAndStatusOrderByPrice(product,OrderStatus.BIDDING);
+//                    if(lowerPrice == null){
+//                        price2 = " - ";
+//                    }else{
+//                        DecimalFormat format = new DecimalFormat("###,###");
+//                        price2 = format.format(lowerPrice.getPrice()) ;
+//                    }
+//                    prices2.add(price2);
+//                }
+//        );
+//        System.out.println(prices2);
+////        PageRequest pageRequest = PageRequest.of(0, 10);
+//        int start = (int) pageable.getOffset();
+//        int end = Math.min((start + pageable.getPageSize()), prices2.size());
+//        PageImpl<String> pp = new PageImpl<>(prices2.subList(start, end), pageable, prices2.size());
+//        return pp;
+//    }
+
+
+    @Transactional(readOnly = true)
+    public List<String> buyNowPricesForWish(Page<Wish> wishes){
         List<String> prices = new ArrayList<String>();
 
-        products.forEach(
-                product -> {
+        wishes.forEach(
+                wish -> {
                     String price = new String();
-                    Page<Sell> lowerPrice = sellRepository.findFirstByProductAndStatusOrderByPrice(product, OrderStatus.BIDDING, pageable);
+                    Sell lowerPrice = sellRepository.findFirstByProductAndStatusOrderByPrice(wish.getProduct(),OrderStatus.BIDDING);
                     if(lowerPrice == null){
                         price = " - ";
                     }else{
                         DecimalFormat format = new DecimalFormat("###,###");
-                        List<Sell> s = lowerPrice.getContent();
-                        price = format.format(s.get(0).getPrice()) ;
+                        price = format.format(lowerPrice.getPrice()) ;
                     }
                     prices.add(price);
                 }
         );
         System.out.println(prices);
-        return new PageImpl<>(prices);
+        return prices;
     }
 
 
@@ -262,7 +319,7 @@ public class SellService {
         if(product.getIdx() == null){
             return null;
         }
-        return sellRepository.findAllByProductOrderByCreatedAtDesc(product).stream()
+        return sellRepository.findAllByProductAndStatusOrderByCreatedAtDesc(product, OrderStatus.BIDDING).stream()
                 .map(SellDTO::fromEntity).collect(Collectors.toCollection(LinkedList::new));
     }
 

@@ -16,6 +16,7 @@ $("input[type='file']").on("change", function(e){
         if(!fileCheck(fileObj.name, fileObj.size)){
             return false;
         }
+        // alert("사진 파일 이름, 크기 통과");
 
         formData.append("uploadFile", fileObj);
         // 첨부한 파일을 폼데이터에 업로드파일이라는 이름으로 추가해줌 (input name과 같아야함)
@@ -32,7 +33,7 @@ $("input[type='file']").on("change", function(e){
             success : function (data){
                 //alert(data);
                 document.getElementById("previewImg").value = "/images/" + data;
-                //alert("create success");
+                alert("create success");
             },
             error: function(e) {
                 //alert("값을 가져오지 못했습니다.");
@@ -50,7 +51,7 @@ $("input[type='file']").on("change", function(e){
         if(!fileCheck(fileObj2.name, fileObj2.size)){
             return false;
         }
-        alert("사진 파일 이름, 크기 통과"); // 파일 타입, 크기 조건 둘 다 만족하면 뜸
+        // alert("사진 파일 이름, 크기 통과"); // 파일 타입, 크기 조건 둘 다 만족하면 뜸
 
         formData2.append("uploadFile", fileObj2);
         // 첨부한 파일을 폼데이터에 업로드파일이라는 이름으로 추가해줌 (input name과 같아야함)
@@ -139,8 +140,9 @@ function sendit(){
     const name = document.getElementById("name").value; // 상품명
     const nameKor = document.getElementById("nameKor").value; // 상품명(kor)
     const size = document.getElementById("size").value; // 사이즈
-    const img2 = document.getElementById("previewImg").value; // 상품사진
-        const img = img2.replaceAll("http://localhost:8899", "");
+    // const img2 = document.getElementById("previewImg").value; // 상품사진
+    //     const img = img2.replaceAll("http://localhost:8899", "");
+    const img = document.getElementById("previewImg").value;
     const modelNum = document.getElementById("modelNum").value; // 모델번호
     const releaseDate = document.getElementById("releaseDate").value; // 출시일
     const color = document.getElementById("color").value; // 컬러
@@ -149,27 +151,27 @@ function sendit(){
     const gender = document.getElementById("gender").value; // 성별
     const collection = document.getElementById("collection").value; // 컬렉션
 
-    if(brand === ""){
+    if(brand == ""){
         alert("브랜드명을 작성해주세요");
         brand.focus();
         return false;
     }
-    if(name === ""){
+    if(name == ""){
         alert("상품명을 작성해주세요");
         name.focus();
         return false;
     }
-    if(nameKor === ""){
+    if(nameKor == ""){
         alert("상품명(kor) 작성해주세요");
         nameKor.focus();
         return false;
     }
-    if(size === ""){
+    if(size == ""){
         alert("사이즈를 작성해주세요");
         size.focus();
         return false;
     }
-    if(img === ""){
+    if(img == undefined){
         alert("상품 이미지를 넣어주세요");
         img.focus();
         return false;
@@ -361,9 +363,11 @@ function productdelete_popup(idx){
     document.querySelector(".product_delete").style.display = "block";
     const btn_delete = document.querySelector(".btn_delete");
     btn_delete.addEventListener("click",()=>{
-        admindelete(idx)
+        admindelete(idx);
     });
 }
+
+
 
 function admindelete(idx){
     fetch('http://localhost:8899/api/admin/products/'+idx, {
@@ -387,6 +391,18 @@ function admindelete(idx){
 
 function productdelete_popdown() {
     document.querySelector(".product_delete").style.display = "none";
+}
+
+
+// ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+// 키워드 검색 -> 브랜드, 모델번호
+const searchInput = document.getElementById('search_box')
+searchInput.addEventListener('blur', () => {
+    search_products();
+});
+
+function search_products(){
+    location.href="/products?page=0&searchKeyword="+searchInput.value;
 }
 
 

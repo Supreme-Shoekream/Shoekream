@@ -3,6 +3,25 @@ function pop_event_register(){
     const btn_save = document.querySelector('#create_btn');
     btn_save.addEventListener('click',sendit);
 }
+function pop_event_draw(){
+    document.querySelector(".event_draw").style.display = "block";
+}
+function close_event_create() {
+    document.querySelector(".layer_event_create").style.display = "none";
+}
+function close_event_view() {
+    document.querySelector(".layer_event_view").style.display = "none";
+}
+function close_event_edit() {
+    document.querySelector(".layer_event_edit").style.display = "none";
+}
+function close_event_delete() {
+    document.querySelector(".event_delete").style.display = "none";
+}
+function close_event_draw() {
+    document.querySelector(".event_draw").style.display = "none";
+}
+
 function sendit() {
     // create
     //request로 필요한 DOM 객체 선택
@@ -14,12 +33,12 @@ function sendit() {
 
 
 
-    fetch('http://localhost:8889/api/admin/event', {
+    fetch('http://localhost:8899/api/event', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
             //우리가 만든데이터
-            "transaction_time":`${new Date()}`,
+            "transaction_time": `${new Date()}`,
             "resultCode":"ok",
             "description":"정상",
             "data":{
@@ -33,7 +52,7 @@ function sendit() {
     })
         .then((res) => {
             alert('등록성공')
-            location.href='/admin/event';
+            location.href='/event';
             return; //리턴을 걸어서 진행하는 것을 막는다!
         })
         .then((data) => {
@@ -42,12 +61,12 @@ function sendit() {
         })
         .catch((err)=>{
             alert(err);
-        })
+        });
 }
 
 function pop_event_edit(idx){
     document.querySelector(".layer_event_edit").style.display = "block";
-    fetch('http://localhost:8889/api/admin/event/'+idx)
+    fetch('http://localhost:8899/api/event/'+idx)
         .then((response) => response.json())
         .then((data) => {
             console.log("edit🟡" + data);
@@ -71,7 +90,7 @@ function sendedit(idx) {
     const startTime1 = document.querySelector('#e_startTime_input');
     const endTime1 = document.querySelector('#e_endTime_input');
 
-    fetch('http://localhost:8889/api/admin/event/'+idx, {
+    fetch('http://localhost:8899/api/event/'+idx, {
         method: 'PUT',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -90,7 +109,7 @@ function sendedit(idx) {
     })
         .then((res) => {
             alert('수정성공')
-            location.href = '/admin/event';
+            location.href = '/event';
             return; //리턴을 걸어서 진행하는 것을 막는다!
         })
         .then((data) => {
@@ -105,7 +124,7 @@ function sendedit(idx) {
 //view
 function pop_event_view(idx) {
     document.querySelector(".layer_event_view").style.display = "block";
-    fetch('http://localhost:8889/api/admin/event/' + idx)
+    fetch('http://localhost:8899/api/event/' + idx)
         .then((response) => response.json())
         .then((data) => {
             document.querySelector("#v_event_input").innerHTML = data.title;
@@ -142,7 +161,56 @@ function pop_event_view(idx) {
             readImage($(this)[0]); //미리보기
         });
     });
+function pop_event_delete(idx){
+    document.querySelector(".event_delete").style.display = "block";
+    const btn_delete = document.querySelector('.btn_delete');
+    btn_delete.addEventListener('click',()=>{
+        eventdelete(idx)
+    });
+}
+function eventdelete(idx){
+    fetch('http://localhost:8899/api/event/'+idx, {
+        method: "DELETE",
 
+    })
+        .then((res) => {
+            alert('삭제 완료')
+            location.reload();
+            return;
+        })
+        .then((data) => {
+            console.log(data);
+            return;
+        })
+        .catch((err)=>{
+            alert(err);
+        })
+}
+function pop_event_delete(idx){
+    document.querySelector(".event_delete").style.display = "block";
+    const btn_delete = document.querySelector('.btn_delete');
+    btn_delete.addEventListener('click',()=>{
+        eventdelete(idx)
+    });
+}
+function eventdelete(idx){
+    fetch('http://localhost:8899/api/event/'+idx, {
+        method: "DELETE",
+
+    })
+        .then((res) => {
+            alert('삭제 완료')
+            location.reload();
+            return;
+        })
+        .then((data) => {
+            console.log(data);
+            return;
+        })
+        .catch((err)=>{
+            alert(err);
+        })
+}
     function validFileType(filename) {
         const fileTypes = ["png", "jpg", "jpeg", "gif"];
         return fileTypes.indexOf(filename.substring(filename.lastIndexOf(".") + 1, filename.length).toLowerCase()) >= 0;

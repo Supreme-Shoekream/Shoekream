@@ -2,6 +2,7 @@
 <html lang="en">
 <!--head 시작 -->
 <div th:replace="fragment/adminhead :: head"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <!--head 끝 -->
 <body>
 
@@ -15,18 +16,14 @@
 <div th:replace="fragment/adminnavbar :: navbar"></div>
 <!-- left-side-bar 끝 -->
 
-
-
-
 <div class="main-container">
   <div class="pd-ltr-20 xs-pd-20-10">
     <div class="min-height-200px">
-
       <!-- Simple Datatable start -->
       <div class="card-box mb-30">
         <div class="pd-20">
           <h4 class="text-blue h4">이벤트 리스트</h4>
-          <button type="button" class="btn btn-primary m-t-15 waves-effect" onclick="pop_event_register()">관리자 등록</button>
+          <button type="button" class="btn btn-primary m-t-15 waves-effect" onclick="pop_event_register()">이벤트 등록</button>
         </div>
         <div class="pb-20">
           <table class="data-table table stripe hover nowrap">
@@ -34,10 +31,8 @@
             <tr>
               <th class="table-plus datatable-nosort">title</th>
               <th>image</th>
-
               <th>Open</th>
               <th>Close</th>
-              <th>Registration Date</th>
               <th class="datatable-nosort">Action</th>
             </tr>
             </thead>
@@ -47,8 +42,6 @@
               <td class="eventImg"><img src="/vendors/images/event_photo.PNG" alt=""></td>
               <td class="eventStartTime">2022-12-17 11:09</td>
               <td class="eventEndTime">2022-12-17 11:09</td>
-              <td class="eventRegDate">2022-12-17</td>
-
               <td class="more">
                 <div class="dropdown">
                   <a
@@ -62,284 +55,42 @@
                   <div
                           class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
                   >
-                    <a class="dropdown-item" id = "view_btn1" href="#" onclick="pop_event_view()"
+                    <a class="dropdown-item" id = "view_btn1" onclick="pop_event_view()"
                     ><i class="dw dw-eye"></i> View</a
                     >
-                    <a class="dropdown-item" id = "edit_btn1" href="#" onclick="pop_event_edit()"
+                    <a class="dropdown-item" id = "edit_btn1" onclick="pop_event_edit()"
                     ><i class="dw dw-edit2"></i> Edit</a
                     >
-                    <a class="dropdown-item" href="#"
+                    <a class="dropdown-item" id="delete_btn1" onclick="pop_event_delete()"
                     ><i class="dw dw-delete-3"></i> Delete</a
+                    >
+                    <a class="dropdown-item" id="draw_btn1" href="#" onclick="pop_event_draw()"
+                    ><i class="dw dw-delete-3"></i> Drawing</a
                     >
                   </div>
                 </div>
               </td>
             </tr>
-
             </tbody>
           </table>
         </div>
       </div>
       <!-- Simple Datatable End -->
     </div>
+  </div>
+</div>
 
-  </div>
-</div>
-<!--<div th:replace="adminpage/admin_layer/layer_event_create"></div>-->
-<div class="layer_event_create layer lg" style="display: none">
-  <div class="layer_container">
-    <a href="#" class="btn_layer_close">
-      <div>
-        <img src="/img/close_white.png">
-      </div>
-    </a>
-    <div class="layer_header">
-      <h2 class="title"> 이벤트 작성 페이지 </h2>
-    </div>
-    <div class="layer_content">
-      <div class="top">
-        <div class="user_bind">
-          <div class="user_input">
-            <div class="input_box">
-              <h4 class="input_title">이벤트</h4>
-              <div class="input_item">
-                <input type="text" name="event_name" placeholder="이벤트 명" id="c_event_input">
-              </div>
-            </div>
-            <div class="input_box">
-              <h4 class="input_title">상품명</h4>
-              <div class="input_item">
-                <input type="text" name="product_name" placeholder="상품명" id="c_pro_input">
-              </div>
-            </div>
-            <div class="input_box">
-              <h4 class="input_title">상품 코드</h4>
-              <div class="input_item">
-                <p>B10538</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="user_bind img">
-          <div class="uploadImg">
-            <div class="filebox">
-              <input class="upload-name" value="선택된 파일 없음" disabled="disabled">
-              <input type="file" id="c_file1" class="upload-hidden" name="file1" >
-              <label for="c_file1">이미지 첨부</label>
-            </div>
-            <img id="c_previewImg" onclick="popImage(this.src)">
-          </div>
-        </div>
-      </div>
-      <div class="center">
-        <div class="user_bind">
-          <div class="user_input">
-            <div class="input_box">
-              <h4 class="input_title">이벤트 시작 날짜/시간</h4>
-              <div class="input_item">
-                <input type="datetime-local" name="event_start" placeholder="이벤트 시작 날짜/시간" id="c_startTime_input">>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="user_bind">
-          <div class="user_input">
-            <div class="input_box">
-              <h4 class="input_title">이벤트 마감 날짜/시간</h4>
-              <div class="input_item">
-                <input type="datetime-local" name="event_end" placeholder="이벤트 시작 날짜/시간" id="c_endTime_input">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="bottom">
-        <div class="user_bind">
-          <div class="user_input">
-            <div class="input_box">
-              <h4 class="input_title">수정한 관리자</h4>
-              <div class="input_item">
-                <p>김사과</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="layer_btn">
-        <a href="#" class="btn btn_save solid medium" id="create_btn">수정</a>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="layer_event_edit layer lg" style="display: none">
-  <div class="layer_container">
-    <a href="#" class="btn_layer_close">
-      <div>
-        <img src="/img/close_white.png">
-      </div>
-    </a>
-    <div class="layer_header">
-      <h2 class="title"> 이벤트 수정 페이지 </h2>
-    </div>
-    <div class="layer_content">
-      <div class="top">
-        <div class="user_bind">
-          <div class="user_input">
-            <div class="input_box">
-              <h4 class="input_title">이벤트</h4>
-              <div class="input_item">
-                <input type="text" name="event_name" placeholder="이벤트 명" id="e_event_input">
-              </div>
-            </div>
-            <div class="input_box">
-              <h4 class="input_title">상품명</h4>
-              <div class="input_item">
-                <input type="text" name="product_name" placeholder="상품명" id="e_pro_input">
-              </div>
-            </div>
-            <div class="input_box">
-              <h4 class="input_title">상품 코드</h4>
-              <div class="input_item">
-                <p>B10538</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="user_bind img">
-          <div class="uploadImg">
-            <div class="filebox">
-              <input class="upload-name" value="선택된 파일 없음" disabled="disabled">
-              <input type="file" id="e_file1" class="upload-hidden" name="file1" >
-              <label for="e_file1">이미지 첨부</label>
-            </div>
-            <img id="e_previewImg" onclick="popImage(this.src)">
-          </div>
-        </div>
-      </div>
-      <div class="center">
-        <div class="user_bind">
-          <div class="user_input">
-            <div class="input_box">
-              <h4 class="input_title">이벤트 시작 날짜/시간</h4>
-              <div class="input_item">
-                <input type="datetime-local" name="event_start" placeholder="이벤트 시작 날짜/시간" id="e_startTime_input">>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="user_bind">
-          <div class="user_input">
-            <div class="input_box">
-              <h4 class="input_title">이벤트 마감 날짜/시간</h4>
-              <div class="input_item">
-                <input type="datetime-local" name="event_end" placeholder="이벤트 시작 날짜/시간" id="e_endTime_input">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="bottom">
-        <div class="user_bind">
-          <div class="user_input">
-            <div class="input_box">
-              <h4 class="input_title">수정한 관리자</h4>
-              <div class="input_item">
-                <p>김사과</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="layer_btn">
-        <a href="#" class="btn btn_save solid medium" id="edit_btn">수정</a>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="layer_event_view layer lg" style="display: none">
-  <div class="layer_container">
-    <a href="#" class="btn_layer_close">
-      <div>
-        <img src="/img/close_white.png">
-      </div>
-    </a>
-    <div class="layer_header">
-      <h2 class="title"> 이벤트 상세 페이지 </h2>
-    </div>
-    <div class="layer_content">
-      <div class="top">
-        <div class="user_bind">
-          <div class="user_input">
-            <div class="input_box ">
-              <h4 class="input_title">이벤트</h4>
-              <div class="input_item">
-                <p id ="v_event_input">2022-12-21</p>
-              </div>
-            </div>
-            <div class="input_box">
-              <h4 class="input_title">상품명</h4>
-              <div class="input_item">
-                <p id ="v_pro_input">IAB Studio Pigment Sweatshirt & Mini Bag Black</p>
-              </div>
-            </div>
-            <div class="input_box">
-              <h4 class="input_title">상품 코드</h4>
-              <div class="input_item">
-                <p>B10538</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="user_bind img">
-          <img id = "v_file1" src="/admin/src/images/admin_example_product.png">
-        </div>
-      </div>
-      <div class="center">
-        <div class="user_bind">
-          <div class="user_input">
-            <div class="input_box">
-              <h4 class="input_title">이벤트 시작 시간</h4>
-              <div class="input_item">
-                <p id ="v_startTime_input">2022-12-21 10:00</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="user_bind">
-          <div class="user_input">
-            <div class="input_box">
-              <h4 class="input_title">이벤트 마감 시간</h4>
-              <div class="input_item">
-                <p id ="v_endTime_input">2022-12-25 15:00</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="bottom">
-        <div class="user_bind">
-          <div class="user_input">
-            <div class="input_box">
-              <h4 class="input_title">수정한 관리자</h4>
-              <div class="input_item">
-                <p>김사과</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="layer_btn">
-        <a href="#" class="btn btn_save solid medium">확인</a>
-      </div>
-    </div>
-  </div>
-</div>
-<!--<div th:replace="adminpage/admin_layer/layer_event_view"></div>-->
-<!--<div th:replace="adminpage/admin_layer/pop_admin_delete"></div>-->
+<div th:replace="adminpage/admin_layer/layer_event_create :: event_create"></div>
+<div th:replace="adminpage/admin_layer/layer_event_view :: event_view"></div>
+<div th:replace="adminpage/admin_layer/layer_event_edit :: event_edit"></div>
+<div th:replace="adminpage/admin_layer/layer_event_delete :: event_delete"></div>
+<div th:replace="adminpage/admin_layer/layer_event_draw:: event_draw"></div>
+
+
 <!-- js -->
 <div th:replace="fragment/adminjs :: js"></div>
-<script src="/js/event_crud.js"></script>
 
-<!-- js -->
+<script src="/js/event.js"></script>
+
 </body>
 </html>

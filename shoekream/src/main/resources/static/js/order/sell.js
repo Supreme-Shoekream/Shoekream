@@ -55,6 +55,7 @@ function sell_now() {
   $(".is_dark span").html("즉시 판매가");
   $(".price_total .amount").html((price_now+fees).toLocaleString("ko-KR"));
   $(".price_total .unit").html("원");
+  $(".step-3 .main_title").html('즉시 구매가 완료되었습니다.')
   // 만약 에러메세지가 있을 때 없애기 위해
   pricebox.classList.remove("has_warning");
   pricebox.classList.remove("has_danger");
@@ -78,6 +79,7 @@ function sell_bid() {
   $(".is_dark span").html("판매 희망가");
   $(".price_total .amount").html("-");
   $(".price_total .unit").html("");
+  $(".step-3 .main_title").html('판매 입찰이 완료되었습니다.')
   document.getElementById("bid_input").value = ""; // bid_input value 값 초기화
   is_now=false;
   period=30;
@@ -159,6 +161,7 @@ bid_input.addEventListener("blur", (e) => {
   document.querySelector(".fees").innerHTML =
     fees.toLocaleString("ko-KR") + "원";
   //정산금액 반영
+  str_price=Math.floor(str_price/1000)*1000
   document.querySelector('.price_total .step1.amount').innerHTML=(str_price+fees).toLocaleString("ko-KR") + "원";
 });
 
@@ -294,6 +297,7 @@ function submit_account() {
       document.getElementById('accountInfo').innerHTML = bankName +" " + accNum
       document.getElementById('bank_name').innerHTML = bankName
       document.getElementById('acc_number').innerHTML= accNum
+      document.querySelector('.member_name').innerHTML = document.getElementById('name').innerHTML
       close_payout_account()
       return;
     })
@@ -902,7 +906,12 @@ function getCheck() {
     const query = 'input[class=check]:checked';
     const selectedElements = document.querySelectorAll(query);
     const cnt = selectedElements.length;
-    if (cnt == 4) {
+    // 조건 추가 카드랑 주소 + 계좌
+    const delivery_empty = document.querySelector('.empty_delivery_info')
+    const card_empty =document.querySelector('.regist_link')
+    const account_empty = document.querySelector('#accountInfo').innerHTML
+    if (cnt === 4 && delivery_empty.style.display==='none'&& card_empty.style.display==='none' &&
+    account_empty !== '등록된 판매 정산 계좌가 없습니다.') {
         document.querySelector('#submit').classList.remove('disabled')
     } else {
         document.querySelector('#submit').className = 'btn full solid disabled';
@@ -960,9 +969,9 @@ function sendit() {
       .then((res) => {
         document.querySelector('.step-2').style.display="none"
         document.querySelector('.step-3').style.display="block"
-        document.querySelector('.step-3 .wish_price').innerHTML=wish_price.toLocaleString('ko-KR');
-        document.querySelector('.step-3 .final_fees').innerHTML=fees.toLocaleString('ko-KR');
-        document.querySelector('.step-3 .final_price').innerHTML = (wish_price + fees ).toLocaleString('ko-KR');
+        document.querySelector('.step-3 .wish_price').innerHTML=wish_price.toLocaleString('ko-KR') +"원";
+        document.querySelector('.step-3 .final_fees').innerHTML=fees.toLocaleString('ko-KR') +"원";
+        document.querySelector('.step-3 .final_price').innerHTML = (wish_price + fees ).toLocaleString('ko-KR') ;
         if(is_now != true){
           document.querySelector('.step-3 .deadline').innerHTML = calc_deadline(period);
         }else{

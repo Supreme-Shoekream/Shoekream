@@ -53,7 +53,10 @@ public class SecurityConfig{
                                 "/social/newest",
                                 "/social/hashtag/**",
                                 "/social/details",
-                                "/joinOk"
+                                "/joinOk",
+                                "/notice",
+                                "/faq",
+                                "/auth_policy"
                         ).permitAll()
                    .anyRequest().authenticated()
                 )
@@ -121,6 +124,7 @@ public class SecurityConfig{
     @Bean
     public OAuth2UserService<OAuth2UserRequest, OAuth2User> oAuth2UserService(
             MemberApiLogicService memberApiLogicService,
+            MemberRepository memberRepository,
             PasswordEncoder passwordEncoder
     ) {
         final DefaultOAuth2UserService delegate = new DefaultOAuth2UserService();
@@ -135,11 +139,13 @@ public class SecurityConfig{
             String email = kakaoResponse.email();
             String dummyPassword = passwordEncoder.encode("{bcrypt}" + UUID.randomUUID());
 
-            return memberApiLogicService.searchUser(email)
-                    .map(KreamPrincipal::createfrom)
+            return memberRepository.findByEmail(email)
+                    .map(MemberDTO::fromEntity)
+                    .map(KreamPrincipal::fromFull)
                     .orElseGet(() ->
-                            KreamPrincipal.createfrom(//memberDTO
+                            KreamPrincipal.fromFull(//memberDTO
                                     memberApiLogicService.saveUser(
+                                            username,
                                             dummyPassword,
                                             kakaoResponse.nickname(),
                                             null,

@@ -93,12 +93,12 @@ public class BoardApiController {
     }
 
     @GetMapping("/newest")
-    public List<BoardWithLikeListResponse> newest(@AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+    public Page<BoardWithLikeListResponse> newest(@AuthenticationPrincipal KreamPrincipal kreamPrincipal, @PageableDefault(size = 12)Pageable pageable){
         if(kreamPrincipal == null){
-            return styleLogicService.unlog_newest();
+            return styleLogicService.unlog_newest(pageable);
         }
         MemberDTO member = kreamPrincipal.toFullDto();
-        return styleLogicService.newest(member);
+        return styleLogicService.newest(member, pageable);
     }
 
     @GetMapping("/myprofile")
@@ -122,8 +122,8 @@ public class BoardApiController {
     }
 
     @GetMapping("/isBoardExist/{memberIdx}")
-    public List<BoardWithLikeListResponse> isBoardExist(@PathVariable(name = "memberIdx") Long memberIdx){
-        return styleLogicService.isBoardExist(memberIdx);
+    public List<BoardWithLikeListResponse> isBoardExist(@PathVariable(name = "memberIdx") Long memberIdx, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        return styleLogicService.isBoardExist(memberIdx, kreamPrincipal.idx());
     }
 
     @GetMapping("/like/{boardIdx}")

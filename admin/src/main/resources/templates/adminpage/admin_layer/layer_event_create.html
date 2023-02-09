@@ -1,0 +1,68 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="event_create" class="layer_event_create layer lg" style="display: none">
+    <div class="layer_container">
+        <a class="btn_layer_close" onclick="close_event_create()">
+            <div>
+                <img src="/img/close_white.png">
+            </div>
+        </a>
+        <div class="layer_header">
+            <h2 class="title">이벤트 추가 페이지</h2>
+        </div>
+        <div class="layer_content">
+            <div class="top">
+                <div class="user_bind">
+                    <div class="user_input">
+                        <div class="input_box">
+                            <h4 class="input_title">이벤트명</h4>
+                            <div class="input_item">
+                                <input type="text" name="event_name" placeholder="이벤트명" id="c_event_input">
+                            </div>
+                        </div>
+                        <div class="input_box">
+                            <h4 class="input_title">상품번호</h4>
+                            <div class="input_item">
+                                <input type="text" name="product_name" placeholder="상품번호" id="c_pro_input">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="user_bind img">
+                    <div class="uploadImg">
+                        <div class="filebox">
+                            <input class="upload-name" value="첨부파일" style="color: #FFF">
+                            <label for="fileItem">파일찾기</label>
+                            <input type="file" id ="fileItem" name="uploadFile" onchange="load_event_img_create(this)">
+                        </div>
+                        <img src="" id="previewImg">
+                    </div>
+                </div>
+            </div>
+            <div class="center">
+                <div class="user_bind">
+                    <div class="user_input">
+                        <div class="input_box">
+                            <h4 class="input_title">이벤트 시작 날짜/시간</h4>
+                            <div class="input_item">
+                                <input type="datetime-local" name="event_start" placeholder="이벤트 시작 날짜/시간" id="c_startTime_input">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="user_bind">
+                    <div class="user_input">
+                        <div class="input_box">
+                            <h4 class="input_title">이벤트 마감 날짜/시간</h4>
+                            <div class="input_item">
+                                <input type="datetime-local" name="event_end" placeholder="이벤트 시작 날짜/시간" id="c_endTime_input">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layer_btn">
+                <a class="btn btn_save solid medium" id="create_btn" onclick="close_event_create()" style="color: #FFFFFF">등록</a>
+            </div>
+        </div>
+    </div>
+</div>

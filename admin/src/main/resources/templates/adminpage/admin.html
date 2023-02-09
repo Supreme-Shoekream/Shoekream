@@ -5,18 +5,6 @@
 <div th:replace="fragment/adminhead :: head"></div>
 <!--head 끝 -->
 <body>
-<div class="pre-loader">
-  <div class="pre-loader-box">
-    <div class="loader-logo">
-      <img src="vendors/images/adminlogo.png" alt="" />
-    </div>
-    <div class="loader-progress" id="progress_div">
-      <div class="bar" id="bar1"></div>
-    </div>
-    <div class="percent" id="percent1">0%</div>
-    <div class="loading-text">Loading...</div>
-  </div>
-</div>
 <!-- header 시작 -->
 <div th:replace="fragment/adminheader :: header(${sessionInfo})"></div>
 <!-- header 끝 -->
@@ -68,10 +56,10 @@
             </thead>
             <tbody id="itemList">
             <tr class="bg-pink">
-              <td >idx</td>
-              <td>adminid</td>
-              <td>name</td>
-              <td>hp</td>
+              <td class="idx">idx</td>
+              <td class="adminid">adminid</td>
+              <td class="name">name</td>
+              <td class="hp">hp</td>
               <td>
                 <div class="dropdown">
                   <a
@@ -85,13 +73,13 @@
                   <div
                           class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
                   >
-                    <a class="dropdown-item view" href="#" onclick="pop_admin_view()"
+                    <a class="dropdown-item view" href="#" onclick="pop_admin_view()" id="view_btn"
                     ><i class="dw dw-eye"></i> View</a
                     >
-                    <a class="dropdown-item edit" href="#" onclick="pop_admin_edit()"
+                    <a class="dropdown-item edit" href="#" onclick="pop_admin_edit()" id="edit_btn"
                     ><i class="dw dw-edit2"></i> Edit</a
                     >
-                    <a class="dropdown-item delete" href="#" onclick="pop_admin_delete()"
+                    <a class="dropdown-item delete" href="#" onclick="pop_admin_delete()" id="delete_btn"
                     ><i class="dw dw-delete-3"></i> Delete</a
                     >
                   </div>
@@ -141,7 +129,7 @@
 <div th:replace="adminpage/admin_layer/pop_admin_delete"></div>
 <!-- js -->
 <div th:replace="fragment/adminjs :: js"></div>
-<script src="/js/admin_list.js"></script>
+<!--<script src="/js/admin_list.js"></script>-->
 <script src="/js/admin_crud.js"></script>
 <script>
 

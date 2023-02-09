@@ -46,11 +46,5 @@ public class ProductApiLogicService {
                 .map(Header::OK).orElseGet(() -> Header.ERROR("상품 없음!"));
     }
 
-    public Page<ProductDTO> searchProduct(String searchKeyword, Pageable pageable){
-        if(searchKeyword == null || searchKeyword.isBlank()){
-            return productRepository.findAll(pageable).map(ProductDTO::fromEntity);
-        }
-        return productRepository.findByNameContainingOrModelNum(searchKeyword,searchKeyword,pageable)
-                .map(ProductDTO::fromEntity);
-    }
+
 }

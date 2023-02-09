@@ -30,7 +30,7 @@
                             <attr sel=".product_desc">
                                 <attr sel=".product_name" th:text="${tag.productDTO.name}"/>
                                 <attr sel=".price_box">
-                                    <attr sel=".amount" th:text="${tag.productDTO.firstPrice}"/><!-- !!!!!!!!!!!!!!!수정!!!!!!!!!!!!!!!-->
+                                    <attr sel=".amount" th:text="${#numbers.formatInteger(tag.productDTO.firstPrice, 3, 'COMMA')}"/><!-- !!!!!!!!!!!!!!!수정!!!!!!!!!!!!!!!-->
                                 </attr>
                             </attr>
                         </attr>
@@ -61,7 +61,9 @@
                     <attr sel=".comment_list">
                         <attr sel=".comment_unit" th:each="comment : ${detail.replies}">
                             <attr sel=".comment_box">
-                                <attr sel=".profile_link/img" th:src="${comment.memberDTO.imgUrl}"/>
+                                <attr sel=".profile_link" th:onclick="'javascript:profileCheck(' + ${comment.memberDTO.idx} +');'">
+                                    <attr sel="img" th:src="${comment.memberDTO.imgUrl}"/>
+                                </attr>
                                 <attr sel=".comment_detail">
                                     <attr sel=".main">
                                         <attr sel=".user_name" th:text="${comment.memberDTO.nickname}"/>
@@ -76,6 +78,9 @@
                         <attr sel=".btn_more" th:onclick="'javascript:comment_more(' + ${detail.idx} + ',' + ${sessionUser.idx} + ');'"/>
                     </attr>
                 </attr>
+            </attr>
+            <attr sel="#comment_more">
+                <attr sel="#content_profile" th:onclick="'javascript:profileCheck(' + ${detail.memberDTO.idx} +');'"/>
             </attr>
         </attr>
     </attr>

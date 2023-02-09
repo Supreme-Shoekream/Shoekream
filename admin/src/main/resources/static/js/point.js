@@ -42,7 +42,7 @@ function submitPoint(idx){
                 break;
         }
 
-        fetch('http://localhost:8989/api/my/point/'+idx, {
+        fetch('http://localhost:8899/api/my/point/'+idx, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -54,9 +54,9 @@ function submitPoint(idx){
                     "point" : `${point}`
                 }
             }),
-        }).then((res)=>{
+        }).then((res) =>{
             alert('포인트 지급 완료');
-            location.href='/admin/users';
+            location.href='users';
             return;
         })
     }else {

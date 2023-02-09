@@ -1,5 +1,6 @@
 package com.supreme.admin.service;
 
+import com.supreme.admin.model.dto.ProductDTO;
 import com.supreme.admin.model.entity.Product;
 import com.supreme.admin.model.network.Header;
 import com.supreme.admin.model.network.Pagination;
@@ -117,12 +118,14 @@ public class AdminProductApiLogicService extends BaseService<ProductApiRequest, 
         return Header.OK(productApiResponses, pagination);
     }
 
-//    public Page<ProductDTO> search(Long searchKeyword, String searchKeyword2, Pageable pageable){
-//        if(searchKeyword == null || searchKeyword2 == null || searchKeyword2.isBlank()){
-//            return productRepository.findAll(pageable).map(ProductDTO::fromEntity);
-//        }
-//        // idx, brand, firstPrice
-//        return productRepository.findByIdxContainingOrBrandContainingOrFirstPriceContaining(searchKeyword, searchKeyword2, searchKeyword, pageable).map(ProductDTO::fromEntity);
-//    }
+    // 관리자 상품 리스트 페이징+검색
+    public Page<ProductDTO> searchProduct(String searchKeyword, Pageable pageable){
+        if(searchKeyword == null || searchKeyword.isBlank()){
+            return productRepository.findAll(pageable).map(ProductDTO::fromEntity);
+        }
+        // 검색키워드: 브랜드 또는 모델번호
+        return productRepository.findByBrandContainingOrModelNum(searchKeyword,searchKeyword,pageable)
+                .map(ProductDTO::fromEntity);
+    }
 
 }

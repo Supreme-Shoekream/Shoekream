@@ -1,0 +1,24 @@
+<thlogic>
+    <attr sel="#point_object" th:object="${points}">
+        <attr sel="#tr_list" th:each="point : ${points}">
+            <attr sel="#list_name" th:text="${point.member.name}"/>
+            <attr sel="#list_email" th:text="${point.member.email}"/>
+            <attr sel="#list_hp" th:text="${point.member.hp}"/>
+            <attr sel="#list_reason" th:text="${point.reason.reason}"/>
+            <attr sel="#list_point" th:text="${point.point}"/>
+        </attr>
+        <attr sel=".pagination">
+            <attr sel="li[0]/a" th:text="'◀'"
+                  th:href="@{/point(page=${points.number - 1}, searchKeyword=${param.searchKeyword})}"
+                  th:class="'page-link'+(${points.number}<=0 ? ' disabled' : '')"/>
+            <attr sel="li[1]" th:class="page-item" th:each="pageNumber : ${barNumbers}">
+                <attr sel="a" th:text="${pageNumber + 1}"
+                      th:href="@{/point(page=${pageNumber}, searchKeyword=${param.searchKeyword})}"
+                      th:class="'page-link'+(${pageNumber}==${points.number} ? ' disabled' : '')"/>
+            </attr>
+            <attr sel="li[2]/a" th:text="'▶'"
+                  th:href="@{/point(page=${points.number + 1}, searchKeyword=${param.searchKeyword})}"
+                  th:class="'page-link'+(${points.number}>=${points.totalPages -1} ? ' disabled' : '')"/>
+        </attr>
+    </attr>
+</thlogic>
