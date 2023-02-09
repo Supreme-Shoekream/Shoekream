@@ -107,26 +107,15 @@ public class BuyService {
                 .stream().map(BuyDTO::fromEntity).toList();
     }
 
-//    @Transactional(readOnly = true)
-//    public String sellNowPrice(Long productIdx){
-//        Product product = productRepository.findById(productIdx).get();
-//        Buy price = buyRepository.findFirstByProductAndStatusOrderByPriceDesc(product, OrderStatus.BIDDING);
-//        if(price == null){
-//            return " - ";
-//        }else{
-//            DecimalFormat format = new DecimalFormat("###,###");
-//            return format.format(price.getPrice());
-//        }
-//    }
-
     @Transactional(readOnly = true)
     public String sellNowPrice(Long productIdx){
         Product product = productRepository.findById(productIdx).get();
-        String price = product.getFirstPrice().toString();
+        Buy price = buyRepository.findFirstByProductAndStatusOrderByPriceDesc(product, OrderStatus.BIDDING);
         if(price == null){
             return " - ";
         }else{
-            return price;
+            DecimalFormat format = new DecimalFormat("###,###");
+            return format.format(price.getPrice());
         }
     }
 

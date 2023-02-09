@@ -14,8 +14,7 @@
                     <attr sel=".product_info_product_name/p[0]" th:text="${product.name}"/>
                     <attr sel=".product_info_product_name/p[1]" th:text="${product.nameKor}"/>
                 </attr>
-<!--                <attr sel=".amount" th:text="${prices[i.index]}"/>-->
-                <attr sel=".amount" th:text="${#numbers.formatInteger(product.firstPrice, 3, 'COMMA') + '원'}"/>
+                <attr sel=".amount" th:text="${prices[i.index]}"/>
             </attr>
 
             <attr sel=".action_wish_review" th:id="${product.idx}">
