@@ -19,7 +19,7 @@
                     <header th:replace="/fragment/header :: header"></header>
                 </div>
                 </div>
-                <div class="exhibition_items"   >
+                <div class="exhibition_items" >
                     <div class="exhibition_item image" >
                         <div class="exhibition_item_image exhibition_item_section" style="background-color:#ffffff;"
                              >
@@ -35,7 +35,7 @@
                             >
                             <div class="product_header_wrapper" >
                                 <h2 class="title" >남성 추천 컬렉션</h2>
-                                <p class="description" >KREAM에서 추천하는 인기 상품</p>
+                                <p class="description" >SHOEKREAM에서 추천하는 인기 상품</p>
                             </div>
                         </div>
                     </div>
@@ -66,20 +66,35 @@
                                         <p class="desc" >즉시 구매가</p>
                                     </div>
                                 </a>
-                                <div class="action_wish_review"  ><span
-                                        class="wish_figure" ><span aria-label="관심상품" role="button"
-                                            icon-name="ico-wish-grey" class="btn_wish" 
-                                            ><img class="icon sprite-icons"
-src = "../../img/select_mark.jpg" style="width:16px; height:16px"></span><span class="text" >162</span></span><span
-                                        class="review_figure" ><span aria-label="Y-3 가젤 블랙 리뷰"
-                                            role="button" class="review_link" ><img class="icon sprite-icons"
- src= "../../img/brands_hashtag.png" style="width: 22px; height: 22px;"></span><span class="text" >2</span></span></div>
+                                <div class="action_wish_review"  >
+                                    <span class="wish_figure" >
+                                        <span aria-label="관심상품" role="button" icon-name="ico-wish-grey" class="btn_wish">
+                                            <img class="icon sprite-icons" src = "../../img/select_mark.jpg" style="width:16px; height:16px">
+                                        </span>
+                                        <span class="text wish_count" >162</span>
+                                    </span>
+
+                                    <span class="review_figure" >
+                                        <span aria-label="Y-3 가젤 블랙 리뷰" role="button" class="review_link" >
+                                            <img class="icon sprite-icons" src= "../../img/brands_hashtag.png" style="width: 22px; height: 22px;">
+                                        </span>
+                                        <span class="text tag_count" >2</span>
+                                    </span>
+
+                                    <span class="shoeSize_figure">
+                                        <span class="size_link" aria-label="신발사이즈">
+                                            <img width="18" height="18" src="/img/brands_shoes.png" class="icon sprite-icons">
+                                        </span>
+                                        <span class="text shoe_count">230</span>
+                                    </span>
+                                </div>
                             </div>
 
     
                             
                         </div>
                     </div><!----><!---->
+
                     <div  class="exhibition_share"><button  
                              type="button" class="btn btn_share" onclick="clip()"><img class="icon sprite-icons share"
  src = "../../img/free-icon-share.png"> 친구에게 공유하기 </button></div>
@@ -233,6 +248,61 @@ src = "../../img/select_mark.jpg" style="width:16px; height:16px"></span><span c
         var idx =  $(this).find(".product_idx").val();
         location.href = "/product/"+idx
     });
+
+
+    function wishCreate(product_idx) {
+        // console.log(proIdx);
+        if(document.querySelector('#username') !=null){
+            fetch("http://localhost:8889/api/product", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({
+                    "productIdx": product_idx
+                }),
+            })
+                .then((res) => {
+                    let wish_on_img = document.getElementById(product_idx).childNodes[1].childNodes[1].childNodes[1]
+                    wish_on_img.style.display='block'
+                    let wish_off_img = document.getElementById(product_idx).childNodes[1].childNodes[1].childNodes[3]
+                    wish_off_img.style.display='none'
+                    let wish_count =document.getElementById(product_idx).childNodes[1].childNodes[3]
+                    wish_count.innerHTML =Number(wish_count.innerHTML) + 1
+                })
+                .then((data) => {
+                    console.log(data);
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
+        }else{
+            location.href="/login"
+        }
+
+    }
+
+    function wishDelete(product_idx) {
+        if(document.querySelector('#username') !=null) {
+            fetch('http://localhost:8889/api/product/' + product_idx, {
+                method: "DELETE"
+            })
+                .then((res) => {
+                    let wish_on_img = document.getElementById(product_idx).childNodes[1].childNodes[1].childNodes[1]
+                    wish_on_img.style.display = 'none'
+                    let wish_off_img = document.getElementById(product_idx).childNodes[1].childNodes[1].childNodes[3]
+                    wish_off_img.style.display = 'block'
+                    let wish_count = document.getElementById(product_idx).childNodes[1].childNodes[3]
+                    wish_count.innerHTML = Number(wish_count.innerHTML) - 1
+                })
+                .then((data) => {
+                    console.log(data);
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
+        }else{
+            location.href="/login"
+        }
+    }
     </script>
     
 </html>

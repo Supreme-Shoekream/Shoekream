@@ -95,11 +95,15 @@ public class ShopController {
         Page<ProductDTO> products = shopApiLogicService.brand(brandName,pageable);
         List<String> prices = sellService.buyNowPrices(products.stream().map(ProductDTO::toEntity).toList());
         List<Integer> barNumbers = paginationService.getPaginationBarNumbers(pageable.getPageNumber(), products.getTotalPages());
+        List<Long> wishCount = shopApiLogicService.wishCount(products.stream().map(ProductDTO::toEntity).toList());
+        List<Long> tagCount = shopApiLogicService.tagCount(products.stream().map(ProductDTO::toEntity).toList());
         int count = products.stream().toList().size();
         map.addAttribute("products",products);
         map.addAttribute("prices",prices);
         map.addAttribute("barNumbers",barNumbers);
         map.addAttribute("count",count);
+        map.addAttribute("wishCount", wishCount);
+        map.addAttribute("tagCount", tagCount);
         map.addAttribute("brandName",products.stream().findAny().get().brand());
         return "/product/brand";
     }

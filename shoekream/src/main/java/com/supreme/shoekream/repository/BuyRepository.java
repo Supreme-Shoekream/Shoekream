@@ -43,4 +43,5 @@ public interface BuyRepository extends JpaRepository<Buy,Long> {
     List<Buy> findByCreatedAtAfter(LocalDateTime createdAt);
     List<Sell> deleteByMemberIdx(Long idx);
     List<Buy> findAllByProductOrderByCreatedAtDesc(Product product);
+    List<Buy> findAllByProductAndStatusOrderByCreatedAtDesc(Product product, OrderStatus status);
 }

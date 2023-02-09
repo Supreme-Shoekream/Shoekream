@@ -1,8 +1,10 @@
 <?xml version="1.0"?>
 <thlogic>
-
+    <!--브랜드이름-->
     <attr sel=".brand_name" th:text="${brandName}"/>
+    <!--카운트-->
     <attr sel=".brand_total" th:text="${count}"/>
+    <!--반복-->
     <attr sel=".brand_products" th:remove="all-but-first">
         <attr sel=".product_card" th:each= "product, i : ${products}" >
             <attr sel=".item_inner" th:href="@{'/product/' + ${product.idx}}">
@@ -12,7 +14,7 @@
                     <attr sel=".product_info_product_name/p[0]" th:text="${product.name}"/>
                     <attr sel=".product_info_product_name/p[1]" th:text="${product.nameKor}"/>
                 </attr>
-                <attr sel=".amount" th:text="${prices[i.index]}"/>
+                <attr sel=".amount" th:text="${prices[i.index] +'원'}"/>
             </attr>
 
             <attr sel=".action_wish_review" th:id="${product.idx}">
