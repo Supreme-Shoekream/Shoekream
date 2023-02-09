@@ -4,23 +4,23 @@
         <attr sel="thead/tr">
             <attr sel="th.idx/a" th:href="@{conclusion(page=${conclusion.number},sort='idx'+
                 (*{sort.getOrderFor('idx')} != null ? (*{sort.getOrderFor('idx').direction.name} != 'DESC' ? ',desc' : '') : ''),
-                searchKeyword=${param.searchValue}
+                searchKeyword=${param.searchKeyword}
                 )}"/>
             <attr sel="th.proIdx/a" th:href="@{/conclusion(page=${conclusion.number},sort='product.idx'+
                 (*{sort.getOrderFor('product.idx')} != null ? (*{sort.getOrderFor('product.idx').direction.name} != 'DESC' ? ',desc' : '') : ''),
-                searchKeyword=${param.searchValue}
+                searchKeyword=${param.searchKeyword}
                 )}"/>
             <attr sel="th.proModelNum/a" th:href="@{/conclusion(page=${conclusion.number},sort='product.modelNum'+
                 (*{sort.getOrderFor('product.modelNum')} != null ? (*{sort.getOrderFor('product.modelNum').direction.name} != 'DESC' ? ',desc' : '') : ''),
-                searchKeyword=${param.searchValue}
+                searchKeyword=${param.searchKeyword}
                 )}"/>
             <attr sel="th.price/a" th:href="@{/conclusion(page=${conclusion.number},sort='price'+
                 (*{sort.getOrderFor('price')} != null ? (*{sort.getOrderFor('price').direction.name} != 'DESC' ? ',desc' : '') : ''),
-                searchKeyword=${param.searchValue}
+                searchKeyword=${param.searchKeyword}
                 )}"/>
             <attr sel="th.createdAt/a" th:href="@{/conclusion(page=${conclusion.number},sort='createdAt'+
                 (*{sort.getOrderFor('createdAt')} != null ? (*{sort.getOrderFor('createdAt').direction.name} != 'DESC' ? ',desc' : '') : ''),
-                searchKeyword=${param.searchValue}
+                searchKeyword=${param.searchKeyword}
                 )}"/>
         </attr>
         <attr sel="tbody" th:remove="all-but-first">
@@ -38,15 +38,15 @@
     </attr>
     <attr sel=".pagination" th:object="${conclusion}">
         <attr sel="li[0]/a" th:text="'◀'"
-              th:href="@{/conclusion(page=${conclusion.number - 1}, searchKeyword=${param.searchKeyword})}"
+              th:href="@{/conclusion(page=${conclusion.number - 1}, sort=${param.sort}, searchKeyword=${param.searchKeyword})}"
               th:class="'page-link'+(${conclusion.number}<=0 ? ' disabled' : '')"/>
         <attr sel="li[1]" th:class="page-item" th:each="pageNumber : ${barNumbers}">
             <attr sel="a" th:text="${pageNumber + 1}"
-                  th:href="@{/conclusion(page=${pageNumber}, searchKeyword=${param.searchKeyword})}"
+                  th:href="@{/conclusion(page=${pageNumber}, sort=${param.sort}, searchKeyword=${param.searchKeyword})}"
                   th:class="'page-link'+(${pageNumber}==${conclusion.number} ? ' disabled' : '')"/>
         </attr>
         <attr sel="li[2]/a" th:text="'▶'"
-              th:href="@{/conclusion(page=${conclusion.number + 1}, searchKeyword=${param.searchKeyword})}"
+              th:href="@{/conclusion(page=${conclusion.number + 1}, sort=${param.sort}, searchKeyword=${param.searchKeyword})}"
               th:class="'page-link'+(${conclusion.number}>=${conclusion.totalPages -1} ? ' disabled' : '')"/>
     </attr>
 </thlogic>

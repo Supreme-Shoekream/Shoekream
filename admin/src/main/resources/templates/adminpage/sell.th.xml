@@ -8,19 +8,19 @@
 
             <attr sel="th.idx/a" th:href="@{sell(page=${sells.number},sort='idx'+
                 (*{sort.getOrderFor('idx')} != null ? (*{sort.getOrderFor('idx').direction.name} != 'DESC' ? ',desc' : '') : ''),
-                searchKeyword=${param.searchValue}
+                searchKeyword=${param.searchKeyword}
                 )}"/>
             <attr sel="th.product_name/a" th:href="@{/sell(page=${sells.number},sort='product.name'+
                 (*{sort.getOrderFor('product.name')} != null ? (*{sort.getOrderFor('product.name').direction.name} != 'DESC' ? ',desc' : '') : ''),
-                searchKeyword=${param.searchValue}
+                searchKeyword=${param.searchKeyword}
                 )}"/>
             <attr sel="th.member_email/a" th:href="@{/sell(page=${sells.number},sort='member.email'+
                 (*{sort.getOrderFor('member.email')} != null ? (*{sort.getOrderFor('member.email').direction.name} != 'DESC' ? ',desc' : '') : ''),
-                searchKeyword=${param.searchValue}
+                searchKeyword=${param.searchKeyword}
                 )}"/>
             <attr sel="th.price/a" th:href="@{/sell(page=${sells.number},sort='price'+
                 (*{sort.getOrderFor('price')} != null ? (*{sort.getOrderFor('price').direction.name} != 'DESC' ? ',desc' : '') : ''),
-                searchKeyword=${param.searchValue}
+                searchKeyword=${param.searchKeyword}
                 )}"/>
 
         </attr>
@@ -48,15 +48,15 @@
 
         <attr sel=".pagination">
             <attr sel="li[0]/a" th:text="'◀'"
-                  th:href="@{/sell(page=${sells.number - 1}, searchKeyword=${param.searchKeyword})}"
+                  th:href="@{/sell(page=${sells.number - 1}, sort=${param.sort}, searchKeyword=${param.searchKeyword})}"
                   th:class="'page-link'+(${sells.number}<=0 ? ' disabled' : '')"/>
             <attr sel="li[1]" th:class="page-item" th:each="pageNumber : ${barNumbers}">
                 <attr sel="a" th:text="${pageNumber + 1}"
-                      th:href="@{/sell(page=${pageNumber}, searchKeyword=${param.searchKeyword})}"
+                      th:href="@{/sell(page=${pageNumber}, sort=${param.sort}, searchKeyword=${param.searchKeyword})}"
                       th:class="'page-link'+(${pageNumber}==${sells.number} ? ' disabled' : '')"/>
             </attr>
             <attr sel="li[2]/a" th:text="'▶'"
-                  th:href="@{/sell(page=${sells.number + 1}, searchKeyword=${param.searchKeyword})}"
+                  th:href="@{/sell(page=${sells.number + 1}, sort=${param.sort}, searchKeyword=${param.searchKeyword})}"
                   th:class="'page-link'+(${sells.number}>=${sells.totalPages -1} ? ' disabled' : '')"/>
         </attr>
 

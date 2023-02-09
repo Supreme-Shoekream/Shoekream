@@ -12,6 +12,6 @@ import java.util.List;
 public interface EventMemberRepository extends JpaRepository<EventMember, Long> {
     Boolean existsByEventProductAndMember(EventProduct eventProduct, Member member);
 
-    @Query(value = "SELECT * FROM event_member WHERE event_product_idx = ?1 order by RAND() limit 5",nativeQuery = true)
+    @Query(value = "SELECT * FROM event_member WHERE event_product_idx = ?1 order by RAND() limit 2",nativeQuery = true)
     List<EventMember> findDraw(Long idx);
 }

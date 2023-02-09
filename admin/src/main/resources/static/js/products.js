@@ -16,6 +16,7 @@ $("input[type='file']").on("change", function(e){
         if(!fileCheck(fileObj.name, fileObj.size)){
             return false;
         }
+        // alert("사진 파일 이름, 크기 통과");
 
         formData.append("uploadFile", fileObj);
         // 첨부한 파일을 폼데이터에 업로드파일이라는 이름으로 추가해줌 (input name과 같아야함)
@@ -32,7 +33,7 @@ $("input[type='file']").on("change", function(e){
             success : function (data){
                 //alert(data);
                 document.getElementById("previewImg").value = "/images/" + data;
-                //alert("create success");
+                alert("create success");
             },
             error: function(e) {
                 //alert("값을 가져오지 못했습니다.");
@@ -50,7 +51,7 @@ $("input[type='file']").on("change", function(e){
         if(!fileCheck(fileObj2.name, fileObj2.size)){
             return false;
         }
-        alert("사진 파일 이름, 크기 통과"); // 파일 타입, 크기 조건 둘 다 만족하면 뜸
+        // alert("사진 파일 이름, 크기 통과"); // 파일 타입, 크기 조건 둘 다 만족하면 뜸
 
         formData2.append("uploadFile", fileObj2);
         // 첨부한 파일을 폼데이터에 업로드파일이라는 이름으로 추가해줌 (input name과 같아야함)
