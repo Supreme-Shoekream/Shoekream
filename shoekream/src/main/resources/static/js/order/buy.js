@@ -291,6 +291,9 @@ const debounce=(e, callback)=> {
     }, 100); //200ms 이후 반응(디바운스)
 }
 
+let strName
+let strHp
+
 // 이름 정규 표현식
 function validateName(strName){
     // const reg_name =  /^[가-힣a-zA-Z]+$/;
@@ -311,8 +314,8 @@ function validateHp(strHp){
 }
 
 // 이름 유효성 검사
-document.querySelector('#name_input').addEventListener('input', e=>{
-    let strName=e.target.value;
+document.querySelector('#name_input').addEventListener('keyup', e=>{
+    strName=e.target.value;
     let errorMsg='';
     if(!validateName(strName)){
         errorMsg='올바른 이름을 입력해주세요. (2 - 50자)';
@@ -326,8 +329,8 @@ document.querySelector('#name_input').addEventListener('input', e=>{
 });
 
 // 휴대폰 번호 유효성 검사
-document.querySelector('#hp_input').addEventListener('input', e=>{
-    debounce(e, strHp=>{
+document.querySelector('#hp_input').addEventListener('keyup', e=>{
+        strHp = e.target.value
         let errorMsg='';
         if(!validateHp(strHp)){
             errorMsg='휴대폰 번호를 정확히 입력해주세요.';
@@ -338,37 +341,48 @@ document.querySelector('#hp_input').addEventListener('input', e=>{
             document.querySelector('#hp_input').setAttribute('validateresult',true);
         }
         document.querySelector('#hp_input_error').innerHTML=errorMsg;
-    })
 });
 
-let strName
-let strHp
-document.querySelectorAll('#name_input').forEach((item) =>{
-    item.addEventListener('blur', e=>{
-        strName=e.target.value;
-        if((validateName(strName))&&(validateHp(strHp))){
-            $("#submit_btn").removeClass("active");
-            $("#submit_btn").removeClass("disabled")
-        }else{
-            $("#submit_btn").addClass("active");
-            $("#submit_btn").addClass("disabled")
-        }
-    })
-})
 
-document.querySelectorAll('#hp_input').forEach((item) =>{
-    item.addEventListener('blur', e=>{
-        strHp=e.target.value;
-        if((validateName(strName))&&(validateHp(strHp))){
-            $("#submit_btn").removeClass("active");
-            $("#submit_btn").removeClass("disabled")
-        }else{
-            $("#submit_btn").addClass("active");
-            $("#submit_btn").addClass("disabled")
-        }
-    })
-});
+// document.querySelectorAll('#name_input').forEach((item) =>{
+//     item.addEventListener('keyup', e=>{
+//         strName=e.target.value;
+//         if((validateName(strName))&&(validateHp(strHp))){
+//             $("#submit_btn").removeClass("active");
+//             $("#submit_btn").removeClass("disabled")
+//         }else{
+//             $("#submit_btn").addClass("active");
+//             $("#submit_btn").addClass("disabled")
+//         }
+//     })
+// })
 
+// document.querySelectorAll('#hp_input').forEach((item) =>{
+//     item.addEventListener('keyup', e=>{
+//         strHp=e.target.value;
+//         if((validateName(strName))&&(validateHp(strHp))){
+//             $("#submit_btn").removeClass("active");
+//             $("#submit_btn").removeClass("disabled")
+//         }else{
+//             $("#submit_btn").addClass("active");
+//             $("#submit_btn").addClass("disabled")
+//         }
+//     })
+// });
+
+// ------------------------------------------------수정코드------------------------------------------
+const createName = document.querySelector('#name_input').addEventListener('keyup', activeEvent);
+const createHp = document.querySelector('#hp_input').addEventListener('keyup', activeEvent);
+const createZipcode = document.querySelector('#sample6_postcode').addEventListener('keyup', activeEvent);
+const createAddress1 = document.querySelector('#sample6_address').addEventListener('keyup', activeEvent);
+const createAddress2 = document.querySelector('#sample6_detailAddress').addEventListener('keyup', activeEvent)
+const submitBtn = document.querySelector('#submit_btn')
+function activeEvent() {
+    switch(validateHp(strHp) && validateName(strName) && createName.value != '' && createHp.value !='' && createZipcode.value !='' && createAddress1.value !='' && createAddress2.value != ''){
+        case true : submitBtn.classList.remove('disabled'); submitBtn.classList.remove('active');break;
+        case false : submitBtn.classList.add('disabled'); submitBtn.classList.add('active');break;
+    }
+}
 
 /**
  * 🤍 기능7 주소 변경
