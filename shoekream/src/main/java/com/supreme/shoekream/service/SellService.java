@@ -6,11 +6,13 @@ import com.supreme.shoekream.model.dto.BuyDTO;
 import com.supreme.shoekream.model.dto.ConclusionDTO;
 import com.supreme.shoekream.model.dto.ProductDTO;
 import com.supreme.shoekream.model.dto.SellDTO;
+import com.supreme.shoekream.model.dto.socialDTO.TagDTO;
 import com.supreme.shoekream.model.entity.*;
 import com.supreme.shoekream.model.enumclass.OrderStatus;
 import com.supreme.shoekream.model.enumclass.Progress;
 import com.supreme.shoekream.model.enumclass.SellProgress;
 import com.supreme.shoekream.model.network.Header;
+import com.supreme.shoekream.model.network.response.BoardWithLikeListResponse;
 import com.supreme.shoekream.repository.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -136,6 +138,35 @@ public class SellService {
         );
         System.out.println(prices);
         return prices;
+    }
+
+    @Transactional(readOnly = true)
+    public List<List<String>> buyNowTagPrices(List<BoardWithLikeListResponse> boards){
+
+        List<List<String>> boardPrices = new ArrayList<>();
+        boards.forEach(
+                board -> {
+                    List<String> tagPrices = new ArrayList<String>();
+                    List<TagDTO> tags = board.tags();
+                    tags.forEach(
+                            tag ->{
+                                Sell lowerPrice = sellRepository.findFirstByProductAndStatusOrderByPrice(tag.productDTO().toEntity(),OrderStatus.BIDDING);
+                                String price ;
+                                if(lowerPrice == null){
+                                    price = " - ";
+                                }else{
+                                    DecimalFormat format = new DecimalFormat("###,###");
+                                    price = format.format(lowerPrice.getPrice()) ;
+                                }
+                                tagPrices.add(price);
+                            }
+                    );
+                    boardPrices.add(tagPrices);
+                }
+
+        );
+        System.out.println(boardPrices);
+        return boardPrices;
     }
 
     @Transactional(readOnly = true)

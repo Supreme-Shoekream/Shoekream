@@ -13,6 +13,7 @@ import com.supreme.shoekream.repository.BoardRepository;
 import com.supreme.shoekream.repository.FollowRepository;
 import com.supreme.shoekream.repository.MemberRepository;
 import com.supreme.shoekream.repository.ProductRepository;
+import com.supreme.shoekream.service.SellService;
 import com.supreme.shoekream.service.StyleLogicService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +44,7 @@ public class SocialPageController {
     private final FollowRepository followRepository;
     private final StyleLogicService styleLogicService;
     private final ProductRepository productRepository;
+    private final SellService sellService;
 
 
     @GetMapping(path="/social")    // http://localhost:8889/social
@@ -70,9 +72,9 @@ public class SocialPageController {
     @GetMapping(path = "/social/following")    // http://localhost:8889/social/following
     public String following(@AuthenticationPrincipal KreamPrincipal kreamPrincipal, ModelMap map){
         MemberDTO sessionMember = kreamPrincipal.toFullDto();
-//        List<BoardDTO> feed = BoardDTO.fromEntity(styleLogicService.getFollowingFeeds(sessionMember.idx()));
         map.addAttribute("feed", styleLogicService.getFollowingFeeds(sessionMember.idx()));
         map.addAttribute("sessionUser",sessionMember);
+        map.addAttribute("prices",sellService.buyNowTagPrices(styleLogicService.getFollowingFeeds(sessionMember.idx())));
         return "social/following";
 
     }

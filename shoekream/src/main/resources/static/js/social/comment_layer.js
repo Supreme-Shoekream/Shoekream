@@ -10,6 +10,7 @@ function comment_more(idx, sessionUserIdx){
                 console.log(document.getElementById('now_boardIdx').value)
                 document.getElementById('layer_board_member_profile').src = data.memberDTO.imgUrl;
                 document.getElementById('layer_board_nickname').innerHTML = data.memberDTO.nickname;
+                // document.getElementById('content_profile').onclick=profileCheck(data.memberDTO.idx)
                 if(data.hashtag != null){
                     document.getElementById('layer_board_content').innerHTML = data.content+`
             <br><a><span class="hashtag" id="layer_board_hashtag">` + '#' + data.hashtag + `</span></a>`;
@@ -32,7 +33,7 @@ function comment_more(idx, sessionUserIdx){
                     commentList +=
                         `<div class="comment_unit">
                     <div class="comment_box">
-                        <a href="#" class="profile_link">
+                        <a onclick="profileCheck(${data.replies[i].memberDTO.idx})" class="profile_link">
                             <img src="${data.replies[i].memberDTO.imgUrl}" alt="KREAM 프로필 이미지" class="profile_img">
                         </a>
                         <div class="comment_detail">
@@ -130,3 +131,11 @@ $('.btn_top').click(function(){
 $(".btn_bottom").click(function() {
     $('html').animate({scrollTop : ($('.footer').offset().top)}, 10);
 });
+window.onload = function(){
+    const items = document.querySelectorAll('gnb_item');
+    items.forEach((it) => {
+        it.classList.remove('gnb_on');
+    })
+    const item = document.getElementById('st_gnb');
+    item.classList.add('gnb_on');
+}

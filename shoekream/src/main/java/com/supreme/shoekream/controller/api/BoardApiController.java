@@ -119,8 +119,8 @@ public class BoardApiController {
     }
 
     @GetMapping("/isBoardExist/{memberIdx}")
-    public List<BoardWithLikeListResponse> isBoardExist(@PathVariable(name = "memberIdx") Long memberIdx){
-        return styleLogicService.isBoardExist(memberIdx);
+    public List<BoardWithLikeListResponse> isBoardExist(@PathVariable(name = "memberIdx") Long memberIdx, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        return styleLogicService.isBoardExist(memberIdx, kreamPrincipal.idx());
     }
 
     @GetMapping("/like/{boardIdx}")
