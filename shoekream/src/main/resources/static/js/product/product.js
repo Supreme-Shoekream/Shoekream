@@ -1,17 +1,21 @@
 // ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
 // 스크롤시 왼쪽 상품 사진 이동후 멈춤
+const feed_area = document.getElementById("confirm_wrap");
+const fa = feed_area.offsetTop;
 const is_fixed = document.querySelector(".is_fixed"); // 왼쪽 상품 사진
 window.addEventListener('scroll', function () {
     // console.log(window.scrollY);
-    if (window.scrollY >= 1240) {
+    if (window.scrollY >= fa) {
         // window.scrollY: 브라우저 최상단에서 현재까지 스크롤 된 좌표값 구함
         is_fixed.classList.remove('is_fixed');
-        is_fixed.classList.add('is_absolute'); // 좌표값이 1245인 곳에서 멈춰야함
+        is_fixed.classList.add('is_absolute');
     } else {
         is_fixed.classList.remove('is_absolute');
         is_fixed.classList.add('is_fixed');
     }
 });
+
+
 
 
 // ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
@@ -183,9 +187,11 @@ function conPopdown() {
 
 // ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
 // 스크롤시 상단 고정 배너
+const product_info_wrap = document.getElementById("product_info_wrap");
+const piw = product_info_wrap.offsetTop;
 const floating = document.querySelector(".floating_price.lg");
 window.addEventListener("scroll", function () {
-    if (window.scrollY >= 350) {
+    if (window.scrollY >= piw) {
         floating.classList.add("is_open");
     } else {
         floating.classList.remove("is_open");
