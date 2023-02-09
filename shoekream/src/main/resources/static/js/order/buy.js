@@ -225,50 +225,52 @@ function pop_new_delivery(){
 new_address_send_btn=document.querySelector('.layer_delivery #submit_btn')
 new_address_send_btn.addEventListener('click',send_create)
 function send_create(){
-    const createName = document.querySelector('#name_input');
-    const createHp = document.querySelector('#hp_input');
-    const createZipcode = document.querySelector('#sample6_postcode');
-    const createAddress1 = document.querySelector('#sample6_address');
-    const createAddress2 = document.querySelector('#sample6_detailAddress')
-    const createAddressBasic = document.querySelector('#check1').checked;
-    fetch('/api/my/address', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            "transaction_time":`${new Date()}`,
-            "resultCode":"ok",
-            "description":"정상",
-            "data":{
-                "name": `${createName.value}`,
-                "hp": `${createHp.value}`,
-                "zipcode": `${createZipcode.value}`,
-                "address1": `${createAddress1.value}`,
-                "address2": `${createAddress2.value}`,
-                "addressBasic": `${createAddressBasic}`
+    if(!document.querySelector('#submit_btn').classList.contains('disabled')) {
+        const createName = document.querySelector('#name_input');
+        const createHp = document.querySelector('#hp_input');
+        const createZipcode = document.querySelector('#sample6_postcode');
+        const createAddress1 = document.querySelector('#sample6_address');
+        const createAddress2 = document.querySelector('#sample6_detailAddress')
+        const createAddressBasic = document.querySelector('#check1').checked;
+        fetch('/api/my/address', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                "transaction_time": `${new Date()}`,
+                "resultCode": "ok",
+                "description": "정상",
+                "data": {
+                    "name": `${createName.value}`,
+                    "hp": `${createHp.value}`,
+                    "zipcode": `${createZipcode.value}`,
+                    "address1": `${createAddress1.value}`,
+                    "address2": `${createAddress2.value}`,
+                    "addressBasic": `${createAddressBasic}`
+                }
+            }),
+        }).then((res) => {
+            // 주소가 아예 등록되지 않았더라면 주소창이 닫혀있기때문에, 열어주고, 빈주소창은 닫아준다.
+            empty_delivery_info = document.querySelector('.empty_delivery_info')
+            delivery_info = document.querySelector('.delivery_info')
+            if (delivery_info.style.display == 'none') {
+                delivery_info.style.display = 'block'
+                empty_delivery_info.style.display = 'none'
             }
-        }),
-    }).then((res)=>{
-        // 주소가 아예 등록되지 않았더라면 주소창이 닫혀있기때문에, 열어주고, 빈주소창은 닫아준다.
-        empty_delivery_info = document.querySelector('.empty_delivery_info')
-        delivery_info = document.querySelector('.delivery_info')
-        if(delivery_info.style.display=='none'){
-            delivery_info.style.display='block'
-            empty_delivery_info.style.display='none'
-        }
-        //레이어창 닫고 새로운 정보 반영
-        close_new_delivery()
-        receiver_dd.innerHTML=createName.value
-        receiverHp_dd.innerHTML=hp_decode(createHp.value.toString())
-        receiverAddress_dd.innerHTML='('+createZipcode.value+') '+createAddress1.value+" "+createAddress2.value
-        //레이어창 비워주기
-        createName.value=''
-        createHp.value=''
-        createZipcode.value=''
-        createAddress1.value=''
-        createAddress2.value=''
-        document.querySelector('#check1').checked = false
-        return;
-    })
+            //레이어창 닫고 새로운 정보 반영
+            close_new_delivery()
+            receiver_dd.innerHTML = createName.value
+            receiverHp_dd.innerHTML = hp_decode(createHp.value.toString())
+            receiverAddress_dd.innerHTML = '(' + createZipcode.value + ') ' + createAddress1.value + " " + createAddress2.value
+            //레이어창 비워주기
+            createName.value = ''
+            createHp.value = ''
+            createZipcode.value = ''
+            createAddress1.value = ''
+            createAddress2.value = ''
+            document.querySelector('#check1').checked = false
+            return;
+        })
+    }
 }
 function hp_decode(hp){
     return hp.substring(0,3)+"-"+hp.substring(4,5)+"***-*"+hp.substring(8,11)
@@ -378,7 +380,12 @@ const createAddress1 = document.querySelector('#sample6_address').addEventListen
 const createAddress2 = document.querySelector('#sample6_detailAddress').addEventListener('keyup', activeEvent)
 const submitBtn = document.querySelector('#submit_btn')
 function activeEvent() {
-    switch(validateHp(strHp) && validateName(strName) && createName.value != '' && createHp.value !='' && createZipcode.value !='' && createAddress1.value !='' && createAddress2.value != ''){
+    let nameInput = document.querySelector('#name_input').value
+    let hpInput = document.querySelector('#hp_input').value
+    let zipcodeInput = document.querySelector('#sample6_postcode').value
+    let address1Input = document.querySelector('#sample6_address').value
+    let address2Input = document.querySelector('#sample6_detailAddress').value
+    switch(validateHp(strHp) && validateName(strName) && nameInput.value != '' && hpInput.value !='' && zipcodeInput.value !='' && address1Input.value !='' && address2Input.value != ''){
         case true : submitBtn.classList.remove('disabled'); submitBtn.classList.remove('active');break;
         case false : submitBtn.classList.add('disabled'); submitBtn.classList.add('active');break;
     }
