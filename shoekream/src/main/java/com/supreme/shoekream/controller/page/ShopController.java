@@ -107,4 +107,5 @@ public class ShopController {
         map.addAttribute("brandName",products.stream().findAny().get().brand());
         return "/product/brand";
     }
+
 }

@@ -2,12 +2,14 @@ package com.supreme.shoekream.service;
 
 import com.supreme.shoekream.model.dto.*;
 import com.supreme.shoekream.model.entity.EventProduct;
+import com.supreme.shoekream.model.entity.Member;
 import com.supreme.shoekream.model.entity.Product;
 import com.supreme.shoekream.model.network.Header;
 import com.supreme.shoekream.model.network.request.EventApiRequest;
 import com.supreme.shoekream.model.network.response.EventApiResponse;
 import com.supreme.shoekream.model.network.response.ProductApiResponse;
 import com.supreme.shoekream.repository.EventRepository;
+import com.supreme.shoekream.repository.MemberRepository;
 import com.supreme.shoekream.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -15,6 +17,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -71,4 +74,6 @@ public class EventApiService {
     public List<ProductDTO> genderList(String gender){
         return productRepository.findTop40ByGenderOrderByWishCount(gender).stream().map(ProductDTO::fromEntity).toList();
     }
+
+
 }
