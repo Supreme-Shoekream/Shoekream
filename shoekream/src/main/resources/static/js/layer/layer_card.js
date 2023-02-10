@@ -103,7 +103,7 @@ let strCc1
 let strBirthday
 let strPin
 document.querySelectorAll('.input_card').forEach((item) =>{
-    item.addEventListener('blur', e=>{
+    item.addEventListener('keyup', e=>{
         strCc1=e.target.value;
         if((validateCc1(strCc1))&&(validateBirthday(strBirthday))&&(validatePin(strPin))){
             $("#submit_btn").removeClass("active");
@@ -116,7 +116,7 @@ document.querySelectorAll('.input_card').forEach((item) =>{
 })
 
 document.querySelectorAll('#birthday_input').forEach((item) =>{
-    item.addEventListener('blur', e=>{
+    item.addEventListener('keyup', e=>{
         strBirthday=e.target.value;
         if((validateCc1(strCc1))&&(validateBirthday(strBirthday))&&(validatePin(strPin))){
             $("#submit_btn").removeClass("active");
@@ -129,7 +129,7 @@ document.querySelectorAll('#birthday_input').forEach((item) =>{
 })
 
 document.querySelectorAll('#pin_input').forEach((item) =>{
-    item.addEventListener('blur', e=>{
+    item.addEventListener('keyup', e=>{
         strPin=e.target.value;
         if((validateCc1(strCc1))&&(validateBirthday(strBirthday))&&(validatePin(strPin))){
             $("#submit_btn").removeClass("active");
