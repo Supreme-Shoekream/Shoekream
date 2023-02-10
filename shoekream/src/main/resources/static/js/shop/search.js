@@ -185,42 +185,6 @@ function gender_reload(gender_txt){
         +category_str+collection_str+"&gender="+gender_txt+keyword_str
 }
 
-// 컬렉션
-
-// const collection_menus = document.querySelectorAll('#collection_filter .menu')
-// collection_menus.forEach((tab)=>{
-//     let checkbox = tab.childNodes[1]
-//     let collection_txt= tab.childNodes[3].childNodes[0].innerHTML
-//     if(collection_txt=='키덜트 취향저격')collection_txt='BEST_COLLECTIBLES'
-//     if(collection_txt=='올해를 빛낸 악세서리')collection_txt='BEST_JEWELRY_WATCHES'
-//     if(collection_txt=='캠핑의 매력에 빠진한해')collection_txt='BEST_CAMPING_GEAR'
-//     if(collection_txt=='브랜드 베스트 아이템')collection_txt='BRAND_MD_PICK'
-//     if(collection_txt=='심플한 로고 매력')collection_txt='SIMPLE_CHIC'
-//     if(checkbox.checked){
-//         tab.addEventListener('click',()=>{
-//             collection_reload('')
-//         })
-//     }else{
-//         tab.addEventListener('click',()=>{
-//             collection_reload(collection_txt)
-//         })
-//     }
-// })
-// function collection_reload(collection_txt){
-//
-//     if(sort==null) sort='idx'
-//     if(page==null) page=0
-//
-//     psize_str = psize_check(psize)
-//     brand_str = brand_check(brand)
-//     collection_str = collection_check(collection)
-//     gender_str = gender_check(gender)
-//     keyword_str = keyword_check(keyword)
-//     category_str = category_check(category)
-//
-//     location.href="/searchs?sort="+sort+"&page="+page+psize_str+brand_str
-//         +category_str+"&collection="+collection_txt+gender_str+keyword_str
-// }
 
 // 사이즈
 
