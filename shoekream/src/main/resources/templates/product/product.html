@@ -238,17 +238,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- 시세 = 그래프 없을때 -->
-<!--                                                <div class="wrap_sales" th:if="${#lists.isEmpty(conclusion)}">-->
-<!--                                                    <div class="table_wrap lg">-->
-<!--                                                        <div class="empty_content lg">-->
-<!--                                                            <div class="empty_bg">-->
-<!--                                                                <span class="blind">빈 데이터 이미지</span>-->
-<!--                                                            </div>-->
-<!--                                                            <p class="empty_text">체결된 거래가 아직 없습니다</p>-->
-<!--                                                        </div>-->
-<!--                                                    </div>-->
-<!--                                                </div>-->
                                                 <!-- 시세 - 거래 내역 있을때 -->
 <!--                                                <div class="wrap_bids" th:if="${!#lists.isEmpty(conclusion)}">-->
                                                 <div class="wrap_bids">
@@ -353,137 +342,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- 시세 - 거래 내역 없을때 -->
-<!--                                                <div class="wrap_bids" th:if="${#lists.isEmpty(conclusion)}" style="dis: hidden">-->
-<!--                                                    <div class="tab_area">-->
-<!--                                                        <ul role="tablist" class="tab_list">-->
-<!--                                                            <li role="tab" aria-selected="true" aria-controls="panel1" class="conclusion item on">-->
-<!--                                                                <a class="item_link">체결 거래</a>-->
-<!--                                                            </li>-->
-<!--                                                            <li role="tab" aria-selected="false" aria-controls="panel2" class="conclusion item">-->
-<!--                                                                <a class="item_link">판매 입찰</a>-->
-<!--                                                            </li>-->
-<!--                                                            <li role="tab" aria-selected="false" aria-controls="panel3" class="conclusion item">-->
-<!--                                                                <a class="item_link">구매 입찰</a>-->
-<!--                                                            </li>-->
-<!--                                                        </ul>-->
-<!--                                                        <div id="panel1" role="tabpanel" span="sales" class="tab_content">-->
-<!--                                                            <div class="table_wrap lg">-->
-<!--                                                                <div class="empty_content lg">-->
-<!--                                                                    <div class="empty_bg">-->
-<!--                                                                        <span class="blind">빈 데이터 이미지</span>-->
-<!--                                                                    </div>-->
-<!--                                                                    <p class="empty_text">체결된 거래가 아직 없습니다</p>-->
-<!--                                                                </div>-->
-<!--                                                            </div>-->
-<!--                                                        </div>-->
-<!--                                                        <div id="panel2" role="tabpanel" span="asks" class="tab_content">-->
-<!--                                                            <div class="table_wrap lg">-->
-<!--                                                                <table>-->
-<!--                                                                    <caption>-->
-<!--                                                                        <span class="blind">데이터 테이블</span>-->
-<!--                                                                    </caption>-->
-<!--                                                                    <colgroup>-->
-<!--                                                                        <col style="width:29.76%;">-->
-<!--                                                                        <col style="width:36.52%;">-->
-<!--                                                                        <col style="width:33.72%;">-->
-<!--                                                                    </colgroup>-->
-<!--                                                                    <thead>-->
-<!--                                                                    <tr>-->
-<!--                                                                        <th class="table_th">사이즈</th>-->
-<!--                                                                        <th class="table_th align_right">판매 희망가</th>-->
-<!--                                                                        <th class="table_th align_right">수량</th>-->
-<!--                                                                    </tr>-->
-<!--                                                                    </thead>-->
-<!--                                                                    <tbody>-->
-<!--                                                                    <tr>-->
-<!--                                                                        <td class="table_td">260</td>-->
-<!--                                                                        <td class="table_td align_right">214,000원</td>-->
-<!--                                                                        <td class="table_td align_right">1</td>-->
-<!--                                                                    </tr>-->
-<!--                                                                    <tr>-->
-<!--                                                                        <td class="table_td">260</td>-->
-<!--                                                                        <td class="table_td align_right">217,000원</td>-->
-<!--                                                                        <td class="table_td align_right">1</td>-->
-<!--                                                                    </tr>-->
-<!--                                                                    <tr>-->
-<!--                                                                        <td class="table_td">270</td>-->
-<!--                                                                        <td class="table_td align_right">219,000원</td>-->
-<!--                                                                        <td class="table_td align_right">1</td>-->
-<!--                                                                    </tr>-->
-<!--                                                                    <tr>-->
-<!--                                                                        <td class="table_td">240</td>-->
-<!--                                                                        <td class="table_td align_right">220,000원</td>-->
-<!--                                                                        <td class="table_td align_right">2</td>-->
-<!--                                                                    </tr>-->
-<!--                                                                    <tr>-->
-<!--                                                                        <td class="table_td">250</td>-->
-<!--                                                                        <td class="table_td align_right">223,000원</td>-->
-<!--                                                                        <td class="table_td align_right">1</td>-->
-<!--                                                                    </tr>-->
-<!--                                                                    </tbody>-->
-<!--                                                                </table>-->
-<!--                                                            </div>-->
-<!--                                                            <a class="btn outlinegrey full medium">입찰 내역 더보기</a>-->
-<!--                                                        </div>-->
-<!--                                                        <div id="panel3" role="tabpanel" span="bids" class="tab_content">-->
-<!--                                                            <div class="table_wrap lg">-->
-<!--                                                                <table>-->
-<!--                                                                    <caption>-->
-<!--                                                                        <span class="blind">데이터 테이블</span>-->
-<!--                                                                    </caption>-->
-<!--                                                                    <colgroup>-->
-<!--                                                                        <col style="width:29.76%;">-->
-<!--                                                                        <col style="width:36.52%;">-->
-<!--                                                                        <col style="width:33.72%;">-->
-<!--                                                                    </colgroup>-->
-<!--                                                                    <thead>-->
-<!--                                                                    <tr>-->
-<!--                                                                        <th class="table_th">사이즈</th>-->
-<!--                                                                        <th class="table_th align_right">구매 희망가</th>-->
-<!--                                                                        <th class="table_th align_right">수량</th>-->
-<!--                                                                    </tr>-->
-<!--                                                                    </thead>-->
-<!--                                                                    <tbody>-->
-<!--                                                                    <tr>-->
-<!--                                                                        <td class="table_td">280</td>-->
-<!--                                                                        <td class="table_td align_right">303,000원</td>-->
-<!--                                                                        <td class="table_td align_right">1</td>-->
-<!--                                                                    </tr>-->
-<!--                                                                    <tr>-->
-<!--                                                                        <td class="table_td">230</td>-->
-<!--                                                                        <td class="table_td align_right">300,000원</td>-->
-<!--                                                                        <td class="table_td align_right">1</td>-->
-<!--                                                                    </tr>-->
-<!--                                                                    <tr>-->
-<!--                                                                        <td class="table_td">240</td>-->
-<!--                                                                        <td class="table_td align_right">290,000원</td>-->
-<!--                                                                        <td class="table_td align_right">1</td>-->
-<!--                                                                    </tr>-->
-<!--                                                                    <tr>-->
-<!--                                                                        <td class="table_td">280</td>-->
-<!--                                                                        <td class="table_td align_right">286,000원</td>-->
-<!--                                                                        <td class="table_td align_right">1</td>-->
-<!--                                                                    </tr>-->
-<!--                                                                    <tr>-->
-<!--                                                                        <td class="table_td">240</td>-->
-<!--                                                                        <td class="table_td align_right">281,000원</td>-->
-<!--                                                                        <td class="table_td align_right">1</td>-->
-<!--                                                                    </tr>-->
-<!--                                                                    </tbody>-->
-<!--                                                                </table>-->
-<!--                                                            </div>-->
-<!--                                                            <a class="btn outlinegrey full medium">입찰 내역 더보기</a>-->
-<!--                                                        </div>-->
-<!--                                                    </div>-->
-<!--                                                </div>-->
-                                                <!-- 시세 - 로그인 안했을때 -->
-                                                <!-- <div class="layer_alert_login">
-                                                    <div class="layer_content">
-                                                        <p class="notice">모든 체결 거래는<br>로그인 후 확인 가능합니다.</p>
-                                                        <a href="/login" type="button" class="btn btn_login solid medium" style="color: white;">로그인</a>
-                                                    </div>
-                                                </div> -->
                                             </div>
                                             <!-- 시세 끝 -->
     
@@ -803,7 +661,6 @@
                                             </div>
                                         </div>
                                         <!-- 스크롤시 상단 고정 끝 -->
-    
                                     </div>
                                 </div>
                             </div>
@@ -946,9 +803,9 @@
 
         let arr = [];
         for(let key in conclusion) {
-            arr.push([conclusion[key].createdAt.replace("T00:00:00",""), conclusion[key].price.replace(",","").replace("원","")]);
+            arr.push([conclusion[key].createdAt.replace("T00:00:00",""), conclusion[key].price.replaceAll(",","").replace("원","")]);
         }
-        // console.log(arr);
+        console.log(arr);
 
         // 위와 같은 뜻
         // conclusion.slice().forEach(

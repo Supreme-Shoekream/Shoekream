@@ -2,14 +2,10 @@ package com.supreme.shoekream.service;
 
 import com.supreme.shoekream.model.dto.MemberDTO;
 import com.supreme.shoekream.model.dto.PointDTO;
-import com.supreme.shoekream.model.entity.Admin;
 import com.supreme.shoekream.model.entity.Member;
 import com.supreme.shoekream.model.entity.Point;
-import com.supreme.shoekream.model.enumclass.PointType;
 import com.supreme.shoekream.model.network.Header;
-import com.supreme.shoekream.model.network.response.AdminApiResponse;
 import com.supreme.shoekream.model.network.response.PointApiResponse;
-import com.supreme.shoekream.repository.AdminRepository;
 import com.supreme.shoekream.repository.MemberRepository;
 import com.supreme.shoekream.repository.PointRepository;
 import lombok.RequiredArgsConstructor;
@@ -17,8 +13,11 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+
+import java.util.Comparator;
 import java.util.List;
-import java.util.Optional;
+import java.util.stream.Collectors;
+
 
 @Service
 @RequiredArgsConstructor
