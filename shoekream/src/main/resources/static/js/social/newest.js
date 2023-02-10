@@ -64,7 +64,7 @@ window.onload = function (){
                         feedList += `<img id="like_icon" src="/img/styleImg/like_after_icon.png" alt="좋아요 이미지"
                                                             class="icon sprite-icons social-like-gray-sm">`
                     }
-                    feedList += `<span class="like_count">${data[i].lks.length}</span></span>
+                    feedList += `<span class="like_count" id="likecnt${data[i].idx}">${data[i].lks.length}</span></span>
                                                 </div>`
                     if (data[i].hashtag != null) {
                         feedList += `<p className="text_box" style="padding: 5px">${data[i].content}` + ` #` +
