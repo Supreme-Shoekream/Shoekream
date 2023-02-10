@@ -23,7 +23,7 @@ public record SellResponse(
         Long price,
         int period,
         String cardInfo,
-        String accountInfo,
+        String ac000tInfo,
         String sender,
         String senderHp,
         String senderAddress,
