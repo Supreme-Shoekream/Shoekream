@@ -5,6 +5,7 @@ import com.supreme.shoekream.model.dto.ProductDTO;
 import com.supreme.shoekream.model.network.Header;
 import com.supreme.shoekream.model.network.response.ProductApiResponse;
 import com.supreme.shoekream.model.network.security.KreamPrincipal;
+import com.supreme.shoekream.repository.EventRepository;
 import com.supreme.shoekream.service.EventApiService;
 import com.supreme.shoekream.service.MainService;
 import com.supreme.shoekream.service.SellService;
@@ -28,9 +29,11 @@ public class EventPageController {
     final EventApiService eventApiService;
     final ShopApiLogicService shopApiLogicService;
     final SellService sellService;
+    private final EventRepository eventRepository;
+
     @GetMapping(path="/promotion") //http://localhost:8889/
     public String event(HttpServletRequest request, ModelMap map){
-        EventDTO event = eventApiService.eventDetail(1L);
+        EventDTO event = eventApiService.eventDetail(eventRepository.findFirstByOrderByIdxDesc().get().getIdx());
         map.addAttribute("event",event);
         return ("exhibitions/promotion");
     }
