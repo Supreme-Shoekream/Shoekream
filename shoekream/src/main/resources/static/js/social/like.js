@@ -29,6 +29,8 @@ function like_clicked(boardIdx, size, lk){
         location.href='/login';
     }
     const items = document.querySelectorAll(".like");
+    let likecnt = Number(document.getElementById('likecnt'+boardIdx).innerHTML);
+    console.log(likecnt)
     $('span.like').click(function(e){
         e.preventDefault();
     });
@@ -41,7 +43,8 @@ function like_clicked(boardIdx, size, lk){
                 fetch("http://localhost:8889/api/social/like/" + boardIdx)
                     .then(()=>{
                         ch[1].setAttribute('src','/img/styleImg/like_after_icon.png');
-                        ch[2].innerHTML= Number(size) + 1;
+                        // ch[2].innerHTML= Number(size) + 1;
+                        ch[2].innerHTML= likecnt + 1;
                     })
             }else{
                 fetch("http://localhost:8889/api/social/unlike/" + boardIdx)
@@ -49,10 +52,12 @@ function like_clicked(boardIdx, size, lk){
                         ch[1].setAttribute('src','/img/styleImg/like_icon.png');
                         if(ch[2].innerHTML= Number(size) == 0){
                             console.log('0일때')
-                            ch[2].innerHTML= Number(size);
+                            // ch[2].innerHTML= Number(size);
+                            ch[2].innerHTML= likecnt-1;
                         }else{
                             console.log('0 아닐 때')
-                            ch[2].innerHTML= Number(size)-1;
+                            // ch[2].innerHTML= Number(size)-1;
+                            ch[2].innerHTML= likecnt -1;
                         }
                     })
             }
@@ -61,7 +66,6 @@ function like_clicked(boardIdx, size, lk){
 }
 
 function like_clicked_follow(boardIdx, size, lk){
-    console.log(lk)
 
     if(document.getElementById('username') == null){
         location.href='/login';
@@ -71,9 +75,6 @@ function like_clicked_follow(boardIdx, size, lk){
         e.preventDefault();
     });
     const ch=lk.childNodes;
-    console.log(lk)
-    console.log(ch)
-    console.log(size)
 
     if(ch[1].getAttribute('src')=='/img/styleImg/like_icon.png'){
         fetch("http://localhost:8889/api/social/like/" + boardIdx)
