@@ -28,6 +28,15 @@ public class UserApiController {
         json.put("check", pwFindCheck);
         return json;
     }
+    @GetMapping("/check/findId")
+    public @ResponseBody Map<String, String> id_find(String hp){
+        Map<String,String> json = new HashMap<>();
+        String idFindCheck = memberApiLogicService.userHpCheck(hp);
+
+        System.out.println(idFindCheck);
+        json.put("check", idFindCheck);
+        return json;
+    }
     //등록된 이메일로 임시비밀번호를 발송하고 발송된 임시비밀번호로 사용자의 pw를 변경하는 컨트롤러
     @PostMapping("/check/findPw/sendEmail")
     public @ResponseBody void sendEmail(String email, String name){

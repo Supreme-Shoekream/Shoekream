@@ -10,7 +10,7 @@
             <attr sel="td.sell_idx" th:text="${penalty.sellIdx}"/>
             <attr sel="td.member_email" th:text="${penalty.memberEmail}"/>
             <attr sel="td.product_name" th:text="${penalty.productName}"/>
-            <attr sel="td.penalty_price" th:text="${#numbers.formatInteger(penalty.penaltyPrice, 0, 'COMMA')}"/>
+            <attr sel="td.penalty_price" th:text="${#numbers.formatInteger(penalty.penaltyPrice, 0, 'COMMA')}+원"/>
             <attr sel="td.reason" th:text="${penalty.reason}"/>
             <attr sel="td.reg_data" th:datetime="${penalty.createdAt}" th:text="${#temporals.format(penalty.createdAt, 'yyyy-MM-dd')}"/>
 

@@ -2,8 +2,8 @@
  * Strp1: 가격/입찰기한 설정
  * price_box: 잘못된 가격을 입력했을 때 has_warning, has_danger 클래스 추가
  * errormsg: 그때 에러메세지 display설정
- * bid_input: 구매입찰시 가격 입력하는 input
- * price_now: 서버에서 받아온 즉시 구매가
+ * bid_input: 판매입찰시 가격 입력하는 input
+ * price_now: 서버에서 받아온 즉시 판매가
  */
 const pricebox = document.querySelector(".instant_group .price_now");
 const errormsg = document.querySelector(".price_warning");
@@ -12,7 +12,7 @@ let price_now;
 /**
  *서버에 보낼 데이터 선언
  * isNow
- * price = 구매희망가
+ * price = 핀매희망가
  * period
  * cardInfo
  * accountInfo
@@ -55,7 +55,7 @@ function sell_now() {
   $(".is_dark span").html("즉시 판매가");
   $(".price_total .amount").html((price_now+fees).toLocaleString("ko-KR"));
   $(".price_total .unit").html("원");
-  $(".step-3 .main_title").html('즉시 구매가 완료되었습니다.')
+  $(".step-3 .main_title").html('즉시 판매가 완료되었습니다.')
   // 만약 에러메세지가 있을 때 없애기 위해
   pricebox.classList.remove("has_warning");
   pricebox.classList.remove("has_danger");
@@ -922,7 +922,7 @@ function getCheck() {
 
 /**
  * 🤍 기능13 결재하기 버튼 클릭시 경고창 이후 결재완료페이지
- * fetch로 구매등록
+ * fetch로 판매등록
  * 결재완료 페이지
  */
 function pop_order_price_confirm(){
