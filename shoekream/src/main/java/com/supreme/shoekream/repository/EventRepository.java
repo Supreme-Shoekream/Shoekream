@@ -11,5 +11,5 @@ import java.util.Optional;
 public interface EventRepository extends JpaRepository<EventProduct, Long> {
     Optional<EventProduct> findByIdx(Long idx);
 
-
+    Optional<EventProduct> findFirstByOrderByIdxDesc();
 }

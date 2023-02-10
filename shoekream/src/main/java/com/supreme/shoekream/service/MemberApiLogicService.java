@@ -253,6 +253,16 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
             return false;
         }
     }
+    public String userHpCheck(String hp) {
+
+        Optional<Member> member = memberRepository.findByHp(hp);
+        if(member!=null && member.get().getHp().equals(hp)) {
+            return member.get().getEmail();
+        }
+        else {
+            return null;
+        }
+    }
 
     public Header<MemberApiResponse> deleteProfile(Long idx){
         Member member = memberRepository.findByIdx(idx);
