@@ -21,6 +21,10 @@ table {
 .category a{
     color:#222;
 }
+.category.active {
+    font-weight: 700;
+    color: #222;
+}
 .category_list_items:after {
     content: "";
     display: block;
@@ -40,9 +44,9 @@ table {
     font-weight: 700;
 }
 
-.layer_content .category_list_items .category, 
-.md .category_list_items .category, 
-.mo .category_list_items .category, 
+.layer_content .category_list_items .category,
+.md .category_list_items .category,
+.mo .category_list_items .category,
 .sm .category_list_items .category {
     font-size: 16px;
     height: 59px;
@@ -73,6 +77,10 @@ table {
 .layer_content .category_list_items .category .category_text{
     max-width: 96px;
     max-height: 37px;
+    font-size: 18px;
+}
+.layer .content{
+    padding: 0px 0px 0px;
 }
 
 .layer_wrap{
@@ -237,3 +245,4 @@ table tbody th {
     margin-top: 5px;
     margin-bottom: 0px;
 }
+

@@ -29,7 +29,7 @@ let delivery_memo ='';
 let fees = 0;    //수수료
 document.querySelector('.deadline_txt').innerHTML = calc_deadline(30)   //초기 deadline 세팅
 
-
+let now_price = document.getElementById('now_price').innerHTML
 /**
  * 🤍 기능1 입찰 <-> 즉시
  * .title_txt : 내용 "판매 입찰하기"<->"즉시 판매하기"
@@ -144,6 +144,7 @@ bid_input.addEventListener("blur", (e) => {
   // 즉시 판매값보다 싸게 부르면 즉시판매로 넘어간다.
   if (price_now >= str_price) {
     sell_now()
+    return
   }
   //1000원 단위로만 입력 가능하다.
   if (str_price != 0 && str_price % 1000 != 0) {
@@ -237,6 +238,7 @@ function pop_payout_account(){
 }
 function close_payout_account(){
   document.querySelector('.layer_payout_account').style.display="none"
+  document.querySelector('#input_acc').value =''
 }
 function dropdown(){
   // 클릭했을때 style.display==="none" => block 아니면 none
@@ -334,10 +336,15 @@ document.querySelector('#input_acc').addEventListener('input', e => {
 const sender_dd = document.getElementById('sender')
 const senderHp_dd = document.getElementById('senderHp')
 const senderAddress_dd = document.getElementById('senderAddress')
-document.querySelector('.layer_delivery .btn_layer_close').addEventListener('click', close_new_delivery)
-document.querySelector('.layer_delivery .btn_delete').addEventListener('click', close_new_delivery)
 function close_new_delivery() {
   document.querySelector(".layer_delivery").style.display = "none";
+  document.querySelector('.layer_delivery').style.display="none"
+  document.querySelector('#name_input').value=''
+  document.querySelector('#hp_input').value=''
+  document.querySelector('#sample6_postcode').value=''
+  document.querySelector('#sample6_address').value=''
+  document.querySelector('#sample6_detailAddress').value=''
+  document.querySelector('#check1').checked = false
 }
 function pop_new_delivery() {
   document.querySelector(".layer_delivery").style.display = "block";
@@ -669,6 +676,12 @@ function update_layer_shipping_memo() {
  */
 function close_card() {
   document.querySelector(".layer_card").style.display = "none";
+  document.querySelector('#cc-1').value=''
+  document.querySelector('#cc-2').value=''
+  document.querySelector('#cc-3').value=''
+  document.querySelector('#cc-4').value=''
+  document.querySelector('#birthday_input').value=''
+  document.querySelector('#pin_input').value=''
 }
 function pop_card() {
   document.querySelector(".layer_card").style.display = "block";
@@ -990,4 +1003,14 @@ function sendit() {
 }
 function close_order_price_confirm(){
   document.querySelector('.layer_order_price_confirm').style.display="none"
+}
+
+/**
+ * 기능 14 : 검수기준 레이어창
+ */
+function pop_auth_policy(){
+  document.querySelector('.layer_auth_policy').style.display="block"
+}
+function close_auth_policy(){
+  document.querySelector('.layer_auth_policy').style.display="none"
 }

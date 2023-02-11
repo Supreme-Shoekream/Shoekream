@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/order/header.css">
     <link rel="stylesheet" href="/css/order/sell.css">
     <link rel="stylesheet" href="/css/layer/layer.css">
+    <link rel="stylesheet" href="/css/layer/layer_auth_policy.css">
     <link rel="stylesheet" href="/css/layer/layer_payout_account.css">
     <link rel="stylesheet" href="/css/layer/layer_delivery.css">
     <link rel="stylesheet" href="/css/layer/layer_address.css">
@@ -68,7 +69,7 @@
 </script>
 <body>
 <!-- Header 시작 -->
-<header th:replace="/fragment/order_header.html :: order_header"></header>
+<header th:replace="/fragment/sell_header.html :: sell_header"></header>
 <!-- Header 끝 -->
     <div class="container sell md step-1">
         <!---->
@@ -700,8 +701,7 @@
                         <div class="method_desc">
                             <p class="desc_txt"> - 페널티는 일시불만 지원하며, 카드사 홈페이지나 앱에서 분할납부로 변경 가능합니다. 단, 카드사별 정책에 따라 분할 납부 변경
                                 시 수수료가 발생할 수 있습니다. </p>
-                            <p class="desc_txt"> - 수수료(페널티, 착불배송비 등)가 정산되지 않을 경우, 별도 고시 없이 해당 금액을 결제 시도 할 수 있습니다. </p><a
-                                href="/faq/penalty" class="desc_link">페널티 정책</a>
+                            <p class="desc_txt"> - 수수료(페널티, 착불배송비 등)가 정산되지 않을 경우, 별도 고시 없이 해당 금액을 결제 시도 할 수 있습니다. </p>
                         </div>
                         <!---->
                     </div>
@@ -755,9 +755,6 @@
                                             <!----><!----></label></div>
                                 </a></li>
                         </ul>
-                        <!--검수기준 레이어 창 layer_auth_policy-->
-                        <div th:replace="/layer/layer_auth_policy.html :: layer_auth_policy"></div>
-                        <!--검수기준 레이어창 끝 layer_auth_policy-->
                     </div>
                     <div class="sell_total_confirm" is-instant="true">
                         <div class="price_total">
@@ -876,10 +873,15 @@
         </div><!----><!---->
 
     </div>
+<!--검수기준 레이어 창 layer_auth_policy-->
+<div th:replace="/layer/layer_auth_policy.html :: layer_auth_policy"></div>
+<!--검수기준 레이어창 끝 layer_auth_policy-->
 <!--footer 시작-->
 <footer th:replace="/fragment/footer.html :: footer"></footer>
 <!--footer 끝-->
 </body>
 <script src="/js/order/sell.js"></script>
+<script src="/js/notice/auth_policy.js"></script>
+
 
 </html>

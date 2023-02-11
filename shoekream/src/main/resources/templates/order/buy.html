@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/order/header.css">
     <link rel="stylesheet" href="/css/order/buy.css">
     <link rel="stylesheet" href="/css/layer/layer.css">
+    <link rel="stylesheet" href="/css/layer/layer_auth_policy.css">
     <link rel="stylesheet" href="/css/layer/layer_delivery.css">
     <link rel="stylesheet" href="/css/layer/layer_address.css">
     <link rel="stylesheet" href="/css/layer/layer_shipping_memo.css">
@@ -317,7 +318,7 @@
                     <!--새 주소 추가 버튼 클릭시 나오는 모달창 시작-->
                     <div class="layer_delivery layer lg" style="display:none" >
                         <div class="layer_container"><a class="btn_layer_close" onclick="close_new_delivery()">
-                            <div><img src="/img/close.png"  onclick="close_new_delivery()"></div>
+                            <div><img src="/img/close.png" ></div>
                             <!---->
                         </a>
                             <div class="layer_header">
@@ -610,7 +611,7 @@
                             </div>
                             <!--card 드롭다운 끝-->
                         </div>
-                        <div class="general_payment">
+                        <div class="general_payment" style="display: none">
                             <h4 class="method_title">
                                 <div class="main_title"><strong>일반 결제</strong><span class="sub_title">일시불・할부</span>
                                 </div>
@@ -706,9 +707,7 @@
                                 </a></li>
                         </ul>
                         <!--검수기준 있던곳🌈🌈🌈🌈-->
-                        <!--검수기준 레이어 창 layer_auth_policy-->
-                        <div th:replace="/layer/layer_auth_policy.html :: layer_auth_policy"></div>
-                        <!--검수기준 레이어창 끝 layer_auth_policy-->
+
                     </div>
                     <div class="buy_total_confirm" is-instant="true">
                         <div class="price_total">
@@ -838,6 +837,9 @@
         </div><!----><!---->
 
     </div>
+<!--검수기준 레이어 창 layer_auth_policy-->
+<div th:replace="/layer/layer_auth_policy.html :: layer_auth_policy"></div>
+<!--검수기준 레이어창 끝 layer_auth_policy-->
 <!--footer 시작-->
 <footer th:replace="/fragment/footer.html :: footer"></footer>
 <!--footer 끝-->
@@ -845,5 +847,7 @@
 
 </body>
 <script src="/js/order/buy.js"></script>
+<script src="/js/notice/auth_policy.js"></script>
+
 
 </html>
