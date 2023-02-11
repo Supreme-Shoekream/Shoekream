@@ -256,7 +256,7 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
     public String userHpCheck(String hp) {
 
         Optional<Member> member = memberRepository.findByHp(hp);
-        if(member!=null && member.get().getHp().equals(hp)) {
+        if(member.orElse(null)!=null && member.get().getHp().equals(hp)) {
             return member.get().getEmail();
         }
         else {

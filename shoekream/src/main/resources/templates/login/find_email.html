@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="/css/fragment/footer.css">
     <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://kream.co.kr/favicon.ico">
     <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+
 </head>
 
 <!---->
@@ -35,7 +38,7 @@
             </div><!--.input_box END-->
 
             <div class="help_btn_box">
-                <a disabled="disabled" href="#" type="button" class="btn full solid disabled" id="find_btn"> 이메일 아이디 찾기 </a>
+                <a disabled="disabled" href="#" type="button" class="btn full solid disabled" id="find_btn" onclick="idCheck()"> 이메일 아이디 찾기 </a>
             </div><!--.help_btn_box END-->
         </div>
     </div><!--.help_area END-->
@@ -44,7 +47,7 @@
         <div>
             <div class="email_box">
                 <p class="email_txt">이메일 주소</p>
-                <p class="email_result"><span>s********l@gmail.com</span></p>
+                <p class="email_result"><span id="result_email">s********l@gmail.com</span></p>
             </div><!--.email_box END-->
 
             <div class="find_btn_box">
