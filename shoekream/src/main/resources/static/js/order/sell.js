@@ -238,6 +238,7 @@ function pop_payout_account(){
 }
 function close_payout_account(){
   document.querySelector('.layer_payout_account').style.display="none"
+  document.querySelector('#input_acc').value =''
 }
 function dropdown(){
   // 클릭했을때 style.display==="none" => block 아니면 none
@@ -335,10 +336,15 @@ document.querySelector('#input_acc').addEventListener('input', e => {
 const sender_dd = document.getElementById('sender')
 const senderHp_dd = document.getElementById('senderHp')
 const senderAddress_dd = document.getElementById('senderAddress')
-document.querySelector('.layer_delivery .btn_layer_close').addEventListener('click', close_new_delivery)
-document.querySelector('.layer_delivery .btn_delete').addEventListener('click', close_new_delivery)
 function close_new_delivery() {
   document.querySelector(".layer_delivery").style.display = "none";
+  document.querySelector('.layer_delivery').style.display="none"
+  document.querySelector('#name_input').value=''
+  document.querySelector('#hp_input').value=''
+  document.querySelector('#sample6_postcode').value=''
+  document.querySelector('#sample6_address').value=''
+  document.querySelector('#sample6_detailAddress').value=''
+  document.querySelector('#check1').checked = false
 }
 function pop_new_delivery() {
   document.querySelector(".layer_delivery").style.display = "block";
@@ -670,6 +676,12 @@ function update_layer_shipping_memo() {
  */
 function close_card() {
   document.querySelector(".layer_card").style.display = "none";
+  document.querySelector('#cc-1').value=''
+  document.querySelector('#cc-2').value=''
+  document.querySelector('#cc-3').value=''
+  document.querySelector('#cc-4').value=''
+  document.querySelector('#birthday_input').value=''
+  document.querySelector('#pin_input').value=''
 }
 function pop_card() {
   document.querySelector(".layer_card").style.display = "block";

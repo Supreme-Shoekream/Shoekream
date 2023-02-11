@@ -215,10 +215,14 @@ function step2(){
 const receiver_dd = document.getElementById('receiver')
 const receiverHp_dd = document.getElementById('receiverHp')
 const receiverAddress_dd = document.getElementById('receiverAddress')
-new_address_open_btn=document.querySelector('.layer_delivery .btn_layer_close');
-new_address_open_btn.addEventListener('click', pop_new_delivery)
 function close_new_delivery(){
     document.querySelector('.layer_delivery').style.display="none"
+    document.querySelector('#name_input').value=''
+    document.querySelector('#hp_input').value=''
+    document.querySelector('#sample6_postcode').value=''
+    document.querySelector('#sample6_address').value=''
+    document.querySelector('#sample6_detailAddress').value=''
+    document.querySelector('#check1').checked = false
 }
 function pop_new_delivery(){
     document.querySelector('.layer_delivery').style.display="block"
@@ -660,6 +664,12 @@ point_input.addEventListener('keyup', function(e) {
  */
 function close_card(){
     document.querySelector('.layer_card').style.display="none"
+    document.querySelector('#cc-1').value=''
+    document.querySelector('#cc-2').value=''
+    document.querySelector('#cc-3').value=''
+    document.querySelector('#cc-4').value=''
+    document.querySelector('#birthday_input').value=''
+    document.querySelector('#pin_input').value=''
 }
 function pop_card(){
     document.querySelector('.layer_card').style.display="block"
