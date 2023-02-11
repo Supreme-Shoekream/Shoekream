@@ -1071,7 +1071,7 @@
                         <button class="btn_bottom lg" style="">
                             <img class="ico-bottom icon sprite-icons" src="../img/main/bottom.png">
                         </button>
-                        <button><img class="chatbot" src="../img/main/chatbot.png" onclick="window.open('https://wp9ky.channel.io/support-bots/54839')"></button>
+
                 </div>
                 <div class="footer lg">
                     <div class="inner">
@@ -1440,5 +1440,11 @@
 <!--        </script>-->
 
 <script src="/js/main/mainpage.js"></script>
+<script>
+    (function(){var w=window;if(w.ChannelIO){return w.console.error("ChannelIO script included twice.")}var ch=function(){ch.c(arguments)};ch.q=[];ch.c=function(args){ch.q.push(args)};w.ChannelIO=ch;function l(){if(w.ChannelIOInitialized){return}w.ChannelIOInitialized=true;var s=document.createElement("script");s.type="text/javascript";s.async=true;s.src="https://cdn.channel.io/plugin/ch-plugin-web.js";var x=document.getElementsByTagName("script")[0];if(x.parentNode){x.parentNode.insertBefore(s,x)}}if(document.readyState==="complete"){l()}else{w.addEventListener("DOMContentLoaded",l);w.addEventListener("load",l)}})();
 
+    ChannelIO('boot', {
+        "pluginKey": "56be54f8-9fc4-4665-b715-c0471acc4c8b"
+    });
+</script>
 </html>
