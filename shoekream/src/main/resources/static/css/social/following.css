@@ -11,7 +11,10 @@
 a:-webkit-any-link{
     text-decoration: none;
 }
-
+#dltBtn:hover{
+    cursor: pointer;
+    font-weight: bold;
+}
 .container.social {
     margin-top: 0!important;
 }
