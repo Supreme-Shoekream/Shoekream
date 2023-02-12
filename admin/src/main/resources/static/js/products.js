@@ -405,5 +405,23 @@ function search_products(){
     location.href="/products?page=0&searchKeyword="+searchInput.value;
 }
 
+function href_buyList(idx) {
+    fetch('http://localhost:8899/api/admin/products/'+idx)
+        .then((response) => response.json())
+        .then((data) => {
+            let name = data.data.name
+            location.href="/buy?page=0&searchKeyword="+name;
+        })
+
+}
+function href_sellList(idx) {
+    fetch('http://localhost:8899/api/admin/products/'+idx)
+        .then((response) => response.json())
+        .then((data) => {
+            let name = data.data.name
+            location.href="/sell?page=0&searchKeyword="+name;
+        })
+
+}
 
 
