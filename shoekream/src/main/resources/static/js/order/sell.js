@@ -112,6 +112,7 @@ bid_input.addEventListener("input", (e) => {
   if (str_price.length > e.target.maxLength) {
     e.target.value = str_price.slice(0, e.target.maxLength);
   }
+  str_price =  Number(str_price.replaceAll(',', ''));
   // .price_now에 has_danger has_warning추가
   if (str_price < 30000) {
     pricebox.classList.add("has_warning");
@@ -982,13 +983,14 @@ function sendit() {
       .then((res) => {
         document.querySelector('.step-2').style.display="none"
         document.querySelector('.step-3').style.display="block"
-        document.querySelector('.step-3 .wish_price').innerHTML=wish_price.toLocaleString('ko-KR') +"원";
-        document.querySelector('.step-3 .final_fees').innerHTML=fees.toLocaleString('ko-KR') +"원";
+        document.querySelector('.step-3 .wish_price').innerHTML=wish_price.toLocaleString('ko-KR') +" 원";
+        document.querySelector('.step-3 .final_fees').innerHTML=fees.toLocaleString('ko-KR') +" 원";
         document.querySelector('.step-3 .final_price').innerHTML = (wish_price + fees ).toLocaleString('ko-KR') ;
         if(is_now != true){
           document.querySelector('.step-3 .deadline').innerHTML = calc_deadline(period);
         }else{
           document.querySelector('.step-3 .deadline_box').style.display= "none";
+          document.querySelector('.step-3 .complete_title .main_title').innerHTML = "즉시판매가 완료되었습니다."
         }
         location.href="#" // 상단으로 올려준다.
         return; //리턴을 걸어서 진행하는 것을 막는다!

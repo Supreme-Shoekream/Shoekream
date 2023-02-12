@@ -967,14 +967,16 @@ function sendit() {
         .then((res) => {
             document.querySelector('.step-2').style.display="none"
             document.querySelector('.step-3').style.display="block"
-            document.querySelector('.step-3 .wish_price').innerHTML=wish_price.toLocaleString('ko-KR')+"원";
-            document.querySelector('.step-3 .final_fees').innerHTML=fees.toLocaleString('ko-KR')+"원";
-            document.querySelector('.step-3 .use_point').innerHTML = use_point.toLocaleString('ko-KR')+"원";
+            document.querySelector('.step-3 .wish_price').innerHTML=wish_price.toLocaleString('ko-KR')+" 원";
+            document.querySelector('.step-3 .final_fees').innerHTML=fees.toLocaleString('ko-KR')+" 원";
+            document.querySelector('.step-3 .use_point').innerHTML = use_point.toLocaleString('ko-KR')+" 원";
             document.querySelector('.step-3 .final_price').innerHTML = (wish_price + fees + 3000 - use_point).toLocaleString('ko-KR');
             if(is_now != true){
                 document.querySelector('.step-3 .deadline').innerHTML = calc_deadline(period);
             }else{
                 document.querySelector('.step-3 .deadline_box').style.display= "none";
+                document.querySelector('.step-3 .complete_title .main_title').innerHTML = "즉시구매가 완료되었습니다."
+                document.querySelector('.step-3 .complete_title .sub_title').style.display='none'
             }
             location.href="#" // 상단으로 올려준다.
             return; //리턴을 걸어서 진행하는 것을 막는다!
