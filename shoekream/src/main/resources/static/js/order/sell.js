@@ -384,16 +384,10 @@ function send_create(){
       empty_delivery_info.style.display='none'
     }
     //레이어창 닫고 새로운 정보 반영
-    close_new_delivery()
     sender_dd.innerHTML=createName.value
     senderHp_dd.innerHTML=hp_decode(createHp.value.toString())
     senderAddress_dd.innerHTML='('+createZipcode.value+') '+createAddress1.value+" "+createAddress2.value
-    //레이어창 비워주기
-    createName.value=''
-    createHp.value=''
-    createZipcode.value=''
-    createAddress1.value=''
-    createAddress2.value=''
+    close_new_delivery()
     document.querySelector('#check1').checked = false
     return;
   })
@@ -722,11 +716,11 @@ function createCard(isBasic) {
         }
       }),
     }).then((res) => {
+      document.getElementById('cardInfo').innerHTML=document.querySelector('#cc-4').value;
       close_card_create_layer()
       close_card()
       document.querySelector('.regist_link').style.display='none'
       document.querySelector('.main_card').style.display='block'
-      document.getElementById('cardInfo').innerHTML=document.querySelector('#cc-4').value;
       return;
     })
   }
