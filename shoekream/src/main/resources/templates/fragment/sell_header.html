@@ -1,0 +1,41 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<header class="header" th:fragment="sell_header">
+    <div class="header_top">
+        <div class="top_inner">
+            <ul  class="top_list">
+                <li  class="top_item">
+                    <span id="username" class="text-white me-2">username</span>
+                </li>
+                <li  class="top_item">
+                    <a  href="/notice" class="top_link"> 고객센터 </a>
+                </li>
+                <li class="top_item">
+                    <a href="/my/wish" class="top_link"> 관심상품 </a>
+                </li>
+                <li class="top_item">
+                    <a  href="/my" class="top_link"> 마이페이지 </a>
+                </li>
+                <li class="top_item">
+                    <a href="/" id="logout" class="top_link"> 로그아웃 </a>
+                </li>
+                <li  class="top_item">
+                    <a role="button" id="login" class="btn btn-outline-light me-2">Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="header_main">
+        <div class="main_inner">
+            <h1>
+                <a href="/" aria-label="홈" class="logo">
+                    <img src="/img/logo.png"></a>
+            </h1>
+            <div class="center">
+                <h2 class="title"><span class="title_txt">판매하기</span></h2>
+            </div>
+            <div class="right">
+                <button type="button" class="btn btn_standard outlinegrey small btn_layer_open" onclick="pop_auth_policy()"> 검수기준 </button>
+            </div>
+        </div>
+    </div>
+</header>

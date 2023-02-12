@@ -18,19 +18,30 @@ function pop_buy_view(idx){
         .then((data) => {
             console.log(data)
             let matching_idx = data.sellIdx;
-            if(matching_idx == null) matching_idx = "x"
+            if(matching_idx == null) {
+                matching_idx = "x"
+                document.querySelector('.layer_buy_view .sellIdx').innerHTML=matching_idx
+            }else{
+                fetch('http://localhost:8899/api/order/sell/'+ matching_idx)
+                    .then((response) => response.json())
+                    .then((data2) => {
+                        matching_idx = data2.memberEmail;
+                        document.querySelector('.layer_buy_view .sellIdx').innerHTML=
+                            `<a href="/sell?page=0&searchKeyword=${matching_idx}">${matching_idx}</a>`
+                    })
+            }
             document.querySelector('.layer_buy_view .idx').innerHTML=data.idx;
             document.querySelector('.layer_buy_view .productName').innerHTML=data.productName;
             document.querySelector('.layer_buy_view .productSize').innerHTML=data.productSize;
             document.querySelector('.layer_buy_view .productImg').src=data.productImg;
             document.querySelector('.layer_buy_view .memberEmail').innerHTML=data.memberEmail;
             document.querySelector('.layer_buy_view .type').innerHTML=data.type;
-            document.querySelector('.layer_buy_view .price').innerHTML=data.price;
+            document.querySelector('.layer_buy_view .price').innerHTML=data.price.toLocaleString('ko-KR')+"원";
             document.querySelector('.layer_buy_view .period').innerHTML=data.period;
-            document.querySelector('.layer_buy_view .createdAt').innerHTML=data.createdAt;
-            document.querySelector('.layer_buy_view .deadline').innerHTML=data.deadline;
+            document.querySelector('.layer_buy_view .createdAt').innerHTML=data.createdAt.substring(0,10);
+            document.querySelector('.layer_buy_view .deadline').innerHTML=data.deadline.substring(0,10);
             document.querySelector('.layer_buy_view .progress_class').innerHTML=data.progress;
-            document.querySelector('.layer_buy_view .sellIdx').innerHTML=matching_idx
+
             document.querySelector('.layer_buy_view .cardInfo').innerHTML=data.cardInfo;
             document.querySelector('.layer_buy_view .receiver').innerHTML=data.receiver;
             document.querySelector('.layer_buy_view .receiverHp').innerHTML=data.receiverHp;

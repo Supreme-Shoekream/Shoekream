@@ -240,6 +240,8 @@ public class AdminPageController {
         map.addAttribute("sessionInfo",session);
         Page<Admin> admins = adminApiLogicService.seachAdmin(searchKeyword,pageable);
         map.addAttribute("admins",admins);
+        List<Integer> barNumbers = paginationService.getPaginationBarNumbers(pageable.getPageNumber(),admins.getTotalPages());
+        map.addAttribute("barNumbers",barNumbers);
         return"/adminpage/admin";
     }
 

@@ -116,7 +116,7 @@ input, textarea {
 }
 
 .pop .layer_btn{
-    padding: 24px 32px 32px;
+    padding: 0px;
     display: flex;
     -webkit-box-pack: center;
     justify-content: center;
@@ -179,7 +179,7 @@ input, textarea {
     width: 100%;
     margin-top: 20px;
     /* height: 150px; */
-    border: 1px solid black;
+    /*border: 1px solid black;*/
 }
 
 
@@ -216,7 +216,8 @@ input, textarea {
 .pop .input_item h3{
     color: red; 
     border-bottom: 1px solid red;
-    width: 60px;
+    font-size: 18px;
+    width: 40px;
     margin: 0 auto;
     font-weight: bold;
 }
@@ -224,7 +225,7 @@ input, textarea {
 
 
 .pop .user_input{
-    margin-top: 13px;
+    /*margin-top: 13px;*/
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;

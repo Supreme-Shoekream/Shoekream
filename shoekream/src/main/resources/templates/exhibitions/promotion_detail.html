@@ -67,20 +67,20 @@
                                             <li class="draw_item" >
                                                 <dl class="item_box" >
                                                     <dt class="title" > 응모 기간 </dt>
-                                                    <dd class="detail startEndTime" > 12월 24일 토요일 오전 10:00 - 12월
-                                                        25일 일요일 오전 12:00 </dd>
+                                                    <dd class="detail startEndTime" > 2월 13일 월요일 오전 10:00 - 2월
+                                                        14일 화요일 오전 12:00 </dd>
                                                 </dl><!----><!---->
                                             </li>
                                             <li class="draw_item" >
                                                 <dl class="item_box" >
                                                     <dt class="title" > 당첨자 발표 </dt>
-                                                    <dd class="detail" > 2월 28일 월요일 오후 6:00 </dd>
+                                                    <dd class="detail" > 2월 14일 월요일 오후 6:00 </dd>
                                                 </dl><!----><!---->
                                             </li>
                                             <li class="draw_item" >
                                                 <dl class="item_box" >
                                                     <dt class="title" > 당첨 인원 </dt>
-                                                    <dd class="detail" > 5명 </dd>
+                                                    <dd class="detail" > 2명 </dd>
                                                 </dl><!----><!---->
                                             </li>
                                         </ul>
@@ -97,8 +97,8 @@
                                         <dt class="title" >유의 사항</dt>
                                         <dd class="detail" >
                                             <ul class="note_list" >
-                                                <li class="note_item" > 본 이벤트는 KREAM 12월 신규회원 한정 드로우
-                                                    이벤트입니다. (22년 12월 1일 이후 가입 회원 대상, 13일간 중복 참여 가능) </li>
+                                                <li class="note_item" > 본 이벤트는 KREAM 신규회원 한정 드로우
+                                                    이벤트입니다. (22년 12월 1일 이후 가입 회원 대상) </li>
                                                 <li class="note_item" > 일자 별 드로우는 매일 오전 10시부터 오전 12시까지
                                                     응모 가능합니다. </li>
                                                 <li class="note_item" > 당첨자에 한하여 매 응모 다음날 오후 6시에
@@ -178,42 +178,18 @@
 
 <script>
     const btnLucky = document.querySelector('#btn_luckydraw');
-    function setTimesale(cd, param){
-        if(cd == 1){
-            document.getElementById("timesale").innerHTML = "<div class='endtxt'>"+param+"</div>";
-        }else if(cd == 2){
 
-            var days = Math.floor(param / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((param % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((param % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((param % (1000 * 60)) / 1000);
-
-
-            if ( hours < 10 ){hours = "0" + hours; }
-            else if ( hours > 9 ){ hours = hours; }
-
-            if ( minutes < 10 ){minutes = "0" + minutes; }
-            else if ( minutes > 9 ){ minutes = minutes; }
-
-            if ( seconds < 10 ){seconds = "0" + seconds; }
-            else if ( seconds > 9 ){ seconds = seconds; }
-
-            // 타임이벤트 진행 타이머
-            document.getElementById("timesale").innerHTML = days + "<span class='time_span'>일</span> " + hours + "<span class='time_span'>시간</span> "
-                + minutes + "<span class='time_span'>분</span> " + seconds + "<span class='time_span'>초</span>";
-        }
-    }
     fetch('http://localhost:8889/api/admin/event/' + 1)
         .then((response) => response.json())
         .then((data) => {
-            var startTime = data.startTime;
-            var endTime  = data.endTime;
-            var countDownDate = new Date(endTime).getTime();
-            var countNewDate = new Date(startTime).getTime(); // 이벤트 시작시간
-            var x = setInterval(function() {
-                var now = new Date().getTime(); // 현재시간
-                var distance1 = countNewDate - now // 시작시간 - 현재시간  >>> 0보다크면 준비중
-                var distance = countDownDate - now; //종료시간 - 현재시간
+            let startTime = data.startTime;
+            let endTime  = data.endTime;
+            let countDownDate = new Date(endTime).getTime();
+            let countNewDate = new Date(startTime).getTime(); // 이벤트 시작시간
+            let x = setInterval(function() {
+                let now = new Date().getTime(); // 현재시간
+                let distance1 = countNewDate - now // 시작시간 - 현재시간  >>> 0보다크면 준비중
+                let distance = countDownDate - now; //종료시간 - 현재시간
                 // 이벤트 마감시 보여질 문구
                 if(distance1>0){
                     setTimesale(1,"준비중.");
@@ -234,7 +210,6 @@
                 }
             }, 1000);
             // cd: 1 param 표기, 2 현재시간 비교
-
             function setTimesale(cd, param){
 
                 if(cd == 1){
@@ -242,8 +217,28 @@
 
                 }else if (cd == 2){
 
+                    let days = Math.floor(param / (1000 * 60 * 60 * 24));
+                    let hours = Math.floor((param % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    let minutes = Math.floor((param % (1000 * 60 * 60)) / (1000 * 60));
+                    let seconds = Math.floor((param % (1000 * 60)) / 1000);
+
+
+                    if ( hours < 10 ){hours = "0" + hours; }
+                    else if ( hours > 9 ){ hours = hours; }
+
+                    if ( minutes < 10 ){minutes = "0" + minutes; }
+                    else if ( minutes > 9 ){ minutes = minutes; }
+
+                    if ( seconds < 10 ){seconds = "0" + seconds; }
+                    else if ( seconds > 9 ){ seconds = seconds; }
+
+                    // 타임이벤트 진행 타이머
+                    document.getElementById("timesale").innerHTML = days + "<span class='time_span'>일</span> " + hours + "<span class='time_span'>시간</span> "
+                        + minutes + "<span class='time_span'>분</span> " + seconds + "<span class='time_span'>초</span>";
+                }
+            }
             function setBtn(param){
-                    document.getElementById("btn_luckydraw").innerHTML = param;
+                document.getElementById("btn_luckydraw").innerHTML = param;
             }
         })
     function sendit() {
@@ -279,6 +274,108 @@
                 alert(err);
             })
     }
+    // const btnLucky = document.querySelector('#btn_luckydraw');
+    // function setTimesale(cd, param){
+    //     if(cd == 1){
+    //         document.getElementById("timesale").innerHTML = "<div class='endtxt'>"+param+"</div>";
+    //     }else if(cd == 2){
+    //
+    //         var days = Math.floor(param / (1000 * 60 * 60 * 24));
+    //         var hours = Math.floor((param % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    //         var minutes = Math.floor((param % (1000 * 60 * 60)) / (1000 * 60));
+    //         var seconds = Math.floor((param % (1000 * 60)) / 1000);
+    //
+    //
+    //         if ( hours < 10 ){hours = "0" + hours; }
+    //         else if ( hours > 9 ){ hours = hours; }
+    //
+    //         if ( minutes < 10 ){minutes = "0" + minutes; }
+    //         else if ( minutes > 9 ){ minutes = minutes; }
+    //
+    //         if ( seconds < 10 ){seconds = "0" + seconds; }
+    //         else if ( seconds > 9 ){ seconds = seconds; }
+    //
+    //         // 타임이벤트 진행 타이머
+    //         document.getElementById("timesale").innerHTML = days + "<span class='time_span'>일</span> " + hours + "<span class='time_span'>시간</span> "
+    //             + minutes + "<span class='time_span'>분</span> " + seconds + "<span class='time_span'>초</span>";
+    //     }
+    // }
+    // fetch('http://localhost:8889/api/admin/event/' + 1)
+    //     .then((response) => response.json())
+    //     .then((data) => {
+    //         var startTime = data.startTime;
+    //         var endTime  = data.endTime;
+    //         var countDownDate = new Date(endTime).getTime();
+    //         var countNewDate = new Date(startTime).getTime(); // 이벤트 시작시간
+    //         var x = setInterval(function() {
+    //             var now = new Date().getTime(); // 현재시간
+    //             var distance1 = countNewDate - now // 시작시간 - 현재시간  >>> 0보다크면 준비중
+    //             var distance = countDownDate - now; //종료시간 - 현재시간
+    //             // 이벤트 마감시 보여질 문구
+    //             if(distance1>0){
+    //                 setTimesale(1,"준비중.");
+    //                 setBtn("진행 예정");
+    //             }
+    //             else if (distance < 0) {
+    //                 clearInterval(x);
+    //                 setTimesale(1,"CLOSED.");
+    //                 setBtn("당첨자 안내");
+    //                 document.getElementById("btn_luckydraw").addEventListener('click',()=>location.href="/notice")
+    //                 btnLucky.classList.remove('disabled');
+    //             }
+    //             else{
+    //                 setTimesale(2,distance);
+    //                 setBtn("응모 하기");
+    //                 btnLucky.classList.remove('disabled');
+    //                 document.getElementById("btn_luckydraw").addEventListener('click',sendit)
+    //             }
+    //         }, 1000);
+    //         // cd: 1 param 표기, 2 현재시간 비교
+    //
+    //         function setTimesale(cd, param){
+    //
+    //             if(cd == 1){
+    //                 document.getElementById("timesale").innerHTML = "<div class='endtxt'>"+param+"</div>";
+    //
+    //             }else if (cd == 2){
+    //
+    //         function setBtn(param){
+    //                 document.getElementById("btn_luckydraw").innerHTML = param;
+    //         }
+    //     })
+    // function sendit() {
+    //     // create
+    //     //request로 필요한 DOM 객체 선택
+    //     const event = document.querySelector('.hidden_value');
+    //
+    //     fetch('http://localhost:8889/api/admin/event/draw', {
+    //         method: 'POST',
+    //         headers: { 'Content-Type': 'application/json' },
+    //         body: JSON.stringify({
+    //             //우리가 만든데이터
+    //             "transaction_time":`${new Date()}`,
+    //             "resultCode":"ok",
+    //             "description":"정상",
+    //             "data":{
+    //                 "eventProductIdx":`${event.value}`,
+    //             }
+    //         }),
+    //     })
+    //         .then((res) => {
+    //             console.log(res)
+    //             console.log(res.redirected)
+    //             return; //리턴을 걸어서 진행하는 것을 막는다!
+    //         })
+    //         .then((data) => {
+    //             // alert('등록성공')
+    //             // location.reload();
+    //             console.log(data);
+    //             return;
+    //         })
+    //         .catch((err)=>{
+    //             alert(err);
+    //         })
+    // }
 
     // var countDownDate = new Date("January 24, 2023 11:48:00").getTime();
     // var countNewDate = new Date("January 24, 2023 12:15:00").getTime(); // 이벤트 시작시간

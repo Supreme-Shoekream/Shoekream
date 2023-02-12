@@ -1071,7 +1071,7 @@
                         <button class="btn_bottom lg" style="">
                             <img class="ico-bottom icon sprite-icons" src="../img/main/bottom.png">
                         </button>
-                        <button><img class="chatbot" src="../img/main/chatbot.png" onclick="window.open('https://wp9ky.channel.io/support-bots/54839')"></button>
+
                 </div>
                 <div class="footer lg">
                     <div class="inner">
@@ -1091,15 +1091,15 @@
                                 <div class="menu_box"><strong class="menu_title">이용안내</strong>
                                     <ul class="menu_list">
                                         <li class="menu_item">
-                                            <a href="#" class="menu_link" onclick="pop_auth_policy()"> 검수기준 </a></li>
+                                            <a href="/auth_policy" class="menu_link" onclick="pop_auth_policy()"> 검수기준 </a></li>
                                         <li class="menu_item">
-                                            <a href="#" class="menu_link" onclick="pop_faq()"> 이용정책 </a></li>
-                                        <li class="menu_item"><a href="#" class="menu_link"> 페널티 정책 </a></li>
-                                        <li class="menu_item"><a href="#" class="menu_link"> 커뮤니티 가이드라인 </a></li>
+                                            <a href="/faq" class="menu_link" onclick="pop_faq()"> 이용정책 </a></li>
+                                        <li class="menu_item"><a href="/penalty" class="menu_link"> 페널티 정책 </a></li>
+                                        <li class="menu_item"><a href="/guide" class="menu_link"> 커뮤니티 가이드라인 </a></li>
                                     </ul>
                                 </div>
                                 <!-- 검수기준 -->
-                                
+
                                 <!-- 검수기준 끝-->
                                 <!-- 이용정책-->
 
@@ -1108,11 +1108,11 @@
                                 <div class="menu_box"><strong class="menu_title">고객지원</strong>
                                     <ul class="menu_list">
                                         <li class="menu_item"><a href="/notice" class="menu_link">공지사항</a></li>
-                                        <li class="menu_item"><a href="/about" target="_blank" class="menu_link">서비스
+                                        <li class="menu_item"><a href="https://kream.co.kr/about/" target="_blank" class="menu_link">서비스
                                                 소개</a></li>
-                                        <li class="menu_item"><a href="/showroom" target="_self" class="menu_link"> 쇼룸
+                                        <li class="menu_item"><a href="https://kream.co.kr/showroom" target="_self" class="menu_link"> 쇼룸
                                                 안내 </a></li>
-                                        <li class="menu_item"><a href="/about/seller_reception" target="_blank"
+                                        <li class="menu_item"><a href="https://kream.co.kr/about/seller_reception" target="_blank"
                                                 class="menu_link">판매자 방문접수</a></li>
                                     </ul>
                                 </div>
@@ -1440,5 +1440,11 @@
 <!--        </script>-->
 
 <script src="/js/main/mainpage.js"></script>
+<script>
+    (function(){var w=window;if(w.ChannelIO){return w.console.error("ChannelIO script included twice.")}var ch=function(){ch.c(arguments)};ch.q=[];ch.c=function(args){ch.q.push(args)};w.ChannelIO=ch;function l(){if(w.ChannelIOInitialized){return}w.ChannelIOInitialized=true;var s=document.createElement("script");s.type="text/javascript";s.async=true;s.src="https://cdn.channel.io/plugin/ch-plugin-web.js";var x=document.getElementsByTagName("script")[0];if(x.parentNode){x.parentNode.insertBefore(s,x)}}if(document.readyState==="complete"){l()}else{w.addEventListener("DOMContentLoaded",l);w.addEventListener("load",l)}})();
 
+    ChannelIO('boot', {
+        "pluginKey": "56be54f8-9fc4-4665-b715-c0471acc4c8b"
+    });
+</script>
 </html>

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/order/header.css">
     <link rel="stylesheet" href="/css/order/buy.css">
     <link rel="stylesheet" href="/css/layer/layer.css">
+    <link rel="stylesheet" href="/css/layer/layer_auth_policy.css">
     <link rel="stylesheet" href="/css/layer/layer_delivery.css">
     <link rel="stylesheet" href="/css/layer/layer_address.css">
     <link rel="stylesheet" href="/css/layer/layer_shipping_memo.css">
@@ -185,7 +186,7 @@
                 <section>
                     <div class="section_unit">
                         <div class="section_title">
-                            <h3 class="title_txt">배송 주소</h3><a class="add_more_btn" onclick="pop_new_delivery()">+ 새 주소 추가</a>
+                            <h3 class="title_txt">배송 주소</h3><a class="add_more_btn" onclick="pop_new_delivery()"  style="cursor: pointer">+ 새 주소 추가</a>
                         </div>
                         <div class="section_content">
                             <a onclick="pop_new_delivery()" class="empty_delivery_info" style="display: none">
@@ -317,7 +318,7 @@
                     <!--새 주소 추가 버튼 클릭시 나오는 모달창 시작-->
                     <div class="layer_delivery layer lg" style="display:none" >
                         <div class="layer_container"><a class="btn_layer_close" onclick="close_new_delivery()">
-                            <div><img src="/img/close.png"  onclick="close_new_delivery()"></div>
+                            <div><img src="/img/close.png" ></div>
                             <!---->
                         </a>
                             <div class="layer_header">
@@ -469,7 +470,7 @@
                         <div class="simple_payment">
                             <h4 class="method_title">
                                 <div class="main_title"> 카드 간편결제 <span class="sub_title">일시불</span></div><a
-                                    onclick="pop_card()" class="btn_card_add">+ 새 카드 추가</a>
+                                    onclick="pop_card()" class="btn_card_add"  style="cursor: pointer" >+ 새 카드 추가</a>
                             </h4>
                             <!--layer_card 시작-->
                             <div class="layer_card layer lg" style="display: none;">
@@ -610,7 +611,7 @@
                             </div>
                             <!--card 드롭다운 끝-->
                         </div>
-                        <div class="general_payment">
+                        <div class="general_payment" style="display: none">
                             <h4 class="method_title">
                                 <div class="main_title"><strong>일반 결제</strong><span class="sub_title">일시불・할부</span>
                                 </div>
@@ -706,9 +707,7 @@
                                 </a></li>
                         </ul>
                         <!--검수기준 있던곳🌈🌈🌈🌈-->
-                        <!--검수기준 레이어 창 layer_auth_policy-->
-                        <div th:replace="/layer/layer_auth_policy.html :: layer_auth_policy"></div>
-                        <!--검수기준 레이어창 끝 layer_auth_policy-->
+
                     </div>
                     <div class="buy_total_confirm" is-instant="true">
                         <div class="price_total">
@@ -786,8 +785,8 @@
                             </div>
                             <div class="complete_btn_box"><a
                                     href="/my/buying" class="btn outlinegrey medium"> 내역 상세보기 </a><a
-                                    href="/search" class="btn outlinegrey medium"> SHOP 바로가기 </a><!----></div>
-                            <p class="complete_desc"> ‘구매내역 &gt; 입찰 중’ 상태일 때는 입찰 지우기가 가능합니다. </p>
+                                    href="/searchs" class="btn outlinegrey medium"> SHOP 바로가기 </a><!----></div>
+
                         </div>
                         <div class="complete_price">
                             <div class="price_total order_info">
@@ -821,7 +820,7 @@
                                 <dl class="price_addition">
                                     <dt class="price_title"><span >배송비</span><!---->
                                     </dt>
-                                    <dd class="price_text">3,000원</dd>
+                                    <dd class="price_text">3,000 원</dd>
                                 </dl>
                             </div>
                             <div class="price_bind deadline_box">
@@ -838,6 +837,9 @@
         </div><!----><!---->
 
     </div>
+<!--검수기준 레이어 창 layer_auth_policy-->
+<div th:replace="/layer/layer_auth_policy.html :: layer_auth_policy"></div>
+<!--검수기준 레이어창 끝 layer_auth_policy-->
 <!--footer 시작-->
 <footer th:replace="/fragment/footer.html :: footer"></footer>
 <!--footer 끝-->
@@ -845,5 +847,7 @@
 
 </body>
 <script src="/js/order/buy.js"></script>
+<script src="/js/notice/auth_policy.js"></script>
+
 
 </html>

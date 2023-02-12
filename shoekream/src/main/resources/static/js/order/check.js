@@ -15,6 +15,7 @@ function getCheck() {
         if(!(next.classList.contains('disabled'))) next.classList.add('disabled');
     }
 }
+document.querySelector('#input0').addEventListener('click',getCheck)
 
 function pop_auth_policy(){
     document.querySelector('.layer_auth_policy').style.display="block"
