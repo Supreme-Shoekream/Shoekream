@@ -34,6 +34,8 @@
                 <attr sel="td.more">
                     <attr sel=".view_btn" th:onclick="'javascript:productview_popup('+ ${product.idx} + ');'"/>
                     <attr sel=".edit_btn" th:onclick="'javascript:productedit_popup('+ ${product.idx} + ');'"/>
+                    <attr sel="#buylist_btn" th:onclick="'javascript:href_buyList(' + ${product.idx} + ');'"/>
+                    <attr sel="#selllist_btn" th:onclick="'javascript:href_sellList(' + ${product.idx} + ');'"/>
                     <attr sel=".delete_btn" th:onclick="'javascript:productdelete_popup(' + ${product.idx} + ');'"/>
                 </attr>
             </attr>
