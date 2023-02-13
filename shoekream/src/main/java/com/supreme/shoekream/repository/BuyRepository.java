@@ -44,4 +44,5 @@ public interface BuyRepository extends JpaRepository<Buy,Long> {
     List<Sell> deleteByMemberIdx(Long idx);
     List<Buy> findAllByProductOrderByCreatedAtDesc(Product product);
     List<Buy> findAllByProductAndStatusOrderByCreatedAtDesc(Product product, OrderStatus status);
+    Long countByMemberAndStatus(Member member, OrderStatus status);
 }
