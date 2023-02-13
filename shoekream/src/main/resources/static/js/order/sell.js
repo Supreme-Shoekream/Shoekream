@@ -78,7 +78,7 @@ function sell_bid() {
   $(".step-1 .btn_confirm a").addClass("disabled");
   $(".is_dark span").html("판매 희망가");
   $(".price_total .amount").html("-");
-  $(".price_total .unit").html("");
+  $(".price_total .unit").html("원");
   $(".step-3 .main_title").html('판매 입찰이 완료되었습니다.')
   document.getElementById("bid_input").value = ""; // bid_input value 값 초기화
   is_now=false;
@@ -164,7 +164,7 @@ bid_input.addEventListener("blur", (e) => {
     fees.toLocaleString("ko-KR") + "원";
   //정산금액 반영
   str_price=Math.floor(str_price/1000)*1000
-  document.querySelector('.price_total .step1.amount').innerHTML=(str_price+fees).toLocaleString("ko-KR") + "원";
+  document.querySelector('.price_total .step1.amount').innerHTML=(str_price+fees).toLocaleString("ko-KR") ;
 });
 
 /**

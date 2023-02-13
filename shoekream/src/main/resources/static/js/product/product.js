@@ -4,7 +4,7 @@ const feed_area = document.getElementById("confirm_wrap");
 const fa = feed_area.offsetTop;
 const is_fixed = document.querySelector(".is_fixed"); // 왼쪽 상품 사진
 window.addEventListener('scroll', function () {
-    // console.log(window.scrollY);
+    console.log(window.scrollY);
     if (window.scrollY >= fa) {
         // window.scrollY: 브라우저 최상단에서 현재까지 스크롤 된 좌표값 구함
         is_fixed.classList.remove('is_fixed');
