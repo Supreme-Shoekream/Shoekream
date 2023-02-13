@@ -93,7 +93,7 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
 //}
     public Boolean point( Long memberidx){
         Member member = memberRepository.findById(memberidx).get();
-        if(member.getPoint()>=1000){
+        if(member.getPoint().intValue() >= 1000){
             return true;
         }else{
             return false;
