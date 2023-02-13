@@ -62,7 +62,7 @@
     </attr>
 
 
-    <attr sel="#pagination">
+    <attr sel=".pagination" th:object="${biddings}">
         <attr sel="li[0]/a" th:text="'◀'"
               th:href="@{/my/buying(page=${biddings.number - 1})}"
               th:class="'page-link' + (${biddings.number} <= 0 ? ' disabled':'')" />

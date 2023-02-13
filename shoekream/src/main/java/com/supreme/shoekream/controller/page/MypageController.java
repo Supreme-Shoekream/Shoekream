@@ -95,7 +95,7 @@ public class MypageController {
         map.addAttribute("biddings", biddings);
         map.addAttribute("progressings", progressings);
         map.addAttribute("ends", ends);
-        map.addAttribute("paginationBarNumbers", barNumbers);
+        map.addAttribute("barNumbers", barNumbers);
         map.addAttribute("bidCount",biddings.getTotalElements());
         map.addAttribute("proCount",progressings.getTotalElements());
         map.addAttribute("endCount",ends.getTotalElements());
