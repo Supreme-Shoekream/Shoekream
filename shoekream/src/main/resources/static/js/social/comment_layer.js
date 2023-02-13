@@ -10,10 +10,9 @@ function comment_more(idx, sessionUserIdx){
                 console.log(document.getElementById('now_boardIdx').value)
                 document.getElementById('layer_board_member_profile').src = data.memberDTO.imgUrl;
                 document.getElementById('layer_board_nickname').innerHTML = data.memberDTO.nickname;
-                // document.getElementById('content_profile').onclick=profileCheck(data.memberDTO.idx)
                 if(data.hashtag != null){
                     document.getElementById('layer_board_content').innerHTML = data.content+`
-            <br><a><span class="hashtag" id="layer_board_hashtag">` + '#' + data.hashtag + `</span></a>`;
+            <br><a><span class="hashtag" id="layer_board_hashtag" onclick="hashtag(this)">` + '#' + data.hashtag + `</span></a>`;
                 }else{
                     document.getElementById('layer_board_content').innerHTML = data.content;
                 }
