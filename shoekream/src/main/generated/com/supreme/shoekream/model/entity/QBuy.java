@@ -78,4 +78,3 @@ public class QBuy extends EntityPathBase<Buy> {
     }
 
 }
-

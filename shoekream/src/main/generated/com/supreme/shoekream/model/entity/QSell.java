@@ -78,4 +78,3 @@ public class QSell extends EntityPathBase<Sell> {
     }
 
 }
-
