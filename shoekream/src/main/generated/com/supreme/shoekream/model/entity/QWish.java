@@ -51,4 +51,3 @@ public class QWish extends EntityPathBase<Wish> {
     }
 
 }
-

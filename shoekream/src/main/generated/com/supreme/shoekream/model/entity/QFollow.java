@@ -38,4 +38,3 @@ public class QFollow extends EntityPathBase<Follow> {
     }
 
 }
-

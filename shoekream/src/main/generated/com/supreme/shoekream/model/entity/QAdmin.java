@@ -52,4 +52,3 @@ public class QAdmin extends EntityPathBase<Admin> {
     }
 
 }
-
