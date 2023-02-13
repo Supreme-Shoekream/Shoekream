@@ -1,4 +1,5 @@
 shoekream/src/main/resources/application.yml
+shoekream/src/main/resources/application.yaml
 shoekream/src/main/resources/application-oauth.yaml
 shoekream/src/main/resources/data.sql
 shoekream/src/main/resources/conclusion.sql
