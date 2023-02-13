@@ -16,6 +16,11 @@ function maxLengthCheck(object){
 //     }, 100); //200ms 이후 반응(디바운스)
 // }
 //
+const autoHyphen = (target) => {
+    target.value = target.value
+        .replace(/[^0-9]/g, '')
+        .replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`);
+}
 // // 휴대폰 번호 정규 표현식
 function validateHp(strHp){
     const reg_hp = /^01(?:0|1|6|7|8|9)(?:\d{3}|\d{4})\d{4}$/;
@@ -53,6 +58,7 @@ document.querySelectorAll('#hp_input').forEach((item) =>{
             }
         })
     });
+
 //
 function idCheck(){
     var hp = $("#hp_input").val();
