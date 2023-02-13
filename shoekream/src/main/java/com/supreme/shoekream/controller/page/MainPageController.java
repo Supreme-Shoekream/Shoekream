@@ -34,7 +34,8 @@ public class MainPageController {
     @GetMapping(path="")   //http://localhost:8889/
     public String index(HttpServletRequest request, ModelMap map){
         List<ProductDTO> justDrop = mainService.collectionList("JUST_DROP");
-        List<ProductDTO> mostPopular = mainService.collectionList("MOST_POPULAR");
+//        List<ProductDTO> mostPopular = mainService.collectionList("MOST_POPULAR");
+        List<Product> mostPopular = mainService.bestSeller();
         List<ProductDTO> newIn = mainService.collectionList("NEW_IN");
         List<ProductDTO> shoppingWisely = mainService.collectionList("SHOPPIING_WISELY");
         List<ProductDTO> brandMdPicks = mainService.collectionList("BRAND_MD_PICK");
@@ -65,7 +66,7 @@ public class MainPageController {
 
         List<String> justDroptbuynowPrices = sellService.buyNowPrices(justDrop.stream().map(ProductDTO::toEntity).toList());
         map.addAttribute("justDroptbuynowPrices",justDroptbuynowPrices);
-        List<String> mostPopularbuynowPrices = sellService.buyNowPrices(mostPopular.stream().map(ProductDTO::toEntity).toList());
+        List<String> mostPopularbuynowPrices = sellService.buyNowPrices(mostPopular);
         map.addAttribute("mostPopularbuynowPrices",mostPopularbuynowPrices);
         List<String> newInbuynowPrices = sellService.buyNowPrices(newIn.stream().map(ProductDTO::toEntity).toList());
         map.addAttribute("newInbuynowPrices",newInbuynowPrices);

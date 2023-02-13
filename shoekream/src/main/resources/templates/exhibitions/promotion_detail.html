@@ -178,8 +178,8 @@
 
 <script>
     const btnLucky = document.querySelector('#btn_luckydraw');
-    const event = document.querySelector('.hidden_value').value;
 
+    const event = document.querySelector('.hidden_value').value;
     fetch('http://localhost:8889/api/admin/event/' + event)
         .then((response) => response.json())
         .then((data) => {

@@ -693,8 +693,9 @@ button {
 .suggest_list {
     max-height: 480px;
     padding-right: 40px;
+    border: 1px solid silver;
+    background: #fff;
     /*border: 1px solid silver;*/
-    background: mintcream;
     font-size: 15px;
     overflow-y: scroll;
 }

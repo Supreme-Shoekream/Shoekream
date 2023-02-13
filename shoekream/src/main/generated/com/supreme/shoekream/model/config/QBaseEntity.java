@@ -1,3 +1,4 @@
+
 package com.supreme.shoekream.model.config;
 
 import static com.querydsl.core.types.PathMetadataFactory.*;
@@ -36,4 +37,3 @@ public class QBaseEntity extends EntityPathBase<BaseEntity> {
     }
 
 }
-

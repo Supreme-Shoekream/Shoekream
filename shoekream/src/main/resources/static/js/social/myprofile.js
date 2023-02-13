@@ -81,7 +81,7 @@ window.onload = function(){
                             }
 
 
-                            feedList +=   `<span class="like_count">${dat[i].lks.length}</span>
+                            feedList +=   `<span class="like_count" id="likecnt${dat[i].idx}">${dat[i].lks.length}</span>
                                                 </span>
                                             </div> `
                             if(dat[i].hashtag != null){
