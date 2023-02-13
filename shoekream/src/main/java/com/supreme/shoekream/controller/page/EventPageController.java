@@ -39,7 +39,7 @@ public class EventPageController {
     }
     @GetMapping(path="/promotion_detail") //http://localhost:8889/
     public String eventDetail(HttpServletRequest request, ModelMap map){
-        EventDTO event = eventApiService.eventDetail(1L);
+        EventDTO event = eventApiService.eventDetail(eventRepository.findFirstByOrderByIdxDesc().get().getIdx());
         map.addAttribute("event",event);
         return ("exhibitions/promotion_detail");
     }

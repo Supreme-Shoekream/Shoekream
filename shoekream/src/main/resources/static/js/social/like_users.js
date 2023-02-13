@@ -17,7 +17,7 @@ function pop_like(idx){
                 memberList +=
                     `<li class="user_item">
                     <div class="user_box">
-                        <a href="#" class="user_link">
+                        <a class="user_link" onclick="profileCheck(${members[i].idx})">
                             <div class="img_box">
                                 <img src="${members[i].imgUrl}"
                                      alt="KREAM 프로필 이미지" class="profile_img">
