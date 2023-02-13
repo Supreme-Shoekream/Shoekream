@@ -8,6 +8,7 @@ import com.supreme.shoekream.model.network.Header;
 import com.supreme.shoekream.model.network.request.EventApiRequest;
 import com.supreme.shoekream.model.network.response.EventApiResponse;
 import com.supreme.shoekream.model.network.response.ProductApiResponse;
+import com.supreme.shoekream.repository.EventMemberRepository;
 import com.supreme.shoekream.repository.EventRepository;
 import com.supreme.shoekream.repository.MemberRepository;
 import com.supreme.shoekream.repository.ProductRepository;
@@ -28,6 +29,8 @@ import java.util.Optional;
 public class EventApiService {
     final EventRepository eventRepository;
     final ProductRepository productRepository;
+    final EventMemberRepository eventMemberRepository;
+    final MemberRepository memberRepository;
     @Transactional
     public List<EventDTO> list(){
         return  EventDTO.fromEntity(eventRepository.findAll());
@@ -45,6 +48,13 @@ public class EventApiService {
                 .map(EventDTO::fromEntity)
                 .orElseThrow(() -> new EntityNotFoundException("이벤트가 없습니다"));
     }
+    @Transactional(readOnly = true)
+    public Boolean isDraw(Long memberIdx){
+        EventProduct event = eventRepository.findFirstByOrderByIdxDesc().get();
+        Member member = memberRepository.findById(memberIdx).get();
+        return eventMemberRepository.existsByEventProductAndMember(event,member);
+    }
+
     @Transactional
     public Header<EventProduct> update(Long idx, Header<EventApiRequest> eventProductRequest) {
         EventApiRequest request = eventProductRequest.getData();

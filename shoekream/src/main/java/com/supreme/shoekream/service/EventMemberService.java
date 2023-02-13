@@ -36,7 +36,7 @@ public class EventMemberService {
         EventProduct eventProduct =eventRepository.findById(dto.eventProductIdx()).get();
         Member member = memberRepository.findById(memberIdx).get();
         System.out.println("+++"+ !eventMemberRepository.existsByEventProductAndMember(eventProduct,member));
-        if(!eventMemberRepository.existsByEventProductAndMember(eventProduct,member)){
+        if(!eventMemberRepository.existsByEventProductAndMember(eventProduct,member) && (member.getPoint()>=1000)){
             EventMember draw = eventMemberRepository.save(dto.toEntity(eventProduct,member));
             member.setPoint(member.getPoint()-1000);
             PointDTO point = PointDTO.of((long) -1000, PointType.EVENT_USE, LocalDateTime.now());
