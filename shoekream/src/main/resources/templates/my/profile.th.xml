@@ -3,7 +3,7 @@
     <attr sel="#profile_name" th:text="${profile.name}"/>
     <attr sel="#profile_email" th:text="${profile.email}"/>
     <attr sel="#change_email" th:placeholder="${profile.email}"/>
-    <attr sel="#profile_password" th:text="${profile.memberPw}"/>
+    <attr sel="#profile_password" th:text=" (${#strings.length(profile.memberPw)}>16) ?${#strings.substring(profile.memberPw,0,16)} : ${profile.memberPw} "/>
     <attr sel="#profile_nickname" th:text="${profile.name}"/>
     <attr sel="#profile_hp" th:text="${profile.hp}"/>
     <attr sel="#profile_shoe" th:text="${profile.shoeSize}"/>
