@@ -20,7 +20,9 @@ a:-webkit-any-link{
 .container.social {
     margin-top: 0!important;
 }
-
+.updown:hover{
+    cursor: pointer;
+}
 .container.social .content{
     margin-left: auto;
     margin-right: auto;
