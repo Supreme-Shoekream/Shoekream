@@ -66,3 +66,4 @@ public class QAddress extends EntityPathBase<Address> {
     }
 
 }
+
