@@ -68,11 +68,11 @@ function validateName(strName){
 }
 
 // 휴대폰 번호 자동 하이픈(-) 정규식
-const autoHyphen = (target) => {
-    target.value = target.value
-        .replace(/[^0-9]/g, '')
-        .replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`);
-}
+// const autoHyphen = (target) => {
+//     target.value = target.value
+//         .replace(/[^0-9]/g, '')
+//         .replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`);
+// }
 
 // 휴대폰 번호 정규 표현식
 function validateHp(strHp){
