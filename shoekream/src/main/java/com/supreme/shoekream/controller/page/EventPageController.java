@@ -6,10 +6,7 @@ import com.supreme.shoekream.model.network.Header;
 import com.supreme.shoekream.model.network.response.ProductApiResponse;
 import com.supreme.shoekream.model.network.security.KreamPrincipal;
 import com.supreme.shoekream.repository.EventRepository;
-import com.supreme.shoekream.service.EventApiService;
-import com.supreme.shoekream.service.MainService;
-import com.supreme.shoekream.service.SellService;
-import com.supreme.shoekream.service.ShopApiLogicService;
+import com.supreme.shoekream.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -30,6 +27,7 @@ public class EventPageController {
     final ShopApiLogicService shopApiLogicService;
     final SellService sellService;
     private final EventRepository eventRepository;
+    private final MemberApiLogicService memberApiLogicService;
 
     @GetMapping(path="/promotion") //http://localhost:8889/
     public String event(HttpServletRequest request, ModelMap map){
@@ -38,9 +36,11 @@ public class EventPageController {
         return ("exhibitions/promotion");
     }
     @GetMapping(path="/promotion_detail") //http://localhost:8889/
-    public String eventDetail(HttpServletRequest request, ModelMap map){
-        EventDTO event = eventApiService.eventDetail(1L);
+    public String eventDetail(HttpServletRequest request, ModelMap map, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
+        EventDTO event = eventApiService.eventDetail(eventRepository.findFirstByOrderByIdxDesc().get().getIdx());
+        map.addAttribute("isDraw",eventApiService.isDraw(kreamPrincipal.idx()));
         map.addAttribute("event",event);
+        map.addAttribute("isPoint", memberApiLogicService.point(kreamPrincipal.idx()));
         return ("exhibitions/promotion_detail");
     }
     @GetMapping(path="/man") //http://localhost:8889/

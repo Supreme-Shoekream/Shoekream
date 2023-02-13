@@ -60,4 +60,33 @@
             </attr>
         </attr>
     </attr>
+
+
+    <attr sel=".pagination" th:object="${biddings}">
+        <attr sel="li[0]/a" th:text="'◀'"
+              th:href="@{/my/buying(page=${biddings.number - 1})}"
+              th:class="'page-link' + (${biddings.number} <= 0 ? ' disabled':'')" />
+        <attr sel="li[1]" th:class="page-item" th:each="pageNumber : ${barNumbers}">
+            <attr sel="a" th:text="${pageNumber + 1}"
+                  th:href="@{/my/buying(page=${pageNumber})}"
+                  th:class="'page-link' + (${pageNumber} == ${biddings.number} ? ' disabled' : '')"/>
+
+        </attr>
+        <attr sel="li[2]/a" th:text="'▶'"
+              th:href="@{/my/buying(page=${biddings.number + 1})}"
+              th:class="'page-link' + (${biddings.number} >= ${biddings.totalPages - 1} ? ' disabled':'')" />
+    </attr>
+<!--    <attr sel=".pagination" th:object="${ends}">-->
+<!--        <attr sel="li[0]/a" th:text="'◀'"-->
+<!--              th:href="@{/my/buying(page=${ends.number - 1})}"-->
+<!--              th:class="'page-link'+(${ends.number}<=0 ? ' disabled' : '')"/>-->
+<!--        <attr sel="li[1]" th:class="page-item" th:each="pageNumber : ${barNumbers}">-->
+<!--            <attr sel="a" th:text="${pageNumber + 1}"-->
+<!--                  th:href="@{/my/buying(page=${pageNumber})}"-->
+<!--                  th:class="'page-link'+(${pageNumber}==${ends.number} ? ' disabled' : '')"/>-->
+<!--        </attr>-->
+<!--        <attr sel="li[2]/a" th:text="'▶'"-->
+<!--              th:href="@{/my/buying(page=${ends.number + 1})}"-->
+<!--              th:class="'page-link'+(${ends.number}>=${ends.totalPages -1} ? ' disabled' : '')"/>-->
+<!--    </attr>-->
 </thlogic>

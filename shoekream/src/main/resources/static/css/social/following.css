@@ -14,11 +14,15 @@ a:-webkit-any-link{
 #dltBtn:hover{
     cursor: pointer;
     font-weight: bold;
+    color: red;
+    border: 2.5px solid red;
 }
 .container.social {
     margin-top: 0!important;
 }
-
+.updown:hover{
+    cursor: pointer;
+}
 .container.social .content{
     margin-left: auto;
     margin-right: auto;

@@ -28,6 +28,7 @@
                             </div>
                         </div>
                     </div>
+                     <input type="hidden" value="" id="isPoint">
                     <div class="container detail lg lucky_draw_column"  >
                         <div class="content" >
                             <h2 class="blind" >상품 상세</h2>
@@ -178,8 +179,9 @@
 
 <script>
     const btnLucky = document.querySelector('#btn_luckydraw');
-    const eventIdx = document.querySelector('.hidden_value')
-    fetch('http://localhost:8889/api/admin/event/' + eventIdx)
+
+    const event = document.querySelector('.hidden_value').value;
+    fetch('http://localhost:8889/api/admin/event/' + event)
         .then((response) => response.json())
         .then((data) => {
             let startTime = data.startTime;
@@ -261,6 +263,14 @@
         })
             .then((res) => {
                 console.log(res)
+                if(document.querySelector("#isPoint").getAttribute('value')==='true'){
+                    alert("이벤트 참여완료")
+                    location.reload()
+                }else{
+                    alert("포인트 부족")
+                    location.reload()
+                }
+
                 console.log(res.redirected)
                 return; //리턴을 걸어서 진행하는 것을 막는다!
             })
