@@ -82,6 +82,7 @@ public class MypageController {
         return "/my/mypage";
     }
 
+//    @Autowired PaginationService paginationService;
     @GetMapping(path = "buying")
     public String buying(ModelMap map, @PageableDefault(size = 10, sort = "createdAt", direction = Sort.Direction.DESC) Pageable pageable
             , @AuthenticationPrincipal KreamPrincipal kreamPrincipal, @RequestParam(required = false) Long month){
@@ -93,9 +94,9 @@ public class MypageController {
         map.addAttribute("biddings", biddings);
         map.addAttribute("progressings", progressings);
         map.addAttribute("ends", ends);
-        map.addAttribute("bidCount",biddings.stream().toList().size());
-        map.addAttribute("proCount",progressings.stream().toList().size());
-        map.addAttribute("endCount",ends.stream().toList().size());
+        map.addAttribute("bidCount",biddings.getTotalElements());
+        map.addAttribute("proCount",progressings.getTotalElements());
+        map.addAttribute("endCount",ends.getTotalElements());
         if(month != null){
             map.addAttribute("today", LocalDateTime.now());
             map.addAttribute("before", LocalDateTime.now().minusMonths(month));
@@ -105,6 +106,14 @@ public class MypageController {
         }
         return ("/my/buying");
     }
+
+//        Page<Wish> wish_productList_page= wishApiLogicService.productListPage(kreamPrincipal.idx(), pageable);
+//        modelmap.addAttribute("wish_productPage", wish_productList_page);
+//        List<Integer> barNumbers = paginationService.getPaginationBarNumbers(pageable.getPageNumber(),wish_productList_page.getTotalPages());
+//        modelmap.addAttribute("barNumbers", barNumbers);
+//        List<String> wish_price = sellService.buyNowPricesForWish(wish_productList_page);
+//        modelmap.addAttribute("wish_productPrice", wish_price);
+
 
     @GetMapping(path = "buying/{buyIdx}")
     public String buyingDetail(ModelMap map, @PathVariable(name="buyIdx") Long buyIdx, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
@@ -123,9 +132,9 @@ public class MypageController {
         map.addAttribute("biddings",biddings);
         map.addAttribute("progressings",progressings);
         map.addAttribute("ends",ends);
-        map.addAttribute("bidCount",biddings.stream().toList().size());
-        map.addAttribute("proCount",progressings.stream().toList().size());
-        map.addAttribute("endCount",ends.stream().toList().size());
+        map.addAttribute("bidCount",biddings.getTotalElements());
+        map.addAttribute("proCount",progressings.getTotalElements());
+        map.addAttribute("endCount",ends.getTotalElements());
         if(month != null){
             map.addAttribute("today", LocalDateTime.now());
             map.addAttribute("before", LocalDateTime.now().minusMonths(month));

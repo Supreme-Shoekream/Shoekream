@@ -1,46 +1,3 @@
-window.onload = function(){
-    const btn = document.querySelector('.btn_join');
-    // btn.addEventListener('click',sendit);
-}
-function sendit() {
-    //request로 필요한 DOM 객체 선택
-    const email = document.getElementById('email_input');
-    const memberPw = document.getElementById('password_input');
-    const shoeSize = document.getElementById('input_shoesize');
-    const name = document.getElementById('name_input');
-    const hp = document.getElementById('hp_input');
-
-    fetch('/api/join', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
-            //우리가 만든데이터
-            "transaction_time": `${new Date()}`,
-            "resultCode": "ok",
-            "description": "정상",
-            "data": {
-                "email": `${email.value}`,
-                "memberPw": `${memberPw.value}`,
-                "shoeSize": `${shoeSize.value}`,
-                "name": `${name.value}`,
-                "hp": `${hp.value}`
-            }
-        }),
-    })
-
-        .then((res) => {
-            alert('등록성공!')
-            location.href = 'http://localhost:8889/login';
-            return; //리턴을 걸어서 진행하는 것을 막는다!
-        })
-        .then((data) => {
-            console.log(data);
-            return;
-        })
-        .catch((err) => {
-            alert(err);
-        })
-}
 
 // 사이즈 팝업창
 function size_layer(){
@@ -56,7 +13,7 @@ $(".size_item").click(function(){
     $(".size_item").removeClass("active");
     $(this).addClass("active");
     $("#size_submit_btn").removeClass("disabled")
-    }); 
+});
 
 // input_area에 사이즈 value 값으로 전달
 $(document).on('click', '#size_submit_btn', function(){
@@ -68,7 +25,7 @@ $(document).on('click', '#size_submit_btn', function(){
 function maxLengthCheck(object){
     if (object.value.length > object.maxLength){
         object.value = object.value.slice(0, object.maxLength);
-    }    
+    }
 }
 
 // 디바운스
@@ -188,60 +145,60 @@ document.querySelector('#hp_input').addEventListener('input', e=>{
     })
 });
 
+
 // 버튼 활성화
-let strEmail
-let strPassword
-let strName
-let strHp
-document.querySelectorAll('#email_input').forEach((item) =>{
-    item.addEventListener('blur', e=>{
-        strEmail=e.target.value;
-        if((validateEmail(strEmail))&&(validatePassword(strPassword))&&(validateName(strName))&&(validateHp(strHp))){
-            $("#btn_submitSignIn").addClass("active");
-            $("#btn_submitSignIn").removeClass("disabled")
-        }else{
-            $("#btn_submitSignIn").removeClass("active");
-            $("#btn_submitSignIn").addClass("disabled")
-        }
-    })
-})
+function check(){
+    strEmail=  document.querySelector('#email_input').value
+    strPassword=document.querySelector('#password_input').value
+    strName=document.querySelector('#name_input').value
+    strHp=document.querySelector('#hp_input').value
 
-document.querySelectorAll('#password_input').forEach((item) =>{
-    item.addEventListener('blur', e=>{
-        strPassword=e.target.value;
-        if((validateEmail(strEmail))&&(validatePassword(strPassword))&&(validateName(strName))&&(validateHp(strHp))){
-            $("#btn_submitSignIn").addClass("active");
-            $("#btn_submitSignIn").removeClass("disabled")
-        }else{
-            $("#btn_submitSignIn").removeClass("active");
-            $("#btn_submitSignIn").addClass("disabled")
-        }
-    })
-})
+    if((validateEmail(strEmail))&&(validatePassword(strPassword))&&(validateName(strName))&&(validateHp(strHp))){
+        document.querySelector("#btn_submitSignIn").className="btn btn_join full solid active";
+    }else{
+        document.querySelector("#btn_submitSignIn").className="btn btn_join full solid disabled";
+    }
+}
+document.querySelector('#email_input').addEventListener('input',check )
+document.querySelector('#password_input').addEventListener('input',check )
+document.querySelector('#name_input').addEventListener('input',check )
+document.querySelector('#hp_input').addEventListener('input',check )
 
-document.querySelectorAll('#name_input').forEach((item) =>{
-    item.addEventListener('blur', e=>{
-        strName=e.target.value;
-        if((validateEmail(strEmail))&&(validatePassword(strPassword))&&(validateName(strName))&&(validateHp(strHp))){
-            $("#btn_submitSignIn").addClass("active");
-            $("#btn_submitSignIn").removeClass("disabled")
-        }else{
-            $("#btn_submitSignIn").removeClass("active");
-            $("#btn_submitSignIn").addClass("disabled")
-        }
-    })
-})
+function sendit() {
+    //request로 필요한 DOM 객체 선택
+    const email = document.getElementById('email_input');
+    const memberPw = document.getElementById('password_input');
+    const shoeSize = document.getElementById('input_shoesize');
+    const name = document.getElementById('name_input');
+    const hp = document.getElementById('hp_input');
 
-document.querySelectorAll('#hp_input').forEach((item) =>{
-    item.addEventListener('blur', e=>{
-        strHp=e.target.value;
-        if((validateEmail(strEmail))&&(validatePassword(strPassword))&&(validateName(strName))&&(validateHp(strHp))){
-            $("#btn_submitSignIn").addClass("active");
-            $("#btn_submitSignIn").removeClass("disabled")
-        }else{
-            $("#btn_submitSignIn").removeClass("active");
-            $("#btn_submitSignIn").addClass("disabled")
-        }
+    fetch('/api/join', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            //우리가 만든데이터
+            "transaction_time": `${new Date()}`,
+            "resultCode": "ok",
+            "description": "정상",
+            "data": {
+                "email": `${email.value}`,
+                "memberPw": `${memberPw.value}`,
+                "shoeSize": `${shoeSize.value}`,
+                "name": `${name.value}`,
+                "hp": `${hp.value}`
+            }
+        }),
     })
-});
-
+        .then((res) => {
+            alert('등록성공!')
+            location.href = 'http://localhost:8889/login';
+            return; //리턴을 걸어서 진행하는 것을 막는다!
+        })
+        .then((data) => {
+            console.log(data);
+            return;
+        })
+        .catch((err) => {
+            alert(err);
+        })
+}

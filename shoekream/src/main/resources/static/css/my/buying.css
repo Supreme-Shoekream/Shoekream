@@ -760,22 +760,86 @@ li {
     margin-left: 50px;
 }
 
-.btn_page.active {
-    font-weight: 700;
-    color: #222;
-}
 
-.btn_page {
+/* page 처리 */
+/*.pagination{*/
+/*    padding: 28px 0;*/
+/*    !*position: relative;*!*/
+/*    !*text-align: center;*!*/
+/*}*/
+/*.pagination_box {*/
+/*    position: relative;*/
+/*    font-size: 0;*/
+/*    text-align: center;*/
+/*}*/
+/*.page_bind{*/
+/*    display: inline-block;*/
+/*    vertical-align: top;*/
+/*}*/
+/*.btn_page{*/
+/*    display: inline-block;*/
+/*    padding: 0 8px;*/
+/*    font-size: 16px;*/
+/*    color: rgba(34,34,34,.5);*/
+/*}*/
+/*.btn_page.active{*/
+/*    font-weight: 700;*/
+/*    color: #222;*/
+/*}*/
+/*.btn_page+.btn_page{*/
+/*    margin-left: 12px;*/
+/*}*/
+
+/*.btn_arr img {*/
+/*    !* width: 18px; *!*/
+/*    height: 22px;*/
+/*}*/
+.pagination {
+    padding: 28px 0;
+}
+.pagination_box{
+    position: relative;
+    font-size: 0;
+    text-align: center;
+}
+.pagination{
+    padding: 28px 0;
+}
+/* .prev_btn_box {
+    margin-right: 25px;
+} */
+.next_btn_box, .prev_btn_box{
+    display: inline-block;
+    vertical-align: top;
+}
+.next_btn_box .btn_arr, .prev_btn_box .btn_arr {
+    padding: 3px;
+    width: 24px;
+    height: 24px;
+}
+.btn_arr img{
+    /* width: 18px; */
+    height: 22px;
+}
+.page_bind {
+    display: inline-block;
+    vertical-align: top;
+}
+.btn_page{
     display: inline-block;
     padding: 0 8px;
     font-size: 16px;
     color: rgba(34,34,34,.5);
 }
-
-.pagination_box {
-    position: relative;
-    text-align: center;
+.btn_page+.btn_page{
+    margin-left: 12px;
 }
+.btn_page.active{
+    font-weight: 700;
+    color: #222;
+}
+
+
 
 #buy_tab_item {
     padding: 0px 14px;
@@ -788,6 +852,6 @@ li {
     color: black;
 }
 
-.page_bind {
-    padding: 28px 0;
-}
+/*.page_bind {*/
+/*    padding: 28px 0;*/
+/*}*/
