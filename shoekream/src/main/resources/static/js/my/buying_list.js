@@ -1,16 +1,18 @@
-window.onload = async function(){
+// window.onload = async function(){
+
+(async function() {
+    searchStart(0);
+
+    async function searchStart(index) {
     try {
         const response = await fetch(`/api/buying`);
         console.log(response);
         const data = await response.json();
         console.log(data);
 
-
-
-
-        // let pagination = data.pagination;
-        // let totalPages = pagination.totalPages;
-        // let currentPage = pagination.currentPage + 1;
+        let pagination = data.pagination;
+        let totalPages = pagination.totalPages;
+        let currentPage = pagination.currentPage + 1;
         let buyList = "";
 
         data.forEach(dto => {
@@ -39,25 +41,25 @@ window.onload = async function(){
         });
         document.querySelector("#buyList").innerHTML = buyList
 
-        // let lastPage = data.pagination.totalPages;
-        //
-        // let pageStr = "";
-        // if (lastPage != 0) {
-        //     pageStr += "<<";
-        // }
-        // for (let i = 0; i < lastPage; i++) {
-        //     pageStr +=
-        //         "&nbsp;&nbsp; <span class='pages' id='" +
-        //         i +
-        //         "'>" +
-        //         (i + 1) +
-        //         " </span> &nbsp;&nbsp;";
-        // }
-        // if (lastPage != 0) {
-        //     pageStr += ">>";
-        // }
-        // document.querySelector("#showPage").innerHTML = "총 "+ totalPages+" 페이지 중 " +currentPage+" 페이지"
-        // document.querySelector("#pageNum").innerHTML = pageStr;
+        let lastPage = data.pagination.totalPages;
+
+        let pageStr = "";
+        if (lastPage != 0) {
+            pageStr += "<<";
+        }
+        for (let i = 0; i < lastPage; i++) {
+            pageStr +=
+                "&nbsp;&nbsp; <span class='pages' id='" +
+                i +
+                "'>" +
+                (i + 1) +
+                " </span> &nbsp;&nbsp;";
+        }
+        if (lastPage != 0) {
+            pageStr += ">>";
+        }
+        document.querySelector("#showPage").innerHTML = "총 "+ totalPages+" 페이지 중 " +currentPage+" 페이지"
+        document.querySelector("#pageNum").innerHTML = pageStr;
     }catch (error){
         console.log(error)
     }
@@ -72,10 +74,10 @@ window.onload = async function(){
 //     async function searchStart() {
 //
 //     }
-//     document.addEventListener("click", event => {
-//         if (event.target.matches(".pages")) {
-//             let pageId = event.target.id;
-//             searchStart(pageId);
-//         }
-//     });
-// })();
+    document.addEventListener("click", event => {
+        if (event.target.matches(".pages")) {
+            let pageId = event.target.id;
+            searchStart(pageId);
+        }
+    });
+})();

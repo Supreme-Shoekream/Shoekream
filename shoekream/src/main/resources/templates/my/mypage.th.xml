@@ -15,9 +15,10 @@
     <attr sel=".empty_area" th:if="${bidCount+proCount} == 0"></attr>
 <!--구매-->
     <attr sel=".recent_purchase">
-        <attr sel="#purchaseAllCount" th:text="${bidCount+proCount}"/>
+        <attr sel="#purchaseAllCount" th:text="${bidCount+proCount+endCount}"/>
         <attr sel="#purchaseBindCount" th:text="${bidCount}"/>
         <attr sel="#purchaseContinueCount" th:text="${proCount}"/>
+        <attr sel="#purchaseEndCount" th:text="${endCount}"/>
     </attr>
     <attr sel="#buyDisplay">
         <attr sel=".purchase_list_display_item" th:each="buyDisplay : ${buyDisplay}">
@@ -34,9 +35,10 @@
     </attr>
 <!--판매-->
     <attr sel=".recent_purchase">
-        <attr sel="#salesAllCount" th:text="${bidCountSell+proCountSell}"/>
+        <attr sel="#salesAllCount" th:text="${bidCountSell+proCountSell+endCountSell}"/>
         <attr sel="#salesBindCount" th:text="${bidCountSell}"/>
         <attr sel="#salesContinueCount" th:text="${proCountSell}"/>
+        <attr sel="#salesEndCount" th:text="${endCountSell}"/>
     </attr>
     <attr sel="#sellDisplay">
         <attr sel=".purchase_list_display_item" th:each="sellDisplay : ${sellDisplay}">

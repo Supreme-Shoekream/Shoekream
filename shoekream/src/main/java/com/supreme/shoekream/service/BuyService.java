@@ -96,8 +96,11 @@ public class BuyService {
             return buyRepository.findByMemberAndStatusAndCreatedAtAfter(member, orderStatus, createdAt, pageable)
                     .map(BuyDTO::fromEntity);
         }
-
-
+    }
+    @Transactional(readOnly = true)
+    public Long myBuyCountByStatus(Long memberIdx, OrderStatus orderStatus){
+        Member member = memberRepository.findById(memberIdx).get();
+        return buyRepository.countByMemberAndStatus(member,orderStatus);
     }
 
     @Transactional(readOnly = true)
@@ -137,8 +140,7 @@ public class BuyService {
     public Header<BuyDTO> create(BuyDTO buyDTO){
         Product product = productRepository.findById(buyDTO.productDTO().idx()).get();
         Member member = memberRepository.findById(buyDTO.memberDTO().idx()).get();
-        BuyDTO response;
-        String price;
+        BuyDTO response; String price;
         DecimalFormat format = new DecimalFormat("###,###");
         price = format.format(buyDTO.price())+"원";
         // sell != null -> 판매자 progress null->0(발송요청), status 0->1(진행중) update + 채결내역 등록

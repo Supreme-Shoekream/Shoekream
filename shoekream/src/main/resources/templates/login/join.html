@@ -62,11 +62,10 @@
         <div class="input_box" id="hp_input_box">
             <h3 class="input_title ess">휴대폰 번호</h3>
             <div class="input_item">
-                <input type="number" maxlength="11" oninput="maxLengthCheck(this)" class="input_txt in_essValue" name="hp" id="hp_input" placeholder="숫자만 입력">
+                <input type="text" maxlength="13" oninput="autoHyphen(this)" autocomplete="off" class="input_txt in_essValue" name="hp" id="hp_input" placeholder="전화번호 입력">
             </div><!--.input_item END-->
             <p class="input_error" id="hp_input_error"></p>
         </div><!--.input_box END-->
-
         <button type="submit" class="btn btn_join full solid disabled" id="btn_submitSignIn" onclick="sendit()"> 가입하기 </button>
     </div><!--.join_area END-->
 
