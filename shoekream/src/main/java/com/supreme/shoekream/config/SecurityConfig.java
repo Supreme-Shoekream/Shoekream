@@ -139,6 +139,7 @@ public class SecurityConfig{
             String username = registrationId + "_" + providerId;
             String email = kakaoResponse.email();
             String dummyPassword = passwordEncoder.encode("{bcrypt}" + UUID.randomUUID());
+            String imgUrl = "/img/styleImg/empty_profile_img.png";
 
             return memberRepository.findByEmail(email)
                     .map(MemberDTO::fromEntity)
@@ -152,7 +153,8 @@ public class SecurityConfig{
                                             null,
                                             email,
                                             Status.MEMBER,
-                                            null
+                                            null,
+                                            imgUrl
                                     )
                             )
                     );
