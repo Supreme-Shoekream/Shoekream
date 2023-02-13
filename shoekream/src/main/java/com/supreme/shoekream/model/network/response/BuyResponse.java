@@ -67,15 +67,6 @@ public record BuyResponse(
         String totalPrice = format.format(price+3000L+Math.floor(price*0.015/100)*100);
 
 
-        SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd");
-        Calendar c = Calendar.getInstance();
-        try{
-            c.setTime(df.parse(String.valueOf(createdAt)));
-        }catch(ParseException e){
-            e.printStackTrace();
-        }
-        c.add(Calendar.DAY_OF_MONTH, 10);
-        String dDay = df.format(c.getTime());
 
         return new BuyResponse(
                 dto.idx(),
