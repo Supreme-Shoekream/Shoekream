@@ -31,7 +31,7 @@ public record SellResponse(
         LocalDateTime createdAt,
         String progress,
         String status,
-        Long BuyIdx,
+        Long buyIdx,
         LocalDateTime deadline,
         String fees,
         String totalPrice

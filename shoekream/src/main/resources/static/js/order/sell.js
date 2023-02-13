@@ -112,6 +112,7 @@ bid_input.addEventListener("input", (e) => {
   if (str_price.length > e.target.maxLength) {
     e.target.value = str_price.slice(0, e.target.maxLength);
   }
+  str_price =  Number(str_price.replaceAll(',', ''));
   // .price_now에 has_danger has_warning추가
   if (str_price < 30000) {
     pricebox.classList.add("has_warning");
@@ -383,16 +384,10 @@ function send_create(){
       empty_delivery_info.style.display='none'
     }
     //레이어창 닫고 새로운 정보 반영
-    close_new_delivery()
     sender_dd.innerHTML=createName.value
     senderHp_dd.innerHTML=hp_decode(createHp.value.toString())
     senderAddress_dd.innerHTML='('+createZipcode.value+') '+createAddress1.value+" "+createAddress2.value
-    //레이어창 비워주기
-    createName.value=''
-    createHp.value=''
-    createZipcode.value=''
-    createAddress1.value=''
-    createAddress2.value=''
+    close_new_delivery()
     document.querySelector('#check1').checked = false
     return;
   })
@@ -721,11 +716,11 @@ function createCard(isBasic) {
         }
       }),
     }).then((res) => {
+      document.getElementById('cardInfo').innerHTML=document.querySelector('#cc-4').value;
       close_card_create_layer()
       close_card()
       document.querySelector('.regist_link').style.display='none'
       document.querySelector('.main_card').style.display='block'
-      document.getElementById('cardInfo').innerHTML=document.querySelector('#cc-4').value;
       return;
     })
   }
@@ -982,13 +977,14 @@ function sendit() {
       .then((res) => {
         document.querySelector('.step-2').style.display="none"
         document.querySelector('.step-3').style.display="block"
-        document.querySelector('.step-3 .wish_price').innerHTML=wish_price.toLocaleString('ko-KR') +"원";
-        document.querySelector('.step-3 .final_fees').innerHTML=fees.toLocaleString('ko-KR') +"원";
+        document.querySelector('.step-3 .wish_price').innerHTML=wish_price.toLocaleString('ko-KR') +" 원";
+        document.querySelector('.step-3 .final_fees').innerHTML=fees.toLocaleString('ko-KR') +" 원";
         document.querySelector('.step-3 .final_price').innerHTML = (wish_price + fees ).toLocaleString('ko-KR') ;
         if(is_now != true){
           document.querySelector('.step-3 .deadline').innerHTML = calc_deadline(period);
         }else{
           document.querySelector('.step-3 .deadline_box').style.display= "none";
+          document.querySelector('.step-3 .complete_title .main_title').innerHTML = "즉시판매가 완료되었습니다."
         }
         location.href="#" // 상단으로 올려준다.
         return; //리턴을 걸어서 진행하는 것을 막는다!

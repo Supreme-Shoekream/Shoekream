@@ -63,7 +63,6 @@ async function show_search_layer(_keyword){
         );
         console.log(_html);
         let str = _html.toString().replaceAll(',','');
-        // document.querySelector(".suggest_list").innerHTML = _html.length > 0  ? _html.toString() : '<div><a href="#">검색결과가 없습니다.</a></div>';
         document.querySelector(".suggest_list").innerHTML = _html.length > 0  ? str : '<div><a href="#">검색결과가 없습니다.</a></div>';
         document.querySelector(".search_content_wrap").classList.add("on");
         resolve();
