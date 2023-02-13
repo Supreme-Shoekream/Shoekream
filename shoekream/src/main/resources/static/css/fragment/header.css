@@ -694,7 +694,7 @@ button {
     max-height: 480px;
     padding-right: 40px;
     border: 1px solid silver;
-    background: mintcream;
+    background: #fff;
     font-size: 15px;
     overflow-y: scroll;
 }
