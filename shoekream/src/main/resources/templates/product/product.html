@@ -638,7 +638,7 @@
                                                         <span class="wish_count_num wishCount" th:value="${isWish}" style="padding-left: 5px;">관심상품수</span>
                                                     </a>
                                                     <div class="division_btn_box lg">
-                                                        <a class="btn_division buy">
+                                                        <a class="btn_division buy" th:href="@{/buy/check/{productIdx}(productIdx=${proIdx})}">
                                                             <strong class="title">구매</strong>
                                                             <div class="price">
                                                                 <span class="amount">
@@ -647,7 +647,7 @@
                                                                 <span class="desc">즉시 구매가</span>
                                                             </div>
                                                         </a>
-                                                        <a class="btn_division sell">
+                                                        <a class="btn_division sell" th:href="@{/sell/check/{productIdx}(productIdx=${proIdx})}">
                                                             <strong class="title">판매</strong>
                                                             <div class="price">
                                                                 <span class="amount">
@@ -770,8 +770,8 @@
     <script src="/js/social/like.js"></script>
     <script th:inline="javascript">
         /*<![CDATA[*/
-        let conclusion = [[${conclusion}]];
-        console.log(conclusion);
+        const conclusion = [[${conclusion}]];
+        //console.log(conclusion);
 
         let now = new Date();	// 현재 날짜
         let now1 = new Date();	// 한달전 현재 날짜
@@ -818,13 +818,13 @@
 
         //⚪️ 1개월 그래프 데이터
         let Date1 = [];
-        let Price1 = [];
-        for(let i in arr){
-            console.log("1개월전 데이터");
-            if(arr[i][0] > oneMonthAgo){
-                Date1.push(arr[i][0]);
-                Price1.push(arr[i][1]);
-            }
+            let Price1 = [];
+            for(let i in arr){
+                console.log("1개월전 데이터");
+                if(arr[i][0] > oneMonthAgo){
+                    Date1.push(arr[i][0]);
+                    Price1.push(arr[i][1]);
+                }
         }
 
         //⚪️ 3개월 그래프 데이터

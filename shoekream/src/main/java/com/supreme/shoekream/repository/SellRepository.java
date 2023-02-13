@@ -22,6 +22,7 @@ public interface SellRepository extends JpaRepository<Sell,Long> {
     Page<Sell> findByMemberAndStatusAndCreatedAtAfter(Member member, OrderStatus status, LocalDateTime localDateTime, Pageable pageable);
     // 마이페이지 매인 판매 summary
     List<Sell> findByMemberAndStatus(Member member, OrderStatus status); //입찰/진행중/종료
+    List<Sell> findByMemberAndStatusAndCreatedAt(Member member, OrderStatus status, LocalDateTime day); //입찰/진행중/종료
 
     // 한 제품에 한해서 즉시 구매가에 들어갈 판매입찰로 올려놓은 가격중 가장 작은 제품 = 즉시구매가
     Sell findFirstByProductOrderByPrice(Product product);

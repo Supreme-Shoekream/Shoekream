@@ -139,3 +139,16 @@ window.onload = function(){
     const item = document.getElementById('st_gnb');
     item.classList.add('gnb_on');
 }
+
+function deleteBoard(idx){
+    console.log(idx);
+    fetch('http://localhost:8889/api/social/' + idx, {
+        method: "DELETE"
+    }).then((res) =>{
+        window.location.reload();
+        return;
+    })
+        .catch((err) => {
+            alert(err);
+        })
+}

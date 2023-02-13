@@ -16,7 +16,7 @@
 
 .header .header_top{
     /*-webkit-box-shadow: 0 1px 0 0 rgb(0 0 0 / 10%);*/
-    box-shadow: 0 1px 0 0 rgb(0 0 0 / 10%);
+    /*box-shadow: 0 1px 0 0 rgb(0 0 0 / 10%);*/
 }
 
 .header .top_inner {
@@ -351,7 +351,7 @@ button {
     -webkit-box-flex: 1;
     flex-grow: 1;
     margin: 0 8px;
-    padding-bottom: 16px;
+    /*padding-bottom: 16px;*/
     border-bottom: 3px solid #000;
 }
 .layer {
@@ -695,6 +695,7 @@ button {
     padding-right: 40px;
     border: 1px solid silver;
     background: #fff;
+    /*border: 1px solid silver;*/
     font-size: 15px;
     overflow-y: scroll;
 }

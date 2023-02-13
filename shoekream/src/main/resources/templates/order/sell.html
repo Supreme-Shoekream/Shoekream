@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/order/header.css">
     <link rel="stylesheet" href="/css/order/sell.css">
     <link rel="stylesheet" href="/css/layer/layer.css">
+    <link rel="stylesheet" href="/css/layer/layer_auth_policy.css">
     <link rel="stylesheet" href="/css/layer/layer_payout_account.css">
     <link rel="stylesheet" href="/css/layer/layer_delivery.css">
     <link rel="stylesheet" href="/css/layer/layer_address.css">
@@ -68,7 +69,7 @@
 </script>
 <body>
 <!-- Header 시작 -->
-<header th:replace="/fragment/order_header.html :: order_header"></header>
+<header th:replace="/fragment/sell_header.html :: sell_header"></header>
 <!-- Header 끝 -->
     <div class="container sell md step-1">
         <!---->
@@ -299,7 +300,7 @@
                 <section>
                     <div class="section_unit">
                         <div class="section_title">
-                            <h3 class="title_txt">반송 주소</h3><a class="add_more_btn" onclick="pop_new_delivery()">+ 새 주소
+                            <h3 class="title_txt">반송 주소</h3><a class="add_more_btn" onclick="pop_new_delivery()" style="cursor: pointer">+ 새 주소
                                 추가</a>
                         </div>
                         <div class="section_content">
@@ -551,7 +552,7 @@
                         <div class="simple_payment">
                             <h4 class="method_title">
                                 <div class="main_title"> 카드 간편결제 <span class="sub_title">일시불</span></div><a href="#none"
-                                    class="btn_card_add" onclick="pop_card()">+ 새 카드 추가</a>
+                                    class="btn_card_add" onclick="pop_card()" style="cursor: pointer">+ 새 카드 추가</a>
                             </h4>
                             <!--layer_card 시작-->
                             <div class="layer_card layer lg" style="display: none;">
@@ -700,8 +701,7 @@
                         <div class="method_desc">
                             <p class="desc_txt"> - 페널티는 일시불만 지원하며, 카드사 홈페이지나 앱에서 분할납부로 변경 가능합니다. 단, 카드사별 정책에 따라 분할 납부 변경
                                 시 수수료가 발생할 수 있습니다. </p>
-                            <p class="desc_txt"> - 수수료(페널티, 착불배송비 등)가 정산되지 않을 경우, 별도 고시 없이 해당 금액을 결제 시도 할 수 있습니다. </p><a
-                                href="/faq/penalty" class="desc_link">페널티 정책</a>
+                            <p class="desc_txt"> - 수수료(페널티, 착불배송비 등)가 정산되지 않을 경우, 별도 고시 없이 해당 금액을 결제 시도 할 수 있습니다. </p>
                         </div>
                         <!---->
                     </div>
@@ -755,9 +755,6 @@
                                             <!----><!----></label></div>
                                 </a></li>
                         </ul>
-                        <!--검수기준 레이어 창 layer_auth_policy-->
-                        <div th:replace="/layer/layer_auth_policy.html :: layer_auth_policy"></div>
-                        <!--검수기준 레이어창 끝 layer_auth_policy-->
                     </div>
                     <div class="sell_total_confirm" is-instant="true">
                         <div class="price_total">
@@ -821,8 +818,8 @@
                         <div class="complete_info">
                             <div class="complete_title">
                                 <p class="main_title">판매 입찰이 완료되었습니다.</p>
-                                <p class="sub_title">결제는 거래가 성사되는 시점에<br>등록하신 결제 정보로 자동 처리 됩니다.</p>
                             </div>
+                            <p class="sub_title">판매한 상품은 전문가의 검수 완료 후, <br>등록한 계좌로 정산이 진행됩니다.</p>
                             <div class="product"
                                  style="background-color: rgb(244, 244, 244);">
                                 <picture class="picture product_img">
@@ -833,8 +830,7 @@
                             </div>
                             <div class="complete_btn_box"><a
                                     href="/my/selling" class="btn outlinegrey medium"> 내역 상세보기 </a><a
-                                    href="/search" class="btn outlinegrey medium"> SHOP 바로가기 </a><!----></div>
-                            <p class="complete_desc"> ‘판매내역 &gt; 입찰 중’ 상태일 때는 입찰 지우기가 가능합니다. </p>
+                                    href="/searchs" class="btn outlinegrey medium"> SHOP 바로가기 </a><!----></div>
                         </div>
                         <div class="complete_price">
                             <div class="price_total order_info">
@@ -876,10 +872,15 @@
         </div><!----><!---->
 
     </div>
+<!--검수기준 레이어 창 layer_auth_policy-->
+<div th:replace="/layer/layer_auth_policy.html :: layer_auth_policy"></div>
+<!--검수기준 레이어창 끝 layer_auth_policy-->
 <!--footer 시작-->
 <footer th:replace="/fragment/footer.html :: footer"></footer>
 <!--footer 끝-->
 </body>
 <script src="/js/order/sell.js"></script>
+<script src="/js/notice/auth_policy.js"></script>
+
 
 </html>
