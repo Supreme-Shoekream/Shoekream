@@ -91,9 +91,11 @@ public class MypageController {
         Page<BuyResponse> biddings = buyService.myBuyListByStatus(memberDTO.idx(), OrderStatus.BIDDING, month,pageable).map(BuyResponse::from);
         Page<BuyResponse> progressings = buyService.myBuyListByStatus(memberDTO.idx(), OrderStatus.PROGRESSING, month,pageable).map(BuyResponse::from);
         Page<BuyResponse> ends = buyService.myBuyListByStatus(memberDTO.idx(), OrderStatus.END, month,pageable).map(BuyResponse::from);
+        List<Integer> barNumbers = paginationService.getPaginationBarNumbers(pageable.getPageNumber(), biddings.getTotalPages());
         map.addAttribute("biddings", biddings);
         map.addAttribute("progressings", progressings);
         map.addAttribute("ends", ends);
+        map.addAttribute("paginationBarNumbers", barNumbers);
         map.addAttribute("bidCount",biddings.getTotalElements());
         map.addAttribute("proCount",progressings.getTotalElements());
         map.addAttribute("endCount",ends.getTotalElements());
