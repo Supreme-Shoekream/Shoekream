@@ -178,8 +178,8 @@
 
 <script>
     const btnLucky = document.querySelector('#btn_luckydraw');
-
-    fetch('http://localhost:8889/api/admin/event/' + 1)
+    const eventIdx = document.querySelector('.hidden_value')
+    fetch('http://localhost:8889/api/admin/event/' + eventIdx)
         .then((response) => response.json())
         .then((data) => {
             let startTime = data.startTime;

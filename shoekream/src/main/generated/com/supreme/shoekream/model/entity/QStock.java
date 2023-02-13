@@ -1,3 +1,4 @@
+
 package com.supreme.shoekream.model.entity;
 
 import static com.querydsl.core.types.PathMetadataFactory.*;
@@ -42,4 +43,3 @@ public class QStock extends EntityPathBase<Stock> {
     }
 
 }
-
