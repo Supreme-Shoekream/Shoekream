@@ -35,7 +35,7 @@
                             <h2 class="blind">상품 상세</h2>
                             <div class="column_bind">
                                 <!-- 상품 사진 시작 -->
-                                <div class="column is_fixed">
+                                <div class="column is_fixed" id="slide_img">
                                     <div class="spread"></div><div class="column_box" style="width: 560px;">
                                         <div class="detail_banner_area lg">
                                             <div dir="ltr" class="banner_slide detail_slide slick-slider slick-initialized">
@@ -240,9 +240,9 @@
                                                 </div>
                                                 <!-- 시세 - 거래 내역 있을때 -->
 <!--                                                <div class="wrap_bids" th:if="${!#lists.isEmpty(conclusion)}">-->
-                                                <div class="wrap_bids">
+                                                <div class="wrap_bids" id="wrap_bids">
                                                     <div class="tab_area">
-                                                        <ul role="tablist" class="tab_list">
+                                                        <ul role="tablist" class="tab_list" id="tab_list">
                                                             <li role="tab" aria-selected="true" aria-controls="panel1" class="conclusion item on">
                                                                 <a class="item_link">체결 거래</a>
                                                             </li>
