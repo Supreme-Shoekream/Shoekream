@@ -244,9 +244,9 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
                 .map(MemberDTO::fromEntity);
     }
 
-    public MemberDTO saveUser(String nickname, String password, String name, String hp, String email, Status status, String shoeSize) {
+    public MemberDTO saveUser(String nickname, String password, String name, String hp, String email, Status status, String shoeSize, String imgUrl) {
         return MemberDTO.fromEntity(
-                memberRepository.save(Member.kakaoof(nickname, password, name, hp, email, status, shoeSize))
+                memberRepository.save(Member.kakaoof(nickname, password, name, hp, email, status, shoeSize, imgUrl))
         );
     }
 
