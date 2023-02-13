@@ -33,10 +33,10 @@ $("input[type='file']").on("change", function(e){
             success : function (data){
                 //alert(data);
                 document.getElementById("previewImg").value = "/images/" + data;
-                alert("create success");
+                //alert("create success");
             },
             error: function(e) {
-                //alert("값을 가져오지 못했습니다.");
+                alert("값을 가져오지 못했습니다.");
             }
         });
     }
@@ -67,9 +67,9 @@ $("input[type='file']").on("change", function(e){
             type : 'POST', // 서버 요청 타입(GET, POST)
             dataType : 'text', // 서버로부터 반환받을 데이터 타입
             success : function (data){
-                alert(data);
+                //alert(data);
                 document.getElementById("previewImgEdit").value = "/images/" + data;
-                alert("edit success");
+                //alert("edit success");
             },
             error: function(e) {
                 alert("값을 가져오지 못했습니다.");
@@ -201,7 +201,7 @@ function sendit(){
         }),
     })
         .then((res) => {
-            alert("상품 등록 성공!")
+            //alert("상품 등록 성공!")
             location.reload();
             return;
         })
@@ -334,7 +334,7 @@ function productedit_popup(idx){
             }),
         })
             .then((res) => {
-                alert("상품 수정 성공!")
+                //alert("상품 수정 성공!")
                 location.reload();
                 return;
             })
@@ -374,7 +374,7 @@ function admindelete(idx){
         method: "DELETE"
     })
         .then((res) => {
-            alert("상품 삭제 성공!")
+            //alert("상품 삭제 성공!")
             location.reload();
 
         })

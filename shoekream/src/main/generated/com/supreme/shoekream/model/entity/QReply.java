@@ -60,3 +60,4 @@ public class QReply extends EntityPathBase<Reply> {
     }
 
 }
+

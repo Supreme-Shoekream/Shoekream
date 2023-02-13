@@ -52,3 +52,4 @@ public class QPenalty extends EntityPathBase<Penalty> {
     }
 
 }
+

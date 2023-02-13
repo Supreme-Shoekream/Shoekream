@@ -44,3 +44,4 @@ public class QNotice extends EntityPathBase<Notice> {
     }
 
 }
+

@@ -58,3 +58,4 @@ public class QMember extends EntityPathBase<Member> {
     }
 
 }
+

@@ -66,3 +66,4 @@ public class QEventProduct extends EntityPathBase<EventProduct> {
     }
 
 }
+
