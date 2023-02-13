@@ -28,6 +28,7 @@
                             </div>
                         </div>
                     </div>
+                     <input type="hidden" value="" id="isPoint">
                     <div class="container detail lg lucky_draw_column"  >
                         <div class="content" >
                             <h2 class="blind" >상품 상세</h2>
@@ -262,11 +263,14 @@
         })
             .then((res) => {
                 console.log(res)
-                if(res.redirected){
+                if(document.querySelector("#isPoint").getAttribute('value')==='true'){
                     alert("이벤트 참여완료")
+                    location.reload()
                 }else{
-                    alert("이미 참여하셨습니다!")
+                    alert("포인트 부족")
+                    location.reload()
                 }
+
                 console.log(res.redirected)
                 return; //리턴을 걸어서 진행하는 것을 막는다!
             })

@@ -62,8 +62,8 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
             memberDTO = MemberDTO.of(
                     memberDTO.idx(), memberDTO.email().split("@")[0], memberDTO.memberPw(),
                     memberDTO.name(), memberDTO.hp(), memberDTO.email(),
-                    memberDTO.status(), memberDTO.shoeSize(), memberDTO.point(),
-                    memberDTO.profileMemo(), "/img/kream_empty_img.png", memberDTO.bank(), memberDTO.accNumber()
+                    memberDTO.status(), memberDTO.shoeSize(), 0L,
+                    "", "/img/kream_empty_img.png", memberDTO.bank(), memberDTO.accNumber()
             );
         }
 //        Member member = Member.builder()
@@ -91,7 +91,14 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
 //    Member newMember = memberRepository.save(member);
 //    return Header.OK(response(newMember));
 //}
-
+    public Boolean point( Long memberidx){
+        Member member = memberRepository.findById(memberidx).get();
+        if(member.getPoint()>=1000){
+            return true;
+        }else{
+            return false;
+        }
+    }
     @Override
     public Header<MemberApiResponse> read(Long idx) {
         return memberRepository.findById(idx).map(members -> response(members))

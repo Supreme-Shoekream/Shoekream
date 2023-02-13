@@ -1,7 +1,9 @@
 <?xml version="1.0"?>
 <thlogic>
+        <attr sel="#isPoint" th:value="${isPoint}"/>
         <attr sel="img.eventProduct" th:src="${event.productDTO.img}"/>
         <attr sel=".product_lucky_draw_info" >
+            <attr sel="#btn_luckydraw" th:if="${!isDraw}"/>
             <attr sel="input.hidden_value" th:value="${event.idx}"/>
             <attr sel="p#eventName" th:text="${event.productDTO.name}"/>
             <attr sel="p#eventNameKor" th:text="${event.productDTO.nameKor}"/>
