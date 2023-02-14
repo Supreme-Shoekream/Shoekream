@@ -1,8 +1,13 @@
 # KREAM 클론코딩
 개발 기간 : 2022.12.05 ~ 2023.02.14
+
 개발 : Intellij, Visual Studio Code
+
 사용 언어 : JAVA(JDK 17), Html5, CSS3, Javascript ES6
+
 사용 기술 : JDBC, thymeleaf, jQuery, Ajax, Spring boot 2.7, Spring Security, Oauth 2.0, SMTP, JPA/Hibernate, queryDSL, Kakao Api
+
+# 프로젝트 상세 내용 
 
 ## 기능
 - 로그인 및 회원가입
@@ -10,16 +15,22 @@
 - 구매/판매
 - 체결내역 기반 시세 그래프
 - 한정판 제품 추첨 이벤트
-- SNS 기능 스타일 공유 (팔로우, 팔로워, 댓글, 좋아요, 해시태그)
+- 세분화된 필터
+- 상품 검색
+- SNS 기능 스타일 공유 (팔로우, 팔로워, 게시물 등록, 댓글, 좋아요, 해시태그)
 - 관심 상품
 - 카드 정보, 계좌 정보 수정
+- 회원관리 (블랙리스트/패널티)
+- 문의 및 공지사항
 
 ## 특장점
 
 
+
+
 ![image](https://user-images.githubusercontent.com/97867479/218606469-4825f60d-7d2b-4569-8eb8-d7cdefc289e1.png)
 
-# 프로젝트 상세 내용 
+
 2. 사용기술
 
 3. 구현 영상
