@@ -29,6 +29,7 @@
 
 ## 구현 기능
 ![image](https://user-images.githubusercontent.com/97867479/218606469-4825f60d-7d2b-4569-8eb8-d7cdefc289e1.png)
+
 ## 사이트맵
 ![image](https://user-images.githubusercontent.com/114373450/218622849-c6c0363b-3f2c-4a37-91fd-9ca385e0def1.png)
 
@@ -36,17 +37,15 @@
 
 ## 개발 및 기획 과정
 
-## ERD (ppt image& ERD)
+## ERD
 * [ERD_원본](https://user-images.githubusercontent.com/61074722/218615410-dbd4eeec-a965-4b59-a3d0-0e8a9342091f.png)
 ![image](https://user-images.githubusercontent.com/97867479/218606257-9d3afb23-de1a-448c-b071-451225cab886.png)
 
 
 ## Architecture
-
-![image](https://user-images.githubusercontent.com/97867479/218606331-8349aab4-5d19-40be-bda4-35b3ba7b297e.png)
+![image](https://user-images.githubusercontent.com/97867479/218624929-dc5ef06a-af49-4d9f-8f94-2fc28fe6ea24.png)
 
 ## 트러블슈팅
-
 ![image](https://user-images.githubusercontent.com/97867479/218608394-9c919d08-c3e0-48b3-a4b0-b51da2dc901d.png)
 
 # 구동 화면
