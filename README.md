@@ -29,7 +29,11 @@
 
 
 ## 사이트맵
-![image](https://user-images.githubusercontent.com/114373450/218622849-c6c0363b-3f2c-4a37-91fd-9ca385e0def1.png)
+### 사용자 페이지
+![image](https://user-images.githubusercontent.com/114373450/218640478-822397c9-9b9a-4301-8e7f-bcdf9860dcb6.png)
+### 관리자 페이지
+![image](https://user-images.githubusercontent.com/114373450/218640513-17f77dee-0ead-42e3-8fd5-226ebafa3706.png)
+
 
 ## 시연 영상
 
@@ -41,10 +45,12 @@
 
 
 ## Architecture
-![image](https://user-images.githubusercontent.com/97867479/218624929-dc5ef06a-af49-4d9f-8f94-2fc28fe6ea24.png)
+![image](https://user-images.githubusercontent.com/114373450/218640342-c0f74a2b-affc-4387-a23b-c9577559226d.png)
+
 
 ## 트러블슈팅
 ![image](https://user-images.githubusercontent.com/97867479/218608394-9c919d08-c3e0-48b3-a4b0-b51da2dc901d.png)
+
 
 # 구동 화면
 ## 메인 화면
@@ -70,3 +76,4 @@
 
 ## 관리자 화면
 ![image](https://user-images.githubusercontent.com/97867479/218623021-9ebb59de-bd32-444e-9051-02f7317f00b1.png)
+
