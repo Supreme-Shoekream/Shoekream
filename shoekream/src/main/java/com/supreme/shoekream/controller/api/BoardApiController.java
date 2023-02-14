@@ -54,7 +54,8 @@ public class BoardApiController {
 //    @GetMapping("/comments_more/getSessionUser/{idx}")
     @GetMapping("/comments_more/getSessionUser")
     public MemberDTO getSessionUser(@AuthenticationPrincipal KreamPrincipal kreamPrincipal){
-        MemberDTO sessionUser = kreamPrincipal.toFullDto();
+//        MemberDTO sessionUser = kreamPrincipal.toFullDto();
+        MemberDTO sessionUser = MemberDTO.fromEntity(memberRepository.getReferenceById(kreamPrincipal.idx()));
         return sessionUser;
     }
 
