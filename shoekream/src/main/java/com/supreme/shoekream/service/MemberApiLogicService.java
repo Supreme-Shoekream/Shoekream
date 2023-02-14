@@ -171,6 +171,7 @@ public class MemberApiLogicService extends BaseService<MemberApiRequest, MemberA
         if(dto.nickname() != null) newMember.setNickname(dto.nickname());
         if(dto.hp() != null) newMember.setHp(dto.hp());
         if(dto.shoeSize() != null) newMember.setShoeSize(dto.shoeSize());
+        if(dto.name() != null) newMember.setName(dto.name());
         return Header.OK();
     }
 

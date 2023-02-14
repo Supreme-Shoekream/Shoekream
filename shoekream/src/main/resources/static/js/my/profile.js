@@ -217,14 +217,14 @@ save.style.display = "none";
 function emailSendIt() {
     if (!document.querySelector('#button_email').classList.contains('disabled')) {
         let email2 = document.querySelector('#change_email').value
-        sendIt(email2, "email")
+        sendIt(email2, "nickname")
     }
 }
 
 // 닉네임
 function nicknameSendIt() {
     let nickname2 = document.querySelector('#name_input').value
-    sendIt(nickname2, "nickname")
+    sendIt(nickname2, "name")
 }
 
 // 비밀번호
@@ -296,7 +296,7 @@ function sendIt(data, type){
     let nickname = null;
     let hp = null;
     switch (type){
-        case 'email' : email = data; break;
+        case 'name' : name = data; break;
         case 'nickname' : nickname = data; break;
         case 'hp' : hp = data; break;
     }
@@ -308,7 +308,7 @@ function sendIt(data, type){
             "resultCode":"ok",
             "description":"정상",
             "data":{
-                "email": email,
+                "name": name,
                 "nickname" : nickname,
                 "hp" : hp
             }
@@ -357,23 +357,32 @@ function validateEmail(strEmail){
     return true;
 }
 // 이메일 유효성 검사
-document.querySelector('#change_email').addEventListener('input', e=>{
-    strEmail = e.target.value;
-    let errorMsg='';
-    if(!validateEmail(strEmail)){
-        errorMsg='이메일 주소를 정확히 입력해주세요.';
-        document.querySelector('#email_input_box').className='input_box has_error';
-        document.querySelector('#change_email').setAttribute('validateresult', false);
-        document.querySelector('#change_email').classList.remove('input_border')
-        document.querySelector('#button_email').classList.add('disabled')
-    } else {
-        document.querySelector('#email_input_box').className='input_box fill';
-        document.querySelector('#change_email').setAttribute('validateresult', true);
-        document.querySelector('#change_email').classList.add('input_border')
+// document.querySelector('#change_email').addEventListener('input', e=>{
+//     strEmail = e.target.value;
+//     let errorMsg='';
+//     if(!validateEmail(strEmail)){
+//         errorMsg='이메일 주소를 정확히 입력해주세요.';
+//         document.querySelector('#email_input_box').className='input_box has_error';
+//         document.querySelector('#change_email').setAttribute('validateresult', false);
+//         document.querySelector('#change_email').classList.remove('input_border')
+//         document.querySelector('#button_email').classList.add('disabled')
+//     } else {
+//         document.querySelector('#email_input_box').className='input_box fill';
+//         document.querySelector('#change_email').setAttribute('validateresult', true);
+//         document.querySelector('#change_email').classList.add('input_border')
+//         document.querySelector('#button_email').classList.remove('disabled')
+//     }
+//
+// });
+// 닉네임 버튼활성화
+let nicknameInput = document.querySelector('#change_email')
+nicknameInput.addEventListener('keyup', () => {
+    if(nicknameInput.value != ''){
         document.querySelector('#button_email').classList.remove('disabled')
+    }else {
+        document.querySelector('#button_email').classList.add('disabled')
     }
-
-});
+})
 // 비밀번호 정규 표현식
 function validatePassword(strPassword){
     const reg_password = /^.*(?=^.{8,16}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
