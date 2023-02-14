@@ -16,7 +16,7 @@ import java.util.Set;
 
 @Entity             //DB에 만들 테이블임!
 @NoArgsConstructor  //매개변수 없는 기본 생성자 생성
-@AllArgsConstructor //모든 필드 값을 파라미터로 받는 생성자 생성
+//@AllArgsConstructor //모든 필드 값을 파라미터로 받는 생성자 생성
 @Data               //getter,setter
 @Builder             //method.method...가능하게 만들어주는
 @ToString(callSuper = true) //부모의 toString을 사용하기 위해
@@ -38,7 +38,7 @@ public class Member {
     private String accNumber;
 
 
-    public Member(Long idx, String nickname, String memberPw, String name, String hp, String email, Status status,String shoeSize, String profileMemo, String imgUrl, String bank, String accNumber) {
+    public Member(Long idx, String nickname, String memberPw, String name, String hp, String email, Status status,String shoeSize, Long point, String profileMemo, String imgUrl, String bank, String accNumber) {
         this.idx = idx;
         this.nickname = nickname;
         this.memberPw = memberPw;
@@ -47,24 +47,24 @@ public class Member {
         this.email = email;
         this.status=status;
         this.shoeSize = shoeSize;
+        this.point = point;
         this.profileMemo = profileMemo;
         this.imgUrl = imgUrl;
         this.bank = bank;
         this.accNumber = accNumber;
-
     }
 
     public static Member of(Long idx, String nickname, String memberPw, String name, String hp, String email, Status status,
-                            String shoeSize, String profileMemo, String imgUrl,String bank, String accNumber){
-        return new Member(idx, nickname, memberPw, name, hp, email, status, shoeSize, profileMemo, imgUrl, bank, accNumber);
+                            String shoeSize, Long point, String profileMemo, String imgUrl,String bank, String accNumber){
+        return new Member(idx, nickname, memberPw, name, hp, email, status, shoeSize, point, profileMemo, imgUrl, bank, accNumber);
     }
 
     public static Member of(String memberPw, String name, String hp, String email, Status status,
                             String shoeSize){
-        return new Member(null, null, memberPw, name, hp, email, status, shoeSize, null, null, null, null);
+        return new Member(null, null, memberPw, name, hp, email, status, shoeSize,null, null, null, null, null);
     }
     public static Member kakaoof(String nickname, String memberPw, String name, String hp, String email, Status status,
                             String shoeSize, String imgUrl){
-        return new Member(null, nickname, memberPw, name, hp, email, status, shoeSize, null, imgUrl, null, null);
+        return new Member(null, nickname, memberPw, name, hp, email, status, shoeSize, null, null, imgUrl, null, null);
     }
 }
