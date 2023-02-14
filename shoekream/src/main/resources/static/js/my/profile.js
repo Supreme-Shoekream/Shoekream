@@ -104,12 +104,12 @@ function delete_img(){
         }),
     })
         .then((res) => {
-            alert("프로필 사진 삭제 완료")
+            //alert("프로필 사진 삭제 완료")
             location.href="/my/profile";
             return;
         })
         .catch((err) => {
-            alert("프로필 사진 삭제 실패");
+            //alert("프로필 사진 삭제 실패");
             location.reload();
             return;
         })
@@ -139,11 +139,11 @@ $("input[type='file']").on("change", function(e){
         enctype:'multipart/form-data',
         dataType : 'text',
         success : function (data){
-            alert(data);
+            //alert(data);
             document.getElementById("profile_img").value = "/images/" + data;
         },
         error: function(e) {
-            alert("값을 가져오지 못했습니다.");
+            //alert("값을 가져오지 못했습니다.");
         }
     });
 
@@ -189,7 +189,7 @@ function profileImgSend(){
             return;
         })
         .catch((err) => {
-            alert("프로필 사진 등록 실패");
+            //alert("프로필 사진 등록 실패");
             location.reload();
             return;
         })

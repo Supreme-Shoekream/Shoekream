@@ -318,7 +318,7 @@ function wishCreate() {
         console.log(data);
     })
     .catch((err) => {
-        // alert("에러! 에러! 관심상품 등록 실패!");
+        alert("에러! 에러! 관심상품 등록 실패!");
         location.reload();
     })
 }
@@ -338,7 +338,7 @@ function wishDelete() {
         console.log(data);
     })
     .catch((err) => {
-        // alert("에러! 에러! 관심상품 삭제 실패!");
+        alert("에러! 에러! 관심상품 삭제 실패!");
         location.reload();
     })
 }

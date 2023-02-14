@@ -40,7 +40,7 @@ $("input[type='file']").on("change", function(e){
             type : 'POST', // 서버 요청 타입(GET, POST)
             dataType : 'text', // 서버로부터 반환받을 데이터 타입
             success : function (data){
-                alert(data);
+                //alert(data);
                 document.getElementById("previewImage").value = "/images/" + data;
             },
             error: function(e) {
@@ -103,7 +103,7 @@ function styleBoardSend(){
         }),
     })
         .then((res) => {
-            alert("게시글 등록 성공!")
+            //alert("게시글 등록 성공!")
             location.href="myprofile";
             return;
         })
