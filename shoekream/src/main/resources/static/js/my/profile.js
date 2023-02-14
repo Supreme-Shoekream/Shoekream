@@ -295,6 +295,7 @@ function sendIt(data, type){
     let email = null;
     let nickname = null;
     let hp = null;
+    let name = null;
     switch (type){
         case 'name' : name = data; break;
         case 'nickname' : nickname = data; break;
