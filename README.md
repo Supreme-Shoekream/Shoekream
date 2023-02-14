@@ -27,8 +27,6 @@
 
 
 
-## 구현 기능
-![image](https://user-images.githubusercontent.com/97867479/218606469-4825f60d-7d2b-4569-8eb8-d7cdefc289e1.png)
 
 ## 사이트맵
 ![image](https://user-images.githubusercontent.com/114373450/218622849-c6c0363b-3f2c-4a37-91fd-9ca385e0def1.png)
