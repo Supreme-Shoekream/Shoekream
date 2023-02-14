@@ -87,7 +87,6 @@
 
 ## 로그인 화면
 ![image](https://user-images.githubusercontent.com/97867479/218618472-7dc6a585-e637-4f7b-b8d5-aef4ad5c6f15.png)
-![ezgif com-video-to-gif (1)](https://user-images.githubusercontent.com/97867479/218648301-443d2906-8a11-4fcb-be55-58783f935627.gif)
 
 ## 마이페이지 화면
 ![image](https://user-images.githubusercontent.com/97867479/218617906-a89cc531-67da-4c5b-afb7-f6b41105349a.png)
