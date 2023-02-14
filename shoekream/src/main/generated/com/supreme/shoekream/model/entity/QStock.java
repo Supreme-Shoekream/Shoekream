@@ -42,3 +42,4 @@ public class QStock extends EntityPathBase<Stock> {
     }
 
 }
+

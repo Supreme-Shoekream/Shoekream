@@ -159,8 +159,10 @@ async function show_tag_search_layer(keyword){
                      </div>
                      <div  class="product_desc">
                        <p  class="product_name">${res[i].name}</p>
-                       <div  class="price_box"><span
-                           class="amount">${res[i].firstPrice}</span><span  class="unit">원</span></div>
+                       <div  class="price_box">
+                        <span class="amount">${res[i].firstPrice}</span><span  class="unit">원</span>
+                        <span class="tag_size">${res[i].size}</span>
+                        </div>
                      </div>
                    </a></li>`
         }

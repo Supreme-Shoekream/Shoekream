@@ -52,3 +52,4 @@ public class QConclusion extends EntityPathBase<Conclusion> {
     }
 
 }
+

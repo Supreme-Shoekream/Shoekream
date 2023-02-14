@@ -68,3 +68,4 @@ public class QBoard extends EntityPathBase<Board> {
     }
 
 }
+

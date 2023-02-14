@@ -69,3 +69,4 @@ public class QCard extends EntityPathBase<Card> {
     }
 
 }
+

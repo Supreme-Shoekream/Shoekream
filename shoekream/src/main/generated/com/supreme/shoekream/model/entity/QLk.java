@@ -51,3 +51,4 @@ public class QLk extends EntityPathBase<Lk> {
     }
 
 }
+
