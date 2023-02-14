@@ -35,7 +35,7 @@
 ## 개발 및 기획 과정
 
 ## ERD (ppt image& ERD)
-[ERD_원본](https://user-images.githubusercontent.com/61074722/218615410-dbd4eeec-a965-4b59-a3d0-0e8a9342091f.png)
+* [ERD_원본](https://user-images.githubusercontent.com/61074722/218615410-dbd4eeec-a965-4b59-a3d0-0e8a9342091f.png)
 ![image](https://user-images.githubusercontent.com/97867479/218606257-9d3afb23-de1a-448c-b071-451225cab886.png)
 
 
