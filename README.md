@@ -34,7 +34,7 @@
 
 ## 개발 및 기획 과정
 
-## ERD (ppt image& ERD)
+## ERD
 * [ERD_원본](https://user-images.githubusercontent.com/61074722/218615410-dbd4eeec-a965-4b59-a3d0-0e8a9342091f.png)
 ![image](https://user-images.githubusercontent.com/97867479/218606257-9d3afb23-de1a-448c-b071-451225cab886.png)
 
@@ -50,9 +50,24 @@
 # 구동 화면
 
 ## 메인 화면
+![image](https://user-images.githubusercontent.com/97867479/218617517-16c36e44-8fdb-470f-a8dd-bf054b056417.png)
+
 ## SHOP 화면
+![image](https://user-images.githubusercontent.com/97867479/218617655-271fc70b-8661-4f2e-984b-32b81fd6cd1c.png)
+
+## SHOP Detail 화면
+![image](https://user-images.githubusercontent.com/97867479/218618909-7ae9d6d7-50a9-4496-bc54-b94104e6127b.png)
+
 ## 로그인 화면
+![image](https://user-images.githubusercontent.com/97867479/218618472-7dc6a585-e637-4f7b-b8d5-aef4ad5c6f15.png)
+
 ## 마이페이지 화면
+![image](https://user-images.githubusercontent.com/97867479/218617906-a89cc531-67da-4c5b-afb7-f6b41105349a.png)
+
 ## 정보수정 화면
+![image](https://user-images.githubusercontent.com/97867479/218618368-e3b49bb7-fa6a-4604-b3cc-616f0b32b141.png)
+
 ## 스타일 화면
+![image](https://user-images.githubusercontent.com/97867479/218617803-e9d8323a-7a90-4880-9dc3-6c78ac2b6630.png)
+
 ## 관리자 화면
