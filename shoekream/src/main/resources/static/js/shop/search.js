@@ -103,7 +103,7 @@ category_menus.forEach((tab)=>{
 
 function category_reload(category_txt){
 
-    if(sort==null) sort='idx'
+    if(sort==null) sort='wishCount,desc'
     if(page==null) page=0
 
     psize_str = psize_check(psize)
@@ -135,7 +135,7 @@ brand_menus.forEach((tab)=>{
 })
 function brand_reload(brand_txt){
 
-    if(sort==null) sort='idx'
+    if(sort==null) sort='wishCount,desc'
     if(page==null) page=0
 
     psize_str = psize_check(psize)
@@ -171,7 +171,7 @@ gender_menus.forEach((tab)=>{
 })
 function gender_reload(gender_txt){
 
-    if(sort==null) sort='idx'
+    if(sort==null) sort='wishCount,desc'
     if(page==null) page=0
 
     psize_str = psize_check(psize)
@@ -204,7 +204,7 @@ size_menus.forEach((tab)=>{
 })
 function size_reload(psize_txt){
 
-    if(sort==null) sort='idx'
+    if(sort==null) sort='wishCount,desc'
     if(page==null) page=0
 
     psize_str = psize_check(psize)

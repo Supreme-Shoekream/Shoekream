@@ -57,6 +57,6 @@ public record MemberDTO(
     public Member toEntity(){
         String[] nickname = email.split("@");
         return Member.of(idx, nickname[0], "{noop}"+memberPw, name, hp,
-                email, Status.MEMBER, shoeSize, profileMemo, imgUrl, bank, accNumber);
+                email, Status.MEMBER, shoeSize, point, profileMemo, imgUrl, bank, accNumber);
     }
 }
