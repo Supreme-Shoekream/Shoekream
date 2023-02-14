@@ -58,3 +58,4 @@
 ## 정보수정 화면
 ## 스타일 화면
 ## 관리자 화면
+![image](https://user-images.githubusercontent.com/97867479/218623021-9ebb59de-bd32-444e-9051-02f7317f00b1.png)
