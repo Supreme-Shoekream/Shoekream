@@ -51,4 +51,3 @@ public class QTag extends EntityPathBase<Tag> {
     }
 
 }
-
