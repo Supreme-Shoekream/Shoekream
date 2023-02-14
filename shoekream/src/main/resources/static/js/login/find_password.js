@@ -2,7 +2,7 @@
 function maxLengthCheck(object){
     if (object.value.length > object.maxLength){
         object.value = object.value.slice(0, object.maxLength);
-    }    
+    }
 }
 
 // 디바운스
@@ -35,9 +35,10 @@ function validateEmail(strEmail){
     return true;
 }
 
-// 휴대폰 번호 유효성 검사
+// 이름 유효성 검사
+let strName;
 document.querySelector('#name_input').addEventListener('input', e=>{
-    let strName=e.target.value;
+    strName=e.target.value;
     let errorMsg='';
     if(!validateName(strName)){
         errorMsg='이름을 정확히 입력해주세요.';
@@ -52,7 +53,8 @@ document.querySelector('#name_input').addEventListener('input', e=>{
 
 //이메일 유효성 검사
 document.querySelector('#email_input').addEventListener('input', e=>{
-    debounce(e, strEmail=>{
+    strName=e.target.value;
+    debounce(e, strEmail =>{
         let errorMsg='';
         if(!validateEmail(strEmail)){
             errorMsg='이메일 주소를 정확히 입력해주세요.';
@@ -60,7 +62,7 @@ document.querySelector('#email_input').addEventListener('input', e=>{
             document.querySelector('#find_btn').className='btn full solid disabled';
         } else {
             document.querySelector('#email_input_box').className='input_box fill';
-            if(document.querySelector('#hp_input_box').classList.contains('fill')){
+            if(document.querySelector('#name_input_box').classList.contains('fill')){
                 document.querySelector('#find_btn').className='btn full solid';
                 document.querySelector('#find_btn').disabled=false;
             } else {
@@ -72,30 +74,17 @@ document.querySelector('#email_input').addEventListener('input', e=>{
 });
 
 // 버튼 활성화
-let strHp
-let strEmail
-document.querySelectorAll('#name_input').forEach((item) =>{
-    item.addEventListener('blur', e=>{
-        strHp=e.target.value;
-        if((validateHp(strHp))&&(validateHp(strHp))){
-            $("#submit_btn").removeClass("active");
-            $("#submit_btn").removeClass("disabled")
-        }else{
-            $("#submit_btn").addClass("active");
-            $("#submit_btn").addClass("disabled")
-        }
-    })
-})
 
+let strEmail
 document.querySelectorAll('#email_input').forEach((item) =>{
-    item.addEventListener('blur', e=>{
-        strHp=e.target.value;
-        if((validateEmail(strEmail))&&(validateHp(strHp))){
-            $("#find_btn").removeClass("active");
+    item.addEventListener('input', e=>{
+        strEmail=e.target.value;
+        if((validateEmail(strEmail))&&(validateName(strName))){
+            $("#find_btn").addClass("active");
             $("#find_btn").removeClass("disabled")
         }else{
-            $("#find_btn").addClass("active");
+            $("#find_btn").removeClass("active");
             $("#find_btn").addClass("disabled")
         }
     })
-});
+})

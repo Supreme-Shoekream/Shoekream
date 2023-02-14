@@ -29,7 +29,7 @@ public class ShopApiController extends CrudController<NoticeApiRequest, NoticeAp
     public Header<List<ProductApiResponse>> searchWord(
             @RequestParam(required = true) String keyword,
             @RequestParam(required = false ,defaultValue = "1" ) int page,
-            @PageableDefault(size=10 , sort="idx" , direction= Sort.Direction.DESC) Pageable pageable
+            @PageableDefault(size=20 , sort="idx" , direction= Sort.Direction.DESC) Pageable pageable
     ){
 
         return productApiLogicService.searchKeyword(keyword  , pageable);

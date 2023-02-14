@@ -6,16 +6,16 @@ function maxLengthCheck(object){
 }
 //
 // // 디바운스
-// let timer=false;//최초 false
-// const debounce=(e, callback)=> {
-//     if (timer) {
-//         clearTimeout(timer);
-//     }
-//     timer = setTimeout(function () {
-//         callback('' + e.target.value);
-//     }, 100); //200ms 이후 반응(디바운스)
-// }
-//
+let timer=false;//최초 false
+const debounce=(e, callback)=> {
+    if (timer) {
+        clearTimeout(timer);
+    }
+    timer = setTimeout(function () {
+        callback('' + e.target.value);
+    }, 100); //200ms 이후 반응(디바운스)
+}
+
 const autoHyphen = (target) => {
     target.value = target.value
         .replace(/[^0-9]/g, '')
@@ -23,7 +23,8 @@ const autoHyphen = (target) => {
 }
 // // 휴대폰 번호 정규 표현식
 function validateHp(strHp){
-    const reg_hp = /^01(?:0|1|6|7|8|9)(?:\d{3}|\d{4})\d{4}$/;
+    // const reg_hp = /^01(?:0|1|6|7|8|9)(?:\d{3}|\d{4})\d{4}$/;
+    const reg_hp = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
     if(!reg_hp.test(''+strHp)){
         return false;
     }
@@ -58,6 +59,16 @@ document.querySelectorAll('#hp_input').forEach((item) =>{
             }
         })
     });
+// const item = document.querySelector('#hp_input');
+//     item.addEventListener('input', e=>{
+//         let strHp=e.target.value;
+//         if(validateHp(strHp)){
+//             $("#find_btn").removeClass("active");
+//             $(this).addClass("active");
+//             $("#find_btn").removeClass("disabled")
+//         }
+//
+// });
 
 //
 function idCheck(){

@@ -5,13 +5,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome Draw</title>
+    <title>SHOEKREAM | Welcome Draw</title>
+    <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://kream.co.kr/favicon.ico">
     <link rel="stylesheet" href="/css/exhibit/promotion.css">
     <link rel="stylesheet" href="/css/fragment/footer.css">
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+
 </head>
 
 <body>
 <div id="__nuxt"><!---->
+    <input type="hidden" class="hidden_value">
     <div id="__layout">
         <div id="wrap" tabindex="0" class="wrap is_scroll win_os lg" >
             <div>
@@ -44,7 +48,7 @@
                                                 <div class="product" >
                                                     <picture class="picture product_img"
                                                     >
-                                                       <img src="" loading="lazy" class="image drawproimg" >
+                                                        <img src="" loading="lazy" class="image drawproimg" >
                                                     </picture>
                                                 </div>
                                             </div>
@@ -58,7 +62,7 @@
                                                 ><span class="amount"
                                                 >100원</span></span></div>
                                             </div>
-                                            <div class="btn_area" ><a href="/promotion_detail" class="btn_draw"
+                                            <div class="btn_area" ><a href="/promotion_detail" class="btn_draw" id="btn_draw"
                                             > 진행 예정 </a></div>
                                         </div><!---->
                                     </div>
@@ -97,8 +101,8 @@
 <!-- 푸터 시작 -->
 <footer th:replace="/fragment/footer :: footer"></footer>
 <!-- 푸터 끝 -->
-        
-    </body>
+
+</body>
 <script>
     function clip(){
         let url = '';
@@ -111,5 +115,40 @@
         document.body.removeChild(textarea);
         alert("링크가 복사되었습니다. 친구에게 공유하세요")
     };
+
+    const eventIdx = document.querySelector('.hidden_value').getAttribute("value");
+    fetch('http://localhost:8889/api/admin/event/' +eventIdx )
+        .then((response) => response.json())
+        .then((data) => {
+            let startTime = data.startTime;
+            let endTime  = data.endTime;
+            let countDownDate = new Date(endTime).getTime();
+            let countNewDate = new Date(startTime).getTime(); // 이벤트 시작시간
+            let x = setInterval(function() {
+                let now = new Date().getTime(); // 현재시간
+                let distance1 = countNewDate - now // 시작시간 - 현재시간  >>> 0보다크면 준비중
+                let distance = countDownDate - now; //종료시간 - 현재시간
+                // 이벤트 마감시 보여질 문구
+                if(distance1>0){
+                    setTimesale("진행 예정");
+                }
+                else if (distance < 0) {
+                    setTimesale("종료");
+                }
+                else{
+                    setTimesale("진행중");
+                }
+            }, 1000);
+
+        })
+
+
+    // cd: 1 param 표기, 2 현재시간 비교
+
+    function setTimesale(param){
+        $("#btn_draw").text(param)
+
+    }
+
 </script>
 </html>

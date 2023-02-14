@@ -2,6 +2,7 @@
 <thlogic>
     <attr sel ="img#img_info" th:src ="${event.img}"/>
     <attr sel="#drawProduct" th:remove="all-but-first">
+        <attr sel="input.hidden_value" th:value="${event.idx}"/>
         <attr sel=".drawProduct" >
             <attr sel="p.eventProName" th:text="${event.productDTO.name}"/>
             <attr sel="img.drawproimg" th:src="${event.productDTO.img}"/>
