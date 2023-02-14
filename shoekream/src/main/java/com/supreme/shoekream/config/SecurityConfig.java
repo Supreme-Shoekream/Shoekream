@@ -54,7 +54,7 @@ public class SecurityConfig{
                                 "/social/hashtag/**",
                                 "/social/details",
                                 "/joinOk",
-                                "/notice",
+                                "/notice/**",
                                 "/faq",
                                 "/auth_policy",
                                 "/images/**"
@@ -136,7 +136,8 @@ public class SecurityConfig{
             KakaoOAuth2Response kakaoResponse = KakaoOAuth2Response.from(oAuth2User.getAttributes());
             String registrationId = userRequest.getClientRegistration().getRegistrationId();
             String providerId = String.valueOf(kakaoResponse.id());
-            String username = registrationId + "_" + providerId;
+//            String username = registrationId + "_" + providerId;
+            String username = kakaoResponse.email().split("@")[0];
             String email = kakaoResponse.email();
             String dummyPassword = passwordEncoder.encode("{bcrypt}" + UUID.randomUUID());
             String imgUrl = "/img/styleImg/empty_profile_img.png";

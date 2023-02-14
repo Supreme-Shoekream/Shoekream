@@ -7,6 +7,7 @@
             <attr sel="input.hidden_value" th:value="${event.idx}"/>
             <attr sel="p#eventName" th:text="${event.productDTO.name}"/>
             <attr sel="p#eventNameKor" th:text="${event.productDTO.nameKor}"/>
-            <attr sel="dd.startEndTime" th:text="${#temporals.format(event.startTime, 'yyyy-MM-dd')}+' ~ '+${#temporals.format(event.endTime, 'yyyy-MM-dd')}"/>
+            <attr sel="dd.startEndTime" th:text="${#temporals.format(event.startTime, 'yyyy-MM-dd HH:mm:ss')}+' ~ '+${#temporals.format(event.endTime, 'yyyy-MM-dd HH:mm:ss')}"/>
+            <attr sel="dd#endTime2" th:text="${#temporals.format(event.endTime, 'yyyy-MM-dd')}"/>
         </attr>
 </thlogic>
